@@ -1,0 +1,329 @@
+#include "../inc/include.h"
+
+
+const static FRASE _list [ ] =
+{
+	(FRASE) {      99, 99, "" },
+
+
+
+	///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+	(FRASE) { INGLES,   1, "You forgot something?" },
+	(FRASE) { INGLES,   1, "RISKY WOODS" },
+	(FRASE) { INGLES,   1, "MURCIANO'S LAIR" },
+	(FRASE) { INGLES,   1, "ABU'S DEPTHS" },
+	(FRASE) { INGLES,   1, "CHUMINO BEACH" },
+	(FRASE) { INGLES,   1, "KBRAH'S CASTLE" },
+	(FRASE) { INGLES,   1, "DUDEWORLD" },
+
+	(FRASE) { INGLES,   2, "PAUSED" },
+	(FRASE) { INGLES,   2, "\\ RESUME" },
+	(FRASE) { INGLES,   2, "  RESTART" },
+	(FRASE) { INGLES,   2, "  GIVE UP" },
+
+	(FRASE) { INGLES,   3, "STAGE CLEAR" },
+
+	(FRASE) { INGLES,   4, "ROUND   " },
+
+	(FRASE) { INGLES,   5, "GOT IT!" },
+	(FRASE) { INGLES,   5, "BURNING UP" },
+	(FRASE) { INGLES,   5, "RED HOT" },
+	(FRASE) { INGLES,   5, "HOT" },
+	(FRASE) { INGLES,   5, "WARM" },
+	(FRASE) { INGLES,   5, "WARMISH" },
+	(FRASE) { INGLES,   5, "LUKEWARM" },
+	(FRASE) { INGLES,   5, "COOL" },
+	(FRASE) { INGLES,   5, "CHILLY" },
+	(FRASE) { INGLES,   5, "COLD" },
+	(FRASE) { INGLES,   5, "ICE" },
+	(FRASE) { INGLES,   5, "BELOW ZERO" },
+
+
+
+	///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+	(FRASE) { ESPANOL,  1, "¿Olvidaste algo?" },
+	(FRASE) { ESPANOL,  1, "RISKY WOODS" },
+	(FRASE) { ESPANOL,  1, "GUARIDA MURCIANA" },
+	(FRASE) { ESPANOL,  1, "ABISMO DE ABU" },
+	(FRASE) { ESPANOL,  1, "PLAYA CHUMINO" },
+	(FRASE) { ESPANOL,  1, "CASTILLO DE KBRAH" },
+	(FRASE) { ESPANOL,  1, "DUDEWORLD" },
+
+	(FRASE) { ESPANOL,  2, "PAUSA" },
+	(FRASE) { ESPANOL,  2, "\\ CONTINUAR" },
+	(FRASE) { ESPANOL,  2, "  REINICIAR" },
+	(FRASE) { ESPANOL,  2, "  SALIR" },
+
+	(FRASE) { ESPANOL,  3, "NIVEL COMPLETADO" },
+
+	(FRASE) { ESPANOL,  4, "NIVEL   " },
+
+	(FRASE) { ESPANOL,  5, "¡BINGO!" }, // 13
+	(FRASE) { ESPANOL,  5, "TE QUEMAS" }, // 14
+	(FRASE) { ESPANOL,  5, "AL ROJO VIVO" }, // 15
+	(FRASE) { ESPANOL,  5, "ARDIENDO" }, // 16
+	(FRASE) { ESPANOL,  5, "CALIENTE" }, // 17
+	(FRASE) { ESPANOL,  5, "TEMPLADO" }, // 18
+	(FRASE) { ESPANOL,  5, "TIBIO" }, // 19
+	(FRASE) { ESPANOL,  5, "FRESQUITO" }, // 20
+	(FRASE) { ESPANOL,  5, "FRIO" }, // 21
+	(FRASE) { ESPANOL,  5, "CONGELADO" }, // 22
+	(FRASE) { ESPANOL,  5, "BAJO CERO" }, // 23
+
+	(FRASE) { ESPANOL,  6, "Siempre te engaña el lobo." },                           // 25 // woods
+	(FRASE) { ESPANOL,  6, "Hielo para los refrescos pero ahora no tienes sed." },   // 26 // iceland
+	(FRASE) { ESPANOL,  6, "Mejor no, la arena se te mete en la coquilla." },        // 24 // egypt
+	(FRASE) { ESPANOL,  6, "No llevas traje de baño." },                             // 27 // beach
+	(FRASE) { ESPANOL,  6, "¿Por qué no vas directamente al volcán?" },              // 28
+	(FRASE) { ESPANOL,  6, "¡Oh, venga ya! No tengo todo el día." },                 // 29
+	(FRASE) { ESPANOL,  6, "¿No has curioseado ya suficiente?" },                    // 30
+	(FRASE) { ESPANOL,  6, "No puedes ir ahí, ese es el triángulo prohibido."  },    // 31 // Monkey Island 2 refference
+	(FRASE) { ESPANOL,  6, "No puedes ir ahí, ese es el cuadrado prohibido."   },    // 32 // Monkey Island 2 refference
+	(FRASE) { ESPANOL,  6, "No puedes ir ahí, ese es el pentágono prohibido."  },    // 33 // Monkey Island 2 refference
+	(FRASE) { ESPANOL,  6, "No puedes ir ahí, ese es el hexágono prohibido."   },    // 34 // Monkey Island 2 refference
+	(FRASE) { ESPANOL,  6, "No puedes ir ahí, ese es el decágono prohibido."   },    // 35 // Monkey Island 2 refference
+	(FRASE) { ESPANOL,  6, "No puedes ir ahí, ese es el dodecaedro prohibido." },    // 36 // Monkey Island 2 refference
+
+	(FRASE) { ESPANOL,  7, "Érase una vez el malvado Kbrah, señor de las tierras volcánicas..." },
+	(FRASE) { ESPANOL,  7, "Él hacía que la princesa siempre estuviera en otro castillo." },
+	(FRASE) { ESPANOL,  7, "Se pasaba todos los juegos con una sola vida." },
+	(FRASE) { ESPANOL,  7, "Y tocaba en un grupo de heavy metal." },
+
+	(FRASE) { ESPANOL,  8, "Pero sobre todo era conocido por las fiestas que organizaba con sus amigotes." },
+
+	(FRASE) { ESPANOL,  9, "Todos comían perdices hasta que una mañana..." }, // "Todos comían perdices hasta que una mañana..." }, // A la mañana siguiente, el no menos fiestero Rey Notah, se despierta con su tradicional resaca..." },
+	(FRASE) { ESPANOL,  9, "El cofre real está abierto... |WBREAK ¡OH, NO! |BREAK |WAIT:60 ¡HAN ROBADO EL HOLY PORRÓN!" },
+	(FRASE) { ESPANOL,  9, "¡Rey Notah, la princesa Beach también ha sido secuestrada!" },
+	(FRASE) { ESPANOL,  9, "No moleste, Cortázar.|BREAK Esto es muy serio, sin el porrón el reino está condenado.|WCLEAR ¡Rápido! ¡Avisa a Griel!" },
+
+	(FRASE) { ESPANOL, 10, "Griel, han robado el Holy Porrón, su poder es temible. |BREAK ¡Debes recuperarlo cuanto antes!" },
+	(FRASE) { ESPANOL, 10, "¿Tiene alguna pista, majestad?" },
+	(FRASE) { ESPANOL, 10, "Kbrah me la tiene jurada. |BREAK Además el salón apesta a ese truhán, seguro que ha sido él. |WCLEAR Encuentra a Kbrah y trae de vuelta el Porrón." },
+	(FRASE) { ESPANOL, 10, "¿Y qué hay de la princesa? |BREAK También ha sido secuestrada..." },
+	(FRASE) { ESPANOL, 10, "Eso no importa ahora. Vuelve con el Holy Porrón y te concederé su mano. |WCLEAR ¡Ponte en marcha! |BREAK ¡El reino se desploma sin su protección!" },
+
+	(FRASE) { ESPANOL, 11, "Vuelve con el Porrón y te concederé la mano de mi hija. |BREAK ¡Ahora largo de aquí!" },
+
+	// puerta opcion 1
+	(FRASE) { ESPANOL, 12, "Vaya, la típica puerta cerrada. |WAIT:60 |BREAK Parece que será un juego difícil. |WCLEAR Un momento, esos huecos en la pared... |WAIT:60 |BREAK Seguro que hay que poner algo para abrir la puerta, lo he visto en otros juegos. |WCLEAR ¡Ya sé! Debo reunir los Monedones Legendarios repartidos por el reino. |WCLEAR Diablos, esto me va a llevar toda la tarde. |WAIT:60 |BREAK ¡Vamos allá!" },
+	// puerta opcion 2
+	(FRASE) { ESPANOL, 13, "Nunca aprendí a restar. |BREAK Mejor vuelvo luego." }, //(FRASE) { ESPANOL, 14,  "(Ese día el programador estaba vago y no enseñó a Griel a restar)" },
+
+	// puerta opcion 3
+	(FRASE) { ESPANOL, 14, "Gracias por devolver los medallones |BREAK ¿Por qué te has molestado?" },
+	(FRASE) { ESPANOL, 14, "¡Pues para abrir la puerta! |WBREAK Vengo a ajustar cuentas con Kbrah..." },
+	(FRASE) { ESPANOL, 14, "Haber llamado al timbre. Basta con traerle un regalito, ya sabes cómo es." },
+	(FRASE) { ESPANOL, 14, "¡Suerte, chaval! |BREAK La vas a necesitar." },
+
+	// final 1
+	(FRASE) { ESPANOL, 15, "Kbrah, bestia pestilente. |WAIT:60 |BREAK Devuelve el Holy Porrón. Sé que lo tienes tú." },
+	(FRASE) { ESPANOL, 15, "¿Ese cacharro? |WAIT:100 |BREAK Toma, llévatelo, no me ha gustado nada..." }, //Lo cogí por hacer el gamberro. No sabía que era tan valioso. Da igual, llévatelo." },
+	(FRASE) { ESPANOL, 15, "Uuohh! |WAIT:60 |BREAK Papi, qué chico más chachi. |BREAK ¿Me lo puedo quedar?" },
+	(FRASE) { ESPANOL, 15, "Ni hablar. |BREAK No te he educado para te juntes con chicos buenos. |WBREAK:60 Además ya se va ¿verdad?" },
+	(FRASE) { ESPANOL, 15, "No tan rápido malandrín, la princesa Beach también se viene conmigo." },
+	(FRASE) { ESPANOL, 15, "Ya no está aquí. |BREAK No pudimos retenerla por más tiempo... |WBREAK:60 Ahora coge el porrón y lárgate." },
+
+	// final 2
+	(FRASE) { ESPANOL, 16, "¡Fantástico, hijo! |BREAK Lo has conseguido. La verdad es que no daba un duro por ti pero has hecho un buen trabajo." },
+	(FRASE) { ESPANOL, 16, "¿En qué consiste el magnífico poder del Holy Porrón?" },
+	(FRASE) { ESPANOL, 16, "Este maravilloso artefacto proporciona vino sin fin a su poseedor. |WBREAK Un infinito torrente de fresco néctar, algo picao, pero fresco." },
+	(FRASE) { ESPANOL, 16, "¿Y ESO ES TODO? |WBREAK ¿PARA ESO ME HE JUGADO LA VIDA? |WCLEAR No veo cómo contribuía a la prosperidad del reino." },
+	(FRASE) { ESPANOL, 16, "Ahorramos un montón de dinero en vino. |BREAK Además no podría gobernar sin estar borracho." },
+	(FRASE) { ESPANOL, 16, "No puedo creerlo... |WBREAK En fin, me prometió la mano de la princesa, ¿recuerda?" },
+
+	// final 2 // sólo debilucho
+	(FRASE) { ESPANOL, 17, "¡Ah no! |WBREAK No permito que mi hija se vaya con alguien que termina los juegos en nivel más fácil. |WCLEAR Inténtalo de nuevo en otra dificultad y ya veremos..." }, // Además, ni siquiera estaba borracho cuando te lo prometí, así que no cuenta. Eso sí, si te traes un vasito, te lo relleno un par de veces." },
+	(FRASE) { ESPANOL, 17, "Pero... |WAIT:60 pero..." },
+	(FRASE) { ESPANOL, 17, "Lo sé, Griel, lo sé... ha, ha, ha. |WBREAK Mira, ahora vienen tus creadores... |WAIT:60 3... |WAIT:60 2... |WAIT:60 1..." },
+	// aquí acaba el final del debilucho
+
+	// final 2 // tipo duro o pesadilla
+	(FRASE) { ESPANOL, 18, "Por supuesto... |WBREAK ¡Esta hecha una mujercita! |WCLEAR ¡BEACH, CIELO! |WBREAK ¿RECUERDAS A GRIEL? |WBREAK ¡A VENIDO A PEDIR TU MANO!" },
+	(FRASE) { ESPANOL, 18, "¿Griel? |WBREAK ¿Eres tú...?" },
+
+	// final 3 // tipo duro o pesadilla
+	(FRASE) { ESPANOL, 19, "¡GROARRR! |BREAK ¡SI ESTÁS HECHO UN BOMBONCITO! |WBREAK Ven a los brazos de mami..." },
+	(FRASE) { ESPANOL, 19, "¡AAAAAAH! |BREAK ¡SOCORRO, QUE ME COME! " },
+	(FRASE) { ESPANOL, 19, "No corras, chiquitín. Deja que te estruje un poco." },
+
+	// final 3 // sólo tipo duro
+	(FRASE) { ESPANOL, 20, "¡Buah, vaya final! |WBREAK Cualquier otro hubiera sido mejor. |WBREAK Si lo sé elijo el nivel más difícil." },
+	// aquí acaba el final del tipo duro
+
+	// final 3 // sólo pesadilla
+	(FRASE) { ESPANOL, 21, "¡TOMA ESTO! |WBREAK Yo vi primero a esta sardinilla." },
+	(FRASE) { ESPANOL, 21, "......?! |WBREAK Ufff, me he librado por los pelos." },
+
+		// final 4 // sólo pesadilla
+	(FRASE) { ESPANOL, 22, "Gracias por salvarme. |WBREAK ¿Por qué has venido en mi ayuda?" },
+	(FRASE) { ESPANOL, 22, "Me hizo gracia tu casco con cuernecillos y además... |WCLEAR Has terminado el nivel más difícil y eso no se ve todos los días. |WBREAK !ENHORABUENA!" },
+	(FRASE) { ESPANOL, 22, "Han sido muchas horas pero ha merecido la pena. |WBREAK Oye ¿no me estarás raptando, verdad?" },
+	(FRASE) { ESPANOL, 22, "¡Ja, ja, ja! |WBREAK Esto hay que celebrarlo. Ahora te voy a enseñar el \"verdadero\" final." },
+	(FRASE) { ESPANOL, 22, "Estupendo, pues en marcha hacia la siguiente escena." } , //¿Me llevas a la siguiente escena?" },
+	(FRASE) { ESPANOL, 22, "Oh, vaya. Eres más bobo de lo que imaginaba... |WAIT:180" },
+
+
+
+	///////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+	(FRASE) {       0,  0, "" }, // No quitar
+
+};
+
+
+
+
+
+
+static void _prepare_string ( u8 *to, u8 *from )
+{
+	u16 i;
+
+	for ( i = 0; from [ i ]; i++ )
+	{
+		to [ i ] = from [ i ];
+
+		switch ( to [ i ] )
+		{
+			case 250:  to [ i ] = 32 -  1;  break; // ú
+			case 243:  to [ i ] = 32 -  2;  break; // ó
+			case 241:  to [ i ] = 32 -  3;  break; // ñ
+			case 237:  to [ i ] = 32 -  4;  break; // í
+			case 233:  to [ i ] = 32 -  5;  break; // é
+			case 225:  to [ i ] = 32 -  6;  break; // á
+			case 218:  to [ i ] = 32 -  7;  break; // Ú
+			case 211:  to [ i ] = 32 -  8;  break; // Ó
+			case 209:  to [ i ] = 32 -  9;  break; // Ñ
+			case 205:  to [ i ] = 32 - 10;  break; // Í
+			case 201:  to [ i ] = 32 - 11;  break; // É
+			case 193:  to [ i ] = 32 - 12;  break; // Á
+			case 191:  to [ i ] = 32 - 13;  break; // ¿
+			case 161:  to [ i ] = 32 - 14;  break; // ¡
+		}
+	}
+}
+
+
+static u8 _start;
+static u8 _grupo;
+
+
+
+/////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+
+void frases_init ( u8 grupo )
+{
+	_start = 0;
+	_grupo  = grupo ;
+}
+
+
+
+u8 *frases_next ( )
+{
+	FRASE *f ;
+
+	do
+	{
+		f = (FRASE*) & _list [ _start++ ];
+
+		if ( f->lang == gamestate.lenguaje  &&  f->grupo == _grupo )
+		{
+			break;
+		}
+	}
+	while ( f->lang );
+
+
+	u8 *cadena = MEM_alloc(FRASES_MAX_CHARS);
+	_prepare_string ( cadena, f->cadena ) ;
+
+	return cadena;
+}
+
+
+
+u8 *frases_find ( u8 grupo, u8 numero )
+{
+	u16 i        = 0;
+	u16 contador = 0;
+
+	FRASE *f ;
+
+	do
+	{
+		f = (FRASE*) & _list [ i++ ];
+
+		if ( f->lang == gamestate.lenguaje  &&  f->grupo == grupo )
+		{
+			if ( numero == contador++ )
+			{
+				break;
+			}
+		}
+	}
+	while ( f->lang );
+
+
+	u8 *cadena = MEM_alloc(FRASES_MAX_CHARS);
+	_prepare_string ( cadena, f->cadena ) ;
+
+	return cadena;
+}
+
+
+
+
+
+
+
+
+
+
+
+
+//FRASE *frases_get ( u8 numero )
+//{
+//	return ( FRASE* ) &_list [ gamestate.lenguaje ] [ numero ];
+//}
+
+
+//void frases_draw ( u8 numero )
+//{
+//	FRASE *f = frases_get ( numero );
+//
+//	VDP_drawText ( _prepare_string ( f->cadena ), f->x, f->y );
+//}
+
+
+//void frases_type ( u8 numero, u16 espera )
+//{
+//	FRASE *f = frases_get ( numero );
+//	u8 *frase = _prepare_string ( f->cadena );
+//
+//	if ( !espera )
+//	{
+//		VDP_drawText ( frase, f->x, f->y );
+//	}
+//	else
+//	{
+//		u8 x = f->x;
+//
+//		while ( *frase )
+//		{
+//			u8 txt[2] = { *frase++ };
+//			VDP_drawText ( txt, x++, f->y );
+//			waitMs ( espera );
+//		}
+//	}
+//}

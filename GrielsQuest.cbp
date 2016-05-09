@@ -1,0 +1,821 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="GrielsQuest" />
+		<Option makefile="D:/MDDev/Works/GrielsQuest/makefile.gen" />
+		<Option makefile_is_custom="1" />
+		<Option pch_mode="2" />
+		<Option compiler="sega_genesis_compiler_for_grielsquestmd" />
+		<Build>
+			<Target title="default">
+				<Option output="out/GrielsQuest" prefix_auto="1" extension_auto="1" />
+				<Option object_output="out/" />
+				<Option type="1" />
+				<Option compiler="sega_genesis_compiler_for_grielsquestmd" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+				<MakeCommands>
+					<Build command="$make -f $makefile" />
+					<CompileFile command="$make -f $makefile $file" />
+					<Clean command="$make -f $makefile clean" />
+					<DistClean command="$make -f $makefile distclean$target" />
+					<AskRebuildNeeded command="$make -q -f $makefile clean" />
+					<SilentBuild command="$make -f $makefile &gt; $(CMD_NULL)" />
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Compiler>
+			<Add option="-Wall" />
+		</Compiler>
+		<Unit filename="funciones/crt0.S" />
+		<Unit filename="game/data/unused/FMP.0/bg_01.0.FMP" />
+		<Unit filename="game/data/unused/FMP.0/bg_01.FMP" />
+		<Unit filename="game/data/unused/FMP.0/bg_01scrn.BMP" />
+		<Unit filename="game/data/unused/FMP.0/bg_02.FMP" />
+		<Unit filename="game/data/unused/FMP.0/bg_03.FMP" />
+		<Unit filename="game/data/unused/FMP.0/bg_04.FMP" />
+		<Unit filename="game/data/unused/FMP.0/bg_04.bmp" />
+		<Unit filename="game/data/unused/FMP.0/fg_01_tiles dany v1.bmp" />
+		<Unit filename="game/data/unused/FMP.0/fg_01_tiles.bmp" />
+		<Unit filename="game/data/unused/FMP.0/marco_cueva.FMP" />
+		<Unit filename="game/data/unused/FMP.0/marco_cueva.bmp" />
+		<Unit filename="game/data/unused/FMP.0/marco_dany.FMP" />
+		<Unit filename="game/data/unused/FMP.0/marco_dany.bmp" />
+		<Unit filename="game/data/unused/FMP.0/marco_gris.FMP" />
+		<Unit filename="game/data/unused/FMP.0/marco_gris.bmp" />
+		<Unit filename="game/data/unused/FMP.0/marco_mar.FMP" />
+		<Unit filename="game/data/unused/FMP.0/marco_mar.bmp" />
+		<Unit filename="game/data/unused/FMP.0/suelo_cueva.FMP" />
+		<Unit filename="game/data/unused/FMP.0/suelo_dany.FMP" />
+		<Unit filename="game/data/unused/FMP.0/suelo_gris.FMP" />
+		<Unit filename="game/data/unused/FMP.0/suelo_mar.FMP" />
+		<Unit filename="game/data/unused/FMP.0/taobar1.FMP" />
+		<Unit filename="game/data/unused/FMP.0/taobar1.bmp" />
+		<Unit filename="game/data/unused/FMP.0/taobar2.FMP" />
+		<Unit filename="game/data/unused/FMP.0/taobar2.bmp" />
+		<Unit filename="game/data/unused/FMP/Aladdin (U) [!]_000.bmp" />
+		<Unit filename="game/data/unused/FMP/Alien Soldier (J) [p1][!]_028.bmp" />
+		<Unit filename="game/data/unused/FMP/Sin título-0.png" />
+		<Unit filename="game/data/unused/FMP/aladdin.FMP" />
+		<Unit filename="game/data/unused/FMP/aladdin_2.FMP" />
+		<Unit filename="game/data/unused/FMP/as.FMP" />
+		<Unit filename="game/data/unused/FMP/bg_title.png" />
+		<Unit filename="game/data/unused/FMP/fg_title.bmp" />
+		<Unit filename="game/data/unused/FMP/fg_title.png" />
+		<Unit filename="game/data/unused/FMP/fondo_title.bmp" />
+		<Unit filename="game/data/unused/FMP/rk709ex-c-1.png" />
+		<Unit filename="game/data/unused/Griel&apos;s Quest - Intro_00.mp3" />
+		<Unit filename="game/data/unused/__grsBlocks.0.bmp" />
+		<Unit filename="game/data/unused/grsFont16x16 - GHC.bmp" />
+		<Unit filename="game/data/unused/grsFont16x16 - GQ.bmp" />
+		<Unit filename="game/data/unused/grsFont16x16.bmp" />
+		<Unit filename="game/data/unused/grtTitle.bmp" />
+		<Unit filename="game/data/unused/intro.mp3" />
+		<Unit filename="game/data/unused/s_SpritesExplosion.0.bmp" />
+		<Unit filename="game/data/unused/staff1.bmp" />
+		<Unit filename="game/data/unused/staff2.bmp" />
+		<Unit filename="game/data/unused/staff3.bmp" />
+		<Unit filename="game/data/unused/staff4.bmp" />
+		<Unit filename="game/data/unused/t_Marco.0.bmp" />
+		<Unit filename="game/data/unused/text16x16-1.bmp" />
+		<Unit filename="game/inc/animation.h" />
+		<Unit filename="game/inc/bigboy.h" />
+		<Unit filename="game/inc/boss.h" />
+		<Unit filename="game/inc/bossctrl.h" />
+		<Unit filename="game/inc/burbuja.h" />
+		<Unit filename="game/inc/cheats.h" />
+		<Unit filename="game/inc/chorrada.h" />
+		<Unit filename="game/inc/colores_textos.h" />
+		<Unit filename="game/inc/death.h" />
+		<Unit filename="game/inc/font.h" />
+		<Unit filename="game/inc/frases.h" />
+		<Unit filename="game/inc/game.h" />
+		<Unit filename="game/inc/gamestate.h" />
+		<Unit filename="game/inc/genres_externs.h" />
+		<Unit filename="game/inc/helpers.h" />
+		<Unit filename="game/inc/howtoplay.h" />
+		<Unit filename="game/inc/include.h" />
+		<Unit filename="game/inc/joy.h" />
+		<Unit filename="game/inc/level.h" />
+		<Unit filename="game/inc/musiclist.h" />
+		<Unit filename="game/inc/object.h" />
+		<Unit filename="game/inc/password.h" />
+		<Unit filename="game/inc/password8.h" />
+		<Unit filename="game/inc/pause.h" />
+		<Unit filename="game/inc/player.h" />
+		<Unit filename="game/inc/prayer.h" />
+		<Unit filename="game/inc/psglist.h" />
+		<Unit filename="game/inc/scoreball.h" />
+		<Unit filename="game/inc/screen.h" />
+		<Unit filename="game/inc/screens/ambiente.h" />
+		<Unit filename="game/inc/screens/final.h" />
+		<Unit filename="game/inc/screens/intro.h" />
+		<Unit filename="game/inc/screens/puerta.h" />
+		<Unit filename="game/inc/splist.h" />
+		<Unit filename="game/inc/stars.h" />
+		<Unit filename="game/inc/stdint.h" />
+		<Unit filename="game/inc/text.h" />
+		<Unit filename="game/inc/toani.h" />
+		<Unit filename="game/inc/tool.h" />
+		<Unit filename="game/inc/typetext.h" />
+		<Unit filename="game/inc/undo.h" />
+		<Unit filename="game/inc/version.h" />
+		<Unit filename="game/inc/vint.h" />
+		<Unit filename="game/inc/vobject.h" />
+		<Unit filename="game/inc/voffset.h" />
+		<Unit filename="game/inc/vsprite.h" />
+		<Unit filename="game/inc/wavelist.h" />
+		<Unit filename="game/inc/weapon.h" />
+		<Unit filename="game/inc/worlds/worlds.h" />
+		<Unit filename="game/libs/joyreader.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/libs/joyreader.h" />
+		<Unit filename="game/libs/mappy.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/libs/mappy.h" />
+		<Unit filename="game/libs/music.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/libs/music.h" />
+		<Unit filename="game/libs/psg.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/libs/psg.h" />
+		<Unit filename="game/libs/spritedispacher.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/libs/spritedispacher.h" />
+		<Unit filename="game/libs/spriteset.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/libs/spriteset.h" />
+		<Unit filename="game/libs/vram.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/libs/vram.h" />
+		<Unit filename="game/libs/waitbreak.h" />
+		<Unit filename="game/libs/wave.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/libs/wave.h" />
+		<Unit filename="game/psg/back.h" />
+		<Unit filename="game/psg/flechas.h" />
+		<Unit filename="game/psg/item.h" />
+		<Unit filename="game/psg/key.h" />
+		<Unit filename="game/psg/kill.h" />
+		<Unit filename="game/psg/select.h" />
+		<Unit filename="game/psg/select_2.h" />
+		<Unit filename="game/psg/start.h" />
+		<Unit filename="game/psg/viejos/arrow.h" />
+		<Unit filename="game/psg/viejos/arrow_2.h" />
+		<Unit filename="game/psg/viejos/back.h" />
+		<Unit filename="game/psg/viejos/bite.h" />
+		<Unit filename="game/psg/viejos/explode.h" />
+		<Unit filename="game/psg/viejos/fall.h" />
+		<Unit filename="game/psg/viejos/fiuuu.h" />
+		<Unit filename="game/psg/viejos/flechas.h" />
+		<Unit filename="game/psg/viejos/foot.h" />
+		<Unit filename="game/psg/viejos/foot_2.h" />
+		<Unit filename="game/psg/viejos/fx11.h" />
+		<Unit filename="game/psg/viejos/fx12.h" />
+		<Unit filename="game/psg/viejos/fx5.h" />
+		<Unit filename="game/psg/viejos/fx6.h" />
+		<Unit filename="game/psg/viejos/item.h" />
+		<Unit filename="game/psg/viejos/item_2.h" />
+		<Unit filename="game/psg/viejos/item_3.h" />
+		<Unit filename="game/psg/viejos/key.h" />
+		<Unit filename="game/psg/viejos/kill.h" />
+		<Unit filename="game/psg/viejos/ok_pause.h" />
+		<Unit filename="game/psg/viejos/primero.h" />
+		<Unit filename="game/psg/viejos/random.h" />
+		<Unit filename="game/psg/viejos/sangraal.h" />
+		<Unit filename="game/psg/viejos/select.h" />
+		<Unit filename="game/psg/viejos/select_2.h" />
+		<Unit filename="game/psg/viejos/start.h" />
+		<Unit filename="game/psg/viejos/wrong.h" />
+		<Unit filename="game/psg/viejos/wrong_2.h" />
+		<Unit filename="game/psg/viejos/wrong_pass.h" />
+		<Unit filename="game/psg/wrong.h" />
+		<Unit filename="game/res/ambiente.rc">
+			<Option compilerVar="WINDRES" />
+		</Unit>
+		<Unit filename="game/res/ambienteres.h" />
+		<Unit filename="game/res/ambienteres.res" />
+		<Unit filename="game/res/common.rc">
+			<Option compilerVar="WINDRES" />
+		</Unit>
+		<Unit filename="game/res/commonres.h" />
+		<Unit filename="game/res/commonres.res" />
+		<Unit filename="game/res/final.rc">
+			<Option compilerVar="WINDRES" />
+		</Unit>
+		<Unit filename="game/res/finalres.h" />
+		<Unit filename="game/res/finalres.res" />
+		<Unit filename="game/res/intro.h" />
+		<Unit filename="game/res/intro.res" />
+		<Unit filename="game/res/other.rc">
+			<Option compilerVar="WINDRES" />
+		</Unit>
+		<Unit filename="game/res/otherres.h" />
+		<Unit filename="game/res/otherres.res" />
+		<Unit filename="game/res/puerta.rc">
+			<Option compilerVar="WINDRES" />
+		</Unit>
+		<Unit filename="game/res/puertares.h" />
+		<Unit filename="game/res/puertares.res" />
+		<Unit filename="game/res/quitados/fx_hahaha.wav" />
+		<Unit filename="game/res/quitados/resources.h" />
+		<Unit filename="game/res/quitados/resources.res" />
+		<Unit filename="game/res/quitados/test.pcm" />
+		<Unit filename="game/res/title.h" />
+		<Unit filename="game/res/title.res" />
+		<Unit filename="game/res/waveres.h" />
+		<Unit filename="game/res/waveres.res" />
+		<Unit filename="game/res/world0.rc">
+			<Option compilerVar="WINDRES" />
+		</Unit>
+		<Unit filename="game/res/world0res.h" />
+		<Unit filename="game/res/world0res.res" />
+		<Unit filename="game/res/world1.rc">
+			<Option compilerVar="WINDRES" />
+		</Unit>
+		<Unit filename="game/res/world1res.h" />
+		<Unit filename="game/res/world1res.res" />
+		<Unit filename="game/res/world2.rc">
+			<Option compilerVar="WINDRES" />
+		</Unit>
+		<Unit filename="game/res/world2res.h" />
+		<Unit filename="game/res/world2res.res" />
+		<Unit filename="game/res/world3.rc">
+			<Option compilerVar="WINDRES" />
+		</Unit>
+		<Unit filename="game/res/world3res.h" />
+		<Unit filename="game/res/world3res.res" />
+		<Unit filename="game/res/world4.rc">
+			<Option compilerVar="WINDRES" />
+		</Unit>
+		<Unit filename="game/res/world4res.h" />
+		<Unit filename="game/res/world4res.res" />
+		<Unit filename="game/res/xgmres.h" />
+		<Unit filename="game/res/xgmres.res" />
+		<Unit filename="game/src/animation.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/src/bigboy.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/src/boot/rom_head.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/src/boot/sega.s" />
+		<Unit filename="game/src/boss.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/src/cb_password.asm" />
+		<Unit filename="game/src/cb_soundtest.asm" />
+		<Unit filename="game/src/cheats.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/src/chorrada.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/src/colores_textos.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/src/death.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/src/font.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/src/frases.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/src/game.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/src/gamestate.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/src/helpers.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/src/howtoplay.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/src/joy.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/src/key.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/src/level.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/src/main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/src/musiclist.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/src/object.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/src/password.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/src/password8.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/src/pause.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/src/player.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/src/prayer.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/src/psglist.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/src/scoreball.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/src/screen.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/src/screens/ambiente.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/src/screens/final.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/src/screens/intro.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/src/screens/puerta.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/src/screens/title.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/src/splist.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/src/stars.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/src/text.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/src/toani.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/src/tool.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/src/typetext.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/src/undo.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/src/vint.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/src/vobject.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/src/voffset.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/src/vsprite.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/src/wavelist.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/src/weapon.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/src/worlds/world0.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/src/worlds/world1.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/src/worlds/world2.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/src/worlds/world3.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/src/worlds/world4.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/src/worlds/world8.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libs/binary.h" />
+		<Unit filename="libs/burbuja.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libs/burbuja.h" />
+		<Unit filename="libs/conio.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libs/conio.h" />
+		<Unit filename="libs/dev.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="libs/dev.h" />
+		<Unit filename="libs/stdarg.h" />
+		<Unit filename="sgdk/inc/asm.h" />
+		<Unit filename="sgdk/inc/bmp.h" />
+		<Unit filename="sgdk/inc/config.h" />
+		<Unit filename="sgdk/inc/everdrive.h" />
+		<Unit filename="sgdk/inc/fat16.h" />
+		<Unit filename="sgdk/inc/font.h" />
+		<Unit filename="sgdk/inc/genesis.h" />
+		<Unit filename="sgdk/inc/genres.h" />
+		<Unit filename="sgdk/inc/joy.h" />
+		<Unit filename="sgdk/inc/kdebug.h" />
+		<Unit filename="sgdk/inc/maths.h" />
+		<Unit filename="sgdk/inc/maths3D.h" />
+		<Unit filename="sgdk/inc/memory.h" />
+		<Unit filename="sgdk/inc/psg.h" />
+		<Unit filename="sgdk/inc/smp_null.h" />
+		<Unit filename="sgdk/inc/smp_null_pcm.h" />
+		<Unit filename="sgdk/inc/sound.h" />
+		<Unit filename="sgdk/inc/sprite_eng.h" />
+		<Unit filename="sgdk/inc/sram.h" />
+		<Unit filename="sgdk/inc/string.h" />
+		<Unit filename="sgdk/inc/sys.h" />
+		<Unit filename="sgdk/inc/tab_cnv.h" />
+		<Unit filename="sgdk/inc/tab_vol.h" />
+		<Unit filename="sgdk/inc/tfcplay.h" />
+		<Unit filename="sgdk/inc/tile_cache.h" />
+		<Unit filename="sgdk/inc/timer.h" />
+		<Unit filename="sgdk/inc/tools.h" />
+		<Unit filename="sgdk/inc/types.h" />
+		<Unit filename="sgdk/inc/vdp.h" />
+		<Unit filename="sgdk/inc/vdp_bg.h" />
+		<Unit filename="sgdk/inc/vdp_dma.h" />
+		<Unit filename="sgdk/inc/vdp_pal.h" />
+		<Unit filename="sgdk/inc/vdp_spr.h" />
+		<Unit filename="sgdk/inc/vdp_tile.h" />
+		<Unit filename="sgdk/inc/ym2612.h" />
+		<Unit filename="sgdk/inc/z80_ctrl.h" />
+		<Unit filename="sgdk/inc/z80_mvsc.h" />
+		<Unit filename="sgdk/inc/z80_vgm.h" />
+		<Unit filename="sgdk/res/libres.h" />
+		<Unit filename="sgdk/res/libres.res" />
+		<Unit filename="sgdk/sample/cube_flat/main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/sample/cube_flat/meshs.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/sample/cube_flat/meshs.h" />
+		<Unit filename="sgdk/sample/hs_effect/src/main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/sample/joytest/src/boot/rom_head.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/sample/joytest/src/boot/sega.s" />
+		<Unit filename="sgdk/sample/joytest/src/main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/sample/partic/src/boot/rom_head.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/sample/partic/src/boot/sega.s" />
+		<Unit filename="sgdk/sample/partic/src/main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/sample/sound/res/resources.h" />
+		<Unit filename="sgdk/sample/sound/res/resources.res" />
+		<Unit filename="sgdk/sample/sound/src/boot/rom_head.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/sample/sound/src/boot/sega.s" />
+		<Unit filename="sgdk/sample/sound/src/main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/sample/sprite/res/gfx.h" />
+		<Unit filename="sgdk/sample/sprite/res/gfx.res" />
+		<Unit filename="sgdk/sample/sprite/res/music.h" />
+		<Unit filename="sgdk/sample/sprite/res/music.res" />
+		<Unit filename="sgdk/sample/sprite/src/boot/rom_head.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/sample/sprite/src/boot/sega.s" />
+		<Unit filename="sgdk/sample/sprite/src/main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/src/bmp.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/src/bmp_a.s" />
+		<Unit filename="sgdk/src/boot/rom_head.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/src/boot/sega.s" />
+		<Unit filename="sgdk/src/everdrive.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/src/fat16.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/src/joy.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/src/kdebug.s" />
+		<Unit filename="sgdk/src/maths.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/src/maths3D.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/src/maths3D_a.s" />
+		<Unit filename="sgdk/src/memory.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/src/memory_a.s" />
+		<Unit filename="sgdk/src/psg.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/src/smp_null.s" />
+		<Unit filename="sgdk/src/smp_null_pcm.s" />
+		<Unit filename="sgdk/src/sound.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/src/sprite_eng.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/src/sram.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/src/sram_a.s" />
+		<Unit filename="sgdk/src/string.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/src/sys.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/src/sys_a.s" />
+		<Unit filename="sgdk/src/tab_cnv.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/src/tab_log10.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/src/tab_log2.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/src/tab_sin.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/src/tab_sqrt.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/src/tab_vol.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/src/tfcplay.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/src/tile_cache.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/src/timer.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/src/tools.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/src/tools_a.s" />
+		<Unit filename="sgdk/src/types.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/src/vdp.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/src/vdp_bg.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/src/vdp_dma.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/src/vdp_pal.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/src/vdp_pal_a.s" />
+		<Unit filename="sgdk/src/vdp_spr.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/src/vdp_tile.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/src/vdp_tile_a.s" />
+		<Unit filename="sgdk/src/ym2612.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/src/z80_ctrl.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/src/z80_drv1.h" />
+		<Unit filename="sgdk/src/z80_drv2.h" />
+		<Unit filename="sgdk/src/z80_drv3.h" />
+		<Unit filename="sgdk/src/z80_drv4.h" />
+		<Unit filename="sgdk/src/z80_mvs.h" />
+		<Unit filename="sgdk/src/z80_tfm.h" />
+		<Unit filename="sgdk/src/z80_vgm.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/src/z80_xgm.h" />
+		<Unit filename="sgdk/tools/appack/appack.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/tools/appack/lib/coff64/aplib.h" />
+		<Unit filename="sgdk/tools/appack/lib/coff/aplib.h" />
+		<Unit filename="sgdk/tools/appack/lib/dll64/aplib.h" />
+		<Unit filename="sgdk/tools/appack/lib/dll/aplib.h" />
+		<Unit filename="sgdk/tools/appack/lib/elf64/aplib.h" />
+		<Unit filename="sgdk/tools/appack/lib/elf/aplib.h" />
+		<Unit filename="sgdk/tools/appack/lib/omf/aplib.h" />
+		<Unit filename="sgdk/tools/bintos/src/bintos.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/tools/pcmtoraw/src/pcmtoraw.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/tools/rescomp/inc/bin.h" />
+		<Unit filename="sgdk/tools/rescomp/inc/bitmap.h" />
+		<Unit filename="sgdk/tools/rescomp/inc/image.h" />
+		<Unit filename="sgdk/tools/rescomp/inc/img_tools.h" />
+		<Unit filename="sgdk/tools/rescomp/inc/libpng.h" />
+		<Unit filename="sgdk/tools/rescomp/inc/map.h" />
+		<Unit filename="sgdk/tools/rescomp/inc/palette.h" />
+		<Unit filename="sgdk/tools/rescomp/inc/pcm.h" />
+		<Unit filename="sgdk/tools/rescomp/inc/plugin.h" />
+		<Unit filename="sgdk/tools/rescomp/inc/rescomp.h" />
+		<Unit filename="sgdk/tools/rescomp/inc/snd_tools.h" />
+		<Unit filename="sgdk/tools/rescomp/inc/spr_tools.h" />
+		<Unit filename="sgdk/tools/rescomp/inc/sprite.h" />
+		<Unit filename="sgdk/tools/rescomp/inc/tfmmusic.h" />
+		<Unit filename="sgdk/tools/rescomp/inc/tile_tools.h" />
+		<Unit filename="sgdk/tools/rescomp/inc/tileset.h" />
+		<Unit filename="sgdk/tools/rescomp/inc/tools.h" />
+		<Unit filename="sgdk/tools/rescomp/inc/vgmmusic.h" />
+		<Unit filename="sgdk/tools/rescomp/inc/wav.h" />
+		<Unit filename="sgdk/tools/rescomp/inc/xgmmusic.h" />
+		<Unit filename="sgdk/tools/rescomp/src/bin.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/tools/rescomp/src/bitmap.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/tools/rescomp/src/bmp_tools.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/tools/rescomp/src/image.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/tools/rescomp/src/img_tools.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/tools/rescomp/src/libpng.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/tools/rescomp/src/map.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/tools/rescomp/src/palette.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/tools/rescomp/src/pcm.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/tools/rescomp/src/png_tools.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/tools/rescomp/src/rescomp.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/tools/rescomp/src/snd_tools.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/tools/rescomp/src/spr_tools.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/tools/rescomp/src/sprite.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/tools/rescomp/src/tfmmusic.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/tools/rescomp/src/tile_tools.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/tools/rescomp/src/tileset.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/tools/rescomp/src/tools.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/tools/rescomp/src/vgmmusic.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/tools/rescomp/src/wav.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/tools/rescomp/src/xgmmusic.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/tools/sizebnd/src/sizebnd.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/tools/wavtoraw/src/wavtoraw.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/tools/xgmtool/inc/psg.h" />
+		<Unit filename="sgdk/tools/xgmtool/inc/samplebank.h" />
+		<Unit filename="sgdk/tools/xgmtool/inc/util.h" />
+		<Unit filename="sgdk/tools/xgmtool/inc/vgm.h" />
+		<Unit filename="sgdk/tools/xgmtool/inc/vgmcom.h" />
+		<Unit filename="sgdk/tools/xgmtool/inc/xgc.h" />
+		<Unit filename="sgdk/tools/xgmtool/inc/xgccom.h" />
+		<Unit filename="sgdk/tools/xgmtool/inc/xgm.h" />
+		<Unit filename="sgdk/tools/xgmtool/inc/xgmcom.h" />
+		<Unit filename="sgdk/tools/xgmtool/inc/xgmsmp.h" />
+		<Unit filename="sgdk/tools/xgmtool/inc/xgmtool.h" />
+		<Unit filename="sgdk/tools/xgmtool/inc/ym2612.h" />
+		<Unit filename="sgdk/tools/xgmtool/src/psg.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/tools/xgmtool/src/samplebank.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/tools/xgmtool/src/util.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/tools/xgmtool/src/vgm.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/tools/xgmtool/src/vgmcom.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/tools/xgmtool/src/xgc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/tools/xgmtool/src/xgccom.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/tools/xgmtool/src/xgm.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/tools/xgmtool/src/xgmcom.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/tools/xgmtool/src/xgmsmp.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/tools/xgmtool/src/xgmtool.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sgdk/tools/xgmtool/src/ym2612.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="tools/romhead/romhead.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Extensions>
+			<code_completion>
+				<search_path add="D:\MDDev\SGDK\last\src" />
+				<search_path add="D:\MDDev\SGDK\last\inc" />
+				<search_path add="D:\MDDev\SGDK\last" />
+			</code_completion>
+			<debugger />
+			<envvars />
+			<DoxyBlocks>
+				<comment_style block="0" line="0" />
+				<doxyfile_project />
+				<doxyfile_build />
+				<doxyfile_warnings />
+				<doxyfile_output />
+				<doxyfile_dot />
+				<general />
+			</DoxyBlocks>
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

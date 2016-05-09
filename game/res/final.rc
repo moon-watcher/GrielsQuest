@@ -1,0 +1,25 @@
+; Sprites de los finales
+
+; final 1
+SPRITE os_f1_griel_1_32x32    "game/data/other/finales/final1/os_f1_griel_1.bmp"    32 32  0  0  0
+SPRITE os_f1_griel_2_32x32    "game/data/other/finales/final1/os_f1_griel_2.bmp"    32 32  0  0  0
+SPRITE os_f1_kbritah_1_32x32  "game/data/other/finales/final1/os_f1_kbritah_1.bmp"  32 32  0  0  0
+SPRITE os_f1_kbritah_2_32x32  "game/data/other/finales/final1/os_f1_kbritah_2.bmp"  32 32  0  0  0
+SPRITE os_f1_sombras_1_32x32  "game/data/other/finales/final1/os_f1_sombras_1.bmp"  32 32  0  0  0
+SPRITE os_f1_sombras_2_32x32  "game/data/other/finales/final1/os_f1_sombras_2.bmp"  32 32  0  0  0
+SPRITE os_f1_kbrah_32x32      "game/data/other/finales/final1/os_f1_kbrah.bmp"      32 32  0  0  0
+
+; final 2
+SPRITE os_f2_griel_32x32      "game/data/other/finales/final2/os_f2_griel.bmp"      32 32  0  0  0
+SPRITE os_f2_gorda_32x32      "game/data/other/finales/final2/os_f2_gorda.bmp"      32 32  0  0  0
+SPRITE os_f2_pibon_32x32      "game/data/other/finales/final2/os_f2_pibon.bmp"      32 32  0  0  0
+
+; final 3
+SPRITE os_f3_griel_1_32x32    "game/data/other/finales/final3/os_f3_griel_1.bmp"    32 32  0  0  0
+SPRITE os_f3_griel_2_32x32    "game/data/other/finales/final3/os_f3_griel_2.bmp"    32 32  0  0  0
+SPRITE os_f3_gorda_32x32      "game/data/other/finales/final3/os_f3_gorda.bmp"      32 32  0  0  0
+
+; final 4
+SPRITE os_f4_griel_32x32      "game/data/other/finales/final4/os_f4_griel.bmp"      32 32  0  0  0
+SPRITE os_f4_kbritah_32x32    "game/data/other/finales/final4/os_f4_kbritah.bmp"    32 32  0  0  0
+;

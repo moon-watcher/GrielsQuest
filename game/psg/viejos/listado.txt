@@ -1,0 +1,9 @@
+flechas.vgm
+back.vgm - en los menus
+item.vgm
+key.vgm
+kill.vgm
+select.vgm - select en el menu principal y passwords y sonido de menu de pausa
+select_2.vgm - select en el mapa y en el menu pausa
+start.vgm
+wrong.vgm - password equivocado y sonido para zonas que no puedes entrar

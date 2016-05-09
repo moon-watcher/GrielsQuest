@@ -1,0 +1,9 @@
+tools\vgmpsgfx game\psg\back.vgm
+tools\vgmpsgfx game\psg\flechas.vgm
+tools\vgmpsgfx game\psg\item.vgm
+tools\vgmpsgfx game\psg\key.vgm
+tools\vgmpsgfx game\psg\kill.vgm
+tools\vgmpsgfx game\psg\select.vgm
+tools\vgmpsgfx game\psg\select_2.vgm
+tools\vgmpsgfx game\psg\start.vgm
+tools\vgmpsgfx game\psg\wrong.vgm

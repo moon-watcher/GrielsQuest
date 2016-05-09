@@ -1,0 +1,1 @@
+copy rom.bin "i:\20150804 - GQ.bin"

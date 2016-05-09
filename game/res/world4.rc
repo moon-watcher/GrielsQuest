@@ -1,0 +1,21 @@
+SPRITE w4s_blocks     "game/data/world_4/blocks.bmp"      16 16  0  0  0
+SPRITE w4s_enemies    "game/data/world_4/enemies.bmp"     16 16  0  0  0
+SPRITE w4s_murci      "game/data/world_4/murci.bmp"       32 32  0  0  0
+SPRITE w4s_bigboy     "game/data/world_4/bigboy.bmp"      16 24  0  0  0
+SPRITE w4s_line_down  "game/data/world_4/line_down.bmp"   32 32  0  0  0
+;SPRITE w4s_line_left  "game/data/world_4/line_left.bmp"    8 32  0  0  0
+;SPRITE w4s_line_right "game/data/world_4/line_right.bmp"   8 32  0  0  0
+
+;SPRITE w4s_sea       "game/data/world_4/sea.bmp"        32 16  0  0  0
+
+;SPRITE w4s_boss      "game/data/world_4/boss.bmp"        32 32  0  0  0
+;SPRITE w4s_demon     "game/data/world_4/demon.bmp"       32 16  0  0  0
+
+SPRITE w4s_lava       "game/data/world_4/lava.bmp"        24 32  0  0  0
+;SPRITE w4s_lava       "game/data/world_4/lava.bmp"        32 32  0  0  0
+
+SPRITE w4s_ventana_1  "game/data/world_4/ventana_1.bmp"   16  8  0  0  0
+SPRITE w4s_ventana_2  "game/data/world_4/ventana_2.bmp"   32 32  0  0  0
+SPRITE w4s_ventana_3  "game/data/world_4/ventana_3.bmp"   32 32  0  0  0
+SPRITE w4s_ventana_4  "game/data/world_4/ventana_4.bmp"   32 24  0  0  0
+;

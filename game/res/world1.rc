@@ -1,0 +1,12 @@
+SPRITE w1s_blocks     "game/data/world_1/blocks.bmp"      16 16  0  0  0
+SPRITE w1s_enemies    "game/data/world_1/enemies.bmp"     16 16  0  0  0
+SPRITE w1s_bigboy     "game/data/world_1/bigboy.bmp"      16 24  0  0  0
+SPRITE w1s_line_down  "game/data/world_1/line_down.bmp"   32 16  0  0  0
+;SPRITE w1s_line_left  "game/data/world_1/line_left.bmp"    8 32  0  0  0
+;SPRITE w1s_line_right "game/data/world_1/line_right.bmp"   8 32  0  0  0
+
+
+
+;SPRITE w1s_boss      "game/data/world_1/boss.bmp"        32 32  0  0  0
+;SPRITE w1s_demon     "game/data/world_1/demon.bmp"       32 16  0  0  0
+;

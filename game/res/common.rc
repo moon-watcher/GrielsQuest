@@ -1,0 +1,19 @@
+SPRITE cs_sprites_16x16 "game/data/common/sprites_16x16.bmp" 16 16  0  0  0
+SPRITE cs_sprites_16x24 "game/data/common/sprites_16x24.bmp" 16 24  0  0  0
+SPRITE cs_muertes_16x24 "game/data/common/muertes_16x24.bmp" 16 24  0  0  0
+SPRITE cs_slash         "game/data/common/slash.bmp"         24 24  0  0  0
+SPRITE cs_weapons       "game/data/common/weapons.bmp"       16 16  0  0  0
+SPRITE cs_estrellitas   "game/data/common/estrellitas.bmp"   24 24  0  0  0
+
+BITMAP cb_square        "game/data/common/square.bmp"            0
+BITMAP cb_font_8x8      "game/data/common/font_8x8.bmp"          0
+BITMAP cb_font_8x8_spa  "game/data/common/font_8x8_spa.bmp"      0
+
+SPRITE cs_font_16x16    "game/data/common/font_16x16.bmp"    16 16  0  0  0
+SPRITE cs_empty         "game/data/common/empty.bmp"         16 16  0  0  0
+SPRITE cs_empty_16x24   "game/data/common/empty_16x24.bmp"   16 24  0  0  0
+SPRITE cs_empty_32x32   "game/data/common/empty_32x32.bmp"   32 32  0  0  0
+SPRITE cs_square        "game/data/common/square.bmp"        24 24  0  0  0
+
+;SPRITE cs_scoreball     "game/data/common/scoreball.bmp"     32 32  0  0  0
+;
