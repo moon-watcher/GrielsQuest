@@ -4,16 +4,16 @@
 
 void gamestate_init ( )
 {
-	gamestate.round        = 0;
-   gamestate.ambiente     = 0;
-   gamestate.lenguaje     = INGLES;
+	gamestate.current_round = 0;
+   gamestate.ambiente      = 0;
+   gamestate.lenguaje      = INGLES;
 
-   gamestate.dificultad   = 0;
-	gamestate.ambientes[0] = 0;
-	gamestate.ambientes[1] = 0;
-	gamestate.ambientes[2] = 0;
-	gamestate.ambientes[3] = 0;
-	gamestate.ambientes[4] = 0;
+   gamestate.dificultad    = 0;
+	gamestate.ambientes[0]  = 0;
+	gamestate.ambientes[1]  = 0;
+	gamestate.ambientes[2]  = 0;
+	gamestate.ambientes[3]  = 0;
+	gamestate.ambientes[4]  = 0;
 
 	gamestate.visito_la_puerta = false;
 }

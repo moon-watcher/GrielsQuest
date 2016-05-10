@@ -225,7 +225,7 @@ bool pwd8_is_ok ( PASSWORD8 pwd )
 	else if ( verifica == 0 ) // 0 es que no hay diferencias entre la verificacion y el código
    {
 		gamestate.ambiente   = 0;
-		gamestate.round      = 0;
+		gamestate.current_round = 0;
 
 		gamestate.dificultad   = dificultad;
 		gamestate.ambientes[0] = ambiente0;

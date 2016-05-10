@@ -134,7 +134,7 @@ LEVEL *level ()
 
 LEVEL *level_get (  )
 {
-	return (LEVEL*) level_list [ (u16)gamestate.ambiente ] [ (u16)gamestate.dificultad ].levels [ gamestate.round ] ;
+	return (LEVEL*) level_list [ (u16)gamestate.ambiente ] [ (u16)gamestate.dificultad ].levels [ gamestate.current_round ] ;
 }
 
 
@@ -154,7 +154,7 @@ LEVEL level_init ( bool flip_h, bool flip_v )
 
 	_wait_by_line = 0;
 
-	LEVEL level = ( *level_list[ (u16)gamestate.ambiente][(u16)gamestate.dificultad].levels[gamestate.round] );
+	LEVEL level = ( *level_list[ (u16)gamestate.ambiente][(u16)gamestate.dificultad].levels[gamestate.current_round] );
 	level = _reorder_level_ ( &level );
 
 	_find_bigboys ( level, 0, 0, 16, 11 );
@@ -170,7 +170,7 @@ void level_draw ( )
 {
 	SYS_disableInts();
 
-	LEVEL level = ( *level_list [ (u16)gamestate.ambiente ] [ gamestate.dificultad ].levels [ gamestate.round ] );
+	LEVEL level = ( *level_list [ (u16)gamestate.ambiente ] [ gamestate.dificultad ].levels [ gamestate.current_round ] );
 	level = _reorder_level_ ( &level );
 
 	_vram_pos[0] = vram_new ( level.background->tileset->numTile );
@@ -320,7 +320,7 @@ void level_set_key ( u16 x, u16 y )
 
 u16 level_current ()
 {
-	return gamestate.round;
+	return gamestate.current_round;
 }
 
 
@@ -466,7 +466,7 @@ u16 level_get_music ( )
 	u16 cuantas    = 0;
 	u16 ambiente   = (u16) gamestate.ambiente;
 	u16 dificultad = (u16) gamestate.dificultad;
-	u16 round      = (u16) gamestate.round;
+	u16 round      = (u16) gamestate.current_round;
 
 	while ( level_list [ ambiente ] [ dificultad ].musicas [ cuantas ] > 0 )
 	{
@@ -586,7 +586,7 @@ void level_presentation()
 
 
 	u8   string [ 41 ];
-	u16  ambiente = gamestate.ambiente + 1;
+	u16  ambiente = gamestate.ambiente;
 	u8  *frase    = frases_find ( 1, ambiente );
 
 
@@ -594,7 +594,7 @@ void level_presentation()
 	text_draw_sprites_x_centered ( frase,  88, 30 );
 
 
-	ambiente = gamestate.ambientes [ gamestate.ambiente ] + 1;
+	ambiente = gamestate.current_round+1;
 	frase    = frases_find ( 1, 7 );
 
 	memcpy ( string, frase, strlen ( frase ) ) ;

@@ -755,15 +755,13 @@ void player_inc_level ( )
 	splist_hide_sprite ( splist_weapon );
 	splist_hide_sprite ( splist_griel );
 
+	vobject_animation ( DOOR,   DOOR_EXIT );
+	vobject_animation ( DOOR_O, DOOR_EXIT );
 	vobject_reset ( DOOR_EXIT );
-	vobject_swap ( DOOR_O, DOOR_EXIT );
 
-	//level_draw_door ( );
-	//level_griel_exits ( );
+	u16 duracion = animation_duracion ( DOOR_EXIT );
 
-	u16 i, duracion = animation_duracion ( DOOR_EXIT );
-
-	for ( i=0; i < duracion; i++ )
+	while ( duracion-- )
 	{
 		vobject_update();
 		VDP_updateSprites();
@@ -834,7 +832,6 @@ void player_ctrldev ( u16 *ret )
 
 	else if ( joy1_pressed_y )
 	{
-		player_inc_level ( );
 		*ret = LEVEL_COMPLETED;
 	}
 
@@ -865,7 +862,6 @@ void player_interact_with_object ( LEVEL *wl )
 
 	if ( object_is_door ( obj ) )
 	{
-		player_inc_level ( );
 		players [ PLAYER_1 ].on_door = true;
 	}
 

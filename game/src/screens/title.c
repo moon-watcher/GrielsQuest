@@ -90,7 +90,7 @@ void screen_title_menu_2 ( )
 			if ( option == 1 ) _blink("TOUGH GUY ", 16, 21 );
 			if ( option == 2 ) _blink("NIGHTMARE ", 16, 23 );
 
-			gamestate.round      = 0;
+			gamestate.current_round      = 0;
 			gamestate.ambiente   = 0;
 
 			gamestate.dificultad = option;

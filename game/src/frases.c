@@ -87,20 +87,22 @@ const static FRASE _list [ ] =
 
 	(FRASE) { ESPANOL,  6, "Siempre me engaña el lobo." },                           // woods
 	(FRASE) { ESPANOL,  6, "Hielo para los refrescos." },                            // iceland
-	(FRASE) { ESPANOL,  6, "Mejor no, la arena se me mete en la coquilla." },        // egypt
+	(FRASE) { ESPANOL,  6, "La arena se me mete en la coquilla." },        // egypt
 	(FRASE) { ESPANOL,  6, "No llevo traje de baño." },                              // beach
-	(FRASE) { ESPANOL,  6, "Llévame al Monte del Destino, debo arrojar este maldito anillo." },                       // LOTR ref.
-	(FRASE) { ESPANOL,  6, "¡Oh, venga ya! No tengo todo el día." },                 //
-	(FRASE) { ESPANOL,  6, "¿No has curioseado suficiente?" },                       //
-	(FRASE) { ESPANOL,  6, "No puedo ir ahí, es el triángulo prohibido."  },    // Monkey Island 2 refference
-	(FRASE) { ESPANOL,  6, "No puedo ir ahí, es el cuadrado prohibido."   },    // Monkey Island 2 refference
-	(FRASE) { ESPANOL,  6, "No puedo ir ahí, es el pentágono prohibido."  },    // Monkey Island 2 refference
-	(FRASE) { ESPANOL,  6, "No puedo ir ahí, es el hexágono prohibido."   },    // Monkey Island 2 refference
-	(FRASE) { ESPANOL,  6, "No puedo ir ahí, es el decágono prohibido."   },    // Monkey Island 2 refference
-	(FRASE) { ESPANOL,  6, "No puedo ir ahí, es el dodecaedro prohibido." },    // Monkey Island 2 refference
-	(FRASE) { ESPANOL,  6, "No puedo ir ahí, es el palíndromo prohibido." },    // Monkey Island 2 refference
-	(FRASE) { ESPANOL,  6, "No puedo ir ahí, es el polímero prohibido." },      // Monkey Island 2 refference
-	(FRASE) { ESPANOL,  6, "¿Saben aquel que diu...?" },                        // Eugenio LoL
+	//
+	(FRASE) { ESPANOL,  6, "¡Oh, venga ya! No tengo todo el día." },
+	(FRASE) { ESPANOL,  6, "¿No has curioseado suficiente?" },
+	(FRASE) { ESPANOL,  6, "Here's Johnny!" },                                                     // The shinning ref.
+	(FRASE) { ESPANOL,  6, "No puedo ir ahí, es el polímero prohibido." },                         // Monkey Island 2 refference
+	(FRASE) { ESPANOL,  6, "No puedo ir ahí, es el triángulo prohibido." },                        // Monkey Island 2 refference
+	(FRASE) { ESPANOL,  6, "No puedo ir ahí, es el dodecaedro prohibido." },                       // Monkey Island 2 refference
+	(FRASE) { ESPANOL,  6, "Me llamo Griel Threepwood y quiero ser pirata." },                     // Monkey Island 2 refference
+	(FRASE) { ESPANOL,  6, "Mira detrás de ti, ¡un mono con tres cabezas!" },                      // Monkey Island 2 refference
+	(FRASE) { ESPANOL,  6, "¿Llevas un plátano en el bolsillo o es que te alegras de verme?" },    // Monkey Island 2 refference
+	(FRASE) { ESPANOL,  6, "¡Más potencia, Scotty!"   },                                           // Star trek refference
+	(FRASE) { ESPANOL,  6, "¿Cuántos Klingon hacen falta para cambiar una bombilla?" },            // Star trek refference
+	(FRASE) { ESPANOL,  6, "¿Saben aquel que diu...?" },                                           // Eugenio LoL
+	//
 
 	(FRASE) { ESPANOL,  7, "Este es el malvado Kbrah, un villano de lo más feliz." },
 	(FRASE) { ESPANOL,  7, "Secuestra princesas y las cambia de castillo." },

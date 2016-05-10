@@ -14,6 +14,9 @@
 #define TT_BTN
 #define TT_ALL
 
+#define TT_PRE_FN
+#define TT_POST_FN
+
 
 
 
@@ -45,6 +48,7 @@ struct typetext_info
 	s8   cmd_inc;
 
 	bool reset_pal;
+	bool reset_area_at_end;
 };
 
 struct typetext_info tt_info;
@@ -67,6 +71,8 @@ u16  _tt_write_process ( u16 i,      u8 *cadena );
 	                                                            \
 	for ( i = 0; i < len; i++ )                                 \
 	{                                                           \
+		TT_PRE_FN;                                               \
+		                                                         \
 		if ( ( boton = _tt_write_process ( i, (cadena) ) ) )     \
 		{                                                        \
 				  if ( boton == BUTTON_UP    ) { TT_UP;    }       \
@@ -85,5 +91,7 @@ u16  _tt_write_process ( u16 i,      u8 *cadena );
 			else if ( boton == BUTTON_BTN   ) { TT_BTN;   }       \
 			else if ( boton == BUTTON_ALL   ) { TT_ALL;   }       \
 		}                                                        \
+		                                                         \
+		TT_POST_FN;                                              \
 	}                                                           \
 }

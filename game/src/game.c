@@ -94,9 +94,9 @@ void game_level_inc ( )
 	// sólo incrementa el round si se ha
 	// completado el útlimo nivel disponible
 
-	if ( gamestate.round == gamestate.ambientes [ gamestate.ambiente ] )
+	if ( gamestate.current_round == gamestate.ambientes [ (u8) gamestate.ambiente ] )
 	{
-		++gamestate.ambientes [ gamestate.ambiente ];
+		++gamestate.ambientes [ (u8) gamestate.ambiente ];
 	}
 }
 
@@ -133,9 +133,8 @@ u16 game_play ( )
 		player_control_buttons ( &wl );
 		player_ctrldev ( &ret );
 
-		if ( ret == LEVEL_RESTART   ) break;
-		if ( ret == LEVEL_EXIT      ) break;
-		if ( ret == LEVEL_COMPLETED ) break;
+
+
 
 
 
@@ -150,20 +149,37 @@ u16 game_play ( )
 			if ( player(PLAYER_1)->on_door )
 			{
 				ret = LEVEL_COMPLETED;
-				musiclist_play ( MUSIC_FSCLEAR ); // wl.music
-				break;
 			}
 
 			if ( undo_rest(0) < 0 )
 			{
 				ret = LEVEL_RESTART;
-				player_dead ( PLAYER_1, &wl, ret );
-				break;
 			}
 
 			player_action ( PLAYER_1 );
 			player_logic_next ( PLAYER_1, &wl );
 		}
+
+
+		if ( ret == LEVEL_COMPLETED )
+		{
+			player_inc_level ( );
+			musiclist_play ( MUSIC_FSCLEAR ); // wl.music
+			break;
+		}
+
+		if ( ret == LEVEL_EXIT )
+		{
+			break;
+		}
+
+		if ( ret == LEVEL_RESTART )
+		{
+			player_dead ( PLAYER_1, &wl, ret );
+			break;
+		}
+
+
 
 		player_move ( PLAYER_1 );
 		player_update ( PLAYER_1 );
@@ -217,9 +233,9 @@ u16 game_ingame ()
 //			// check if boss
 //			//boss_loop ( level );
 //
-//			++gamestate.round;
+//			++gamestate.current_round;
 //
-//			if ( gamestate.round == level_get_max_rounds() ) // si es el último nivel
+//			if ( gamestate.current_round == level_get_max_rounds() ) // si es el último nivel
 //			{
 //				// congratulations!
 //				screen_ending ( );
@@ -237,7 +253,7 @@ u16 game_ingame ()
 //		// para borrar //////////////////////////////////////////
 //		if ( ended == LEVEL_BACK ) // back
 //		{
-//			--gamestate.round; // restar un nivel y continua el bucle
+//			--gamestate.current_round; // restar un nivel y continua el bucle
 //		}
 //		/////////////////////////////////////////////////////////
 //

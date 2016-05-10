@@ -32,7 +32,7 @@ void _monos()
    }
 }
 
-conio()
+void conio()
 {
    VDP_drawText ( "============", 0, 0 );
    VDP_drawText ( "============", 0, 1 );
@@ -464,7 +464,7 @@ int main ( )
 //      gamestate.lenguaje   = ESPANOL;
 //      gamestate.dificultad = 1;
 //      gamestate.ambiente   = 0;
-//      gamestate.round      = 0;
+//      gamestate.current_round      = 0;
 //      //screens_ambiente();
 //      game_ingame ( );
 
@@ -586,7 +586,7 @@ typedef void (*VirtualFunctionPointer)(u8 a, ...);
 
 gamestate.dificultad = 2;
 gamestate.ambiente   = 2;
-gamestate.round      = 9; // 13 // 5
+gamestate.current_round      = 9; // 13 // 5
 game ();
 
 

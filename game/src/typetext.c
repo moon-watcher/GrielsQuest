@@ -239,6 +239,7 @@ void tt_init ( )
 
 	tt_info.chr       = '\0';
 	tt_info.reset_pal = true;
+	tt_info.reset_area_at_end = true;
 }
 
 
@@ -387,7 +388,12 @@ u16 _tt_write_process ( u16 i, u8 *cadena )
 		// Salto de pagina o último caracter
 		if ( tt_info.chr == EOF  )
 		{
-			return _reset_area ( true );
+			if ( tt_info.reset_area_at_end )
+			{
+				return _reset_area ( true );
+			}
+
+			return;
 		}
 
 		else if ( tt_info.chr == SPACE  ||  tt_info.vx == 0 )

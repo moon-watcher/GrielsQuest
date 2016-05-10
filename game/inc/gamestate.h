@@ -2,7 +2,7 @@
 typedef struct
 {
 	// parametros actuales de juego
-   u8 round; // nivel actual
+   u8 current_round; // nivel actual
    s8 ambiente; // ambiente actual
    u8 lenguaje; // ambiente actual
 
