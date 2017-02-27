@@ -3,9 +3,9 @@
 
 
 
-void dev_init ()
+void dev_init ( int value )
 {
-	DEVELOPEMENT = 1;
+	DEV = value;
 
 	devs0 = devs1 = devs2 = devs3 = devs4 = devs5 = 0;
 	devu0 = devu1 = devu2 = devu3 = devu4 = devu5 = 0;

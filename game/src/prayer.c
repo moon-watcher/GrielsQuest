@@ -228,12 +228,12 @@
 //	VDP_setPalette ( PAL1, _pal_password );
 //	VDP_setTextPalette(PAL1);
 //
-//	//tool_typeText ( level_get(level)->password, 17, 21, 100 );
+//	//typeText ( level_get(level)->password, 17, 21, 100 );
 //
 //	waitMs(5000);
 //
 //	JOY_waitPress ( JOY_1, BUTTON_BTN );
 //
-//	tool_planHide();
+//	planHide();
 //	waitMs(500);
 //}

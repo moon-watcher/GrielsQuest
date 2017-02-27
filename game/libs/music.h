@@ -19,8 +19,8 @@ typedef struct
 MUSIC;
 
 
-void   music_play ( MUSIC *m );
-void   music_stop ( );
-
+void   music_play       ( MUSIC *m );
+void   music_stop       ( );
+u16    music_is_playing ( );
 
 #endif

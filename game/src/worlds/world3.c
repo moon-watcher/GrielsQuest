@@ -301,22 +301,34 @@ const LEVEL w3r12 =
 
 const LEVEL w3r13 =
 {
-   6, 5,
+   7, 9,
    (Image *) &w3_marco_1,
    (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    {
-      {  SEASTAR,        0,       0,    TOTEM_1,       0,       0,        0,        0,       0,        0,          0,        0,        0,        0,        0,       0 },
-      {  SEASTAR,        0,       0,    TOTEM_2,       0,  TORCH4,        0, TENTACLE,TENTACLE,        0,      ANCLA,        0,        0,        0,        0,       0 },
-      {       0,   STONE41,       0,          0,       0,       0,        0, TENTACLE,       0,        0,      ANCLA,        0, CARACOLA,        0,        0,       0 },
-      {       0,         0,       0,BIGTREE_U_4, TOTEM_1,       0,        0,        0,       0,        0,          0,        0,        0,        0,        0,       0 },
-      {       0,         0,       0,BIGTREE_D_4, TOTEM_2,       0,        0,        0,       0,        0,    SEASTAR,        0,        0,        0,        0,       0 },
-      {       0,     TOMB4,       0,          0,   CROSS,       0,        0,    STAFF,   SWORD,        0,          0,        0,        0,        0,        0,       0 },
-      {       0,         0,       0,          0,       0,   PLESI,        0, CANGREJO,  PIRATA,        0,    STONE41,        0,        0,  BIGPLESI1,  BIGPLESI2,       0 },
-      {       0,         0,       0,          0,       0,       0,        0,        0,       0,        0,      SETO4,        0,        0,  BIGPLESI3,  BIGPLESI4,       0 },
-      {       0,         0,       0,          0,       0,       0,        0,        0,       0,        0,          0,        0,        0,        0,        0,       0 },
-      {       0,         0,     UP4,          0,   DOWN4,       0,    LEFT4,        0,  RIGHT4,        0,          0,        0,        0,        0,        0,       0 },
-      {       0,         0,       0,          0,       0,       0,        0,        0,       0,        0,          0,        0,        0,        0,        0,       0 }
+//      {       0,         0,       0,    TOTEM_1,       0,       0,        0,        0,       0,        0,          0,        0,        0,        0,        0,       0 },
+//      {       0,         0,       0,    TOTEM_2,       0,       0,        0, TENTACLE,TENTACLE,        0,      ANCLA,        0,        0,        0,        0,       0 },
+//      {       0,   STONE41,       0,          0, STONE41, STONE41,  STONE41,  STONE41, STONE41,  STONE41,    STONE41,  STONE41, CARACOLA,        0,        0,       0 },
+//      {       0,         0,       0,          0, STONE41,       0,        0,        0,       0,        0,          0,  STONE41,        0,        0,        0,       0 },
+//      {       0,         0,       0,          0, STONE41,       0,        0,        0,       0,        0,    SEASTAR,  STONE41,        0,        0,        0,       0 },
+//      {       0,     TOMB4,       0,          0, STONE41,       0,        0,    STAFF,   SWORD,        0,          0,  STONE41,        0,        0,        0,       0 },
+//      {       0,         0,       0,          0, STONE41,   PLESI,        0, CANGREJO,  PIRATA,        0,    STONE41,  STONE41,        0,  BIGPLESI1,  BIGPLESI2,       0 },
+//      {       0,         0,       0,          0,       0,       0,        0,        0,       0,        0,      SETO4,        0,        0,  BIGPLESI3,  BIGPLESI4,       0 },
+//      {       0,         0,       0,          0,       0,       0,        0,        0,       0,        0,          0,        0,        0,        0,        0,       0 },
+//      {       0,         0,     UP4,          0,   DOWN4,       0,    LEFT4,        0,  RIGHT4,        0,          0,        0,        0,        0,        0,       0 },
+//      {       0,         0,       0,          0,       0,       0,        0,        0,       0,        0,          0,        0,        0,        0,        0,       0 }
+
+      {       0,       0,        0,       0,       0,        0,        0,        0,         0,        0,          0,          0,        0,        0,        0,        0 },
+      {       0,       0,        0,       0,   BLOCK,    BLOCK,    BLOCK,    BLOCK,     BLOCK,    BLOCK,      BLOCK,          0,        0,        0,        0,        0 },
+      {       0,       0,        0,       0,   BLOCK,    BLOCK,    BLOCK,MONEDON_DOOR,  BLOCK,    BLOCK,      BLOCK,          0,        0,        0,        0,        0 },
+      {       0,       0,        0,       0,   BLOCK,    BLOCK,    BLOCK,        0,     BLOCK,    BLOCK,      BLOCK,          0,        0,        0,        0,        0 },
+      {       0,       0,        0,       0,   BLOCK,    BLOCK,    BLOCK,        0,     BLOCK,    BLOCK,      BLOCK,          0,        0,        0,        0,        0 },
+      {       0,       0,        0,       0,   BLOCK,    BLOCK,        0,        0,         0,    BLOCK,      BLOCK,          0,        0,        0,        0,        0 },
+      {       0,       0,        0,       0,       0,        0,        0,        0,         0,        0,          0,          0,        0,        0,        0,        0 },
+      {       0,       0,        0,       0,       0,        0,        0,        0,         0,        0,          0,          0,        0,        0,        0,        0 },
+      {       0,       0,        0,       0,       0,        0,        0,        0,         0,        0,          0,          0,        0,        0,        0,        0 },
+      {       0,       0,        0,       0,       0,        0,        0,        0,         0,        0,          0,          0,        0,        0,        0,        0 },
+      {       0,       0,        0,       0,       0,        0,        0,        0,         0,        0,          0,          0,        0,        0,        0,        0 }
    }
 };

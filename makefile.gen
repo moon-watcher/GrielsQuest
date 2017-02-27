@@ -58,17 +58,17 @@ OBJ+= $(SRC_C:.c=.o)
 OBJS = $(addprefix out/, $(OBJ))
 
 INCS= -I$(INCLUDE) -I$(SRC) -I$(RES) -I$(LIBINCLUDE) -I$(LIBRES)
-DEFAULT_FLAGS= -m68000 -Wall -fno-builtin $(INCS) -B$(BIN)
+# "-pipe" hace la compilación más veloz
+DEFAULT_FLAGS= -m68000 -Wall -fno-builtin $(INCS) -B$(BIN) -pipe
 FLAGSZ80= -i$(SRC) -i$(INCLUDE) -i$(RES) -i$(LIBSRC) -i$(LIBINCLUDE)
 
 
 #release: FLAGS= $(DEFAULT_FLAGS) -O3 -fno-web -fno-gcse -fno-unit-at-a-time -fomit-frame-pointer
 release: FLAGS= $(DEFAULT_FLAGS) -O1 -fomit-frame-pointer
-release: out/rom.bin
+release: pre-build out/rom.bin
 
 debug: FLAGS= $(DEFAULT_FLAGS) -O1 -ggdb -DDEBUG=1
-debug: out/rom.bin out/rom.out out/symbol.txt
-
+debug: pre-build out/rom.bin out/rom.out out/symbol.txt
 
 all: release
 default: release
@@ -87,6 +87,11 @@ cleandebug:
 
 cleanobj:
 	$(RM) -f $(OBJS) out/sega.o out/rom_head.bin out/rom_head.o out/rom.out
+
+
+pre-build:
+	$(MKDIR) -p  $(SRC)/boot out out/game out/libs out/game/src out/game/libs out/game/src/screens out/game/src/worlds out/game/res
+
 
 out/rom.bin: out/rom.out
 	$(OBJCPY) -O binary out/rom.out out/rom.bin
@@ -123,19 +128,11 @@ $(SRC)/boot/rom_head.c: $(LIBSRC)/boot/rom_head.c
 
 
 out/%.o: %.c
-	$(MKDIR) -p out/game
-	$(MKDIR) -p out/libs
-	$(MKDIR) -p out/game/src
-	$(MKDIR) -p out/game/libs
-	$(MKDIR) -p out/game/src/screens
-	$(MKDIR) -p out/game/src/worlds
-	$(MKDIR) -p out/game/res
+	# $(MKDIR) -p out/game out/libs out/game/src out/game/libs out/game/src/screens out/game/src/worlds out/game/res
 	$(CC) $(FLAGS) -c $< -o $@
 
 out/%.o: %.s
-	$(MKDIR) -p out/game
-	$(MKDIR) -p out/game/src
-	$(MKDIR) -p out/game/res
+	$(MKDIR) -p out/game out/game/src out/game/res
 	$(CC) $(FLAGS) -c $< -o $@
 
 %.s: %.res

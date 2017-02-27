@@ -1,1 +1,1 @@
-void screens_final ( u16 jump );
+void screen_final ( u16 jump );

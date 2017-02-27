@@ -17,8 +17,8 @@
 
 #define OBJECT_IS_DEAD     ASYNCOBJ0, ASYNCOBJ1, ASYNCOBJ2, ASYNCOBJ3, ASYNCOBJ4, ASYNCOBJ5, ASYNCOBJ6, ASYNCOBJ7, ASYNCOBJ8, ASYNCOBJ9
 
-#define OBJECT_IS_ENEMY    WILDBOAR, WILDBOAR_ALT, TOADSTOOL, TOADSTOOL_ALT, DARKELF, DARKELF_ALT, \
-                             WALRUS,   WALRUS_ALT,   ESKIMO,	 ESKIMO_ALT,    WAMPA,   WAMPA_ALT,   \
+#define OBJECT_IS_ENEMY    WILDBOAR, WILDBOAR_ALT, TOADSTOOL, TOADSTOOL_ALT, DARKELF, DARKELF_ALT,   \
+                             WALRUS,   WALRUS_ALT,   ESKIMO,	ESKIMO_ALT,    WAMPA,   WAMPA_ALT,   \
                              BEDOUIN,  BEDOUIN_ALT,  SCORPIO,   SCORPIO_ALT,   MUMMY,   MUMMY_ALT,   \
                              PLESI,    PLESI_ALT,    CANGREJO,  CANGREJO_ALT,  PIRATA,  PIRATA_ALT,  \
                              DEMON,    DEMON_ALT,    OGRE,      OGRE_ALT,      EYE,     EYE_ALT
@@ -26,14 +26,18 @@
 #define OBJECT_IS_WEAPON   STAFF, CROSS, SWORD
 
 #define OBJECT_IS_BLOCK    BLOCK, \
-                             TOCON1,   TOMB1,      TOCON1,     TOCON1,     ZARZA,       MATOJOS,     PIEDRA1,     SETA_2,    BIGTREE1_D, CANDLE,   ABBAYE_D, LAKE1,                                       \
-                             TREE2,    TOMB2,      TREE22,     ROCK2,      ICEBLOCK,    STALAGMITE,  SNOWMAN,     SKULL,     FISH22,     IGLU1,    IGLU2,    IGLU3,     IGLU4,     ABBAYE_D_2, CANDLE2,   \
-                             CRUZPY,   ESCARABAJO, BLOQUEPY,   GATOPY,     CUADRADOPY,  ORUS2,       SARCOFAGO2,  ESFINGE1,  ESFINGE2,   ESFINGE3, ESFINGE4,                                              \
-                             SEASTAR,  TOMB4,      TORCH4,     TOTEM_2,    BIGTREE_D_4, STONE41,     STONE41,     SETO4,   SEASTAR,    ANCLA,    CARACOLA, BIGPLESI1, BIGPLESI2, BIGPLESI3,  BIGPLESI4, \
-                             GUITAR2,  BARREL,     TORCH5,     ABBAYE_D_5, BAFFLE,      MEGADRIVE,   BEER,        SOFA1,     SOFA2,      MURCIANO
+                             TOCON1,   TOMB1,      TOCON1,     TOCON1,     ZARZA,       MATOJOS,     PIEDRA1,     SETA_2,    BIGTREE1_D, CANDLE,    ABBAYE_D,  LAKE1,     LAKE2,     LAKE3,      LAKE4,     \
+                             TREE2,    TOMB2,      TREE22,     ROCK2,      ICEBLOCK,    STALAGMITE,  SNOWMAN,     SKULL,     FISH22,     IGLU1,     IGLU2,     IGLU3,     IGLU4,     ABBAYE_D_2, CANDLE2,   \
+                             CRUZPY,   ESCARABAJO, BLOQUEPY,   GATOPY,     CUADRADOPY,  ORUS2,       SARCOFAGO2,  ESFINGE1,  ESFINGE2,   ESFINGE3,  ESFINGE4,                                               \
+                             SEASTAR,  TOMB4,      TORCH4,     TOTEM_2,    BIGTREE_D_4, STONE41,     STONE41,     SETO4,     SEASTAR,    ANCLA,     CARACOLA,  BIGPLESI1, BIGPLESI2, BIGPLESI3,  BIGPLESI4, \
+                             GUITAR2,  BARREL,     TORCH5,     ABBAYE_D_5, BAFFLE,      MEGADRIVE,   BEER,        SOFA1,     SOFA2,      MURCIANO1, MURCIANO2, MURCIANO3, MURCIANO4
 
 #define OBJECT_IS_KEY      KEY //, GRIAL
-#define OBJECT_IS_DOOR     DOOR, DOOR_O //,	DEMON
+#define OBJECT_IS_DOOR     DOOR, DOOR_O,  \
+                             MONEDON_DOOR, KBRAH_DOOR
+
+#define OBJECT_IS_OPENDOOR DOOR_O,  \
+                             MONEDON_DOOR, KBRAH_DOOR
 
 
 #define OBJECT_IS_GRIEL    GRIEL_STANDS,                                                                \
@@ -48,7 +52,9 @@
                              MUMMY,             MUMMY_ALT,         MUMMY_DIE,   \
                              PLESI,             PLESI_ALT,         PLESI_DIE,   \
                              DEMON,             DEMON_ALT,         DEMON_DIE,   \
-                             OBJECT_IS_GRIEL
+                             OBJECT_IS_GRIEL, \
+                             MONEDON_DOOR, KBRAH_DOOR
+
 
 
 #define OBJECT_IS_HURTS    FIRE,     \
@@ -87,6 +93,7 @@ u16 object_is_block           ( u16 nb ) { return in_array ( nb, (u16[]) { OBJEC
 u16 object_is_arrow           ( u16 nb ) { return in_array ( nb, (u16[]) { OBJECT_IS_ARROW,           0 } ); }
 u16 object_is_key             ( u16 nb ) { return in_array ( nb, (u16[]) { OBJECT_IS_KEY,             0 } ); }
 u16 object_is_door            ( u16 nb ) { return in_array ( nb, (u16[]) { OBJECT_IS_DOOR,            0 } ); }
+u16 object_is_opendoor        ( u16 nb ) { return in_array ( nb, (u16[]) { OBJECT_IS_OPENDOOR,        0 } ); }
 u16 object_is_bigboy          ( u16 nb ) { return in_array ( nb, (u16[]) { OBJECT_IS_BIGBOY,          0 } ); }
 u16 object_is_hurts           ( u16 nb ) { return in_array ( nb, (u16[]) { OBJECT_IS_HURTS,           0 } ); }
 u16 object_is_undo            ( u16 nb ) { return in_array ( nb, (u16[]) { OBJECT_IS_UNDO,            0 } ); }

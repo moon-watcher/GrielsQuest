@@ -15,6 +15,8 @@ extern const struct genresTiles          ob_logo_copyright;
 //extern const struct genresTiles          ob_intro_2;
 //extern const struct genresTiles          ob_intro_3;
 
+extern const struct genresTiles          cb_poyete;
+
 extern const struct genresTiles          ob_ending_1;
 extern const struct genresTiles          ob_ending_2;
 extern const struct genresTiles          ob_ending_3;
@@ -30,6 +32,7 @@ extern const struct genresSprites        cs_font_16x16;
 
 extern const struct genresSprites        as_rounds_squares_32x24;
 extern const struct genresSprites        as_rounds_sprites_32x32;
+extern const struct genresSprites        as_sprites_16x16;
 
 
 
@@ -87,6 +90,8 @@ extern const struct genresSprites        cs_empty;
 extern const struct genresSprites        cs_empty_16x24;
 extern const struct genresSprites        cs_empty_32x32;
 extern const struct genresSprites        cs_square;
+extern const struct genresSprites        cs_htp_objects;
+extern const struct genresSprites        cs_ui_left;
 
 extern const struct genresSprites        os_intro_3_c;
 extern const struct genresSprites        os_intro_3_d;
@@ -130,7 +135,11 @@ extern const struct genresSprites        w4s_blocks;
 extern const struct genresSprites        w4s_enemies;
 extern const struct genresSprites        w4s_murci;
 extern const struct genresSprites        w4s_bigboy;
-extern const struct genresSprites        w4s_line_down;
+//extern const struct genresSprites        w4s_line_down;
+extern const struct genresSprites        w4s_line_down_1;
+extern const struct genresSprites        w4s_line_down_2;
+extern const struct genresSprites        w4s_line_down_3;
+extern const struct genresSprites        w4s_line_down_4;
 extern const struct genresSprites        w4s_lava;
 
 extern const struct genresSprites        w4s_ventana_1;

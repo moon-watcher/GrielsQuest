@@ -51,21 +51,21 @@
 //		u8 enemy  = EMPTY;
 //		u8 weapon = player_get_selected();
 //
-//		if      ( gamestate.ambiente == 0 && weapon == STAFF ) enemy = WILDBOAR;
-//		else if ( gamestate.ambiente == 0 && weapon == CROSS ) enemy = TOADSTOOL;
-//		else if ( gamestate.ambiente == 0 && weapon == SWORD ) enemy = DARKELF;
-//		else if ( gamestate.ambiente == 1 && weapon == STAFF ) enemy = WALRUS;
-//		else if ( gamestate.ambiente == 1 && weapon == CROSS ) enemy = ESKIMO;
-//		else if ( gamestate.ambiente == 1 && weapon == SWORD ) enemy = WAMPA;
-//		else if ( gamestate.ambiente == 2 && weapon == STAFF ) enemy = SCORPIO;
-//		else if ( gamestate.ambiente == 2 && weapon == CROSS ) enemy = BEDOUIN;
-//		else if ( gamestate.ambiente == 2 && weapon == SWORD ) enemy = MUMMY;
-//		else if ( gamestate.ambiente == 3 && weapon == STAFF ) enemy = CANGREJO;
-//		else if ( gamestate.ambiente == 3 && weapon == CROSS ) enemy = PIRATA;
-//		else if ( gamestate.ambiente == 3 && weapon == SWORD ) enemy = PLESI;
-//		else if ( gamestate.ambiente == 4 && weapon == STAFF ) enemy = OGRE;
-//		else if ( gamestate.ambiente == 4 && weapon == CROSS ) enemy = EYE;
-//		else if ( gamestate.ambiente == 4 && weapon == SWORD ) enemy = DEMON;
+//		if      ( gamestate.current_ambiente == 0 && weapon == STAFF ) enemy = WILDBOAR;
+//		else if ( gamestate.current_ambiente == 0 && weapon == CROSS ) enemy = TOADSTOOL;
+//		else if ( gamestate.current_ambiente == 0 && weapon == SWORD ) enemy = DARKELF;
+//		else if ( gamestate.current_ambiente == 1 && weapon == STAFF ) enemy = WALRUS;
+//		else if ( gamestate.current_ambiente == 1 && weapon == CROSS ) enemy = ESKIMO;
+//		else if ( gamestate.current_ambiente == 1 && weapon == SWORD ) enemy = WAMPA;
+//		else if ( gamestate.current_ambiente == 2 && weapon == STAFF ) enemy = SCORPIO;
+//		else if ( gamestate.current_ambiente == 2 && weapon == CROSS ) enemy = BEDOUIN;
+//		else if ( gamestate.current_ambiente == 2 && weapon == SWORD ) enemy = MUMMY;
+//		else if ( gamestate.current_ambiente == 3 && weapon == STAFF ) enemy = CANGREJO;
+//		else if ( gamestate.current_ambiente == 3 && weapon == CROSS ) enemy = PIRATA;
+//		else if ( gamestate.current_ambiente == 3 && weapon == SWORD ) enemy = PLESI;
+//		else if ( gamestate.current_ambiente == 4 && weapon == STAFF ) enemy = OGRE;
+//		else if ( gamestate.current_ambiente == 4 && weapon == CROSS ) enemy = EYE;
+//		else if ( gamestate.current_ambiente == 4 && weapon == SWORD ) enemy = DEMON;
 //
 //		elemento = enemy;
 //	}
@@ -260,21 +260,21 @@
 ////
 ////   u8 enemy;
 ////
-////   if      ( gamestate.ambiente == 0 && weapon == STAFF ) enemy = WILDBOAR;
-////	else if ( gamestate.ambiente == 0 && weapon == CROSS ) enemy = TOADSTOOL;
-////	else if ( gamestate.ambiente == 0 && weapon == SWORD ) enemy = DARKELF;
-////	else if ( gamestate.ambiente == 1 && weapon == STAFF ) enemy = WALRUS;
-////	else if ( gamestate.ambiente == 1 && weapon == CROSS ) enemy = ESKIMO;
-////	else if ( gamestate.ambiente == 1 && weapon == SWORD ) enemy = WAMPA;
-////	else if ( gamestate.ambiente == 2 && weapon == STAFF ) enemy = SCORPIO;
-////	else if ( gamestate.ambiente == 2 && weapon == CROSS ) enemy = BEDOUIN;
-////	else if ( gamestate.ambiente == 2 && weapon == SWORD ) enemy = MUMMY;
-////	else if ( gamestate.ambiente == 3 && weapon == STAFF ) enemy = CANGREJO;
-////	else if ( gamestate.ambiente == 3 && weapon == CROSS ) enemy = PIRATA;
-////	else if ( gamestate.ambiente == 3 && weapon == SWORD ) enemy = PLESI;
-////	else if ( gamestate.ambiente == 4 && weapon == STAFF ) enemy = OGRE;
-////	else if ( gamestate.ambiente == 4 && weapon == CROSS ) enemy = EYE;
-////	else if ( gamestate.ambiente == 4 && weapon == SWORD ) enemy = DEMON;
+////   if      ( gamestate.current_ambiente == 0 && weapon == STAFF ) enemy = WILDBOAR;
+////	else if ( gamestate.current_ambiente == 0 && weapon == CROSS ) enemy = TOADSTOOL;
+////	else if ( gamestate.current_ambiente == 0 && weapon == SWORD ) enemy = DARKELF;
+////	else if ( gamestate.current_ambiente == 1 && weapon == STAFF ) enemy = WALRUS;
+////	else if ( gamestate.current_ambiente == 1 && weapon == CROSS ) enemy = ESKIMO;
+////	else if ( gamestate.current_ambiente == 1 && weapon == SWORD ) enemy = WAMPA;
+////	else if ( gamestate.current_ambiente == 2 && weapon == STAFF ) enemy = SCORPIO;
+////	else if ( gamestate.current_ambiente == 2 && weapon == CROSS ) enemy = BEDOUIN;
+////	else if ( gamestate.current_ambiente == 2 && weapon == SWORD ) enemy = MUMMY;
+////	else if ( gamestate.current_ambiente == 3 && weapon == STAFF ) enemy = CANGREJO;
+////	else if ( gamestate.current_ambiente == 3 && weapon == CROSS ) enemy = PIRATA;
+////	else if ( gamestate.current_ambiente == 3 && weapon == SWORD ) enemy = PLESI;
+////	else if ( gamestate.current_ambiente == 4 && weapon == STAFF ) enemy = OGRE;
+////	else if ( gamestate.current_ambiente == 4 && weapon == CROSS ) enemy = EYE;
+////	else if ( gamestate.current_ambiente == 4 && weapon == SWORD ) enemy = DEMON;
 ////	else return;
 ////
 ////	_weapon = weapon;

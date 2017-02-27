@@ -11,9 +11,9 @@ struct vram
 };
 
 
-static struct vram *_list = NULL;
-static u16          _base;
-static u16          _count;
+static struct vram *_list  = NULL;
+static u16          _base  = 0;
+static u16          _count = 0;
 
 
 
@@ -22,6 +22,23 @@ static u16          _count;
 
 
 void vram_init ( u16 base )
+{
+//	while ( _list )
+//	{
+//		struct vram *aux = _list->next;
+//
+//		MEM_free ( _list );
+//		_list = aux;
+//	}
+
+	_list  = NULL;
+	_base  = base;
+	_count = 0;
+}
+
+
+
+void vram_destroy ( )
 {
 	while ( _list )
 	{
@@ -32,7 +49,7 @@ void vram_init ( u16 base )
 	}
 
 	_list  = NULL;
-	_base  = base;
+	_base  = 0;
 	_count = 0;
 }
 

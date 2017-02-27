@@ -6,7 +6,15 @@
 
 
 
+void text_write ( u8 *str, u8 x, u8 y )
+{
+	SYS_disableInts ( );
 
+	VDP_clearTileMapRect ( PLAN_B, x, y, strlen(str), 1 );
+	VDP_drawText ( str, x, y );
+
+	SYS_enableInts ( );
+}
 
 
 
@@ -29,26 +37,27 @@
 
 
 
-void tool_planHide_Ex (  u16 plan )
+void planHide_Ex (  VDPPlan plan )
 {
-	u16 w, pal = PAL1;
+	u16 width = screenWidth / 8 + 1;
+	s16 desp  = screenWidth == 320 ? 0 : 4;
+	u16 pal   = PAL1;
 
-	if ( plan == BPLAN ) pal = PAL2;
-
-	const u16 height = VDP_getPlanHeight();
-	const u16 width  = VDP_getScreenWidth()  / 8 + 1;
-	const s16 desp   = VDP_getScreenWidth() == 320 ? 0 : 4;
-
-	for ( w = width; w > 0; w-- )
+	if ( plan.value == PLAN_B.value )
 	{
-      VDP_clearTileMapRect ( plan, w-1+desp, 0, 1, height );
+		pal = PAL2;
+	}
+
+	while ( width-- )
+	{
+      VDP_clearTileMapRect ( plan, width - 1 + desp, 0, 1, planHeight );
 
 		waitMs ( PLAN_HIDE_MS );
 	}
 }
 
 
-void tool_planHide_and_sprites (  )
+void planHide_and_sprites (  )
 {
 	u16 w, sprite;
 
@@ -60,16 +69,16 @@ void tool_planHide_and_sprites (  )
 	{
 		for ( sprite=0; sprite<MAX_SPRITE; sprite++ )
 		{
-			if ( vdpSpriteCache[sprite].posx/8+2 >= w )
+			if ( vdpSpriteCache[sprite].x/8+2 >= w )
 			{
 				splist_hide_sprite ( sprite );
 			}
 		}
 
-		VDP_updateSprites();
+		VDP_updateSprites(80,1);
 
-      VDP_clearTileMapRect ( BPLAN, w-1+desp, 0, 1, height );
-      VDP_clearTileMapRect ( APLAN, w-1+desp, 0, 1, height );
+      VDP_clearTileMapRect ( PLAN_B, w-1+desp, 0, 1, height );
+      VDP_clearTileMapRect ( PLAN_A, w-1+desp, 0, 1, height );
 
 		waitMs ( PLAN_HIDE_MS );
 	}
@@ -77,16 +86,17 @@ void tool_planHide_and_sprites (  )
 
 
 
-void tool_planHide ( )
+void planHide ( )
 {
-	u16 w, sprite;
+	u16 sprite;
+	u16 width  = VDP_getScreenWidth()  / 8 + 1;
+	s16 desp   = VDP_getScreenWidth() == 320 ? 0 : 4;
 
-	const u16 height = 28;
-	const u16 width  = VDP_getScreenWidth()  / 8 + 1;
-	const s16 desp   = VDP_getScreenWidth() == 320 ? 0 : 4;
-
-	for ( w = width; w > 0; w-- )
+	for ( ; width > 0; width-- )
 	{
+		SYS_disableInts();
+
+		bool update = false;
 		for ( sprite=0; sprite<MAX_SPRITE; sprite++ )
 		{
          // las fuentes 2x2 empiezan en el sprite 4 y terminan en el 15
@@ -95,16 +105,23 @@ void tool_planHide ( )
 //            continue;
 //         }
 
-			if ( vdpSpriteCache[sprite].posx/8+2 >= w )
+			if ( vdpSpriteCache[sprite].x/8+2  - 16 + 1 >= width )
 			{
 				splist_hide_sprite ( sprite );
+				update = true;
 			}
 		}
 
-		VDP_updateSprites();
+		if ( update )
+		{
+			VDP_updateSprites(80,1);
+		}
 
-      VDP_clearTileMapRect ( BPLAN, w-1+desp, 0, 1, height );
-      VDP_clearTileMapRect ( APLAN, w-1+desp, 0, 1, height );
+		VDP_clearTileMapRect ( PLAN_B, width - 1 + desp, 0, 1, planHeight );
+		VDP_clearTileMapRect ( PLAN_A, width - 1 + desp, 0, 1, planHeight );
+
+		SYS_enableInts();
+
 
 		waitMs ( PLAN_HIDE_MS );
 	}
@@ -151,65 +168,58 @@ void tool_planHide ( )
 
 
 
-void tool_showBmp ( u16 pal, struct genresTiles *grt, u16 tile, u16 plan, u16 x, u16 y, u8 pal_steps )
+void showBmp ( u16 pal, struct genresTiles *grt, u16 tile, VDPPlan plan, u16 x, u16 y, u8 pal_steps )
 {
-	VDP_setEnable(false);
-	//VDP_setPalette ( pal, palette_black );
-	//tool_setPalette ( pal, palette_black );
+	SYS_disableInts();
 
+	VDP_loadTileData ( grt->tiles, tile, grt->width * grt->height, 0 );
+	//VDP_loadTileData ( grt->tiles, tile, grt->width * grt->height, 1 ); VDP_waitDMACompletion();
 
-//	waitMs(1000);
-//	waitMs(4);
-
-
-	VDP_loadTileData ( grt->tiles, tile, grt->width * grt->height, 1 );
-	VDP_waitDMACompletion();
-
-//	waitMs(1000);
-//	waitMs(4);
 	VDP_fillTileMapRectInc ( plan, TILE_ATTR_FULL ( pal, 1, 0, 0, tile ), x, y, grt->width, grt->height );
-//	waitMs(1000);
-	waitMs(4); // esto evita los pixeles muertos en medio de la pantalla WTF?!!!!!!!!
+	waitMs(4);
 
-	if ( pal_steps )
+	if ( pal_steps > 1 )
 	{
 		VDP_fadePalIn ( pal, grt->pal, pal_steps, 0 );
-		VDP_waitFadeCompletion();
 	}
 
-	VDP_setPalette ( pal, grt->pal ); // tool_setPalette ( pal, grt->pal );
+	VDP_setPalette ( pal, grt->pal );
 
-
-	VDP_setEnable(true);
+	SYS_enableInts();
 }
 
 
-void tool_showBmp_bn ( u16 pal, struct genresTiles *grt, u16 tile, u16 plan, u16 x, u16 y, u8 pal_steps )
+void showBmp_bn ( u16 pal, struct genresTiles *grt, u16 tile, VDPPlan plan, u16 x, u16 y, u8 pal_steps )
 {
 	const u16 grey [16] = { 0x000, 0x111, 0x222, 0x333, 0x444, 0x555, 0x666, 0x777, 0x888, 0x999, 0xAAA, 0xBBB, 0xCCC, 0xDDD, 0xEEE, 0xFFF };
+
+	SYS_disableInts();
 
 	VDP_setPalette ( pal, palette_black );
 
 	VDP_loadTileData ( grt->tiles, tile, grt->width * grt->height, 0 );
+	//VDP_loadTileData ( grt->tiles, tile, grt->width * grt->height, 1 ); VDP_waitDMACompletion ( );
+
 	VDP_fillTileMapRectInc ( plan, TILE_ATTR_FULL ( pal, 1, 0, 0, tile ), x, y, grt->width, grt->height );
 
-	if ( pal_steps )
+	if ( pal_steps > 1 )
 	{
-		VDP_fadePalIn ( pal, grey, pal_steps, 1 );
-		VDP_waitFadeCompletion();
+		VDP_fadePalIn ( pal, grey, pal_steps, 0 );
 	}
 
-	//VDP_setPalette ( pal, grt->pal );
+	VDP_setPalette ( pal, grt->pal );
+
+	SYS_enableInts();
 }
 
 
-void tool_typeText ( u8 *str, u8 x, u8 y, u16 ms )
+void typeText ( u8 *str, u8 x, u8 y, u16 ms )
 {
-	tool_typeTextHalt ( str, x, y, ms, 0, 0 );
+	typeTextHalt ( str, x, y, ms, 0, 0 );
 }
 
 
-u16 tool_typeTextHalt ( u8 *str, u8 x, u8 y, u16 ms, u16 joy, u16 buttons )
+u16 typeTextHalt ( u8 *str, u8 x, u8 y, u16 ms, u16 joy, u16 buttons )
 {
 	u8 i, len = strlen ( str );
 
@@ -234,35 +244,112 @@ u16 tool_typeTextHalt ( u8 *str, u8 x, u8 y, u16 ms, u16 joy, u16 buttons )
 
 
 
-void tool_reset ()
-{
-	SYS_disableInts();
-	VDP_setEnable ( FALSE );
-
-	resetVRAM();
-//	resetScreen();
-//	resetScroll();
-//	resetSprites();
-
-	font_init();
-//	font_setPalette();
-
-	VDP_setEnable ( TRUE );
-	SYS_enableInts ( );
-
-
-
+//void tool_reset ()
+//{
+//	//SYS_disableInts();
 //	VDP_setEnable ( FALSE );
 //
-//	resetVRAM ( ); // reset video memory
-//	VDP_waitDMACompletion();            // wait for DMA completion
+////	resetVRAM();
+////	resetScreen();
+////	resetScroll();
+////	resetSprites();
 //
 //	font_init();
-//	font_setPalette();
+////	font_setPalette();
 //
 //	VDP_setEnable ( TRUE );
+//	//SYS_enableInts ( );
+//
+//
+//
+////	VDP_setEnable ( FALSE );
+////
+////	resetVRAM ( ); // reset video memory
+////	VDP_waitDMACompletion();            // wait for DMA completion
+////
+////	font_init();
+////	font_setPalette();
+////
+////	VDP_setEnable ( TRUE );
+//
+//}
 
+
+
+
+
+
+
+
+
+
+
+void waitHz ( u16 hz )
+{
+	while ( hz-- )
+	{
+		VDP_waitVSync();
+	}
 }
+
+void waitSc ( u16 sc )
+{
+	sc *= getHz();
+
+	while ( sc-- )
+	{
+		VDP_waitVSync();
+	}
+}
+
+void waitJoy ( )
+{
+	while ( 1 )
+	{
+		VDP_waitVSync();
+
+		JoyReader_update();
+
+		if ( joy1_pressed_abc || joy1_pressed_start )
+		{
+			return ;
+		}
+	}
+}
+
+void waitJoyHz ( u16 hz )
+{
+	while ( hz-- )
+	{
+		VDP_waitVSync();
+
+		JoyReader_update();
+
+		if ( joy1_pressed_abc || joy1_pressed_start )
+		{
+			return ;
+		}
+	}
+}
+
+void waitJoySc ( u16 sc )
+{
+	sc *= getHz();
+
+	while ( sc-- )
+	{
+		VDP_waitVSync();
+
+		JoyReader_update();
+
+		if ( joy1_pressed_abc || joy1_pressed_start )
+		{
+			return ;
+		}
+	}
+}
+
+
 
 
 
@@ -303,306 +390,308 @@ void tool_reset ()
 
 
 
+//
+//static const char *uppercase_hexchars = "0123456789ABCDEF";
+//static const char *lowercase_hexchars = "0123456789abcdef";
+//
+//#define isdigit(c) ((c) >= '0' && (c) <= '9')
+//
+//static u16 skip_atoi(const char **s)
+//{
+//    u16 i = 0;
+//
+//    while(isdigit(**s))
+//        i = (i * 10) + *((*s)++) - '0';
+//
+//    return i;
+//}
+//
+//u16 strnlen(const char *str, u16 maxlen)
+//{
+//    const char *src;
+//
+//    for (src = str; maxlen-- && *src != '\0'; ++src)
+//        /* nothing */;
+//
+//    return src - str;
+//}
+//
+//static u16 vsprintf(char *buf, const char *fmt, va_list args)
+//{
+//    char tmp_buffer[12];
+//    s16 i;
+//    s16 len;
+//    s16 *ip;
+//    u16 num;
+//    char *s;
+//    char *hexchars;
+//    char *str;
+//    s16 left_align;
+//    s16 plus_sign;
+//    s16 zero_pad;
+//    s16 space_sign;
+//    s16 field_width;
+//    s16 precision;
+//
+//    for (str = buf; *fmt; ++fmt)
+//    {
+//        if (*fmt != '%')
+//        {
+//            *str++ = *fmt;
+//            continue;
+//        }
+//
+//        space_sign = zero_pad = plus_sign = left_align = 0;
+//
+//        // Process the flags
+//repeat:
+//        ++fmt;          // this also skips first '%'
+//
+//        switch (*fmt)
+//        {
+//            case '-':
+//                left_align = 1;
+//                goto repeat;
+//
+//            case '+':
+//                plus_sign = 1;
+//                goto repeat;
+//
+//            case ' ':
+//                if ( !plus_sign )
+//                    space_sign = 1;
+//
+//                goto repeat;
+//
+//            case '0':
+//                zero_pad = 1;
+//                goto repeat;
+//        }
+//
+//        // Process field width and precision
+//
+//        field_width = precision = -1;
+//
+//        if (isdigit(*fmt))
+//            field_width = skip_atoi(&fmt);
+//        else if (*fmt == '*')
+//        {
+//            ++fmt;
+//            // it's the next argument
+//            field_width = va_arg(args, unsigned int );
+//
+//            if (field_width < 0)
+//            {
+//                field_width = -field_width;
+//                left_align = 1;
+//            }
+//        }
+//
+//        if (*fmt == '.')
+//        {
+//            ++fmt;
+//
+//            if (isdigit(*fmt))
+//                precision = skip_atoi(&fmt);
+//            else if (*fmt == '*')
+//            {
+//                ++fmt;
+//                // it's the next argument
+//                precision = va_arg(args, unsigned int );
+//            }
+//
+//            if (precision < 0)
+//                precision = 0;
+//        }
+//
+//        if ((*fmt == 'h') || (*fmt == 'l') || (*fmt == 'L'))
+//            ++fmt;
+//
+//        if (left_align)
+//            zero_pad = 0;
+//
+//        switch (*fmt)
+//        {
+//            case 'c':
+//                if (!left_align)
+//                    while(--field_width > 0)
+//                        *str++ = ' ';
+//
+//                *str++ = (unsigned char) va_arg(args, unsigned int );
+//
+//                while(--field_width > 0)
+//                    *str++ = ' ';
+//
+//                continue;
+//
+//            case 's':
+//                s = va_arg(args, char *);
+//
+//                if (!s)
+//                    s = "<NULL>";
+//
+//                len = strnlen(s, precision);
+//
+//                if (!left_align)
+//                    while(len < field_width--)
+//                        *str++ = ' ';
+//
+//                for (i = 0; i < len; ++i)
+//                    *str++ = *s++;
+//
+//                while(len < field_width--)
+//                    *str++ = ' ';
+//
+//                continue;
+//
+//            case 'p':
+//                if (field_width == -1)
+//                {
+//                    field_width = 2 * sizeof(void *);
+//                    zero_pad = 1;
+//                }
+//
+//                hexchars = (char *) uppercase_hexchars;
+//                goto hexa_conv;
+//
+//            case 'x':
+//                hexchars = (char *) lowercase_hexchars;
+//                goto hexa_conv;
+//
+//            case 'X':
+//                hexchars = (char *) uppercase_hexchars;
+//
+//hexa_conv:
+//                s = &tmp_buffer[12];
+//                *--s = 0;
+//                num = va_arg(args, int);
+//
+//                if (!num)
+//                    *--s = '0';
+//
+//                while(num)
+//                {
+//                    *--s = hexchars[num & 0xF];
+//                    num >>= 4;
+//                }
+//
+//                num = plus_sign = 0;
+//
+//                break;
+//
+//            case 'n':
+//                ip = va_arg(args, s16*);
+//                *ip = (str - buf);
+//                continue;
+//
+//            case 'u':
+//                s = &tmp_buffer[12];
+//                *--s = 0;
+//                num = va_arg(args, unsigned int );
+//
+//                if (!num)
+//                    *--s = '0';
+//
+//                while(num)
+//                {
+//                    *--s = (num % 10) + 0x30;
+//                    num /= 10;
+//                }
+//
+//                num = plus_sign = 0;
+//
+//                break;
+//
+//            case 'd':
+//            case 'i':
+//                s = &tmp_buffer[12];
+//                *--s = 0;
+//                i = va_arg(args, unsigned int );
+//
+//                if (!i)
+//                    *--s = '0';
+//
+//                if (i < 0)
+//                {
+//                    num = 1;
+//
+//                    while(i)
+//                    {
+//                        *--s = 0x30 - (i % 10);
+//                        i /= 10;
+//                    }
+//                }
+//                else
+//                {
+//                    num = 0;
+//
+//                    while(i)
+//                    {
+//                        *--s = (i % 10) + 0x30;
+//                        i /= 10;
+//                    }
+//                }
+//
+//                break;
+//
+//            default:
+//                continue;
+//        }
+//
+//        len = strnlen(s, precision);
+//
+//        if (num)
+//        {
+//            *str++ = '-';
+//            field_width--;
+//        }
+//        else if (plus_sign)
+//        {
+//            *str++ = '+';
+//            field_width--;
+//        }
+//        else if (space_sign)
+//        {
+//            *str++ = ' ';
+//            field_width--;
+//        }
+//
+//        if ( !left_align)
+//        {
+//            if (zero_pad)
+//            {
+//                while(len < field_width--)
+//                    *str++ = '0';
+//            }
+//            else
+//            {
+//                while(len < field_width--)
+//                    *str++ = ' ';
+//            }
+//        }
+//
+//        for (i = 0; i < len; ++i)
+//            *str++ = *s++;
+//
+//        while(len < field_width--)
+//            *str++ = ' ';
+//    }
+//
+//    *str = '\0';
+//
+//    return str - buf;
+//}
+//
+//u16 sprintf(char *buffer, const char *fmt, ...)
+//{
+//    va_list args;
+//    u16 i;
+//
+//    va_start(args, fmt);
+//    i = vsprintf(buffer, fmt, args);
+//    va_end(args);
+//
+//    return i;
+//}
 
-static const char *uppercase_hexchars = "0123456789ABCDEF";
-static const char *lowercase_hexchars = "0123456789abcdef";
 
-#define isdigit(c) ((c) >= '0' && (c) <= '9')
-
-static u16 skip_atoi(const char **s)
-{
-    u16 i = 0;
-
-    while(isdigit(**s))
-        i = (i * 10) + *((*s)++) - '0';
-
-    return i;
-}
-
-u16 strnlen(const char *str, u16 maxlen)
-{
-    const char *src;
-
-    for (src = str; maxlen-- && *src != '\0'; ++src)
-        /* nothing */;
-
-    return src - str;
-}
-
-static u16 vsprintf(char *buf, const char *fmt, va_list args)
-{
-    char tmp_buffer[12];
-    s16 i;
-    s16 len;
-    s16 *ip;
-    u16 num;
-    char *s;
-    char *hexchars;
-    char *str;
-    s16 left_align;
-    s16 plus_sign;
-    s16 zero_pad;
-    s16 space_sign;
-    s16 field_width;
-    s16 precision;
-
-    for (str = buf; *fmt; ++fmt)
-    {
-        if (*fmt != '%')
-        {
-            *str++ = *fmt;
-            continue;
-        }
-
-        space_sign = zero_pad = plus_sign = left_align = 0;
-
-        // Process the flags
-repeat:
-        ++fmt;          // this also skips first '%'
-
-        switch (*fmt)
-        {
-            case '-':
-                left_align = 1;
-                goto repeat;
-
-            case '+':
-                plus_sign = 1;
-                goto repeat;
-
-            case ' ':
-                if ( !plus_sign )
-                    space_sign = 1;
-
-                goto repeat;
-
-            case '0':
-                zero_pad = 1;
-                goto repeat;
-        }
-
-        // Process field width and precision
-
-        field_width = precision = -1;
-
-        if (isdigit(*fmt))
-            field_width = skip_atoi(&fmt);
-        else if (*fmt == '*')
-        {
-            ++fmt;
-            // it's the next argument
-            field_width = va_arg(args, unsigned int );
-
-            if (field_width < 0)
-            {
-                field_width = -field_width;
-                left_align = 1;
-            }
-        }
-
-        if (*fmt == '.')
-        {
-            ++fmt;
-
-            if (isdigit(*fmt))
-                precision = skip_atoi(&fmt);
-            else if (*fmt == '*')
-            {
-                ++fmt;
-                // it's the next argument
-                precision = va_arg(args, unsigned int );
-            }
-
-            if (precision < 0)
-                precision = 0;
-        }
-
-        if ((*fmt == 'h') || (*fmt == 'l') || (*fmt == 'L'))
-            ++fmt;
-
-        if (left_align)
-            zero_pad = 0;
-
-        switch (*fmt)
-        {
-            case 'c':
-                if (!left_align)
-                    while(--field_width > 0)
-                        *str++ = ' ';
-
-                *str++ = (unsigned char) va_arg(args, unsigned int );
-
-                while(--field_width > 0)
-                    *str++ = ' ';
-
-                continue;
-
-            case 's':
-                s = va_arg(args, char *);
-
-                if (!s)
-                    s = "<NULL>";
-
-                len = strnlen(s, precision);
-
-                if (!left_align)
-                    while(len < field_width--)
-                        *str++ = ' ';
-
-                for (i = 0; i < len; ++i)
-                    *str++ = *s++;
-
-                while(len < field_width--)
-                    *str++ = ' ';
-
-                continue;
-
-            case 'p':
-                if (field_width == -1)
-                {
-                    field_width = 2 * sizeof(void *);
-                    zero_pad = 1;
-                }
-
-                hexchars = (char *) uppercase_hexchars;
-                goto hexa_conv;
-
-            case 'x':
-                hexchars = (char *) lowercase_hexchars;
-                goto hexa_conv;
-
-            case 'X':
-                hexchars = (char *) uppercase_hexchars;
-
-hexa_conv:
-                s = &tmp_buffer[12];
-                *--s = 0;
-                num = va_arg(args, int);
-
-                if (!num)
-                    *--s = '0';
-
-                while(num)
-                {
-                    *--s = hexchars[num & 0xF];
-                    num >>= 4;
-                }
-
-                num = plus_sign = 0;
-
-                break;
-
-            case 'n':
-                ip = va_arg(args, s16*);
-                *ip = (str - buf);
-                continue;
-
-            case 'u':
-                s = &tmp_buffer[12];
-                *--s = 0;
-                num = va_arg(args, unsigned int );
-
-                if (!num)
-                    *--s = '0';
-
-                while(num)
-                {
-                    *--s = (num % 10) + 0x30;
-                    num /= 10;
-                }
-
-                num = plus_sign = 0;
-
-                break;
-
-            case 'd':
-            case 'i':
-                s = &tmp_buffer[12];
-                *--s = 0;
-                i = va_arg(args, unsigned int );
-
-                if (!i)
-                    *--s = '0';
-
-                if (i < 0)
-                {
-                    num = 1;
-
-                    while(i)
-                    {
-                        *--s = 0x30 - (i % 10);
-                        i /= 10;
-                    }
-                }
-                else
-                {
-                    num = 0;
-
-                    while(i)
-                    {
-                        *--s = (i % 10) + 0x30;
-                        i /= 10;
-                    }
-                }
-
-                break;
-
-            default:
-                continue;
-        }
-
-        len = strnlen(s, precision);
-
-        if (num)
-        {
-            *str++ = '-';
-            field_width--;
-        }
-        else if (plus_sign)
-        {
-            *str++ = '+';
-            field_width--;
-        }
-        else if (space_sign)
-        {
-            *str++ = ' ';
-            field_width--;
-        }
-
-        if ( !left_align)
-        {
-            if (zero_pad)
-            {
-                while(len < field_width--)
-                    *str++ = '0';
-            }
-            else
-            {
-                while(len < field_width--)
-                    *str++ = ' ';
-            }
-        }
-
-        for (i = 0; i < len; ++i)
-            *str++ = *s++;
-
-        while(len < field_width--)
-            *str++ = ' ';
-    }
-
-    *str = '\0';
-
-    return str - buf;
-}
-
-u16 sprintf(char *buffer, const char *fmt, ...)
-{
-    va_list args;
-    u16 i;
-
-    va_start(args, fmt);
-    i = vsprintf(buffer, fmt, args);
-    va_end(args);
-
-    return i;
-}

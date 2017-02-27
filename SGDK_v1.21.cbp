@@ -1,0 +1,570 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes" ?>
+<CodeBlocks_project_file>
+	<FileVersion major="1" minor="6" />
+	<Project>
+		<Option title="SGDK_v1.21" />
+		<Option makefile_is_custom="1" />
+		<Option execution_dir="D:/MDDev/SGDK/1.21" />
+		<Option pch_mode="2" />
+		<Option compiler="sega_genesis_compiler" />
+		<MakeCommands>
+			<Build command="" />
+			<CompileFile command="" />
+			<Clean command="" />
+			<DistClean command="" />
+			<AskRebuildNeeded command="" />
+			<SilentBuild command=" &gt; $(CMD_NULL)" />
+		</MakeCommands>
+		<Build>
+			<Target title="default">
+				<Option output="out/SGDK_v1" prefix_auto="1" extension_auto="1" />
+				<Option object_output="out/" />
+				<Option type="1" />
+				<Option compiler="sega_genesis_compiler" />
+				<Compiler>
+					<Add option="-O2" />
+				</Compiler>
+				<Linker>
+					<Add option="-s" />
+				</Linker>
+				<MakeCommands>
+					<Build command="$make -f $makefile" />
+					<CompileFile command="$make -f $makefile $file" />
+					<Clean command="$make -f $makefile clean" />
+					<DistClean command="$make -f $makefile distclean$target" />
+					<AskRebuildNeeded command="$make -q -f $makefile clean" />
+					<SilentBuild command="$make -f $makefile &gt; $(CMD_NULL)" />
+				</MakeCommands>
+			</Target>
+		</Build>
+		<Unit filename="../../SGDK/1.21/bin/appack.exe" />
+		<Unit filename="../../SGDK/1.21/bin/ar.exe" />
+		<Unit filename="../../SGDK/1.21/bin/as.exe" />
+		<Unit filename="../../SGDK/1.21/bin/bintos.exe" />
+		<Unit filename="../../SGDK/1.21/bin/cc1.exe" />
+		<Unit filename="../../SGDK/1.21/bin/cp.exe" />
+		<Unit filename="../../SGDK/1.21/bin/cpp.exe" />
+		<Unit filename="../../SGDK/1.21/bin/cygiconv-2.dll" />
+		<Unit filename="../../SGDK/1.21/bin/cygintl-3.dll" />
+		<Unit filename="../../SGDK/1.21/bin/cygwin1.dll" />
+		<Unit filename="../../SGDK/1.21/bin/gcc.exe" />
+		<Unit filename="../../SGDK/1.21/bin/gdb.exe" />
+		<Unit filename="../../SGDK/1.21/bin/genres.exe" />
+		<Unit filename="../../SGDK/1.21/bin/genres.txt" />
+		<Unit filename="../../SGDK/1.21/bin/ld.exe" />
+		<Unit filename="../../SGDK/1.21/bin/libiconv2.dll" />
+		<Unit filename="../../SGDK/1.21/bin/libintl3.dll" />
+		<Unit filename="../../SGDK/1.21/bin/lz4w.jar" />
+		<Unit filename="../../SGDK/1.21/bin/lz4w.txt" />
+		<Unit filename="../../SGDK/1.21/bin/mac68k.exe" />
+		<Unit filename="../../SGDK/1.21/bin/make.exe" />
+		<Unit filename="../../SGDK/1.21/bin/mkdir.exe" />
+		<Unit filename="../../SGDK/1.21/bin/nm.exe" />
+		<Unit filename="../../SGDK/1.21/bin/nm2wch.exe" />
+		<Unit filename="../../SGDK/1.21/bin/objcopy.exe" />
+		<Unit filename="../../SGDK/1.21/bin/pcmtoraw.exe" />
+		<Unit filename="../../SGDK/1.21/bin/rescomp.exe" />
+		<Unit filename="../../SGDK/1.21/bin/rescomp.txt" />
+		<Unit filename="../../SGDK/1.21/bin/rm.exe" />
+		<Unit filename="../../SGDK/1.21/bin/sh.exe" />
+		<Unit filename="../../SGDK/1.21/bin/sizebnd.exe" />
+		<Unit filename="../../SGDK/1.21/bin/sjasm.exe" />
+		<Unit filename="../../SGDK/1.21/bin/sjasm.txt" />
+		<Unit filename="../../SGDK/1.21/bin/tfmcom.exe" />
+		<Unit filename="../../SGDK/1.21/bin/uftcpack.exe" />
+		<Unit filename="../../SGDK/1.21/bin/wavtoraw.exe" />
+		<Unit filename="../../SGDK/1.21/bin/xgm.txt" />
+		<Unit filename="../../SGDK/1.21/bin/xgmtool.exe" />
+		<Unit filename="../../SGDK/1.21/bin/z80dasm.exe" />
+		<Unit filename="../../SGDK/1.21/changelog.txt" />
+		<Unit filename="../../SGDK/1.21/inc/asm.h" />
+		<Unit filename="../../SGDK/1.21/inc/bmp.h" />
+		<Unit filename="../../SGDK/1.21/inc/config.h" />
+		<Unit filename="../../SGDK/1.21/inc/dma.h" />
+		<Unit filename="../../SGDK/1.21/inc/everdrive.h" />
+		<Unit filename="../../SGDK/1.21/inc/fat16.h" />
+		<Unit filename="../../SGDK/1.21/inc/font.h" />
+		<Unit filename="../../SGDK/1.21/inc/genesis.h" />
+		<Unit filename="../../SGDK/1.21/inc/genres.h" />
+		<Unit filename="../../SGDK/1.21/inc/joy.h" />
+		<Unit filename="../../SGDK/1.21/inc/kdebug.h" />
+		<Unit filename="../../SGDK/1.21/inc/maths.h" />
+		<Unit filename="../../SGDK/1.21/inc/maths3D.h" />
+		<Unit filename="../../SGDK/1.21/inc/memory.h" />
+		<Unit filename="../../SGDK/1.21/inc/psg.h" />
+		<Unit filename="../../SGDK/1.21/inc/smp_null.h" />
+		<Unit filename="../../SGDK/1.21/inc/smp_null_pcm.h" />
+		<Unit filename="../../SGDK/1.21/inc/sound.h" />
+		<Unit filename="../../SGDK/1.21/inc/sprite_eng.h" />
+		<Unit filename="../../SGDK/1.21/inc/sram.h" />
+		<Unit filename="../../SGDK/1.21/inc/string.h" />
+		<Unit filename="../../SGDK/1.21/inc/sys.h" />
+		<Unit filename="../../SGDK/1.21/inc/tab_cnv.h" />
+		<Unit filename="../../SGDK/1.21/inc/tab_vol.h" />
+		<Unit filename="../../SGDK/1.21/inc/tfcplay.h" />
+		<Unit filename="../../SGDK/1.21/inc/tile_cache.h" />
+		<Unit filename="../../SGDK/1.21/inc/timer.h" />
+		<Unit filename="../../SGDK/1.21/inc/tools.h" />
+		<Unit filename="../../SGDK/1.21/inc/types.h" />
+		<Unit filename="../../SGDK/1.21/inc/vdp.h" />
+		<Unit filename="../../SGDK/1.21/inc/vdp_bg.h" />
+		<Unit filename="../../SGDK/1.21/inc/vdp_dma.h" />
+		<Unit filename="../../SGDK/1.21/inc/vdp_pal.h" />
+		<Unit filename="../../SGDK/1.21/inc/vdp_spr.h" />
+		<Unit filename="../../SGDK/1.21/inc/vdp_tile.h" />
+		<Unit filename="../../SGDK/1.21/inc/vram.h" />
+		<Unit filename="../../SGDK/1.21/inc/ym2612.h" />
+		<Unit filename="../../SGDK/1.21/inc/z80_ctrl.h" />
+		<Unit filename="../../SGDK/1.21/inc/z80_mvsc.h" />
+		<Unit filename="../../SGDK/1.21/inc/z80_vgm.h" />
+		<Unit filename="../../SGDK/1.21/lib/libgcc.a" />
+		<Unit filename="../../SGDK/1.21/lib/libmd.a" />
+		<Unit filename="../../SGDK/1.21/lib/libmd_debug.a" />
+		<Unit filename="../../SGDK/1.21/license.txt" />
+		<Unit filename="../../SGDK/1.21/makefile.gen" />
+		<Unit filename="../../SGDK/1.21/makelib.gen" />
+		<Unit filename="../../SGDK/1.21/md.ld" />
+		<Unit filename="../../SGDK/1.21/readme.txt" />
+		<Unit filename="../../SGDK/1.21/res/image/font_lib.png" />
+		<Unit filename="../../SGDK/1.21/res/image/logo_lib.png" />
+		<Unit filename="../../SGDK/1.21/res/libres.h" />
+		<Unit filename="../../SGDK/1.21/res/libres.res" />
+		<Unit filename="../../SGDK/1.21/res/sound/stop_xgm.bin" />
+		<Unit filename="../../SGDK/1.21/sample/bench/inc/main.h" />
+		<Unit filename="../../SGDK/1.21/sample/bench/res/andor.png" />
+		<Unit filename="../../SGDK/1.21/sample/bench/res/cody.png" />
+		<Unit filename="../../SGDK/1.21/sample/bench/res/flare.png" />
+		<Unit filename="../../SGDK/1.21/sample/bench/res/flare_16x16.png" />
+		<Unit filename="../../SGDK/1.21/sample/bench/res/flare_32x32.png" />
+		<Unit filename="../../SGDK/1.21/sample/bench/res/flare_32x32_2.png" />
+		<Unit filename="../../SGDK/1.21/sample/bench/res/gfx.res" />
+		<Unit filename="../../SGDK/1.21/sample/bench/res/guy.png" />
+		<Unit filename="../../SGDK/1.21/sample/bench/res/haggar.png" />
+		<Unit filename="../../SGDK/1.21/sample/bench/res/md_jap_logo_big.png" />
+		<Unit filename="../../SGDK/1.21/sample/bench/res/md_jap_logo_med.png" />
+		<Unit filename="../../SGDK/1.21/sample/bench/res/md_jap_logo_med_x2.png" />
+		<Unit filename="../../SGDK/1.21/sample/bench/res/md_jap_logo_small.png" />
+		<Unit filename="../../SGDK/1.21/sample/bench/res/spr_res.res" />
+		<Unit filename="../../SGDK/1.21/sample/bench/src/bg_test.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/sample/bench/src/bmp_test.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/sample/bench/src/main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/sample/bench/src/math_test.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/sample/bench/src/math_test_a.s" />
+		<Unit filename="../../SGDK/1.21/sample/bench/src/mem_test.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/sample/bench/src/spr_test.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/sample/cube_flat/out/rom.bin" />
+		<Unit filename="../../SGDK/1.21/sample/cube_flat/src/main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/sample/cube_flat/src/meshs.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/sample/cube_flat/src/meshs.h" />
+		<Unit filename="../../SGDK/1.21/sample/hs_effect/out/rom.bin" />
+		<Unit filename="../../SGDK/1.21/sample/hs_effect/src/main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/sample/joytest/out/rom.bin" />
+		<Unit filename="../../SGDK/1.21/sample/joytest/src/main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/sample/partic/out/rom.bin" />
+		<Unit filename="../../SGDK/1.21/sample/partic/src/main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/sample/sound/out/rom.bin" />
+		<Unit filename="../../SGDK/1.21/sample/sound/res/bad_apple.vgm" />
+		<Unit filename="../../SGDK/1.21/sample/sound/res/bad_apple_pcm.vgm" />
+		<Unit filename="../../SGDK/1.21/sample/sound/res/explode.wav" />
+		<Unit filename="../../SGDK/1.21/sample/sound/res/f_voice1.pcm" />
+		<Unit filename="../../SGDK/1.21/sample/sound/res/hat1.wav" />
+		<Unit filename="../../SGDK/1.21/sample/sound/res/hat2.wav" />
+		<Unit filename="../../SGDK/1.21/sample/sound/res/india_11k.wav" />
+		<Unit filename="../../SGDK/1.21/sample/sound/res/india_13k.wav" />
+		<Unit filename="../../SGDK/1.21/sample/sound/res/india_16k.wav" />
+		<Unit filename="../../SGDK/1.21/sample/sound/res/india_22k.wav" />
+		<Unit filename="../../SGDK/1.21/sample/sound/res/india_32k.wav" />
+		<Unit filename="../../SGDK/1.21/sample/sound/res/india_8k.wav" />
+		<Unit filename="../../SGDK/1.21/sample/sound/res/loop1.wav" />
+		<Unit filename="../../SGDK/1.21/sample/sound/res/loop2.wav" />
+		<Unit filename="../../SGDK/1.21/sample/sound/res/loop3.wav" />
+		<Unit filename="../../SGDK/1.21/sample/sound/res/midnight.vgm" />
+		<Unit filename="../../SGDK/1.21/sample/sound/res/music_mvs.mvs" />
+		<Unit filename="../../SGDK/1.21/sample/sound/res/music_tfd.tfd" />
+		<Unit filename="../../SGDK/1.21/sample/sound/res/resources.res" />
+		<Unit filename="../../SGDK/1.21/sample/sound/res/roadrash.vgm" />
+		<Unit filename="../../SGDK/1.21/sample/sound/res/snare1.wav" />
+		<Unit filename="../../SGDK/1.21/sample/sound/res/snare2.wav" />
+		<Unit filename="../../SGDK/1.21/sample/sound/res/sonic1.vgm" />
+		<Unit filename="../../SGDK/1.21/sample/sound/res/sor2.vgm" />
+		<Unit filename="../../SGDK/1.21/sample/sound/res/sor2.xgm" />
+		<Unit filename="../../SGDK/1.21/sample/sound/res/toy_story.vgm" />
+		<Unit filename="../../SGDK/1.21/sample/sound/src/main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/sample/sprite/out/rom.bin" />
+		<Unit filename="../../SGDK/1.21/sample/sprite/res/gfx.res" />
+		<Unit filename="../../SGDK/1.21/sample/sprite/res/gfx/bga.png" />
+		<Unit filename="../../SGDK/1.21/sample/sprite/res/gfx/bgb.png" />
+		<Unit filename="../../SGDK/1.21/sample/sprite/res/music/sonic1.vgm" />
+		<Unit filename="../../SGDK/1.21/sample/sprite/res/sfx/S1_die.wav" />
+		<Unit filename="../../SGDK/1.21/sample/sprite/res/sfx/S1_explode1.wav" />
+		<Unit filename="../../SGDK/1.21/sample/sprite/res/sfx/S1_explode2.wav" />
+		<Unit filename="../../SGDK/1.21/sample/sprite/res/sfx/S1_explode3.wav" />
+		<Unit filename="../../SGDK/1.21/sample/sprite/res/sfx/S1_jump.wav" />
+		<Unit filename="../../SGDK/1.21/sample/sprite/res/sfx/S1_jumper.wav" />
+		<Unit filename="../../SGDK/1.21/sample/sprite/res/sfx/S1_ring1.wav" />
+		<Unit filename="../../SGDK/1.21/sample/sprite/res/sfx/S1_ring2.wav" />
+		<Unit filename="../../SGDK/1.21/sample/sprite/res/sfx/S1_ringlost.wav" />
+		<Unit filename="../../SGDK/1.21/sample/sprite/res/sfx/S1_roll.wav" />
+		<Unit filename="../../SGDK/1.21/sample/sprite/res/sfx/S1_spinning.wav" />
+		<Unit filename="../../SGDK/1.21/sample/sprite/res/sfx/S1_stop.wav" />
+		<Unit filename="../../SGDK/1.21/sample/sprite/res/sound.res" />
+		<Unit filename="../../SGDK/1.21/sample/sprite/res/sprite.res" />
+		<Unit filename="../../SGDK/1.21/sample/sprite/res/sprite/enemies.png" />
+		<Unit filename="../../SGDK/1.21/sample/sprite/res/sprite/sonic.png" />
+		<Unit filename="../../SGDK/1.21/sample/sprite/src/main.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/src/bmp.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/src/bmp_a.s" />
+		<Unit filename="../../SGDK/1.21/src/boot/rom_head.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/src/boot/sega.s" />
+		<Unit filename="../../SGDK/1.21/src/dma.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/src/everdrive.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/src/fat16.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/src/joy.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/src/kdebug.s" />
+		<Unit filename="../../SGDK/1.21/src/maths.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/src/maths3D.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/src/maths3D_a.s" />
+		<Unit filename="../../SGDK/1.21/src/memory.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/src/memory_a.s" />
+		<Unit filename="../../SGDK/1.21/src/psg.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/src/smp_null.s" />
+		<Unit filename="../../SGDK/1.21/src/smp_null_pcm.s" />
+		<Unit filename="../../SGDK/1.21/src/sound.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/src/sprite_eng.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/src/sram.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/src/sram_a.s" />
+		<Unit filename="../../SGDK/1.21/src/string.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/src/sys.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/src/sys_a.s" />
+		<Unit filename="../../SGDK/1.21/src/tab_cnv.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/src/tab_log10.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/src/tab_log2.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/src/tab_sin.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/src/tab_sqrt.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/src/tab_vol.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/src/tfcplay.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/src/tile_cache.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/src/timer.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/src/tools.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/src/tools_a.s" />
+		<Unit filename="../../SGDK/1.21/src/types.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/src/vdp.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/src/vdp_bg.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/src/vdp_dma.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/src/vdp_pal.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/src/vdp_pal_a.s" />
+		<Unit filename="../../SGDK/1.21/src/vdp_spr.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/src/vdp_tile.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/src/vdp_tile_a.s" />
+		<Unit filename="../../SGDK/1.21/src/vram.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/src/ym2612.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/src/z80_ctrl.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/src/z80_def.i80" />
+		<Unit filename="../../SGDK/1.21/src/z80_drv1.h" />
+		<Unit filename="../../SGDK/1.21/src/z80_drv1.s80" />
+		<Unit filename="../../SGDK/1.21/src/z80_drv2.h" />
+		<Unit filename="../../SGDK/1.21/src/z80_drv2.s80" />
+		<Unit filename="../../SGDK/1.21/src/z80_drv3.h" />
+		<Unit filename="../../SGDK/1.21/src/z80_drv3.s80" />
+		<Unit filename="../../SGDK/1.21/src/z80_fct.i80" />
+		<Unit filename="../../SGDK/1.21/src/z80_mac.i80" />
+		<Unit filename="../../SGDK/1.21/src/z80_mvs.h" />
+		<Unit filename="../../SGDK/1.21/src/z80_mvs.s80" />
+		<Unit filename="../../SGDK/1.21/src/z80_tfm.h" />
+		<Unit filename="../../SGDK/1.21/src/z80_tfm.s80" />
+		<Unit filename="../../SGDK/1.21/src/z80_vgm.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/src/z80_xgm.h" />
+		<Unit filename="../../SGDK/1.21/src/z80_xgm.s80" />
+		<Unit filename="../../SGDK/1.21/src/zlib.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/tools/appack/appack.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/tools/appack/doc/aPLib-1.1.0.chm" />
+		<Unit filename="../../SGDK/1.21/tools/appack/doc/html/acknowledgements.html" />
+		<Unit filename="../../SGDK/1.21/tools/appack/doc/html/ahob.css" />
+		<Unit filename="../../SGDK/1.21/tools/appack/doc/html/changes.html" />
+		<Unit filename="../../SGDK/1.21/tools/appack/doc/html/compression.html" />
+		<Unit filename="../../SGDK/1.21/tools/appack/doc/html/decompression.html" />
+		<Unit filename="../../SGDK/1.21/tools/appack/doc/html/general.html" />
+		<Unit filename="../../SGDK/1.21/tools/appack/doc/html/index.html" />
+		<Unit filename="../../SGDK/1.21/tools/appack/doc/html/license.html" />
+		<Unit filename="../../SGDK/1.21/tools/appack/doc/html/mwcos.png" />
+		<Unit filename="../../SGDK/1.21/tools/appack/doc/html/vcss.png" />
+		<Unit filename="../../SGDK/1.21/tools/appack/doc/html/xhtml10.png" />
+		<Unit filename="../../SGDK/1.21/tools/appack/lib/coff64/aplib.h" />
+		<Unit filename="../../SGDK/1.21/tools/appack/lib/coff64/aplib.lib" />
+		<Unit filename="../../SGDK/1.21/tools/appack/lib/coff/aplib.h" />
+		<Unit filename="../../SGDK/1.21/tools/appack/lib/coff/aplib.lib" />
+		<Unit filename="../../SGDK/1.21/tools/appack/lib/dll64/aplib.dll" />
+		<Unit filename="../../SGDK/1.21/tools/appack/lib/dll64/aplib.h" />
+		<Unit filename="../../SGDK/1.21/tools/appack/lib/dll64/aplib.lib" />
+		<Unit filename="../../SGDK/1.21/tools/appack/lib/dll/aplib.dll" />
+		<Unit filename="../../SGDK/1.21/tools/appack/lib/dll/aplib.h" />
+		<Unit filename="../../SGDK/1.21/tools/appack/lib/dll/aplib.lib" />
+		<Unit filename="../../SGDK/1.21/tools/appack/lib/elf64/aplib.h" />
+		<Unit filename="../../SGDK/1.21/tools/appack/lib/elf/aplib.h" />
+		<Unit filename="../../SGDK/1.21/tools/appack/lib/omf/aplib.h" />
+		<Unit filename="../../SGDK/1.21/tools/appack/lib/omf/aplib.lib" />
+		<Unit filename="../../SGDK/1.21/tools/appack/make_bcc.bat" />
+		<Unit filename="../../SGDK/1.21/tools/appack/make_dll.bat" />
+		<Unit filename="../../SGDK/1.21/tools/appack/make_pc.bat" />
+		<Unit filename="../../SGDK/1.21/tools/appack/make_vc.bat" />
+		<Unit filename="../../SGDK/1.21/tools/appack/make_wat.bat" />
+		<Unit filename="../../SGDK/1.21/tools/appack/makefile.cyg" />
+		<Unit filename="../../SGDK/1.21/tools/appack/makefile.elf" />
+		<Unit filename="../../SGDK/1.21/tools/appack/makefile.mgw" />
+		<Unit filename="../../SGDK/1.21/tools/appack/readme.txt" />
+		<Unit filename="../../SGDK/1.21/tools/bintos/src/bintos.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/tools/pcmtoraw/src/pcmtoraw.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/tools/rescomp/inc/bin.h" />
+		<Unit filename="../../SGDK/1.21/tools/rescomp/inc/bitmap.h" />
+		<Unit filename="../../SGDK/1.21/tools/rescomp/inc/image.h" />
+		<Unit filename="../../SGDK/1.21/tools/rescomp/inc/img_tools.h" />
+		<Unit filename="../../SGDK/1.21/tools/rescomp/inc/libpng.h" />
+		<Unit filename="../../SGDK/1.21/tools/rescomp/inc/map.h" />
+		<Unit filename="../../SGDK/1.21/tools/rescomp/inc/palette.h" />
+		<Unit filename="../../SGDK/1.21/tools/rescomp/inc/pcm.h" />
+		<Unit filename="../../SGDK/1.21/tools/rescomp/inc/plugin.h" />
+		<Unit filename="../../SGDK/1.21/tools/rescomp/inc/rescomp.h" />
+		<Unit filename="../../SGDK/1.21/tools/rescomp/inc/snd_tools.h" />
+		<Unit filename="../../SGDK/1.21/tools/rescomp/inc/spr_tools.h" />
+		<Unit filename="../../SGDK/1.21/tools/rescomp/inc/sprite.h" />
+		<Unit filename="../../SGDK/1.21/tools/rescomp/inc/tfmmusic.h" />
+		<Unit filename="../../SGDK/1.21/tools/rescomp/inc/tile_tools.h" />
+		<Unit filename="../../SGDK/1.21/tools/rescomp/inc/tileset.h" />
+		<Unit filename="../../SGDK/1.21/tools/rescomp/inc/tools.h" />
+		<Unit filename="../../SGDK/1.21/tools/rescomp/inc/vgmmusic.h" />
+		<Unit filename="../../SGDK/1.21/tools/rescomp/inc/wav.h" />
+		<Unit filename="../../SGDK/1.21/tools/rescomp/inc/xgmmusic.h" />
+		<Unit filename="../../SGDK/1.21/tools/rescomp/src/bin.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/tools/rescomp/src/bitmap.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/tools/rescomp/src/bmp_tools.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/tools/rescomp/src/image.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/tools/rescomp/src/img_tools.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/tools/rescomp/src/libpng.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/tools/rescomp/src/map.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/tools/rescomp/src/palette.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/tools/rescomp/src/pcm.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/tools/rescomp/src/png_tools.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/tools/rescomp/src/rescomp.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/tools/rescomp/src/snd_tools.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/tools/rescomp/src/spr_tools.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/tools/rescomp/src/sprite.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/tools/rescomp/src/tfmmusic.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/tools/rescomp/src/tile_tools.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/tools/rescomp/src/tileset.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/tools/rescomp/src/tools.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/tools/rescomp/src/vgmmusic.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/tools/rescomp/src/wav.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/tools/rescomp/src/xgmmusic.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/tools/sizebnd/src/sizebnd.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/tools/wavtoraw/src/wavtoraw.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/tools/xgmtool/inc/gd3.h" />
+		<Unit filename="../../SGDK/1.21/tools/xgmtool/inc/psg.h" />
+		<Unit filename="../../SGDK/1.21/tools/xgmtool/inc/samplebank.h" />
+		<Unit filename="../../SGDK/1.21/tools/xgmtool/inc/util.h" />
+		<Unit filename="../../SGDK/1.21/tools/xgmtool/inc/vgm.h" />
+		<Unit filename="../../SGDK/1.21/tools/xgmtool/inc/vgmcom.h" />
+		<Unit filename="../../SGDK/1.21/tools/xgmtool/inc/xgc.h" />
+		<Unit filename="../../SGDK/1.21/tools/xgmtool/inc/xgccom.h" />
+		<Unit filename="../../SGDK/1.21/tools/xgmtool/inc/xgm.h" />
+		<Unit filename="../../SGDK/1.21/tools/xgmtool/inc/xgmcom.h" />
+		<Unit filename="../../SGDK/1.21/tools/xgmtool/inc/xgmsmp.h" />
+		<Unit filename="../../SGDK/1.21/tools/xgmtool/inc/xgmtool.h" />
+		<Unit filename="../../SGDK/1.21/tools/xgmtool/inc/ym2612.h" />
+		<Unit filename="../../SGDK/1.21/tools/xgmtool/src/gd3.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/tools/xgmtool/src/psg.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/tools/xgmtool/src/samplebank.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/tools/xgmtool/src/util.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/tools/xgmtool/src/vgm.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/tools/xgmtool/src/vgmcom.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/tools/xgmtool/src/xgc.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/tools/xgmtool/src/xgccom.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/tools/xgmtool/src/xgm.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/tools/xgmtool/src/xgmcom.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/tools/xgmtool/src/xgmsmp.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/tools/xgmtool/src/xgmtool.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="../../SGDK/1.21/tools/xgmtool/src/ym2612.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Extensions>
+			<code_completion />
+			<envvars />
+			<debugger />
+		</Extensions>
+	</Project>
+</CodeBlocks_project_file>

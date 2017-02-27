@@ -19,6 +19,7 @@
 #define WAD   41
 #define WAE   15
 #define WAF  250
+#define WAG   37
 
 
 
@@ -46,9 +47,9 @@ static const ANIMATION _list [ ] =
 
    // inicio - common - sprite 16x24
 
-	{ "Door closed",      GRS cs_sprites_16x24, PAL1,   1, { {  0, WA0 } } },
-   { "Door Open Anim",   GRS cs_sprites_16x24, PAL1,   2, { {  1, WA3 }, {  2, WA5 } } },
-   { "Door opened",      GRS cs_sprites_16x24, PAL1,   1, { {  2, WA0 } } },
+	{ "Door",             GRS cs_sprites_16x24, PAL1,   1, { {  0, WA0 } } },
+	{ "Door Open Anim",   GRS cs_sprites_16x24, PAL1,   2, { {  1, WA3 }, {  2, WA5 } } },
+	{ "Door opened",      GRS cs_sprites_16x24, PAL1,   1, { {  2, WA0 } } },
 	{ "Door Griel exits", GRS cs_sprites_16x24, PAL1,  10, { {  3, WA6 }, {  4, WA6 }, {  5, WA6 }, {  6, WA6 }, {  7, WA6 }, {  9, WA6 }, {  8, WA6 }, {  9, WA6 }, {  8, WA6 }, {  9, WA6 } } },
 
 	{ "Griel Up",         GRS cs_sprites_16x24, PAL1,   4, { { 10, WA7 }, { 11, WA7 }, { 12, WA7 }, { 11, WA7 } } },
@@ -74,19 +75,19 @@ static const ANIMATION _list [ ] =
 
 	{ "Sprite Empty",     GRS cs_sprites_16x24, PAL1,   1, { { 69, 0 } } },
 
-   // fin - common - sprite 16x24
+	// fin - common - sprite 16x24
 
 
 
-   // inicio - common - sprite 16x16
+	// inicio - common - sprite 16x16
 
-	{ "Remove Object",    GRS cs_sprites_16x16, PAL1,   6, { {  0, WA5 }, {  1, WA5 }, {  2, WA5 }, {  3, WA5 }, {  4, WA5 }, {  9, 5 } } },// el último hace borrar la VRAM
-	{ "Remove Sprite",    GRS cs_sprites_16x24, PAL1,   6, { { 70, WA5 }, { 71, WA5 }, { 72, WA5 }, { 73, WA5 }, { 74, WA5 }, { 89, 5 } } },// el último hace borrar la VRAM
+	{ "Remove Object",    GRS cs_sprites_16x16, PAL1,   6, { {  0, WA5 }, {  1, WA5 }, {  2, WA5 }, {  3, WA5 }, {  4, WA5 }, {  9, 5 } } },// el Ãºltimo hace borrar la VRAM
+	{ "Remove Sprite",    GRS cs_sprites_16x24, PAL1,   6, { { 70, WA5 }, { 71, WA5 }, { 72, WA5 }, { 73, WA5 }, { 74, WA5 }, { 89, 5 } } },// el Ãºltimo hace borrar la VRAM
 	{ "Enemy Dead",       GRS cs_sprites_16x16, PAL1,   5, { {  5, WA7 }, {  6, WA7 }, {  7, WA7 }, {  8, WA7 }, {  9, WA7 } } },
 	{ "Staff",            GRS cs_sprites_16x16, PAL1,   1, { { 10, WA0 } } },
 	{ "Cross",            GRS cs_sprites_16x16, PAL1,   1, { { 11, WA0 } } },
 	{ "Sword",            GRS cs_sprites_16x16, PAL1,   1, { { 12, WA0 } } },
-	{ "Dust",             GRS cs_sprites_16x16, PAL1,   3, { { 13, WA6 }, { 14, WA7 }, { 15, WA7 } } },
+	{ "Dust",             GRS cs_sprites_16x16, PAL1,   3, { { 13, WA7 }, { 14, WA5 }, { 15, WA7 } } },
 	{ "Undo",             GRS cs_sprites_16x16, PAL1,   1, { { 16, WA0 } } },
 	{ "Undo OK",          GRS cs_sprites_16x16, PAL1,   1, { { 17, WA0 } } },
 	{ "Boss",             GRS cs_sprites_16x16, PAL1,   2, { { 18, WAB }, { 19, WA3 } } },
@@ -118,26 +119,29 @@ static const ANIMATION _list [ ] =
 	{ "Piedras",          GRS w0s_blocks,       PAL3,   1, { { 12, 0 } } },
 	{ "Seta 1",           GRS w0s_blocks,       PAL3,   1, { { 13, 0 } } },
 	{ "Seta 2",           GRS w0s_blocks,       PAL3,   1, { { 14, 0 } } },
-   { "Candle",           GRS w0s_blocks,       PAL3,   2, { {  7, WA6 }, { 17, WA6 } } },
-   { "Fire",             GRS w0s_blocks,       PAL3,   2, { { 15, WA6 }, { 16, WA6 } } },
-   { "AbbayeMD 1",       GRS w0s_blocks,       PAL3,   1, { {  8, WA0 } } },
-   { "AbbayeMD 2",       GRS w0s_blocks,       PAL3,   1, { { 18, WA0 } } },
-   { "Bigtree 1",        GRS w0s_blocks,       PAL3,   1, { {  9, WA0 } } },
-   { "Bigtree 2",        GRS w0s_blocks,       PAL3,   1, { { 19, WA0 } } },
+	{ "Candle",           GRS w0s_blocks,       PAL3,   2, { {  7, WA6 }, { 17, WA6 } } },
+	{ "Fire",             GRS w0s_blocks,       PAL3,   2, { { 15, WA6 }, { 16, WA6 } } },
+	{ "AbbayeMD 1",       GRS w0s_blocks,       PAL3,   1, { {  8, WA0 } } },
+	{ "AbbayeMD 2",       GRS w0s_blocks,       PAL3,   1, { { 18, WA0 } } },
+	{ "Bigtree 1",        GRS w0s_blocks,       PAL3,   1, { {  9, WA0 } } },
+	{ "Bigtree 2",        GRS w0s_blocks,       PAL3,   1, { { 19, WA0 } } },
 
-   { "Lake",             GRS w0s_blocks_32x32, PAL3,   2, { {  0, WAD }, {  1, WAD } } },
+	{ "Lake",             GRS w0s_blocks_32x32, PAL3,   2, { {  0, WAD }, {  2, WAD } } },
+	{ "Lake",             GRS w0s_blocks_32x32, PAL3,   2, { {  1, WAD }, {  3, WAD } } },
+	{ "Lake",             GRS w0s_blocks_32x32, PAL3,   2, { {  4, WAD }, {  6, WAD } } },
+	{ "Lake",             GRS w0s_blocks_32x32, PAL3,   2, { {  5, WAD }, {  7, WAD } } },
 
-	{ "Wildboar",         GRS w0s_enemies,      PAL2,   2, { {  0, WA4 }, {  1, WA4 } } },
+	{ "Wildboar",         GRS w0s_enemies,      PAL2,   2, { {  0, WAG }, {  1, WAG } } },
 	{ "Wildboar Alt",     GRS w0s_enemies,      PAL2,   2, { {  2, WAA }, {  3, WAA } } },
-	{ "Wildboar Die",     GRS w0s_enemies,      PAL2,   4, { {  4, WA3 }, {  5, WA4 }, {  6, WAB }, {8,3} } }, // el último hace borrar la VRAM
+	{ "Wildboar Die",     GRS w0s_enemies,      PAL2,   4, { {  4, WA3 }, {  5, WA4 }, {  6, WAB }, {8,3} } }, // el Ãºltimo hace borrar la VRAM
 
-	{ "Toadstool",        GRS w0s_enemies,      PAL2,   2, { { 10, WA6 }, { 11, WA6 } } },
+	{ "Toadstool",        GRS w0s_enemies,      PAL2,   2, { { 10, WAG }, { 11, WAG } } },
 	{ "Toadstool Alt",    GRS w0s_enemies,      PAL2,   2, { { 12, WAA }, { 13, WAA } } },
-	{ "Toadstool Die",    GRS w0s_enemies,      PAL2,   4, { { 14, WA3 }, { 15, WA4 }, { 16, WAB }, {8,3} } }, // el último hace borrar la VRAM
+	{ "Toadstool Die",    GRS w0s_enemies,      PAL2,   4, { { 14, WA3 }, { 15, WA4 }, { 16, WAB }, {8,3} } }, // el Ãºltimo hace borrar la VRAM
 
-	{ "Dark Elf",         GRS w0s_bigboy,       PAL2,   2, { {  0, WA3 }, {  1, WAD } } },
+	{ "Dark Elf",         GRS w0s_bigboy,       PAL2,   2, { {  0, WAG }, {  1, WAG } } },
 	{ "Dark Elf Alt",     GRS w0s_bigboy,       PAL2,   2, { {  2, WAA }, {  3, WAA } } },
-	{ "Dark Elf Die",     GRS w0s_bigboy,       PAL2,   4, { {  4, WA3 }, {  5, WA4 }, {  6, WAB }, {8,3} } }, // el último hace borrar la VRAM
+	{ "Dark Elf Die",     GRS w0s_bigboy,       PAL2,   4, { {  4, WA3 }, {  5, WA4 }, {  6, WAB }, {8,3} } }, // el Ãºltimo hace borrar la VRAM
 
    // fin // ambiente 0
 
@@ -158,28 +162,28 @@ static const ANIMATION _list [ ] =
 	{ "Snowman",          GRS w1s_blocks,       PAL3,   1, { { 14, 0 } } },
 	{ "Skull",            GRS w1s_blocks,       PAL3,   1, { { 15, 0 } } },
 
-   { "Hole",             GRS w1s_blocks,       PAL3,   2, { { 27, WA3 }, { 37, WA3 } } },
-   { "Fish 1",           GRS w1s_blocks,       PAL3,   1, { { 22, 0 } } },
-   { "Fish 2",           GRS w1s_blocks,       PAL3,   1, { { 32, 0 } } },
-   { "Iglu 1",           GRS w1s_blocks,       PAL3,   1, { { 23, 0 } } },
-   { "Iglu 2",           GRS w1s_blocks,       PAL3,   1, { { 24, 0 } } },
-   { "Iglu 3",           GRS w1s_blocks,       PAL3,   1, { { 33, 0 } } },
-   { "Iglu 4",           GRS w1s_blocks,       PAL3,   1, { { 34, 0 } } },
-   { "Candle",           GRS w1s_blocks,       PAL3,   2, { { 25, WAA }, { 35, WAA } } },
-   { "Abbaye U 2",       GRS w1s_blocks,       PAL3,   1, { { 26, 0 } } },
-   { "Abbaye D 2",       GRS w1s_blocks,       PAL3,   1, { { 36, 0 } } },
+	{ "Hole",             GRS w1s_blocks,       PAL3,   2, { { 27, WA3 }, { 37, WA3 } } },
+	{ "Fish 1",           GRS w1s_blocks,       PAL3,   1, { { 22, 0 } } },
+	{ "Fish 2",           GRS w1s_blocks,       PAL3,   1, { { 32, 0 } } },
+	{ "Iglu 1",           GRS w1s_blocks,       PAL3,   1, { { 23, 0 } } },
+	{ "Iglu 2",           GRS w1s_blocks,       PAL3,   1, { { 24, 0 } } },
+	{ "Iglu 3",           GRS w1s_blocks,       PAL3,   1, { { 33, 0 } } },
+	{ "Iglu 4",           GRS w1s_blocks,       PAL3,   1, { { 34, 0 } } },
+	{ "Candle",           GRS w1s_blocks,       PAL3,   2, { { 25, WAA }, { 35, WAA } } },
+	{ "Abbaye U 2",       GRS w1s_blocks,       PAL3,   1, { { 26, 0 } } },
+	{ "Abbaye D 2",       GRS w1s_blocks,       PAL3,   1, { { 36, 0 } } },
 
-	{ "Walrus",           GRS w1s_enemies,      PAL2,   2, { { 10, WA6 }, { 11, WA6 } } },
+	{ "Walrus",           GRS w1s_enemies,      PAL2,   2, { { 10, WAG }, { 11, WAG } } },
 	{ "Walrus Alt",       GRS w1s_enemies,      PAL2,   2, { { 12, WAA }, { 13, WAA } } },
-	{ "Walrus Die",       GRS w1s_enemies,      PAL2,   4, { { 14, WA3 }, { 15, WA4 }, { 16, WAB }, {8,3} } }, // el último hace borrar la VRAM
+	{ "Walrus Die",       GRS w1s_enemies,      PAL2,   4, { { 14, WA3 }, { 15, WA4 }, { 16, WAB }, {8,3} } }, // el Ãºltimo hace borrar la VRAM
 
-	{ "Eskimo",           GRS w1s_enemies,      PAL2,   2, { {  0, WA4 }, {  1, WA4 } } },
+	{ "Eskimo",           GRS w1s_enemies,      PAL2,   2, { {  0, WAG }, {  1, WAG } } },
 	{ "Eskimo Alt",       GRS w1s_enemies,      PAL2,   2, { {  2, WAD }, {  3, WAD } } },
-	{ "Eskimo Die",       GRS w1s_enemies,      PAL2,   4, { {  4, WA3 }, {  5, WA4 }, {  6, WAB }, {8,3} } }, // el último hace borrar la VRAM
+	{ "Eskimo Die",       GRS w1s_enemies,      PAL2,   4, { {  4, WA3 }, {  5, WA4 }, {  6, WAB }, {8,3} } }, // el Ãºltimo hace borrar la VRAM
 
-	{ "Wampa",            GRS w1s_bigboy,       PAL2,   2, { {  0, WAA }, {  1, WAA } } },
+	{ "Wampa",            GRS w1s_bigboy,       PAL2,   2, { {  0, WAG }, {  1, WAG } } },
 	{ "Wampa Alt",        GRS w1s_bigboy,       PAL2,   2, { {  2, WA1 }, {  3, WA1 } } },
-	{ "Wampa Die",        GRS w1s_bigboy,       PAL2,   4, { {  4, WA3 }, {  5, WA4 }, {  6, WAB }, {8,3} } }, // el último hace borrar la VRAM
+	{ "Wampa Die",        GRS w1s_bigboy,       PAL2,   4, { {  4, WA3 }, {  5, WA4 }, {  6, WAB }, {8,3} } }, // el Ãºltimo hace borrar la VRAM
 
    // fin // ambiente 1
 
@@ -205,17 +209,17 @@ static const ANIMATION _list [ ] =
 	{ "Sarcofago 1",      GRS w2s_blocks,       PAL3,   1, { {  9, 0 } } },
 	{ "Sarcofago 2",      GRS w2s_blocks,       PAL3,   1, { { 19, 0 } } },
 
-	{ "Bedouin",          GRS w2s_enemies,      PAL2,   2, { { 10, WA6 }, { 11, WA6 } } },
+	{ "Bedouin",          GRS w2s_enemies,      PAL2,   2, { { 10, WAG }, { 11, WAG } } },
 	{ "Bedouin Alt",      GRS w2s_enemies,      PAL2,   2, { { 12, WAA }, { 13, WAA } } },
-	{ "Bedouin Die",      GRS w2s_enemies,      PAL2,   4, { { 14, WA3 }, { 15, WA4 }, { 16, WAB }, {8,3} } }, // el último hace borrar la VRAM
+	{ "Bedouin Die",      GRS w2s_enemies,      PAL2,   4, { { 14, WA3 }, { 15, WA4 }, { 16, WAB }, {8,3} } }, // el Ãºltimo hace borrar la VRAM
 
-	{ "Scorpio",          GRS w2s_enemies,      PAL2,   2, { {  0, WA4 }, {  1, WA4 } } },
+	{ "Scorpio",          GRS w2s_enemies,      PAL2,   2, { {  0, WAG }, {  1, WAG } } },
 	{ "Scorpio Alt",      GRS w2s_enemies,      PAL2,   2, { {  2, WAD }, {  3, WAD } } },
-	{ "Scorpio Die",      GRS w2s_enemies,      PAL2,   4, { {  4, WA3 }, {  5, WA4 }, {  6, WAB }, {8,3} } }, // el último hace borrar la VRAM
+	{ "Scorpio Die",      GRS w2s_enemies,      PAL2,   4, { {  4, WA3 }, {  5, WA4 }, {  6, WAB }, {8,3} } }, // el Ãºltimo hace borrar la VRAM
 
-	{ "Mummy",            GRS w2s_bigboy,       PAL2,   2, { {  0, WAA }, {  1, WAA } } },
+	{ "Mummy",            GRS w2s_bigboy,       PAL2,   2, { {  0, WAG }, {  1, WAG } } },
 	{ "Mummy Alt",        GRS w2s_bigboy,       PAL2,   2, { {  2, WA1 }, {  3, WA1 } } },
-	{ "Mummy Die",        GRS w2s_bigboy,       PAL2,   4, { {  4, WA3 }, {  5, WA4 }, {  6, WAB }, {8,3} } }, // el último hace borrar la VRAM
+	{ "Mummy Die",        GRS w2s_bigboy,       PAL2,   4, { {  4, WA3 }, {  5, WA4 }, {  6, WAB }, {8,3} } }, // el Ãºltimo hace borrar la VRAM
 
 	{ "Esfinge 1",        GRS w2s_blocks,       PAL3,   1, { { 20, 0 } } },
 	{ "Esfinge 2",        GRS w2s_blocks,       PAL3,   1, { { 21, 0 } } },
@@ -250,17 +254,17 @@ static const ANIMATION _list [ ] =
 	{ "Galeon3",          GRS w3s_blocks,       PAL3,   1, { { 30,   0 } } },
 	{ "Galeon4",          GRS w3s_blocks,       PAL3,   1, { { 31,   0 } } },
 
-	{ "Cangrejo",         GRS w3s_enemies,      PAL2,   2, { {  0, WA4 }, {  1, WA4 } } },
+	{ "Cangrejo",         GRS w3s_enemies,      PAL2,   2, { {  0, WAG }, {  1, WAG } } },
 	{ "Cangrejo Alt",     GRS w3s_enemies,      PAL2,   2, { {  2, WAD }, {  3, WAD } } },
-	{ "Cangrejo Die",     GRS w3s_enemies,      PAL2,   4, { {  4, WA3 }, {  5, WA4 }, {  6, WAB }, {8,3} } }, // el último hace borrar la VRAM
+	{ "Cangrejo Die",     GRS w3s_enemies,      PAL2,   4, { {  4, WA3 }, {  5, WA4 }, {  6, WAB }, {8,3} } }, // el Ãºltimo hace borrar la VRAM
 
-	{ "Pirata",           GRS w3s_enemies,      PAL2,   2, { { 10, WA6 }, { 11, WA6 } } },
+	{ "Pirata",           GRS w3s_enemies,      PAL2,   2, { { 10, WAG }, { 11, WAG } } },
 	{ "Pirata Alt",       GRS w3s_enemies,      PAL2,   2, { { 12, WAA }, { 13, WAA } } },
-	{ "Pirata Die",       GRS w3s_enemies,      PAL2,   4, { { 14, WA3 }, { 15, WA4 }, { 16, WAB }, {8,3} } }, // el último hace borrar la VRAM
+	{ "Pirata Die",       GRS w3s_enemies,      PAL2,   4, { { 14, WA3 }, { 15, WA4 }, { 16, WAB }, {8,3} } }, // el Ãºltimo hace borrar la VRAM
 
-	{ "Plesi",            GRS w3s_bigboy,       PAL2,   2, { {  0, WAA }, {  1, WAA } } },
+	{ "Plesi",            GRS w3s_bigboy,       PAL2,   2, { {  0, WAG }, {  1, WAG } } },
 	{ "Plesi Alt",        GRS w3s_bigboy,       PAL2,   2, { {  2, WA1 }, {  3, WA1 } } },
-	{ "Plesi Die",        GRS w3s_bigboy,       PAL2,   4, { {  4, WA3 }, {  5, WA4 }, {  6, WAB }, {8,3} } }, // el último hace borrar la VRAM
+	{ "Plesi Die",        GRS w3s_bigboy,       PAL2,   4, { {  4, WA3 }, {  5, WA4 }, {  6, WAB }, {8,3} } }, // el Ãºltimo hace borrar la VRAM
 
 	{ "SEA",              GRS w3s_sea,          PAL0,   4, { {  0, WA3 }, {  1, WA4 }, {  2, WA3 }, {  1, WA4 } } },
 
@@ -287,22 +291,25 @@ static const ANIMATION _list [ ] =
 	{ "Sofa1",            GRS w4s_blocks,       PAL3,   1, { { 14, 0 } } },
 	{ "Sofa2",            GRS w4s_blocks,       PAL3,   1, { { 15, 0 } } },
 
-	{ "Murci",            GRS w4s_murci,        PAL3,   6, { {  0, WA1 }, {  1, WA1 }, {  2, WA1 }, {  3, WA1 }, {  4, WA1 }, {  5, WA1 } } },
+	{ "Murci",            GRS w4s_murci,        PAL3,   6, { {  0, WA1 }, {  2, WA1 }, {  4, WA1 }, {  6, WA1 }, {  8, WA1 }, { 10, WA1 } } },
+	{ "Murci",            GRS w4s_murci,        PAL3,   6, { {  1, WA1 }, {  3, WA1 }, {  5, WA1 }, {  7, WA1 }, {  9, WA1 }, { 11, WA1 } } },
+	{ "Murci",            GRS w4s_murci,        PAL3,   6, { { 12, WA1 }, { 14, WA1 }, { 16, WA1 }, { 18, WA1 }, { 20, WA1 }, { 22, WA1 } } },
+	{ "Murci",            GRS w4s_murci,        PAL3,   6, { { 13, WA1 }, { 15, WA1 }, { 17, WA1 }, { 19, WA1 }, { 21, WA1 }, { 23, WA1 } } },
 
-	{ "Eye",              GRS w4s_enemies,      PAL2,   2, { {  0, WA4 }, {  1, WA4 } } },
+	{ "Eye",              GRS w4s_enemies,      PAL2,   2, { {  0, WAG }, {  1, WAG } } },
 	{ "Eye Alt",          GRS w4s_enemies,      PAL2,   2, { {  2, WAD }, {  3, WAD } } },
-	{ "Eye Die",          GRS w4s_enemies,      PAL2,   4, { {  4, WA3 }, {  5, WA4 }, {  6, WAB }, {8,3} } }, // el último hace borrar la VRAM
+	{ "Eye Die",          GRS w4s_enemies,      PAL2,   4, { {  4, WA3 }, {  5, WA4 }, {  6, WAB }, {8,3} } }, // el Ãºltimo hace borrar la VRAM
 
-	{ "Ogre",             GRS w4s_enemies,      PAL2,   2, { { 10, WA6 }, { 11, WA6 } } },
+	{ "Ogre",             GRS w4s_enemies,      PAL2,   2, { { 10, WAG }, { 11, WAG } } },
 	{ "Ogre Alt",         GRS w4s_enemies,      PAL2,   2, { { 12, WAA }, { 13, WAA } } },
-	{ "Ogre Die",         GRS w4s_enemies,      PAL2,   4, { { 14, WA3 }, { 15, WA4 }, { 16, WAB }, {8,3} } }, // el último hace borrar la VRAM
+	{ "Ogre Die",         GRS w4s_enemies,      PAL2,   4, { { 14, WA3 }, { 15, WA4 }, { 16, WAB }, {8,3} } }, // el Ãºltimo hace borrar la VRAM
 
-	{ "Demon",            GRS w4s_bigboy,       PAL2,   2, { {  0, WAA }, {  1, WAA } } },
+	{ "Demon",            GRS w4s_bigboy,       PAL2,   2, { {  0, WAG }, {  1, WAG } } },
 	{ "Demon Alt",        GRS w4s_bigboy,       PAL2,   2, { {  2, WA1 }, {  3, WA1 } } },
-	{ "Demon Die",        GRS w4s_bigboy,       PAL2,   4, { {  4, WA3 }, {  5, WA4 }, {  6, WAB }, {8,3} } }, // el último hace borrar la VRAM
+	{ "Demon Die",        GRS w4s_bigboy,       PAL2,   4, { {  4, WA3 }, {  5, WA4 }, {  6, WAB }, {8,3} } }, // el Ãºltimo hace borrar la VRAM
 
-	{ "Lava 1",           GRS w4s_lava,         PAL0,   8, { {  0, 11 }, {  1, 20 }, {  0, 12 }, {  1, 12 }, {  2, 81 }, {  1, 20 }, {  2, 33 }, {  1, 10 } } }, // el último hace borrar la VRAM
-	{ "Lava 2",           GRS w4s_lava,         PAL0,   8, { {  3, 11 }, {  4, 20 }, {  3, 12 }, {  4, 12 }, {  5, 81 }, {  4, 20 }, {  5, 33 }, {  4, 10 } } }, // el último hace borrar la VRAM
+	{ "Lava 1",           GRS w4s_lava,         PAL0,   8, { {  0, 11 }, {  1, 23 }, {  0, 11 }, {  1, 11 }, {  2, 83 }, {  1, 23 }, {  2, 37 }, {  1, 11 } } }, // el Ãºltimo hace borrar la VRAM
+	{ "Lava 2",           GRS w4s_lava,         PAL0,   8, { {  3, 11 }, {  4, 23 }, {  3, 11 }, {  4, 11 }, {  5, 83 }, {  4, 23 }, {  5, 37 }, {  4, 11 } } }, // el Ãºltimo hace borrar la VRAM
 
 	{ "Ventana 1",        GRS w4s_ventana_1,    PAL0,   2, { {  0, 49 }, {  1, 49 } } },
 	{ "Ventana 2",        GRS w4s_ventana_2,    PAL0,   2, { {  0, 49 }, {  1, 49 } } },
@@ -311,6 +318,14 @@ static const ANIMATION _list [ ] =
 
    // fin // ambiente 4
 
+
+
+
+	{ "Key",              GRS cs_htp_objects,   PAL1,   1, { { 1, 119 } } },
+	{ "Door",             GRS cs_htp_objects,   PAL1,   1, { { 0, 117 } } },
+
+	{ "UI Left 1",        GRS cs_ui_left,       PAL1,   1, { { 0, 117 } } },
+	{ "UI Left 2",        GRS cs_ui_left,       PAL1,   1, { { 1, 117 } } },
 
 
 	{ "Block",            GRS cs_empty,         PAL3 },
@@ -356,6 +371,9 @@ static const ANIMATION _list [ ] =
 	{ "Staff charge L",   GRS cs_weapons,       PAL1,   1, { { 55, WA7 } } },
 	{ "Staff charge R",   GRS cs_weapons,       PAL1,   1, { { 56, WA7 } } },
 
+	{ "Monedon",          GRS cs_sprites_16x24, PAL1,   2, { { 80, WA3 }, { 81, WA3 } } },
+	{ "Kbrah",            GRS cs_sprites_16x24, PAL1,   2, { { 90, WA3 }, { 91, WA3 } } },
+
 	{ "EMPTY WEAPON",     GRS cs_weapons,       PAL1,   1, { { 18, WA3 } } },
 
 
@@ -368,23 +386,23 @@ static const ANIMATION _list [ ] =
 
 
 
+////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
+vu32 *plctrl = (u32 *) GFX_CTRL_PORT;
+vu16 *pwdata = (u16 *) GFX_DATA_PORT;
 
-#define FOR1    for  (  j = 0;           j <  width;   j++  )
-#define FOR2    for  (  i = height - 1;  i >= 0;       i--  )
-#define FOR3    for  (  j = width  - 1;  j >= 0;       j--  )
-#define FOR4    for  (  i = 0;           i <  height;  i++  )
-
-#define DO_GFX_STUFF                                                                     \
-{                                                                                        \
-	*plctrl = GFX_WRITE_VRAM_ADDR ( plan + ( ( (x2+j) + ( planwidth * (y2+i) ) ) * 2 ) ); \
-	*pwdata = TILE_ATTR_FULL ( palette, prio, flip_v, flip_h, tile++ );                   \
-}
 
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+void gfx_init ( )
+{
+   plctrl = (u32 *) GFX_CTRL_PORT;
+   pwdata = (u16 *) GFX_DATA_PORT;
+}
 
 
 
@@ -419,66 +437,174 @@ u16 animation_duracion ( u16 ani )
 }
 
 
-void animation_draw ( u16 ani, u8 x, u8 y, bool real, u16 plan, s16 prioridad, u16 flip_h, u16 flip_v, u8 width, u8 height )
+
+
+
+
+
+
+
+
+#define FOR_1    for  (  j = x;          j <  width;   j++  )
+#define FOR_2    for  (  i = height - 1; i >= y;       i--  )
+#define FOR_3    for  (  j = width  - 1; j >= x;       j--  )
+#define FOR_4    for  (  i = y;          i <  height;  i++  )
+
+#define DO_GFX_STUFF                                                          \
+{                                                                             \
+	*plctrl = GFX_WRITE_VRAM_ADDR ( plane_dir + ( ( j + planWidth * i ) << 1 ) );  \
+	*pwdata = TILE_ATTR_FULL ( palette, prioridad, flip_v, flip_h, tile++ );   \
+}
+
+void animation_draw ( u16 ani, u8 x, u8 y, bool absolutepos, VDPPlan plan, s16 prioridad, u16 flip_h, u16 flip_v, u8 width, u8 height )
 {
 	if ( ani == BLOCK )
 	{
 		return;
 	}
 
-	ANIMATION *a = animation_get ( ani );
 
-	width  = width  ? width  : a->res->width  >> 3;
-	height = height ? height : a->res->height >> 3;
+	DEATH     *dead      = NULL;
+	ANIMATION *animation = animation_get ( ani );
+	VOBJECT   *vobject   = vobject_add ( ani );
+	u16        is_big    = object_is_bigboy ( ani ) ;
 
 
-	DEATH *d = NULL;
-	u16 is_big = object_is_bigboy ( ani ) ;
-
-	if (  !is_big  &&  object_is_asyncobj(ani)  &&  ( d = dead_find ( x, y ) )  )
+	if (  !is_big  &&  object_is_asyncobj(ani)  &&  ( dead = dead_find ( x, y ) )  )
 	{
-		width  = d->width;
-		height = d->height;
-		ani    = d->objeto;
-		is_big = d->is_big;
+		width  = dead->width;
+		height = dead->height;
+		ani    = dead->objeto;
+		is_big = dead->is_big;
 
-		d->vo->counter = 0;
-		d->vo->frame   = 2;
+		dead->vo->counter = 0;
+		dead->vo->frame   = 2;
+	}
+	else
+	{
+		if ( !width  )  width  = animation->res->width  >> 3;
+		if ( !height )  height = animation->res->height >> 3;
 	}
 
 
-	VOBJECT *vo = vobject_add ( ani );
-
-
-	s16 x2 = real ? x : x * 2 + voffset_horizontal_get ( ) / 8;
-	s16 y2 = real ? y : y * 2 + voffset_vertical_get   ( ) / 8;
-
-
-	if ( is_big )
+	if ( !absolutepos ) // relative
 	{
-		if ( !real )
+		x = ( x << 1 ) + ( voffset_horizontal_get ( ) >> 3 );
+		y = ( y << 1 ) + ( voffset_vertical_get   ( ) >> 3 );
+	}
+
+
+
+	if ( ani == 0 )
+	{
+		VDP_clearTileMapRect ( plan, x, y, width, height );
+	}
+	else if ( is_big )
+	{
+		if ( !absolutepos ) // relative
 		{
-			VDP_clearTileMapRect ( plan, x2, y2, width, --height );
+			VDP_clearTileMapRect ( plan, x, y, width, --height );
 		}
 
-		bigboy_set ( x, y, ani );
+		//bigboy_set ( x, y, ani );
 	}
 	else
 	{
 		//
 		// necesario para las macros, no borrar
 		//
-		u16   prio      = ( prioridad < 0 ) ?  ( object_is_over ( ani ) ? 1 : 0 ) : prioridad;
-		u16   palette   = a->pal;
-		u16   planwidth = VDP_getPlanWidth();
-		u16   tile      = vo->vram_pos;
-		vu32 *plctrl    = (u32 *) GFX_CTRL_PORT;
-		vu16 *pwdata    = (u16 *) GFX_DATA_PORT;
-		s16   i, j;
+		s16 i;
+		s16 j;
+
+		u16 palette = animation->pal;
+		u16 tile    = vobject->vram_pos;
+
+		width  += x;
+		height += y;
+
+		if ( prioridad < 0 )
+		{
+			prioridad = object_is_over ( ani ) ? 1 : 0;
+		}
+
+		u16 plane_dir = ( plan.value == PLAN_B.value ) ? VDP_PLAN_B : VDP_PLAN_A;
 		//
 
-		if   ( flip_v )  {  if  (  flip_h  )  FOR3 FOR2 DO_GFX_STUFF  else  FOR1 FOR2 DO_GFX_STUFF  }
-		else             {  if  (  flip_h  )  FOR3 FOR4 DO_GFX_STUFF  else  FOR1 FOR4 DO_GFX_STUFF  }
+		if   ( flip_v )  {  if  (  flip_h  )  FOR_3 FOR_2  DO_GFX_STUFF  else  FOR_1 FOR_2  DO_GFX_STUFF  }
+		else             {  if  (  flip_h  )  FOR_3 FOR_4  DO_GFX_STUFF  else  FOR_1 FOR_4  DO_GFX_STUFF  }
 	}
 }
+
+
+
+
+void animation_draw_raw ( u16 ani, u8 x, u8 y, bool absolutepos, VDPPlan plan, s16 prioridad, u16 flip_h, u16 flip_v, u8 width, u8 height )
+{
+	if ( ani == BLOCK )
+	{
+		return;
+	}
+
+
+	DEATH     *dead      = NULL;
+	ANIMATION *animation = animation_get ( ani );
+	VOBJECT   *vobject   = vobject_add ( ani );
+
+
+	if (  object_is_asyncobj(ani)  &&  ( dead = dead_find ( x, y ) )  )
+	{
+		width  = dead->width;
+		height = dead->height;
+		ani    = dead->objeto;
+
+		dead->vo->counter = 0;
+		dead->vo->frame   = 2;
+	}
+	else
+	{
+		if ( !width  )  width  = animation->res->width  >> 3;
+		if ( !height )  height = animation->res->height >> 3;
+	}
+
+
+	if ( !absolutepos ) // relative
+	{
+		x = x * 2 + ( voffset_horizontal_get ( ) >> 3 );
+		y = y * 2 + ( voffset_vertical_get   ( ) >> 3 );
+	}
+
+
+
+	if ( ani == 0 )
+	{
+		VDP_clearTileMapRect ( plan, x, y, width, height );
+	}
+	else
+	{
+		//
+		// necesario para las macros, no borrar
+		//
+		s16 i;
+		s16 j;
+
+		u16 palette = animation->pal;
+		u16 tile    = vobject->vram_pos;
+
+		width  += x;
+		height += y;
+
+		if ( prioridad < 0 )
+		{
+			prioridad = object_is_over ( ani ) ? 1 : 0;
+		}
+
+		u16 plane_dir = ( plan.value == PLAN_B.value ) ? VDP_PLAN_B : VDP_PLAN_A;
+		//
+
+		if   ( flip_v )  {  if  (  flip_h  )  FOR_3 FOR_2  DO_GFX_STUFF  else  FOR_1 FOR_2  DO_GFX_STUFF  }
+		else             {  if  (  flip_h  )  FOR_3 FOR_4  DO_GFX_STUFF  else  FOR_1 FOR_4  DO_GFX_STUFF  }
+	}
+}
+
+
 

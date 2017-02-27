@@ -11,8 +11,9 @@ enum
 
 
 
-u16  game           ( );
-u16  game_play      ( );
-void game_loop      ( );
-u16  game_ingame    ( );
-void game_level_inc ( );
+u16    game           ( );
+u16    game_play      ( );
+void   game_loop      ( );
+u16    game_ingame    ( );
+void   game_level_inc ( );
+LEVEL *game_get_wl    ( );

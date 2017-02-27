@@ -8,17 +8,17 @@ const LEVEL w1r00 =
    (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    {
-      {   TREE2,   TOMB2,  TREE22,   ROCK2, ICEBLOCK,STALAGMITE, SNOWMAN,  SKULL,       0,       0,   0,  ICEBLOCK,  ICEBLOCK,  ICEBLOCK,  ICEBLOCK,  ICEBLOCK },
-      {  ICEBLOCK,       0,    DOOR,  ICEBLOCK,    STAFF,   ICEBLOCK,       0,       0,       0,       0,   ICEBLOCK,   CROSS,       0,       0,  0,   ICEBLOCK },
-      {  ICEBLOCK,       0,   WILDBOAR,  ICEBLOCK,TOADSTOOL,   ICEBLOCK,       0,       0,       0,       0,   ICEBLOCK,   WILDBOAR,       0,       0,  0, ICEBLOCK },
-      {       0,  TOMB2,       0,  ICEBLOCK,        0,   ICEBLOCK,  ICEBLOCK,  ICEBLOCK,  ICEBLOCK,  ICEBLOCK,   ICEBLOCK,       0,  ICEBLOCK,   STAFF,  ICEBLOCK, 0 },
-      {       0,  TOMB2,       0,       0,        0,TOADSTOOL,       0,       0,       0,  ICEBLOCK,TOADSTOOL,   WILDBOAR,       0,       0,  ICEBLOCK,       0 },
-      {       0,  TOMB2,       0,       0,        0,   ICEBLOCK,     KEY,       0,       0,       0,        0,  ICEBLOCK,       0,       0,  ICEBLOCK,  0 },
-      {       0,  TOMB2,DARKELF,DARKELF, DARKELF,        0,  ICEBLOCK,  ICEBLOCK,  ICEBLOCK,  ICEBLOCK,TOADSTOOL,       0,   WILDBOAR,       0,  ICEBLOCK, 0   },
-      { CANDLE2,       0,       0,       0,        0,   ICEBLOCK,       0,       0,       0,DARKELF,        0,  ICEBLOCK,       0,       0,  0,     ICEBLOCK },
-      { IGLU1,   IGLU2,   SWORD,       0,        0, DARKELF,   SWORD,   WILDBOAR,       0,  ICEBLOCK,    CROSS,   WILDBOAR,       0,   SWORD,  0,  ICEBLOCK },
-      { IGLU3,   IGLU4,      FISH21, CANDLE2,        0,   TREE2,  TREE2,  TREE2,  TREE2,  ICEBLOCK,   ICEBLOCK,  ICEBLOCK,   0,      0,   ABBAYE_U_2, 0  },
-      { ICEBLOCK,  SNOWMAN,  FISH22,  SKULL,   SNOWMAN,         0,       0,       0,       0,       0,        0,       0,  ICEBLOCK, ICEBLOCK,  ABBAYE_D_2,  ICEBLOCK}
+      {       0,   TOMB2,       0,       0, ICEBLOCK,       0,       0,       0,       0,       0,        0,  ICEBLOCK,  ICEBLOCK,  ICEBLOCK,  ICEBLOCK,  ICEBLOCK },
+      {ICEBLOCK,       0,    DOOR,ICEBLOCK,    STAFF,ICEBLOCK,       0,       0,       0,       0, ICEBLOCK,     CROSS,       0,       0,  0,   ICEBLOCK },
+      {ICEBLOCK,       0,  WALRUS,ICEBLOCK,   ESKIMO,ICEBLOCK,       0,       0,       0,       0, ICEBLOCK,    WALRUS,       0,       0,  0, ICEBLOCK },
+      {       0,   TOMB2,       0,ICEBLOCK,        0,ICEBLOCK,ICEBLOCK,ICEBLOCK,ICEBLOCK,ICEBLOCK, ICEBLOCK,         0,  ICEBLOCK,   STAFF,  ICEBLOCK, 0 },
+      {       0,   TOMB2,       0,       0,        0,  ESKIMO,       0,       0,       0,ICEBLOCK,   ESKIMO,    WALRUS,       0,       0,  ICEBLOCK,       0 },
+      {       0,   TOMB2,       0,       0,        0,ICEBLOCK,     KEY,       0,       0,       0,        0,  ICEBLOCK,       0,       0,  ICEBLOCK,  0 },
+      {       0,   TOMB2,   WAMPA,   WAMPA,    WAMPA,       0,ICEBLOCK,ICEBLOCK,ICEBLOCK,ICEBLOCK,   ESKIMO,         0,   WALRUS,       0,  ICEBLOCK, 0   },
+      {       0,       0,       0,       0,        0,ICEBLOCK,       0,       0,       0,   WAMPA,        0,  ICEBLOCK,       0,       0,  0,     ICEBLOCK },
+      {       0,       0,   SWORD,       0,        0,   WAMPA,   SWORD,  WALRUS,       0,ICEBLOCK,    CROSS,    WALRUS,       0,   SWORD,  0,  ICEBLOCK },
+      {       0,       0,       0,       0,        0,   TREE2,   TREE2,   TREE2,   TREE2,ICEBLOCK, ICEBLOCK,  ICEBLOCK,   0,      0,   0, 0  },
+      {       0,       0,       0,       0,        0,       0,       0,       0,       0,       0,        0,         0,  ICEBLOCK,   0,  0,  STALAGMITE}
    }
 };
 
@@ -31,17 +31,17 @@ const LEVEL w1r01 =
    (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    {
-      {       0,       0,          0,       0,       0,    SNOWMAN,    SNOWMAN,    SNOWMAN,    SNOWMAN,    SNOWMAN,       0,       0,       0,       0,  0,       0 },
-      {       0,       0,          0,       0,    SNOWMAN,   WALRUS,   CROSS,    WAMPA,   WALRUS,   STAFF,    SNOWMAN,       0,       0,    0,    0,    0},
-      {       0,       0,          0,    SNOWMAN,   STAFF,   ESKIMO,   WALRUS,   SWORD,   WALRUS,   ESKIMO,    WAMPA,    SNOWMAN,       0,       0,    0,       0 },
-      {       0,       0,    SNOWMAN,    WAMPA,    WAMPA,   WALRUS,    SNOWMAN,    SNOWMAN,    SNOWMAN,   STAFF,    WAMPA,   STAFF,    SNOWMAN,       0,       0,       0 },
-      {       0,       0,    SNOWMAN,    WAMPA,   STAFF,    SNOWMAN,   STAFF,   WALRUS,   SWORD,    SNOWMAN,   WALRUS,   ESKIMO,    SNOWMAN,       0,       0,       0 },
-      {       0,       0,    SNOWMAN,     KEY,   ESKIMO,    SNOWMAN,       0,    DOOR,    WAMPA,   SWORD,    WAMPA,   WALRUS,    SNOWMAN,       0,       0,       0 },
-      {       0,       0,    SNOWMAN,   ESKIMO,   SWORD,    SNOWMAN,   STAFF,   WALRUS,   CROSS,    SNOWMAN,   WALRUS,   SWORD,    SNOWMAN,       0,       0,       0 },
-      {       0,       0,    SNOWMAN,   SWORD,   ESKIMO,    WAMPA,    SNOWMAN,    SNOWMAN,    SNOWMAN,   WALRUS,   CROSS,    WAMPA,    SNOWMAN,       0,       0,       0 },
-      {       0,       0,       0,    SNOWMAN,   STAFF,   SWORD,   WALRUS,   ESKIMO,   WALRUS,   SWORD,   WALRUS,    SNOWMAN,       0,       0,    0,       0 },
-      {       0,       0,       0,       0,    SNOWMAN,    WAMPA,   STAFF,    WAMPA,   CROSS,   ESKIMO,    SNOWMAN,       0,       0,    0,    0,    0 },
-      {       0,       0,       0,       0,       0,    SNOWMAN,    SNOWMAN,    SNOWMAN,    SNOWMAN,    SNOWMAN,       0,       0,       0,       0,    0,       0 }
+      {       0,       0,          0,       0,       0,    TREE2,    TREE2,    TREE2,    TREE2,    TREE2,       0,       0,       0,       0,  0,       0 },
+      {       0,       0,          0,       0,    TREE2,   WALRUS,   CROSS,    WAMPA,   WALRUS,   STAFF,    TREE2,       0,       0,    0,    0,    0},
+      {       0,       0,          0,    TREE2,   STAFF,   ESKIMO,   WALRUS,   SWORD,   WALRUS,   ESKIMO,    WAMPA,    TREE2,       0,       0,    0,       0 },
+      {       0,       0,    TREE2,    WAMPA,    WAMPA,   WALRUS,    TREE2,    TREE2,    TREE2,   STAFF,    WAMPA,   STAFF,    TREE2,       0,       0,       0 },
+      {       0,       0,    TREE2,    WAMPA,   STAFF,    TREE2,   STAFF,   WALRUS,   SWORD,    TREE2,   WALRUS,   ESKIMO,    TREE2,       0,       0,       0 },
+      {       0,       0,    TREE2,     KEY,   ESKIMO,    TREE2,       0,    DOOR,    WAMPA,   SWORD,    WAMPA,   WALRUS,    TREE2,       0,       0,       0 },
+      {       0,       0,    TREE2,   ESKIMO,   SWORD,    TREE2,   STAFF,   WALRUS,   CROSS,    TREE2,   WALRUS,   SWORD,    TREE2,       0,       0,       0 },
+      {       0,       0,    TREE2,   SWORD,   ESKIMO,    WAMPA,    TREE2,    TREE2,    TREE2,   WALRUS,   CROSS,    WAMPA,    TREE2,       0,       0,       0 },
+      {       0,       0,       0,    TREE2,   STAFF,   SWORD,   WALRUS,   ESKIMO,   WALRUS,   SWORD,   WALRUS,    TREE2,       0,       0,    0,       0 },
+      {       0,       0,       0,       0,    TREE2,    WAMPA,   STAFF,    WAMPA,   CROSS,   ESKIMO,    TREE2,       0,       0,    0,    0,    0 },
+      {       0,       0,       0,       0,       0,    TREE2,    TREE2,    TREE2,    TREE2,    TREE2,       0,       0,       0,       0,    0,       0 }
    }
 };
 
@@ -125,14 +125,14 @@ const LEVEL w1r05 =
    {
       {       0,       0,       0,       0,       0,       0,       0,       0,       0,       0,       0,        0,       0,       0,       0,       0 },
       {       0,       0,       0,       0,       0,   TREE2,   TREE2,   TREE2,   TREE2,       0,   TREE2,        0,       0,       0,       0,       0 },
-      {       0,       0,       0,       0, SNOWMAN, SNOWMAN, SNOWMAN, SNOWMAN, SNOWMAN,       0, SNOWMAN,  SNOWMAN,       0,       0,       0,       0 },
-      {       0,       0,       0, SNOWMAN,  WALRUS,  WALRUS,   CROSS,  WALRUS,   CROSS,   STAFF,   SWORD,   WALRUS, SNOWMAN,       0,       0,       0 },
-      {       0,       0, SNOWMAN,   STAFF,  ESKIMO,  WALRUS,   WAMPA,  WALRUS,  ESKIMO,  WALRUS,   WAMPA,    CROSS,  ESKIMO, SNOWMAN,       0,       0 },
-      {       0,       0, SNOWMAN, SNOWMAN,   CROSS,  ESKIMO,   STAFF,  WALRUS,   STAFF,  ESKIMO,   STAFF,   ESKIMO, SNOWMAN, SNOWMAN,       0,       0 },
-      {       0,       0,       0, SNOWMAN,  ESKIMO,   WAMPA,  WALRUS,  WALRUS,  ESKIMO,   WAMPA,  WALRUS,    CROSS, SNOWMAN,       0,       0,       0 },
-      {       0,       0,       0, SNOWMAN,  WALRUS,   WAMPA,  ESKIMO,  ESKIMO,   WAMPA,   WAMPA,   WAMPA,   ESKIMO, SNOWMAN,       0,       0,       0 },
-      {       0,       0,       0, SNOWMAN,     KEY,  ESKIMO,   CROSS,  WALRUS,   WAMPA,    DOOR,   WAMPA,   WALRUS, SNOWMAN,       0,       0,       0 },
-      {       0,       0,       0, SNOWMAN, SNOWMAN, SNOWMAN, SNOWMAN, SNOWMAN, SNOWMAN, SNOWMAN, SNOWMAN,  SNOWMAN, SNOWMAN,       0,       0,       0 },
+      {       0,       0,       0,       0, TOMB2, TOMB2, TOMB2, TOMB2, TOMB2,       0, TOMB2,  TOMB2,       0,       0,       0,       0 },
+      {       0,       0,       0, TOMB2,  WALRUS,  WALRUS,   CROSS,  WALRUS,   CROSS,   STAFF,   SWORD,   WALRUS, TOMB2,       0,       0,       0 },
+      {       0,       0, TOMB2,   STAFF,  ESKIMO,  WALRUS,   WAMPA,  WALRUS,  ESKIMO,  WALRUS,   WAMPA,    CROSS,  ESKIMO, TOMB2,       0,       0 },
+      {       0,       0, TOMB2, TOMB2,   CROSS,  ESKIMO,   STAFF,  WALRUS,   STAFF,  ESKIMO,   STAFF,   ESKIMO, TOMB2, TOMB2,       0,       0 },
+      {       0,       0,       0, TOMB2,  ESKIMO,   WAMPA,  WALRUS,  WALRUS,  ESKIMO,   WAMPA,  WALRUS,    CROSS, TOMB2,       0,       0,       0 },
+      {       0,       0,       0, TOMB2,  WALRUS,   WAMPA,  ESKIMO,  ESKIMO,   WAMPA,   WAMPA,   WAMPA,   ESKIMO, TOMB2,       0,       0,       0 },
+      {       0,       0,       0, TOMB2,     KEY,  ESKIMO,   CROSS,  WALRUS,   WAMPA,    DOOR,   WAMPA,   WALRUS, TOMB2,       0,       0,       0 },
+      {       0,       0,       0, TOMB2, TOMB2, TOMB2, TOMB2, TOMB2, TOMB2, TOMB2, TOMB2,  TOMB2, TOMB2,       0,       0,       0 },
       {       0,       0,       0,       0,       0,       0,       0,       0,       0,       0,       0,        0,       0,       0,       0,       0 }
    }
 };
@@ -171,16 +171,19 @@ const LEVEL w1r07 =
    (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    {
-      {       0,       0,       0,       0,       0,       0,       0,     SNOWMAN,     SNOWMAN,       0,       0,       0,       0,       0,       0,       0 },
-      {       0,       0,       0,       0,       0,       0,     SNOWMAN,   CROSS,    WAMPA,     SNOWMAN,       0,       0,       0,       0,       0,       0 },
-      {       0,       0,       0,       0,       0,       0,     SNOWMAN,    WAMPA,    WAMPA,     SNOWMAN,       0,       0,       0,       0,       0,       0 },
-      {       0,       0,       0,       0,     SNOWMAN,     SNOWMAN,    WAMPA,   STAFF,    WAMPA,   SWORD,     SNOWMAN,     SNOWMAN,       0,       0,       0,       0 },
-      {       0,       0,       0,     SNOWMAN,    WAMPA,   SWORD,   SWORD,    WAMPA,    WAMPA,   WALRUS,    WAMPA,    WAMPA,     SNOWMAN,       0,       0,       0 },
-      {       0,       0,       0,     SNOWMAN,    WAMPA,    WAMPA,       0,   SWORD,    WAMPA,   WALRUS,    WAMPA,    DOOR,     SNOWMAN,       0,       0,       0 },
-      {       0,       0,       0,       0,     SNOWMAN,     SNOWMAN,    WAMPA,    WAMPA,   ESKIMO,    WAMPA,     SNOWMAN,     SNOWMAN,       0,       0,       0,       0 },
-      {       0,       0,       0,       0,       0,       0,     SNOWMAN,    WAMPA,   SWORD,     SNOWMAN,       0,       0,       0,       0,       0,       0 },
-      {       0,       0,       0,       0,       0,       0,     SNOWMAN,    WAMPA,     KEY,     SNOWMAN,       0,       0,       0,       0,       0,       0 },
-      {       0,       0,       0,       0,       0,       0,       0,     SNOWMAN,     SNOWMAN,       0,       0,       0,       0,       0,       0,       0 },
+                  //{   TREE2,  TOMB2,  ROCK2,   ICEBLOCK,     STALAGMITE,    SKULL,    HOLE21,    TREE22,    CANDLE2,    SNOWMAN,       0,       0,       0,       0,  0,       0 },
+
+
+      {       0,       0,       0,       0,       0,       0,       0,     HOLE21,     HOLE21,       0,       0,       0,       0,       0,       0,       0 },
+      {       0,       0,       0,       0,       0,       0,     HOLE21,   CROSS,    WAMPA,     HOLE21,       0,       0,       0,       0,       0,       0 },
+      {       0,       0,       0,       0,       0,       0,     HOLE21,    WAMPA,    WAMPA,     HOLE21,       0,       0,       0,       0,       0,       0 },
+      {       0,       0,       0,       0,     HOLE21,     HOLE21,    WAMPA,   STAFF,    WAMPA,   SWORD,     HOLE21,     HOLE21,       0,       0,       0,       0 },
+      {       0,       0,       0,     HOLE21,    WAMPA,   SWORD,   SWORD,    WAMPA,    WAMPA,   WALRUS,    WAMPA,    WAMPA,     HOLE21,       0,       0,       0 },
+      {       0,       0,       0,     HOLE21,    WAMPA,    WAMPA,       0,   SWORD,    WAMPA,   WALRUS,    WAMPA,    DOOR,     HOLE21,       0,       0,       0 },
+      {       0,       0,       0,       0,     HOLE21,     HOLE21,    WAMPA,    WAMPA,   ESKIMO,    WAMPA,     HOLE21,     HOLE21,       0,       0,       0,       0 },
+      {       0,       0,       0,       0,       0,       0,     HOLE21,    WAMPA,   SWORD,     HOLE21,       0,       0,       0,       0,       0,       0 },
+      {       0,       0,       0,       0,       0,       0,     HOLE21,    WAMPA,     KEY,     HOLE21,       0,       0,       0,       0,       0,       0 },
+      {       0,       0,       0,       0,       0,       0,       0,     HOLE21,     HOLE21,       0,       0,       0,       0,       0,       0,       0 },
       {       0,       0,       0,       0,       0,       0,       0,       0,       0,       0,       0,       0,       0,       0,       0,       0 }
    }
 };
@@ -263,17 +266,17 @@ const LEVEL w1r11 =
    (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    {
-      {    SNOWMAN,    SNOWMAN,    SNOWMAN,       0,       0,       0,       0,       0,    LEFT2,       0,   ESKIMO,   CROSS,   ESKIMO,   STAFF,   SWORD,    SNOWMAN },
-      {    SNOWMAN,       0,       0,       0,    SNOWMAN,    WAMPA,    SNOWMAN,   WALRUS,    SNOWMAN,    SNOWMAN,       0,   WALRUS,    SNOWMAN,    SNOWMAN,   WALRUS,   CROSS },
-      {    SNOWMAN,    SNOWMAN,   WALRUS,    SNOWMAN,   ESKIMO,       0,    SNOWMAN,       0,       0,       0,       0,    SNOWMAN,   STAFF,   ESKIMO,   WALRUS,   ESKIMO },
-      {    SNOWMAN,    DOOR,       0,   RIGHT2,     KEY,    LEFT2,    SNOWMAN,   SWORD,    SNOWMAN,    SNOWMAN,       0,       0,    WAMPA,    SNOWMAN,       0,    SNOWMAN },
-      {    SNOWMAN,       0,    SNOWMAN,    SNOWMAN,    SNOWMAN,    SNOWMAN,    SNOWMAN,       0,       0,       0,    SNOWMAN,       0,    SNOWMAN,       0,    WAMPA,   STAFF },
-      {   SWORD,    DOWN2,   CROSS,   CROSS,    SNOWMAN,       0,    SNOWMAN,   WALRUS,    SNOWMAN,       0,    SNOWMAN,       0,       0,       0,    SNOWMAN,    SNOWMAN },
-      {   WALRUS,       0,   WALRUS,   CROSS,   ESKIMO,       0,       0,       0,    SNOWMAN,       0,    SNOWMAN,    DOWN2,    SNOWMAN,    SNOWMAN,    SNOWMAN,   SWORD },
-      {    SNOWMAN,       0,    SNOWMAN,    SNOWMAN,    SNOWMAN,      UP2,    SNOWMAN,    SNOWMAN,    SNOWMAN,    DOWN2,    SNOWMAN,       0,   WALRUS,       0,   ESKIMO,       0 },
-      {    SNOWMAN,       0,   ESKIMO,   SWORD,       0,       0,       0,    WAMPA,    SNOWMAN,       0,    SNOWMAN,    SNOWMAN,    SNOWMAN,       0,    SNOWMAN,    SNOWMAN },
-      {    SNOWMAN,       0,       0,    WAMPA,    SNOWMAN,   STAFF,    SNOWMAN,   STAFF,    SNOWMAN,       0,    SNOWMAN,       0,       0,       0,    WAMPA,   STAFF },
-      {    SNOWMAN,   STAFF,    SNOWMAN,   RIGHT2,       0,       0,       0,   WALRUS,       0,       0,   ESKIMO,       0,    SNOWMAN,       0,    SNOWMAN,   STAFF }
+      {         0,         0,         0,       0,       0,       0,       0,       0,    LEFT2,       0,   ESKIMO,   CROSS,   ESKIMO,   STAFF,   SWORD,    STALAGMITE },
+      {         0,       0,       0,       0,    STALAGMITE,    WAMPA,    STALAGMITE,   WALRUS,    STALAGMITE,    STALAGMITE,       0,   WALRUS,    STALAGMITE,    STALAGMITE,   WALRUS,   CROSS },
+      {         0,    STALAGMITE,   WALRUS,    STALAGMITE,   ESKIMO,       0,    STALAGMITE,       0,       0,       0,       0,    STALAGMITE,   STAFF,   ESKIMO,   WALRUS,   ESKIMO },
+      {    STALAGMITE,    DOOR,       0,   RIGHT2,     KEY,    LEFT2,    STALAGMITE,   SWORD,    STALAGMITE,    STALAGMITE,       0,       0,    WAMPA,    STALAGMITE,       0,    STALAGMITE },
+      {    STALAGMITE,       0,    STALAGMITE,    STALAGMITE,    STALAGMITE,    STALAGMITE,    STALAGMITE,       0,       0,       0,    STALAGMITE,       0,    STALAGMITE,       0,    WAMPA,   STAFF },
+      {   SWORD,    DOWN2,   CROSS,   CROSS,    STALAGMITE,       0,    STALAGMITE,   WALRUS,    STALAGMITE,       0,    STALAGMITE,       0,       0,       0,    STALAGMITE,    STALAGMITE },
+      {   WALRUS,       0,   WALRUS,   CROSS,   ESKIMO,       0,       0,       0,    STALAGMITE,       0,    STALAGMITE,    DOWN2,    STALAGMITE,    STALAGMITE,    STALAGMITE,   SWORD },
+      {         0,       0,    STALAGMITE,    STALAGMITE,    STALAGMITE,      UP2,    STALAGMITE,    STALAGMITE,    STALAGMITE,    DOWN2,    STALAGMITE,       0,   WALRUS,       0,   ESKIMO,       0 },
+      {         0,       0,   ESKIMO,   SWORD,       0,       0,       0,    WAMPA,    STALAGMITE,       0,    STALAGMITE,    STALAGMITE,    STALAGMITE,       0,    STALAGMITE,    STALAGMITE },
+      {         0,       0,       0,    WAMPA,    STALAGMITE,   STAFF,    STALAGMITE,   STAFF,    STALAGMITE,       0,    STALAGMITE,       0,       0,       0,    WAMPA,   STAFF },
+      {         0,   STAFF,    STALAGMITE,   RIGHT2,       0,       0,       0,   WALRUS,       0,       0,   ESKIMO,       0,    STALAGMITE,       0,    STALAGMITE,   STAFF }
    }
 };
 
@@ -305,22 +308,47 @@ const LEVEL w1r12 =
 
 const LEVEL w1r13 =
 {
-   6, 5,
+   7, 9,
    (Image *) &w1_marco_1,
    (struct genresSprites *) &w1s_line_down,
    (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    {
-      {       0,        0,  ESKIMO,   ESKIMO,       0,       0,        0,        0,       0,    CROSS,          0,         0,         0,         0,         0,       0 },
-      {       0,        0,       0,        0,       0,       0,    STAFF,        0,       0,        0,          0,   CANDLE2,   CANDLE2,    FISH21,         0,  FISH21 },
-      {       0,   TREE22,  TREE22,        0,  HOLE21,  HOLE21,    STAFF,    ROCK2,   ROCK2,        0,          0,         0,         0,    FISH22,         0,  FISH22 },
-      {       0,    TREE2,   TREE2,    TREE2,       0,       0,    STAFF,    STAFF,   ROCK2,        0,   ICEBLOCK,    ESKIMO,         0,         0,         0,       0 },
-      {       0,        0,       0,    TOMB2,   TOMB2,   TOMB2,        0,    STAFF,   WAMPA,        0,   ICEBLOCK,  ICEBLOCK,         0,         0,         0,       0 },
-      {       0,        0,   SWORD,        0,       0,       0,        0,        0,       0,        0,      WAMPA,         0,         0,ABBAYE_U_2,         0,       0 },
-      {   CROSS,        0,   SKULL,        0,       0,       0,        0,        0,       0,        0,          0,         0,         0,ABBAYE_D_2,         0,       0 },
-      {   SWORD,        0,       0,        0,     UP2,       0,    DOWN2,        0,   LEFT2,        0,     RIGHT2,         0,STALAGMITE,         0,         0,       0 },
-      {       0,    IGLU1,   IGLU2,        0,       0,       0,        0,        0,       0,    WAMPA,          0,         0,STALAGMITE,         0,ABBAYE_U_2,       0 },
-      {       0,    IGLU3,   IGLU4,   WALRUS,  WALRUS,       0,        0,        0,  SNOWMAN,       0,          0,STALAGMITE,         0,         0,ABBAYE_D_2,       0 },
-      {       0,        0,       0,  CANDLE2, CANDLE2,  WALRUS,   WALRUS,        0,  SNOWMAN,       0,          0,         0,         0,         0,         0,       0 }
+//      {       0,        0,  ESKIMO,   ESKIMO,       0,       0,        0,        0,       0,    CROSS,          0,         0,         0,         0,         0,       0 },
+//      {       0,        0,       0,        0,       0,       0,    STAFF,        0,       0,        0,          0,   CANDLE2,   CANDLE2,    FISH21,         0,  FISH21 },
+//      {       0,   TREE22,  TREE22,        0,  HOLE21,  HOLE21,    STAFF,    ROCK2,   ROCK2,        0,          0,         0,         0,    FISH22,         0,  FISH22 },
+//      {       0,    TREE2,   TREE2,    TREE2,       0,       0,    STAFF,    STAFF,   ROCK2,        0,   ICEBLOCK,    ESKIMO,         0,         0,         0,       0 },
+//      {       0,        0,       0,    TOMB2,   TOMB2,   TOMB2,        0,    STAFF,   WAMPA,        0,   ICEBLOCK,  ICEBLOCK,         0,         0,         0,       0 },
+//      {       0,        0,   SWORD,        0,       0,       0,        0,        0,       0,        0,      WAMPA,         0,         0,ABBAYE_U_2,         0,       0 },
+//      {   CROSS,        0,   SKULL,        0,       0,       0,        0,        0,       0,        0,          0,         0,         0,ABBAYE_D_2,         0,       0 },
+//      {   SWORD,        0,       0,        0,     UP2,       0,    DOWN2,        0,   LEFT2,        0,     RIGHT2,         0,STALAGMITE,         0,         0,       0 },
+//      {       0,    IGLU1,   IGLU2,        0,       0,       0,        0,        0,       0,    WAMPA,          0,         0,STALAGMITE,         0,ABBAYE_U_2,       0 },
+//      {       0,    IGLU3,   IGLU4,   WALRUS,  WALRUS,       0,        0,        0,  SNOWMAN,       0,          0,STALAGMITE,         0,         0,ABBAYE_D_2,       0 },
+//      {       0,        0,       0,  CANDLE2, CANDLE2,  WALRUS,   WALRUS,        0,  SNOWMAN,       0,          0,         0,         0,         0,         0,       0 }
+
+//      {       0,   TREE2,       0,       0,       0,   TREE2,        0,       0,       0,       0,         0,        0,   TREE2,       0,        0,        0 },
+//      {       0,   TREE2,       0,   TREE2,   CROSS,   TREE2,        0,   TREE2,   TREE2,   TREE2,     TREE2,        0,   TREE2,       0,    TREE2,        0 },
+//      {       0,   TREE2,       0,   TREE2,       0,   TREE2,        0,       0,       0,       0,     TREE2,    WAMPA,   TREE2,       0,    TREE2,        0 },
+//      {       0,   TREE2,       0,   TREE2,       0,   TREE2,        0,       0,MONEDON_DOOR,   0,     TREE2,        0,       0,       0,    TREE2,        0 },
+//      {       0,   TREE2,       0,   TREE2,       0,   TREE2,    TREE2,   TREE2,   TREE2,   TREE2,     TREE2,    TREE2,   TREE2,   TREE2,        0,        0 },
+//      {   STAFF,   TREE2,       0,   TREE2,       0,   TREE2,        0,       0,       0,       0,         0,    TREE2,       0,       0,        0,    TREE2 },
+//      {       0,   TREE2,       0,   TREE2,       0,   TREE2,        0,   TREE2,   TREE2,   TREE2,         0,    TREE2,       0,   TREE2,    TREE2,    TREE2 },
+//      {       0,   TREE2,       0,   TREE2,       0,   TREE2,   ESKIMO,   TREE2,       0,   TREE2,         0,    TREE2,       0,       0,        0,    TREE2 },
+//      {       0,   TREE2,       0,   TREE2,       0,   TREE2,        0,   TREE2,       0,   TREE2,         0,    TREE2,   TREE2,   TREE2,        0,    TREE2 },
+//      {       0,   TREE2,  WALRUS,   TREE2,       0,       0,        0,   TREE2,       0,   TREE2,         0,        0,       0,  SWORD,        0,    TREE2 },
+//      {       0,       0,       0,   TREE2,   TREE2,   TREE2,    TREE2,   TREE2,       0,   TREE2,     TREE2,    TREE2,   TREE2,   TREE2,    TREE2,    TREE2 }
+
+
+      {       0,       0,        0,       0,       0,        0,        0,        0,         0,        0,          0,          0,        0,        0,        0,        0 },
+      {       0,       0,        0,       0,   BLOCK,    BLOCK,    BLOCK,    BLOCK,     BLOCK,    BLOCK,      BLOCK,          0,        0,        0,        0,        0 },
+      {       0,       0,        0,       0,   BLOCK,    BLOCK,    BLOCK,MONEDON_DOOR,  BLOCK,    BLOCK,      BLOCK,          0,        0,        0,        0,        0 },
+      {       0,       0,        0,       0,   BLOCK,    BLOCK,    BLOCK,        0,     BLOCK,    BLOCK,      BLOCK,          0,        0,        0,        0,        0 },
+      {       0,       0,        0,       0,   BLOCK,    BLOCK,    BLOCK,        0,     BLOCK,    BLOCK,      BLOCK,          0,        0,        0,        0,        0 },
+      {       0,       0,        0,       0,   BLOCK,    BLOCK,        0,        0,         0,    BLOCK,      BLOCK,          0,        0,        0,        0,        0 },
+      {       0,       0,        0,       0,       0,        0,        0,        0,         0,        0,          0,          0,        0,        0,        0,        0 },
+      {       0,       0,        0,       0,       0,        0,        0,        0,         0,        0,          0,          0,        0,        0,        0,        0 },
+      {       0,       0,        0,       0,       0,        0,        0,        0,         0,        0,          0,          0,        0,        0,        0,        0 },
+      {       0,       0,        0,       0,       0,        0,        0,        0,         0,        0,          0,          0,        0,        0,        0,        0 },
+      {       0,       0,        0,       0,       0,        0,        0,        0,         0,        0,          0,          0,        0,        0,        0,        0 }
    }
 };

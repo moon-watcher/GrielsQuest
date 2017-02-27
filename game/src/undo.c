@@ -1,24 +1,24 @@
 #include "../inc/include.h"
 
 
-static s8     _rest;
-static bool   _can_undo;
+static s8     _rest = 0;
+static bool   _can_undo = false;
 
-static PLAYER _player;
+static PLAYER _player = { };
 
-static u16    _object;
-static u16    _object_x;
-static u16    _object_y;
+static u16    _object = 0;
+static u16    _object_x = 0;
+static u16    _object_y = 0;
 
-static u16    _key_x;
-static u16    _key_y;
+static u16    _key_x = 0;
+static u16    _key_y = 0;
 
-static u16    _door;
+static u16    _door = 0;
 
-static u16    _duration;
-static u16    _x;
-static u16    _y;
-static bool   _is_bigboy;
+static u16    _duration = 0;
+static u16    _x = 0;
+static u16    _y = 0;
+static bool   _is_bigboy = false;
 
 
 

@@ -39,7 +39,8 @@ void spriteset_show ( SPRITESET *set, u8 sprite, s16 pos_x, s16 pos_y, u16 tile_
 			s16 xx = pos_x + x * set->res->width;
 			s16 yy = pos_y + y * set->res->height;
 
-			VDP_setSprite ( sprite, xx, yy, set->res->size >> 8, base + vrampos, sprite+1 );
+			VDP_setSpriteFull ( sprite, xx, yy, set->res->size >> 8, base + vrampos, sprite+1 );
+			//VDP_setSprite ( sprite, xx, yy, set->res->size >> 8, base + vrampos );
 
 			vrampos += ( ( set->res->width  >> 3 ) * ( set->res->height >> 3 ) );
 			++sprite;

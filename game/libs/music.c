@@ -23,6 +23,7 @@ void music_play ( MUSIC *m )
 	{
 		SND_startPlay_VGM ( (u8*) m->data );
 	}
+
 }
 
 
@@ -44,4 +45,27 @@ void music_stop ( )
 	{
 		Z80_unloadDriver();
 	}
+}
+
+
+
+u16 music_is_playing ( )
+{
+   u16 ret = 0;
+
+   switch ( _type )
+   {
+      case MUSIC_TYPE_TFM:
+         break;
+
+      case MUSIC_TYPE_XGM:
+         ret = SND_isPlaying_XGM();
+         break;
+
+      case MUSIC_TYPE_VGM:
+         ret = SND_isPlaying_VGM();
+         break;
+   }
+
+   return ret;
 }

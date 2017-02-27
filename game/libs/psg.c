@@ -34,7 +34,7 @@ static struct
 	}
 	chn[4];
 }
-_psg;
+_psg = { };
 
 
 

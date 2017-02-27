@@ -2,11 +2,13 @@
 #include "spritedispacher.h"
 
 
+#define MAX_SPRITE 80
 
-static u8 _list [ MAX_SPRITE ];
 
-static u8 _start;
-static u8 _direction;
+static u8 _list [ MAX_SPRITE ] = { };
+
+static u8 _start = 0;
+static u8 _direction = 0;
 
 
 
@@ -54,15 +56,17 @@ static u16 _find ( )
 
 void sd_init()
 {
-   u16 i;
+//   u16 i;
 
    _start     = 0;
    _direction = SD_DOWN;
 
-   for ( i = 0; i < MAX_SPRITE; i++ )
-   {
-      sd_delete ( i ) ;
-   }
+   memset ( _list, 0, MAX_SPRITE );
+
+//   for ( i = 0; i < MAX_SPRITE; i++ )
+//   {
+//      sd_delete ( i ) ;
+//   }
 }
 
 
@@ -73,7 +77,7 @@ u16 sd_new ( u8 start, u8 direction )
 
    u16 i = _find ( );
 
-   _list [ i ] = TRUE;
+   _list [ i ] = 1;
 
    return i;
 }
@@ -94,6 +98,6 @@ u16 sd_next ( )
 
 inline void sd_delete ( u16 i )
 {
-   _list [ i ] = FALSE;
+   _list [ i ] = 0;
 }
 

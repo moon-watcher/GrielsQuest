@@ -2,8 +2,6 @@
 
 
 
-
-
 void VDP_setSpriteAttributes ( u16 index, u16 tile_attr )
 {
 	//
@@ -19,7 +17,7 @@ void VDP_setSpriteAttributes ( u16 index, u16 tile_attr )
 //	spriteDst->tile_attr = tile_attr;
 
 
-	vdpSpriteCache[index].tile_attr = tile_attr;
+	vdpSpriteCache[index].attribut = tile_attr;
 }
 
 
@@ -39,7 +37,7 @@ void VDP_setSpriteVRAM ( u16 index, u16 pos )
 //	spriteDst->tile_attr = ( ( spriteDst->tile_attr >> 11 ) << 11 ) + pos ;
 
 
-	vdpSpriteCache[index].tile_attr = ( ( vdpSpriteCache[index].tile_attr >> 11 ) << 11 ) + pos ;
+	vdpSpriteCache[index].attribut = ( ( vdpSpriteCache[index].attribut >> 11 ) << 11 ) + pos ;
 }
 
 
@@ -48,11 +46,11 @@ void VDP_setSpritePiority ( u16 index, u16 high )
 {
 	if( high )
 	{
-		vdpSpriteCache[index].tile_attr |= ( 1 << 15 );
+		vdpSpriteCache[index].attribut |= ( 1 << 15 );
 	}
 	else
 	{
-		vdpSpriteCache[index].tile_attr &= ~( 1 << 15 );
+		vdpSpriteCache[index].attribut &= ~( 1 << 15 );
 	}
 }
 
@@ -100,7 +98,7 @@ void VDP_setSpritePiority ( u16 index, u16 high )
 //
 //	return part;
 //}
-
+//
 
 
 u32 my_strtol ( u8 *cadena )
@@ -178,7 +176,7 @@ u16 my_strcmp ( u8 *str1, u8 *str2 )
 
 void showFPS()
 {
-	if ( DEVELOPEMENT )
+	if ( DEV )
 	{
 		drawUInt ( getFPS(), 0, 0, 2 );
 	}
@@ -208,7 +206,7 @@ void drawUIntBG( u32 nb, u8 x, u8 y, u8 zeros, u16 plan, u16 flags )
 {
 	u8 str [ zeros+1 ];
 	uintToStr ( nb, str, zeros );
-	VDP_drawTextBG ( BPLAN, str, flags, x, y );
+	VDP_drawTextBG ( PLAN_B, str, x, y );
 }
 
 
@@ -238,30 +236,36 @@ inline u16 between ( s32 min, s32 nb, s32 max )
 
 
 
+
+
 void resetPalettes ()
 {
 	const u16 colores [ 64 ] = { };
-	VDP_setPaletteColors ( 0, (u16*)colores, 64 );
+	memsetU16 ( (u16*) colores, 0, 64 );
+
+   VDP_setPaletteColors ( 0, (u16*)colores, 64 );
 }
 
 
-
-void resetVRAM    ( )
+void resetVRAM ( )
 {
-	VDP_doVRamDMAFill ( 0, 0xFFFF, 0 ); // reset video memory
-	VDP_waitDMACompletion();            // wait for DMA completion
-}
+   // reset video memory (len = 0 is a special value to define 0x10000)
+   DMA_doVRamFill ( 0, 0, 0, 0 );
 
+   // system tiles (16 "flat" tile)
+   u16 i = 16;
+   while ( i-- )
+   {
+      VDP_fillTileData ( i | (i << 4), TILE_SYSTEMINDEX + i, 1, 1 );
+   }
+}
 
 
 void resetScreen ( )
 {
-	VDP_clearPlan ( APLAN, 1 );
-	VDP_waitDMACompletion ( );
-	VDP_clearPlan ( BPLAN, 1 );
-	VDP_waitDMACompletion ( );
+	VDP_clearPlan ( PLAN_A, 1 );
+	VDP_clearPlan ( PLAN_B, 1 );
 }
-
 
 
 void resetScroll ( )
@@ -275,19 +279,20 @@ void resetScroll ( )
 }
 
 
-
 void resetSprites ( )
 {
 	u8 i;
 
 	for ( i=0; i<MAX_SPRITE; i++ )
 	{
-		vdpSpriteCache[i] = (SpriteDef) { };
+		vdpSpriteCache[i] = (VDPSprite) { };
 	}
 
 	VDP_resetSprites();
-	VDP_updateSprites();
+	VDP_updateSprites(80,1);
 }
+
+
 
 
 void fadeIn ( u16 pal0[16], u16 pal1[16], u16 pal2[16], u16 pal3[16], u16 numframe, u8 async )
@@ -308,4 +313,26 @@ u16 in_array ( u16 needle, u16 array[] )
 	while (  *array  &&  *array != needle  ) ++array;
 
 	return *array;
+}
+
+
+
+void inc_difficulty_level ( )
+{
+	u8 inc = 1;
+	u8 aux = gamestate_get_dificultad();
+
+	++gamestate.dificultad;
+
+	if ( gamestate.dificultad > 3 ) // 3 para la dificultad extra de los niveles invetidos
+	{
+		inc = 0;
+		gamestate.dificultad = 3;
+	}
+
+	gamestate.ambientes[0] = level_list[0][aux].cuantos - inc;
+	gamestate.ambientes[1] = level_list[1][aux].cuantos - inc;
+	gamestate.ambientes[2] = level_list[2][aux].cuantos - inc;
+	gamestate.ambientes[3] = level_list[3][aux].cuantos - inc;
+	gamestate.ambientes[4] = level_list[4][aux].cuantos - inc;
 }

@@ -4,7 +4,7 @@
 
 
 
-static DEATH _deaths [ DEATH_MAX ];
+static DEATH _deaths [ DEATH_MAX ] = { };
 
 static const u8 _values [ 3 * 5 ] [ 4 ] =
 {
@@ -111,7 +111,7 @@ DEATH *death_add ( u16 lvl_obj, u8 x, u8 y )
 	u8 width     = animation_get(lvl_obj)->res->width >> 3;
 	u8 height    = animation_get(lvl_obj)->res->height >> 3;
 
-	for ( i = 0; i < 3 * 4; i++ )
+	for ( i = 0; i < 3 * 5; i++ )
 	{
 		if ( lvl_obj == _values[i][0] || lvl_obj == _values[i][1] )
 		{
@@ -133,8 +133,8 @@ DEATH *death_add ( u16 lvl_obj, u8 x, u8 y )
 
    if ( is_big )
    {
-   	sprite_id = bigboy_getByPos ( x, y )->index;
-      vsprite_animation ( sprite_id, objeto );
+		sprite_id = bigboy_getByPos ( x, y )->index;
+		vsprite_animation ( sprite_id, objeto );
    }
    else
    {
@@ -201,8 +201,9 @@ void death_frame ( LEVEL *level )
 			else
 			{
 				level_draw_animation ( EMPTY, d->x, d->y );
-				level_remove_object ( level, d->x, d->y );
 			}
+
+			level_remove_object ( level, d->x, d->y );
 
 			vobject_delete ( d->animation );
 			vobject_delete ( d->objeto );

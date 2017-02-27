@@ -1,26 +1,28 @@
 #include "../inc/include.h"
 
 
-static u8 free_sprites [ MAX_LINES ];
+static u8 free_sprites [ MAX_LINES ] = { };
 
 
 
 void splist_init (  )
 {
-   memset ( free_sprites, 0, sizeof(MAX_LINES) );
+	memset ( free_sprites, 0, sizeof(MAX_LINES) );
 
-   splist_reorder ( );
+	splist_reorder ( );
 
-   splist_key        = 0; // needed
-   splist_door       = 0; // needed
-   splist_griel      = 0; // needed
-	splist_weapon     = 8;
-	splist_explosion  = 9;
-	splist_ui_weapon  = 10;
-	splist_ui_enemy   = 11;
-	splist_flash      = 12;
-	splist_element    = 78;
-	splist_dust       = 79;
+	splist_key         = 0; // needed
+	splist_door        = 0; // needed
+	splist_griel       = 0; // needed
+	splist_weapon      = 9;
+	splist_explosion   = 10;
+	splist_ui_weapon   = 11;
+	splist_ui_enemy    = 12;
+	splist_flash       = 13;
+	splist_ui_left_1   = 14;
+	splist_ui_left_2   = 15;
+	splist_element     = 78;
+	splist_dust        = 79;
 }
 
 
@@ -28,11 +30,10 @@ void splist_draw ( )
 {
    u8 i, line;
    u8 sprite  = BIGBOY_START + BIGBOY_MAX;
-   u8 bigboys = bigboy_count();
 
    for ( line = 0; line < MAX_LINES; line++ )
    {
-      for ( i = 0; i < bigboys; i++ )
+      for ( i = 0; i < BIGBOY_MAX; i++ )
       {
          BIGBOY *bb = bigboy_get ( i );
 
@@ -60,14 +61,17 @@ void splist_draw ( )
 
 void splist_hide_sprite ( u8 sprite )
 {
-	vdpSpriteCache[sprite].posy = -64; //VDP_getScreenHeight()+10;
-	VDP_setSpriteDirectP ( sprite, &vdpSpriteCache[sprite] );
+//	vdpSpriteCache[sprite].y = -64; //VDP_getScreenHeight()+10;
+//	VDP_setSpriteDirectP ( sprite, &vdpSpriteCache[sprite] );
+
+	VDP_setSpritePosition ( sprite, vdpSpriteCache[sprite].x, -64 );
 }
 
 
 void splist_hide_sprites ( )
 {
-	splist_hide_sprites_in_height (  0, VDP_getPlanHeight()*8 );
+	//splist_hide_sprites_in_height (  0, VDP_getPlanHeight()*8 );
+	splist_hide_sprites_from_to ( 0, 80 );
 }
 
 
@@ -77,7 +81,7 @@ void splist_hide_sprites_in_height (  u16 min, u16 max )
 
 	for ( i=0; i<MAX_SPRITE; i++ )
 	{
-		if ( between ( vdpSpriteCache[i].posy, min, max ) )
+		if ( between ( vdpSpriteCache[i].y, min, max ) )
 		{
 			splist_hide_sprite ( i );
 		}

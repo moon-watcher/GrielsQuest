@@ -4,6 +4,7 @@ u16     object_is_block           ( u16 nb );
 u16     object_is_arrow           ( u16 nb );
 u16     object_is_key             ( u16 nb );
 u16     object_is_door            ( u16 nb );
+u16     object_is_opendoor        ( u16 nb );
 u16     object_is_bigboy          ( u16 nb );
 u16     object_is_hurts           ( u16 nb );
 u16     object_is_undo            ( u16 nb );

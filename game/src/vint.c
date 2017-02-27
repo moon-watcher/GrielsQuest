@@ -1,14 +1,16 @@
 #include <genesis.h>
+
 #include "../inc/vint.h"
 #include "../inc/screens/intro.h"
+#include "../inc/screens/mapa.h"
 #include "../libs/psg.h"
 #include "../libs/joyreader.h"
 
 
 
-static u16 _vint_JoyReader;
-static u16 _vint_ob_intro_2_b_f;
-static u16 _vint_flecha_map;
+static u16 _vint_JoyReader      = 0;
+static u16 _vint_ob_intro_2_b_f = 0;
+static u16 _vint_flecha_map     = 0;
 
 
 
@@ -16,6 +18,7 @@ void vint_init ( )
 {
 	_vint_JoyReader      = 0;
 	_vint_ob_intro_2_b_f = 0;
+	_vint_flecha_map     = 0;
 }
 
 
@@ -23,20 +26,11 @@ _voidCallback *vint_callback ( )
 {
 	psg_callback ();
 
-	if ( _vint_JoyReader )
-	{
-		JoyReader_update();
-	}
+	if ( _vint_JoyReader      ) JoyReader_update ( );
+	if ( _vint_ob_intro_2_b_f ) screen_ob_intro_2_b_f ( );
+	if ( _vint_flecha_map     ) screen_mapa_flecha ( );
 
-   if ( _vint_ob_intro_2_b_f )
-   {
-      screens_ob_intro_2_b_f();
-   }
-
-   if ( _vint_flecha_map )
-   {
-		screens_ambiente_flecha ( );
-   }
+	SND_setMusicTempo_XGM ( 50 );
 
 	return 0;
 }

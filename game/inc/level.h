@@ -41,12 +41,6 @@ typedef struct
 {
 	u8  player_x, player_y;
 
-//	u8 password[9];
-//	void (*pInit) ( u16 );
-//	u8  head;
-//	u8  music;
-//	u8  music_completed;
-
 	Image *background;
 
 	struct genresSprites *line_down;
@@ -79,12 +73,10 @@ const LEVELLIST level_list [ LEVEL_DIF_MAX_AMBIENTES ] [ LEVEL_DIF_MAX_DIFICULTA
 
 LEVEL      *level                     ( );
 LEVEL      *level_get                 ( );
-LEVEL       level_init                ( bool flip_h, bool flip_v );
-void        level_draw                ( );
-void        level_draw_area           ( LEVEL  level, u8 x, u8 y, u8 width, u8 height, bool animation );
+LEVEL       level_init                ( );
+void        level_draw                ( LEVEL *level );
+void        level_draw_area           ( LEVEL *level, u8 x, u8 y, u8 width, u8 height );
 void        level_draw_linedown       ( LEVEL *level );
-void 	      level_draw_lineleft       ( LEVEL *level );
-void        level_draw_lineright      ( LEVEL *level );
 u16         level_get_object          ( LEVEL *level, u8 x, u8 y );
 void        level_set_object          ( LEVEL *level, u8 x, u8 y, u16 object );
 void        level_remove_object       ( LEVEL *level, u8 x, u8 y );
@@ -102,7 +94,7 @@ void        level_set_door            ( u16 x, u16 y );
 u16         level_current             ( );
 void        level_remove_key          ( );
 void        level_draw_demon          ( u16 x, u16 y, u8 ojos, u8 cola );
-u16         level_vram_pos            ( u16 plan );
+u16         level_vram_pos            ( VDPPlan plan );
 
 void        level_ol_set              ( u8 obj, bool value );
 bool        level_ol_get              ( u8 obj );
@@ -117,7 +109,6 @@ void        level_draw_ambiente_4     ( );
 bool        level_flipped_h           ( );
 bool        level_flipped_v           ( );
 
-void        level_wait_by_line        ( u16 wait );
 void        level_actualizar_marcador ( );
 
 u16         level_find                ( u16 object, LEVEL *level, Vect2D_u16 grid[] );

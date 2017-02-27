@@ -1,14 +1,18 @@
 #include "../inc/include.h"
 
 
-static void _do_leave_stuff ( u16 ret )
+static LEVEL wl;
+
+
+
+static void _leave ( u16 ret )
 {
 	u8  *f      = NULL;
 	u16  numero = 10000;
 
-	if ( ret == LEVEL_RESTART   ) numero = 4;
-	if ( ret == LEVEL_EXIT      ) numero = 5;
-	if ( ret == LEVEL_COMPLETED ) numero = 6;
+	if ( ret == LEVEL_RESTART   ) numero = 3;
+	if ( ret == LEVEL_EXIT      ) numero = 4;
+	if ( ret == LEVEL_COMPLETED ) numero = 5;
 
 	f = frases_find ( 2, numero );
 
@@ -18,15 +22,16 @@ static void _do_leave_stuff ( u16 ret )
 		u16 sprite = text_draw_sprites_centered ( f, 30 );
 		--sprite;
 
-		vdpSpriteCache [ sprite ].link = 0;
-		VDP_setSpriteP ( sprite, &vdpSpriteCache [ sprite ] );
-		VDP_updateSprites ( );
+		VDP_setSpriteLink ( sprite, 0 );
+		VDP_updateSprites ( 80, 1 );
 
 		waitMs(1000);
 		VDP_fadeOutAll ( 30, false );
 
 		waitMs(500); // pausa valorativa
 	}
+
+	vram_destroy();
 }
 
 
@@ -35,47 +40,61 @@ static void _do_leave_stuff ( u16 ret )
 
 static LEVEL _init ( )
 {
-   resetPalettes();
-   resetVRAM();
-   resetSprites ( );
-   resetScroll ( );
+	displayInit();
+	displayOff(0);
+	SYS_disableInts();
+	resetScreen();
+	resetSprites();
+	resetScroll();
+	resetPalettes();
+	SYS_enableInts();
 
 	voffset_horizontal_set ( OFFSET_HORIZONTAL );
 	voffset_vertical_set   ( OFFSET_VERTICAL );
 
+	VDP_setPlanSize ( 64, 32 );
+
+//   VDP_setTextPalette ( PAL0 );
 
 	font_init ( );
 	sd_init();
-   vram_init ( VRAM_DEFAULT );
+	vram_init ( VRAM_DEFAULT );
 	vobject_init ( );
 	splist_init ( );
-   bigboy_init ( );
-   //scoreball_init ( );
+	bigboy_init ( );
+	//scoreball_init ( );
 	undo_init ( );
 	toani_init ( );
 	death_init ( );
 	chorrada_init ( );
 	weapon_init ( );
 	stars_init ( );
-	LEVEL wl = level_init ( false, false );
+	LEVEL wl = level_init ( );
 	player_init ( PLAYER_1 );
 
+	level_presentation();
+	splist_hide_sprites();
+	text_reset ( );
 
-	//if ( !DEVELOPEMENT )
-	{
-		level_presentation();
-		splist_hide_sprites();
-		text_reset ( );
-	}
+	displayInit();
+	displayOff(0);
+	SYS_disableInts();
+	resetScreen();
+	resetScroll();
+	resetPalettes();
+	SYS_enableInts();
 
 	splist_draw ( );
 	player_update ( PLAYER_1 );
-	level_draw ( );
+	level_draw ( &wl );
+	vobject_update ( );
 
-	//if ( !DEVELOPEMENT )
-	{
-		stars_draw ();
-	}
+	VDP_updateSprites(80, 1);
+
+	displayOn(30);
+
+	stars_draw ();
+
 
 	musiclist_play ( level_get_music() ); // wl.music
 
@@ -87,6 +106,11 @@ static LEVEL _init ( )
 //////////////////////////////////////////////////////
 
 
+LEVEL *game_get_wl ( )
+{
+	return (LEVEL*) &wl;
+}
+
 
 
 void game_level_inc ( )
@@ -94,9 +118,9 @@ void game_level_inc ( )
 	// sólo incrementa el round si se ha
 	// completado el útlimo nivel disponible
 
-	if ( gamestate.current_round == gamestate.ambientes [ (u8) gamestate.ambiente ] )
+	if ( gamestate.current_round == gamestate.ambientes [ (u8) gamestate.current_ambiente ] )
 	{
-		++gamestate.ambientes [ (u8) gamestate.ambiente ];
+		++gamestate.ambientes [ (u8) gamestate.current_ambiente ];
 	}
 }
 
@@ -104,13 +128,11 @@ void game_level_inc ( )
 u16 game_play ( )
 {
 	u16  ret = LEVEL_OK;
-   bool joy = vint_getJoyReader();
+	bool joy = vint_getJoyReader();
 
-   vint_setJoyReader ( false );
+	vint_setJoyReader ( false );
 
-	LEVEL wl = _init ( );
-
-
+	wl = _init ( );
 
 
 	while ( ret == LEVEL_OK )
@@ -132,9 +154,6 @@ u16 game_play ( )
 
 		player_control_buttons ( &wl );
 		player_ctrldev ( &ret );
-
-
-
 
 
 
@@ -185,18 +204,18 @@ u16 game_play ( )
 		player_update ( PLAYER_1 );
 		vobject_update ( );
 
-		showFPS ( );
+		//showFPS ( );
 
-		VDP_updateSprites();
+		VDP_updateSprites(80, 1);
 		VDP_waitVSync();
 	}
 
 
-	tool_planHide();
-	_do_leave_stuff ( ret );
+	planHide();
+	_leave ( ret );
 	resetSprites();
 	vint_setJoyReader(joy);
-
+	vram_destroy();
 
 	return ret;
 }
@@ -206,137 +225,122 @@ u16 game_play ( )
 
 
 
-u16 game_ingame ()
-{
-	u16 ended = LEVEL_OK;
-
-	while ( 1 )
-	{
-		ended = game_play ( );
-
-		if ( ended == LEVEL_EXIT      ) break;
-		if ( ended == LEVEL_COMPLETED ) break;
-	}
-
-
-	return ended;
-}
-
-//	u16 ended;
-//
-//	while ( 1 )
-//	{
-//		ended = game_play ( );
-//
-//		if ( ended == LEVEL_OK ) // ok
-//		{
-//			// check if boss
-//			//boss_loop ( level );
-//
-//			++gamestate.current_round;
-//
-//			if ( gamestate.current_round == level_get_max_rounds() ) // si es el último nivel
-//			{
-//				// congratulations!
-//				screen_ending ( );
-//				//screen_staff ( );
-//				break;
-//			}
-//		}
-//
-//		if ( ended == LEVEL_RESTART || ended == LEVEL_HURT ) // ok
-//		{
-//			// no hace nada, solo sigue en el bucle
-//		}
-//
-//
-//		// para borrar //////////////////////////////////////////
-//		if ( ended == LEVEL_BACK ) // back
-//		{
-//			--gamestate.current_round; // restar un nivel y continua el bucle
-//		}
-//		/////////////////////////////////////////////////////////
-//
-//
-//		if ( ended == LEVEL_EXIT ) // give up
-//		{
-//			//screen_gameover ( );
-//			break;
-//		}
-//
-//
-////					if ( ret == LEVEL_EXIT )
-////			{
-////				player_dead ( PLAYER_1, &wl, ret );
-////				break;
-////			}
-////						drawUInt(ret, 0,1,0);
-////			waitMs(1000);
-//	}
-//
-//
-//	return 1111;
-
-
-
-
 void game_loop()
 {
 	u16 to;
 
-   while ( true )
-   {
+	while ( true )
+	{
+		screen_mapa_init();
+
 		gamestate.visito_la_puerta = false;
+		puerta_abierta = 0;
 
-//		screen_oooklab ( 4, BUTTON_BTN, 0 );
-//		screens_intro ( 1 );
-//		to = screen_title ( 0 );
+		screen_oooklab ( 4, BUTTON_BTN, 0 );
+		screen_intro ( 1 );
+		to = screen_title ( 0 );
 
 
 
-					// dev stuff
-					to = SCREEN_JUMP_TO_AMBIENT;
-					gamestate.visito_la_puerta = true;
-					gamestate.lenguaje = ESPANOL;
-  					//
+
+
+
+					if ( DEV )
+					{
+					   gamestate.dificultad   =  3;
+					   gamestate.ambientes[0] = 14; // 14;
+					   gamestate.ambientes[1] = 14; // 14;
+					   gamestate.ambientes[2] = 14; // 14;
+					   gamestate.ambientes[3] = 14; // 14;
+					   gamestate.ambientes[4] =  6; // 6 ;
+					   gamestate.visito_la_puerta = true;
+					   gamestate.lenguaje         = SPANISH;
+
+//					   gamestate.dificultad   = 0;
+//					   gamestate.ambientes[0] = 6;
+//					   gamestate.ambientes[1] = 6;
+//					   gamestate.ambientes[2] = 6;
+//					   gamestate.ambientes[3] = 6;
+//					   gamestate.ambientes[4] = 4;
+//					   gamestate.visito_la_puerta = false;
+//					   gamestate.lenguaje         = SPANISH;
+
+					}
+
+
+
 
 
 
 		if ( to == SCREEN_JUMP_TO_SOUNDTEST )
-      {
-         screen_sound_test ( ) ;
-      }
+		{
+			screen_sound_test ( ) ;
+			continue;
+		}
 
-      if ( to == SCREEN_JUMP_TO_CONTINUE  &&  pwd8_screen() )
+		if ( to == SCREEN_JUMP_TO_CONTINUE  &&  pwd8_screen() )
 		{
 			to = SCREEN_JUMP_TO_AMBIENT;
-      }
+		}
 
-      if (  to == SCREEN_JUMP_TO_AMBIENT ) // ||  to == SCREEN_JUMP_TO_DIFFICULT  )
-      {
+		if (  to == SCREEN_JUMP_TO_AMBIENT ) // ||  to == SCREEN_JUMP_TO_DIFFICULT  )
+		{
 			while ( 1 )
 			{
-				to = screens_ambiente();
+				displayInit();
+				displayOff(0);
+
+
+				resetScreen   ( );
+				resetPalettes ( );
+				resetScroll   ( );
+				resetSprites  ( );
+
+				to = screen_mapa();
 
 				// visita al rey
 				if ( to == SCREEN_JUMP_TO_INTRO5 )
 				{
-					screens_intro ( 5 ) ;
+					screen_intro ( 5 ) ;
 				}
 
 				// Muestra la puerta del ambiente volcán
 				if ( to == SCREEN_JUMP_TO_PUERTA )
 				{
-					screens_puerta();
+					to = screen_puerta();
 				}
 
 				// juego
 				if ( to == SCREEN_JUMP_TO_NEWGAME )
 				{
-					to = game_ingame();
+					u16 state = LEVEL_OK;
+
+					while ( 1 )
+					{
+						state = game_play ( );
+
+						if ( state == LEVEL_EXIT      ) break;
+						if ( state == LEVEL_COMPLETED ) break;
+					}
+
+					if ( gamestate_go_to_ending(state) )
+					{
+						to = SCREEN_JUMP_TO_ENDING;
+						break;
+					}
 				}
 			}
-      }
-   }
+		}
+
+
+		if ( to == SCREEN_JUMP_TO_ENDING )
+		{
+			screen_final(0);
+			//screen_staff ();
+			//screen_ending();
+			screen_gameover();
+		}
+
+	}
 }
 

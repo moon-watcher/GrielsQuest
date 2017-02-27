@@ -4,8 +4,6 @@
 typedef u8 PASSWORD8[9];
 
 
-//bool pwd8_generate ( PASSWORD6 pwd, GAMESTATE  data );
-//void  pwd8_generate ( );
 void pwd8_generate ( PASSWORD8 pwd );
 bool pwd8_screen   ( );
 bool pwd8_is_ok    ( PASSWORD8 pwd );

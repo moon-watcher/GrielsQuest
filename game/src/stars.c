@@ -84,13 +84,13 @@
 
 #include "../inc/include.h"
 
-#define STARTS_ELEMENTS  3
+#define STARTS_ELEMENTS  1 // 3 // puerta, llave y Griel
 #define STARTS_SPRITES   4
 
 
 
 
-static u8 sprites [ STARTS_ELEMENTS ] [ STARTS_SPRITES ];
+static u8 sprites [ STARTS_ELEMENTS ] [ STARTS_SPRITES ] = { };
 
 
 static void _freeze_objects ()
@@ -135,9 +135,9 @@ void stars_draw ( )
 
 	Vect2D_s16 posiciones[STARTS_ELEMENTS] =
 	{
-		{ vdpSpriteCache[splist_griel].posx - 4, vdpSpriteCache[splist_griel].posy + 2 },
-		{ vdpSpriteCache[splist_key].posx   - 4, vdpSpriteCache[splist_key].posy   + 4 },
-		{ vdpSpriteCache[splist_door].posx  - 4, vdpSpriteCache[splist_door].posy  + 2 }
+		{ vdpSpriteCache[splist_griel].x - 4-128, vdpSpriteCache[splist_griel].y + 2-128 },
+//		{ vdpSpriteCache[splist_key].x   - 4-128, vdpSpriteCache[splist_key].y   + 4-128 },
+//		{ vdpSpriteCache[splist_door].x  - 4-128, vdpSpriteCache[splist_door].y  + 2-128 }
 	};
 
 	for ( i=0; i<STARTS_ELEMENTS; i++ )
@@ -160,7 +160,7 @@ void stars_draw ( )
 		if ( duracion % 4 == 0 ) _freeze_objects();
 
 		vobject_update();
-		VDP_updateSprites();
+		VDP_updateSprites(80,1);
 		VDP_waitVSync();
 	}
 

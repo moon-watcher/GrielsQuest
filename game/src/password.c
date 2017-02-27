@@ -6,7 +6,7 @@
 //static u8 _pass_2;
 //static u8 _complete;
 
-static u8 _ambients[4];
+static u8 _ambients[4] = { };
 
 
 static const u8 _valores[4][4][2] =

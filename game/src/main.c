@@ -1,17 +1,27 @@
 #include "../inc/include.h"
 
-void _monos()
+void monos()
 {
+   JoyReader_update();
 
-   VDP_loadTileSet ( ob_title_monos_mi.tileset, 16, 1 );
-   VDP_setPalette ( PAL0, ob_title_monos_mi.palette->data );
+   if ( !joy1_pressed_btn )
+   {
+      return;
+   }
+
+   SYS_disableInts();
+   VDP_loadTileSet ( ob_title_monos_mi.tileset, 16, 0 );
+   VDP_setPalette ( PAL1, ob_title_monos_mi.palette->data );
+   SYS_enableInts();
 
    u16 x = 0;
    u16 y = 0;
 
    while ( 1 )
    {
-      VDP_setMapEx ( APLAN, ob_title_monos_mi.map, TILE_ATTR_FULL(PAL0,0,0,0,16), 14, 10, x*13, y*6, 13, 6 );
+      SYS_disableInts();
+      VDP_setMapEx ( PLAN_A, ob_title_monos_mi.map, TILE_ATTR_FULL(PAL1,0,0,0,16), 14, 10, x*13, y*6, 13, 6 );
+      SYS_enableInts();
 
       ++x;
 
@@ -27,10 +37,20 @@ void _monos()
          y = 0;
       }
 
-      waitMs(5);
+      JoyReader_update();
+
+      if ( joy1_pressed_btn )
+      {
+         break;
+      }
+
       VDP_waitVSync();
    }
+
+   VDP_fadeOutAll ( 30, 0 );
 }
+
+
 
 void conio()
 {
@@ -93,7 +113,7 @@ int execl(const char *file, const char *args, ...)
    va_start(ap, args);
    while (args != 0 && argno < MAXARGS)
    {
-      array[argno++] = args;
+      array[argno++] = (char*) args;
       args = va_arg(ap, const char *);
    }
    array[argno] = (char *) 0;
@@ -111,48 +131,53 @@ int execl(const char *file, const char *args, ...)
 
 void object_viewer()
 {
+   s16 opcion = 12;
 
-   u16 opcion = 0;
+   vram_init ( 16 );
+   vobject_init ( );
+
+
    while ( 1 )
    {
-      //if ( joy1.state & BUTTON_RIGHT && opcion < MAX_OBJECTS ) ++opcion;
-      //if ( joy1.state & BUTTON_LEFT  && opcion > 0           ) --opcion;
-      if ( joy1_pressed_right && opcion < MAX_ANIMATIONS ) ++opcion;
-      if ( joy1_pressed_left  && opcion > 0              ) --opcion;
+      JoyReader_update ( );
 
+      if ( opcion == MAX_ANIMATIONS ) opcion = 0;
+      if ( opcion == -1             ) opcion = MAX_ANIMATIONS - 1;
 
-      waitMs(100);
+      VDP_clearPlan ( PLAN_A, 0 );
 
       vobject_add ( opcion );
       vobject_reset ( opcion );
-      //animation_draw ( opcion, 10, 10, true, APLAN, 1, 0,0, vobject_get(opcion)->object->res->width>>3,vobject_get(opcion)->object->res->height >> 3 );
-      animation_draw ( opcion, 10, 10, true, APLAN, 1, 0, 0, 0, 0 );
+      animation_draw_raw ( opcion, 10, 10, true, PLAN_A, 1, 0, 0, 0, 0 );
+      VDP_setPalette ( animation_get ( opcion )->pal, animation_get ( opcion )->res->pal );
 
-      VDP_clearTextLine(3);
-      VDP_clearTextLine(5);
-      drawUInt( opcion, 2,3,3);
-      VDP_drawText( vobject_get(opcion)->object->name, 7,3);
+      drawUInt ( opcion, 2, 3, 3 );
+      VDP_drawText ( vobject_get(opcion)->object->name, 7, 3 );
 
-
-
-      //while ( !(joy1.state & BUTTON_DIR ) )
-      while ( !joy1_pressed_dir )
+      while ( 1 )
       {
+         JoyReader_update();
+
          drawUInt( vobject_get(opcion)->frame,5,5,2);
          VDP_drawText( "/", 8, 5);
          drawUInt( vobject_get(opcion)->object->frames,10,5,2);
 
-         //if (  joy1.state & BUTTON_BTN )
-         if ( joy1_pressed_abc )
+         if ( joy1_pressed_dir )
          {
-            vobject_reset(opcion);
+            if ( joy1_pressed_right ) ++opcion;
+            if ( joy1_pressed_left  ) --opcion;
+
+            break;
          }
 
          vobject_update();
          VDP_waitVSync();
       }
 
+      vobject_reset(opcion);
       vobject_delete(opcion);
+
+      VDP_waitVSync();
    }
 
 
@@ -217,39 +242,35 @@ void todas_las_pantallas ( )
 
 
 
-      //if ( joy1.state & BUTTON_RIGHT ) ++opcion;
       if ( joy1_pressed_right ) ++opcion;
-      //if ( joy1.state & BUTTON_LEFT  ) --opcion;
-      if ( joy1_pressed_left ) --opcion;
+      if ( joy1_pressed_left  ) --opcion;
 
       if ( opcion >= 18 + 59 ) opcion = 18 + 59 - 1;
       if ( opcion <  0 ) opcion = 0;
 
-      //if (  joy1.state & BUTTON_BTN )
       if (  joy1_pressed_abc )
       {
-         tool_reset ( );
-
+         //tool_reset ( );
 
          if ( opcion == 0 ) screen_sega   ( 0, 0, 0 );
          if ( opcion == 1 ) screen_griels ( 8, 0, 0 );
          if ( opcion == 2 ) screen_title  ( 0 );
          //if ( opcion == 3 ) screen_options ( );
-         if ( opcion == 4 ) screens_intro ( 1 );
+         if ( opcion == 4 ) screen_intro ( 1 );
          if ( opcion == 5 ) pwd8_screen() ;
          if ( opcion == 6 ) screen_sound_test ( );
          //if ( opcion == 7 ) screen_ending ( );
          //if ( opcion == 8 ) screen_gameover ( );
          if ( opcion == 9 ) screen_staff();
 
-         if ( opcion == 10) screens_puerta();
+         if ( opcion == 10) screen_puerta();
          if ( opcion == 11 )
          {
             gamestate.ambientes [ 0 ] = 0;
             gamestate.ambientes [ 1 ] = level_list [ 1 ] [ 0 ].cuantos;
             gamestate.ambientes [ 2 ] = 0;
             gamestate.ambientes [ 3 ] = level_list [ 3 ] [ 0 ].cuantos;
-            screens_puerta();
+            screen_puerta();
          }
 
          if ( opcion == 12 )
@@ -258,43 +279,43 @@ void todas_las_pantallas ( )
             gamestate.ambientes [ 1 ] = level_list [ 1 ] [ 0 ].cuantos;
             gamestate.ambientes [ 2 ] = level_list [ 2 ] [ 0 ].cuantos;
             gamestate.ambientes [ 3 ] = level_list [ 3 ] [ 0 ].cuantos;
-            screens_puerta();
+            screen_puerta();
          }
 
          if ( opcion == 13 )
          {
             gamestate.dificultad = 0;
-            screens_final(0);
+            screen_final(0);
          }
 
          if ( opcion == 14 )
          {
             gamestate.dificultad = 1;
-            screens_final(0);
+            screen_final(0);
          }
 
          if ( opcion == 15 )
          {
             gamestate.dificultad = 2;
-            screens_final(0);
+            screen_final(0);
          }
 
          if ( opcion == 16 )
          {
             gamestate.visito_la_puerta = true;
-            screens_ambiente();
+            screen_mapa();
          }
 
          if ( opcion == 17 )
          {
             gamestate.visito_la_puerta = false;
-            screens_ambiente();
+            screen_mapa();
          }
 
 
          if ( opcion >= 18 ) game_play ( opcion - 10 );
 
-         tool_reset ( );
+//         tool_reset ( );
          VDP_init();
          VDP_setPlanSize ( 64, 32 );
 
@@ -374,22 +395,41 @@ u16 _check_password ( u8 password[], u16 *ptrLevel )
 
 int main ( )
 {
+   dev_init ( 1 );
+
+   JoyReader_init ( 1 );
+
+
+   monos();
+
+   //object_viewer();
    //conio();
+
+
+
+   gamestate.lenguaje = ENGLISH;
+
+
+   gfx_init();
+   Z80_init();
+   Z80_unloadDriver();
+	Z80_loadDriver ( Z80_DRIVER_XGM, true );
+	SND_setForceDelayDMA_XGM ( true );
 
    VDP_setPlanSize ( 64, 32 );
 
-   dev_init();
 
-   JOY_init();
 
-   JOY_setSupport ( PORT_1, DEVELOPEMENT ? JOY_SUPPORT_6BTN : JOY_SUPPORT_3BTN ); // JOY_SUPPORT_3BTN
+   JOY_init ( );
+   JOY_setSupport ( PORT_1, DEV ? JOY_SUPPORT_6BTN : JOY_SUPPORT_3BTN ); // JOY_SUPPORT_3BTN
+   //JOY_setSupport ( PORT_1, JOY_SUPPORT_6BTN  ); // JOY_SUPPORT_3BTN
    JOY_setSupport ( PORT_2, JOY_SUPPORT_OFF );
 
    JoyReader_init ( 1 );
 
-   vram_init ( TILE_USERINDEX );
+   //vram_init ( TILE_USERINDEX );
 
-   vint_init();
+   vint_init ( );
    vint_setJoyReader ( true );
 
    SYS_setVIntCallback ( (_voidCallback*) vint_callback );
@@ -402,103 +442,45 @@ int main ( )
 
 
 
-
-
-//         gamestate.dificultad   = 1;
-//         gamestate.ambientes[0] = 10;
-//         gamestate.ambientes[1] = 10;
-//         gamestate.ambientes[2] = 10;
-//         gamestate.ambientes[3] = 10;
-//         gamestate.ambientes[4] = 0;
-//         screens_ambiente();
-
 //         gamestate.dificultad   = 2;
-//         gamestate.ambientes[0] = 0;
-//         gamestate.ambientes[1] = 1;
-//         gamestate.ambientes[2] = 2;
-//         gamestate.ambientes[3] = 10;
-//         gamestate.ambientes[4] = 5;
-//         gamestate.visito_la_puerta = false;
-//         screens_ambiente();
+//         gamestate.ambientes[0] = 14;
+//         gamestate.ambientes[1] = 14;
+//         gamestate.ambientes[2] = 14;
+//         gamestate.ambientes[3] = 14;
+//         gamestate.ambientes[4] = 6 ;
+//         gamestate.visito_la_puerta = true;
 
-//         screen_sound_test();
-//         pwd8_screen();
-//         screens_final ( 3 );
-
-//         while(1)
-//         {
-//         screens_puerta();
+//         gamestate.lenguaje   = SPANISH;
+//         gamestate.dificultad = 1;
+//         gamestate.current_ambiente   = 0;
+//         gamestate.current_round      = 0;
+//         //screen_mapa();
+//         game_ingame ( );
 //
-//         screens_final ( 1 );
-//         screens_final ( 2 );
-//         screens_final ( 3 );
-//         screens_final ( 4 );
-//         }
+//         gamestate.lenguaje = SPANISH;
 
-//      waitMs(1000);
-
-         //_monos();
+            //displayInit();
+//            drawUInt(VDP_getTextPalette(),0,0,3);
+//            waitMs(1000);
+//
+//            screen_final(0);
 
 
 
 
 
-         //gamestate.dificultad = 2;
-         //screens_final ( 2 );
-
-
-         //screens_puerta();
-         //screens_final ( 0 );
-         //screens_ambiente();
-         //pwd8_screen();
-         //screens_intro(0);
-
-
-//      todas_las_pantallas();
-
-
-
-
-
-
-//      gamestate.lenguaje   = ESPANOL;
-//      gamestate.dificultad = 1;
-//      gamestate.ambiente   = 0;
-//      gamestate.current_round      = 0;
-//      //screens_ambiente();
-//      game_ingame ( );
-
-
-
-
-                  // dev stuff
-                  gamestate.lenguaje = ESPANOL;
-                  //
-
-
-
-
-   if ( !DEVELOPEMENT )
-   {
-      screen_disclaimer ( );
-      screen_sega ( 0, BUTTON_BTN, 0 );
-      screen_griels ( 4, BUTTON_BTN, 0 ); // solo para Barcelona y demos
-   }
-
+   screen_disclaimer ( );
+   screen_sega ( 0, BUTTON_BTN, 0 );
+   screen_griels ( 4, BUTTON_BTN, 0 ); // solo para Barcelona y demos
 
    //http://www.dodgycoder.net/2012/02/coding-tricks-of-game-developers.html#
-   __builtin_expect ( gamestate.ambiente, 0 );
+   __builtin_expect ( gamestate.current_ambiente, 0 );
 
 
    game_loop();
 
    return 0;
 }
-
-
-
-
-
 
 
 
@@ -549,9 +531,6 @@ int main ( )
 
 /*
 
-	//	screen_sega   ( 0, BUTTON_BTN, 0 );
-	//	screen_title();
-
    //	prayer_show ( 6 );
    //	prayer_show ( 11 );
    //	prayer_show ( 16 );
@@ -560,20 +539,12 @@ int main ( )
 //   	u8 pwd[9]; screen_password(pwd);
 //   	screen_sound_test();
    //	screen_intro();
-   //	screen_how_to_play();
    //	screen_oooklab ( 8, BUTTON_BTN, 1 );
    //	screen_staff(); //pendiente
    //	u16 title = screen_title ( );
    //	game ( 58 );
 	//	game ( 4 );
 
-//level_init ( 1);
-//level_draw();
-//boss_loop ( 1 );
-
-
-
-//object_viewer();
 
 
 //typedef void* VirtualFunction (...);
@@ -581,59 +552,5 @@ typedef void (*VirtualFunctionPointer)(u8 a, ...);
 
 // // FUNCIONA!!!
 //execl("asd", "d", "asd", "asda","asd", "asda","asd", "asda","asd" );
-
-
-
-gamestate.dificultad = 2;
-gamestate.ambiente   = 2;
-gamestate.current_round      = 9; // 13 // 5
-game ();
-
-
-
-//   	boss_draw_ctrl ();
-    //todas_las_pantallas ();
-   //	screen_griels ( 8, BUTTON_BTN, 1 );
-
-	//	//drawUInt('5', 3,3,3);
-
-	//	//"9A9V9K59"
-	//	//password_decode  ( "9A9V9K59" );
-	//	//                        65          86         75         53
-	//
-	//	u8 str[9];
-	//
-	//	password_encode ( str, 65, 86, 75, 53 );
-	//	VDP_drawText ( str, 0, 0 );
-	//	password_decode  ( "9V959KA9" );
-	//	waitMs(4000);
-	//	u8 pa[9];
-	//	screen_password ( pa ) ;
-	//	screen_sound_test ( );
-
-
-//   u8 i;
-//   const PASSWORD array [ 10 ] = { "AGGTMIVC", "AMTTMIVC", "ZGRTMIOC", "AXGTMWQC", "NMFJVIVC", "ALJSFQEC", "ALJSFREC", "ZXCVBHFS", "HSDZXASD", "GDGLOOIZ" };
-//
-//
-//   for ( i=0; i<10; i++ )
-//   {
-//      VDP_drawText( array[i], 1, i );
-//
-//      GAMESTATE gs;
-//      bool ok = pwd2_solve ( array[i], &gs );
-//
-//      if ( ok )
-//      {
-//         PASSWORD pwd;
-//
-//         pwd2_generate ( pwd,  gs  );
-//
-//         VDP_drawText( pwd, 22, i );
-//      }
-//
-//      waitMs(2000);
-//   }
-
 
 */

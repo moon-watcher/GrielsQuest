@@ -2,12 +2,12 @@
 
 
 
-static struct genresSprites *_genres;
-static u16            _base;
-static u16            _palette;
-static u8             _counter;
-static u8             _positions[96];
-static u8             _next_sprite;
+static struct genresSprites *_genres = NULL;
+static u16            _base = 0;
+static u16            _palette = 0;
+static u8             _counter = 0;
+static u8             _positions[96] = { };
+static u8             _sprite = 0;
 
 
 
@@ -25,16 +25,17 @@ void text_init ( struct genresSprites *genres, u16 vram, u16 palette )
 
 void text_reset ( )
 {
-	_next_sprite = 0;
+	_sprite = 0;
 	_counter     = 0;
 	memset ( _positions, 0, 96 );
 }
 
 
-void text_setNextSprite ( u8 next )
+void text_setSprite ( u8 next )
 {
-	_next_sprite = next;
+	_sprite = next;
 }
+
 
 
 void text_draw ( u8 *string, u8 x, u8 y, u16 ms )
@@ -54,6 +55,8 @@ void text_draw ( u8 *string, u8 x, u8 y, u16 ms )
 	const u8 tiles  = width * height;
 
 
+	SYS_disableInts();
+
 	while ( (chr = *string++) )
 	{
 		inc = 0;
@@ -70,19 +73,35 @@ void text_draw ( u8 *string, u8 x, u8 y, u16 ms )
 		{
 			for ( k = 0; k < width; k++ )
 			{
-				VDP_setTileMapXY ( APLAN, TILE_ATTR_FULL ( _palette, 0, 0, 0, POSITION ), i*width + x + j, y + k );
+				VDP_setTileMapXY ( PLAN_A, TILE_ATTR_FULL ( _palette, 0, 0, 0, POSITION ), i*width + x + j, y + k );
 				++inc;
 			}
 		}
 
-		if ( ms > 4 )
+		if ( ms > 3 )
 		{
 			waitMs ( ms );
 		}
 
 		++i;
 	}
+
+	SYS_enableInts();
 }
+
+
+
+
+void text_draw_center ( u8 *string, u8 y, u16 ms )
+{
+	u16 len = strlen(string)*2;
+	u16 x = 20 - len / 2;
+
+	text_draw ( string, x, y, ms );
+}
+
+
+
 
 
 u16 text_draw_sprite ( u8 *string, u16 x, u16 y, u16 ms )
@@ -99,6 +118,7 @@ u16 text_draw_sprite ( u8 *string, u16 x, u16 y, u16 ms )
 	const u16 width  = _genres->width;
 	const u16 length = strlen ( string );
 
+
 	for ( i=0; i<length; i++ )
 	{
 		chr = (u8) string[i];
@@ -107,25 +127,32 @@ u16 text_draw_sprite ( u8 *string, u16 x, u16 y, u16 ms )
 
 		if ( chr != 0 ) // isn't space
 		{
+			SYS_disableInts();
+
 			if ( ! _positions[chr] )
 			{
 				_positions[chr] = _counter++;
 				VDP_loadTileData ( _genres->sprites[chr], TILE, size, 0 );
 			}
 
+			VDP_setSpriteFull ( _sprite, x+i*width, y, size, ATTR, _sprite+1 );
+			++_sprite;
 
-			VDP_setSprite ( _next_sprite, x+i*width, y, size, ATTR, _next_sprite + 1 );
-			++_next_sprite;
+			SYS_enableInts();
 
-			if ( ms > 4 )
+			if ( ms > 3 )
 			{
-				VDP_updateSprites();
+			    SYS_disableInts();
+				VDP_updateSprites(80,1);
+				SYS_enableInts();
+
 				waitMs ( ms );
 			}
 		}
 	}
 
-	return _next_sprite;
+
+	return _sprite;
 }
 
 

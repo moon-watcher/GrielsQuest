@@ -6,10 +6,10 @@
 
 
 
-static u16       _terminados;
-static u16       sprite;
-static u16       pos_tile_vacio;
-static SPRITESET sets [ 12 ];
+static u16       _terminados = 0;
+static u16       sprite = 0;
+static u16       pos_tile_vacio = 0;
+static SPRITESET sets [ 12 ] = {};
 
 
 const u32 tile_vacio[8] = { 0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff, 0xffffffff };
@@ -28,9 +28,9 @@ static void _frases_tt_init ( u16 f )
 	#undef TT_C
 	#undef TT_START
 
-//	#define TT_A       tt_info.next = true;
-//	#define TT_B       tt_info.next = true;
-//	#define TT_C       tt_info.next = true;
+//	#define TT_A       tt_info.go_next = true;
+//	#define TT_B       tt_info.go_next = true;
+//	#define TT_C       tt_info.go_next = true;
 
 	#define TT_A       goto fin;
 	#define TT_B       goto fin;
@@ -39,16 +39,8 @@ static void _frases_tt_init ( u16 f )
 
 	tt_info.buttons = ( BUTTON_A|BUTTON_B|BUTTON_C|BUTTON_START );
 
-	#undef  WAITBREAK_A
-	#undef  WAITBREAK_B
-	#undef  WAITBREAK_C
-	#undef  WAITBREAK_START
-
-	#define WAITBREAK_A      goto fin;
-	#define WAITBREAK_B      goto fin;
-	#define WAITBREAK_C      goto fin;
-	#define WAITBREAK_START  goto fin;
-
+	#undef  WAITBREAK
+	#define WAITBREAK      goto fin;
 }
 
 
@@ -59,8 +51,8 @@ static void _poner_mascara()
 	pos_tile_vacio = vram_new ( 1 );
 
 	VDP_loadTileData ( tile_vacio, pos_tile_vacio, 1, 1 );
-	VDP_fillTileMapRect ( APLAN, TILE_ATTR_FULL ( PAL0, 1, 0, 0, pos_tile_vacio ),  1,  0, 38,  1 );
-	VDP_fillTileMapRect ( APLAN, TILE_ATTR_FULL ( PAL0, 1, 0, 0, pos_tile_vacio ),  1, 19, 38,  9 );
+	VDP_fillTileMapRect ( PLAN_A, TILE_ATTR_FULL ( PAL0, 1, 0, 0, pos_tile_vacio ),  1,  0, 38,  1 );
+	VDP_fillTileMapRect ( PLAN_A, TILE_ATTR_FULL ( PAL0, 1, 0, 0, pos_tile_vacio ),  1, 19, 38,  9 );
 }
 
 
@@ -68,7 +60,7 @@ static void _poner_mascara()
 static void _draw_spriteset ( SPRITESET *set, struct genresSprites *res, u8 width, u8 height, s16 x, s16 y, u16 tile_attr )
 {
 	spriteset_new  ( set, res, width, height );
-	spriteset_load ( set, vram_new ( spriteset_tiles(set) ), 1 );
+	spriteset_load ( set, vram_new ( spriteset_tiles(set) ), 0 );
 	spriteset_show ( set, sprite, x, y, tile_attr );
 
 	sprite += spriteset_sprites ( set );
@@ -110,12 +102,27 @@ static void _mover_puerta ( s16 x, s16 y )
 
 
 
-bool screens_puerta_have_to_show ( u8 ambiente )
+bool screen_puerta_have_to_show ( u8 ambiente )
 {
-	// si es la primera vez que entra debe mostrarse
-	if (  ambiente == 4  &&  gamestate.ambientes[4] == 0  )
+	if ( gamestate.dificultad > 2 )
 	{
-		return true;
+		return false;
+	}
+
+	if ( ambiente == 4 )
+	{
+		if ( !puerta_abierta )
+		{
+			return true;
+		}
+
+		if ( !( gamestate.ambientes[0] == level_list [ 0 ] [ gamestate.dificultad ].cuantos &&
+				gamestate.ambientes[1] == level_list [ 1 ] [ gamestate.dificultad ].cuantos &&
+				gamestate.ambientes[2] == level_list [ 2 ] [ gamestate.dificultad ].cuantos &&
+				gamestate.ambientes[3] == level_list [ 3 ] [ gamestate.dificultad ].cuantos ) )
+		{
+			return true;
+		}
 	}
 
 	return false;
@@ -123,12 +130,21 @@ bool screens_puerta_have_to_show ( u8 ambiente )
 
 
 
-void screens_puerta ( )
+u16 screen_puerta ( )
 {
+	u16 ret = 0;
 	gamestate.visito_la_puerta = true;
 
 	sprite = 0;
 	_terminados = gamestate_cuantos_terminados();
+
+
+
+	if ( _terminados >= 4 )
+	{
+		ret = SCREEN_JUMP_TO_NEWGAME;
+		puerta_abierta = 1;
+	}
 
 
 	vram_init(1);
@@ -147,7 +163,7 @@ void screens_puerta ( )
 
 
 
-	VDP_drawImageEx ( BPLAN, &ob_puerta_fondo_b, TILE_ATTR_FULL(PAL0, 0, 0, 0, vram_new ( ob_puerta_fondo_b.tileset->numTile ) ),  1, 1, 0, 1 ); // Fondo
+	VDP_drawImageEx ( PLAN_B, &ob_puerta_fondo_b, TILE_ATTR_FULL(PAL0, 0, 0, 0, vram_new ( ob_puerta_fondo_b.tileset->numTile ) ),  1, 1, 0, 0 ); // Fondo
 
 	_poner_mascara();
 
@@ -170,10 +186,10 @@ void screens_puerta ( )
 
 	vdpSpriteCache[sprite-1].link = 0;
 
-	VDP_updateSprites ( );
+	VDP_updateSprites(80,1);
 
 	SYS_enableInts();
-   VDP_setEnable ( true );
+	VDP_setEnable ( true );
 
 	musiclist_play ( MUSIC_GATE );
 
@@ -186,22 +202,21 @@ void screens_puerta ( )
 	s16 posicion = 0;
 	u16 espera = 2;
 
-   while ( posicion/espera <= 144 )
+	while ( posicion/espera <= 144 )
 	{
 		_mover_escena ( posicion/espera );
 
 		++posicion;
 
-		VDP_updateSprites();
-		wb_wait(1,BUTTON_ABCS);
+		VDP_updateSprites(80,1);
+		wb_wait ( 1, joy1_pressed_btn );
 	}
 
 	_mover_escena ( 144 );
-	VDP_updateSprites();
+	VDP_updateSprites(80,1);
 	VDP_waitVSync();
 
 
-	//_terminados = 4;
 	VDP_setTextPalette(PAL0);
 
 	if ( _terminados == 0 )
@@ -223,7 +238,7 @@ void screens_puerta ( )
 		frases_tt_write ( GRIEL );
 		frases_tt_write ( YONKI );
 
-		VDP_fillTileMapRect (APLAN, TILE_ATTR_FULL ( PAL0, 1, 0, 0, pos_tile_vacio ),  1, 19, 38,  9 );
+		VDP_fillTileMapRect (PLAN_A, TILE_ATTR_FULL ( PAL0, 1, 0, 0, pos_tile_vacio ),  1, 19, 38,  9 );
 
 		s16 x= 0, i= 144;
 
@@ -235,20 +250,25 @@ void screens_puerta ( )
 			_mover_puerta (x, -i );
 			--i;
 
-			VDP_updateSprites();
+			VDP_updateSprites(80,1);
 			VDP_waitVSync();
 		}
 
 		_mover_puerta(300,0);
-		VDP_updateSprites();
+		VDP_updateSprites(80,1);
+		VDP_waitVSync();
 
 		frases_tt_write ( GRIEL );
 
-		//wb_wait ( 2*getHz(), BUTTON_ABCS );
+
+		ret = SCREEN_JUMP_TO_NEWGAME;
+		puerta_abierta = 1;
 	}
 
 
 fin:
-
+	vram_destroy();
 	VDP_fadeOutAll ( 30, false );
+
+	return ret;
 }

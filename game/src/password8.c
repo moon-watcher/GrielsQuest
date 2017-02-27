@@ -42,23 +42,23 @@ void _posiciones ( PASSWORD8 pwd, u8 *pos1, u8 *pos2, u8 *pos3, u8 *pos4, u8 *po
 
 static void _debug ( u16 x, s32 args, ... )
 {
-	if ( !DEVELOPEMENT )
+	if ( !DEV )
 	{
 		return;
 	}
 
-   va_list ap;
-   s32 y = 0;
+	va_list ap;
+	s32 y = 0;
 
-   va_start ( ap, args );
+	va_start ( ap, args );
 
 	while ( args >= 0 )
-   {
-   	drawUInt ( args, x, y++, 2 );
+	{
+		drawUInt ( args, x, y++, 2 );
 		args = va_arg ( ap, s32 );
-   }
+	}
 
-   va_end ( ap );
+	va_end ( ap );
 }
 
 
@@ -70,12 +70,16 @@ static u8 _rnd ( )
 
 static u16 letra_a_numero ( u16 letra, u16 max )
 {
+	++max;
+
 	return letra % max;
 }
 
 
 static u8 numero_a_letra ( u16 numero, u16 max )
 {
+	++max;
+
 	while ( true )
 	{
 		u8 letra = _rnd();
@@ -93,10 +97,10 @@ static u8 numero_a_letra ( u16 numero, u16 max )
 static void _draw ( PASSWORD8 password )
 {
 	VDP_setEnable ( FALSE );
-   SYS_disableInts();
+	SYS_disableInts();
 
-   resetScreen();
-   tool_reset();
+	resetScreen();
+	//tool_reset();
 
 	//struct mappyLevel lvl = { PAL1, 900, 0, APLAN, (struct mappyResource*) &cb_password };
 	//mappy_all ( &lvl, 0, 0, 0, 0, 40, 28, 0 );
@@ -108,11 +112,11 @@ static void _draw ( PASSWORD8 password )
 	{
 		for ( x = 0; x < PWD_WIDTH; x++ )
 		{
-         u16 x0   =  6 + x * 3;
-         u16 y0   = 15 + y * 3;
-         u16 tile = TILE_FONTINDEX + _letras [ y ] [ x ] - 32;
+			u16 x0   =  6 + x * 3;
+			u16 y0   = 15 + y * 3;
+			u16 tile = TILE_FONTINDEX + _letras [ y ] [ x ] - 32;
 
-			VDP_setTileMapXY ( APLAN, tile, x0, y0 );
+			VDP_setTileMapXY ( PLAN_A, tile, x0, y0 );
 		}
 	}
 
@@ -120,13 +124,15 @@ static void _draw ( PASSWORD8 password )
 	VDP_setPalette ( PAL0, font_getPalette());
 
 	text_init ( (struct genresSprites*) &cs_font_16x16, 1200, PAL0 );
-	text_draw ( "PASSWORD", 12, 3,  0 );
+
+	frases_init (30);
+	text_draw_center ( frases_next(), 3,  0 );
 	text_draw ( ( u8*) password, 12, 9, 0 ) ; // ">>>>>>>>" --> ">" Es el "guión alto"
 
 	VDP_setPalette ( PAL3, cs_square.pal );
 	VDP_loadTileData ( cs_square.sprites[0], 5, cs_square.size>>8, 0 );
-	VDP_setSprite ( 0, 40, 112, cs_square.size>>8, TILE_ATTR_FULL(PAL3, 1,0,0,5), 0 );
-	VDP_updateSprites();
+	VDP_setSprite ( 0, 40, 112, cs_square.size>>8, TILE_ATTR_FULL(PAL3, 1,0,0,5) );
+	VDP_updateSprites(80,1);
 
 	_debug ( 0, gamestate.dificultad, gamestate.ambientes[0], gamestate.ambientes[1], gamestate.ambientes[2], gamestate.ambientes[3], gamestate.ambientes[4], -1 );
 
@@ -142,7 +148,7 @@ static void _draw ( PASSWORD8 password )
 //void pwd8_generate ( )
 void pwd8_generate ( PASSWORD8 letras )
 {
-	//u8 letras [ 9 ] = { _rnd(), '-', '-', '-', '-', '-', '-', '-', '\0' };
+	setRandomSeed(vtimer);
 
 	letras [ 0 ] = _rnd();
 	letras [ 1 ] = '-';
@@ -158,41 +164,41 @@ void pwd8_generate ( PASSWORD8 letras )
 
 	_posiciones ( letras, &pos1, &pos2, &pos3, &pos4, &pos5, &pos6, &pos7 );
 
-	letras [ pos2 ] = numero_a_letra ( gamestate.dificultad, 3 ) ;
-	letras [ pos3 ] = numero_a_letra ( gamestate.ambientes[0],  level_list [ 0 ] [ gamestate.dificultad ].cuantos+1 ); // ojo al +1 es para saber si se pasó o no completamente el ambiente
-	letras [ pos4 ] = numero_a_letra ( gamestate.ambientes[1],  level_list [ 1 ] [ gamestate.dificultad ].cuantos+1 ); // ojo al +1 es para saber si se pasó o no completamente el ambiente
-	letras [ pos5 ] = numero_a_letra ( gamestate.ambientes[2],  level_list [ 2 ] [ gamestate.dificultad ].cuantos+1 ); // ojo al +1 es para saber si se pasó o no completamente el ambiente
-	letras [ pos6 ] = numero_a_letra ( gamestate.ambientes[3],  level_list [ 3 ] [ gamestate.dificultad ].cuantos+1 ); // ojo al +1 es para saber si se pasó o no completamente el ambiente
-	letras [ pos7 ] = numero_a_letra ( gamestate.ambientes[4],  level_list [ 4 ] [ gamestate.dificultad ].cuantos+1 ); // ojo al +1 es para saber si se pasó o no completamente el ambiente
+	u8 aux = gamestate_get_dificultad ( );
+
+	letras [ pos2 ] = numero_a_letra ( gamestate.dificultad, 3 ); // 0, 1, 2, 3
+	letras [ pos3 ] = numero_a_letra ( gamestate.ambientes[0], level_list [ 0 ] [ aux ].cuantos );
+	letras [ pos4 ] = numero_a_letra ( gamestate.ambientes[1], level_list [ 1 ] [ aux ].cuantos );
+	letras [ pos5 ] = numero_a_letra ( gamestate.ambientes[2], level_list [ 2 ] [ aux ].cuantos );
+	letras [ pos6 ] = numero_a_letra ( gamestate.ambientes[3], level_list [ 3 ] [ aux ].cuantos );
+	letras [ pos7 ] = numero_a_letra ( gamestate.ambientes[4], level_list [ 4 ] [ aux ].cuantos );
 
 	u16 posicion    = letras [ 0 ] % 7;
 	u16 suma        = ( gamestate.dificultad + gamestate.ambientes[0] + gamestate.ambientes[1] + gamestate.ambientes[2] + gamestate.ambientes[3] + gamestate.ambientes[4] + posicion ) / 3;
 
 	letras [ pos1 ] = suma + PWD8_A_STARTS_AT;
 
-//	return letras;
-
-//	text_draw ( (u8*) letras, 12, 12, 0 );
-//	pwd8_is_ok ( letras );
+	//text_draw ( (u8*) letras, 12, 12, 0 );
+	//pwd8_is_ok ( letras );
 }
 
 
 
 bool pwd8_is_ok ( PASSWORD8 pwd )
 {
-   u16  i;
+	u16  i    = 0;
 	bool ret  = false;
 	u16  play = 1;
 
 
 	// que todas sean mayúsculas
-   for ( i=0; i<8; i++ )
-   {
-      if ( pwd[i] < 65 || pwd[i] > 90 )
-      {
-         return ret;
-      }
-   }
+	for ( i=0; i<8; i++ )
+	{
+		if ( pwd[i] < 65 || pwd[i] > 90 )
+		{
+			return ret;
+		}
+	}
 
 
 	u8 pos1, pos2, pos3, pos4, pos5, pos6, pos7;
@@ -201,13 +207,16 @@ bool pwd8_is_ok ( PASSWORD8 pwd )
 
 
 	u16 posicion   = pwd [ 0 ] % 7;
-	u16 dificultad = letra_a_numero ( pwd[pos2], 3 );
-	u16 ambiente0  = letra_a_numero ( pwd[pos3], level_list [ 0 ] [ dificultad ].cuantos+1 ); // ojo al +1 es para saber si se pasó o no completamente el ambiente
-	u16 ambiente1  = letra_a_numero ( pwd[pos4], level_list [ 1 ] [ dificultad ].cuantos+1 ); // ojo al +1 es para saber si se pasó o no completamente el ambiente
-	u16 ambiente2  = letra_a_numero ( pwd[pos5], level_list [ 2 ] [ dificultad ].cuantos+1 ); // ojo al +1 es para saber si se pasó o no completamente el ambiente
-	u16 ambiente3  = letra_a_numero ( pwd[pos6], level_list [ 3 ] [ dificultad ].cuantos+1 ); // ojo al +1 es para saber si se pasó o no completamente el ambiente
-	u16 ambiente4  = letra_a_numero ( pwd[pos7], level_list [ 4 ] [ dificultad ].cuantos+1 ); // ojo al +1 es para saber si se pasó o no completamente el ambiente
+	u16 dificultad = letra_a_numero ( pwd[pos2], 3 ); // 0, 1, 2, 3
+	u16 aux        = dificultad;
 
+	if ( aux > 2 ) aux = 2;
+
+	u16 ambiente0  = letra_a_numero ( pwd[pos3], level_list [ 0 ] [ aux ].cuantos );
+	u16 ambiente1  = letra_a_numero ( pwd[pos4], level_list [ 1 ] [ aux ].cuantos );
+	u16 ambiente2  = letra_a_numero ( pwd[pos5], level_list [ 2 ] [ aux ].cuantos );
+	u16 ambiente3  = letra_a_numero ( pwd[pos6], level_list [ 3 ] [ aux ].cuantos );
+	u16 ambiente4  = letra_a_numero ( pwd[pos7], level_list [ 4 ] [ aux ].cuantos );
 
 	u16 suma       = ( dificultad + ambiente0 + ambiente1 + ambiente2 + ambiente3 + ambiente4 + posicion ) / 3;
 	u16 verifica   = ABS ( ( pwd[pos1] - PWD8_A_STARTS_AT ) - suma );
@@ -218,14 +227,19 @@ bool pwd8_is_ok ( PASSWORD8 pwd )
 	_debug ( 3, dificultad, ambiente0, ambiente1, ambiente2, ambiente3, ambiente4, suma, verifica, -1 );
 
 
-	if ( verifica > 11 )
+	if ( verifica > 10 )
 	{
-		verifica = 11;
+		verifica = 10;
 	}
 	else if ( verifica == 0 ) // 0 es que no hay diferencias entre la verificacion y el código
-   {
-		gamestate.ambiente   = 0;
-		gamestate.current_round = 0;
+	{
+		gamestate.current_ambiente = 0;
+		gamestate.current_round    = 0;
+
+		if ( dificultad > 2 )
+		{
+			gamestate.visito_la_puerta = true;
+		}
 
 		gamestate.dificultad   = dificultad;
 		gamestate.ambientes[0] = ambiente0;
@@ -234,33 +248,23 @@ bool pwd8_is_ok ( PASSWORD8 pwd )
 		gamestate.ambientes[3] = ambiente3;
 		gamestate.ambientes[4] = ambiente4;
 
-      play = 4;
-      ret  = true;
+		play = 4;
+		ret  = true;
 
-      _debug ( 35, gamestate.dificultad, gamestate.ambientes[0], gamestate.ambientes[1], gamestate.ambientes[2], gamestate.ambientes[3], gamestate.ambientes[4], -1 );
-   }
-
-	verifica += 13;
-
-	if ( verifica > 23 )
-	{
-		verifica = 23;
+		_debug ( 35, gamestate.dificultad, gamestate.ambientes[0], gamestate.ambientes[1], gamestate.ambientes[2], gamestate.ambientes[3], gamestate.ambientes[4], -1 );
 	}
 
-	u8 *string = frases_find ( 20, verifica );
+	u8 *string = frases_find ( 5, verifica );
 
-   VDP_clearTextLine ( 25 );
-   VDP_drawText ( string, 20 - strlen ( string ) / 2, 25 );
-
+	VDP_clearTextLine ( 25 );
+	VDP_drawText ( string, 20 - strlen ( string ) / 2, 25 );
 
 	psglist_play ( play );
 
-	gamestate.visito_la_puerta = ret;
-	//
+	waitSc(1);
 
 
-
-   return ret;
+	return ret;
 }
 
 
@@ -270,11 +274,11 @@ bool pwd8_screen()
 {
 	#define PRESSED  ( joy1_pressed_a || joy1_pressed_c )
 
-   s16 len = 0;
+	s16 len = 0;
 	s16 y   = 0;
 	s16 x   = 0;
-   u8 password[9] = { '-', '-', '-', '-', '-', '-', '-', '-', '\0' };
-   bool ret = false;
+	u8 password[9] = { '-', '-', '-', '-', '-', '-', '-', '-', '\0' };
+	bool ret = false;
 
 
 	music_stop();
@@ -286,13 +290,13 @@ bool pwd8_screen()
 	while ( true )
 	{
 		u8 ch = 0;
-      bool paint = false;
+		bool paint = false;
 
 		//JoyReader_update ( );
 
-      if ( joy1_pressed_dir )
-      {
-         psglist_play ( PSG_SELECT );
+		if ( joy1_pressed_dir )
+		{
+			psglist_play ( PSG_SELECT );
 
 			do
 			{
@@ -310,18 +314,18 @@ bool pwd8_screen()
 			}
 			while ( ch == 32 );
 
-         VDP_setSpritePosition ( 0, x * 24 + 40, y * 24 + 112 );
-         VDP_updateSprites ( );
+			VDP_setSpritePosition ( 0, x * 24 + 40, y * 24 + 112 );
+			VDP_updateSprites (80,1);
 
-         continue;
-      }
+			continue;
+		}
 		else
 		{
 			ch = _letras[y][x];
 		}
 
 
-      if ( DEVELOPEMENT )
+		if ( DEV )
 		{
 			drawUInt ( ch , 38, 27, 2 );
 
@@ -337,59 +341,59 @@ bool pwd8_screen()
 
 
 
-      // Sale con START
-      if ( joy1_pressed_start )
-      {
-         ret = pwd8_is_ok ( password );
-         break;
-      }
+		// Sale con START
+		if ( joy1_pressed_start )
+		{
+			ret = pwd8_is_ok ( password );
+			break;
+		}
 
-      // Sale con OK
-      if ( PRESSED && ch == 91 )
-      {
-      	ret = pwd8_is_ok ( password );
+		// Sale con OK
+		if ( PRESSED && ch == 91 )
+		{
+			ret = pwd8_is_ok ( password );
 
-         if ( ret )
-         {
-            break;
-         }
-      }
+			if ( ret )
+			{
+				break;
+			}
+		}
 
-      // A o C
-      if ( len < 8  &&  PRESSED  &&  ch >= 65  &&  ch <= 90 )
-      {
-         psglist_play(2);
+		// A o C
+		if ( len < 8  &&  PRESSED  &&  ch >= 65  &&  ch <= 90 )
+		{
+			psglist_play(2);
 
-         password [ len++ ] = ch;
-         paint = true;
-      }
+			password [ len++ ] = ch;
+			paint = true;
+		}
 
-      // borrar
-      if ( len > 0  &&  ( joy1_pressed_b  ||  ( PRESSED && ch == 60 ) )  )
-      {
-         psglist_play(3);
+		// borrar
+		if ( len > 0  &&  ( joy1_pressed_b  ||  ( PRESSED && ch == 60 ) )  )
+		{
+			psglist_play(3);
 
-         password [ --len ] = '-';
-         paint = true;
-      }
-
-
-      if ( paint )
-      {
-         SYS_disableInts();
-         text_draw ( ( u8*) password, 12, 9, 0 ) ;
-         VDP_clearTextLine ( 25 );
-         SYS_enableInts();
-      }
+			password [ --len ] = '-';
+			paint = true;
+		}
 
 
-      VDP_waitVSync();
+		if ( paint )
+		{
+			SYS_disableInts();
+			text_draw ( ( u8*) password, 12, 9, 0 ) ;
+			VDP_clearTextLine ( 25 );
+			SYS_enableInts();
+		}
+
+
+		VDP_waitVSync();
 	}
 
 
 	waitMs(1000);
 
-   VDP_fadeOutAll ( 10, false );
+	VDP_fadeOutAll ( 10, false );
 	resetSprites ( );
 
 	return ret;

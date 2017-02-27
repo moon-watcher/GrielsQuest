@@ -12,12 +12,12 @@
 
 
 
-#define CMD_IS(x)  ( strcmp ( tt_info.command, (x) ) == 0 )
+#define cmd(x)  ( strcmp ( tt_info.command, (x) ) == 0 )
 
 
 
-static u16 _speed;
-static u16 _color[2];
+static u16 _speed = 0;
+static u16 _color[2] = { };
 
 
 
@@ -165,7 +165,7 @@ static u16 _reset_area ( bool wait )
 
 	tt_info.vx = 0;
 	tt_info.vy = 0;
-	tt_info.next = false;
+	tt_info.go_next = false;
 
 	return ret;
 }
@@ -173,7 +173,7 @@ static u16 _reset_area ( bool wait )
 
 static u16 _wait ( u16 wait )
 {
-	if ( tt_info.next )
+	if ( tt_info.go_next )
 	{
 		return 0;
 	}
@@ -184,22 +184,26 @@ static u16 _wait ( u16 wait )
 
 		if ( tt_info.buttons && joy1_pressed )
 		{
-				  if ( ( tt_info.buttons & BUTTON_UP    ) && joy1_pressed_up    ) return BUTTON_UP;
-			else if ( ( tt_info.buttons & BUTTON_DOWN  ) && joy1_pressed_down  ) return BUTTON_DOWN;
-			else if ( ( tt_info.buttons & BUTTON_LEFT  ) && joy1_pressed_left  ) return BUTTON_LEFT;
-			else if ( ( tt_info.buttons & BUTTON_RIGHT ) && joy1_pressed_right ) return BUTTON_RIGHT;
-			else if ( ( tt_info.buttons & BUTTON_A     ) && joy1_pressed_a     ) return BUTTON_A;
-			else if ( ( tt_info.buttons & BUTTON_B     ) && joy1_pressed_b     ) return BUTTON_B;
-			else if ( ( tt_info.buttons & BUTTON_C     ) && joy1_pressed_c     ) return BUTTON_C;
-			else if ( ( tt_info.buttons & BUTTON_START ) && joy1_pressed_start ) return BUTTON_START;
-			else if ( ( tt_info.buttons & BUTTON_X     ) && joy1_pressed_y     ) return BUTTON_X;
-			else if ( ( tt_info.buttons & BUTTON_Y     ) && joy1_pressed_x     ) return BUTTON_Y;
-			else if ( ( tt_info.buttons & BUTTON_Z     ) && joy1_pressed_z     ) return BUTTON_Z;
-			else if ( ( tt_info.buttons & BUTTON_MODE  ) && joy1_pressed_mode  ) return BUTTON_MODE;
-			else if ( ( tt_info.buttons & BUTTON_DIR   ) && joy1_pressed_dir   ) return BUTTON_DIR;
-			else if ( ( tt_info.buttons & BUTTON_BTN   ) && joy1_pressed_btn   ) return BUTTON_BTN;
-			else if ( ( tt_info.buttons & BUTTON_ALL   ) && joy1_pressed       ) return BUTTON_ALL;
-		}
+		   u16 ret = 0;
+
+				  if ( ( tt_info.buttons & BUTTON_UP    ) && joy1_pressed_up    ) ret = BUTTON_UP;
+			else if ( ( tt_info.buttons & BUTTON_DOWN  ) && joy1_pressed_down  ) ret = BUTTON_DOWN;
+			else if ( ( tt_info.buttons & BUTTON_LEFT  ) && joy1_pressed_left  ) ret = BUTTON_LEFT;
+			else if ( ( tt_info.buttons & BUTTON_RIGHT ) && joy1_pressed_right ) ret = BUTTON_RIGHT;
+			else if ( ( tt_info.buttons & BUTTON_A     ) && joy1_pressed_a     ) ret = BUTTON_A;
+			else if ( ( tt_info.buttons & BUTTON_B     ) && joy1_pressed_b     ) ret = BUTTON_B;
+			else if ( ( tt_info.buttons & BUTTON_C     ) && joy1_pressed_c     ) ret = BUTTON_C;
+			else if ( ( tt_info.buttons & BUTTON_START ) && joy1_pressed_start ) ret = BUTTON_START;
+			else if ( ( tt_info.buttons & BUTTON_X     ) && joy1_pressed_y     ) ret = BUTTON_X;
+			else if ( ( tt_info.buttons & BUTTON_Y     ) && joy1_pressed_x     ) ret = BUTTON_Y;
+			else if ( ( tt_info.buttons & BUTTON_Z     ) && joy1_pressed_z     ) ret = BUTTON_Z;
+			else if ( ( tt_info.buttons & BUTTON_MODE  ) && joy1_pressed_mode  ) ret = BUTTON_MODE;
+			else if ( ( tt_info.buttons & BUTTON_DIR   ) && joy1_pressed_dir   ) ret = BUTTON_DIR;
+			else if ( ( tt_info.buttons & BUTTON_BTN   ) && joy1_pressed_btn   ) ret = BUTTON_BTN;
+			else if ( ( tt_info.buttons & BUTTON_ALL   ) && joy1_pressed       ) ret = BUTTON_ALL;
+
+			return ret;
+      }
 
 		VDP_waitVSync ( );
 	}
@@ -231,7 +235,7 @@ void tt_init ( )
 	tt_info.fade_out  = 10; // en pasos
 	tt_info.buttons   =  ( BUTTON_A | BUTTON_B | BUTTON_C | BUTTON_START );
 
-	tt_info.next      =  false;
+	tt_info.go_next      =  false;
 
 	tt_info.word      =  0;
 	tt_info.vx        =  0;
@@ -251,7 +255,7 @@ void tt_clear ( )
 		VDP_fadeOut ( 1, 2,  tt_info.fade_out, false );
 	}
 
-	VDP_fillTileMapRect  (  VDP_getTextPlan().v ? APLAN : BPLAN,  0,  tt_info.x,  tt_info.y,  tt_info.width,  tt_info.height );
+	VDP_fillTileMapRect  (  VDP_getTextPlan(),  0,  tt_info.x,  tt_info.y,  tt_info.width,  tt_info.height );
 }
 
 
@@ -267,12 +271,12 @@ u16 _tt_write_init ( u16 indice, u8 *cadena )
 
 	tt_info.color[0] = ct_color(indice,0);
 	tt_info.color[1] = ct_color(indice,1);
-	tt_info.next     = false;
+	tt_info.go_next     = false;
 
 	tt_info.chr      = '\0';
 
 
-	VDP_fillTileMapRect  (  VDP_getTextPlan().v ? APLAN : BPLAN,  0,  tt_info.x,  tt_info.y,  tt_info.width,  tt_info.height );
+	VDP_fillTileMapRect  (  VDP_getTextPlan(),  0,  tt_info.x,  tt_info.y,  tt_info.width,  tt_info.height );
 
 	_speed           = tt_info.speed;
 	_color[0]        = tt_info.color[0];
@@ -304,19 +308,17 @@ u16 _tt_write_process ( u16 i, u8 *cadena )
 	else if ( cmd_stat == 2 )
 	{
 
-		if ( CMD_IS("WAIT") )
+		if ( cmd("WAIT") )
 		{
-			_wait ( tt_info.cmd_value[0] ? tt_info.cmd_value[0] : tt_info.wait );
-
-			return 0; // continue
+			return _wait ( tt_info.cmd_value[0] ? tt_info.cmd_value[0] : tt_info.wait );
 		}
 
-		else if ( CMD_IS("QUIT") )
+		else if ( cmd("QUIT") )
 		{
 			//
 		}
 
-		else if ( CMD_IS("BREAK") )
+		else if ( cmd("BREAK") )
 		{
 			// Salto de linea forzado o bien sólo lo hace si x > 0
 			if ( tt_info.cmd_value[0] || tt_info.vx > 0 )
@@ -327,12 +329,12 @@ u16 _tt_write_process ( u16 i, u8 *cadena )
 			return 0; // continue
 		}
 
-		else if ( CMD_IS("SPEED") )
+		else if ( cmd("SPEED") )
 		{
 			tt_info.speed = tt_info.cmd_value[0] ? tt_info.cmd_value[0] : _speed;
 		}
 
-		else if ( CMD_IS("COLOR") )
+		else if ( cmd("COLOR") )
 		{
 			tt_info.color[0] = tt_info.cmd_value[0] ? tt_info.cmd_value[0] : _color[0];
 			tt_info.color[1] = tt_info.cmd_value[0] ? tt_info.cmd_value[0] : _color[1];
@@ -341,45 +343,46 @@ u16 _tt_write_process ( u16 i, u8 *cadena )
 			VDP_setPaletteColor ( 16 * VDP_getTextPalette() + 2, tt_info.color[1] );
 		}
 
-		else if ( CMD_IS("CLEAR") )
+		else if ( cmd("CLEAR") )
 		{
 			_reset_area ( false );
 
 			return 0; // continue
 		}
 
-		else if ( CMD_IS("WCLEAR") )
+		else if ( cmd("WCLEAR") )
 		{
-			u16 wait = tt_info.cmd_value[0];
+			u16 btn  = 0;
+			u16 wait = tt_info.wait;
+
+			if ( tt_info.cmd_value[0] )
+         {
+            wait = tt_info.cmd_value[0];
+         }
 
 			if ( wait )
 			{
-				_wait ( wait ? wait : tt_info.wait ); // este falla, hace que se quede cogado porque el valor debe ser altísimo
-				//drawUInt ( wait, 3, 3, 10 );
-				_reset_area ( false );
-			}
-			else
-			{
-				_reset_area ( true );
+				btn = _wait ( wait ); // este falla, hace que se quede cogado porque el valor debe ser altísimo
 			}
 
-			return 0; // continue
+         _reset_area ( false );
+
+         return btn;
 		}
 
-		else if ( CMD_IS("WBREAK") )
+		else if ( cmd("WBREAK") )
 		{
 			u16 wait = tt_info.cmd_value[0];
 
-			_wait ( wait ? wait : getHz() );
+			u16 w = _wait ( wait ? wait : getHz() );
 
 			// Salto de linea forzado o bien sólo lo hace si x > 0
 			if ( tt_info.cmd_value[1] || tt_info.vx > 0 )
 			{
-				_inc_y () ;
+            _inc_y () ;
 			}
 
-
-			return 0; // continue
+			return w; // continue
 		}
 	}
 
@@ -393,7 +396,7 @@ u16 _tt_write_process ( u16 i, u8 *cadena )
 				return _reset_area ( true );
 			}
 
-			return;
+			return 0;
 		}
 
 		else if ( tt_info.chr == SPACE  ||  tt_info.vx == 0 )
@@ -424,13 +427,13 @@ u16 _tt_write_process ( u16 i, u8 *cadena )
 
 
 	// Escribe el caracter
-	if ( tt_info.next == false  &&  tt_info.chr != SPACE )
+	if ( tt_info.go_next == false  &&  tt_info.chr != SPACE )
 	{
 		u8 write[2] = { tt_info.chr, EOF };
 
-		//SYS_disableInts();
+		SYS_disableInts();
 		VDP_drawText ( write,  tt_info.x + tt_info.vx,  tt_info.y + tt_info.vy );
-		//SYS_enableInts();
+		SYS_enableInts();
 	}
 
 	// Incrementa posiciones

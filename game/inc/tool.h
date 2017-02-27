@@ -14,15 +14,16 @@
 
 
 //struct genresTiles *wuw;
+void text_write            ( u8 *str, u8 x, u8 y );
 
-void tool_planHide              ( );
-void tool_planHide_Ex           ( u16 plan );
-void tool_planHide_and_sprites  ( );
-void tool_showBmp               ( u16 pal, struct genresTiles *grt, u16 tile, u16 plan, u16 x, u16 y, u8 pal_steps );
-void tool_showBmp_bn            ( u16 pal, struct genresTiles *grt, u16 tile, u16 plan, u16 x, u16 y, u8 pal_steps );
-void tool_typeText              ( u8 *str, u8 x, u8 y, u16 ms );
-u16  tool_typeTextHalt          ( u8 *str, u8 x, u8 y, u16 ms, u16 joy, u16 buttons );
-void tool_reset                 ( );
+void planHide              ( );
+void planHide_Ex           ( VDPPlan plan );
+void planHide_and_sprites  ( );
+void showBmp               ( u16 pal, struct genresTiles *grt, u16 tile, VDPPlan plan, u16 x, u16 y, u8 pal_steps );
+void showBmp_bn            ( u16 pal, struct genresTiles *grt, u16 tile, VDPPlan plan, u16 x, u16 y, u8 pal_steps );
+void typeText              ( u8 *str, u8 x, u8 y, u16 ms );
+u16  typeTextHalt          ( u8 *str, u8 x, u8 y, u16 ms, u16 joy, u16 buttons );
+//void tool_reset            ( );
 //void tool_deleteArea            ( u16 plan, u8 x, u8 y, u8 width, u8 height );
 
 //void tool_waitWhilePessed       ( u16 joy, u16 btn );
@@ -31,3 +32,11 @@ void tool_reset                 ( );
 
 
 u16 sprintf(char *buffer, const char *fmt, ...);
+
+
+u8   getHz     ( );
+void waitHz    ( u16 hzs );
+void waitSc    ( u16 sc );
+void waitJoy   ( );
+void waitJoyHz ( u16 hz );
+void waitJoySc ( u16 sc );

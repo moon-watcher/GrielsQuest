@@ -1,5 +1,5 @@
-//#ifndef _INCLUDE_H_
-//#define _INCLUDE_H_
+#ifndef _INCLUDE_H_
+#define _INCLUDE_H_
 
 
 
@@ -48,12 +48,20 @@
 
 
 
+
+
 typedef enum
 {
    false = 0,
    true  = !false
 }
 bool;
+
+
+
+
+#define MAX_SPRITE 80
+
 
 
 #define MIN(a,b) (((a)<(b))?(a):(b))
@@ -182,7 +190,7 @@ bool;
 //Edit: In case you are also interested in C++ solutions, boost has it (but C++ itself doesn't have a native for-each loop yet): Boost.ForEach
 */
 
-
+#define HOW_TO_PLAY_TILE     32
 
 
 #include "../../libs/stdarg.h"
@@ -190,6 +198,7 @@ bool;
 #include "../../libs/binary.h"
 #include "../../libs/dev.h"
 #include "../../libs/burbuja.h"
+#include "../../libs/list.h"
 
 //#include "../libs/psg.h"
 #include "../libs/vram.h"
@@ -227,6 +236,7 @@ bool;
 
 //#include "../inc/cosas.h"
 
+#include "../inc/display.h"
 #include "../inc/gamestate.h"
 #include "../inc/genres_externs.h"
 #include "../inc/version.h"
@@ -261,7 +271,7 @@ bool;
 #include "../inc/scoreball.h"
 #include "../inc/stars.h"
 #include "../inc/boss.h"
-#include "../inc/screens/ambiente.h"
+#include "../inc/screens/mapa.h"
 #include "../inc/screens/intro.h"
 #include "../inc/screens/final.h"
 #include "../inc/screens/puerta.h"
@@ -273,4 +283,4 @@ bool;
 
 
 //
-//#endif
+#endif

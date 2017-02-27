@@ -745,7 +745,7 @@
 //		if ( !vp->init || vp->index != chunk.index  )
 //		{
 //			vp->init  = true;
-//			VDP_loadTileData ( animacion->res->sprites [ chunk.index ], vp->vram_pos, bc->tiles, 1 );
+//			VDP_loadTileData ( animacion->res->sprites [ chunk.index ], vp->vram_pos, bc->tiles, 0 );
 //		}
 //
 //		VDP_setSprite ( chunk.sprite-1, bc->x + chunk.x, bc->y + chunk.y, bc->size, TILE_ATTR_FULL ( PAL3, 0, 0, 0, vp->vram_pos ), chunk.sprite );

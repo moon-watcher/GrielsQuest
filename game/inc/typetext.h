@@ -36,7 +36,7 @@ struct typetext_info
 	u8   fade_out;
 	u16  buttons;
 
-	bool next;
+	bool go_next; // go next phrase
 
 	u16  word;
 	u16  vx;

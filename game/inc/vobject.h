@@ -4,6 +4,7 @@
 
 typedef struct
 {
+   u16        index;
    u8         frame;
    u16        vram_pos;
    u16        counter;

@@ -4,6 +4,14 @@
 #define NOT     !
 #define ISNT    !=
 
+#define is      IS
+#define and     AND
+#define or      OR
+#define not     NOT
+#define isnt    ISNT
+
+
+
 #define BUTTON_ABC   ( BUTTON_A | BUTTON_B | BUTTON_C )
 #define BUTTON_ABCS  ( BUTTON_ABC | BUTTON_START )
 
@@ -47,3 +55,5 @@ void VDP_setSpriteVRAM          ( u16 index, u16 pos );
 void VDP_setSpritePiority       ( u16 index, u16 high );
 
 u16  in_array                   ( u16 needle, u16 array[] );
+
+void inc_difficulty_level       ( );

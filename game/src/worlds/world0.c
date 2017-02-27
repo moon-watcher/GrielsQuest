@@ -80,17 +80,17 @@ const LEVEL w0r03 =
    (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    {
-      {   SETA_2,   SETA_2,   SETA_2,   SETA_2,   SETA_2,   SETA_2,    SETA_2,       0,   CROSS,   SETA_2,   SETA_2,   SETA_2,   SETA_2,   SETA_2,   SETA_2,   SETA_2 },
-      {   SETA_2,       0,  LEFT1,       0,  LEFT1,       0,   LEFT1,       0,       0, RIGHT1,       0,  LEFT1,       0,  LEFT1,   STAFF,   SETA_2 },
-      {   SETA_2,  DOWN1,   SETA_2,    UP1,   SETA_2,    UP1,    SETA_2,  DOWN1,  DOWN1,   SETA_2,  DOWN1,   SETA_2,  DOWN1,   SETA_2,    UP1,   SETA_2 },
-      {   SETA_2,       0, RIGHT1,       0, RIGHT1,       0,   LEFT1,       0,       0,  LEFT1,       0,  LEFT1,       0, RIGHT1,       0,   SETA_2 },
-      {   SETA_2,  DOWN1,   SETA_2,    UP1,   SETA_2,  DOWN1,    SETA_2,    UP1,    UP1,   SETA_2,  DOWN1,   SETA_2,  DOWN1,   SETA_2,    UP1,   SETA_2 },
-      {   SETA_2,       0,  LEFT1,       0,  LEFT1,       0,  RIGHT1,DARKELF,     KEY, RIGHT1,       0, RIGHT1,       0, RIGHT1,       0,   SETA_2 },
-      {   SETA_2,  DOWN1,   SETA_2,  DOWN1,   SETA_2,  DOWN1,    SETA_2,    UP1,   WILDBOAR,   SETA_2,    UP1,   SETA_2,    UP1,   SETA_2,    UP1,   SETA_2 },
-      {   SETA_2,       0,  LEFT1,       0,  LEFT1,       0,TOADSTOOL,   WILDBOAR,    DOOR, RIGHT1,       0, RIGHT1,   SWORD,  LEFT1,       0,   SETA_2 },
-      {   SETA_2,  DOWN1,   SETA_2,    UP1,   SETA_2,  DOWN1,    SETA_2,  DOWN1,  DOWN1,   SETA_2,    UP1,   SETA_2,  DOWN1,   SETA_2,    UP1,   SETA_2 },
-      {   SETA_2,       0, RIGHT1,       0,  LEFT1,       0,  RIGHT1,       0,       0, RIGHT1,       0, RIGHT1,       0, RIGHT1,       0,   SETA_2 },
-      {   SETA_2,   SETA_2,   SETA_2,   SETA_2,   SETA_2,   SETA_2,    SETA_2,   SETA_2,   SETA_2,   SETA_2,   SETA_2,   SETA_2,   SETA_2,   SETA_2,   SETA_2,   SETA_2 }
+      {   TOMB1,   TOMB1,   TOMB1,   TOMB1,   TOMB1,   TOMB1,    TOMB1,       0,   CROSS,   TOMB1,   TOMB1,   TOMB1,   TOMB1,   TOMB1,   TOMB1,   TOMB1 },
+      {   TOMB1,       0,  LEFT1,       0,  LEFT1,       0,   LEFT1,       0,       0, RIGHT1,       0,  LEFT1,       0,  LEFT1,   STAFF,   TOMB1 },
+      {   TOMB1,  DOWN1,   TOCON1,    UP1,   TOCON1,    UP1,    TOCON1,  DOWN1,  DOWN1,   TOCON1,  DOWN1,   TOCON1,  DOWN1,   TOCON1,    UP1,   TOMB1 },
+      {   TOMB1,       0, RIGHT1,       0, RIGHT1,       0,   LEFT1,       0,       0,  LEFT1,       0,  LEFT1,       0, RIGHT1,       0,   TOMB1 },
+      {   TOMB1,  DOWN1,   TOCON1,    UP1,   TOCON1,  DOWN1,    TOCON1,    UP1,    UP1,   TOCON1,  DOWN1,   TOCON1,  DOWN1,   TOCON1,    UP1,   TOMB1 },
+      {   TOMB1,       0,  LEFT1,       0,  LEFT1,       0,  RIGHT1,DARKELF,     KEY, RIGHT1,       0, RIGHT1,       0, RIGHT1,       0,   TOMB1 },
+      {   TOMB1,  DOWN1,   TOCON1,  DOWN1,   TOCON1,  DOWN1,    TOCON1,    UP1,   WILDBOAR,   TOCON1,    UP1,   TOCON1,    UP1,   TOCON1,    UP1,   TOMB1 },
+      {   TOMB1,       0,  LEFT1,       0,  LEFT1,       0,TOADSTOOL,   WILDBOAR,    DOOR, RIGHT1,       0, RIGHT1,   SWORD,  LEFT1,       0,   TOMB1 },
+      {   TOMB1,  DOWN1,   TOCON1,    UP1,   TOCON1,  DOWN1,    TOCON1,  DOWN1,  DOWN1,   TOCON1,    UP1,   TOCON1,  DOWN1,   TOCON1,    UP1,   TOMB1 },
+      {   TOMB1,       0, RIGHT1,       0,  LEFT1,       0,  RIGHT1,       0,       0, RIGHT1,       0, RIGHT1,       0, RIGHT1,       0,   TOMB1 },
+      {   TOMB1,   TOMB1,   TOMB1,   TOMB1,   TOMB1,   TOMB1,    TOMB1,   TOMB1,   TOMB1,   TOMB1,   TOMB1,   TOMB1,   TOMB1,   TOMB1,   TOMB1,   TOMB1 }
    }
 };
 
@@ -134,9 +134,9 @@ const LEVEL w0r05 =
       {       0,  TOCON1,    STAFF,  DARKELF,  DARKELF,    SWORD,  DARKELF,      UP1,      UP1,    SWORD,  DARKELF,  DARKELF,    STAFF,  DARKELF,   TOCON1,       0 },
       {       0,  TOCON1,  DARKELF,    SWORD,    STAFF,  DARKELF,  DARKELF,   RIGHT1,      KEY,        0,TOADSTOOL,  DARKELF,  DARKELF,  DARKELF,   TOCON1,       0 },
       {       0,  TOCON1,    SWORD,  DARKELF,  DARKELF,  DARKELF,    SWORD,    DOWN1,    DOWN1,TOADSTOOL,  DARKELF,    STAFF,    SWORD,TOADSTOOL,   TOCON1,       0 },
-      {       0,       0,  DARKELF,  DARKELF,    STAFF,    SWORD,  DARKELF,   TOCON1,   TOCON1,TOADSTOOL,  DARKELF,    STAFF,    SWORD,TOADSTOOL,   TOCON1,       0 },
-      {       0,       0,        0,        0,        0,        0,   TOCON1,        0,    LAKE1,    BLOCK,    SWORD,    STAFF, TOADSTOOL,    DOOR,   TOCON1,       0 },
-      {       0,       0,        0,        0,        0,        0,        0,        0,    BLOCK,    BLOCK,   TOCON1,   TOCON1,   TOCON1,   TOCON1,        0,       0 },
+      {       0,   ZARZA,  DARKELF,  DARKELF,    STAFF,    SWORD,  DARKELF,   TOCON1,   TOCON1,TOADSTOOL,  DARKELF,    STAFF,    SWORD,TOADSTOOL,   TOCON1,       0 },
+      {       0,   ZARZA,        0,        0,        0,        0,   TOCON1,        0,    LAKE1,    LAKE2,    SWORD,    STAFF, TOADSTOOL,    DOOR,   TOCON1,       0 },
+      {       0,       0,    ZARZA,    ZARZA,    ZARZA,    ZARZA,        0,        0,    LAKE3,    LAKE4,   TOCON1,   TOCON1,   TOCON1,   TOCON1,        0,       0 },
       {       0,       0,        0,        0,        0,        0,        0,        0,        0,        0,        0,        0,        0,        0,        0,       0 }
    }
 };
@@ -313,64 +313,163 @@ const LEVEL w0r12 =
 
 const LEVEL w0r13 =
 {
-//   7,  5,
+//    // Aquú muestra todos los elementos de la lista de abajo. Está bien para saber sus nombres a la hora de distribuirlos por los niveles
+//   3, 4,
 //   (Image *) &w0_marco_1,
 //   (struct genresSprites *) &w0s_line_down,
 //   (struct genresSprites *) NULL,
 //   (struct genresSprites *) NULL,
 //   {
-//      {       0,        0,       0,        0,       0,       0,        0,        0,       0,        0,          0,        0,   TOCON1,        0,        0,        0 },
-//      {       0,        0,       0,        0,       0,       0,        0,        0,       0,        0,          0,        0,        0,        0,        0,        0 },
-//      {       0,        0,       0,        0,       0,       0,        0,        0,       0,        0,          0,        0,   TOCON1,        0,        0,        0 },
-//      {       0,        0,       0,        0,       0,       0,        0,        0,       0,        0,          0,        0,        0,        0,        0,        0 },
-//      {       0,        0,       0,        0,       0,       0,        0,        0,       0,        0,          0,        0,   TOCON1,        0,        0,        0 },
-//      {       0,        0,       0,        0,       0,       0,        0,        0,       0,        0,          0,        0,        0,        0,        0,        0 },
-//      {       0,        0,       0,        0,       0,       0,        0,        0,       0,        0,          0,        0,   TOCON1,        0,        0,        0 },
-//      {       0,        0,       0,        0,       0,       0,        0,        0,       0,        0,          0,        0,        0,        0,        0,        0 },
-//      {       0,        0,       0,        0,       0,       0,        0,        0,       0,        0,          0,        0,   TOCON1,        0,        0,        0 },
-//      {       0,        0,       0,        0,       0,       0,        0,        0,       0,        0,          0,        0,        0,        0,        0,        0 },
-//      {       0,        0,       0,        0,       0,       0,        0,        0,       0,        0,          0,        0,   TOCON1,        0,        0,        0 }
-
-
-
-//   0,  0,
-//   (Image *) &w0_marco_1,
-//   (struct genresSprites *) &w0s_line_down,
-//   (struct genresSprites *) NULL,
-//   (struct genresSprites *) NULL,
-//   {
-//      {       0,        0,       0,        0,       0,       0,        0,        0,       0,        0,          0,        0,        0,        0,        0,    0 },
-//      {       0,    SWORD, DARKELF,    SWORD, DARKELF,   SWORD,  DARKELF,    SWORD, DARKELF,    SWORD,    DARKELF,    SWORD,  DARKELF,    SWORD,   TOCON1,    0 },
-//      {       0,   CANDLE,       0,        0,       0,       0,        0,        0,       0,   TOCON1,          0,        0,        0,        0,  DARKELF,    0 },
-//      {       0,        0,       0,        0,       0,       0,    SWORD,        0,       0,        0,          0,        0,        0,        0,    SWORD,    0 },
-//      {       0,     FIRE,       0,        0,       0,       0,    SWORD,        0,       0,        0,   WILDBOAR, WILDBOAR, WILDBOAR, WILDBOAR,  DARKELF,    0 },
-//      {       0,        0,       0,        0,       0,       0,        0,        0,       0,        0,          0,        0,        0,        0,  DARKELF,    0 },
-//      {       0,        0,       0,        0,       0,   SWORD,        0,        0,       0,        0,      STAFF,    CROSS,        0,        0,    SWORD,    0 },
-//      {       0,        0,       0,        0,       0,       0,        0,        0,       0,      KEY,          0,        0,        0,        0,  DARKELF,    0 },
-//      {       0,        0,       0,        0,       0,       0,        0,        0,    DOOR,        0,  TOADSTOOL,TOADSTOOL,TOADSTOOL,TOADSTOOL,TOADSTOOL,    0 },
-//      {       0,        0,       0,  DARKELF,       0,       0,        0,        0,       0,        0,          0,    SWORD,  DARKELF,    SWORD,  DARKELF,    0 },
-//      {       0,        0,       0,        0,       0,       0,        0,        0,       0,        0,          0,        0,        0,        0,        0,    0 }
+//      {  TOMB1,   TOCON1,   MATOJOS,    ZARZA,   PIEDRA1,  SETA_2,   CANDLE,BIGTREE1_U,   TOCON1,   TOCON1,     TOCON1,    DOWN1,   TOCON1,  TOCON1,  ABBAYE_U, TOCON1 },
+//      {       0,    SWORD,  DARKELF,    SWORD,  DARKELF,    SWORD,  DARKELF,     SWORD,  DARKELF,    SWORD,    DARKELF,    SWORD,  DARKELF,   SWORD,  ABBAYE_D, TOCON1 },
+//      {       0,    STAFF, WILDBOAR,    STAFF, WILDBOAR,        0,        0,         0,        0,        0,          0,    STAFF, WILDBOAR,   STAFF,  WILDBOAR, RIGHT1 },
+//      {   SWORD,        0,        0,        0,        0,        0,        0,BIGTREE1_U,        0, ABBAYE_U,          0,        0,        0,       0,         0,      0 },
+//      {   SWORD,     FIRE,        0,        0,        0,        0,        0,BIGTREE1_D,        0, ABBAYE_D,          0,        0,        0,       0,         0,      0 },
+//      { DARKELF,        0,        0,        0,        0,        0,        0,         0,        0,        0,      LEFT1,    LEFT1,        0,       0,         0,      0 },
+//      {       0,        0,        0,      KEY,     DOOR,    DOWN1,   TOCON1,       UP1,   TOCON1,    DOWN1,     TOCON1,      UP1,   TOCON1,  TOCON1,  ABBAYE_U, TOCON1 },
+//      {       0,   TOCON1,        0,        0,        0,    DOWN1,   TOCON1,       UP1,    LEFT1,    LEFT1,     TOCON1,      UP1,   TOCON1,  TOCON1,  ABBAYE_U, TOCON1 },
+//      {       0,   TOCON1,   TOCON1,   TOCON1,   TOCON1,   RIGHT1,    DOWN1,    TOCON1,   TOCON1,   TOCON1,     RIGHT1,      UP1,   TOCON1,  TOCON1,  ABBAYE_U, TOCON1 },
+//      {       0,  DARKELF,        0,        0,        0,   TOCON1,   RIGHT1,    RIGHT1,   RIGHT1,   RIGHT1,        UP1,   TOCON1,  DARKELF, DARKELF,  ABBAYE_U, TOCON1 },
+//      {       0,   TOCON1,   TOCON1,   TOCON1,   TOCON1,   TOCON1,   TOCON1,    TOCON1,   TOCON1,   TOCON1,     TOCON1,   TOCON1,   TOCON1,  TOCON1,  ABBAYE_D, TOCON1 }
 //   }
 
+//TOMB1,
+//TOCON1,
+//MATOJOS,
+//ZARZA,
+//PIEDRA1,
+//SETA_2,
+//CANDLE,
+//FIRE,
+//ABBAYE_U,
+//ABBAYE_D,
+//BIGTREE1_U,
+//BIGTREE1_D,
+//LAKE1,
 
 
-   3, 4,
+
+   7, 9,
    (Image *) &w0_marco_1,
    (struct genresSprites *) &w0s_line_down,
    (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    {
-      {  TOCON1,   TOCON1,   TOCON1,   TOCON1,   TOCON1,   TOCON1,   TOCON1,   TOCON1,   TOCON1,   TOCON1,     TOCON1,    DOWN1,   TOCON1,  TOCON1,  ABBAYE_U, TOCON1 },
-      {       0,    SWORD,  DARKELF,    SWORD,  DARKELF,    SWORD,  DARKELF,    SWORD,  DARKELF,    SWORD,    DARKELF,    SWORD,  DARKELF,   SWORD,  ABBAYE_D, TOCON1 },
-      {       0,    STAFF, WILDBOAR,    STAFF, WILDBOAR,    STAFF, WILDBOAR,    STAFF, WILDBOAR,    STAFF,   WILDBOAR,    STAFF, WILDBOAR,   STAFF,  WILDBOAR, RIGHT1 },
-      {   SWORD,        0,        0,        0,        0,        0,        0,        0,        0,        0,          0,        0,        0,       0,         0,      0 },
-      {   SWORD,     FIRE,        0,        0,    CROSS,TOADSTOOL,    CROSS,TOADSTOOL,        0,        0,          0,        0,        0,       0,         0,      0 },
-      { DARKELF,        0,        0,        0,        0,        0,    LEFT1,    LEFT1,        0,    DOWN1,      LEFT1,    LEFT1,        0,       0,         0,      0 },
-      {       0,        0,        0,      KEY,     DOOR,    DOWN1,   TOCON1,      UP1,   TOCON1,    DOWN1,     TOCON1,      UP1,   TOCON1,  TOCON1,  ABBAYE_U, TOCON1 },
-      {       0,   TOCON1,        0,        0,        0,    DOWN1,   TOCON1,      UP1,    LEFT1,    LEFT1,     TOCON1,      UP1,   TOCON1,  TOCON1,  ABBAYE_U, TOCON1 },
-      {       0,   TOCON1,   TOCON1,   TOCON1,   TOCON1,   RIGHT1,    DOWN1,   TOCON1,   TOCON1,   TOCON1,     RIGHT1,      UP1,   TOCON1,  TOCON1,  ABBAYE_U, TOCON1 },
-      {       0,  DARKELF,        0,        0,        0,   TOCON1,   RIGHT1,   RIGHT1,   RIGHT1,   RIGHT1,        UP1,   TOCON1,  DARKELF, DARKELF,  ABBAYE_U, TOCON1 },
-      {       0,   TOCON1,   TOCON1,   TOCON1,   TOCON1,   TOCON1,   TOCON1,   TOCON1,   TOCON1,   TOCON1,     TOCON1,   TOCON1,   TOCON1,  TOCON1,  ABBAYE_D, TOCON1 }
-   }
+      {       0,       0,        0,       0,       0,        0,        0,        0,         0,        0,          0,          0,        0,        0,        0,        0 },
+      {       0,       0,        0,       0,   BLOCK,    BLOCK,    BLOCK,    BLOCK,     BLOCK,    BLOCK,      BLOCK,          0,        0,        0,        0,        0 },
+      {       0,       0,        0,       0,   BLOCK,    BLOCK,    BLOCK,MONEDON_DOOR,  BLOCK,    BLOCK,      BLOCK,          0,        0,        0,        0,        0 },
+      {       0,       0,        0,       0,   BLOCK,    BLOCK,    BLOCK,        0,     BLOCK,    BLOCK,      BLOCK,          0,        0,        0,        0,        0 },
+      {       0,       0,        0,       0,   BLOCK,    BLOCK,        0,        0,         0,    BLOCK,      BLOCK,          0,        0,        0,        0,        0 },
+      {       0,       0,        0,       0,   BLOCK,    BLOCK,        0,        0,         0,    BLOCK,      BLOCK,          0,        0,        0,        0,        0 },
+      {       0,       0,        0,       0,       0,        0,        0,        0,         0,        0,          0,          0,        0,        0,        0,        0 },
+      {       0,       0,        0,       0,       0,        0,        0,        0,         0,        0,          0,          0,        0,        0,        0,        0 },
+      {       0,       0,        0,       0,       0,        0,        0,        0,         0,        0,          0,          0,        0,        0,        0,        0 },
+      {       0,       0,        0,       0,       0,        0,        0,        0,         0,        0,          0,          0,        0,        0,        0,        0 },
+      {       0,       0,        0,       0,       0,        0,        0,        0,         0,        0,          0,          0,        0,        0,        0,        0 }
 
+
+//      {       0,       0,        0,  RIGHT1,  RIGHT1,   RIGHT1,   RIGHT1,   RIGHT1,  RIGHT1,   RIGHT1,     RIGHT1,     RIGHT1,    DOWN1,        0,        0,        0 },
+//      {       0,       0,   RIGHT1,     UP1,       0,        0,        0,        0,       0,        0,          0,          0,   RIGHT1,    DOWN1,        0,        0 },
+//      {       0,  RIGHT1,      UP1,       0,  RIGHT1,   RIGHT1,   RIGHT1,   RIGHT1,  RIGHT1,   RIGHT1,     RIGHT1,      DOWN1,        0,   RIGHT1,    DOWN1,        0 },
+//      {  RIGHT1,     UP1,        0,  RIGHT1,     UP1,        0,        0,        0,       0,        0,          0,     RIGHT1,    DOWN1,        0,   RIGHT1,    DOWN1 },
+//      {     UP1,       0,   RIGHT1,     UP1,       0,        0,        0,        0,       0,        0,          0,          0,   RIGHT1,    DOWN1,        0,    DOWN1 },
+//      {     UP1,       0,      UP1,       0,  RIGHT1,        0,        0,        0,       0,MONEDON_DOOR,       0,          0,        0,    DOWN1,        0,    DOWN1 },
+//      {     UP1,       0,      UP1,       0,     UP1,        0,        0,        0,       0,        0,          0,          0,        0,    DOWN1,        0,    DOWN1 },
+//      {     UP1,       0,      UP1,       0,     UP1,    LEFT1,        0,        0,       0,        0,          0,          0,    DOWN1,    LEFT1,        0,    DOWN1 },
+//      {     UP1,       0,      UP1,   LEFT1,       0,      UP1,    LEFT1,    LEFT1,   LEFT1,    LEFT1,      LEFT1,      LEFT1,    LEFT1,        0,    DOWN1,    LEFT1 },
+//      {       0,       0,        0,     UP1,   LEFT1,        0,        0,        0,       0,        0,          0,          0,        0,    DOWN1,    LEFT1,        0 },
+//      {       0,       0,        0,       0,     UP1,    LEFT1,    LEFT1,    LEFT1,   LEFT1,    LEFT1,      LEFT1,      LEFT1,    LEFT1,    LEFT1,        0,        0 }
+
+
+
+//      {       0,       0,   TOCON1,  RIGHT1,  RIGHT1,   RIGHT1,   RIGHT1,   RIGHT1,  RIGHT1,   RIGHT1,     RIGHT1,     RIGHT1,    DOWN1,   TOCON1,        0,        0 },
+//      {       0,  TOCON1,   RIGHT1,     UP1,  TOCON1,   TOCON1,   TOCON1,   TOCON1,  TOCON1,   TOCON1,     TOCON1,     TOCON1,   RIGHT1,    DOWN1,   TOCON1,        0 },
+//      {  TOCON1,  RIGHT1,      UP1,  TOCON1,  RIGHT1,   RIGHT1,   RIGHT1,   RIGHT1,  RIGHT1,   RIGHT1,     RIGHT1,      DOWN1,   TOCON1,   RIGHT1,    DOWN1,   TOCON1 },
+//      {  RIGHT1,     UP1,   TOCON1,  RIGHT1,     UP1,   TOCON1,   TOCON1,   TOCON1,  TOCON1,   TOCON1,     TOCON1,     RIGHT1,    DOWN1,   TOCON1,   RIGHT1,    DOWN1 },
+//      {     UP1,  TOCON1,   RIGHT1,     UP1,  TOCON1,        0,        0,        0,       0,        0,          0,     TOCON1,   RIGHT1,    DOWN1,   TOCON1,    DOWN1 },
+//      {     UP1,  TOCON1,      UP1,  TOCON1,  RIGHT1,        0,        0,        0,       0,MONEDON_DOOR,       0,          0,   TOCON1,    DOWN1,   TOCON1,    DOWN1 },
+//      {     UP1,  TOCON1,      UP1,  TOCON1,     UP1,   TOCON1,        0,        0,       0,        0,          0,          0,   TOCON1,    DOWN1,   TOCON1,    DOWN1 },
+//      {     UP1,  TOCON1,      UP1,  TOCON1,     UP1,    LEFT1,   TOCON1,   TOCON1,  TOCON1,   TOCON1,     TOCON1,     TOCON1,    DOWN1,    LEFT1,   TOCON1,    DOWN1 },
+//      {       0,  TOCON1,      UP1,   LEFT1,  TOCON1,      UP1,    LEFT1,    LEFT1,   LEFT1,    LEFT1,      LEFT1,      LEFT1,    LEFT1,   TOCON1,    DOWN1,    LEFT1 },
+//      {       0,       0,   TOCON1,     UP1,   LEFT1,   TOCON1,   TOCON1,   TOCON1,  TOCON1,   TOCON1,     TOCON1,     TOCON1,   TOCON1,    DOWN1,    LEFT1,   TOCON1 },
+//      {       0,       0,        0,  TOCON1,     UP1,    LEFT1,    LEFT1,    LEFT1,   LEFT1,    LEFT1,      LEFT1,      LEFT1,    LEFT1,    LEFT1,   TOCON1,        0 }
+
+
+//      {       0,       0,   TOCON1,  RIGHT1,       0,        0,        0,        0,       0,        0,          0,          0,    DOWN1,   TOCON1,        0,        0 },
+//      {       0,  TOCON1,   RIGHT1,     UP1,  TOCON1,   TOCON1,   TOCON1,   TOCON1,  TOCON1,   TOCON1,     TOCON1,     TOCON1,   RIGHT1,    DOWN1,   TOCON1,        0 },
+//      {  TOCON1,  RIGHT1,      UP1,  TOCON1,  RIGHT1,        0,        0,        0,       0,        0,          0,      DOWN1,   TOCON1,   RIGHT1,    DOWN1,   TOCON1 },
+//      {  RIGHT1,     UP1,   TOCON1,  RIGHT1,     UP1,   TOCON1,   TOCON1,   TOCON1,  TOCON1,   TOCON1,     TOCON1,     RIGHT1,    DOWN1,   TOCON1,   RIGHT1,    DOWN1 },
+//      {       0,  TOCON1,   RIGHT1,     UP1,  TOCON1,        0,        0,        0,       0,        0,          0,     TOCON1,   RIGHT1,    DOWN1,   TOCON1,        0 },
+//      {       0,  TOCON1,        0,  TOCON1,  RIGHT1,        0,        0,        0,       0,MONEDON_DOOR,       0,          0,   TOCON1,        0,   TOCON1,        0 },
+//      {       0,  TOCON1,        0,  TOCON1,       0,   TOCON1,        0,        0,       0,        0,          0,          0,   TOCON1,        0,   TOCON1,        0 },
+//      {       0,  TOCON1,        0,  TOCON1,     UP1,    LEFT1,   TOCON1,   TOCON1,  TOCON1,   TOCON1,     TOCON1,     TOCON1,    DOWN1,    LEFT1,   TOCON1,        0 },
+//      {       0,  TOCON1,      UP1,   LEFT1,  TOCON1,      UP1,        0,        0,       0,        0,          0,          0,    LEFT1,   TOCON1,    DOWN1,    LEFT1 },
+//      {       0,       0,   TOCON1,     UP1,   LEFT1,   TOCON1,   TOCON1,   TOCON1,  TOCON1,   TOCON1,     TOCON1,     TOCON1,   TOCON1,    DOWN1,    LEFT1,   TOCON1 },
+//      {       0,       0,        0,  TOCON1,     UP1,        0,        0,        0,       0,        0,          0,          0,        0,    LEFT1,   TOCON1,        0 }
+
+
+//      {       0,       0,   TOCON1,       0,       0,        0,        0,        0,         0,        0,      STAFF,   WILDBOAR,        0,   TOCON1,        0,        0 },
+//      {       0,  TOCON1,        0,       0,  TOCON1,   TOCON1,   TOCON1,   TOCON1,    TOCON1,   TOCON1,     TOCON1,     TOCON1,        0,        0,   TOCON1,        0 },
+//      {  TOCON1,       0,        0,  TOCON1,       0,        0,        0,        0,         0,        0,          0,          0,   TOCON1,        0,        0,   TOCON1 },
+//      {       0,       0,   TOCON1,       0,       0,   TOCON1,   TOCON1,   TOCON1,    TOCON1,   TOCON1,     TOCON1,          0,        0,   TOCON1,        0,        0 },
+//      {       0,  TOCON1,        0,       0,  TOCON1,        0,        0,        0,         0,        0,          0,     TOCON1,        0,        0,   TOCON1,        0 },
+//      {       0,  TOCON1,        0,  TOCON1,       0,  DARKELF,   TOCON1,        0,         0,MONEDON_DOOR,       0,          0,   TOCON1,        0,   TOCON1,        0 },
+//      {       0,  TOCON1,        0,  TOCON1,       0,   TOCON1,        0,        0,         0,        0,          0,     TOCON1,        0,        0,   TOCON1,        0 },
+//      {       0,  TOCON1,        0,  TOCON1,       0,        0,   TOCON1,   TOCON1,    TOCON1,   TOCON1,     TOCON1,          0,        0,   TOCON1,        0,        0 },
+//      {       0,  TOCON1,TOADSTOOL,       0,  TOCON1,        0,        0,    SWORD,         0,        0,          0,          0,   TOCON1,        0,        0,   TOCON1 },
+//      {       0,       0,   TOCON1,       0,       0,   TOCON1,   TOCON1,   TOCON1,    TOCON1,   TOCON1,     TOCON1,     TOCON1,        0,        0,   TOCON1,        0 },
+//      {       0,       0,        0,  TOCON1,       0,        0,        0,        0,         0,        0,          0,          0,    CROSS,   TOCON1,        0,        0 }
+
+
+
+//      {       0,       0,   TOCON1,       0,       0,        0,        0,        0,         0,        0,      STAFF,   WILDBOAR,        0,   TOCON1,        0,        0 },
+//      {       0,  TOCON1,        0,       0,  TOCON1,   TOCON1,   TOCON1,   TOCON1,    TOCON1,   TOCON1,     TOCON1,     TOCON1,        0,        0,   TOCON1,        0 },
+//      {  TOCON1,       0,        0,  TOCON1,       0,        0,        0,        0,         0,        0,          0,          0,   TOCON1,        0,        0,   TOCON1 },
+//      {       0,       0,   TOCON1,       0,       0,   TOCON1,   TOCON1,   TOCON1,    TOCON1,   TOCON1,     TOCON1,          0,        0,   TOCON1,        0,        0 },
+//      {       0,  TOCON1,        0,       0,  TOCON1,        0,        0,    SWORD,   DARKELF,        0,          0,     TOCON1,        0,        0,   TOCON1,        0 },
+//      {       0,  TOCON1,        0,  TOCON1,       0,        0,   TOCON1,   TOCON1,         0,MONEDON_DOOR,       0,          0,   TOCON1,        0,   TOCON1,        0 },
+//      {       0,  TOCON1,        0,  TOCON1,       0,   TOCON1,        0,        0,         0,        0,          0,     TOCON1,        0,        0,   TOCON1,        0 },
+//      {       0,  TOCON1,TOADSTOOL,  TOCON1,       0,        0,   TOCON1,   TOCON1,    TOCON1,   TOCON1,     TOCON1,          0,        0,   TOCON1,        0,        0 },
+//      {       0,  TOCON1,    CROSS,       0,  TOCON1,        0,        0,        0,         0,        0,          0,          0,   TOCON1,        0,        0,   TOCON1 },
+//      {       0,       0,   TOCON1,       0,       0,   TOCON1,   TOCON1,   TOCON1,    TOCON1,   TOCON1,     TOCON1,     TOCON1,        0,        0,   TOCON1,        0 },
+//      {       0,       0,        0,  TOCON1,       0,        0,        0,        0,         0,        0,          0,          0,        0,   TOCON1,        0,        0 }
+
+//      {       0,       0,        0,       0,       0,        0,        0,        0,       0,        0,          0,          0,        0,        0,        0,        0 },
+//      {       0,  TOCON1,   TOCON1,  TOCON1,  TOCON1,   TOCON1,   TOCON1,   TOCON1,  TOCON1,   TOCON1,     TOCON1,     TOCON1,   TOCON1,   TOCON1,   TOCON1,        0 },
+//      {       0,  TOCON1,        0,       0,       0,        0,        0,        0,       0,        0,          0,          0,        0,        0,   TOCON1,        0 },
+//      {       0,  TOCON1,        0,  TOCON1,  TOCON1,   TOCON1,   TOCON1,   TOCON1,  TOCON1,   TOCON1,     TOCON1,     TOCON1,   TOCON1,        0,   TOCON1,        0 },
+//      {       0,  TOCON1,        0,  TOCON1,       0,        0,        0,        0,       0,        0,          0,          0,   TOCON1,        0,   TOCON1,        0 },
+//      {       0,  TOCON1,        0,  TOCON1,       0,   TOCON1,   TOCON1,        0,       0,        0,MONEDON_DOOR,         0,   TOCON1,        0,   TOCON1,        0 },
+//      {       0,  TOCON1,        0,  TOCON1,       0,   TOCON1,        0,        0,       0,        0,          0,          0,   TOCON1,        0,   TOCON1,        0 },
+//      {       0,  TOCON1,        0,  TOCON1,       0,   TOCON1,   TOCON1,   TOCON1,  TOCON1,   TOCON1,     TOCON1,     TOCON1,   TOCON1,        0,   TOCON1,        0 },
+//      {       0,  TOCON1,        0,  TOCON1,       0,        0,        0,        0,       0,        0,          0,          0,        0,        0,   TOCON1,        0 },
+//      {       0,  TOCON1,        0,  TOCON1,  TOCON1,   TOCON1,   TOCON1,   TOCON1,  TOCON1,   TOCON1,     TOCON1,     TOCON1,   TOCON1,   TOCON1,   TOCON1,        0 },
+//      {       0,  TOCON1,        0,       0,       0,        0,        0,        0,       0,        0,          0,          0,        0,        0,        0,        0 }
+
+
+
+//      {  RIGHT1,  RIGHT1,   RIGHT1,  RIGHT1,  RIGHT1,   RIGHT1,   RIGHT1,   RIGHT1,  RIGHT1,   RIGHT1,     RIGHT1,     RIGHT1,   RIGHT1,   RIGHT1,   RIGHT1,    DOWN1 },
+//      {     UP1,  TOCON1,   TOCON1,  TOCON1,  TOCON1,   TOCON1,   TOCON1,   TOCON1,  TOCON1,   TOCON1,     TOCON1,     TOCON1,   TOCON1,   TOCON1,   TOCON1,    DOWN1 },
+//      {     UP1,  TOCON1,   RIGHT1,  RIGHT1,  RIGHT1,   RIGHT1,   RIGHT1,   RIGHT1,  RIGHT1,   RIGHT1,     RIGHT1,     RIGHT1,   RIGHT1,    DOWN1,   TOCON1,    DOWN1 },
+//      {     UP1,  TOCON1,      UP1,  TOCON1,  TOCON1,   TOCON1,   TOCON1,   TOCON1,  TOCON1,   TOCON1,     TOCON1,     TOCON1,   TOCON1,    DOWN1,   TOCON1,    DOWN1 },
+//      {     UP1,  TOCON1,      UP1,  TOCON1,  RIGHT1,   RIGHT1,        0,        0,       0,        0,          0,          0,   TOCON1,    DOWN1,   TOCON1,    DOWN1 },
+//      {     UP1,  TOCON1,      UP1,  TOCON1,     UP1,   TOCON1,   TOCON1,        0,       0,        0,MONEDON_DOOR,         0,   TOCON1,    DOWN1,   TOCON1,    DOWN1 },
+//      {     UP1,  TOCON1,      UP1,  TOCON1,     UP1,   TOCON1,        0,        0,       0,        0,          0,          0,   TOCON1,    DOWN1,   TOCON1,    DOWN1 },
+//      {     UP1,  TOCON1,      UP1,  TOCON1,     UP1,   TOCON1,   TOCON1,   TOCON1,  TOCON1,   TOCON1,     TOCON1,     TOCON1,   TOCON1,    DOWN1,   TOCON1,    DOWN1 },
+//      {     UP1,  TOCON1,      UP1,  TOCON1,     UP1,    LEFT1,    LEFT1,    LEFT1,   LEFT1,    LEFT1,      LEFT1,      LEFT1,    LEFT1,    LEFT1,   TOCON1,    DOWN1 },
+//      {       0,  TOCON1,      UP1,  TOCON1,  TOCON1,   TOCON1,   TOCON1,   TOCON1,  TOCON1,   TOCON1,     TOCON1,     TOCON1,   TOCON1,   TOCON1,   TOCON1,    DOWN1 },
+//      {       0,  TOCON1,      UP1,   LEFT1,   LEFT1,    LEFT1,    LEFT1,    LEFT1,   LEFT1,    LEFT1,      LEFT1,      LEFT1,    LEFT1,    LEFT1,    LEFT1,    LEFT1 }
+
+
+//      {       0,   TOCON1,  TOCON1,        0,       0,       0,   TOCON1,        0,       0,        0,     TOCON1,        0,        0,   TOCON1,        0,        0 },
+//      {       0,   TOCON1,       0,   TOCON1,       0,  TOCON1,        0,   TOCON1,       0,   TOCON1,          0,        0,   TOCON1,        0,        0,        0 },
+//      {       0,   TOCON1,       0,   TOCON1,       0,  TOCON1,        0,   TOCON1,       0,   TOCON1,          0,        0,   TOCON1,        0,        0,        0 },
+//      {       0,   TOCON1,  TOCON1,        0,       0,  TOCON1,        0,   TOCON1,       0,        0,     TOCON1,        0,        0,   TOCON1,        0,        0 },
+//      {       0,   TOCON1,       0,   TOCON1,       0,  TOCON1,        0,   TOCON1,       0,        0,     TOCON1,        0,        0,   TOCON1,        0,        0 },
+//      {       0,   TOCON1,       0,   TOCON1,       0,  TOCON1,        0,   TOCON1,       0,        0,     TOCON1,        0,        0,   TOCON1,        0,        0 },
+//      {       0,   TOCON1,  TOCON1,        0,       0,       0,   TOCON1,        0,       0,   TOCON1,          0,        0,   TOCON1,        0,        0,        0 },
+//      {       0,        0,       0,        0,       0,       0,        0,        0,       0,        0,          0,        0,        0,        0,        0,        0 },
+//      {    LAKE1,    LAKE2,       0,        0,       0,       0,        0,        0,       0,        0,          0,        0,        0,        0,        0,        0 },
+//      {    LAKE3,    LAKE4,       0,        0,       0,       0,      KEY,     DOOR,       0,        0,          0,        0,        0,        0,        0,        0 }
+   }
 };

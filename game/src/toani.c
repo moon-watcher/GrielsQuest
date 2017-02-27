@@ -12,17 +12,17 @@ toani.c
 
 
 
-static u16 _cnt_explosion;
-static u16 _cnt_dead;
-static u16 _cnt_dust;
+static u16 _cnt_explosion = 0;
+static u16 _cnt_dead = 0;
+static u16 _cnt_dust = 0;
 
-static u8  _demon_ojos;
-static u8  _demon_cola;
-static u8  _demon_y;
-static s8  _demon_vel;
-static s8  _demon_is_hidden;
+static u8  _demon_ojos = 0;
+static u8  _demon_cola = 0;
+static u8  _demon_y = 0;
+static s8  _demon_vel = 0;
+static s8  _demon_is_hidden = 0;
 
-static u32 _demon_counter;
+static u32 _demon_counter = 0;
 
 
 
@@ -32,8 +32,11 @@ static u32 _demon_counter;
 
 static u16 _draw ( u16 element, s16 x, s16 y, u8 nb_sp )
 {
-	x = level_hpos_to_pixel(x);
-	y = level_vpos_to_pixel(y) + 8;
+	if ( element != DUST )
+	{
+		x = level_hpos_to_pixel(x);
+		y = level_vpos_to_pixel(y) + 8;
+	}
 
 	vobject_add ( element );
 	vobject_reset ( element );
@@ -73,6 +76,14 @@ void toani_draw_explosion ( s16 x, s16 y )
 	_cnt_explosion = _draw ( REMOVE_OBJECT, x, y, splist_element );
 	vobject_add ( REMOVE_OBJECT );
 	vobject_reset ( REMOVE_OBJECT );
+}
+
+
+void toani_stop_explosion ( )
+{
+	_cnt_explosion = 0;
+	vsprite_animation ( splist_element,   EMPTY_SPRITE );
+	vobject_delete ( REMOVE_OBJECT );
 }
 
 

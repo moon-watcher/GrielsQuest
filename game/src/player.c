@@ -13,15 +13,16 @@
 
 
 
-PLAYER  players [ PLAYER_MAX_PLAYERS ];
+PLAYER  players [ PLAYER_MAX_PLAYERS ] = { };
 
-static u16 _prev_x ;
-static u16 _prev_y ;
-static u16 _restore_x ;
-static u16 _restore_y ;
-static u16 _object;
-//static s16 _drifting;
-static u8  _player_speed;
+static u16 _prev_x = 0;
+static u16 _prev_y = 0;
+static u16 _restore_x = 0;
+static u16 _restore_y = 0;
+static u16 _object = 0;
+//static s16 _drifting = 0;
+static u8  _player_speed = 0;
+
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -97,11 +98,15 @@ bool _does_it_kills ( u16 ret, u8 selected )
 
 static void _death_animation ( )
 {
-   u16 i;
-   u16 player = 0;
-   u16 muerte = GRIEL_DEAD;
+	u16 i;
+	u16 player = 0;
+	u16 muerte = GRIEL_DEAD;
 
-   music_stop();
+	s16 x = vdpSpriteCache[splist_griel].x;
+	s16 y = vdpSpriteCache[splist_griel].y;
+
+	LEVEL *wl = game_get_wl ( );
+
 
 	if      ( _object == FIRE     ) muerte = GRIEL_DEAD_FIRE;
 	else if ( _object == HOLE21   ) muerte = GRIEL_DEAD_WATER;
@@ -115,69 +120,43 @@ static void _death_animation ( )
 	if ( muerte == GRIEL_DEAD_TENT_1 )
 	{
 		vobject_reset ( GRIEL_DEAD_TENT_2 );
-		vsprite_set (splist_weapon, vdpSpriteCache[splist_griel].posx, vdpSpriteCache[splist_griel].posy, GRIEL_DEAD_TENT_2);
+		level_draw_animation ( EMPTY, _level_x(0), _level_y(0) );
+		vsprite_set (splist_weapon, x-128, y-128, GRIEL_DEAD_TENT_2);
 	}
 	else if ( muerte == GRIEL_DEAD_HOLE   )
 	{
-		vobject_get(HOLEPY)->frame   = 1;
-		vobject_get(HOLEPY)->counter = 0;
+		vobject_reset ( HOLEPY );
+		vsprite_set (splist_weapon, x, y, GRIEL_DEAD_HOLE);
 	}
 	else
 	{
 		splist_hide_sprite ( splist_weapon );
 	}
 
+
+
+
 	for ( i=0; i<animation_duracion(muerte); i++ )
 	{
+		death_frame ( wl );
+		toani_remove ( );
+		toani_demon_update ( );
+		chorrada_control ( wl );
+		undo_control ( wl );
+		//scoreball_frame();
+		level_update ( );
+
 		vobject_update();
-		VDP_updateSprites();
+		VDP_updateSprites(80,1);
 		VDP_waitVSync();
 	}
 
 
-   //vobject_swap ( obj_fin, obj_ini );
-   //vsprite_set ( obj_ini, x, y, splist_griel );
-
-//   u8 player = 0; // es necesario para la macro _p[]
-//
-//   u16 i;
-//	s16 x       = _level_x(player);
-//	s16 y       = _level_y(player);
-//   u8  j       = 0;
-//   u8  obj_ini = _p.object;
-//   u8  obj_fin = _p.object;
-//   u8  muerte  = 0;
-//
-//   const u8 array[3][6] =
-//   {
-//      { obj_ini, GRIEL_DEAD,        GRIEL_DEAD_2,      GRIEL_DEAD_3,      0 }, // defecto
-//      { obj_ini, GRIEL_DEAD_WATER1, GRIEL_DEAD_WATER2, GRIEL_DEAD_WATER3, 0 },
-//      { obj_ini, GRIEL_DEAD_FIRE1,  GRIEL_DEAD_FIRE2,  0 },
-//   };
-//
-//   if ( _object == HOLE21 ) muerte = 1;
-//   if ( _object == FIRE   ) muerte = 2;
-//
-//
-//   splist_hide_sprite ( splist_weapon );
-//
-//   while ( array[muerte][++j] )
-//   {
-//      obj_fin = array[muerte][j];
-//
-//      vobject_swap ( array[muerte][j-1], obj_fin );
-//      vsprite_set ( splist_griel, x, y, obj_fin );
-//
-//      for ( i=0; i<animation_duracion(obj_fin); i++ )
-//      {
-//         vobject_update();
-//         VDP_updateSprites();
-//         VDP_waitVSync();
-//      }
-//   }
-//
-//   //vobject_swap ( obj_fin, obj_ini );
-//   //vsprite_set ( obj_ini, x, y, splist_griel );
+	// restore tentacle
+	if ( muerte == GRIEL_DEAD_TENT_1 )
+	{
+		level_draw_animation ( TENTACLE, _level_x(0), _level_y(0) );
+	}
 }
 
 
@@ -229,7 +208,7 @@ static void _do_slash ( u8 player, LEVEL *level, s8 inc_x, s8 inc_y, s16 x, s16 
 
 	wavelist_play(WAVE_GRIEL_IA);
 
-   vobject_swap ( _p.object, anim );
+	vobject_swap ( _p.object, anim );
 	vsprite_set ( splist_flash, _p.x + desp[0][0].x, _p.y + desp[0][0].y, slash );
 
 	_p.object = anim;
@@ -268,7 +247,7 @@ static void _do_slash ( u8 player, LEVEL *level, s8 inc_x, s8 inc_y, s16 x, s16 
 		death_frame ( level );
 		toani_remove();
 		vobject_update();
-		VDP_updateSprites();
+		VDP_updateSprites(80,1);
 		VDP_waitVSync();
 	}
 
@@ -294,7 +273,7 @@ static void _do_slash ( u8 player, LEVEL *level, s8 inc_x, s8 inc_y, s16 x, s16 
 	player_stop(player);
 
 	vobject_update();
-	VDP_updateSprites();
+	VDP_updateSprites(80,1);
 	VDP_waitVSync();
 }
 
@@ -307,8 +286,7 @@ void _set_player_x ( u8 object, s8 distance_x, s8 vel_x )
 	_p.distance_x = distance_x;
 	_p.vel_x      = vel_x;
 
-//	if ( object == GRIEL_LEFT   && _p.distance_x > 0 ) player_stop ( player );
-//	if ( object == GRIEL_RIGHT  && _p.distance_x < 0 ) player_stop ( player );
+	toani_draw_dust ( _p.x, _p.y );
 }
 
 
@@ -320,8 +298,7 @@ void _set_player_y ( u8 object, s8 distance_y, s8 vel_y )
 	_p.distance_y = distance_y;
 	_p.vel_y      = vel_y;
 
-//	if ( object == GRIEL_UP     &&  _p.distance_y > 0 ) player_stop ( player );
-//	if ( object == GRIEL_DOWN   &&  _p.distance_y < 0 ) player_stop ( player );
+	toani_draw_dust ( _p.x, _p.y );
 }
 
 
@@ -379,10 +356,10 @@ void player_set ( u8 nb, PLAYER ply )
 
 void player_update ( u8 player )
 {
-   vsprite_set (  splist_griel, -40, -40, EMPTY_SPRITE );
-   splist_griel = splist_update_griel ( _p.y );
+	vsprite_set (  splist_griel, -40, -40, EMPTY_SPRITE );
+	splist_griel = splist_update_griel ( _p.y );
 
-   vsprite_set ( splist_griel, _p.x, _p.y, _p.object );
+	vsprite_set ( splist_griel, _p.x, _p.y, _p.object );
 
 	weapon_draw ( );
 }
@@ -397,8 +374,13 @@ void player_move ( u8 player )
 
 
 
-void 	player_stop ( u8 player )
+void player_stop ( u8 player )
 {
+	if ( DEV && joy1_active_mode )
+	{
+		return;
+	}
+
 	_p.vel_x      = 0;
 	_p.vel_y      = 0;
 	_p.distance_x = 0;
@@ -558,7 +540,7 @@ void player_logic_next ( u8 player, LEVEL *level )
 	{
 		_p.key = ret;
 
-      psglist_play ( PSG_KEY );
+		psglist_play ( PSG_KEY );
 
 		toani_draw_explosion ( x, y );
 
@@ -585,7 +567,7 @@ void player_logic_next ( u8 player, LEVEL *level )
 	}
 	ELSEIF ( door )
 	{
-		if ( ! _p.key )
+		if ( ! _p.key  && !object_is_opendoor(o) )
 		{
 			player_stop ( player );
 		}
@@ -637,25 +619,27 @@ void player_on_arrow ( u8 player )
 
 void player_on_hurts ( u8 player )
 {
-//   psglist_play ( PSG_BITE );
+	if ( undo_rest ( -1 ) == -1 )
+	{
+		music_stop();
+		return;
+	}
+
+	//psglist_play ( PSG_BITE );
 
 	wavelist_play(WAVE_GRIEL_OUCH_1);
    _death_animation ( );
 
-	s8 u = undo_rest ( -1 );
 	splist_hide_sprite ( splist_weapon );
-	VDP_updateSprites ( );
+	VDP_updateSprites (80,1);
 
-	if ( u >= 0 )
-	{
-      //waitMs(1000);
+	//waitMs(1000);
 
-		undo_can_undo ( false );
-		undo_explode();
+	undo_can_undo ( false );
+	undo_explode();
 
-		_p.x = _restore_x; // aquí o fuera del if?
-		_p.y = _restore_y; // está por ver
-	}
+	_p.x = _restore_x; // aquí o fuera del if?
+	_p.y = _restore_y; // está por ver
 }
 
 
@@ -666,7 +650,7 @@ void player_on_hurts ( u8 player )
 //
 ////	text_init ( (genresSprites*) &cs_font_16x16, 1200, PAL0 );
 //	//text_draw_sprites_centered ( "STAGE CLEAR", 80 );
-//	tool_planHide();
+//	planHide();
 //}
 
 
@@ -686,29 +670,51 @@ void player_update_selected ( u8 player, u16 selected )
 
 	u8 enemy = EMPTY;
 
-	if      ( gamestate.ambiente == 0 && selected == STAFF ) enemy = WILDBOAR;
-	else if ( gamestate.ambiente == 0 && selected == CROSS ) enemy = TOADSTOOL;
-	else if ( gamestate.ambiente == 0 && selected == SWORD ) enemy = DARKELF;
-	else if ( gamestate.ambiente == 1 && selected == STAFF ) enemy = WALRUS;
-	else if ( gamestate.ambiente == 1 && selected == CROSS ) enemy = ESKIMO;
-	else if ( gamestate.ambiente == 1 && selected == SWORD ) enemy = WAMPA;
-	else if ( gamestate.ambiente == 2 && selected == STAFF ) enemy = SCORPIO;
-	else if ( gamestate.ambiente == 2 && selected == CROSS ) enemy = BEDOUIN;
-	else if ( gamestate.ambiente == 2 && selected == SWORD ) enemy = MUMMY;
-	else if ( gamestate.ambiente == 3 && selected == STAFF ) enemy = CANGREJO;
-	else if ( gamestate.ambiente == 3 && selected == CROSS ) enemy = PIRATA;
-	else if ( gamestate.ambiente == 3 && selected == SWORD ) enemy = PLESI;
-	else if ( gamestate.ambiente == 4 && selected == STAFF ) enemy = OGRE;
-	else if ( gamestate.ambiente == 4 && selected == CROSS ) enemy = EYE;
-	else if ( gamestate.ambiente == 4 && selected == SWORD ) enemy = DEMON;
+	if ( gamestate.current_ambiente == 0 )
+	{
+		     if ( selected == STAFF ) enemy = WILDBOAR;
+		else if ( selected == CROSS ) enemy = TOADSTOOL;
+		else if ( selected == SWORD ) enemy = DARKELF;
+	}
+	else if ( gamestate.current_ambiente == 1 )
+	{
+		     if ( selected == STAFF ) enemy = WALRUS;
+		else if ( selected == CROSS ) enemy = ESKIMO;
+		else if ( selected == SWORD ) enemy = WAMPA;
+	}
+	else if ( gamestate.current_ambiente == 2 )
+	{
+		     if ( selected == STAFF ) enemy = SCORPIO;
+		else if ( selected == CROSS ) enemy = BEDOUIN;
+		else if ( selected == SWORD ) enemy = MUMMY;
+	}
+	else if ( gamestate.current_ambiente == 3 )
+	{
+		     if ( selected == STAFF ) enemy = CANGREJO;
+		else if ( selected == CROSS ) enemy = PIRATA;
+		else if ( selected == SWORD ) enemy = PLESI;
+	}
+	else if ( gamestate.current_ambiente == 4 )
+	{
+		     if ( selected == STAFF ) enemy = OGRE;
+		else if ( selected == CROSS ) enemy = EYE;
+		else if ( selected == SWORD ) enemy = DEMON;
+	}
 
-   if ( enemy == EMPTY )
-   {
-      return;
-   }
+	if ( enemy == EMPTY )
+	{
+		return;
+	}
 
-	vsprite_set ( splist_ui_weapon, 30,                               13, selected );
-	vsprite_set ( splist_ui_enemy,  54, object_is_bigboy(enemy) ? 6 : 13, enemy    );
+	vsprite_set ( splist_ui_weapon, 30,                               13, selected  );
+	vsprite_set ( splist_ui_enemy,  54, object_is_bigboy(enemy) ? 6 : 13, enemy     );
+	vsprite_set ( splist_ui_left_1, 16,  0, UI_LEFT_1 );
+	vsprite_set ( splist_ui_left_2, 16, 24, UI_LEFT_2 );
+
+	VDP_setSpritePiority ( splist_ui_weapon, 1 );
+	VDP_setSpritePiority ( splist_ui_enemy,  1 );
+	VDP_setSpritePiority ( splist_ui_left_1, 1 );
+	VDP_setSpritePiority ( splist_ui_left_2, 1 );
 }
 
 
@@ -733,7 +739,7 @@ void player_dead ( u8 player, LEVEL *level, u16 exit )
 		musiclist_play ( MUSIC_GAME_OVER );
 	}
 
-	//tool_planHide();
+	//planHide();
 }
 
 
@@ -752,6 +758,11 @@ void player_inc_level ( )
 	vsprite_animation ( splist_element,   EMPTY_SPRITE );
 	vsprite_animation ( splist_explosion, EMPTY_SPRITE );
 
+	if ( gamestate_on_medallon() )
+	{
+		return;
+	}
+
 	splist_hide_sprite ( splist_weapon );
 	splist_hide_sprite ( splist_griel );
 
@@ -764,7 +775,7 @@ void player_inc_level ( )
 	while ( duracion-- )
 	{
 		vobject_update();
-		VDP_updateSprites();
+		VDP_updateSprites(80,1);
 		VDP_waitVSync();
 	}
 }
@@ -796,7 +807,7 @@ void player_speed ( u8 speed )
 
 void player_control_buttons ( LEVEL *wl )
 {
-	if ( joy1_pressed_a )
+	if ( joy1_pressed_a  &&  !gamestate_on_medallon() )
 	{
 		psglist_play ( PSG_START );
 		htp_show ( wl );
@@ -821,13 +832,15 @@ void player_control_buttons ( LEVEL *wl )
 
 void player_ctrldev ( u16 *ret )
 {
-	if ( !DEVELOPEMENT )
+	if ( !DEV )
 	{
 		return;
 	}
 
-	else if ( joy1_pressed_x )
+
+	if ( joy1_pressed_x )
 	{
+	   //
 	}
 
 	else if ( joy1_pressed_y )

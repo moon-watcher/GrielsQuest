@@ -132,6 +132,9 @@ enum
    BIGTREE1_D,
 
    LAKE1,
+   LAKE2,
+   LAKE3,
+   LAKE4,
 
    WILDBOAR,
    WILDBOAR_ALT,
@@ -293,7 +296,10 @@ enum
    SOFA1,
    SOFA2,
 
-   MURCIANO,
+   MURCIANO1,
+   MURCIANO2,
+   MURCIANO3,
+   MURCIANO4,
 
    EYE,
    EYE_ALT,
@@ -318,6 +324,12 @@ enum
    // fin // ambiente 4
 
 
+
+   HTP_KEY,
+   HTP_DOOR,
+
+   UI_LEFT_1,
+   UI_LEFT_2,
 
    BLOCK,
 
@@ -362,6 +374,9 @@ enum
    STAFF_CHARGE_L,
    STAFF_CHARGE_R,
 
+   MONEDON_DOOR,
+   KBRAH_DOOR,
+
    EMPTY_WEAPON,
 
 
@@ -374,12 +389,14 @@ enum
 
 
 
+void       gfx_init           ( );
+
 ANIMATION *animation          ( );
 ANIMATION *animation_get      ( u16 x );
 u16        animation_size     ( u16 ani );
 u16        animation_duracion ( u16 ani );
-void       animation_draw     ( u16 ani, u8 x, u8 y, bool real, u16 plan, s16 prioridad, u16 flip_h, u16 flip_v, u8 width, u8 height );
-
+void       animation_draw     ( u16 ani, u8 x, u8 y, bool absolutepos, VDPPlan plan, s16 prioridad, u16 flip_h, u16 flip_v, u8 width, u8 height );
+void       animation_draw_raw ( u16 ani, u8 x, u8 y, bool absolutepos, VDPPlan plan, s16 prioridad, u16 flip_h, u16 flip_v, u8 width, u8 height );
 
 
 #endif

@@ -41,11 +41,15 @@
 
 
 
+#undef  WAITBREAK
+#define WAITBREAK  goto fin;
 
-static u16       vel_text;
-static u16       sprite;
-static u16       colores [ 5 ];
-static SPRITESET sets [ 10 ];
+
+
+static u16       vel_text = 0;
+static u16       sprite = 0;
+static u16       colores [ 5 ] = { };
+static SPRITESET sets [ 10 ] = { };
 
 
 
@@ -61,15 +65,12 @@ static void _frases_tt_init ( u16 f )
 	#undef TT_C
 	#undef TT_START
 
-	#define TT_A       goto fin; // tt_info.next = true;
-	#define TT_B       goto fin; // tt_info.next = true;
-	#define TT_C       goto fin; // tt_info.next = true;
+	#define TT_A       goto fin; // tt_info.go_next = true;
+	#define TT_B       goto fin; // tt_info.go_next = true;
+	#define TT_C       goto fin; // tt_info.go_next = true;
 	#define TT_START   goto fin;
 
 	tt_info.buttons = ( BUTTON_A|BUTTON_B|BUTTON_C|BUTTON_START );
-
-	#undef  WAITBREAK_START
-	#define WAITBREAK_START  goto fin;
 }
 
 
@@ -123,7 +124,7 @@ void _visible ( u8 escena, u8 sprite, bool visible, u8 segundos )
 
 	if ( segundos )
 	{
-		VDP_updateSprites();
+		VDP_updateSprites(80,1);
 		WAITSECS_RET(segundos);
 	}
 }
@@ -141,7 +142,7 @@ void _visible ( u8 escena, u8 sprite, bool visible, u8 segundos )
 static void _draw_spriteset ( SPRITESET *set, struct genresSprites *res, u8 width, u8 height, s16 x, s16 y, u16 tile_attr )
 {
 	spriteset_new  ( set, res, width, height );
-	spriteset_load ( set, vram_new ( spriteset_tiles(set) ), 1 );
+	spriteset_load ( set, vram_new ( spriteset_tiles(set) ), 0 );
 	spriteset_show ( set, sprite, x, y, tile_attr );
 
 	sprite += spriteset_sprites ( set );
@@ -170,10 +171,10 @@ static void _final_1 ( )
 
 
 	// Fondo
-	VDP_drawImageEx ( BPLAN, &ob_f1_fondo_b, TILE_ATTR_FULL(PAL3, 0, 0, 0, vram_new ( ob_f1_fondo_b.tileset->numTile ) ),  1, 1, 0, 1 );
+	VDP_drawImageEx ( PLAN_B, &ob_f1_fondo_b, TILE_ATTR_FULL(PAL3, 0, 0, 0, vram_new ( ob_f1_fondo_b.tileset->numTile ) ),  1, 1, 0, 0 );
 
 	// Kbrah
-	VDP_drawImageEx ( APLAN, &ob_f1_fondo_a, TILE_ATTR_FULL(PAL1, 1, 0, 0, vram_new ( ob_f1_fondo_a.tileset->numTile ) ), 19, 2, 0, 1 );
+	VDP_drawImageEx ( PLAN_A, &ob_f1_fondo_a, TILE_ATTR_FULL(PAL1, 1, 0, 0, vram_new ( ob_f1_fondo_a.tileset->numTile ) ), 19, 2, 0, 0 );
 
 	_draw_spriteset ( &sets[0], (struct genresSprites*) &os_f1_griel_2_32x32,   1, 1,     320,   0, TILE_ATTR(PAL2,1,0,0) ); // Cara de Griel
 	_draw_spriteset ( &sets[1], (struct genresSprites*) &os_f1_kbritah_2_32x32, 2, 1,     320,   8, TILE_ATTR(PAL1,1,0,0) ); // Cara de Kbritah // --> 240
@@ -184,12 +185,12 @@ static void _final_1 ( )
 	_draw_spriteset ( &sets[6], (struct genresSprites*) &os_f1_sombras_2_32x32, 2, 1,     320, 120, TILE_ATTR(PAL3,0,0,0) ); // sombra Kbritah
 	vdpSpriteCache[sprite-1].link = 0;
 
-	VDP_updateSprites ( );
+	VDP_updateSprites(80,1);
 
 	_initTextColors ( os_f1_griel_1_32x32.pal[5], ob_f1_fondo_a.palette->data[8], os_f1_kbritah_1_32x32.pal[4], 0, 0 );
 
 	SYS_enableInts();
-   VDP_setEnable ( true );
+	VDP_setEnable ( true );
 
 
 	// Muestra la pantalla
@@ -199,15 +200,15 @@ static void _final_1 ( )
 	// Mueve a Griel
 	s16 vel = 7;
 
-   while ( vel > 0 )
+	while ( vel > 0 )
 	{
 		spriteset_move ( &sets[3], griel_x, 56 );
 
 		if ( griel_x % 12 == 0 ) --vel;
 		griel_x += vel;
 
-		VDP_updateSprites();
-		wb_wait(1,BUTTON_ABC);
+		VDP_updateSprites(80,1);
+		wb_wait ( 1, joy1_pressed_btn );
 	}
 
 
@@ -221,7 +222,7 @@ static void _final_1 ( )
 	// Aparece Kbritah
 	_visible ( 1, 4, true, 0 ); // Kbritah
 	_visible ( 1, 6, true, 0 ); // sombra Kbrita
-	VDP_updateSprites();
+	VDP_updateSprites(80,1);
 
 	// Habla Kbritah
 	frases_tt_write( KBRITAH );
@@ -229,7 +230,7 @@ static void _final_1 ( )
 	// Griel y Kbrah cambia caras
 	_visible ( 1, 0, true, 0 );
 	_visible ( 1, 2, true, 0 );
-	VDP_updateSprites();
+	VDP_updateSprites(80,1);
 
 	frases_tt_write( KBRAH );
 
@@ -237,14 +238,14 @@ static void _final_1 ( )
 	_visible ( 1, 2, false, 0 );
 	_visible ( 1, 1, true, 0 );
 	_visible ( 1, 0, false, 0 );
-	VDP_updateSprites();
+	VDP_updateSprites(80,1);
 
 	frases_tt_write( GRIEL );
 	frases_tt_write( KBRAH );
 
 
 fin:
-
+   vram_destroy();
 	VDP_fadeOutAll ( 30, false );
 }
 
@@ -269,15 +270,15 @@ static void _final_2()
 	resetScreen();
 
 
-	VDP_drawImageEx ( BPLAN, &ob_f2_fondo_b, TILE_ATTR_FULL(PAL0, 0, 0, 0, vram_new ( ob_f2_fondo_b.tileset->numTile ) ),  1, 1, 0, 1 ); // Fondo
-	VDP_drawImageEx ( APLAN, &ob_f2_fondo_a, TILE_ATTR_FULL(PAL1, 1, 0, 0, vram_new ( ob_f2_fondo_a.tileset->numTile ) ),  1, 1, 0, 1 ); // Rey
+	VDP_drawImageEx ( PLAN_B, &ob_f2_fondo_b, TILE_ATTR_FULL(PAL0, 0, 0, 0, vram_new ( ob_f2_fondo_b.tileset->numTile ) ),  1, 1, 0, 0 ); // Fondo
+	VDP_drawImageEx ( PLAN_A, &ob_f2_fondo_a, TILE_ATTR_FULL(PAL1, 1, 0, 0, vram_new ( ob_f2_fondo_a.tileset->numTile ) ),  1, 1, 0, 0 ); // Rey
 
 	_draw_spriteset ( &sets[0], (struct genresSprites*) &os_f2_griel_32x32, 4, 4,  32,  24, TILE_ATTR(PAL2,1,0,0) ); // Griel
 	_draw_spriteset ( &sets[1], (struct genresSprites*) &os_f2_gorda_32x32, 1, 2, 320,   8, TILE_ATTR(PAL3,0,0,0) ); // Gorda
 	_draw_spriteset ( &sets[2], (struct genresSprites*) &os_f2_pibon_32x32, 1, 2, 320,   8, TILE_ATTR(PAL3,0,0,0) ); // Pibon
 	vdpSpriteCache[sprite-1].link = 0;
 
-	VDP_updateSprites ( );
+	VDP_updateSprites(80,1);
 
 
 	// 0 Griel,
@@ -288,7 +289,7 @@ static void _final_2()
 	_initTextColors ( os_f2_griel_32x32.pal[6], 0, 0, ob_f2_fondo_a.palette->data[9], ob_f3_fondo_a_1.palette->data[4] ); //recoge el color de la gorda del final3
 
 	SYS_enableInts();
-   VDP_setEnable ( true );
+	VDP_setEnable ( true );
 
 	VDP_waitVSync();
 
@@ -338,7 +339,7 @@ static void _final_2()
 
 
 fin:
-
+	vram_destroy();
 	VDP_fadeOutAll ( 30, false );
 }
 
@@ -362,13 +363,13 @@ static void _final_3()
 	resetSprites();
 	resetScreen();
 
-	VDP_drawImageEx ( BPLAN, &ob_f3_fondo_b_1, TILE_ATTR_FULL(PAL0, 0, 0, 0, vram_new ( ob_f3_fondo_b_1.tileset->numTile ) ),  1, 1, 0, 1 ); // Fondo
-	VDP_drawImageEx ( APLAN, &ob_f3_fondo_a_1, TILE_ATTR_FULL(PAL1, 0, 0, 0, vram_new ( ob_f3_fondo_a_1.tileset->numTile ) ),  1, 1, 0, 1 ); // Gorda
+	VDP_drawImageEx ( PLAN_B, &ob_f3_fondo_b_1, TILE_ATTR_FULL(PAL0, 0, 0, 0, vram_new ( ob_f3_fondo_b_1.tileset->numTile ) ),  1, 1, 0, 0 ); // Fondo
+	VDP_drawImageEx ( PLAN_A, &ob_f3_fondo_a_1, TILE_ATTR_FULL(PAL1, 0, 0, 0, vram_new ( ob_f3_fondo_a_1.tileset->numTile ) ),  1, 1, 0, 0 ); // Gorda
 
 	_draw_spriteset ( &sets[0], (struct genresSprites*) &os_f3_griel_1_32x32, 4, 3, 190,  56, TILE_ATTR(PAL2,0,0,0) ); // Griel
 	vdpSpriteCache[sprite-1].link = 0;
 
-	VDP_updateSprites ( );
+	VDP_updateSprites(80,1);
 
 
 	// 0 Griel,
@@ -379,7 +380,7 @@ static void _final_3()
 	_initTextColors ( os_f3_griel_1_32x32.pal[6], 0, 0, 0, ob_f3_fondo_a_1.palette->data[4] );
 
 	SYS_enableInts();
-   VDP_setEnable ( true );
+	VDP_setEnable ( true );
 
 
 
@@ -410,7 +411,7 @@ static void _final_3()
 		frases_tt_write( GRIEL );
 	}
 
-	// es pesadilla
+	// es pesadilla (2) o superior
 	else
 	{
 		// flash blanco
@@ -425,15 +426,15 @@ static void _final_3()
 
 		resetScreen();
 
-		VDP_drawImageEx ( BPLAN, &ob_f3_fondo_b_2, TILE_ATTR_FULL(PAL0, 0, 0, 0, vram_new ( ob_f3_fondo_b_2.tileset->numTile ) ),  1, 1, 0, 1 ); // Gorda
-		VDP_drawImageEx ( APLAN, &ob_f3_fondo_a_2, TILE_ATTR_FULL(PAL1, 0, 0, 0, vram_new ( ob_f3_fondo_a_2.tileset->numTile ) ),  1, 1, 0, 1 ); // Kbritah
+		VDP_drawImageEx ( PLAN_B, &ob_f3_fondo_b_2, TILE_ATTR_FULL(PAL0, 0, 0, 0, vram_new ( ob_f3_fondo_b_2.tileset->numTile ) ),  1, 1, 0, 0 ); // Gorda
+		VDP_drawImageEx ( PLAN_A, &ob_f3_fondo_a_2, TILE_ATTR_FULL(PAL1, 0, 0, 0, vram_new ( ob_f3_fondo_a_2.tileset->numTile ) ),  1, 1, 0, 0 ); // Kbritah
 
 		_draw_spriteset ( &sets[0], (struct genresSprites*) &os_f3_griel_2_32x32, 2, 2, 320,  64, TILE_ATTR(PAL2,0,0,0) ); // Cara de Griel // 206, 64
 		_draw_spriteset ( &sets[1], (struct genresSprites*) &os_f3_griel_1_32x32, 4, 3, 190,  56, TILE_ATTR(PAL2,0,0,0) ); // Griel
 		_draw_spriteset ( &sets[2], (struct genresSprites*) &os_f3_gorda_32x32,   3, 3, 144,  32, TILE_ATTR(PAL0,0,0,0) ); // Cara de Gorda
 		vdpSpriteCache[sprite-1].link = 0;
 
-		VDP_updateSprites();
+		VDP_updateSprites(80,1);
 
 		// 0 Griel,
 		// 1 Kbrah,
@@ -460,7 +461,7 @@ static void _final_3()
 		{
 			spriteset_move ( &sets[2], 144, 32 + fuerza * ( fuerza % 2  ? + 1 : -1));
 
-			VDP_updateSprites();
+			VDP_updateSprites(80,1);
 
 			u16 espera = 3;
 			while ( espera-- ) VDP_waitVSync();
@@ -491,7 +492,7 @@ static void _final_3()
 	}
 
 fin:
-
+	vram_destroy();
 	VDP_fadeOutAll ( 30, false );
 }
 
@@ -516,15 +517,15 @@ static void _final_4()
 	resetScreen();
 
 
-	VDP_drawImageEx ( BPLAN, &ob_f4_fondo_b, TILE_ATTR_FULL(PAL0, 0, 0, 0, vram_new ( ob_f4_fondo_b.tileset->numTile ) ),  1, 1, 0, 1 ); // Fondo
-	VDP_drawImageEx ( APLAN, &ob_f4_fondo_a, TILE_ATTR_FULL(PAL1, 1, 0, 0, vram_new ( ob_f4_fondo_a.tileset->numTile ) ),  1, 1, 0, 1 ); // Moto
+	VDP_drawImageEx ( PLAN_B, &ob_f4_fondo_b, TILE_ATTR_FULL(PAL0, 0, 0, 0, vram_new ( ob_f4_fondo_b.tileset->numTile ) ),  1, 1, 0, 0 ); // Fondo
+	VDP_drawImageEx ( PLAN_A, &ob_f4_fondo_a, TILE_ATTR_FULL(PAL1, 1, 0, 0, vram_new ( ob_f4_fondo_a.tileset->numTile ) ),  1, 1, 0, 0 ); // Moto
 
 
-	_draw_spriteset ( &sets[0], (struct genresSprites*) &os_f4_griel_32x32,   2, 4, 192,  -16, TILE_ATTR(PAL2,1,0,0) ); // Griel
+	_draw_spriteset ( &sets[0], (struct genresSprites*) &os_f4_griel_32x32,   2, 4, 192, -16, TILE_ATTR(PAL2,1,0,0) ); // Griel
 	_draw_spriteset ( &sets[1], (struct genresSprites*) &os_f4_kbritah_32x32, 3, 4, 120,   0, TILE_ATTR(PAL3,0,0,0) ); // Kbritah
 	vdpSpriteCache[sprite-1].link = 0;
 
-	VDP_updateSprites ( );
+	VDP_updateSprites(80,1);
 
 
 	// 0 Griel,
@@ -535,7 +536,7 @@ static void _final_4()
 	_initTextColors ( os_f4_griel_32x32.pal[6], 0, os_f4_kbritah_32x32.pal[8], 0, 0 );
 
 	SYS_enableInts();
-   VDP_setEnable ( true );
+	VDP_setEnable ( true );
 
 	VDP_waitVSync();
 
@@ -565,15 +566,17 @@ static void _final_4()
 	frases_tt_write( KBRITAH );
 
 fin:
-
+	vram_destroy();
 	VDP_fadeOutAll ( 30, false );
 }
 
 
 
 
-void screens_final ( u16 jump )
+void screen_final ( u16 jump )
 {
+	VDP_setTextPalette(PAL0);
+
 	sprite   = 0;
 	vel_text = VEL_TEXT;
 

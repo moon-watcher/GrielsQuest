@@ -10,6 +10,8 @@ u8 splist_griel;
 u8 splist_dust;
 u8 splist_ui_weapon;
 u8 splist_ui_enemy;
+u8 splist_ui_left_1;
+u8 splist_ui_left_2;
 
 
 void splist_init               ( );

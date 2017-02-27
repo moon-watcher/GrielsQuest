@@ -22,6 +22,8 @@ void font_init ()
 {
 	const u32 _tile[8] = {};
 
+	SYS_disableInts();
+
 	//VDP_loadFont ( cb_font_8x8, 1 );
 	VDP_loadFontData ( cb_font_8x8, FONT_LEN, 0 );
 
@@ -31,6 +33,8 @@ void font_init ()
 	// hack for VDP_loadFont, inserts " " in 0 position
 	VDP_loadTileData ( _tile, TILE_FONTINDEX-15, 1, 0 );
 	VDP_loadTileData ( _tile, TILE_FONTINDEX-00, 1, 0 );
+
+	SYS_enableInts();
 }
 
 

@@ -301,22 +301,34 @@ const LEVEL w2r12 =
 
 const LEVEL w2r13 =
 {
-   6, 5,
+   7, 9,
    (Image *) &w2_marco_1,
    (struct genresSprites *) &w2s_line_down,
    (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    {
-      {       0,        0,       0,        0,       0,       0,        0,        0,       0,        0,          0,        0,       0,        0,         0,       0 },
-      {       0,    HOLEPY,       0,    HOLEPY,   MUMMY,       0,        0,        0,       0,        0,          0,        0,       0,        0,         0,       0 },
-      {       0,        0,       0,        0,       0,   MUMMY,        0,    ESCARABAJO,       0,    CRUZPY,          0,    GATOPY,       0,        0,         0,       0 },
-      { BEDOUIN,        0,   CRUZPY,        0,       0,       0,        0,        0,       0,        0,          0,        0,       0,        0,         0,       0 },
-      {       0,        0,       0,        0,       0,       0,        0,        0,       0,        0,          0,        0,       0,    ORUS1,SARCOFAGO1,       0 },
-      {       0,        0,       0,        0,       0,       0,        0,        0,       0,        0,          0,        0,       0,    ORUS2,SARCOFAGO2,       0 },
-      {       0,  BEDOUIN,       0,        0,       0,       0,        0,        0,       0,        0,          0,    CUADRADOPY,       0,        0,         0,       0 },
-      {       0,        0,       0,      UP3,       0,   DOWN3,        0,    LEFT3,       0,   RIGHT3,          0,        0,       0,        0,         0,       0 },
-      {       0,        0,       0,        0,       0,       0,        0,        0,       0,        0,          0,        0,       0,        0,         0,       0 },
-      { SCORPIO,  SCORPIO,       0,   CROSS,    STAFF,   SWORD,        0, ESFINGE1,ESFINGE2,        0,          0,    CUADRADOPY,       0,        0,         0,       0 },
-      {       0,        0,       0,        0,       0,       0,        0, ESFINGE3,ESFINGE4,        0,          0,        0,       0,        0,         0,       0 }
+      {       0,       0,        0,       0,       0,        0,        0,        0,         0,        0,          0,          0,        0,        0,        0,        0 },
+      {       0,       0,        0,       0,   BLOCK,    BLOCK,    BLOCK,    BLOCK,     BLOCK,    BLOCK,      BLOCK,          0,        0,        0,        0,        0 },
+      {       0,       0,        0,       0,   BLOCK,    BLOCK,    BLOCK,MONEDON_DOOR,  BLOCK,    BLOCK,      BLOCK,          0,        0,        0,        0,        0 },
+      {       0,       0,        0,       0,   BLOCK,    BLOCK,    BLOCK,        0,     BLOCK,    BLOCK,      BLOCK,          0,        0,        0,        0,        0 },
+      {       0,       0,        0,       0,   BLOCK,    BLOCK,    BLOCK,        0,     BLOCK,    BLOCK,      BLOCK,          0,        0,        0,        0,        0 },
+      {       0,       0,        0,       0,   BLOCK,    BLOCK,        0,        0,         0,    BLOCK,      BLOCK,          0,        0,        0,        0,        0 },
+      {       0,       0,        0,       0,       0,        0,        0,        0,         0,        0,          0,          0,        0,        0,        0,        0 },
+      {       0,       0,        0,       0,       0,        0,        0,        0,         0,        0,          0,          0,        0,        0,        0,        0 },
+      {       0,       0,        0,       0,       0,        0,        0,        0,         0,        0,          0,          0,        0,        0,        0,        0 },
+      {       0,       0,        0,       0,       0,        0,        0,        0,         0,        0,          0,          0,        0,        0,        0,        0 },
+      {       0,       0,        0,       0,       0,        0,        0,        0,         0,        0,          0,          0,        0,        0,        0,        0 }
+
+//      {        0,         0,         0,         0,         0,         0,         0,         0,         0,          0,         0,         0,         0,         0,         0,        0 },
+//      {   RIGHT3,    RIGHT3,    RIGHT3,    RIGHT3,    RIGHT3,    RIGHT3,    RIGHT3,    RIGHT3,    RIGHT3,     RIGHT3,    RIGHT3,    RIGHT3,    RIGHT3,    RIGHT3,     DOWN3,        0 },
+//      {        0,     LEFT3,     LEFT3,     LEFT3,     LEFT3,     LEFT3,     LEFT3,     LEFT3,     LEFT3,      LEFT3,     LEFT3,     LEFT3,     LEFT3,     LEFT3,     LEFT3,        0 },
+//      {        0,CUADRADOPY,CUADRADOPY,CUADRADOPY,CUADRADOPY,CUADRADOPY, CUADRADOPY,CUADRADOPY,CUADRADOPY,CUADRADOPY,CUADRADOPY,CUADRADOPY,CUADRADOPY,CUADRADOPY,CUADRADOPY,        0 },
+//      {    CROSS,CUADRADOPY,    RIGHT3,     DOWN3,         0,         0,         0,         0,         0,          0,         0,         0,         0,         0,CUADRADOPY,        0 },
+//      {  BEDOUIN,CUADRADOPY,       UP3,     DOWN3,         0,         0,         0,         0,         0,MONEDON_DOOR,        0,         0,         0,         0,CUADRADOPY,        0 },
+//      {        0,CUADRADOPY,       UP3,    RIGHT3,         0,         0,         0,         0,         0,          0,         0,         0,         0,         0,CUADRADOPY,        0 },
+//      {        0,CUADRADOPY,       UP3,CUADRADOPY,CUADRADOPY,CUADRADOPY,CUADRADOPY,CUADRADOPY,CUADRADOPY, CUADRADOPY,CUADRADOPY,CUADRADOPY,CUADRADOPY,CUADRADOPY,CUADRADOPY,        0 },
+//      {        0,CUADRADOPY,       UP3,         0,         0,         0,     MUMMY,         0,         0,          0,         0,         0,         0,     SWORD,         0,        0 },
+//      {        0,CUADRADOPY,       UP3,     LEFT3,     LEFT3,     LEFT3,     LEFT3,     LEFT3,     LEFT3,      LEFT3,     LEFT3,     LEFT3,     LEFT3,     LEFT3,     LEFT3,        0 },
+//      {   RIGHT3,    RIGHT3,    RIGHT3,    RIGHT3,    RIGHT3,    RIGHT3,    RIGHT3,    RIGHT3,    RIGHT3,     RIGHT3,    RIGHT3,    RIGHT3,    RIGHT3,    RIGHT3,       UP3,        0 }
    }
 };
