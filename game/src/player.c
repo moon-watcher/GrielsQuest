@@ -73,11 +73,6 @@ static const u16 cords[20][14] =
 
 
 
-s16 _level_x ( u8 player ) { return ( _p.x - voffset_horizontal_get() - 0 ) / 8 / 2; }
-s16 _level_y ( u8 player ) { return ( _p.y - voffset_vertical_get()   + 8 ) / 8 / 2; }
-
-
-
 bool _can_move ( u8 player )
 {
 	return (  ( _p.vel_x  ||  _p.vel_y )  &&  ( ! object_is_arrow(_object) )  );
@@ -120,7 +115,7 @@ static void _death_animation ( )
 	if ( muerte == GRIEL_DEAD_TENT_1 )
 	{
 		vobject_reset ( GRIEL_DEAD_TENT_2 );
-		level_draw_animation ( EMPTY, _level_x(0), _level_y(0) );
+		level_draw_animation ( EMPTY, player_get_x(0), player_get_y(0) );
 		vsprite_set (splist_weapon, x-128, y-128, GRIEL_DEAD_TENT_2);
 	}
 	else if ( muerte == GRIEL_DEAD_HOLE   )
@@ -155,7 +150,7 @@ static void _death_animation ( )
 	// restore tentacle
 	if ( muerte == GRIEL_DEAD_TENT_1 )
 	{
-		level_draw_animation ( TENTACLE, _level_x(0), _level_y(0) );
+		level_draw_animation ( TENTACLE, player_get_x(0), player_get_y(0) );
 	}
 }
 
@@ -175,8 +170,8 @@ static void _stopPlayerIfNecessary ( u8 player )
 		return;
 	}
 
-	const s16 x = _level_x(player);
-	const s16 y = _level_y(player);
+	const s16 x = player_get_x(player);
+	const s16 y = player_get_y(player);
 
 	if
 	(
@@ -356,9 +351,7 @@ void player_set ( u8 nb, PLAYER ply )
 
 void player_update ( u8 player )
 {
-	vsprite_set (  splist_griel, -40, -40, EMPTY_SPRITE );
-	splist_griel = splist_update_griel ( _p.y );
-
+	//vsprite_set ( splist_griel, -40, -40, EMPTY_SPRITE );
 	vsprite_set ( splist_griel, _p.x, _p.y, _p.object );
 
 	weapon_draw ( );
@@ -470,8 +463,8 @@ void player_logic_next ( u8 player, LEVEL *level )
 	if ( _p.distance_y < 0 ) inc_y = -1;
 	if ( _p.distance_y > 0 ) inc_y = +1;
 
-	const s16 x = _level_x(player) + inc_x;
-	const s16 y = _level_y(player) + inc_y;
+	const s16 x = player_get_x(player) + inc_x;
+	const s16 y = player_get_y(player) + inc_y;
 
 	u8  o = level_get_object ( level, x, y ) ;
 
@@ -657,15 +650,15 @@ void player_on_hurts ( u8 player )
 
 void player_update_selected ( u8 player, u16 selected )
 {
-   _p.selected = selected;
+	_p.selected = selected;
 
-   if ( selected == EMPTY )
-   {
-      vsprite_position ( splist_ui_weapon, 0, -64 );
-      vsprite_position ( splist_ui_enemy,  0, -64 );
+	if ( selected == EMPTY )
+	{
+		VDP_setSpritePosition ( splist_ui_weapon, 0, -64 );
+		VDP_setSpritePosition ( splist_ui_enemy,  0, -64 );
 
-      return;
-   }
+		return;
+	}
 
 
 	u8 enemy = EMPTY;
@@ -784,7 +777,7 @@ void player_inc_level ( )
 
 u8 player_get_object ( u8 player, LEVEL *level )
 {
-	_object = level_get_object ( level, _level_x(player), _level_y(player) ) ;
+	_object = level_get_object ( level, player_get_x(player), player_get_y(player) ) ;
 
 	return _object;
 }
@@ -867,8 +860,6 @@ void player_ctrldev ( u16 *ret )
 
 
 
-
-
 void player_interact_with_object ( LEVEL *wl )
 {
 	u8  obj = player_get_object ( PLAYER_1, wl );
@@ -895,6 +886,10 @@ void player_interact_with_object ( LEVEL *wl )
 		player_on_arrow ( PLAYER_1 );
 	}
 }
+
+
+
+
 
 
 

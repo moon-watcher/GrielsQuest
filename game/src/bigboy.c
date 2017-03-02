@@ -42,6 +42,12 @@ void bigboy_init (  )
 }
 
 
+BIGBOY * bigboy ( )
+{
+   return (BIGBOY*) &_list;
+}
+
+
 BIGBOY * bigboy_get ( u16 i )
 {
    return (BIGBOY*) &_list[i];
@@ -58,6 +64,22 @@ BIGBOY *bigboy_getByPos ( s16 x, s16 y )
 	}
 
 	return (BIGBOY*) &_list[pos];
+}
+
+
+BIGBOY *bigboy_getByIndex ( s8 index )
+{
+	u16 i = BIGBOY_MAX;
+
+	while ( i-- )
+	{
+		if ( index == _list[i].index )
+		{
+			return (BIGBOY*) &_list[i];
+		}
+	}
+
+	return NULL;
 }
 
 
@@ -96,9 +118,9 @@ void bigboy_show ()
 	{
 		//if ( _list[i].index != -1 )
 		{
-			drawInt  ( _list[i].index, 0, i+2, 2 );
-			drawInt  ( _list[i].x,     3, i+2, 2 );
-			drawInt  ( _list[i].y,     6, i+2, 2 );
+			drawInt  ( _list[i].index, 10, i+2, 2 );
+			drawInt  ( _list[i].x,     13, i+2, 2 );
+			drawInt  ( _list[i].y,     16, i+2, 2 );
 		}
 	}
 }

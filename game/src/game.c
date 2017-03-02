@@ -49,8 +49,8 @@ static LEVEL _init ( )
 	resetPalettes();
 	SYS_enableInts();
 
-	voffset_horizontal_set ( OFFSET_HORIZONTAL );
-	voffset_vertical_set   ( OFFSET_VERTICAL );
+	voffset_horizontal = VOFFSET_HORIZONTAL;
+	voffset_vertical   = VOFFSET_VERTICAL;
 
 	VDP_setPlanSize ( 64, 32 );
 
@@ -149,6 +149,8 @@ u16 game_play ( )
 
 		//bossctrl_frame();
 		//boss_loop ( 1 );
+
+		splist_reorder_bigboys ( );
 
 		ret = pause_show ( &wl );
 

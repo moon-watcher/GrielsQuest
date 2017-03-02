@@ -17,11 +17,13 @@ typedef struct
 BIGBOY;
 
 
-void    bigboy_init     ( );
-BIGBOY *bigboy_get      ( u16 i );
-BIGBOY *bigboy_getByPos ( s16 x, s16 y );
-void    bigboy_set      ( s16 x, s16 y, u16 objeto );
-u8      bigboy_count    ( );
-void    bigboy_show     ( );
+void    bigboy_init       ( );
+BIGBOY *bigboy            ( );
+BIGBOY *bigboy_get        ( u16 i );
+BIGBOY *bigboy_getByPos   ( s16 x, s16 y );
+BIGBOY *bigboy_getByIndex ( s8 index );
+void    bigboy_set        ( s16 x, s16 y, u16 objeto );
+u8      bigboy_count      ( );
+void    bigboy_show       ( );
 
 #endif
