@@ -6,7 +6,7 @@
 
 static void _blink ( u8 *str, const u16 x, const u16 y )
 {
-	u8 i   = ntsc2pal(30);
+	u8 i   = ntsc2pal(15);
 	u8 len = strlen(str);
 
 	VDP_drawText ( str, x, y );

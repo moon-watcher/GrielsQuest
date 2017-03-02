@@ -1,19 +1,21 @@
 #include "../inc/include.h"
 
 
-static u8 free_sprites [ MAX_LINES ] = { };
+//static u8 free_sprites [ MAX_LINES ] = { };
 
+
+//static u8 links [ MAX_SPRITE ];
 
 
 void splist_init (  )
 {
-	memset ( free_sprites, 0, sizeof(MAX_LINES) );
+	//memset ( free_sprites, 0, sizeof(MAX_LINES) );
 
 	splist_reorder ( );
 
 	splist_key         = 0; // needed
 	splist_door        = 0; // needed
-	splist_griel       = 0; // needed
+	splist_griel       = 8; // 1; // needed
 	splist_weapon      = 9;
 	splist_explosion   = 10;
 	splist_ui_weapon   = 11;
@@ -28,58 +30,37 @@ void splist_init (  )
 
 void splist_draw ( )
 {
-   u8 i, line;
-   u8 sprite  = BIGBOY_START + BIGBOY_MAX;
+	int i = BIGBOY_MAX;
+	int sprite = 0;
 
-   for ( line = 0; line < MAX_LINES; line++ )
-   {
-      for ( i = 0; i < BIGBOY_MAX; i++ )
-      {
-         BIGBOY *bb = bigboy_get ( i );
+	while ( i-- )
+	{
+		BIGBOY *bb = bigboy_get ( i );
 
-         if ( bb->y == line )
-         {
-            bb->index = sprite--;
+		if ( bb->objeto == EMPTY )
+		{
+			continue;
+		}
 
-            s16 x = level_hpos_to_pixel ( bb->x );
-            s16 y = level_vpos_to_pixel ( bb->y );
+		bb->index = BIGBOY_START + sprite++;
 
-            vsprite_set ( bb->index, x, y, bb->objeto );
+		s16 x = level_hpos_to_pixel ( bb->x );
+		s16 y = level_vpos_to_pixel ( bb->y );
 
-            if ( object_is_key  ( bb->objeto ) ) splist_key  = bb->index;
-            if ( object_is_door ( bb->objeto ) ) splist_door = bb->index;
-         }
-      }
+		vsprite_set ( bb->index, x, y, bb->objeto );
 
-      vsprite_set ( sprite, -40, -40, EMPTY_SPRITE );
-      free_sprites [ line ] = sprite--;
-   }
-
-   //VDP_updateSprites();
-}
-
-
-void splist_hide_sprite ( u8 sprite )
-{
-//	vdpSpriteCache[sprite].y = -64; //VDP_getScreenHeight()+10;
-//	VDP_setSpriteDirectP ( sprite, &vdpSpriteCache[sprite] );
-
-	VDP_setSpritePosition ( sprite, vdpSpriteCache[sprite].x, -64 );
-}
-
-
-void splist_hide_sprites ( )
-{
-	//splist_hide_sprites_in_height (  0, VDP_getPlanHeight()*8 );
-	splist_hide_sprites_from_to ( 0, 80 );
+		     if ( object_is_key   ( bb->objeto ) ) splist_key   = bb->index;
+		else if ( object_is_door  ( bb->objeto ) ) splist_door  = bb->index;
+		else if ( object_is_griel ( bb->objeto ) ) splist_griel = bb->index;
+	}
 }
 
 
 void splist_hide_sprites_in_height (  u16 min, u16 max )
 {
-	u8 i;
+	int i = MAX_SPRITE;
 
-	for ( i=0; i<MAX_SPRITE; i++ )
+	while ( i-- )
 	{
 		if ( between ( vdpSpriteCache[i].y, min, max ) )
 		{
@@ -100,21 +81,82 @@ void splist_hide_sprites_from_to ( u16 from, u16 to )
 }
 
 
-
 void splist_reorder ( )
 {
-	u8 i;
+	int i = MAX_SPRITE-1;
 
-	for ( i=0; i<MAX_SPRITE; ++i )
+	while ( i-- )
 	{
 		vdpSpriteCache[i].link = i + 1;
 	}
 
-	vdpSpriteCache [ 79 ].link = 0;
+	vdpSpriteCache[79].link = 0;
 }
 
 
-s8 splist_update_griel ( u8 y )
+void splist_reorder_bigboys ( )
 {
-   return  free_sprites  [  ( ( y - 16 ) / 16 ) - 1  ];
+//	vdpSpriteCache[splist_griel].link     = splist_griel     + 1;
+//	vdpSpriteCache[splist_flash].link     = splist_flash     + 1; // the slash
+//	vdpSpriteCache[splist_weapon].link    = splist_weapon    + 1;
+//	vdpSpriteCache[splist_explosion].link = splist_explosion + 1;
+
+	splist_reorder ( );
+
+	int inc = 0;
+	int i = BIGBOY_MAX;
+
+	while ( i-- )
+	{
+//		vdpSpriteCache[i].link = i + 1;
+
+		if ( vdpSpriteCache[BIGBOY_START+i].y > vdpSpriteCache[splist_griel].y )
+		{
+			++inc;
+		}
+	}
+
+	if ( inc )
+	{
+		vdpSpriteCache [ splist_griel - 1       ].link = BIGBOY_START;
+		vdpSpriteCache [ BIGBOY_START - 1 + inc ].link = splist_griel;
+		vdpSpriteCache [ BIGBOY_START - 1       ].link = BIGBOY_START + inc;
+	}
+
+
+////
+////	FUNCIONA!!!! con el error del segundo while
+////
+//	VDPSprite *griel = &vdpSpriteCache[splist_griel];
+//
+//	splist_reorder();
+//
+//	int save = 0;
+//	int i    = BIGBOY_MAX;
+//	int j;
+//
+//	while ( i-- )
+//	{
+//		if ( vdpSpriteCache [ i + BIGBOY_START ].y > griel->y )
+//		{
+//			++i;
+//			break;
+//		}
+//	}
+//
+//	if ( i > 0 )
+//	{
+//		vdpSpriteCache [ splist_griel-1 ].link = i + BIGBOY_START-1;
+//		vdpSpriteCache [ BIGBOY_START-1 ].link += i;
+//
+//		while ( i-- )
+//		{
+//			if ( i > 0 )
+//			{
+//				vdpSpriteCache [ i + BIGBOY_START ].link -= 2;
+//			}
+//		}
+//
+//		vdpSpriteCache [ BIGBOY_START ].link = splist_griel;
+//	}
 }

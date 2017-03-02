@@ -14,11 +14,14 @@ u8 splist_ui_left_1;
 u8 splist_ui_left_2;
 
 
-void splist_init               ( );
-void splist_draw               ( );
-void splist_hide_sprite        ( u8 sprite );
-void splist_hide_sprites       ( );
+
+#define splist_hide_sprite(s)  VDP_setSpritePosition ( (s), vdpSpriteCache[(unsigned)(s)].x, -64 )
+#define splist_hide_sprites()  splist_hide_sprites_from_to ( 0, 80 )
+
+
+void splist_init                   ( );
+void splist_draw                   ( );
 void splist_hide_sprites_in_height ( u16 min, u16 max );
-void splist_reorder            ( );
-s8   splist_update_griel       ( u8 y );
-void splist_hide_sprites_from_to ( u16 from, u16 to );
+void splist_reorder                ( );
+void splist_hide_sprites_from_to   ( u16 from, u16 to );
+void splist_reorder_bigboys        ( );

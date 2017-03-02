@@ -71,6 +71,14 @@ const LEVELLIST level_list [ LEVEL_DIF_MAX_AMBIENTES ] [ LEVEL_DIF_MAX_DIFICULTA
 
 
 
+#define level_current()          gamestate.current_round
+#define level_get_max_rounds()   level_list [ (u16)gamestate.current_ambiente ] [ gamestate_get_dificultad ( ) ].cuantos
+#define level_hpos_to_pixel(x)   ( ( (x) << 4 ) + voffset_horizontal - 0 )
+#define level_vpos_to_pixel(y)   ( ( (y) << 4 ) + voffset_vertical   - 8 ) // el -8 es para compensar la altuta extra (+8px) respecto a los bloques, armas y enemigos
+
+
+
+
 LEVEL      *level                     ( );
 LEVEL      *level_get                 ( );
 LEVEL       level_init                ( );
@@ -91,14 +99,14 @@ void        level_set_key             ( u16 x, u16 y );
 Vect2D_u16  level_get_door            ( );
 void        level_set_door            ( u16 x, u16 y );
 
-u16         level_current             ( );
+//u16         level_current             ( );
 void        level_remove_key          ( );
 void        level_draw_demon          ( u16 x, u16 y, u8 ojos, u8 cola );
 u16         level_vram_pos            ( VDPPlan plan );
 
 void        level_ol_set              ( u8 obj, bool value );
 bool        level_ol_get              ( u8 obj );
-u16         level_get_max_rounds      ( );
+//u16         level_get_max_rounds      ( );
 u16         level_get_music           ( );
 u16         level_get_head            ( );
 
@@ -112,8 +120,8 @@ bool        level_flipped_v           ( );
 void        level_actualizar_marcador ( );
 
 u16         level_find                ( u16 object, LEVEL *level, Vect2D_u16 grid[] );
-s16         level_hpos_to_pixel       ( s16 x );
-s16         level_vpos_to_pixel       ( s16 y );
+//s16         level_hpos_to_pixel       ( s16 x );
+//s16         level_vpos_to_pixel       ( s16 y );
 
 void        level_draw_animation      ( u16 nb, u8 x, u8 y );
 void        level_draw_animation_size ( u8 width, u8 height );

@@ -94,6 +94,7 @@ static bool _flip_vh ( )
 	return false;
 }
 
+
 static void _draw_marcador ()
 {
 	VDP_loadTileSet ( cb_ui.tileset, _vram_pos[1], 0 );
@@ -291,6 +292,7 @@ void level_draw ( LEVEL *level )
 	SYS_disableInts();
 
 	bool on_medallon = gamestate_on_medallon();
+	//on_medallon = false;
 
 	_vram_pos[0] = vram_new ( level->background->tileset->numTile );
 	_vram_pos[1] = vram_new ( cb_ui.tileset->numTile );
@@ -369,12 +371,12 @@ void level_draw_area ( LEVEL *level, u8 x, u8 y, u8 width, u8 height )
 	{
 		for ( j = x; j < width; j++ )
 		{
-			u16 obj = level->grid [ i ] [ j ];
+			u16  obj = level->grid [ i ] [ j ];
 
-			     if ( object_is_door ( obj ) ) _door = ( Vect2D_u16 ) { j, i };
+				 if ( object_is_door ( obj ) ) _door = ( Vect2D_u16 ) { j, i };
 			else if ( object_is_key  ( obj ) ) _key  = ( Vect2D_u16 ) { j, i };
 
-			     if ( !_pal2 && animation_get(obj)->pal == PAL2 ) _pal2 = obj;
+				 if ( !_pal2 && animation_get(obj)->pal == PAL2 ) _pal2 = obj;
 			else if ( !_pal3 && animation_get(obj)->pal == PAL3 ) _pal3 = obj;
 
 			animation_draw ( obj, j, i, false, PLAN_A, -1, 0, 0, _force_width, _force_height );
@@ -425,12 +427,6 @@ void level_set_key ( u16 x, u16 y )
 {
 	_key.x = x ;
 	_key.y = y ;
-}
-
-
-u16 level_current ()
-{
-	return gamestate.current_round;
 }
 
 
@@ -493,14 +489,6 @@ void level_draw_linedown ( LEVEL *level  )
 	}
 
 	SYS_enableInts();
-}
-
-
-
-
-u16 level_get_max_rounds ( )
-{
-   return level_list [ (u16)gamestate.current_ambiente ] [ gamestate_get_dificultad ( ) ].cuantos;
 }
 
 
@@ -707,11 +695,8 @@ void level_presentation()
 
 	memcpy ( string, frase, strlen ( frase ) ) ;
 	sprintf ( string, frase, ambiente );
-	u16 sprite = text_draw_sprites_x_centered ( string, 120, 30 );
-	--sprite;
+	u16 sprite = text_draw_sprites_x_centered ( string, 120, 30 ) - 1;
 
-//   vdpSpriteCache [ sprite ].link = 0;
-//	VDP_setSpriteP ( sprite, &vdpSpriteCache [ sprite ] );
 	VDP_setSpriteLink ( sprite, 0 );
 	VDP_updateSprites (80,1);
 
@@ -754,18 +739,6 @@ u16 level_find ( u16 object, LEVEL *level, Vect2D_u16 grid[] )
 	}
 
 	return cnt;
-}
-
-
-s16 level_hpos_to_pixel ( s16 x )
-{
-	return x * 8 * 2 + voffset_horizontal_get() - 0;
-}
-
-
-s16 level_vpos_to_pixel ( s16 y )
-{
-	return y * 8 * 2 + voffset_vertical_get()   - 8; // el -8 es para compensar la altuta extra (+8px) respecto a los bloques, armas y enemigos
 }
 
 

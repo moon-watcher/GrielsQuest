@@ -489,8 +489,8 @@ void animation_draw ( u16 ani, u8 x, u8 y, bool absolutepos, VDPPlan plan, s16 p
 
 	if ( !absolutepos ) // relative
 	{
-		x = ( x << 1 ) + ( voffset_horizontal_get ( ) >> 3 );
-		y = ( y << 1 ) + ( voffset_vertical_get   ( ) >> 3 );
+		x = ( x << 1 ) + ( voffset_horizontal >> 3 );
+		y = ( y << 1 ) + ( voffset_vertical   >> 3 );
 	}
 
 
@@ -569,8 +569,8 @@ void animation_draw_raw ( u16 ani, u8 x, u8 y, bool absolutepos, VDPPlan plan, s
 
 	if ( !absolutepos ) // relative
 	{
-		x = x * 2 + ( voffset_horizontal_get ( ) >> 3 );
-		y = y * 2 + ( voffset_vertical_get   ( ) >> 3 );
+		x = x * 2 + ( voffset_horizontal >> 3 );
+		y = y * 2 + ( voffset_vertical   >> 3 );
 	}
 
 

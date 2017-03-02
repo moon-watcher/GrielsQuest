@@ -12,6 +12,11 @@
 
 
 
+#define player_get_x(xx) ( ( players[(xx)].x - voffset_horizontal - 0 ) >> 4 ) //   / 8 / 2
+#define player_get_y(xx) ( ( players[(xx)].y - voffset_vertical   + 8 ) >> 4 ) //   / 8 / 2
+
+
+
 typedef struct
 {
 	u16  x;
@@ -37,37 +42,40 @@ PLAYER;
 //
 //#include "../inc/level.h"
 
+PLAYER  players [ PLAYER_MAX_PLAYERS ];
 
-PLAYER *player                 ( u8 player ) ;
-void    player_init            ( u8 player ) ;
-void    player_update          ( u8 player ) ;
-u16     player_is_stopped      ( u8 player ) ;
-bool    player_is_moving       ( u8 player ) ;
-void    player_move            ( u8 player ) ;
-void    player_update          ( u8 player ) ;
-void    player_stop            ( u8 player ) ;
-void    player_action          ( u8 player ) ;
-u16     player_logic           ( u8 player, LEVEL *level );
-void    player_logic_next      ( u8 player, LEVEL *level );
+
+PLAYER *player                      ( u8 player ) ;
+void    player_init                 ( u8 player ) ;
+void    player_update               ( u8 player ) ;
+u16     player_is_stopped           ( u8 player ) ;
+bool    player_is_moving            ( u8 player ) ;
+void    player_move                 ( u8 player ) ;
+void    player_update               ( u8 player ) ;
+void    player_stop                 ( u8 player ) ;
+void    player_action               ( u8 player ) ;
+u16     player_logic                ( u8 player, LEVEL *level );
+void    player_logic_next           ( u8 player, LEVEL *level );
+void    player_on_arrow             ( u8 player );
+void    player_on_hurts             ( u8 player );
+void    player_update_selected      ( u8 player, u16 selected );
+void    player_dead                 ( u8 player, LEVEL *level, u16 exit );
+void    player_inc_level            ( );
+void    player_set                  ( u8 nb, PLAYER ply );
+u8      player_get_object           ( u8 player, LEVEL *level );
+void    player_set_key              ( u8 player, bool has_key );
+void    player_speed                ( u8 speed );
+bool    player_changed_dir          ( u8 player );
+void    player_control_buttons      ( LEVEL *level );
+void    player_ctrldev              ( u16 *ret );
+void    player_interact_with_object ( LEVEL *wl );
+
+
+//void    player_set_score       ( u8 player, u16 socre );
+//u8      player_get_selected    ( );
 //void    player_on_grial        ( u8 player, LEVEL *level );
-void    player_on_arrow        ( u8 player );
-void    player_on_hurts        ( u8 player );
-void    player_update_selected ( u8 player, u16 selected );
 //void    player_update_score    ( u8 player, u16 inc );
 //u8      player_get_rest        ( u8 player ) ;
 //void    player_update_rest     ( u8 player );
 //void    player_inc_rest        ( u8 player, s8 nb );
 //void    player_hide            ( u8 player );
-void    player_dead            ( u8 player, LEVEL *level, u16 exit );
-void    player_inc_level       ( );
-void    player_set             ( u8 nb, PLAYER ply );
-u8      player_get_object      ( u8 player, LEVEL *level );
-//void    player_set_score       ( u8 player, u16 socre );
-//u8      player_get_selected    ( );
-void    player_set_key         ( u8 player, bool has_key );
-void    player_speed           ( u8 speed );
-bool    player_changed_dir     ( u8 player );
-
-void    player_control_buttons      ( LEVEL *level );
-void    player_ctrldev              ( u16 *ret );
-void    player_interact_with_object ( LEVEL *wl );
