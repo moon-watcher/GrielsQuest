@@ -105,6 +105,12 @@ extern const struct genresSprites        w0s_bigboy;
 extern const struct genresSprites        w0s_line_down;
 //extern const struct genresSprites        w0s_boss;
 //extern const struct genresSprites        w0s_demon;
+extern const struct genresSprites        w0s_line_down_1;
+extern const struct genresSprites        w0s_line_down_2;
+extern const struct genresSprites        w0s_line_down_3;
+extern const struct genresSprites        w0s_line_down_4;
+extern const struct genresSprites        w0s_line_down_5;
+extern const struct genresSprites        w0s_line_down_6;
 
 
 extern const struct genresSprites        w1s_blocks;
@@ -112,6 +118,13 @@ extern const struct genresSprites        w1s_enemies;
 extern const struct genresSprites        w1s_bigboy;
 extern const struct genresSprites        w1s_line_down;
 //extern const struct genresSprites        w1s_demon;
+extern const struct genresSprites        w1s_line_down_1;
+extern const struct genresSprites        w1s_line_down_2;
+extern const struct genresSprites        w1s_line_down_3;
+extern const struct genresSprites        w1s_line_down_4;
+extern const struct genresSprites        w1s_line_down_5;
+extern const struct genresSprites        w1s_line_down_6;
+extern const struct genresSprites        w1s_line_down_7;
 
 
 extern const struct genresSprites        w3s_blocks;
@@ -129,7 +142,8 @@ extern const struct genresSprites        w2s_blocks;
 extern const struct genresSprites        w2s_enemies;
 extern const struct genresSprites        w2s_bigboy;
 extern const struct genresSprites        w2s_trampa;
-extern const struct genresSprites        w2s_line_down;
+extern const struct genresSprites        w2s_line_down_1;
+
 
 extern const struct genresSprites        w4s_blocks;
 extern const struct genresSprites        w4s_enemies;

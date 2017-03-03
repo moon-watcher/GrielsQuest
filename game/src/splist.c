@@ -30,8 +30,10 @@ void splist_init (  )
 
 void splist_draw ( )
 {
-	int i = BIGBOY_MAX;
-	int sprite = 0;
+	int  i      = BIGBOY_MAX;
+	int  sprite = 0;
+	bool flip_v = level_flipped_v();
+	int  bbs    = bigboy_count() - 1;
 
 	while ( i-- )
 	{
@@ -42,7 +44,16 @@ void splist_draw ( )
 			continue;
 		}
 
-		bb->index = BIGBOY_START + sprite++;
+		if ( flip_v )
+		{
+			bb->index = BIGBOY_START - sprite + bbs;
+		}
+		else
+		{
+			bb->index = BIGBOY_START + sprite;
+		}
+
+		++sprite;
 
 		s16 x = level_hpos_to_pixel ( bb->x );
 		s16 y = level_vpos_to_pixel ( bb->y );
@@ -96,19 +107,19 @@ void splist_reorder ( )
 
 void splist_reorder_bigboys ( )
 {
-//	vdpSpriteCache[splist_griel].link     = splist_griel     + 1;
-//	vdpSpriteCache[splist_flash].link     = splist_flash     + 1; // the slash
-//	vdpSpriteCache[splist_weapon].link    = splist_weapon    + 1;
-//	vdpSpriteCache[splist_explosion].link = splist_explosion + 1;
+	//splist_reorder ( );
 
-	splist_reorder ( );
+	vdpSpriteCache[splist_griel    ].link = splist_griel     + 1;
+	vdpSpriteCache[splist_flash    ].link = splist_flash     + 1; // the slash
+	vdpSpriteCache[splist_weapon   ].link = splist_weapon    + 1;
+	vdpSpriteCache[splist_explosion].link = splist_explosion + 1;
 
 	int inc = 0;
 	int i = BIGBOY_MAX;
 
 	while ( i-- )
 	{
-//		vdpSpriteCache[i].link = i + 1;
+		vdpSpriteCache[i].link = i + 1;
 
 		if ( vdpSpriteCache[BIGBOY_START+i].y > vdpSpriteCache[splist_griel].y )
 		{

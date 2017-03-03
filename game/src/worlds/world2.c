@@ -4,7 +4,7 @@ const LEVEL w2r00 =
 {
    13, 10,
    (Image *) &w2_marco_1,
-   (struct genresSprites *) &w2s_line_down,
+   (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    {
@@ -27,7 +27,7 @@ const LEVEL w2r01 =
 {
    7, 0,
    (Image *) &w2_marco_1,
-   (struct genresSprites *) &w2s_line_down,
+   (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    {
@@ -50,7 +50,7 @@ const LEVEL w2r02 =
 {
    7, 5,
    (Image *) &w2_marco_1,
-   (struct genresSprites *) &w2s_line_down,
+   (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    {
@@ -73,7 +73,7 @@ const LEVEL w2r03 =
 {
    7, 1,
    (Image *) &w2_marco_1,
-   (struct genresSprites *) &w2s_line_down,
+   (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    {
@@ -96,7 +96,7 @@ const LEVEL w2r04 =
 {
    13, 8,
    (Image *) &w2_marco_1,
-   (struct genresSprites *) &w2s_line_down,
+   (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    {
@@ -119,7 +119,7 @@ const LEVEL w2r05 =
 {
    3, 1,
    (Image *) &w2_marco_1,
-   (struct genresSprites *) &w2s_line_down,
+   (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    {
@@ -142,7 +142,7 @@ const LEVEL w2r06 =
 {
    12, 8,
    (Image *) &w2_marco_1,
-   (struct genresSprites *) &w2s_line_down,
+   (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    {
@@ -165,7 +165,7 @@ const LEVEL w2r07 =
 {
    0, 10,
    (Image *) &w2_marco_1,
-   (struct genresSprites *) &w2s_line_down,
+   (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    {
@@ -188,7 +188,7 @@ const LEVEL w2r08 =
 {
    7, 9,
    (Image *) &w2_marco_1,
-   (struct genresSprites *) &w2s_line_down, // &w2s_line_down,
+   (struct genresSprites *) NULL, // NULL,
    (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    {
@@ -211,7 +211,7 @@ const LEVEL w2r09 =
 {
    0, 0,
    (Image *) &w2_marco_1,
-   (struct genresSprites *) &w2s_line_down,
+   (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    {
@@ -234,7 +234,7 @@ const LEVEL w2r10 =
 {
    0, 1,
    (Image *) &w2_marco_1,
-   (struct genresSprites *) &w2s_line_down,
+   (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    {
@@ -257,7 +257,7 @@ const LEVEL w2r11 =
 {
    4, 2,
    (Image *) &w2_marco_1,
-   (struct genresSprites *) &w2s_line_down,
+   (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    {
@@ -280,7 +280,7 @@ const LEVEL w2r12 =
 {
    15, 0,
    (Image *) &w2_marco_1,
-   (struct genresSprites *) &w2s_line_down,
+   (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    {
@@ -303,7 +303,7 @@ const LEVEL w2r13 =
 {
    7, 9,
    (Image *) &w2_marco_1,
-   (struct genresSprites *) &w2s_line_down,
+   (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    {

@@ -5,9 +5,11 @@ SPRITE w2s_bigboy     "game/data/world_2/bigboy.bmp"      16 24  0  0  0
 SPRITE w2s_trampa     "game/data/world_2/trampa.bmp"      16 16  0  0  0
 
 
-SPRITE w2s_line_down  "game/data/world_2/line_down.bmp"   32  8  0  0  0
+;SPRITE w2s_line_down  "game/data/world_2/line_down.bmp"   32  8  0  0  0
 ;SPRITE w2s_line_left  "game/data/world_2/line_left.bmp"    8 32  0  0  0
 ;SPRITE w2s_line_right "game/data/world_2/line_right.bmp"   8 32  0  0  0
+
+SPRITE w2s_line_down_1 "game/data/world_2/line_down_1_16x8.bmp"   16  8  0  0  0
 
 ;SPRITE w2s_nile       "game/data/world_2/sea.bmp"        32 16  0  0  0
 

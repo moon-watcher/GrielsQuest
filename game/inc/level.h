@@ -111,6 +111,10 @@ u16         level_get_music           ( );
 u16         level_get_head            ( );
 
 void        level_update              ( );
+
+void        level_draw_ambiente_0     ( );
+void        level_draw_ambiente_1     ( );
+void        level_draw_ambiente_2     ( );
 void        level_draw_ambiente_3     ( );
 void        level_draw_ambiente_4     ( );
 

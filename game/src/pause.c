@@ -111,7 +111,7 @@ static void _hide_important_sprites( LEVEL *level )
 	{
 		death_frame ( level );
 		toani_remove();
-		toani_demon_update ( );
+		//toani_demon_update ( );
 		chorrada_control ( level );
 		undo_control ( level );
 		//scoreball_frame();

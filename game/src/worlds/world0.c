@@ -6,7 +6,7 @@ const LEVEL w0r00 =
 {
    7,  1,
    (Image *) &w0_marco_1,
-   (struct genresSprites *) &w0s_line_down,
+   (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    {
@@ -30,7 +30,7 @@ const LEVEL w0r01 =
    //10,  5,
    7,  2,  // esta es la posción buena
    (Image *) &w0_marco_1,
-   (struct genresSprites *) &w0s_line_down,
+   (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    {
@@ -53,7 +53,7 @@ const LEVEL w0r02 =
 {
    7,  0,
    (Image *) &w0_marco_1,
-   (struct genresSprites *) &w0s_line_down,
+   (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    {
@@ -76,7 +76,7 @@ const LEVEL w0r03 =
 {
    7,  0,
    (Image *) &w0_marco_1,
-   (struct genresSprites *) &w0s_line_down,
+   (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    {
@@ -99,7 +99,7 @@ const LEVEL w0r04 =
 {
    1,  2,
    (Image *) &w0_marco_1,
-   (struct genresSprites *) &w0s_line_down,
+   (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    {
@@ -123,7 +123,7 @@ const LEVEL w0r05 =
 {
    2, 8,
    (Image *) &w0_marco_1,
-   (struct genresSprites *) &w0s_line_down,
+   (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    {
@@ -146,7 +146,7 @@ const LEVEL w0r06 =
 {
    7,  5,
    (Image *) &w0_marco_1,
-   (struct genresSprites *) &w0s_line_down,
+   (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    {
@@ -169,7 +169,7 @@ const LEVEL w0r07 =
 {
    6, 10,
    (Image *) &w0_marco_1,
-   (struct genresSprites *) &w0s_line_down,
+   (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    {
@@ -192,7 +192,7 @@ const LEVEL w0r08 =
 {
    5,  9,
    (Image *) &w0_marco_1,
-   (struct genresSprites *) &w0s_line_down,
+   (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    {
@@ -215,7 +215,7 @@ const LEVEL w0r09 =
 {
    0, 10,
    (Image *) &w0_marco_1,
-   (struct genresSprites *) &w0s_line_down,
+   (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    {
@@ -239,7 +239,7 @@ const LEVEL w0r10 =
 {
       10, 0,
    (Image *) &w0_marco_1,
-   (struct genresSprites *) &w0s_line_down,
+   (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    {
@@ -263,7 +263,7 @@ const LEVEL w0r11 =
 {
    15,  0,
    (Image *) &w0_marco_1,
-   (struct genresSprites *) &w0s_line_down,
+   (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    {
@@ -287,7 +287,7 @@ const LEVEL w0r12 =
 {
    0,  0,
    (Image *) &w0_marco_1,
-   (struct genresSprites *) &w0s_line_down,
+   (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    {
@@ -316,7 +316,7 @@ const LEVEL w0r13 =
 //    // Aquú muestra todos los elementos de la lista de abajo. Está bien para saber sus nombres a la hora de distribuirlos por los niveles
 //   3, 4,
 //   (Image *) &w0_marco_1,
-//   (struct genresSprites *) &w0s_line_down,
+//   (struct genresSprites *) NULL,
 //   (struct genresSprites *) NULL,
 //   (struct genresSprites *) NULL,
 //   {
@@ -351,7 +351,7 @@ const LEVEL w0r13 =
 
    7, 9,
    (Image *) &w0_marco_1,
-   (struct genresSprites *) &w0s_line_down,
+   (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    (struct genresSprites *) NULL,
    {

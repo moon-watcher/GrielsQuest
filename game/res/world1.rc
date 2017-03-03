@@ -1,10 +1,18 @@
 SPRITE w1s_blocks     "game/data/world_1/blocks.bmp"      16 16  0  0  0
 SPRITE w1s_enemies    "game/data/world_1/enemies.bmp"     16 16  0  0  0
 SPRITE w1s_bigboy     "game/data/world_1/bigboy.bmp"      16 24  0  0  0
-SPRITE w1s_line_down  "game/data/world_1/line_down.bmp"   32  8  0  0  0
+;SPRITE w1s_line_down  "game/data/world_1/line_down.bmp"   32  8  0  0  0
 ;SPRITE w1s_line_left  "game/data/world_1/line_left.bmp"    8 32  0  0  0
 ;SPRITE w1s_line_right "game/data/world_1/line_right.bmp"   8 32  0  0  0
 
+
+SPRITE w1s_line_down_1  "game/data/world_1/line_down_1_8x8.bmp"     8  8  0  0  0
+SPRITE w1s_line_down_2  "game/data/world_1/line_down_2_24x8.bmp"   24  8  0  0  0
+SPRITE w1s_line_down_3  "game/data/world_1/line_down_3_24x8.bmp"   24  8  0  0  0
+SPRITE w1s_line_down_4  "game/data/world_1/line_down_4_8x8.bmp"     8  8  0  0  0
+SPRITE w1s_line_down_5  "game/data/world_1/line_down_5_16x8.bmp"   16  8  0  0  0
+SPRITE w1s_line_down_6  "game/data/world_1/line_down_6_24x8.bmp"   24  8  0  0  0
+SPRITE w1s_line_down_7  "game/data/world_1/line_down_7_8x8.bmp"     8  8  0  0  0
 
 
 ;SPRITE w1s_boss      "game/data/world_1/boss.bmp"        32 32  0  0  0

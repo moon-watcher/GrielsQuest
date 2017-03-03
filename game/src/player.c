@@ -135,7 +135,7 @@ static void _death_animation ( )
 	{
 		death_frame ( wl );
 		toani_remove ( );
-		toani_demon_update ( );
+		//toani_demon_update ( );
 		chorrada_control ( wl );
 		undo_control ( wl );
 		//scoreball_frame();
