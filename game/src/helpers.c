@@ -178,7 +178,7 @@ void showFPS()
 {
 	if ( DEV )
 	{
-		drawUInt ( getFPS(), 0, 0, 2 );
+		drawUInt ( getFPS(), 37, 27, 2 );
 	}
 }
 

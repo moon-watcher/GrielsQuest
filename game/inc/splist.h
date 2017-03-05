@@ -12,6 +12,7 @@ u8 splist_ui_weapon;
 u8 splist_ui_enemy;
 u8 splist_ui_left_1;
 u8 splist_ui_left_2;
+u8 splist_ui_key;
 
 
 
@@ -23,5 +24,5 @@ void splist_init                   ( );
 void splist_draw                   ( );
 void splist_hide_sprites_in_height ( u16 min, u16 max );
 void splist_reorder                ( );
-void splist_hide_sprites_from_to   ( u16 from, u16 to );
 void splist_reorder_bigboys        ( );
+void splist_hide_sprites_from_to   ( u16 from, u16 to );

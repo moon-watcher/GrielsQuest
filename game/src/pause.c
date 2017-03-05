@@ -236,24 +236,19 @@ static void _marco_enrollar( LEVEL *wl )
 
 
 
-u16 pause_show ( LEVEL *wl )
+void pause_show ( LEVEL *wl, u16 *ret )
 {
-	u16 ret = 0;
+	*ret = 0;
 
 
 	if ( !joy1_pressed_start || gamestate_on_medallon() )
 	{
-		return LEVEL_OK;
+		*ret = LEVEL_OK;
+		return;
 	}
 
 
-
 	psglist_play ( PSG_START );
-
-
-
-
-
 	frases_init(2);
 	VDP_setTextPalette(PAL0);
 
@@ -275,15 +270,12 @@ u16 pause_show ( LEVEL *wl )
 
 
 	_hide_important_sprites( wl );
-
-
-
 	_marco_desplegar();
 
 
 	s16 option = 0;
 
-	while ( ret == 0 )
+	while ( *ret == 0 )
 	{
 		JoyReader_update();
 
@@ -302,33 +294,24 @@ u16 pause_show ( LEVEL *wl )
 
 		if ( joy1_pressed_abc || joy1_pressed_start )
 		{
-			ret = opciones[option].ret;
+			*ret = opciones[option].ret;
 		}
 	}
 
 	psglist_play ( opciones[option].psgfx );
 
-
-
 	_marco_enrollar ( wl );
-
-
 	_restore_important_sprites ( );
 
 	JoyReader_reset();
 
-
-	if ( ret == LEVEL_RESTART )
+	if ( *ret == LEVEL_RESTART )
 	{
 		//player_dead ( PLAYER_1, wl, ret );
 	}
 
-	if ( ret == LEVEL_EXIT )
+	if ( *ret == LEVEL_EXIT )
 	{
 		music_stop();
 	}
-
-
-
-	return ret;
 }

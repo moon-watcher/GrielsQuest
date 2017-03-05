@@ -543,6 +543,7 @@ void player_logic_next ( u8 player, LEVEL *level )
 		level_draw_animation ( EMPTY, x, y );
 		level_remove_object ( level, x, y );
 		level_actualizar_marcador ( );
+		vsprite_set ( splist_key, level_hpos_to_pixel(x), level_hpos_to_pixel(y), EMPTY_SPRITE );
 	}
 	ELSEIF ( undo )
 	{

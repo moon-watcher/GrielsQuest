@@ -1,1 +1,1 @@
-u16 pause_show ( LEVEL *wl );
+void pause_show ( LEVEL *wl, u16 *ret );

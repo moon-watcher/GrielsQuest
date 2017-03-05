@@ -65,7 +65,10 @@ void stars_draw ( )
 
 	while ( --duracion )
 	{
-		if ( duracion % 4 == 0 ) _freeze_objects();
+		if ( duracion % 4 == 0 )
+		{
+			_freeze_objects();
+		}
 
 		vobject_update();
 		VDP_updateSprites(80,1);

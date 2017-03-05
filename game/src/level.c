@@ -331,6 +331,12 @@ void level_draw ( LEVEL *level )
 		preparePal ( pal, cb_poyete.pal );
 	}
 
+	if ( DEV )
+	{
+		if ( _flip_h ) VDP_drawText("1",0,0); else VDP_drawText("0",0,0);
+		if ( _flip_v ) VDP_drawText("1",1,0); else VDP_drawText("0",1,0);
+	}
+
 	SYS_enableInts();
 }
 
@@ -338,14 +344,18 @@ void level_draw ( LEVEL *level )
 
 void level_actualizar_marcador ( )
 {
-	u16 x = level_hpos_to_pixel ( _key.x );
-	u16 y = level_vpos_to_pixel ( _key.y );
+	u16 x   = 0;
+	u16 y   = 0;
+	u16 key = EMPTY_SPRITE;
 
 	if ( player(0)->key )
 	{
-		x = 128 + 16;
-		y =   4;
+		x   = 128 + 16;
+		y   = 4;
+		key = KEY;
 	}
+
+	vsprite_set ( splist_ui_key, x, y, key );
 
 	s16 un = undo_rest ( 0 );
 
@@ -353,8 +363,6 @@ void level_actualizar_marcador ( )
 	{
 		un = 0;
 	}
-
-	VDP_setSpritePosition ( splist_key, x, y );
 
 	const u16 pos_y [ 4 ] = { 11, 8, 5, 1 };
 	VDP_setMapEx ( PLAN_A, cb_ui.map, TILE_ATTR_FULL(PAL1, false, false, false, _vram_pos[1]), 9, 1, 7, pos_y [ (u16) un ], 8, 3 );

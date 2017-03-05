@@ -5,7 +5,7 @@ static LEVEL wl;
 
 
 
-static void _leave ( u16 ret )
+static void _leave_text ( u16 ret )
 {
 	u8  *f      = NULL;
 	u16  numero = 10000;
@@ -38,7 +38,7 @@ static void _leave ( u16 ret )
 
 
 
-static LEVEL _init ( )
+static void _init ( )
 {
 	displayInit();
 	displayOff(0);
@@ -69,7 +69,7 @@ static LEVEL _init ( )
 	chorrada_init ( );
 	weapon_init ( );
 	stars_init ( );
-	LEVEL wl = level_init ( );
+	wl = level_init ( );
 	player_init ( PLAYER_1 );
 
 	level_presentation();
@@ -97,9 +97,6 @@ static LEVEL _init ( )
 
 
 	musiclist_play ( level_get_music() ); // wl.music
-
-
-	return wl;
 }
 
 
@@ -128,36 +125,25 @@ void game_level_inc ( )
 u16 game_play ( )
 {
 	u16  ret = LEVEL_OK;
-	bool joy = vint_getJoyReader();
+	bool joyState = vint_getJoyReader();
 
 	vint_setJoyReader ( false );
 
-	wl = _init ( );
-
+	_init ( );
 
 	while ( ret == LEVEL_OK )
 	{
 		JoyReader_update();
-
 		death_frame ( &wl );
 		toani_remove ( );
-		//toani_demon_update ( );
 		chorrada_control ( &wl );
 		undo_control ( &wl );
-		//scoreball_frame();
 		level_update ( );
-
-		//bossctrl_frame();
-		//boss_loop ( 1 );
-
+		splist_reorder ( );
 		splist_reorder_bigboys ( );
-
-		ret = pause_show ( &wl );
-
+		pause_show ( &wl, &ret );
 		player_control_buttons ( &wl );
 		player_ctrldev ( &ret );
-
-
 
 		if ( player_is_moving ( PLAYER_1 ) )
 		{
@@ -181,7 +167,6 @@ u16 game_play ( )
 			player_logic_next ( PLAYER_1, &wl );
 		}
 
-
 		if ( ret == LEVEL_COMPLETED )
 		{
 			player_inc_level ( );
@@ -200,13 +185,11 @@ u16 game_play ( )
 			break;
 		}
 
-
-
 		player_move ( PLAYER_1 );
 		player_update ( PLAYER_1 );
 		vobject_update ( );
 
-		//showFPS ( );
+		showFPS ( );
 
 		VDP_updateSprites(80, 1);
 		VDP_waitVSync();
@@ -214,9 +197,9 @@ u16 game_play ( )
 
 
 	planHide();
-	_leave ( ret );
+	_leave_text ( ret );
 	resetSprites();
-	vint_setJoyReader(joy);
+	vint_setJoyReader(joyState);
 	vram_destroy();
 
 	return ret;

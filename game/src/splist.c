@@ -13,16 +13,17 @@ void splist_init (  )
 
 	splist_reorder ( );
 
-	splist_key         = 0; // needed
-	splist_door        = 0; // needed
-	splist_griel       = 8; // 1; // needed
-	splist_weapon      = 9;
+	splist_key         =  0; // needed
+	splist_door        =  0; // needed
+	splist_weapon      =  8;
+	splist_flash       =  9;
 	splist_explosion   = 10;
-	splist_ui_weapon   = 11;
-	splist_ui_enemy    = 12;
-	splist_flash       = 13;
+	splist_griel       = 11; // needed
+	splist_ui_weapon   = 12;
+	splist_ui_enemy    = 13;
 	splist_ui_left_1   = 14;
 	splist_ui_left_2   = 15;
+    splist_ui_key      = 16;
 	splist_element     = 78;
 	splist_dust        = 79;
 }
@@ -107,67 +108,24 @@ void splist_reorder ( )
 
 void splist_reorder_bigboys ( )
 {
-	//splist_reorder ( );
-
-	vdpSpriteCache[splist_griel    ].link = splist_griel     + 1;
-	vdpSpriteCache[splist_flash    ].link = splist_flash     + 1; // the slash
-	vdpSpriteCache[splist_weapon   ].link = splist_weapon    + 1;
-	vdpSpriteCache[splist_explosion].link = splist_explosion + 1;
-
-	int inc = 0;
+	int total = 0;
 	int i = BIGBOY_MAX;
 
 	while ( i-- )
 	{
-		vdpSpriteCache[i].link = i + 1;
-
 		if ( vdpSpriteCache[BIGBOY_START+i].y > vdpSpriteCache[splist_griel].y )
 		{
-			++inc;
+			++total;
 		}
 	}
 
-	if ( inc )
+	if ( total )
 	{
-		vdpSpriteCache [ splist_griel - 1       ].link = BIGBOY_START;
-		vdpSpriteCache [ BIGBOY_START - 1 + inc ].link = splist_griel;
-		vdpSpriteCache [ BIGBOY_START - 1       ].link = BIGBOY_START + inc;
+		vdpSpriteCache [ splist_weapon - 1        ].link = BIGBOY_START;
+		vdpSpriteCache [ BIGBOY_START + total - 1 ].link = splist_weapon;
+		vdpSpriteCache [ splist_weapon            ].link = splist_flash;
+		vdpSpriteCache [ splist_flash             ].link = splist_explosion;
+		vdpSpriteCache [ splist_explosion         ].link = splist_griel;
+		vdpSpriteCache [ BIGBOY_START - 1         ].link = BIGBOY_START + total;
 	}
-
-
-////
-////	FUNCIONA!!!! con el error del segundo while
-////
-//	VDPSprite *griel = &vdpSpriteCache[splist_griel];
-//
-//	splist_reorder();
-//
-//	int save = 0;
-//	int i    = BIGBOY_MAX;
-//	int j;
-//
-//	while ( i-- )
-//	{
-//		if ( vdpSpriteCache [ i + BIGBOY_START ].y > griel->y )
-//		{
-//			++i;
-//			break;
-//		}
-//	}
-//
-//	if ( i > 0 )
-//	{
-//		vdpSpriteCache [ splist_griel-1 ].link = i + BIGBOY_START-1;
-//		vdpSpriteCache [ BIGBOY_START-1 ].link += i;
-//
-//		while ( i-- )
-//		{
-//			if ( i > 0 )
-//			{
-//				vdpSpriteCache [ i + BIGBOY_START ].link -= 2;
-//			}
-//		}
-//
-//		vdpSpriteCache [ BIGBOY_START ].link = splist_griel;
-//	}
 }
