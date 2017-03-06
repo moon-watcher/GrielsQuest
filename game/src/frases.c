@@ -279,7 +279,7 @@ const static FRASE _list [ ] =
 	// Niveles dificul ----------------------------------------------------------------------
 	(FRASE) { SPANISH, 26, "DEBILUCHO" },
 	(FRASE) { SPANISH, 26, "TIPO DURO" },
-	(FRASE) { SPANISH, 26, "PESADILLA" },
+	(FRASE) { SPANISH, 26, "TE CAGAS" }, // PESADILLA
 
 	// Opciones de la pantalla de título ----------------------------------------------------
 	(FRASE) { SPANISH, 27, "NUEVO JUEGO" },
