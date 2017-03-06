@@ -109,15 +109,15 @@ const static FRASE _list [ ] =
 	(FRASE) { SPANISH,  7, "Este es el malvado Kbrah, un villano de lo más feliz." },
 	(FRASE) { SPANISH,  7, "Secuestra princesas y las cambia de castillo." },
 	(FRASE) { SPANISH,  7, "Juega horas y horas a horribles videojuegos violentos." },
-	(FRASE) { SPANISH,  7, "Y toca en un grupo que hace despertar a los muertos. |WCLEAR Además..." },
+	(FRASE) { SPANISH,  7, "Y toca en un grupo que hace despertar a los muertos. |WCLEAR:180 Además..." },
 
-	(FRASE) { SPANISH,  8, "Monta fiestas con sus diabólicos amigotes. |WCLEAR Fiestas que a veces acaban mal..." },
+	(FRASE) { SPANISH,  8, "Monta fiestas con sus diabólicos amigotes. |WAIT Fiestas que a veces acaban mal." },
 
-	(FRASE) { SPANISH,  9, "Castillo del Rey Notah. |WAIT:60 Por la mañana..." }, // "Todos comían perdices hasta que una mañana..." }, // A la mañana siguiente, el no menos fiestero Rey Notah, se despierta con su tradicional resaca..." },
-	(FRASE) { SPANISH,  9, "¿Mmmm? |WCLEAR ¿Quién ha estado hurgando aquí durante la noche? |WCLEAR ¡AAAHHHHH!" }, // El cofre real está abierto... ¡OH, NO! |BREAK |WAIT:60 ¡HAN ROBADO EL HOLY PORRÓN!" },
-	(FRASE) { SPANISH,  9, "¡MI PORRÓN HA DESAPARECIDO!" }, // El cofre real está abierto... ¡OH, NO! |BREAK |WAIT:60 ¡HAN ROBADO EL HOLY PORRÓN!" },
-	(FRASE) { SPANISH,  9, "¡La princesa tampoco está!" },
-	(FRASE) { SPANISH,  9, "Minucias. |WAIT:30 El Holy Porrón es lo más importante ahora. |WCLEAR Avisa a Griel, es el único que se acostó temprano." },
+	(FRASE) { SPANISH,  9, "A la mañana siguiente en el castillo del Rey Notah..." }, // "Todos comían perdices hasta que una mañana..." }, // A la mañana siguiente, el no menos fiestero Rey Notah, se despierta con su tradicional resaca..." },
+	(FRASE) { SPANISH,  9, "¿Mmmm? |WAIT ¿Quién ha estado hurgando aquí durante la noche? |WCLEAR ¡AAAHHHHH!" }, // El cofre real está abierto... ¡OH, NO! |BREAK |WAIT:60 ¡HAN ROBADO EL HOLY PORRÓN!" },
+	(FRASE) { SPANISH,  9, "¡Mi porrón! |WAIT ¡LO HAN ROBADO!" }, // El cofre real está abierto... ¡OH, NO! |BREAK |WAIT:60 ¡HAN ROBADO EL HOLY PORRÓN!" },
+	(FRASE) { SPANISH,  9, "¡La princesa también ha desaparecido!" },
+	(FRASE) { SPANISH,  9, "Minucias, |WAIT hay que recuperar el Holy Porrón. |WAIT Avisa a Griel, es el único que se acostó temprano." },
 
 
 //                          //"Todo apesta a mi archienemigo Kbrah. Lo primero es el Holy porrón, pero vuelve con mi hija y te concederé su mano"
@@ -126,73 +126,72 @@ const static FRASE _list [ ] =
 //	(FRASE) { SPANISH, 10, "¿Es cierto que también ha secuestrado a la princesa?" }, // "¿Y qué hay de la princesa? |BREAK También ha sido secuestrada..." },
 //	(FRASE) { SPANISH, 10, "¡Olvídala por ahora! |WBREAK Pero si vuelves con el Holy Porrón te concederé su mano. |WCLEAR ¡Así que ponte en marcha o el caos impondrá su ley!" }, // "Eso no importa ahora. Vuelve con el Holy Porrón y te concederé su mano. |WCLEAR ¡Ponte en marcha! |BREAK ¡El reino se desploma sin su protección!" },
                           //"Todo apesta a mi archienemigo Kbrah. Lo primero es el Holy porrón, pero vuelve con mi hija y te concederé su mano"
-	(FRASE) { SPANISH, 10, "Griel, sin el Holy Porrón el reino está perdido. |WAIT:30 ¡Debes recuperarlo cuanto antes! |WCLEAR Esto apesta a mi archienemigo Kbrah, seguro que ha sido él."},//  "Griel, han robado el Holy Porrón, su poder es temible. ¡Debes recuperarlo cuanto antes!" },
+	(FRASE) { SPANISH, 10, "Griel, sin el Holy Porrón el reino está perdido. |WAIT ¡Debes recuperarlo cuanto antes! |WCLEAR:180 Esto apesta a mi archienemigo Kbrah, seguro que ha sido él."},//  "Griel, han robado el Holy Porrón, su poder es temible. ¡Debes recuperarlo cuanto antes!" },
 	(FRASE) { SPANISH, 10, "¡También se ha llevado a la princesa!" }, // "¿Y qué hay de la princesa? |BREAK También ha sido secuestrada..." },
-	(FRASE) { SPANISH, 10, "Ve al castillo de ese rufián, vuelve con el porrón y te concederé su mano. |WBREAK ¡Ahora largo de aquí!" },
+	(FRASE) { SPANISH, 10, "¿La princesa? ¡Ah, sí, si! |WAIT Ve al castillo de ese rufián, vuelve con el porrón y te concederé su mano. |WAIT ¿Entendido? |WBREAK ¡Ahora largo de aquí!" },
 
 	(FRASE) { SPANISH, 11, "Vuelve con el porrón y te concederé la mano de mi hija. |WBREAK ¡Ahora largo de aquí!" },
 
 	// puerta opcion 1
-	(FRASE) { SPANISH, 12, "Cerrado a cal y canto. |WCLEAR Un momento, esos huecos tienen la forma de... |WBREAK:60 ¡Los Monedones Legendarios! |WCLEAR Creo que tendré que buscarlos y ponerlos ahí, lo he visto en otros juegos. |WCLEAR ¡Vaya! Hoy no me acuesto ni a las 9." },// "Vaya, la típica puerta cerrada. |WAIT:60 |BREAK Parece que será un juego difícil. |WCLEAR Un momento, esos huecos en la pared... |WAIT:60 |BREAK Diablos, esto me va a llevar toda la tarde. |WAIT:60 |BREAK ¡Vamos allá!" },
+	(FRASE) { SPANISH, 12, "Cerrado. |WCLEAR:180 Un momento, esos huecos tienen la forma de... |WBREAK ¡Los Monedones Legendarios! |WCLEAR:180 Creo que tendré que buscarlos y ponerlos ahí, lo he visto en otros juegos. |WCLEAR:180 Diablos, |WAIT esto me va a llevar toda la tarde." },// "Vaya, la típica puerta cerrada. |WAIT:60 |BREAK Parece que será un juego difícil. |WCLEAR Un momento, esos huecos en la pared... |WAIT:60 |BREAK Diablos, esto me va a llevar toda la tarde. |WAIT:60 |BREAK ¡Vamos allá!" },
 	// puerta opcion 2
-	(FRASE) { SPANISH, 13, "Parece que no cuela. |WBREAK Mejor vuelvo luego." }, //(FRASE) { SPANISH, 14,  "(Ese día el programador estaba vago y no enseñó a Griel a restar)" },
+	(FRASE) { SPANISH, 13, "Parece que no cuela, mejor vuelvo luego." }, //(FRASE) { SPANISH, 14,  "(Ese día el programador estaba vago y no enseñó a Griel a restar)" },
 
 	// puerta opcion 3
-	(FRASE) { SPANISH, 14, "¡Qué pasada! |WAIT Pero ¿por qué tanto esfuerzo?" },
-	(FRASE) { SPANISH, 14, "Pues para abrir la puerta, vengo a ajustar cuentas con Kbrah..." },  // "¿No hacían falta para abrir la puerta? |WBREAK Tengo que hablar con Kbrah." }, // ¡Pues para abrir la puerta! |WBREAK Vengo a ajustar cuentas con Kbrah..." },
-	(FRASE) { SPANISH, 14, "Bastaba con traer unas cervezas y llamar al timbre, pringao." },
-	(FRASE) { SPANISH, 14, "¡Rayos! |WBREAK Te mataré si le cuentas esto a alguien." },
+	(FRASE) { SPANISH, 14, "Has recuperado los Monedones Legendarios ¡qué bien quedan! |WAIT ¿Por qué lo has hecho?" },
+	(FRASE) { SPANISH, 14, "Para abrir la puerta, vengo a ajustar cuentas con Kbrah..." },  // "¿No hacían falta para abrir la puerta? |WBREAK Tengo que hablar con Kbrah." }, // ¡Pues para abrir la puerta! |WBREAK Vengo a ajustar cuentas con Kbrah..." },
+	(FRASE) { SPANISH, 14, "Tanto esfuerzo para nada... |WAIT:60 Haber llamado al timbre, ¡PRINGAO! ¡JA, JA!" },
+	(FRASE) { SPANISH, 14, "¡Rayos! |WAIT Te mataré si le cuentas esto a alguien." },
 
 	// final 1
-	(FRASE) { SPANISH, 15, "Kbrah, bestia pestilente. |WBREAK Devuélveme el Holy Porrón. Sé que lo tienes tú." },
-	(FRASE) { SPANISH, 15, "¿En serio vienes a por ese ridículo cachivache? |WBREAK Toma, llévatelo, no me ha gustado nada..." }, // ¿Ese cacharro? |WAIT:100 |BREAK Toma, llévatelo, no me ha gustado nada..." }, //Lo cogí por hacer el gamberro. No sabía que era tan valioso. Da igual, llévatelo." },
-	(FRASE) { SPANISH, 15, "¡Uoh! |WBREAK Papi, qué chico más chachi. |WBREAK ¿Me lo puedo quedar?" },
-	(FRASE) { SPANISH, 15, "¿Qué? ¡Ni hablar! |WBREAK No te he maleducado para que ahora te juntes con caballeritos. |WCLEAR Además ya se iba, ¿verdad, campeón?" },
+	(FRASE) { SPANISH, 15, "Kbrah, bestia pestilente. |WAIT Devuélveme el Holy Porrón, sé que lo tienes tú." },
+	(FRASE) { SPANISH, 15, "¿En serio vienes a por ese ridículo cachivache? |WAIT Toma, llévatelo, no me ha gustado nada..." }, // ¿Ese cacharro? |WAIT:100 |BREAK Toma, llévatelo, no me ha gustado nada..." }, //Lo cogí por hacer el gamberro. No sabía que era tan valioso. Da igual, llévatelo." },
+	(FRASE) { SPANISH, 15, "¡Uoh! |WAIT Papi, qué chico más chachi. |WAIT ¿Me lo puedo quedar?" },
+	(FRASE) { SPANISH, 15, "¡Ni hablar! |WAIT No te he maleducado para que ahora te juntes con caballeretes. |WCLEAR:180 Además ya se iba, ¿verdad, campeón?" },
 	(FRASE) { SPANISH, 15, "No tan rápido malandrín, la princesa Beach también se viene conmigo." },
-	(FRASE) { SPANISH, 15, "Ya no está aquí. |WBREAK No pudimos emm... retenerla por más tiempo. |WCLEAR Y ahora coge el porrón y lárgate antes de que me arrepienta." },
+	(FRASE) { SPANISH, 15, "Ya no está aquí. |WAIT No pudimos emm... |WAIT retenerla por más tiempo. |WCLEAR:180 Y ahora coge el porrón y lárgate antes de que me arrepienta." },
 
 	// final 2
-	(FRASE) { SPANISH, 16, "¡Fantástico, hijo! Lo has traído de vuelta. |WBREAK ¡Oh, mi Holy Porrón querido!" }, // La verdad es que no daba un duro por ti pero has hecho un buen trabajo." },
+	(FRASE) { SPANISH, 16, "¡Fantástico, hijo! Lo has conseguido. |WCLEAR:180 ¡Oh, mi Holy Porrón querido! Al fin estás de vuelta." }, // La verdad es que no daba un duro por ti pero has hecho un buen trabajo." },
 	(FRASE) { SPANISH, 16, "¿En qué consiste su magnífico poder?" },
-	(FRASE) { SPANISH, 16, "Este mágico artefacto proporciona vino sin fin a su poseedor. |WAIT:60 Un torrente de fresco néctar, algo picao, pero infinito." },
-	(FRASE) { SPANISH, 16, "¡¿Y ESO ES TODO?! |WAIT:60 ¿PARA ESO ME HE JUGADO LA VIDA? |WCLEAR No puedo creerlo... |WAIT:60 En fin, me prometió la mano de la princesa, ¿recuerda?" }, // ¡No veo cómo contribuía a la prosperidad del reino!" },
+	(FRASE) { SPANISH, 16, "Este mágico artefacto proporciona vino sin fin a su poseedor. |WAIT:60 Un torrente de fresco néctar, algo picado, pero infinito." },
+	(FRASE) { SPANISH, 16, "¡¿VINO?! |WAIT ¡¿SÓLO VINO?! |WAIT No puedo creerlo... |WCLEAR:180 Me prometió la mano de la princesa." }, // ¡No veo cómo contribuía a la prosperidad del reino!" },
 //	(FRASE) { SPANISH, 16, "Nos ahorra millones en vino. Además sin estar borracho no podría gobernar. |WBREAK ¡Sería el caos!" },
 
 
 	// final 2 // sólo debilucho
-	(FRASE) { SPANISH, 17, "¡De eso nada! |WBREAK Te has pasado el juego en Fácil. ¿Creías que no me daría cuenta?" }, //,No permito que mi hija se vaya con alguien que termina los juegos en nivel más fácil. |WCLEAR Inténtalo de nuevo en otra dificultad y ya veremos..." }, // Además, ni siquiera estaba borracho cuando te lo prometí, así que no cuenta. Eso sí, si te traes un vasito, te lo relleno un par de veces." },
+	(FRASE) { SPANISH, 17, "¡De eso nada! |WAIT Te has pasado el juego en el modo más fácil. ¿Creías que no me daría cuenta?" }, //,No permito que mi hija se vaya con alguien que termina los juegos en nivel más fácil. |WCLEAR Inténtalo de nuevo en otra dificultad y ya veremos..." }, // Además, ni siquiera estaba borracho cuando te lo prometí, así que no cuenta. Eso sí, si te traes un vasito, te lo relleno un par de veces." },
 	(FRASE) { SPANISH, 17, "Pero, pero..." },
-	(FRASE) { SPANISH, 17, "Lo siento, mi hija necesita un hombre de verdad. |WBREAK Apunta la contraseña e inténtalo de nuevo..." }, //Mira, ahora vienen tus creadores... |WAIT:60 3, |WAIT:60 2, |WAIT:60 1..." }, // "Lo sé, Griel, lo sé... ha, ha, ha.
+	(FRASE) { SPANISH, 17, "Lo siento, mi hija necesita un hombre de verdad. |WAIT Apunta la contraseña e inténtalo de nuevo." }, //Mira, ahora vienen tus creadores... |WAIT:60 3, |WAIT:60 2, |WAIT:60 1..." }, // "Lo sé, Griel, lo sé... ha, ha, ha.
 	// aquí acaba el final del debilucho
 
 	// final 2 // tipo duro o pesadilla
 //	(FRASE) { SPANISH, 18, "Por supuesto... |WBREAK ¿No la ves desde hace años verdad? Volvió ayer de estudiar en Orkford. |WCLEAR Se ha hecho una mujercita. |WBREAK ¡BEACH, CIELO! |WBREAK ¿RECUERDAS A GRIEL?  |WBREAK ¡A VENIDO A PEDIR TU MANO!" }, // "Por supuesto... |WBREAK ¡Esta hecha una mujercita! |WCLEAR ¡BEACH, CIELO! |WBREAK ¿RECUERDAS A GRIEL? |WBREAK ¡A VENIDO A PEDIR TU MANO!" },
-	(FRASE) { SPANISH, 18, "Por supuesto... |WBREAK ¡AMORCITO, SAL!" },
-	(FRASE) { SPANISH, 18, "AVISA A LA PRINCESA. |WBREAK ¡GRIEL HA VENIDO A PEDIR SU MANO!" },
-	(FRASE) { SPANISH, 18, "Se ha hecho una mujercita, ya verás..." },
-	(FRASE) { SPANISH, 18, "¿Griel? |WBREAK ¿Eres tú...?" },
+	(FRASE) { SPANISH, 18, "Por supuesto... |WAIT:120 ¡AMORCITO, SAL!" },
+	(FRASE) { SPANISH, 18, "Avisa a la princesa, |WAIT Griel ha venido a pedir su mano." },
+	(FRASE) { SPANISH, 18, "Se ha hecho una mujercita, ya verás." },
+	(FRASE) { SPANISH, 18, "¿Griel? |WCLEAR:180 ¿Tú eres Griel...?" },
 
 	// final 3 // tipo duro o pesadilla
-	(FRASE) { SPANISH, 19, "¡GROARRR! |BREAK ¡SI ESTÁS COMO UN QUESITO! |WBREAK ¡VEN A MIS BRAZOS, MOCETÓN!" },
-	(FRASE) { SPANISH, 19, "¡AAAAAAH! |BREAK ¡POR FAVOR NO ME DEVORES!" },
-	(FRASE) { SPANISH, 19, "¡JA, JA, JA! |BREAK ¡SÓLO UN POQUITO!" },
+	(FRASE) { SPANISH, 19, "¡GROARRR! |WAIT ¡Si estás como un quesito! |WAIT ¡VEN A MIS BRAZOS, GUAPETÓN!" },
+	(FRASE) { SPANISH, 19, "¡AAAAAAH! ¡POR FAVOR NO ME COMAS!" },
+	(FRASE) { SPANISH, 19, "¡Ja, ja, ja! |WAIT ¡Sólo un poquito!" },
 
 	// final 3 // sólo tipo duro
-	(FRASE) { SPANISH, 20, "¡AY DIOS! |WBREAK ¿SEGURO QUE NO HABÍA UN FINAL MEJOR?" }, // "¡Buah, vaya final! |WBREAK Cualquier otro hubiera sido mejor. |WBREAK Si lo sé elijo el nivel más difícil." },
+	(FRASE) { SPANISH, 20, "Maldita sea mi suerte, ¿no había un final mejor?" }, // "¡Buah, vaya final! |WBREAK Cualquier otro hubiera sido mejor. |WBREAK Si lo sé elijo el nivel más difícil." },
 	// aquí acaba el final del tipo duro
 
 	// final 3 // sólo pesadilla
-	(FRASE) { SPANISH, 21, "¡TOMA ESTO! |WBREAK EL CHICO EN LATA ES MÍO" },
-	(FRASE) { SPANISH, 21, "......?! |WBREAK ¿Kbritah?" },
-	(FRASE) { SPANISH, 21, "¡Corre! Los guardias no tardarán en llegar." },
+	(FRASE) { SPANISH, 21, "¡TOMA ESTO! |WAIT El chico en lata el mío." },
+	(FRASE) { SPANISH, 21, "...?! |WAIT ¿Kbritah?" },
 
 	// final 4 // sólo pesadilla
-	(FRASE) { SPANISH, 22, "Gracias por salvarme |WBREAK ¿Por qué lo has hecho?" },
-	(FRASE) { SPANISH, 22, "Tío, te pasaste el juego en Difícil, merecías algo mejor, ¿no? |WCLEAR Además estás tan mono con esos cuernecitos. ¡Me chiflas!" }, // Has terminado el nivel más difícil y eso no se ve todos los días. |WBREAK !ENHORABUENA!" },
+	(FRASE) { SPANISH, 22, "Estuvo cerca |WAIT ¿Por qué me has salvado?" },
+	(FRASE) { SPANISH, 22, "Te has pasado el juego en el modo más difícil, merecías algo mejor, ¿no crees? |WCLEAR:180 Además estás tan mono con esos cuernecitos..." }, // Has terminado el nivel más difícil y eso no se ve todos los días. |WBREAK !ENHORABUENA!" },
 	(FRASE) { SPANISH, 22, "Vaya, gracias pero ¿no me estarás raptando, verdad?" }, // "Han sido muchas horas pero ha merecido la pena.
-	(FRASE) { SPANISH, 22, "Ja, ja, ja. |WBREAK Esto hay que celebrarlo. |WBREAK Ahora te voy a enseñar el \"verdadero\" final." },
-	(FRASE) { SPANISH, 22, "Estupendo, |WAIT:60 pues en marcha hacia la siguiente escena." } ,
-	(FRASE) { SPANISH, 22, "Oh, vaya. |WBREAK Eres más bobo de lo que imaginaba... |WAIT:180" },
+	(FRASE) { SPANISH, 22, "Ja, ja, ja. |WAIT Esto hay que celebrarlo. |WAIT Ahora te voy a enseñar el \"verdadero\" final." },
+	(FRASE) { SPANISH, 22, "Estupendo, en marcha hacia la siguiente escena." } ,
+	(FRASE) { SPANISH, 22, "Oh, vaya. |WAIT Eres más bobo de lo que imaginaba... |WAIT:200" },
 
 
 
