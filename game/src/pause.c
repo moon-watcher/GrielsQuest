@@ -107,16 +107,13 @@ static void _hide_important_sprites( LEVEL *level )
 
 	u16 duraction = animation_duracion ( REMOVE_SPRITE );
 
-	while ( --duraction )
+	while ( duraction-- )
 	{
 		death_frame ( level );
 		toani_remove();
-		//toani_demon_update ( );
 		chorrada_control ( level );
 		undo_control ( level );
-		//scoreball_frame();
 		level_update();
-
 
 		vobject_update();
 		VDP_updateSprites(80,1);

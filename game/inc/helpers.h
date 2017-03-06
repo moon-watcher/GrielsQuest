@@ -36,6 +36,7 @@
 u32  my_strtol                  ( u8 *cadena );
 void my_strpad                  ( u8 *str, const u8 size, u8 type );
 u16  my_strcmp                  ( u8 *str1, u8 *str2 );
+char *StringPadRight            ( char *string, int padded_len, char *pad );
 void drawInt                    ( u32 number, u8 x, u8 y, u8 leading_zeros );
 void drawUInt                   ( u32 number, u8 x, u8 y, u8 leading_zeros );
 void drawUIntBG                 ( u32 number, u8 x, u8 y, u8 leading_zeros, u16 plan, u16 flags );

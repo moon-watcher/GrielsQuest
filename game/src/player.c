@@ -93,7 +93,6 @@ bool _does_it_kills ( u16 ret, u8 selected )
 
 static void _death_animation ( )
 {
-	u16 i;
 	u16 player = 0;
 	u16 muerte = GRIEL_DEAD;
 
@@ -130,15 +129,14 @@ static void _death_animation ( )
 
 
 
+	u16 duracion = animation_duracion ( muerte );
 
-	for ( i=0; i<animation_duracion(muerte); i++ )
+	while ( duracion-- )
 	{
 		death_frame ( wl );
 		toani_remove ( );
-		//toani_demon_update ( );
 		chorrada_control ( wl );
 		undo_control ( wl );
-		//scoreball_frame();
 		level_update ( );
 
 		vobject_update();

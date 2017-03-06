@@ -131,16 +131,16 @@ DEATH *death_add ( u16 lvl_obj, u8 x, u8 y )
 	vobject_add ( objeto );
 	vobject_animation ( objeto, animation );
 
-   if ( is_big )
-   {
+	if ( is_big )
+	{
 		sprite_id = bigboy_getByPos ( x, y )->index;
 		vsprite_animation ( sprite_id, objeto );
-   }
-   else
-   {
+	}
+	else
+	{
 		level_draw_animation_size ( width, height );
 		level_draw_animation ( objeto, x, y );
-   }
+	}
 
 
 	_deaths [ index ].counter   = animation_duracion ( animation );

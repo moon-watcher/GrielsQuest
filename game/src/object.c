@@ -33,11 +33,14 @@
                              GUITAR2,  BARREL,     TORCH5,     ABBAYE_D_5, BAFFLE,      MEGADRIVE,   BEER,        SOFA1,     SOFA2,      MURCIANO1, MURCIANO2, MURCIANO3, MURCIANO4
 
 #define OBJECT_IS_KEY      KEY //, GRIAL
+
 #define OBJECT_IS_DOOR     DOOR, DOOR_O,  \
-                             MONEDON_DOOR, KBRAH_DOOR
+                             MONEDON_DOOR, \
+                             KBRAH_DOOR
 
 #define OBJECT_IS_OPENDOOR DOOR_O,  \
-                             MONEDON_DOOR, KBRAH_DOOR
+                             MONEDON_DOOR, \
+                             KBRAH_DOOR
 
 
 #define OBJECT_IS_GRIEL    GRIEL_STANDS,                                                                \

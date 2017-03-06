@@ -148,7 +148,8 @@ void object_viewer()
 
       vobject_add ( opcion );
       vobject_reset ( opcion );
-      animation_draw_raw ( opcion, 10, 10, true, PLAN_A, 1, 0, 0, 0, 0 );
+		animation_set_raw();
+		animation_draw ( opcion, 10, 10, true, PLAN_A, 1, 0, 0, 0, 0 );
       VDP_setPalette ( animation_get ( opcion )->pal, animation_get ( opcion )->res->pal );
 
       drawUInt ( opcion, 2, 3, 3 );
@@ -410,7 +411,6 @@ int main ( )
    gamestate.lenguaje = ENGLISH;
 
 
-   gfx_init();
    Z80_init();
    Z80_unloadDriver();
 	Z80_loadDriver ( Z80_DRIVER_XGM, true );

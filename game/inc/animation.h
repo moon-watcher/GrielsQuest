@@ -388,15 +388,12 @@ enum
 };
 
 
-
-void       gfx_init           ( );
-
 ANIMATION *animation          ( );
 ANIMATION *animation_get      ( u16 x );
 u16        animation_size     ( u16 ani );
 u16        animation_duracion ( u16 ani );
+void       animation_set_raw  ( );
 void       animation_draw     ( u16 ani, u8 x, u8 y, bool absolutepos, VDPPlan plan, s16 prioridad, u16 flip_h, u16 flip_v, u8 width, u8 height );
-void       animation_draw_raw ( u16 ani, u8 x, u8 y, bool absolutepos, VDPPlan plan, s16 prioridad, u16 flip_h, u16 flip_v, u8 width, u8 height );
 
 
 #endif

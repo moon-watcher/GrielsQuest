@@ -172,6 +172,20 @@ u16 my_strcmp ( u8 *str1, u8 *str2 )
 	return 1;
 }
 
+//
+// from http://stackoverflow.com/questions/276827/string-padding-in-c
+//
+char *StringPadRight(char *string, int padded_len, char *pad) {
+    int len = (int) strlen(string);
+    if (len >= padded_len) {
+        return string;
+    }
+    int i;
+    for (i = 0; i < padded_len - len; i++) {
+        strcat(string, pad);
+    }
+    return string;
+}
 
 
 void showFPS()

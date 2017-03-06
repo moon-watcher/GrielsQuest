@@ -48,22 +48,19 @@ static void _show_nb_message ( u8 nb )
 
 
 
+
+
 static void _show_message ( u8 content )
 {
-	const u8 length = 28;
+	u8 string [ 40 ];
 
-	u8  string [ 40 ];
-	u8 *frase;
+	strcpy ( string, frases_find ( 23, content * 2 + 0 ) );
+	StringPadRight ( string, 28, " " );
+	text_write ( string, 6, 7 );
 
-	frase = frases_find ( 23, content * 2 + 0 );
-	memset ( string, ' ', length );
-	memcpy ( string, frase, strlen ( frase ) );
-	text_write ( string, 6,  7 );
-
-	frase = frases_find ( 23, content * 2 + 1 );
-	memset ( string, ' ', length );
-	memcpy ( string, frase, strlen ( frase ) );
-	text_write ( string, 6,  9 );
+	strcpy ( string, frases_find ( 23, content * 2 + 1 ) );
+	StringPadRight ( string, 28, " " );
+	text_write ( string, 6, 9 );
 }
 
 
@@ -101,11 +98,13 @@ void _draw_content ( u16 i )
 		vobject_update ( );
 
 		VDP_clearTileMapRect ( PLAN_B, 7, 14, 2, 2 );
-		animation_draw_raw ( o1,  7, 14, true, PLAN_A, 1, 0, 0, 0, 0 );
+		animation_set_raw();
+		animation_draw ( o1,  7, 14, true, PLAN_A, 1, 0, 0, 0, 0 );
 		text_write ( animation_get(o1)->name, 10, 15 );
 
 		VDP_clearTileMapRect ( PLAN_B, 21, 14, 2, 2 );
-		animation_draw_raw ( o2, 21, 14, true, PLAN_A, 1, 0, 0, 0, 0 );
+		animation_set_raw();
+		animation_draw ( o2, 21, 14, true, PLAN_A, 1, 0, 0, 0, 0 );
 		text_write ( animation_get(o2)->name, 24, 15 );
 	}
 	else if ( i == 13 )
@@ -118,11 +117,13 @@ void _draw_content ( u16 i )
 		vobject_update ( );
 
 		VDP_clearTileMapRect ( PLAN_B, 7, 17, 2, 2 );
-		animation_draw_raw ( o1, 7 , 17, true, PLAN_A, 1, 0, 0, 0, 0 );
+		animation_set_raw();
+		animation_draw ( o1, 7 , 17, true, PLAN_A, 1, 0, 0, 0, 0 );
 		text_write ( animation_get(o1)->name, 10, 18 );
 
 		VDP_clearTileMapRect ( PLAN_B, 21, 17, 2, 2 );
-		animation_draw_raw ( o2, 21, 17, true, PLAN_A, 1, 0, 0, 0, 0 );
+		animation_set_raw();
+		animation_draw ( o2, 21, 17, true, PLAN_A, 1, 0, 0, 0, 0 );
 		text_write ( animation_get(o2)->name, 24, 18 );
 	}
 	else if ( i == 16 )
@@ -135,11 +136,13 @@ void _draw_content ( u16 i )
 		vobject_update ( );
 
 		VDP_clearTileMapRect ( PLAN_B,  7, 20, 2, 2 );
-		animation_draw_raw ( o1,  7, 20, true, PLAN_A, 1, 0, 0, 0, 0 );
+		animation_set_raw();
+		animation_draw ( o1,  7, 20, true, PLAN_A, 1, 0, 0, 0, 0 );
 		text_write ( animation_get(o1)->name, 10, 21 );
 
 		VDP_clearTileMapRect ( PLAN_B, 21, 19, 2, 3 );
-		animation_draw_raw ( o2, 21, 19, true, PLAN_A, 1, 0, 0, 0, 0 );
+		animation_set_raw();
+		animation_draw ( o2, 21, 19, true, PLAN_A, 1, 0, 0, 0, 0 );
 		text_write ( animation_get(o2)->name, 24, 21 );
 	}
 	else if ( i == 19 )
@@ -152,11 +155,13 @@ void _draw_content ( u16 i )
 		vobject_update ( );
 
 		VDP_clearTileMapRect ( PLAN_B, 7, 22, 2, 3 );
-		animation_draw_raw ( o1, 7, 22, true, PLAN_A, 1, 0, 0, 0, 0 );
+		animation_set_raw();
+		animation_draw ( o1, 7, 22, true, PLAN_A, 1, 0, 0, 0, 0 );
 		text_write ( animation_get(o1)->name, 10, 24 );
 
 		VDP_clearTileMapRect ( PLAN_B, 21, 22, 2, 3 );
-		animation_draw_raw ( o2, 21, 22, true, PLAN_A, 1, 0, 0, 0, 0 );
+		animation_set_raw();
+		animation_draw ( o2, 21, 22, true, PLAN_A, 1, 0, 0, 0, 0 );
 		text_write ( animation_get(o2)->name, 24, 24 );
 	}
 }
@@ -258,14 +263,12 @@ static void _hide_important_sprites ( LEVEL *level )
 
 	u16 duraction = animation_duracion ( REMOVE_SPRITE );
 
-	while ( --duraction )
+	while ( duraction-- )
 	{
 		death_frame ( level );
 		toani_remove ( );
-		//toani_demon_update ( );
 		chorrada_control ( level );
 		undo_control ( level );
-		//scoreball_frame();
 		level_update ( );
 
 		vobject_update ( );

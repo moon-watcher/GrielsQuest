@@ -4,13 +4,13 @@
 
 typedef struct
 {
-   u16        index;
-   u8         frame;
-   u16        vram_pos;
-   u16        counter;
-   bool       active;
-   ANIMATION *object;
-   u8         tiles;
+	u16        index;
+	u8         frame;
+	u16        vram_pos;
+	u16        counter;
+	bool       active;
+	ANIMATION *object;
+	u8         tiles;
 }
 VOBJECT;
 

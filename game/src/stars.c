@@ -63,7 +63,7 @@ void stars_draw ( )
 
 	u16 duracion = animation_duracion(ESTRELLITA1);
 
-	while ( --duracion )
+	while ( duracion-- )
 	{
 		if ( duracion % 4 == 0 )
 		{

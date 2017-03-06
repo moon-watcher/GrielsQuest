@@ -389,20 +389,11 @@ static const ANIMATION _list [ ] =
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
 
-vu32 *plctrl = (u32 *) GFX_CTRL_PORT;
-vu16 *pwdata = (u16 *) GFX_DATA_PORT;
 
-
+static bool _raw = false;
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
-
-
-void gfx_init ( )
-{
-   plctrl = (u32 *) GFX_CTRL_PORT;
-   pwdata = (u16 *) GFX_DATA_PORT;
-}
 
 
 
@@ -426,22 +417,22 @@ u16 animation_size ( u16 ani )
 
 u16 animation_duracion ( u16 ani )
 {
-	u16 i, cnt = 0;
+	u16 i = _list[ani].frames;
+	u16 cnt = 0;
 
-	for ( i = 0; i < _list[ani].frames; i++ )
+	while ( i-- )
 	{
 		cnt += _list[ani].frame[i].timer;
 	}
 
-	return cnt - 1;
+	return cnt;
 }
 
 
-
-
-
-
-
+void animation_set_raw ( )
+{
+	_raw = true;
+}
 
 
 
@@ -450,24 +441,24 @@ u16 animation_duracion ( u16 ani )
 #define FOR_3    for  (  j = width  - 1; j >= x;       j--  )
 #define FOR_4    for  (  i = y;          i <  height;  i++  )
 
-#define DO_GFX_STUFF                                                          \
-{                                                                             \
+#define DO_GFX_STUFF                                                               \
+{                                                                                  \
 	*plctrl = GFX_WRITE_VRAM_ADDR ( plane_dir + ( ( j + planWidth * i ) << 1 ) );  \
-	*pwdata = TILE_ATTR_FULL ( palette, prioridad, flip_v, flip_h, tile++ );   \
+	*pwdata = TILE_ATTR_FULL ( palette, prioridad, flip_v, flip_h, tile++ );       \
 }
 
 void animation_draw ( u16 ani, u8 x, u8 y, bool absolutepos, VDPPlan plan, s16 prioridad, u16 flip_h, u16 flip_v, u8 width, u8 height )
 {
 	if ( ani == BLOCK )
 	{
+		_raw = false;
 		return;
 	}
 
 
 	DEATH     *dead      = NULL;
 	ANIMATION *animation = animation_get ( ani );
-	VOBJECT   *vobject   = vobject_add ( ani );
-	u16        is_big    = object_is_bigboy ( ani ) ;
+	u16        is_big    = !_raw && object_is_bigboy ( ani );
 
 
 	if (  !is_big  &&  object_is_asyncobj(ani)  &&  ( dead = dead_find ( x, y ) )  )
@@ -475,7 +466,7 @@ void animation_draw ( u16 ani, u8 x, u8 y, bool absolutepos, VDPPlan plan, s16 p
 		width  = dead->width;
 		height = dead->height;
 		ani    = dead->objeto;
-		is_big = dead->is_big;
+		is_big = !_raw && dead->is_big;
 
 		dead->vo->counter = 0;
 		dead->vo->frame   = 2;
@@ -494,7 +485,6 @@ void animation_draw ( u16 ani, u8 x, u8 y, bool absolutepos, VDPPlan plan, s16 p
 	}
 
 
-
 	if ( ani == 0 )
 	{
 		VDP_clearTileMapRect ( plan, x, y, width, height );
@@ -505,19 +495,16 @@ void animation_draw ( u16 ani, u8 x, u8 y, bool absolutepos, VDPPlan plan, s16 p
 		{
 			VDP_clearTileMapRect ( plan, x, y, width, --height );
 		}
-
-		//bigboy_set ( x, y, ani );
 	}
 	else
 	{
 		//
-		// necesario para las macros, no borrar
+		// needed for macros
 		//
-		s16 i;
-		s16 j;
+		s16 i, j;
 
+		u16 tile    = vobject_add ( ani )->vram_pos;
 		u16 palette = animation->pal;
-		u16 tile    = vobject->vram_pos;
 
 		width  += x;
 		height += y;
@@ -528,83 +515,15 @@ void animation_draw ( u16 ani, u8 x, u8 y, bool absolutepos, VDPPlan plan, s16 p
 		}
 
 		u16 plane_dir = ( plan.value == PLAN_B.value ) ? VDP_PLAN_B : VDP_PLAN_A;
+
+		vu32 *plctrl = (u32 *) GFX_CTRL_PORT;
+		vu16 *pwdata = (u16 *) GFX_DATA_PORT;
+		//
 		//
 
 		if   ( flip_v )  {  if  (  flip_h  )  FOR_3 FOR_2  DO_GFX_STUFF  else  FOR_1 FOR_2  DO_GFX_STUFF  }
 		else             {  if  (  flip_h  )  FOR_3 FOR_4  DO_GFX_STUFF  else  FOR_1 FOR_4  DO_GFX_STUFF  }
 	}
+
+	_raw = false;
 }
-
-
-
-
-void animation_draw_raw ( u16 ani, u8 x, u8 y, bool absolutepos, VDPPlan plan, s16 prioridad, u16 flip_h, u16 flip_v, u8 width, u8 height )
-{
-	if ( ani == BLOCK )
-	{
-		return;
-	}
-
-
-	DEATH     *dead      = NULL;
-	ANIMATION *animation = animation_get ( ani );
-	VOBJECT   *vobject   = vobject_add ( ani );
-
-
-	if (  object_is_asyncobj(ani)  &&  ( dead = dead_find ( x, y ) )  )
-	{
-		width  = dead->width;
-		height = dead->height;
-		ani    = dead->objeto;
-
-		dead->vo->counter = 0;
-		dead->vo->frame   = 2;
-	}
-	else
-	{
-		if ( !width  )  width  = animation->res->width  >> 3;
-		if ( !height )  height = animation->res->height >> 3;
-	}
-
-
-	if ( !absolutepos ) // relative
-	{
-		x = x * 2 + ( voffset_horizontal >> 3 );
-		y = y * 2 + ( voffset_vertical   >> 3 );
-	}
-
-
-
-	if ( ani == 0 )
-	{
-		VDP_clearTileMapRect ( plan, x, y, width, height );
-	}
-	else
-	{
-		//
-		// necesario para las macros, no borrar
-		//
-		s16 i;
-		s16 j;
-
-		u16 palette = animation->pal;
-		u16 tile    = vobject->vram_pos;
-
-		width  += x;
-		height += y;
-
-		if ( prioridad < 0 )
-		{
-			prioridad = object_is_over ( ani ) ? 1 : 0;
-		}
-
-		u16 plane_dir = ( plan.value == PLAN_B.value ) ? VDP_PLAN_B : VDP_PLAN_A;
-		//
-
-		if   ( flip_v )  {  if  (  flip_h  )  FOR_3 FOR_2  DO_GFX_STUFF  else  FOR_1 FOR_2  DO_GFX_STUFF  }
-		else             {  if  (  flip_h  )  FOR_3 FOR_4  DO_GFX_STUFF  else  FOR_1 FOR_4  DO_GFX_STUFF  }
-	}
-}
-
-
-
