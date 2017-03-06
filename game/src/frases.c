@@ -184,14 +184,13 @@ const static FRASE _list [ ] =
 	// final 3 // sólo pesadilla
 	(FRASE) { SPANISH, 21, "¡TOMA ESTO! |WAIT El chico en lata el mío." },
 	(FRASE) { SPANISH, 21, "...?! |WAIT ¿Kbritah?" },
-	(FRASE) { SPANISH, 21, "¡Salvado!" },
 
 	// final 4 // sólo pesadilla
-	(FRASE) { SPANISH, 22, "Estuvo cerca |WAIT ¿Por qué lo has hecho?" },
-	(FRASE) { SPANISH, 22, "Te has pasado el juego en el modo más difícil, merecías algo mejor, ¿no? |WCLEAR:180 Además estás tan mono con esos cuernecitos..." }, // Has terminado el nivel más difícil y eso no se ve todos los días. |WBREAK !ENHORABUENA!" },
+	(FRASE) { SPANISH, 22, "Estuvo cerca |WAIT ¿Por qué me has salvado?" },
+	(FRASE) { SPANISH, 22, "Te has pasado el juego en el modo más difícil, merecías algo mejor, ¿no crees? |WCLEAR:180 Además estás tan mono con esos cuernecitos..." }, // Has terminado el nivel más difícil y eso no se ve todos los días. |WBREAK !ENHORABUENA!" },
 	(FRASE) { SPANISH, 22, "Vaya, gracias pero ¿no me estarás raptando, verdad?" }, // "Han sido muchas horas pero ha merecido la pena.
 	(FRASE) { SPANISH, 22, "Ja, ja, ja. |WAIT Esto hay que celebrarlo. |WAIT Ahora te voy a enseñar el \"verdadero\" final." },
-	(FRASE) { SPANISH, 22, "Estupendo, |WAIT:120 pues en marcha hacia la siguiente escena." } ,
+	(FRASE) { SPANISH, 22, "Estupendo, en marcha hacia la siguiente escena." } ,
 	(FRASE) { SPANISH, 22, "Oh, vaya. |WAIT Eres más bobo de lo que imaginaba... |WAIT:200" },
 
 
