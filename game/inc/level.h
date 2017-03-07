@@ -39,14 +39,9 @@
 
 typedef struct
 {
-	u8  player_x, player_y;
-
+	u8  player_x;
+	u8  player_y;
 	Image *background;
-
-	struct genresSprites *line_down;
-	struct genresSprites *line_left;
-	struct genresSprites *line_right;
-
 	u16 grid [ LEVEL_HEIGHT ] [ LEVEL_WIDTH ];
 }
 LEVEL;
@@ -84,7 +79,6 @@ LEVEL      *level_get                 ( );
 LEVEL       level_init                ( );
 void        level_draw                ( LEVEL *level );
 void        level_draw_area           ( LEVEL *level, u8 x, u8 y, u8 width, u8 height );
-void        level_draw_linedown       ( LEVEL *level );
 u16         level_get_object          ( LEVEL *level, u8 x, u8 y );
 void        level_set_object          ( LEVEL *level, u8 x, u8 y, u16 object );
 void        level_remove_object       ( LEVEL *level, u8 x, u8 y );
@@ -112,6 +106,7 @@ u16         level_get_head            ( );
 
 void        level_update              ( );
 
+//void        level_draw_linedown       ( LEVEL *level );
 void        level_draw_ambiente_0     ( );
 void        level_draw_ambiente_1     ( );
 void        level_draw_ambiente_2     ( );

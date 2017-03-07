@@ -390,7 +390,7 @@ static const ANIMATION _list [ ] =
 
 
 
-static bool _raw = false;
+static bool _is_raw = false;
 
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
@@ -431,7 +431,7 @@ u16 animation_duracion ( u16 ani )
 
 void animation_set_raw ( )
 {
-	_raw = true;
+	_is_raw = true;
 }
 
 
@@ -449,16 +449,19 @@ void animation_set_raw ( )
 
 void animation_draw ( u16 ani, u8 x, u8 y, bool absolutepos, VDPPlan plan, s16 prioridad, u16 flip_h, u16 flip_v, u8 width, u8 height )
 {
+	bool notraw = !_is_raw;
+	_is_raw = false;
+
+
 	if ( ani == BLOCK )
 	{
-		_raw = false;
 		return;
 	}
 
 
 	DEATH     *dead      = NULL;
 	ANIMATION *animation = animation_get ( ani );
-	u16        is_big    = !_raw && object_is_bigboy ( ani );
+	u16        is_big    = notraw && object_is_bigboy ( ani );
 
 
 	if (  !is_big  &&  object_is_asyncobj(ani)  &&  ( dead = dead_find ( x, y ) )  )
@@ -466,7 +469,7 @@ void animation_draw ( u16 ani, u8 x, u8 y, bool absolutepos, VDPPlan plan, s16 p
 		width  = dead->width;
 		height = dead->height;
 		ani    = dead->objeto;
-		is_big = !_raw && dead->is_big;
+		is_big = notraw && dead->is_big;
 
 		dead->vo->counter = 0;
 		dead->vo->frame   = 2;
@@ -524,6 +527,4 @@ void animation_draw ( u16 ani, u8 x, u8 y, bool absolutepos, VDPPlan plan, s16 p
 		if   ( flip_v )  {  if  (  flip_h  )  FOR_3 FOR_2  DO_GFX_STUFF  else  FOR_1 FOR_2  DO_GFX_STUFF  }
 		else             {  if  (  flip_h  )  FOR_3 FOR_4  DO_GFX_STUFF  else  FOR_1 FOR_4  DO_GFX_STUFF  }
 	}
-
-	_raw = false;
 }

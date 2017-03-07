@@ -98,7 +98,7 @@ static bool _flip_vh ( )
 static void _draw_marcador ()
 {
 	VDP_loadTileSet ( cb_ui.tileset, _vram_pos[1], 0 );
-	VDP_setMapEx ( PLAN_A,cb_ui.map, TILE_ATTR_FULL(PAL1, false, false, false, _vram_pos[1]),  4,  0,  2,  0,  17,  5 );
+	VDP_setMapEx ( PLAN_A,cb_ui.map, TILE_ATTR_FULL(PAL1, true, false, false, _vram_pos[1]),  4,  0,  2,  0,  17,  5 );
 
 	vsprite_set ( splist_ui_left_1, 16,  0, UI_LEFT_1 );
 	vsprite_set ( splist_ui_left_2, 16, 24, UI_LEFT_2 );
@@ -292,7 +292,7 @@ void level_draw ( LEVEL *level )
 	SYS_disableInts();
 
 	bool on_medallon = gamestate_on_medallon();
-	//on_medallon = false;
+	on_medallon = false;
 
 	_vram_pos[0] = vram_new ( level->background->tileset->numTile );
 	_vram_pos[1] = vram_new ( cb_ui.tileset->numTile );
@@ -510,40 +510,6 @@ void level_update ( )
 	}
 }
 
-
-
-void level_draw_linedown ( LEVEL *level  )
-{
-	if ( !level->line_down )
-	{
-		return;
-	}
-
-	u16 size    = level->line_down->size >> 8;
-	u16 width   = level->line_down->width  >> 3;
-	u16 height  = level->line_down->height >> 3;
-	u16 nbTiles = level->line_down->count * width * height;
-
-	u16 i       = 0;
-	u16 pos_x   = 8 * 4;
-	u16 pos_y   = VDP_getScreenHeight() - 16 ;
-	u16 vrampos = vram_new ( nbTiles );
-
-	SYS_disableInts();
-
-	VDP_loadTileData ( level->line_down->sprites[0], vrampos, nbTiles, false );
-
-	for ( i = 0; i < 8; i++ )
-	{
-		s8 sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN );
-		VDP_setSpriteFull ( sp, pos_x, pos_y, size, TILE_ATTR_FULL ( PAL0, 0, 0, 0, vrampos ), sp + 1 );
-
-		pos_x   += level->line_down->width;
-		vrampos += width * height;
-	}
-
-	SYS_enableInts();
-}
 
 
 void level_draw_ambiente_0 ( )
@@ -924,3 +890,38 @@ void level_draw_animation_size ( u8 width, u8 height )
 }
 
 
+
+
+
+//void level_draw_linedown ( LEVEL *level  )
+//{
+//	if ( !level->line_down )
+//	{
+//		return;
+//	}
+//
+//	u16 size    = level->line_down->size >> 8;
+//	u16 width   = level->line_down->width  >> 3;
+//	u16 height  = level->line_down->height >> 3;
+//	u16 nbTiles = level->line_down->count * width * height;
+//
+//	u16 i       = 0;
+//	u16 pos_x   = 8 * 4;
+//	u16 pos_y   = VDP_getScreenHeight() - 16 ;
+//	u16 vrampos = vram_new ( nbTiles );
+//
+//	SYS_disableInts();
+//
+//	VDP_loadTileData ( level->line_down->sprites[0], vrampos, nbTiles, false );
+//
+//	for ( i = 0; i < 8; i++ )
+//	{
+//		s8 sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN );
+//		VDP_setSpriteFull ( sp, pos_x, pos_y, size, TILE_ATTR_FULL ( PAL0, 0, 0, 0, vrampos ), sp + 1 );
+//
+//		pos_x   += level->line_down->width;
+//		vrampos += width * height;
+//	}
+//
+//	SYS_enableInts();
+//}

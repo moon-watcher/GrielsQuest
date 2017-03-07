@@ -128,7 +128,7 @@ const static FRASE _list [ ] =
                           //"Todo apesta a mi archienemigo Kbrah. Lo primero es el Holy porrón, pero vuelve con mi hija y te concederé su mano"
 	(FRASE) { SPANISH, 10, "Griel, sin el Holy Porrón el reino está perdido. |WAIT ¡Debes recuperarlo cuanto antes! |WCLEAR:180 Esto apesta a mi archienemigo Kbrah, seguro que ha sido él."},//  "Griel, han robado el Holy Porrón, su poder es temible. ¡Debes recuperarlo cuanto antes!" },
 	(FRASE) { SPANISH, 10, "¡También se ha llevado a la princesa!" }, // "¿Y qué hay de la princesa? |BREAK También ha sido secuestrada..." },
-	(FRASE) { SPANISH, 10, "¿La princesa? ¡Ah, sí, si! |WAIT Ve al castillo de ese rufián, vuelve con el porrón y te concederé su mano. |WAIT ¿Entendido? |WBREAK ¡Ahora largo de aquí!" },
+	(FRASE) { SPANISH, 10, "¿La princesa? ¡Ah, sí, sí! |WAIT Ve al castillo de ese rufián, vuelve con el porrón y te concederé su mano. |WAIT ¿Entendido? |WBREAK ¡Ahora largo de aquí!" },
 
 	(FRASE) { SPANISH, 11, "Vuelve con el porrón y te concederé la mano de mi hija. |WBREAK ¡Ahora largo de aquí!" },
 
@@ -201,7 +201,7 @@ const static FRASE _list [ ] =
 //	(FRASE) { SPANISH, 23, "-LONGITUD MAXIMA DISPONIBLE-" },
 
 	(FRASE) { SPANISH, 23, "Guía a Griel en su aventura" },
-	(FRASE) { SPANISH, 23, "en busca del Holy Porr`n." },
+	(FRASE) { SPANISH, 23, "en busca del Holy Porrón." },
 
 	(FRASE) { SPANISH, 23, "Consigue las llaves para" },
 	(FRASE) { SPANISH, 23, "romper el sello mágico." },
@@ -218,8 +218,8 @@ const static FRASE _list [ ] =
 	(FRASE) { SPANISH, 23, "Piensa dos veces antes de" },
 	(FRASE) { SPANISH, 23, "realizar un movimiento." },
 
-	(FRASE) { SPANISH, 23, "Pulsa el bot`n B para" },
-	(FRASE) { SPANISH, 23, "deshacer una acci`n." },
+	(FRASE) { SPANISH, 23, "Pulsa el botón B para" },
+	(FRASE) { SPANISH, 23, "deshacer una acción." },
 
 	(FRASE) { SPANISH, 23, "Con un poco de paciencia" },
 	(FRASE) { SPANISH, 23, "puedes recuperar UNDOs." },
@@ -228,13 +228,13 @@ const static FRASE _list [ ] =
 	(FRASE) { SPANISH, 23, "ahogas, pierdes un UNDO." },
 
 	(FRASE) { SPANISH, 23, "Todos los niveles tienen" },
-	(FRASE) { SPANISH, 23, "al menos una soluci`n." },
+	(FRASE) { SPANISH, 23, "al menos una solución." },
 
 	(FRASE) { SPANISH, 23, "Reinicia el nivel en caso" },
 	(FRASE) { SPANISH, 23, "de ser necesario." },
 
-	(FRASE) { SPANISH, 23, "Pulsa el bot`n C y una" },
-	(FRASE) { SPANISH, 23, "direcci`n si tienes prisa." },
+	(FRASE) { SPANISH, 23, "Pulsa el botón C y una" },
+	(FRASE) { SPANISH, 23, "dirección si tienes prisa." },
 
 	(FRASE) { SPANISH, 23, "Apunta la contraseña" },
 	(FRASE) { SPANISH, 23, "habitualmente." },
@@ -242,7 +242,7 @@ const static FRASE _list [ ] =
 	(FRASE) { SPANISH, 23, "Puedes rejugar los niveles" },
 	(FRASE) { SPANISH, 23, "una vez superados." },
 
-	(FRASE) { SPANISH, 23, "Pulsa el bot`n Start si" },
+	(FRASE) { SPANISH, 23, "Pulsa el botón Start si" },
 	(FRASE) { SPANISH, 23, "tienes que ir al baño." },
 
 	(FRASE) { SPANISH, 23, "Algo muy bueno pasará si" },
@@ -257,7 +257,7 @@ const static FRASE _list [ ] =
 	(FRASE) { SPANISH, 23, "Bebe con moderación." },
 	(FRASE) { SPANISH, 23, "" }, // needed!! don't deleted!
 
-	(FRASE) { SPANISH, 23, "Sólo el Holy Porr`n hará" },
+	(FRASE) { SPANISH, 23, "Sólo el Holy Porrón hará" },
 	(FRASE) { SPANISH, 23, "recuperar la cordura al rey." },
 
 	(FRASE) { SPANISH, 23, "Hecho en Marte." },
