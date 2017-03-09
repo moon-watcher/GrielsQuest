@@ -4,6 +4,7 @@
 
 static u16 _tiles;
 static u16 _contador;
+static u16 _objects;
 static VOBJECT *_upload [ MAX_ANIMATIONS ];
 
 static VOBJECT _list [ MAX_ANIMATIONS ] = { };
@@ -29,6 +30,7 @@ void vobject_init ( )
 
 	_tiles    = 0;
 	_contador = 0;
+	_objects  = 0;
 }
 
 
@@ -36,6 +38,7 @@ void vobject_update ( )
 {
 	_tiles    = 0;
 	_contador = 0;
+	_objects  = 0;
 
 	u16 i = MAX_ANIMATIONS;
 
@@ -65,6 +68,7 @@ void vobject_update ( )
 		}
 
 		++v->counter;
+		++_objects;
 	}
 }
 
@@ -73,8 +77,9 @@ void vobject_upload ( )
 {
 	if ( DEV )
 	{
-		drawUInt ( _contador, 10, 0, 2 );
-		drawUInt ( _tiles,    13, 0, 3 );
+		drawUInt ( _objects,  10, 0, 2 );
+		drawUInt ( _contador, 13, 0, 2 );
+		drawUInt ( _tiles,    16, 0, 3 );
 	}
 
 	if ( !_contador )

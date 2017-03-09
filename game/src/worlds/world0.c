@@ -6,7 +6,7 @@ const LEVEL w0r00 =
       7, 1,
       (Image*)&w0_marco_1,
       {
-            {         0,         0,         0,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,         0,         0,         0,         0,         0},
+            {     TOMB1,         0,         0,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,         0,         0,         0,         0,         0},
             {         0,         0,     STAFF,   DARKELF,    TOCON1,    TOCON1,         0,         0,     SWORD,   DARKELF,    TOCON1,    TOCON1,    TOCON1,    TOCON1,         0,         0},
             {         0,    TOCON1,    TOCON1,     SWORD, TOADSTOOL,         0,         0,    TOCON1,    TOCON1,     STAFF,         0,  WILDBOAR,     CROSS,    TOCON1,         0,         0},
             {         0,    TOCON1,    TOCON1,    TOCON1,    TOCON1,   DARKELF,    TOCON1,    TOCON1,    TOCON1,    TOCON1, TOADSTOOL,    TOCON1,    TOCON1,    TOCON1,    TOCON1,         0},
@@ -14,7 +14,7 @@ const LEVEL w0r00 =
             {         0,    TOCON1,         0,         0,         0,    TOCON1,    TOCON1,         0,         0,    TOCON1,    TOCON1,         0,         0,         0,    TOCON1,         0},
             {         0,    TOCON1,    TOCON1,    TOCON1,         0,   DARKELF,     STAFF,  WILDBOAR,         0,     SWORD,  WILDBOAR,         0,         0,         0,    TOCON1,         0},
             {         0,         0,         0,    TOCON1,         0,         0,   DARKELF,    TOCON1,    TOCON1,  WILDBOAR,         0,         0,    TOCON1,    TOCON1,         0,         0},
-            {         0,         0,         0,    TOCON1,    TOCON1,    TOCON1,         0,    TOCON1,    TOCON1,     SWORD,    TOCON1,    TOCON1,    TOCON1,         0,         0,         0},
+            {     TOMB1,     TOMB1,         0,    TOCON1,    TOCON1,    TOCON1,         0,    TOCON1,    TOCON1,     SWORD,    TOCON1,    TOCON1,    TOCON1,         0,         0,         0},
             {         0,         0,         0,         0,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,         0,         0,         0,  ABBAYE_U,         0},
             {         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,  ABBAYE_D,         0}
       }
@@ -26,7 +26,7 @@ const LEVEL w0r01 =
       7, 2,
       (Image*)&w0_marco_1,
       {
-            {         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0},
+            {   MATOJOS,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,   MATOJOS},
             {         0,         0,         0,         0,    TOCON1,         0,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,         0,         0,         0,         0},
             {         0,         0,         0,    TOCON1,         0,      DOOR,    TOCON1,         0,     CROSS,    TOCON1,       KEY,         0,    TOCON1,         0,         0,         0},
             {         0,         0,    TOCON1,         0,         0,         0,    TOCON1,     SWORD,     CROSS,    TOCON1,         0,         0,         0,    TOCON1,         0,         0},
@@ -36,7 +36,7 @@ const LEVEL w0r01 =
             {         0,         0,    TOCON1,  WILDBOAR, TOADSTOOL,    TOCON1,    TOCON1, TOADSTOOL,  WILDBOAR,    TOCON1,    TOCON1,     SWORD, TOADSTOOL,    TOCON1,         0,         0},
             {         0,         0,         0,    TOCON1,   DARKELF,  WILDBOAR,     STAFF,     SWORD,   DARKELF,   DARKELF,  WILDBOAR,   DARKELF,    TOCON1,         0,         0,         0},
             {         0,         0,         0,         0,    TOCON1,    TOCON1,     CROSS,     SWORD,     CROSS,     SWORD,    TOCON1,    TOCON1,         0,         0,         0,         0},
-            {         0,         0,         0,         0,         0,         0,    TOCON1,    TOCON1,    TOCON1,     STAFF,         0,         0,         0,         0,         0,         0}
+            {   MATOJOS,         0,         0,         0,         0,         0,    TOCON1,    TOCON1,    TOCON1,     STAFF,         0,         0,         0,         0,         0,   MATOJOS}
       }
 };
 
@@ -56,7 +56,7 @@ const LEVEL w0r02 =
             {         0,         0,         0,         0,         0,    TOCON1,   DARKELF,       KEY,  WILDBOAR,    TOCON1,         0,         0,         0,         0,         0,         0},
             {         0,         0,         0,         0,         0,         0,    TOCON1,  WILDBOAR,    TOCON1,         0,         0,         0,         0,         0,         0,         0},
             {         0,         0,         0,         0,         0,         0,         0,      DOOR,         0,         0,         0,         0,         0,         0,         0,         0},
-            {         0,         0,         0,         0,         0,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,         0,         0,         0,         0,         0,         0}
+            {         0,         0,         0,         0,     ZARZA,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,     ZARZA,         0,         0,         0,         0,         0}
       }
 };
 
@@ -94,8 +94,8 @@ const LEVEL w0r04 =
             {    TOCON1,    RIGHT1,    RIGHT1,    RIGHT1,    RIGHT1,    RIGHT1,    RIGHT1, TOADSTOOL,   DARKELF,    RIGHT1,    RIGHT1,    RIGHT1,   DARKELF,      DOOR,    TOCON1,         0},
             {    TOCON1,     SWORD, TOADSTOOL,     STAFF,     CROSS, TOADSTOOL, TOADSTOOL,     CROSS,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,         0,         0},
             {    TOCON1, TOADSTOOL, TOADSTOOL,  WILDBOAR, TOADSTOOL,     CROSS, TOADSTOOL, TOADSTOOL,    TOCON1,         0,         0,         0,         0,         0,         0,         0},
-            {    TOCON1,  WILDBOAR,     CROSS,     STAFF,    RIGHT1,  WILDBOAR,     STAFF, TOADSTOOL,    TOCON1,         0,    TOCON1,         0,         0,    TOCON1,         0,         0},
-            {         0,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,   DARKELF,    TOCON1,         0,         0,         0,    TOCON1,         0,         0,    TOCON1,         0},
+            {    TOCON1,  WILDBOAR,     CROSS,     STAFF,    RIGHT1,  WILDBOAR,     STAFF, TOADSTOOL,    TOCON1,         0,     ZARZA,         0,         0,     ZARZA,         0,         0},
+            {         0,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,   DARKELF,    TOCON1,         0,         0,         0,     ZARZA,         0,         0,     ZARZA,         0},
             {         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0}
       }
 };
@@ -107,7 +107,7 @@ const LEVEL w0r05 =
       (Image*)&w0_marco_1,
       {
             {         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0},
-            {         0,         0,    TOCON1,    TOCON1,    TOCON1,    TOCON1,         0,         0,         0,         0,    TOCON1,    TOCON1,    TOCON1,    TOCON1,         0,         0},
+            {         0,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,         0,         0,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,         0},
             {         0,    TOCON1,     CROSS,  WILDBOAR,  WILDBOAR,  WILDBOAR,    TOCON1,         0,         0,    TOCON1,  WILDBOAR,  WILDBOAR,  WILDBOAR,     CROSS,    TOCON1,         0},
             {         0,    TOCON1,    TOCON1,    TOCON1,    TOCON1,     SWORD,   DARKELF,    TOCON1,    TOCON1,   DARKELF,     SWORD,    TOCON1,    TOCON1,    TOCON1,    TOCON1,         0},
             {         0,    TOCON1,     STAFF,   DARKELF,   DARKELF,     SWORD,   DARKELF,       UP1,       UP1,     SWORD,   DARKELF,   DARKELF,     STAFF,   DARKELF,    TOCON1,         0},
@@ -115,7 +115,7 @@ const LEVEL w0r05 =
             {         0,    TOCON1,     SWORD,   DARKELF,   DARKELF,   DARKELF,     SWORD,     DOWN1,     DOWN1, TOADSTOOL,   DARKELF,     STAFF,     SWORD, TOADSTOOL,    TOCON1,         0},
             {         0,    TOCON1,   DARKELF,   DARKELF,     STAFF,     SWORD,   DARKELF,    TOCON1,    TOCON1, TOADSTOOL,   DARKELF,     STAFF,     SWORD, TOADSTOOL,    TOCON1,         0},
             {         0,    TOCON1,         0,         0,         0,         0,    TOCON1,         0,     LAKE1,     LAKE2,     SWORD,     STAFF, TOADSTOOL,      DOOR,    TOCON1,         0},
-            {         0,         0,    TOCON1,    TOCON1,    TOCON1,    TOCON1,         0,         0,     LAKE3,     LAKE4,    TOCON1,    TOCON1,    TOCON1,    TOCON1,         0,         0},
+            {         0,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,         0,     LAKE3,     LAKE4,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,         0},
             {         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0}
       }
 };
@@ -147,15 +147,15 @@ const LEVEL w0r07 =
       (Image*)&w0_marco_1,
       {
             {         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,  ABBAYE_U,         0},
-            {         0,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,     DOWN1,    TOCON1,    TOCON1,  ABBAYE_D,         0},
+            {         0,    CANDLE,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,     DOWN1,    TOCON1,    TOCON1,  ABBAYE_D,         0},
             {         0,    TOCON1,     SWORD,     DOWN1,     LEFT1, TOADSTOOL,    TOCON1, TOADSTOOL,         0,   DARKELF,         0,   DARKELF,     SWORD,   DARKELF,    TOCON1,         0},
             {     SWORD,    TOCON1,         0,     LEFT1,       UP1,       UP1,    TOCON1,    TOCON1,         0,     DOWN1,  WILDBOAR,     SWORD,  WILDBOAR,     STAFF,    TOCON1,         0},
             {     STAFF,    TOCON1,   DARKELF,  WILDBOAR,    TOCON1,       UP1,     LEFT1,    TOCON1,         0,     DOWN1,     SWORD,   DARKELF, TOADSTOOL,     CROSS,    TOCON1,         0},
             {   DARKELF,    TOCON1,     STAFF,   DARKELF,     CROSS,    TOCON1,         0,         0,         0,     DOWN1,         0,    TOCON1,         0,     DOWN1,    TOCON1,         0},
-            {       UP1,    TOCON1,  WILDBOAR,  WILDBOAR,  WILDBOAR,         0,         0,    TOCON1,   DARKELF,     DOWN1,         0,    TOCON1,         0,     DOWN1,    TOCON1,         0},
-            {         0,    TOCON1,     STAFF,  WILDBOAR,   DARKELF,    TOCON1,         0,    TOCON1,     STAFF,     LEFT1,         0,     CROSS,         0,  WILDBOAR,    TOCON1,         0},
+            {       UP1,    TOCON1,  WILDBOAR,  WILDBOAR,  WILDBOAR,         0,         0,      FIRE,   DARKELF,     DOWN1,         0,    TOCON1,         0,     DOWN1,    TOCON1,         0},
+            {         0,    TOCON1,     STAFF,  WILDBOAR,   DARKELF,    TOCON1,         0,      FIRE,     STAFF,     LEFT1,         0,     CROSS,         0,  WILDBOAR,    TOCON1,         0},
             {         0,    TOCON1,     STAFF,  WILDBOAR,    TOCON1,         0,         0,     LEFT1,         0,    RIGHT1,    RIGHT1,    RIGHT1,    TOCON1,      DOOR,    TOCON1,         0},
-            {         0,    TOCON1,    TOCON1, TOADSTOOL,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,         0},
+            {         0,    CANDLE,    TOCON1, TOADSTOOL,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    CANDLE,         0},
             {         0,         0,         0,         0,       KEY,    TOCON1,         0,     STAFF,         0,         0,         0,         0,         0,         0,  WILDBOAR,         0}
       }
 };
@@ -173,8 +173,8 @@ const LEVEL w0r08 =
             {         0,    TOCON1,      DOOR,  WILDBOAR,  WILDBOAR,     SWORD,   DARKELF,   DARKELF,   DARKELF, TOADSTOOL,     CROSS, TOADSTOOL, TOADSTOOL,       KEY,    TOCON1,         0},
             {         0,         0,    TOCON1,    TOCON1,    TOCON1,     CROSS,   DARKELF,   DARKELF,     SWORD, TOADSTOOL, TOADSTOOL,    TOCON1,    TOCON1,    TOCON1,         0,         0},
             {         0,         0,         0,         0,    TOCON1,   DARKELF,   DARKELF,     STAFF,   DARKELF, TOADSTOOL,     STAFF,    TOCON1,         0,         0,         0,         0},
-            {         0,         0,         0,         0,    TOCON1,   DARKELF,     SWORD,   DARKELF,     STAFF,   DARKELF, TOADSTOOL,    TOCON1,         0,         0,         0,         0},
-            {         0,         0,         0,         0,    TOCON1,   DARKELF,   DARKELF,   DARKELF,   DARKELF,   DARKELF,   DARKELF,    TOCON1,         0,         0,         0,         0},
+            {         0,    SETA_2,    SETA_2,         0,    TOCON1,   DARKELF,     SWORD,   DARKELF,     STAFF,   DARKELF, TOADSTOOL,    TOCON1,         0,         0,      FIRE,         0},
+            {         0,         0,    SETA_2,         0,    TOCON1,   DARKELF,   DARKELF,   DARKELF,   DARKELF,   DARKELF,   DARKELF,    TOCON1,         0,      FIRE,         0,         0},
             {         0,         0,         0,         0,    TOCON1,         0,         0,     SWORD,     SWORD,     SWORD,     STAFF,    TOCON1,         0,         0,         0,         0},
             {         0,         0,         0,         0,         0,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,         0,         0,         0,         0,         0}
       }
@@ -186,15 +186,15 @@ const LEVEL w0r09 =
       0, 10,
       (Image*)&w0_marco_1,
       {
-            {    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    RIGHT1,    RIGHT1,    RIGHT1,       KEY},
+            {         0,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    RIGHT1,    RIGHT1,    RIGHT1,       KEY},
             {         0,         0,     SWORD,     SWORD,  WILDBOAR,         0,   DARKELF,    TOCON1,         0,         0,     SWORD,     SWORD,     CROSS,    TOCON1,     DOWN1,   DARKELF},
             {     STAFF,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,     DOWN1,    TOCON1,    TOCON1,    TOCON1,     SWORD,    TOCON1,    TOCON1,    TOCON1,     DOWN1,    TOCON1},
-            {     CROSS,    TOCON1,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,    TOCON1,     DOWN1,    TOCON1},
-            {     CROSS,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,         0,    TOCON1,    TOCON1,    TOCON1,         0,         0,         0,         0,     LEFT1,    TOCON1},
-            {     CROSS,    TOCON1,  WILDBOAR,  WILDBOAR,  WILDBOAR,  WILDBOAR,  WILDBOAR,     LEFT1,     LEFT1,    TOCON1,         0,         0,         0,    TOCON1,         0,    TOCON1},
-            {         0, TOADSTOOL, TOADSTOOL,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,       UP1,    TOCON1,         0,    TOCON1,    TOCON1,    TOCON1,         0,    TOCON1},
-            {         0,         0, TOADSTOOL, TOADSTOOL,     STAFF,     STAFF,     STAFF,    RIGHT1,       UP1,    TOCON1,         0,         0,         0,         0,         0,    TOCON1},
-            {         0,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,         0,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1},
+            {     CROSS,    TOCON1,BIGTREE1_U,BIGTREE1_U,BIGTREE1_U,BIGTREE1_U,         0,         0,         0,         0,         0,         0,         0,    TOCON1,     DOWN1,    TOCON1},
+            {     CROSS,    TOCON1,BIGTREE1_D,BIGTREE1_D,BIGTREE1_D,BIGTREE1_D,         0,    TOCON1,    TOCON1,    TOCON1,         0,         0,         0,BIGTREE1_U,     LEFT1,    TOCON1},
+            {     CROSS,    TOCON1,  WILDBOAR,  WILDBOAR,  WILDBOAR,  WILDBOAR,  WILDBOAR,     LEFT1,     LEFT1,    TOCON1,         0,BIGTREE1_U,BIGTREE1_U,BIGTREE1_D,         0,    TOCON1},
+            {         0, TOADSTOOL, TOADSTOOL,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,       UP1,    TOCON1,         0,BIGTREE1_D,BIGTREE1_D,    TOCON1,         0,    TOCON1},
+            {         0,         0, TOADSTOOL, TOADSTOOL,     STAFF,     STAFF,     STAFF,    RIGHT1,       UP1,    TOCON1,         0,BIGTREE1_U,BIGTREE1_U,         0,         0,    TOCON1},
+            {         0,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,         0,BIGTREE1_D,BIGTREE1_D,    TOCON1,    TOCON1,    TOCON1},
             {         0,    TOCON1,    TOCON1,    TOCON1,     STAFF,     CROSS,     SWORD,   DARKELF,   DARKELF,   DARKELF,   DARKELF,   DARKELF, TOADSTOOL,    TOCON1,    TOCON1,    TOCON1},
             {         0,    TOCON1,    TOCON1,    TOCON1,      DOOR,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,     STAFF,    TOCON1,    TOCON1,    TOCON1}
       }
@@ -207,16 +207,16 @@ const LEVEL w0r10 =
       (Image*)&w0_marco_1,
       {
             {    RIGHT1,    RIGHT1,    RIGHT1,    RIGHT1,   DARKELF,     STAFF,         0,    TOCON1,     CROSS,     SWORD,         0,   DARKELF,         0,  WILDBOAR,         0,         0},
-            {       UP1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,     CROSS, TOADSTOOL,    TOCON1,    TOCON1,    TOCON1,         0,         0,  WILDBOAR,    TOCON1,         0},
-            {       UP1,         0,         0,    TOCON1,     DOWN1,     LEFT1,         0,         0,         0,         0,         0,         0,         0,    TOCON1,         0,  WILDBOAR},
-            {    TOCON1,     STAFF,       UP1,    TOCON1,     DOWN1,     STAFF,    TOCON1,    TOCON1,    TOCON1,       UP1,    TOCON1,    TOCON1,    TOCON1,         0,         0, TOADSTOOL},
-            {     STAFF,    TOCON1,       UP1,     CROSS,     DOWN1, TOADSTOOL, TOADSTOOL,         0,         0,         0,         0,         0,         0,         0,  ABBAYE_U,     STAFF},
-            { TOADSTOOL,         0,         0,     CROSS,     DOWN1,         0,         0,    TOCON1,         0,     DOWN1,         0,  WILDBOAR,         0,         0,  ABBAYE_D, TOADSTOOL},
-            {     CROSS,   DARKELF,         0,  WILDBOAR,     DOWN1,    TOCON1,         0,         0,         0,     DOWN1,    TOCON1, TOADSTOOL,    TOCON1,         0,    TOCON1,  WILDBOAR},
+            {       UP1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,     CROSS, TOADSTOOL,    TOCON1,    TOCON1,    TOCON1,         0,         0,  WILDBOAR,      FIRE,         0},
+            {       UP1,         0,         0,    TOCON1,     DOWN1,     LEFT1,         0,         0,         0,         0,         0,         0,         0,      FIRE,         0,  WILDBOAR},
+            {    SETA_2,     STAFF,       UP1,    TOCON1,     DOWN1,     STAFF,    TOCON1,    TOCON1,    TOCON1,       UP1,    TOCON1,    TOCON1,      FIRE,         0,         0, TOADSTOOL},
+            {     STAFF,    SETA_2,       UP1,     CROSS,     DOWN1, TOADSTOOL, TOADSTOOL,         0,         0,         0,         0,         0,         0,         0,  ABBAYE_U,     STAFF},
+            { TOADSTOOL,         0,         0,     CROSS,     DOWN1,         0,         0,      FIRE,         0,     DOWN1,         0,  WILDBOAR,         0,         0,  ABBAYE_D, TOADSTOOL},
+            {     CROSS,   DARKELF,         0,  WILDBOAR,     DOWN1,      FIRE,         0,         0,         0,     DOWN1,    TOCON1, TOADSTOOL,    TOCON1,         0,    TOCON1,  WILDBOAR},
             {     STAFF,    TOCON1,         0,  WILDBOAR,     DOWN1,     LEFT1,     LEFT1,     LEFT1,     LEFT1,         0,   DARKELF,     CROSS,    TOCON1,         0,    TOCON1, TOADSTOOL},
             {     SWORD,  WILDBOAR, TOADSTOOL,     LEFT1,     LEFT1,    TOCON1,     SWORD,  WILDBOAR,  WILDBOAR,         0,    TOCON1,     SWORD,    TOCON1,         0,    TOCON1,   DARKELF},
             {    TOCON1,    TOCON1,    TOCON1,    TOCON1,         0,     STAFF,    TOCON1,    TOCON1,    TOCON1,    TOCON1,         0,    TOCON1,     SWORD,         0,    TOCON1,       KEY},
-            {      DOOR,  WILDBOAR,   DARKELF,     STAFF,         0,         0,         0,   DARKELF,         0,         0,         0,         0,   DARKELF,         0,    TOCON1,     SWORD}
+            {      DOOR,  WILDBOAR,   DARKELF,     STAFF,         0,         0,         0,   DARKELF,         0,         0,         0,         0,   DARKELF,         0,   PIEDRA1,     SWORD}
       }
 };
 
@@ -247,7 +247,7 @@ const LEVEL w0r12 =
       (Image*)&w0_marco_1,
       {
             {         0,    TOCON1,       KEY,  WILDBOAR,  WILDBOAR,  WILDBOAR,         0,  WILDBOAR,         0,         0,         0,     LEFT1,     LEFT1,     LEFT1,     LEFT1,     LEFT1},
-            {     STAFF,         0,    TOCON1,    TOCON1,    TOCON1,     CROSS,  WILDBOAR,         0,  WILDBOAR,     STAFF,     STAFF,     STAFF,         0,         0,         0,       UP1},
+            {     STAFF,         0,     TOMB1,     TOMB1,     TOMB1,     CROSS,  WILDBOAR,         0,  WILDBOAR,     STAFF,     STAFF,     STAFF,         0,         0,         0,       UP1},
             {    TOCON1,         0,         0,  WILDBOAR,         0,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1,    TOCON1, TOADSTOOL,         0},
             {      DOOR,    TOCON1,         0,         0,         0,  WILDBOAR,     STAFF,  WILDBOAR,  WILDBOAR,  WILDBOAR,         0,    RIGHT1,    RIGHT1,     DOWN1,    TOCON1,         0},
             {   DARKELF,    TOCON1,    TOCON1,    TOCON1,     STAFF,  WILDBOAR,     STAFF,  WILDBOAR,    TOCON1,  WILDBOAR,  WILDBOAR,       UP1,     LEFT1,     DOWN1,    TOCON1,         0},
