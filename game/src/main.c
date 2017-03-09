@@ -172,6 +172,8 @@ void object_viewer()
          }
 
          vobject_update();
+         vobject_upload ( );
+
          VDP_waitVSync();
       }
 

@@ -87,7 +87,9 @@ static void _init ( )
 	splist_draw ( );
 	player_update ( PLAYER_1 );
 	level_draw ( &wl );
+
 	vobject_update ( );
+	vobject_upload ( );
 
 	VDP_updateSprites(80, 1);
 
@@ -187,7 +189,9 @@ u16 game_play ( )
 
 		player_move ( PLAYER_1 );
 		player_update ( PLAYER_1 );
+
 		vobject_update ( );
+		vobject_upload ( );
 
 		showFPS ( );
 

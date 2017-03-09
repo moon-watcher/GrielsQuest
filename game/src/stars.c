@@ -76,6 +76,8 @@ void stars_draw ( )
 		}
 
 		vobject_update();
+		vobject_upload ( );
+
 		VDP_updateSprites(80,1);
 		VDP_waitVSync();
 	}

@@ -89,5 +89,10 @@ bool gamestate_go_to_ending ( u16 state )
 
 bool gamestate_on_medallon ( )
 {
+	if ( DEV )
+	{
+		return false;
+	}
+
 	return (bool) ( level_list [ (u8)gamestate.current_ambiente ] [ gamestate_get_dificultad ( ) ].cuantos == ( gamestate.current_round+1 ));
 }
