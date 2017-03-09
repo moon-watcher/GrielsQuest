@@ -231,6 +231,9 @@ enum
    ESFINGE3,
    ESFINGE4,
 
+   VASIJA,
+   CANDLEPY,
+
    // fin // ambiente 2
 
 
@@ -246,8 +249,8 @@ enum
    TOTEM_1,
    TOTEM_2,
    TENTACLE,
-   BIGTREE_U_4,
-   BIGTREE_D_4,
+   BIGTREE4_U,
+   BIGTREE4_D,
    STONE41,
    SETO4,
    SEASTAR,

@@ -226,6 +226,9 @@ static const ANIMATION _list [ ] =
 	{ "Esfinge 3",        GRS w2s_blocks,       PAL3,   1, { { 30, 0 } } },
 	{ "Esfinge 4",        GRS w2s_blocks,       PAL3,   1, { { 31, 0 } } },
 
+
+	{ "Vasija",           GRS w2s_blocks,       PAL3,   1, { {  2,  0 } } },
+	{ "Candle",           GRS w2s_blocks,       PAL3,   2, { {  7, 33 }, { 17, 33 } } },
    // fin // ambiente 2
 
 

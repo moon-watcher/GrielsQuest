@@ -1276,9 +1276,6 @@
 		<Unit filename="game/src/worlds/world4.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="game/src/worlds/world8.c">
-			<Option compilerVar="CC" />
-		</Unit>
 		<Unit filename="libs/binary.h" />
 		<Unit filename="libs/burbuja.c">
 			<Option compilerVar="CC" />
