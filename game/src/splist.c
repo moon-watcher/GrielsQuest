@@ -1,29 +1,22 @@
 #include "../inc/include.h"
 
 
-//static u8 free_sprites [ MAX_LINES ] = { };
-
-
-//static u8 links [ MAX_SPRITE ];
-
-
 void splist_init (  )
 {
-	//memset ( free_sprites, 0, sizeof(MAX_LINES) );
 
 	splist_reorder ( );
 
 	splist_key         =  0; // needed
 	splist_door        =  0; // needed
-	splist_weapon      =  8;
-	splist_flash       =  9;
-	splist_explosion   = 10;
-	splist_griel       = 11; // needed
-	splist_ui_weapon   = 12;
-	splist_ui_enemy    = 13;
-	splist_ui_left_1   = 14;
-	splist_ui_left_2   = 15;
-    splist_ui_key      = 16;
+	splist_weapon      =  9;
+	splist_flash       = 10;
+	splist_explosion   = 11;
+	splist_griel       = 12; // needed
+	splist_ui_weapon   = 13;
+	splist_ui_enemy    = 14;
+	splist_ui_left_1   = 15;
+	splist_ui_left_2   = 16;
+    splist_ui_key      = 17;
 	splist_element     = 78;
 	splist_dust        = 79;
 }

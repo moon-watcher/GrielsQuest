@@ -176,17 +176,17 @@ static LEVEL _reorder_level ( LEVEL *level )
 	flipped_v [ ABBAYE_U_2  ] = 0;
 	flipped_v [ FISH22      ] = TREE2;
 	flipped_v [ FISH21      ] = 0;
-	flipped_v [ ORUS2       ] = CRUZPY;
+	flipped_v [ ORUS2       ] = CUADRADOPY;
 	flipped_v [ ORUS1       ] = 0;
-	flipped_v [ SARCOFAGO2  ] = CRUZPY;
+	flipped_v [ SARCOFAGO2  ] = CUADRADOPY;
 	flipped_v [ SARCOFAGO1  ] = 0;
-	flipped_v [ TOTEM_2     ] = TENTACLE;
+	flipped_v [ TOTEM_2     ] = STONE41;
 	flipped_v [ TOTEM_1     ] = 0;
-	flipped_v [ BIGTREE_D_4 ] = TENTACLE;
+	flipped_v [ BIGTREE_D_4 ] = STONE41;
 	flipped_v [ BIGTREE_U_4 ] = 0;
-	flipped_v [ ABBAYE_D_5  ] = BAFFLE;
+	flipped_v [ ABBAYE_D_5  ] = BARREL;
 	flipped_v [ ABBAYE_U_5  ] = 0;
-	flipped_v [ GUITAR2     ] = BAFFLE;
+	flipped_v [ GUITAR2     ] = BARREL;
 	flipped_v [ GUITAR1     ] = 0;
 	flipped_v [ IGLU1       ] = IGLU3;
 	flipped_v [ IGLU2       ] = IGLU4;
@@ -292,7 +292,7 @@ void level_draw ( LEVEL *level )
 	SYS_disableInts();
 
 	bool on_medallon = gamestate_on_medallon();
-	on_medallon = false;
+	//on_medallon = false;
 
 	_vram_pos[0] = vram_new ( level->background->tileset->numTile );
 	_vram_pos[1] = vram_new ( cb_ui.tileset->numTile );
@@ -316,8 +316,8 @@ void level_draw ( LEVEL *level )
 	preparePal ( PAL2, animation_get(_pal2)->res->pal );
 	preparePal ( PAL3, animation_get(_pal3)->res->pal );
 
-	// obtie el color 1 de la paleta 3, que será el color de las sombra de
-	// los bloques y enemigos, y modifica la paleta de estos asignándoselo
+	// obtie el color 1 de la paleta 3, que serÃ¡ el color de las sombra de
+	// los bloques y enemigos, y modifica la paleta de estos asignÃ¡ndoselo
 	prepareColor ( 17, animation_get(_pal3)->res->pal[1] );
 
 	_draw_marcador ();
@@ -447,19 +447,6 @@ void level_remove_key ( )
 
 	_key.x = 0;
 	_key.y = 0;
-}
-
-
-void level_draw_demon ( u16 x, u16 y, u8 ojos, u8 cola )
-{
-//	ojos = ojos ? 0 : 1;
-//	cola = cola ? 2 : 3;
-//
-//	VDP_loadTileData ( w1s_demon.sprites [ ojos ], POS_SP_DEMON(0), SIZE_SP_DEMON, 0 );
-//	VDP_loadTileData ( w1s_demon.sprites [ cola ], POS_SP_DEMON(1), SIZE_SP_DEMON, 0 );
-//
-//	VDP_setSprite ( 7, x +  0, y +  0, SIZE_SP_DEMON, TILE_ATTR_FULL ( PAL1, 1, 0, 0, POS_SP_DEMON(0) ), 8 );
-//	VDP_setSprite ( 8, x +  0, y + 16, SIZE_SP_DEMON, TILE_ATTR_FULL ( PAL1, 1, 0, 0, POS_SP_DEMON(1) ), 9 );
 }
 
 
@@ -673,10 +660,7 @@ void level_draw_ambiente_3 ( )
 
 	u8 x = 0;
 	u8 y = 26;
-	u16 aux;
-
-	vobject_add ( SEA );
-	aux = vobject_get ( SEA )->vram_pos;
+	u16 aux = vobject_add ( SEA )->vram_pos;
 
 	for ( x=0; x < 40; x+=4 )
 	{
@@ -924,4 +908,17 @@ void level_draw_animation_size ( u8 width, u8 height )
 //	}
 //
 //	SYS_enableInts();
+//}
+
+
+//void level_draw_demon ( u16 x, u16 y, u8 ojos, u8 cola )
+//{
+//	ojos = ojos ? 0 : 1;
+//	cola = cola ? 2 : 3;
+//
+//	VDP_loadTileData ( w1s_demon.sprites [ ojos ], POS_SP_DEMON(0), SIZE_SP_DEMON, 0 );
+//	VDP_loadTileData ( w1s_demon.sprites [ cola ], POS_SP_DEMON(1), SIZE_SP_DEMON, 0 );
+//
+//	VDP_setSprite ( 7, x +  0, y +  0, SIZE_SP_DEMON, TILE_ATTR_FULL ( PAL1, 1, 0, 0, POS_SP_DEMON(0) ), 8 );
+//	VDP_setSprite ( 8, x +  0, y + 16, SIZE_SP_DEMON, TILE_ATTR_FULL ( PAL1, 1, 0, 0, POS_SP_DEMON(1) ), 9 );
 //}

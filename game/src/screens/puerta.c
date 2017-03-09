@@ -270,5 +270,7 @@ fin:
 	vram_destroy();
 	VDP_fadeOutAll ( 30, false );
 
+	VDP_setPlanSize ( 64, 32 );
+
 	return ret;
 }

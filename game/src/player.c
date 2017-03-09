@@ -109,7 +109,7 @@ static void _death_animation ( )
 	else if ( _object == PENTACLE ) muerte = GRIEL_DEAD_PENTACLE;
 
 	vobject_animation ( _p.object, muerte );
-	toani_reset_explosion();
+	toani_stop_explosion();
 
 	if ( muerte == GRIEL_DEAD_TENT_1 )
 	{

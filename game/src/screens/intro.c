@@ -571,4 +571,5 @@ void screen_intro ( u8 jump )
 	VDP_interruptFade();
 
 	displayOff ( 30 );
+	VDP_setPlanSize ( 64, 32 );
 }

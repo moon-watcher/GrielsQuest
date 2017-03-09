@@ -81,7 +81,7 @@ void _draw_content ( u16 i )
 	else if ( i == 7 )
 	{
 		// hacer que los espacios no deban estar
-		// en los textos, si no generarlos aquí.
+		// en los textos, si no generarlos aquÃ­.
 
 		text_write ( frases_find ( 24, 1 ),  8, 12 );
 		text_write ( frases_find ( 24, 0 ), 22, 12 );
@@ -91,10 +91,13 @@ void _draw_content ( u16 i )
 		u16 o1 = _list[0][(u16)gamestate.current_ambiente];
 		u16 o2 = _list[4][(u16)gamestate.current_ambiente];
 
-		vobject_add ( o1 ); vobject_reset ( o1 );
-		vobject_add ( o2 ); vobject_reset ( o1 );
+		vobject_add ( o1 );
+		VOBJECT *vo2 = vobject_add ( o2 );
 
-		VDP_setPalette ( PAL2, (u16*)vobject_get(o2)->object->res->pal );
+		vobject_reset ( o1 );
+		vobject_reset ( o2 );
+
+		VDP_setPalette ( PAL2, vo2->object->res->pal );
 		vobject_update ( );
 
 		VDP_clearTileMapRect ( PLAN_B, 7, 14, 2, 2 );

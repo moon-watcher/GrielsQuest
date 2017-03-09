@@ -128,7 +128,7 @@ DEATH *death_add ( u16 lvl_obj, u8 x, u8 y )
 	}
 
 
-	vobject_add ( objeto );
+	VOBJECT *v = vobject_add ( objeto );
 	vobject_animation ( objeto, animation );
 
 	if ( is_big )
@@ -147,7 +147,7 @@ DEATH *death_add ( u16 lvl_obj, u8 x, u8 y )
 	_deaths [ index ].x         = x;
 	_deaths [ index ].y         = y;
 
-	_deaths [ index ].vo        = vobject_get ( objeto );
+	_deaths [ index ].vo        = v;
 
 	_deaths [ index ].animation = animation;
 	_deaths [ index ].objeto    = objeto;

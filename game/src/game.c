@@ -112,8 +112,8 @@ LEVEL *game_get_wl ( )
 
 void game_level_inc ( )
 {
-	// sólo incrementa el round si se ha
-	// completado el útlimo nivel disponible
+	// sÃ³lo incrementa el round si se ha
+	// completado el Ãºtlimo nivel disponible
 
 	if ( gamestate.current_round == gamestate.ambientes [ (u8) gamestate.current_ambiente ] )
 	{
@@ -241,14 +241,16 @@ void game_loop()
 					   gamestate.visito_la_puerta = true;
 					   gamestate.lenguaje         = SPANISH;
 
-					   gamestate.dificultad   =  2;
-					   gamestate.ambientes[0] =  0; // 14;
-					   gamestate.ambientes[1] =  0; // 14;
-					   gamestate.ambientes[2] =  0; // 14;
-					   gamestate.ambientes[3] =  0; // 14;
-					   gamestate.ambientes[4] =  0; // 6 ;
-					   gamestate.visito_la_puerta = true;
-					   gamestate.lenguaje         = SPANISH;
+
+//					   gamestate.dificultad   =  2;
+//					   gamestate.ambientes[0] =  0; // 14;
+//					   gamestate.ambientes[1] =  0; // 14;
+//					   gamestate.ambientes[2] =  0; // 14;
+//					   gamestate.ambientes[3] =  0; // 14;
+//					   gamestate.ambientes[4] =  0; // 6 ;
+//					   gamestate.visito_la_puerta = true;
+//					   gamestate.lenguaje         = SPANISH;
+
 
 //					   gamestate.dificultad   = 0;
 //					   gamestate.ambientes[0] = 6;
@@ -298,7 +300,7 @@ void game_loop()
 					screen_intro ( 5 ) ;
 				}
 
-				// Muestra la puerta del ambiente volcán
+				// Muestra la puerta del ambiente volcÃ¡n
 				if ( to == SCREEN_JUMP_TO_PUERTA )
 				{
 					to = screen_puerta();

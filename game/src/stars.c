@@ -17,9 +17,14 @@ static void _freeze_objects ()
 
 	for ( i = 0; i < MAX_ANIMATIONS; i++ )
 	{
-		if ( vobject_get ( i )->active && i != ESTRELLITA1 && i != ESTRELLITA2 && i != ESTRELLITA3 && i != ESTRELLITA4 )
+		if ( i != ESTRELLITA1 && i != ESTRELLITA2 && i != ESTRELLITA3 && i != ESTRELLITA4 )
 		{
-			vobject_get ( i )->counter=0;
+			VOBJECT *v = vobject_get ( i );
+
+			if ( v->active )
+			{
+				v->counter = 0;
+			}
 		}
 	}
 }

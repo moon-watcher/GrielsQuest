@@ -146,22 +146,22 @@ void object_viewer()
 
       VDP_clearPlan ( PLAN_A, 0 );
 
-      vobject_add ( opcion );
+      VOBJECT *v = vobject_add ( opcion );
       vobject_reset ( opcion );
 		animation_set_raw();
 		animation_draw ( opcion, 10, 10, true, PLAN_A, 1, 0, 0, 0, 0 );
       VDP_setPalette ( animation_get ( opcion )->pal, animation_get ( opcion )->res->pal );
 
       drawUInt ( opcion, 2, 3, 3 );
-      VDP_drawText ( vobject_get(opcion)->object->name, 7, 3 );
+      VDP_drawText ( v->object->name, 7, 3 );
 
       while ( 1 )
       {
          JoyReader_update();
 
-         drawUInt( vobject_get(opcion)->frame,5,5,2);
+         drawUInt( v->frame,5,5,2);
          VDP_drawText( "/", 8, 5);
-         drawUInt( vobject_get(opcion)->object->frames,10,5,2);
+         drawUInt( v->object->frames,10,5,2);
 
          if ( joy1_pressed_dir )
          {
