@@ -2,6 +2,10 @@
 
 
 
+static u16 _tiles;
+static u16 _contador;
+static VOBJECT *_upload [ MAX_ANIMATIONS ];
+
 static VOBJECT _list [ MAX_ANIMATIONS ] = { };
 
 
@@ -13,28 +17,31 @@ VOBJECT *vobject_get ( u16 ani )
 }
 
 
-void vobject_init ()
+void vobject_init ( )
 {
 	u16 i = MAX_ANIMATIONS;
 
 	while ( i-- )
 	{
 		_list [ i ] = (VOBJECT) { };
+		_upload [ i ] = NULL;
 	}
+
+	_tiles    = 0;
+	_contador = 0;
 }
 
 
 void vobject_update ( )
 {
+	_tiles    = 0;
+	_contador = 0;
+
 	u16 i = MAX_ANIMATIONS;
-	u16 tiles = 0;
-	u16 update [ MAX_ANIMATIONS ] = { };
-	u16 contador = 0;
-	VOBJECT *v;
 
 	while ( i-- )
 	{
-		v = &_list [ i ];
+		VOBJECT *v = &_list [ i ];
 
 		if ( !v->active || !v->object->frames || ( v->counter && v->object->frames == 1 ) )
 		{
@@ -53,29 +60,32 @@ void vobject_update ( )
 
 		if ( v->counter == 0 )
 		{
-			update [ contador++ ] = i;
-			tiles += v->tiles;
+			_upload [ _contador++ ] = v;
+			_tiles += v->tiles;
 		}
 
 		++v->counter;
 	}
+}
 
-	if ( contador )
-	{
-		SYS_disableInts();
 
-		while ( contador-- )
-		{
-			v = &_list [ update [ contador ] ];
-			VDP_loadTileData ( v->object->res->sprites [ v->object->frame[v->frame].pos ], v->vram_pos, v->tiles, 0 );
-		}
-
-		SYS_enableInts();
-	}
-
+void vobject_upload ( )
+{
 	if ( DEV )
 	{
-		drawUInt ( tiles, 10, 0, 3 );
+		drawUInt ( _contador, 10, 0, 2 );
+		drawUInt ( _tiles,    13, 0, 3 );
+	}
+
+	if ( !_contador )
+	{
+		return;
+	}
+
+	while ( _contador-- )
+	{
+		VOBJECT *v = _upload [ _contador ];
+		VDP_loadTileData ( v->object->res->sprites [ v->object->frame[v->frame].pos ], v->vram_pos, v->tiles, 0 );
 	}
 }
 

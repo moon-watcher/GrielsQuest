@@ -18,6 +18,7 @@ VOBJECT;
 VOBJECT *vobject_get       ( u16 objeto );
 void     vobject_init      ( );
 void     vobject_update    ( );
+void     vobject_upload    ( );
 VOBJECT *vobject_add       ( u16 ani );
 void     vobject_delete    ( u16 objeto );
 void     vobject_animation ( u16 objeto, u16 data );

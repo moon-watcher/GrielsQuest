@@ -140,6 +140,8 @@ static void _death_animation ( )
 		level_update ( );
 
 		vobject_update();
+		vobject_upload ( );
+
 		VDP_updateSprites(80,1);
 		VDP_waitVSync();
 	}
@@ -239,7 +241,10 @@ static void _do_slash ( u8 player, LEVEL *level, s8 inc_x, s8 inc_y, s16 x, s16 
 
 		death_frame ( level );
 		toani_remove();
+
 		vobject_update();
+		vobject_upload ( );
+
 		VDP_updateSprites(80,1);
 		VDP_waitVSync();
 	}
@@ -266,6 +271,8 @@ static void _do_slash ( u8 player, LEVEL *level, s8 inc_x, s8 inc_y, s16 x, s16 
 	player_stop(player);
 
 	vobject_update();
+	vobject_upload ( );
+
 	VDP_updateSprites(80,1);
 	VDP_waitVSync();
 }
@@ -767,6 +774,8 @@ void player_inc_level ( )
 	while ( duracion-- )
 	{
 		vobject_update();
+		vobject_upload ( );
+
 		VDP_updateSprites(80,1);
 		VDP_waitVSync();
 	}

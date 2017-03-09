@@ -292,7 +292,6 @@ void level_draw ( LEVEL *level )
 	SYS_disableInts();
 
 	bool on_medallon = gamestate_on_medallon();
-	//on_medallon = false;
 
 	_vram_pos[0] = vram_new ( level->background->tileset->numTile );
 	_vram_pos[1] = vram_new ( cb_ui.tileset->numTile );

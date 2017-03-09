@@ -116,6 +116,8 @@ static void _hide_important_sprites( LEVEL *level )
 		level_update();
 
 		vobject_update();
+		vobject_upload ( );
+
 		VDP_updateSprites(80,1);
 		VDP_waitVSync();
 	}

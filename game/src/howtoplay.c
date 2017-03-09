@@ -98,7 +98,9 @@ void _draw_content ( u16 i )
 		vobject_reset ( o2 );
 
 		VDP_setPalette ( PAL2, vo2->object->res->pal );
+
 		vobject_update ( );
+		vobject_upload ( );
 
 		VDP_clearTileMapRect ( PLAN_B, 7, 14, 2, 2 );
 		animation_set_raw();
@@ -117,7 +119,9 @@ void _draw_content ( u16 i )
 
 		vobject_add ( o1 ); vobject_reset ( o1 );
 		vobject_add ( o2 ); vobject_reset ( o2 );
+
 		vobject_update ( );
+		vobject_upload ( );
 
 		VDP_clearTileMapRect ( PLAN_B, 7, 17, 2, 2 );
 		animation_set_raw();
@@ -136,7 +140,9 @@ void _draw_content ( u16 i )
 
 		vobject_add ( o1 ); vobject_reset ( o1 );
 		vobject_add ( o2 ); vobject_reset ( o2 );
+
 		vobject_update ( );
+		vobject_upload ( );
 
 		VDP_clearTileMapRect ( PLAN_B,  7, 20, 2, 2 );
 		animation_set_raw();
@@ -155,7 +161,9 @@ void _draw_content ( u16 i )
 
 		vobject_add ( o1 ); vobject_reset ( o1 );
 		vobject_add ( o2 ); vobject_reset ( o2 );
+
 		vobject_update ( );
+		vobject_upload ( );
 
 		VDP_clearTileMapRect ( PLAN_B, 7, 22, 2, 3 );
 		animation_set_raw();
@@ -275,6 +283,8 @@ static void _hide_important_sprites ( LEVEL *level )
 		level_update ( );
 
 		vobject_update ( );
+		vobject_upload ( );
+
 		VDP_updateSprites (80,1);
 		VDP_waitVSync ( );
 	}
@@ -439,7 +449,9 @@ void htp_show ( LEVEL *wl )
 		++counter;
 
 		level_update();
+
 		vobject_update ( );
+		vobject_upload ( );
 
 		VDP_updateSprites(80,1);
 		VDP_waitVSync();
