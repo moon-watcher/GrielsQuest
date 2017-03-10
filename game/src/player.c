@@ -814,12 +814,12 @@ void player_control_buttons ( LEVEL *wl )
 		htp_show ( wl );
 	}
 
-	if ( joy1_pressed_c )
+	if ( joy1_pressed_b )
 	{
 		undo_last_move ( wl );
 	}
 
-	if ( joy1_active_b )
+	if ( joy1_active_c )
 	{
 		player_speed ( PLAYER_VEL_FAST );
 	}
