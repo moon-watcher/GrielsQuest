@@ -218,7 +218,7 @@ const static FRASE _list [ ] =
 	(FRASE) { SPANISH, 23, "Piensa dos veces antes de" },
 	(FRASE) { SPANISH, 23, "realizar un movimiento." },
 
-	(FRASE) { SPANISH, 23, "Pulsa el botón B para" },
+	(FRASE) { SPANISH, 23, "Pulsa el botón C para" },
 	(FRASE) { SPANISH, 23, "deshacer una acción." },
 
 	(FRASE) { SPANISH, 23, "Con un poco de paciencia" },
@@ -233,7 +233,7 @@ const static FRASE _list [ ] =
 	(FRASE) { SPANISH, 23, "Reinicia el nivel en caso" },
 	(FRASE) { SPANISH, 23, "de ser necesario." },
 
-	(FRASE) { SPANISH, 23, "Pulsa el botón C y una" },
+	(FRASE) { SPANISH, 23, "Pulsa el botón B y una" },
 	(FRASE) { SPANISH, 23, "dirección si tienes prisa." },
 
 	(FRASE) { SPANISH, 23, "Apunta la contraseña" },

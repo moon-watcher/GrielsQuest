@@ -4,11 +4,13 @@
 
 
 
-static void _blink ( u8 *str, const u16 x, const u16 y )
+static void _blink ( u8 *str, u16 y )
 {
-	u8 i   = ntsc2pal(15);
+	u8 i   = ntsc2pal(20);
 	u8 len = strlen(str);
+	u16 x  = 20 - len / 2;
 
+	VDP_setTextPalette ( PAL2 );
 	VDP_drawText ( str, x, y );
 
 	while ( i-- )
@@ -31,64 +33,15 @@ static void _blink ( u8 *str, const u16 x, const u16 y )
 
 
 
-
-
-
-
-u16 screen_title_menu_1 ( )
+static void _write ( u16 opcion, u16 index, u8 *f, u8 pos )
 {
-	s16 option = 0, ret = 0;
-	const u8 pos[4] = { 19, 21, 23 };
-
-	VDP_clearTextLine ( pos[0] );
-	VDP_clearTextLine ( pos[1] );
-	VDP_clearTextLine ( pos[2] );
-
-	u8 f1[30];
-	u8 f2[30];
-	u8 f3[30];
-
-	frases_init(27);
-
-	strcpy ( f1, frases_next ( ) );
-	strcpy ( f2, frases_next ( ) );
-	strcpy ( f3, frases_next ( ) );
-
-	VDP_drawText ( f1, 16, pos[0] ); // NEW GAME
-	VDP_drawText ( f2, 16, pos[1] ); // CONTINUE
-	VDP_drawText ( f3, 16, pos[2] ); // SOUND TEST
-
-	while ( not ret )
-	{
-		VDP_clearTileMapRect ( PLAN_A, 14, pos[0], 1, pos[2]-pos[0]+1);
-		VDP_drawText ( ">", 14, pos[option] );
-
-		if ( joy1_pressed_down ) { option++; psglist_play ( PSG_SELECT_2 ); }
-		if ( joy1_pressed_up   ) { option--; psglist_play ( PSG_SELECT_2 ); }
-
-		if ( option > 2 ) option = 0;
-		if ( option < 0 ) option = 2;
-
-
-		if ( joy1_pressed_abc || joy1_pressed_start )
-		{
-			break;
-		}
-
-		VDP_waitVSync();
-	}
-
-	psglist_play ( PSG_START );
-
-	if ( option == 0 ) { _blink ( f1, 16, 19 ); ret = SCREEN_JUMP_TO_DIFFICULT; }
-	if ( option == 1 ) { _blink ( f2, 16, 21 ); ret = SCREEN_JUMP_TO_CONTINUE;  }
-	if ( option == 2 ) { _blink ( f3, 16, 23 ); ret = SCREEN_JUMP_TO_SOUNDTEST; }
-
-	return ret;
+	VDP_setTextPalette ( opcion == index ? PAL2 : PAL3 );
+	VDP_drawText ( f, 20-strlen(f)/2, pos );
 }
 
 
-void screen_title_menu_2 ( )
+
+static u16 _menu ( u16 frases )
 {
 	s16 option = 0;
 	const u8 pos[4] = { 19, 21, 23 };
@@ -101,26 +54,28 @@ void screen_title_menu_2 ( )
 	u8 f2[30];
 	u8 f3[30];
 
-	frases_init ( 26 );
+	frases_init ( frases );
 
 	strcpy ( f1, frases_next ( ) );
 	strcpy ( f2, frases_next ( ) );
 	strcpy ( f3, frases_next ( ) );
 
-	VDP_drawText ( f1, 16, pos[0] ); // debilucho
-	VDP_drawText ( f2, 16, pos[1] ); // tipo duro
-	VDP_drawText ( f3, 16, pos[2] ); // pesadilla
+	VDP_setPaletteColor ( 33, ct_color(7,0) );
+	VDP_setPaletteColor ( 34, ct_color(7,1) );
+
 
 	while ( true )
 	{
-		VDP_clearTileMapRect ( PLAN_A, 14, pos[0], 1, pos[2]-pos[0]+1);
-		VDP_drawText ( ">", 14, pos[option] );
+		_write ( option, 0, f1, pos[0] );
+		_write ( option, 1, f2, pos[1] );
+		_write ( option, 2, f3, pos[2] );
 
 		if ( joy1_pressed_down ) { option++; psglist_play ( PSG_SELECT_2 ); }
 		if ( joy1_pressed_up   ) { option--; psglist_play ( PSG_SELECT_2 ); }
 
 		if ( option > 2 ) option = 0;
 		if ( option < 0 ) option = 2;
+
 
 		if ( joy1_pressed_abc || joy1_pressed_start )
 		{
@@ -130,23 +85,16 @@ void screen_title_menu_2 ( )
 		VDP_waitVSync();
 	}
 
-
 	psglist_play ( PSG_START );
 
-	if ( option == 0 ) _blink ( f1, 16, 19 );
-	if ( option == 1 ) _blink ( f2, 16, 21 );
-	if ( option == 2 ) _blink ( f3, 16, 23 );
+	if ( option == 0 ) _blink ( f1, pos[option] );
+	if ( option == 1 ) _blink ( f2, pos[option] );
+	if ( option == 2 ) _blink ( f3, pos[option] );
 
-	gamestate.current_round    = 0;
-	gamestate.current_ambiente = 0;
-
-	gamestate.dificultad = option;
-	gamestate.ambientes[0] = 0;
-	gamestate.ambientes[1] = 0;
-	gamestate.ambientes[2] = 0;
-	gamestate.ambientes[3] = 0;
-	gamestate.ambientes[4] = 0;
+	return option;
 }
+
+
 
 
 
@@ -183,11 +131,6 @@ u16 screen_title ( u16 salto )
 
 
 
-//   VDP_drawImageEx ( PLAN_B, &ob_title_title, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, ind),  4,  8, 0, true ); VDP_waitDMACompletion(); ind += ob_title_title.tileset->numTile;
-//   VDP_drawImageEx ( PLAN_A, &ob_title_kbrah, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, ind),  8, -3, 0, true ); VDP_waitDMACompletion(); ind += ob_title_kbrah.tileset->numTile;
-//   VDP_drawImageEx ( PLAN_A, &ob_title_notah, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, ind),  0, 13, 0, true ); VDP_waitDMACompletion(); ind += ob_title_notah.tileset->numTile;
-//   VDP_drawImageEx ( PLAN_A, &ob_title_mano,  TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, ind), 11, 16, 0, true ); VDP_waitDMACompletion(); ind += ob_title_mano.tileset->numTile;
-//   VDP_drawImageEx ( PLAN_A, &ob_title_griel, TILE_ATTR_FULL(PAL3, FALSE, FALSE, FALSE, ind), 30, 13, 0, true ); VDP_waitDMACompletion();
 	VDP_drawImageEx ( PLAN_B, &ob_title_title, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, ind),  4,  8, 0, 0 ); ind += ob_title_title.tileset->numTile;
 	VDP_drawImageEx ( PLAN_A, &ob_title_kbrah, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, ind),  8, -3, 0, 0 ); ind += ob_title_kbrah.tileset->numTile;
 	VDP_drawImageEx ( PLAN_A, &ob_title_notah, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, ind),  0, 13, 0, 0 ); ind += ob_title_notah.tileset->numTile;
@@ -208,28 +151,28 @@ u16 screen_title ( u16 salto )
 	ind = TILE_USERINDEX;
 
 	SYS_disableInts();
-	//VDP_drawImageEx ( PLAN_B, &ob_title_title, TILE_ATTR_FULL(PAL0, true, FALSE, FALSE, ind),  4,  8, 1, true ); VDP_waitDMACompletion(); ind += ob_title_title.tileset->numTile;
 	VDP_drawImageEx ( PLAN_B, &ob_title_title, TILE_ATTR_FULL(PAL0, true, FALSE, FALSE, ind),  4,  8, 1, 0 ); ind += ob_title_title.tileset->numTile;
 	SYS_enableInts();
 
-   VDP_fadePalOut ( PAL1, getHz(), false );
-   VDP_fadePalOut ( PAL2, getHz(), false );
-   VDP_fadePalOut ( PAL3, getHz(), false );
+	VDP_fadePalOut ( PAL1, getHz(), false );
+	VDP_fadePalOut ( PAL2, getHz(), false );
+	VDP_fadePalOut ( PAL3, getHz(), false );
 
-//   VDP_clearPlan ( PLAN_A, true ); VDP_waitDMACompletion();
-   VDP_clearPlan ( PLAN_A, 0 );
-   //WAITSECS1(1,etiqueta_1);
+	SYS_disableInts();
+	VDP_clearPlan ( PLAN_A, 0 );
+	SYS_enableInts();
 
 
-   waitMs(500);
 
-   u8 i;
+	waitMs(500);
 
-   for ( i=0; i<120; i++ )
-   {
-      VDP_setVerticalScroll ( PLAN_B, i/2 );
-      VDP_waitVSync();
-   }
+	u8 i;
+
+	for ( i=0; i<120; i++ )
+	{
+		VDP_setVerticalScroll ( PLAN_B, i/2 );
+		VDP_waitVSync();
+	}
 
 
 
@@ -339,11 +282,24 @@ salto_2:
 
 	if ( ret == SCREEN_JUMP_TO_NEWGAME )
 	{
-		ret = screen_title_menu_1 ( );
+		ret = _menu ( 27 );
+
+		     if ( ret == 0 ) ret = SCREEN_JUMP_TO_DIFFICULT;
+		else if ( ret == 1 ) ret = SCREEN_JUMP_TO_CONTINUE;
+		else if ( ret == 2 ) ret = SCREEN_JUMP_TO_SOUNDTEST;
 
 		if ( ret == SCREEN_JUMP_TO_DIFFICULT )
 		{
-			screen_title_menu_2 ( );
+			ret = _menu ( 26 );
+
+			gamestate.current_round    = 0;
+			gamestate.current_ambiente = 0;
+			gamestate.dificultad       = ret;
+			gamestate.ambientes[0]     = 0;
+			gamestate.ambientes[1]     = 0;
+			gamestate.ambientes[2]     = 0;
+			gamestate.ambientes[3]     = 0;
+			gamestate.ambientes[4]     = 0;
 
 			ret = SCREEN_JUMP_TO_AMBIENT;
 		}
@@ -351,7 +307,7 @@ salto_2:
 
 	VDP_fadeOutAll(60, false);
 
-	//tool_reset();
+
 	resetScroll ();
 	resetScreen();
 
