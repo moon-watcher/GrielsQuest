@@ -10,6 +10,14 @@ $RECYCLE.BIN/
 game/data/
 sgdk/
 out/
+Griel.workspace
+Griel.workspace.layout
+GrielsQuest.cbp
+GrielsQuest.cscope_file_list
+GrielsQuest.layout
+SGDK_v1.21.cbp
+SGDK_v1.21.layout
+
 
 # Windows Installer files
 *.cab

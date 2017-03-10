@@ -710,10 +710,10 @@ void player_update_selected ( u8 player, u16 selected )
 	vsprite_set ( splist_ui_left_1, 16,  0, UI_LEFT_1 );
 	vsprite_set ( splist_ui_left_2, 16, 24, UI_LEFT_2 );
 
-	VDP_setSpritePiority ( splist_ui_weapon, 1 );
-	VDP_setSpritePiority ( splist_ui_enemy,  1 );
-	VDP_setSpritePiority ( splist_ui_left_1, 1 );
-	VDP_setSpritePiority ( splist_ui_left_2, 1 );
+	VDP_setSpritePriority ( splist_ui_weapon, 1 );
+	VDP_setSpritePriority ( splist_ui_enemy,  1 );
+	VDP_setSpritePriority ( splist_ui_left_1, 1 );
+	VDP_setSpritePriority ( splist_ui_left_2, 1 );
 }
 
 

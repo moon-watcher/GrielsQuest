@@ -53,7 +53,7 @@ void fadeIn                     ( u16 pal0[16], u16 pal1[16], u16 pal2[16], u16 
 
 void VDP_setSpriteAttributes    ( u16 index, u16 tile_attr );
 void VDP_setSpriteVRAM          ( u16 index, u16 pos );
-void VDP_setSpritePiority       ( u16 index, u16 high );
+void VDP_setSpritePriority      ( u16 index, u16 high );
 
 u16  in_array                   ( u16 needle, u16 array[] );
 

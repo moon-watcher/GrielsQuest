@@ -42,7 +42,7 @@ void VDP_setSpriteVRAM ( u16 index, u16 pos )
 
 
 
-void VDP_setSpritePiority ( u16 index, u16 high )
+void VDP_setSpritePriority ( u16 index, u16 high )
 {
 	if( high )
 	{

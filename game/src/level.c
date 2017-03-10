@@ -103,10 +103,10 @@ static void _draw_marcador ()
 	vsprite_set ( splist_ui_left_1, 16,  0, UI_LEFT_1 );
 	vsprite_set ( splist_ui_left_2, 16, 24, UI_LEFT_2 );
 
-	VDP_setSpritePiority ( splist_ui_weapon, 1 );
-	VDP_setSpritePiority ( splist_ui_enemy,  1 );
-	VDP_setSpritePiority ( splist_ui_left_1, 1 );
-	VDP_setSpritePiority ( splist_ui_left_2, 1 );
+	VDP_setSpritePriority ( splist_ui_weapon, 1 );
+	VDP_setSpritePriority ( splist_ui_enemy,  1 );
+	VDP_setSpritePriority ( splist_ui_left_1, 1 );
+	VDP_setSpritePriority ( splist_ui_left_2, 1 );
 
 	VDP_updateSprites(80,1);
 }
@@ -355,7 +355,7 @@ void level_actualizar_marcador ( )
 	}
 
 	vsprite_set ( splist_ui_key, x, y, key );
-	VDP_setSpritePiority ( splist_ui_key, 1 );
+	VDP_setSpritePriority ( splist_ui_key, 1 );
 
 	s16 un = undo_rest ( 0 );
 
