@@ -374,8 +374,10 @@ static const ANIMATION _list [ ] =
 	{ "Staff charge L",   GRS cs_weapons,       PAL1,   1, { { 55, WA7 } } },
 	{ "Staff charge R",   GRS cs_weapons,       PAL1,   1, { { 56, WA7 } } },
 
-	{ "Monedon",          GRS cs_sprites_16x24, PAL1,   2, { { 80, WA3 }, { 81, WA3 } } },
-	{ "Kbrah",            GRS cs_sprites_16x24, PAL1,   2, { { 90, WA3 }, { 91, WA3 } } },
+	{ "Monedon",          GRS cs_monedon_16x24, PAL3,   3, { {  0, 200 }, {  1, WA7 }, {  2, WA7 } } },
+	{ "Kbrah",            GRS cs_kbrah_32x32,   PAL3,   6, { {  0, WA1 }, {  1, WA7 }, {  2, WA7 }, {  3, WA1 }, {  2, WA7 }, {  1, WA7 } } },
+
+	{ "Hidden door",      },
 
 	{ "EMPTY WEAPON",     GRS cs_weapons,       PAL1,   1, { { 18, WA3 } } },
 

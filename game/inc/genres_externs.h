@@ -166,6 +166,10 @@ extern const struct genresSprites        cs_sprites_16x16;
 extern const struct genresSprites        cs_sprites_16x24;
 extern const struct genresSprites        cs_muertes_16x24;
 
+extern const struct genresSprites        cs_monedon_16x24;
+extern const struct genresSprites        cs_porron_16x24;
+extern const struct genresSprites        cs_kbrah_32x32;
+
 extern const struct genresSprites        cs_slash;
 extern const struct genresSprites        cs_weapons;
 extern const struct genresSprites        cs_estrellitas;

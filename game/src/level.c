@@ -122,92 +122,100 @@ static LEVEL _reorder_level ( LEVEL *level )
 	s16 flipped_h [ MAX_ANIMATIONS ];
 	s16 flipped_v [ MAX_ANIMATIONS ];
 
-	memsetU16 ( flipped_h, MAX_U16, MAX_ANIMATIONS );
-	memsetU16 ( flipped_v, MAX_U16, MAX_ANIMATIONS );
 
-	flipped_h [ LEFT1       ] = RIGHT1;
-	flipped_h [ RIGHT1      ] = LEFT1;
-	flipped_h [ LEFT2       ] = RIGHT2;
-	flipped_h [ RIGHT2      ] = LEFT2;
-	flipped_h [ LEFT3       ] = RIGHT3;
-	flipped_h [ RIGHT3      ] = LEFT3;
-	flipped_h [ LEFT4       ] = RIGHT4;
-	flipped_h [ RIGHT4      ] = LEFT4;
-	flipped_h [ LEFT5       ] = RIGHT5;
-	flipped_h [ RIGHT5      ] = LEFT5;
-	flipped_h [ SOFA1       ] = SOFA2;
-	flipped_h [ SOFA2       ] = SOFA1;
-	flipped_h [ IGLU1       ] = IGLU2;
-	flipped_h [ IGLU2       ] = IGLU1;
-	flipped_h [ IGLU3       ] = IGLU4;
-	flipped_h [ IGLU4       ] = IGLU3;
-	flipped_h [ ESFINGE1    ] = ESFINGE2;
-	flipped_h [ ESFINGE2    ] = ESFINGE1;
-	flipped_h [ ESFINGE3    ] = ESFINGE4;
-	flipped_h [ ESFINGE4    ] = ESFINGE3;
-	flipped_h [ BIGPLESI1   ] = BIGPLESI2;
-	flipped_h [ BIGPLESI2   ] = BIGPLESI1;
-	flipped_h [ BIGPLESI3   ] = BIGPLESI4;
-	flipped_h [ BIGPLESI4   ] = BIGPLESI3;
-	flipped_h [ MURCIANO1   ] = MURCIANO2;
-	flipped_h [ MURCIANO2   ] = MURCIANO1;
-	flipped_h [ MURCIANO3   ] = MURCIANO4;
-	flipped_h [ MURCIANO4   ] = MURCIANO3;
-	flipped_h [ LAKE1       ] = LAKE2;
-	flipped_h [ LAKE2       ] = LAKE1;
-	flipped_h [ LAKE3       ] = LAKE4;
-	flipped_h [ LAKE4       ] = LAKE3;
+	if ( _flip_h )
+	{
+		memsetU16 ( flipped_h, MAX_U16, MAX_ANIMATIONS );
 
-	flipped_v [ UP1         ] = DOWN1;
-	flipped_v [ DOWN1       ] = UP1;
-	flipped_v [ UP2         ] = DOWN2;
-	flipped_v [ DOWN2       ] = UP2;
-	flipped_v [ UP3         ] = DOWN3;
-	flipped_v [ DOWN3       ] = UP3;
-	flipped_v [ UP4         ] = DOWN4;
-	flipped_v [ DOWN4       ] = UP4;
-	flipped_v [ UP5         ] = DOWN5;
-	flipped_v [ DOWN5       ] = UP5;
-	flipped_v [ ABBAYE_D    ] = TOCON1;
-	flipped_v [ ABBAYE_U    ] = 0;
-	flipped_v [ BIGTREE1_D  ] = TOCON1;
-	flipped_v [ BIGTREE1_U  ] = 0;
-	flipped_v [ ABBAYE_D_2  ] = TREE2;
-	flipped_v [ ABBAYE_U_2  ] = 0;
-	flipped_v [ FISH22      ] = TREE2;
-	flipped_v [ FISH21      ] = 0;
-	flipped_v [ ORUS2       ] = CUADRADOPY;
-	flipped_v [ ORUS1       ] = 0;
-	flipped_v [ SARCOFAGO2  ] = CUADRADOPY;
-	flipped_v [ SARCOFAGO1  ] = 0;
-	flipped_v [ TOTEM_2     ] = STONE41;
-	flipped_v [ TOTEM_1     ] = 0;
-	flipped_v [ BIGTREE4_D ] = STONE41;
-	flipped_v [ BIGTREE4_U ] = 0;
-	flipped_v [ ABBAYE_D_5  ] = BARREL;
-	flipped_v [ ABBAYE_U_5  ] = 0;
-	flipped_v [ GUITAR2     ] = BARREL;
-	flipped_v [ GUITAR1     ] = 0;
-	flipped_v [ IGLU1       ] = IGLU3;
-	flipped_v [ IGLU2       ] = IGLU4;
-	flipped_v [ IGLU3       ] = IGLU1;
-	flipped_v [ IGLU4       ] = IGLU2;
-	flipped_v [ ESFINGE1    ] = ESFINGE3;
-	flipped_v [ ESFINGE2    ] = ESFINGE4;
-	flipped_v [ ESFINGE3    ] = ESFINGE1;
-	flipped_v [ ESFINGE4    ] = ESFINGE2;
-	flipped_v [ BIGPLESI1   ] = BIGPLESI3;
-	flipped_v [ BIGPLESI2   ] = BIGPLESI4;
-	flipped_v [ BIGPLESI3   ] = BIGPLESI1;
-	flipped_v [ BIGPLESI4   ] = BIGPLESI2;
-	flipped_v [ MURCIANO1   ] = MURCIANO3;
-	flipped_v [ MURCIANO2   ] = MURCIANO4;
-	flipped_v [ MURCIANO3   ] = MURCIANO1;
-	flipped_v [ MURCIANO4   ] = MURCIANO2;
-	flipped_v [ LAKE1       ] = LAKE3;
-	flipped_v [ LAKE2       ] = LAKE4;
-	flipped_v [ LAKE3       ] = LAKE1;
-	flipped_v [ LAKE4       ] = LAKE2;
+		flipped_h [ LEFT1       ] = RIGHT1;
+		flipped_h [ RIGHT1      ] = LEFT1;
+		flipped_h [ LEFT2       ] = RIGHT2;
+		flipped_h [ RIGHT2      ] = LEFT2;
+		flipped_h [ LEFT3       ] = RIGHT3;
+		flipped_h [ RIGHT3      ] = LEFT3;
+		flipped_h [ LEFT4       ] = RIGHT4;
+		flipped_h [ RIGHT4      ] = LEFT4;
+		flipped_h [ LEFT5       ] = RIGHT5;
+		flipped_h [ RIGHT5      ] = LEFT5;
+		flipped_h [ SOFA1       ] = SOFA2;
+		flipped_h [ SOFA2       ] = SOFA1;
+		flipped_h [ IGLU1       ] = IGLU2;
+		flipped_h [ IGLU2       ] = IGLU1;
+		flipped_h [ IGLU3       ] = IGLU4;
+		flipped_h [ IGLU4       ] = IGLU3;
+		flipped_h [ ESFINGE1    ] = ESFINGE2;
+		flipped_h [ ESFINGE2    ] = ESFINGE1;
+		flipped_h [ ESFINGE3    ] = ESFINGE4;
+		flipped_h [ ESFINGE4    ] = ESFINGE3;
+		flipped_h [ BIGPLESI1   ] = BIGPLESI2;
+		flipped_h [ BIGPLESI2   ] = BIGPLESI1;
+		flipped_h [ BIGPLESI3   ] = BIGPLESI4;
+		flipped_h [ BIGPLESI4   ] = BIGPLESI3;
+		flipped_h [ MURCIANO1   ] = MURCIANO2;
+		flipped_h [ MURCIANO2   ] = MURCIANO1;
+		flipped_h [ MURCIANO3   ] = MURCIANO4;
+		flipped_h [ MURCIANO4   ] = MURCIANO3;
+		flipped_h [ LAKE1       ] = LAKE2;
+		flipped_h [ LAKE2       ] = LAKE1;
+		flipped_h [ LAKE3       ] = LAKE4;
+		flipped_h [ LAKE4       ] = LAKE3;
+	}
+
+	if ( _flip_v )
+	{
+		memsetU16 ( flipped_v, MAX_U16, MAX_ANIMATIONS );
+
+		flipped_v [ UP1         ] = DOWN1;
+		flipped_v [ DOWN1       ] = UP1;
+		flipped_v [ UP2         ] = DOWN2;
+		flipped_v [ DOWN2       ] = UP2;
+		flipped_v [ UP3         ] = DOWN3;
+		flipped_v [ DOWN3       ] = UP3;
+		flipped_v [ UP4         ] = DOWN4;
+		flipped_v [ DOWN4       ] = UP4;
+		flipped_v [ UP5         ] = DOWN5;
+		flipped_v [ DOWN5       ] = UP5;
+		flipped_v [ ABBAYE_D    ] = TOCON1;
+		flipped_v [ ABBAYE_U    ] = 0;
+		flipped_v [ BIGTREE1_D  ] = TOCON1;
+		flipped_v [ BIGTREE1_U  ] = 0;
+		flipped_v [ ABBAYE_D_2  ] = TREE2;
+		flipped_v [ ABBAYE_U_2  ] = 0;
+		flipped_v [ FISH22      ] = TREE2;
+		flipped_v [ FISH21      ] = 0;
+		flipped_v [ ORUS2       ] = CUADRADOPY;
+		flipped_v [ ORUS1       ] = 0;
+		flipped_v [ SARCOFAGO2  ] = CUADRADOPY;
+		flipped_v [ SARCOFAGO1  ] = 0;
+		flipped_v [ TOTEM_2     ] = STONE41;
+		flipped_v [ TOTEM_1     ] = 0;
+		flipped_v [ BIGTREE4_D ] = STONE41;
+		flipped_v [ BIGTREE4_U ] = 0;
+		flipped_v [ ABBAYE_D_5  ] = BARREL;
+		flipped_v [ ABBAYE_U_5  ] = 0;
+		flipped_v [ GUITAR2     ] = BARREL;
+		flipped_v [ GUITAR1     ] = 0;
+		flipped_v [ IGLU1       ] = IGLU3;
+		flipped_v [ IGLU2       ] = IGLU4;
+		flipped_v [ IGLU3       ] = IGLU1;
+		flipped_v [ IGLU4       ] = IGLU2;
+		flipped_v [ ESFINGE1    ] = ESFINGE3;
+		flipped_v [ ESFINGE2    ] = ESFINGE4;
+		flipped_v [ ESFINGE3    ] = ESFINGE1;
+		flipped_v [ ESFINGE4    ] = ESFINGE2;
+		flipped_v [ BIGPLESI1   ] = BIGPLESI3;
+		flipped_v [ BIGPLESI2   ] = BIGPLESI4;
+		flipped_v [ BIGPLESI3   ] = BIGPLESI1;
+		flipped_v [ BIGPLESI4   ] = BIGPLESI2;
+		flipped_v [ MURCIANO1   ] = MURCIANO3;
+		flipped_v [ MURCIANO2   ] = MURCIANO4;
+		flipped_v [ MURCIANO3   ] = MURCIANO1;
+		flipped_v [ MURCIANO4   ] = MURCIANO2;
+		flipped_v [ LAKE1       ] = LAKE3;
+		flipped_v [ LAKE2       ] = LAKE4;
+		flipped_v [ LAKE3       ] = LAKE1;
+		flipped_v [ LAKE4       ] = LAKE2;
+	}
 
 	for ( i = 0; i < LEVEL_HEIGHT; i++ )
 	{
@@ -323,11 +331,20 @@ void level_draw ( LEVEL *level )
 
 	if ( on_medallon )
 	{
+
 		u16 tile = 800;
 		u16 pal  = PAL3;
-		VDP_loadTileData ( cb_poyete.tiles, tile, cb_poyete.width * cb_poyete.height, 0 );
-		VDP_fillTileMapRectInc ( PLAN_A, TILE_ATTR_FULL ( pal, 0, 0, 0, tile ), 12, 7, cb_poyete.width, cb_poyete.height );
-		preparePal ( pal, cb_poyete.pal );
+
+		if ( gamestate.current_ambiente == 4 )
+		{
+			preparePal ( pal, cs_kbrah_32x32.pal );
+		}
+		else
+		{
+			VDP_loadTileData ( cb_poyete.tiles, tile, cb_poyete.width * cb_poyete.height, 0 );
+			VDP_fillTileMapRectInc ( PLAN_A, TILE_ATTR_FULL ( pal, 0, 0, 0, tile ), 12, 7, cb_poyete.width, cb_poyete.height );
+			preparePal ( pal, cb_poyete.pal );
+		}
 	}
 
 	if ( DEV )
@@ -434,6 +451,7 @@ void level_set_door ( u16 x, u16 y )
 	_door.y = y ;
 }
 
+
 void level_set_key ( u16 x, u16 y )
 {
 	_key.x = x ;
@@ -441,22 +459,10 @@ void level_set_key ( u16 x, u16 y )
 }
 
 
-void level_remove_key ( )
-{
-	_key.x = 24; // tile 40 y tantas: out of the screen
-
-	_key.x = 0;
-	_key.y = 0;
-}
-
-
 u16 level_vram_pos ( VDPPlan plan )
 {
 	return _vram_pos [ plan.value == PLAN_B.value ? 0 : 1 ] ;
 }
-
-
-
 
 
 u16 level_get_music ( )
@@ -475,12 +481,6 @@ u16 level_get_music ( )
 }
 
 
-u16 level_get_head ( )
-{
-   return level_list [ (u16)gamestate.current_ambiente ] [ gamestate_get_dificultad ( ) ].head;
-}
-
-
 void level_update ( )
 {
 	if ( gamestate.current_ambiente == 4 )
@@ -496,7 +496,6 @@ void level_update ( )
 		VDP_setVerticalScrollTile(PLAN_A, 0, values, 20, 0 );
 	}
 }
-
 
 
 void level_draw_ambiente_0 ( )
@@ -614,8 +613,6 @@ void level_draw_ambiente_1 ( )
 }
 
 
-
-
 void level_draw_ambiente_2 ( )
 {
 	if ( gamestate.current_ambiente != 2 )
@@ -647,7 +644,6 @@ void level_draw_ambiente_2 ( )
 	sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN );
 	VDP_setSpriteFull ( sp, 276, 208, w2s_line_down_1.size >> 8, TILE_ATTR_FULL ( PAL0, 0, 0, 0, vrampos ), sp + 1 );
 }
-
 
 
 void level_draw_ambiente_3 ( )
@@ -767,7 +763,6 @@ void level_draw_ambiente_4 ( )
 	sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN );
 	VDP_setSpriteFull ( sp, 272, 192, w4s_line_down_1.size >> 8, TILE_ATTR_FULL ( PAL0, 0, 0, 1, vrampos[0] ), sp + 1 );
 }
-
 
 
 void level_presentation()

@@ -380,6 +380,10 @@ enum
    MONEDON_DOOR,
    KBRAH_DOOR,
 
+   HIDDEN_DOOR,
+
+
+
    EMPTY_WEAPON,
 
 

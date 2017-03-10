@@ -34,14 +34,12 @@
 
 #define OBJECT_IS_KEY      KEY //, GRIAL
 
-#define OBJECT_IS_DOOR     DOOR, DOOR_O,  \
-                             MONEDON_DOOR, \
-                             KBRAH_DOOR
+#define OBJECT_IS_DOOR     DOOR, \
+                             DOOR_O,       \
+                             MONEDON_DOOR, KBRAH_DOOR, HIDDEN_DOOR
 
 #define OBJECT_IS_OPENDOOR DOOR_O,  \
-                             MONEDON_DOOR, \
-                             KBRAH_DOOR
-
+                             MONEDON_DOOR, KBRAH_DOOR, HIDDEN_DOOR
 
 #define OBJECT_IS_GRIEL    GRIEL_STANDS,                                                                \
                              GRIEL_UP,          GRIEL_DOWN,        GRIEL_LEFT,          GRIEL_RIGHT,      \
@@ -57,8 +55,6 @@
                              DEMON,             DEMON_ALT,         DEMON_DIE,   \
                              OBJECT_IS_GRIEL, \
                              MONEDON_DOOR, KBRAH_DOOR
-
-
 
 #define OBJECT_IS_HURTS    FIRE,     \
                              HOLE21,   \

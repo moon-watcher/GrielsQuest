@@ -5,6 +5,11 @@ SPRITE cs_slash         "game/data/common/slash.bmp"         24 24  0  0  0
 SPRITE cs_weapons       "game/data/common/weapons.bmp"       16 16  0  0  0
 SPRITE cs_estrellitas   "game/data/common/estrellitas.bmp"   24 24  0  0  0
 
+SPRITE cs_monedon_16x24 "game/data/common/monedon_16x24.bmp" 16 24  0  0  0
+SPRITE cs_porron_16x24  "game/data/common/porron_16x24.bmp"  16 24  0  0  0
+SPRITE cs_kbrah_32x32   "game/data/common/kbrah_32x32.bmp"   32 32  0  0  0
+
+
 BITMAP cb_square        "game/data/common/square.bmp"            0
 BITMAP cb_font_8x8      "game/data/common/font_8x8.bmp"          0
 BITMAP cb_font_8x8_spa  "game/data/common/font_8x8_spa.bmp"      0

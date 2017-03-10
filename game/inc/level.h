@@ -93,16 +93,13 @@ void        level_set_key             ( u16 x, u16 y );
 Vect2D_u16  level_get_door            ( );
 void        level_set_door            ( u16 x, u16 y );
 
-//u16         level_current             ( );
-void        level_remove_key          ( );
 void        level_draw_demon          ( u16 x, u16 y, u8 ojos, u8 cola );
 u16         level_vram_pos            ( VDPPlan plan );
 
 void        level_ol_set              ( u8 obj, bool value );
 bool        level_ol_get              ( u8 obj );
-//u16         level_get_max_rounds      ( );
+
 u16         level_get_music           ( );
-u16         level_get_head            ( );
 
 void        level_update              ( );
 
@@ -119,8 +116,6 @@ bool        level_flipped_v           ( );
 void        level_actualizar_marcador ( );
 
 u16         level_find                ( u16 object, LEVEL *level, Vect2D_u16 grid[] );
-//s16         level_hpos_to_pixel       ( s16 x );
-//s16         level_vpos_to_pixel       ( s16 y );
 
 void        level_draw_animation      ( u16 nb, u8 x, u8 y );
 void        level_draw_animation_size ( u8 width, u8 height );
