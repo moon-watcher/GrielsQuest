@@ -331,19 +331,18 @@ void level_draw ( LEVEL *level )
 
 	if ( on_medallon )
 	{
-
-		u16 tile = 800;
-		u16 pal  = PAL3;
-
 		if ( gamestate.current_ambiente == 4 )
 		{
-			preparePal ( pal, cs_kbrah_32x32.pal );
+			preparePal ( PAL3, cs_kbrah_32x32.pal );
 		}
 		else
 		{
+			u16 tile = 800;
+
 			VDP_loadTileData ( cb_poyete.tiles, tile, cb_poyete.width * cb_poyete.height, 0 );
-			VDP_fillTileMapRectInc ( PLAN_A, TILE_ATTR_FULL ( pal, 0, 0, 0, tile ), 12, 7, cb_poyete.width, cb_poyete.height );
-			preparePal ( pal, cb_poyete.pal );
+			VDP_fillTileMapRectInc ( PLAN_A, TILE_ATTR_FULL ( PAL3, 0, 0, 0, tile ), 12, 7, cb_poyete.width, cb_poyete.height );
+			preparePal ( PAL2, cs_monedon_16x24.pal );
+			preparePal ( PAL3, cb_poyete.pal );
 		}
 	}
 
