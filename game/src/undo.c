@@ -226,7 +226,7 @@ void undo_control ( LEVEL *level )
 	{
 		level_draw_animation ( EMPTY, _x, _y );
 		level_remove_object ( level, _x, _y ); // remove UNDO
-		toani_draw_explosion ( _x, _y );
+		toani_set_explosion ( _x, _y );
 	}
 
 }

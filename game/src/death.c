@@ -189,7 +189,7 @@ void death_frame ( LEVEL *level )
 
 		if ( d->counter == 5 )
 		{
-			toani_draw_explosion ( d->x, d->y  );
+			toani_set_explosion ( d->x, d->y  );
 		}
 
 		if ( d->counter == 0 )

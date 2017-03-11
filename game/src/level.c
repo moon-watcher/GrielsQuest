@@ -189,8 +189,8 @@ static LEVEL _reorder_level ( LEVEL *level )
 		flipped_v [ SARCOFAGO1  ] = 0;
 		flipped_v [ TOTEM_2     ] = STONE41;
 		flipped_v [ TOTEM_1     ] = 0;
-		flipped_v [ BIGTREE4_D ] = STONE41;
-		flipped_v [ BIGTREE4_U ] = 0;
+		flipped_v [ BIGTREE4_D  ] = STONE41;
+		flipped_v [ BIGTREE4_U  ] = 0;
 		flipped_v [ ABBAYE_D_5  ] = BARREL;
 		flipped_v [ ABBAYE_U_5  ] = 0;
 		flipped_v [ GUITAR2     ] = BARREL;

@@ -277,7 +277,7 @@ static void _hide_important_sprites ( LEVEL *level )
 	while ( duraction-- )
 	{
 		death_frame ( level );
-		toani_remove ( );
+		toani_update ( );
 		chorrada_control ( level );
 		undo_control ( level );
 		level_update ( );
@@ -322,7 +322,7 @@ static void _marco_desplegar ( )
 {
 	VDP_loadTileSet ( cb_howtoplay.tileset, 900, 0 );
 
-	toani_stop_explosion ( );
+	toani_delete_explosion ( );
 	_hide_sprites_by_line ( 0 );
 
 	u16 i;

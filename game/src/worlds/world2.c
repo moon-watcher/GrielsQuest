@@ -266,16 +266,28 @@ const LEVEL w2r13 =
       7, 9,
       (Image*)&w2_marco_1,
       {
-            {    HOLEPY,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0},
-            {    CRUZPY,         0,         0,         0,     BLOCK,     BLOCK,     BLOCK,     BLOCK,     BLOCK,     BLOCK,     BLOCK,         0,         0,         0,         0,         0},
-            {ESCARABAJO,         0,         0,         0,     BLOCK,     BLOCK,     BLOCK,MONEDON_DOOR,   BLOCK,     BLOCK,     BLOCK,         0,         0,         0,         0,         0},
-            {CUADRADOPY,     ORUS1,SARCOFAGO1,         0,     BLOCK,     BLOCK,     BLOCK,         0,     BLOCK,     BLOCK,     BLOCK,         0,         0,         0,         0,         0},
-            {  BLOQUEPY,     ORUS2,SARCOFAGO2,         0,     BLOCK,     BLOCK,         0,         0,         0,     BLOCK,     BLOCK,         0,         0,         0,         0,         0},
-            {    GATOPY,         0,         0,         0,     BLOCK,     BLOCK,         0,         0,         0,     BLOCK,     BLOCK,         0,         0,         0,         0,         0},
             {         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0},
-            {    VASIJA,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0},
-            {  CANDLEPY,  ESFINGE1,  ESFINGE2,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0},
-            {         0,  ESFINGE3,  ESFINGE4,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0},
+            {         0,         0,         0,         0,     BLOCK,     BLOCK,     BLOCK,     BLOCK,     BLOCK,     BLOCK,     BLOCK,         0,         0,         0,         0,         0},
+            {         0,         0,         0,         0,     BLOCK,     BLOCK,     BLOCK,MONEDON_DOOR,   BLOCK,     BLOCK,     BLOCK,         0,         0,         0,         0,         0},
+            {         0,         0,         0,         0,     BLOCK,     BLOCK,     BLOCK,         0,     BLOCK,     BLOCK,     BLOCK,         0,         0,         0,         0,         0},
+            {         0,         0,         0,         0,     BLOCK,     BLOCK,         0,         0,         0,     BLOCK,     BLOCK,         0,         0,         0,         0,         0},
+            {         0,         0,         0,         0,     BLOCK,     BLOCK,         0,         0,         0,     BLOCK,     BLOCK,         0,         0,         0,         0,         0},
+            {         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0},
+            {         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0},
+            {         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0},
+            {         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0},
             {         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0}
+
+//            {    HOLEPY,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0},
+//            {    CRUZPY,         0,         0,         0,     BLOCK,     BLOCK,     BLOCK,     BLOCK,     BLOCK,     BLOCK,     BLOCK,         0,         0,         0,         0,         0},
+//            {ESCARABAJO,         0,         0,         0,     BLOCK,     BLOCK,     BLOCK,MONEDON_DOOR,   BLOCK,     BLOCK,     BLOCK,         0,         0,         0,         0,         0},
+//            {CUADRADOPY,     ORUS1,SARCOFAGO1,         0,     BLOCK,     BLOCK,     BLOCK,         0,     BLOCK,     BLOCK,     BLOCK,         0,         0,         0,         0,         0},
+//            {  BLOQUEPY,     ORUS2,SARCOFAGO2,         0,     BLOCK,     BLOCK,         0,         0,         0,     BLOCK,     BLOCK,         0,         0,         0,         0,         0},
+//            {    GATOPY,         0,         0,         0,     BLOCK,     BLOCK,         0,         0,         0,     BLOCK,     BLOCK,         0,         0,         0,         0,         0},
+//            {         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0},
+//            {    VASIJA,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0},
+//            {  CANDLEPY,  ESFINGE1,  ESFINGE2,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0},
+//            {         0,  ESFINGE3,  ESFINGE4,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0},
+//            {         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0}
       }
 };

@@ -11,6 +11,7 @@ typedef struct
 	bool       active;
 	ANIMATION *object;
 	u8         tiles;
+	u8         speed;
 }
 VOBJECT;
 
@@ -24,6 +25,7 @@ void     vobject_delete    ( u16 objeto );
 void     vobject_animation ( u16 objeto, u16 data );
 void     vobject_swap      ( u16 delete, u16 add );
 void     vobject_reset     ( u16 objeto );
+void     vobject_speed     ( u16 objeto, u8 speed );
 
 
 #endif

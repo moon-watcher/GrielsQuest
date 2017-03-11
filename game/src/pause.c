@@ -110,7 +110,7 @@ static void _hide_important_sprites( LEVEL *level )
 	while ( duraction-- )
 	{
 		death_frame ( level );
-		toani_remove();
+		toani_update();
 		chorrada_control ( level );
 		undo_control ( level );
 		level_update();
@@ -144,7 +144,7 @@ static void _marco_desplegar ( )
 
 	VDP_setMapEx ( PLAN_A, cb_pause.map,TILE_ATTR_FULL(PAL1, true, false, false, 900), 12,  9, 0,  0, 16, 1 );
 
-	toani_stop_explosion ( );
+	toani_delete_explosion ( );
 
 	u16 i;
 

@@ -109,7 +109,7 @@ static void _death_animation ( )
 	else if ( _object == PENTACLE ) muerte = GRIEL_DEAD_PENTACLE;
 
 	vobject_animation ( _p.object, muerte );
-	toani_stop_explosion();
+	toani_delete_explosion();
 
 	if ( muerte == GRIEL_DEAD_TENT_1 )
 	{
@@ -134,7 +134,7 @@ static void _death_animation ( )
 	while ( duracion-- )
 	{
 		death_frame ( wl );
-		toani_remove ( );
+		toani_update ( );
 		chorrada_control ( wl );
 		undo_control ( wl );
 		level_update ( );
@@ -229,7 +229,7 @@ static void _do_slash ( u8 player, LEVEL *level, s8 inc_x, s8 inc_y, s16 x, s16 
 		if ( i == 10 )
 		{
 			psglist_play ( PSG_KILL );
-			toani_draw_dead ( x, y );
+			toani_set_dead ( x, y );
 		}
 
 
@@ -240,7 +240,7 @@ static void _do_slash ( u8 player, LEVEL *level, s8 inc_x, s8 inc_y, s16 x, s16 
 		VDP_setSpritePosition ( splist_flash,  _p.x + pos.x,   _p.y + pos.y + 8 );
 
 		death_frame ( level );
-		toani_remove();
+		toani_update();
 
 		vobject_update();
 		vobject_upload ( );
@@ -286,7 +286,7 @@ void _set_player_x ( u8 object, s8 distance_x, s8 vel_x )
 	_p.distance_x = distance_x;
 	_p.vel_x      = vel_x;
 
-	toani_draw_dust ( _p.x, _p.y );
+	toani_draw_dust (  );
 }
 
 
@@ -298,7 +298,7 @@ void _set_player_y ( u8 object, s8 distance_y, s8 vel_y )
 	_p.distance_y = distance_y;
 	_p.vel_y      = vel_y;
 
-	toani_draw_dust ( _p.x, _p.y );
+	toani_draw_dust ( );
 }
 
 
@@ -513,7 +513,7 @@ void player_logic_next ( u8 player, LEVEL *level )
 			level_draw_animation ( EMPTY, x, y );
 			level_remove_object ( level, x, y );
 
-			toani_draw_explosion ( x, y );
+			toani_set_explosion ( x, y );
 
 			//player_update_score    ( player, o2->score );
 			player_update_selected ( player, ret );
@@ -540,7 +540,7 @@ void player_logic_next ( u8 player, LEVEL *level )
 
 		psglist_play ( PSG_KEY );
 
-		toani_draw_explosion ( x, y );
+		toani_set_explosion ( x, y );
 
 		Vect2D_u16 door = level_get_door();
 		vsprite_animation ( bigboy_getByPos ( door.x, door.y )->index, DOOR_O );
@@ -556,7 +556,7 @@ void player_logic_next ( u8 player, LEVEL *level )
 
 		level_draw_animation ( EMPTY, x, y );
 		level_remove_object ( level, x, y );
-		toani_draw_explosion ( x, y );
+		toani_set_explosion ( x, y );
 
 		undo_rest(+1);
 		level_actualizar_marcador ( );
@@ -822,10 +822,16 @@ void player_control_buttons ( LEVEL *wl )
 	if ( joy1_active_b )
 	{
 		player_speed ( PLAYER_VEL_FAST );
+		toani_inc_dust ( 2 );
+		vobject_speed ( DUST, 2 );
+		vobject_speed ( players[0].object, 2 );
 	}
 	else
 	{
 		player_speed ( PLAYER_VEL_NORMAL );
+		toani_inc_dust ( 1 );
+		vobject_speed ( DUST, 1 );
+		vobject_speed ( players[0].object, 1 );
 	}
 }
 

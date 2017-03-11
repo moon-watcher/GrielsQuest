@@ -51,7 +51,7 @@ void vobject_update ( )
 			continue;
 		}
 
-		if ( v->counter == v->object->frame [ v->frame ].timer )
+		if ( v->counter >= v->object->frame [ v->frame ].timer )
 		{
 			v->counter = 0;
 
@@ -67,7 +67,7 @@ void vobject_update ( )
 			_tiles += v->tiles;
 		}
 
-		++v->counter;
+		v->counter += v->speed;
 		++_objects;
 	}
 }
@@ -100,7 +100,7 @@ VOBJECT *vobject_add ( u16 ani )
 	if ( !_list[ani].active )
 	{
 		u16 tiles = animation_size ( ani );
-		_list[ani] = (VOBJECT) { ani, 0, vram_new(tiles), 0, true, animation_get ( ani ), tiles };
+		_list[ani] = (VOBJECT) { ani, 0, vram_new(tiles), 0, true, animation_get ( ani ), tiles, 1 };
 	}
 
 	return & _list [ ani ];
@@ -142,4 +142,11 @@ void vobject_reset ( u16 ani )
 {
 	_list [ ani ].frame   = 0;
 	_list [ ani ].counter = 0;
+	_list [ ani ].speed   = 1;
+}
+
+
+void vobject_speed ( u16 ani, u8 speed )
+{
+	_list [ ani ].speed = speed;
 }

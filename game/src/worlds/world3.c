@@ -266,16 +266,28 @@ const LEVEL w3r13 =
       7, 9,
       (Image*)&w3_marco_1,
       {
-            {     TOMB4,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0},
-            {    TORCH4,   TOTEM_1,         0,         0,     BLOCK,     BLOCK,     BLOCK,     BLOCK,     BLOCK,     BLOCK,     BLOCK,         0,         0,         0,         0,         0},
-            {  TENTACLE,   TOTEM_2,         0,         0,     BLOCK,     BLOCK,     BLOCK,MONEDON_DOOR,   BLOCK,     BLOCK,     BLOCK,         0,         0,         0,         0,         0},
-            {   STONE41,         0,         0,         0,     BLOCK,     BLOCK,     BLOCK,         0,     BLOCK,     BLOCK,     BLOCK,         0,         0,         0,         0,         0},
-            {     SETO4,BIGTREE4_U,         0,         0,     BLOCK,     BLOCK,         0,         0,         0,     BLOCK,     BLOCK,         0,         0,         0,         0,         0},
-            {   SEASTAR,BIGTREE4_D,         0,         0,     BLOCK,     BLOCK,         0,         0,         0,     BLOCK,     BLOCK,         0,         0,         0,         0,         0},
-            {     ANCLA,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0},
-            {  CARACOLA,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0},
-            {         0,         0, BIGPLESI1, BIGPLESI2,       SEA,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0},
-            {         0,         0, BIGPLESI3, BIGPLESI4,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0},
+            {         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0},
+            {         0,         0,         0,         0,     BLOCK,     BLOCK,     BLOCK,     BLOCK,     BLOCK,     BLOCK,     BLOCK,         0,         0,         0,         0,         0},
+            {         0,         0,         0,         0,     BLOCK,     BLOCK,     BLOCK,MONEDON_DOOR,   BLOCK,     BLOCK,     BLOCK,         0,         0,         0,         0,         0},
+            {         0,         0,         0,         0,     BLOCK,     BLOCK,     BLOCK,         0,     BLOCK,     BLOCK,     BLOCK,         0,         0,         0,         0,         0},
+            {         0,         0,         0,         0,     BLOCK,     BLOCK,         0,         0,         0,     BLOCK,     BLOCK,         0,         0,         0,         0,         0},
+            {         0,         0,         0,         0,     BLOCK,     BLOCK,         0,         0,         0,     BLOCK,     BLOCK,         0,         0,         0,         0,         0},
+            {         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0},
+            {         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0},
+            {         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0},
+            {         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0},
             {         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0}
+
+//            {     TOMB4,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0},
+//            {    TORCH4,   TOTEM_1,         0,         0,     BLOCK,     BLOCK,     BLOCK,     BLOCK,     BLOCK,     BLOCK,     BLOCK,         0,         0,         0,         0,         0},
+//            {  TENTACLE,   TOTEM_2,         0,         0,     BLOCK,     BLOCK,     BLOCK,MONEDON_DOOR,   BLOCK,     BLOCK,     BLOCK,         0,         0,         0,         0,         0},
+//            {   STONE41,         0,         0,         0,     BLOCK,     BLOCK,     BLOCK,         0,     BLOCK,     BLOCK,     BLOCK,         0,         0,         0,         0,         0},
+//            {     SETO4,BIGTREE4_U,         0,         0,     BLOCK,     BLOCK,         0,         0,         0,     BLOCK,     BLOCK,         0,         0,         0,         0,         0},
+//            {   SEASTAR,BIGTREE4_D,         0,         0,     BLOCK,     BLOCK,         0,         0,         0,     BLOCK,     BLOCK,         0,         0,         0,         0,         0},
+//            {     ANCLA,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0},
+//            {  CARACOLA,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0},
+//            {         0,         0, BIGPLESI1, BIGPLESI2,       SEA,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0},
+//            {         0,         0, BIGPLESI3, BIGPLESI4,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0},
+//            {         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0,         0}
       }
 };

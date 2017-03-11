@@ -54,15 +54,12 @@ static void _init ( )
 
 	VDP_setPlanSize ( 64, 32 );
 
-//   VDP_setTextPalette ( PAL0 );
-
 	font_init ( );
 	sd_init();
 	vram_init ( VRAM_DEFAULT );
 	vobject_init ( );
 	splist_init ( );
 	bigboy_init ( );
-	//scoreball_init ( );
 	undo_init ( );
 	toani_init ( );
 	death_init ( );
@@ -137,7 +134,7 @@ u16 game_play ( )
 	{
 		JoyReader_update();
 		death_frame ( &wl );
-		toani_remove ( );
+		toani_update ( );
 		chorrada_control ( &wl );
 		undo_control ( &wl );
 		level_update ( );

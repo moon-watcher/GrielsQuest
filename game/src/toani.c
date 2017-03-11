@@ -11,9 +11,12 @@ toani.c
 
 
 
-static u16 _cnt_dead      = 0;
-static u16 _cnt_dust      = 0;
-static u16 _cnt_explosion = 0;
+static s16 _cnt_dead      = 0;
+static s16 _inc_dead      = 0;
+static s16 _cnt_dust      = 0;
+static s16 _inc_dust      = 0;
+static s16 _cnt_explosion = 0;
+static s16 _inc_explosion = 0;
 
 
 
@@ -22,7 +25,12 @@ static u16 _cnt_explosion = 0;
 
 static u16 _draw ( u16 element, s16 x, s16 y, u8 nb_sp )
 {
-	if ( element != DUST )
+	if ( element == DUST )
+	{
+		x -= 128;
+		y -= 128;
+	}
+	else
 	{
 		x = level_hpos_to_pixel(x);
 		y = level_vpos_to_pixel(y) + 8;
@@ -46,18 +54,42 @@ void toani_init ( )
 	_cnt_dust      = 0;
 	_cnt_explosion = 0;
 
+	_inc_dead      = 1;
+	_inc_dust      = 1;
+	_inc_explosion = 1;
+
 	vobject_delete ( REMOVE_OBJECT );
 	vobject_delete ( ENEMY_DEAD    );
 	vobject_delete ( DUST          );
 }
 
 
-void toani_remove ( )
+void toani_update ( )
 {
-	if ( _cnt_dead      && --_cnt_dead      == 0 ) { vsprite_animation ( splist_explosion, EMPTY_SPRITE ); vobject_delete ( ENEMY_DEAD    ); }
-	if ( _cnt_dust      && --_cnt_dust      == 0 ) { vsprite_animation ( splist_dust,      EMPTY_SPRITE ); vobject_delete ( DUST          ); }
-	if ( _cnt_explosion && --_cnt_explosion == 0 ) { vsprite_animation ( splist_element,   EMPTY_SPRITE ); vobject_delete ( REMOVE_OBJECT ); }
+	_cnt_dead      -= _inc_dead;
+	_cnt_dust      -= _inc_dust;
+	_cnt_explosion -= _inc_explosion;
+
+	drawInt(_cnt_dust,6,6,3);
+	if ( _cnt_dead      < 0 ) toani_delete_dead      ( );
+	if ( _cnt_dust      < 0 ) toani_delete_dust      ( );
+	if ( _cnt_explosion < 0 ) toani_delete_explosion ( );
 }
+
+
+
+void toani_set_dead ( s16 x, s16 y )
+{
+	_cnt_dead = _draw ( ENEMY_DEAD, x, y, splist_explosion );
+	_inc_dead = 1;
+}
+
+void toani_set_explosion ( s16 x, s16 y )
+{
+	_cnt_explosion = _draw ( REMOVE_OBJECT, x, y, splist_element );
+	_inc_explosion = 1;
+}
+
 
 
 void toani_draw_undo ( )
@@ -66,32 +98,49 @@ void toani_draw_undo ( )
 }
 
 
-void toani_draw_dead ( s16 x, s16 y )
+void toani_draw_dust ( )
 {
-	_cnt_dead = _draw ( ENEMY_DEAD, x, y, splist_explosion );
+	if ( _cnt_dust >= 0 )
+	{
+		return;
+	}
+
+	_cnt_dust = _draw ( DUST, vdpSpriteCache[splist_griel].x, vdpSpriteCache[splist_griel].y+8, splist_dust ); //OJO al +8
+	_inc_dust = 1;
 }
 
 
-void toani_draw_dust ( s16 x, s16 y )
+
+void toani_delete_dead ( )
 {
-	_cnt_dust = _draw ( DUST, x, y+8, splist_dust ); //OJO al +8
+	_cnt_dead = 0;
+	_inc_dead = 0;
+	vsprite_animation ( splist_explosion, EMPTY_SPRITE );
+	vobject_delete ( ENEMY_DEAD );
 }
 
 
-void toani_draw_explosion ( s16 x, s16 y )
+void toani_delete_dust ( )
 {
-	_cnt_explosion = _draw ( REMOVE_OBJECT, x, y, splist_element );
+	_cnt_dust = 0;
+	_inc_dust = 0;
+	vsprite_animation ( splist_dust, EMPTY_SPRITE );
+	vobject_delete ( DUST );
 }
 
 
-void toani_stop_explosion ( )
+void toani_delete_explosion ( )
 {
 	_cnt_explosion = 0;
+	_inc_explosion = 0;
 	vsprite_animation ( splist_element, EMPTY_SPRITE );
 	vobject_delete ( REMOVE_OBJECT );
 }
 
 
+void toani_inc_dead      ( u8 inc ) { _inc_dead      = inc; }
+void toani_inc_dust      ( u8 inc ) { _inc_dust      = inc; }
+void toani_inc_explosion ( u8 inc ) { _inc_explosion = inc; }
 
 
 

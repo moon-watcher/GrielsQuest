@@ -87,7 +87,7 @@ static const ANIMATION _list [ ] =
 	{ "Staff",            GRS cs_sprites_16x16, PAL1,   1, { { 10, WA0 } } },
 	{ "Cross",            GRS cs_sprites_16x16, PAL1,   1, { { 11, WA0 } } },
 	{ "Sword",            GRS cs_sprites_16x16, PAL1,   1, { { 12, WA0 } } },
-	{ "Dust",             GRS cs_sprites_16x16, PAL1,   3, { { 13, WA7 }, { 14, WA5 }, { 15, WA7 } } },
+	{ "Dust",             GRS cs_sprites_16x16, PAL1,   3, { { 13,   8 }, { 14, WA2 }, { 15, WA5 } } },
 	{ "Undo",             GRS cs_sprites_16x16, PAL1,   1, { { 16, WA0 } } },
 	{ "Undo OK",          GRS cs_sprites_16x16, PAL1,   1, { { 17, WA0 } } },
 	{ "Boss",             GRS cs_sprites_16x16, PAL1,   2, { { 18, WAB }, { 19, WA3 } } },
@@ -428,6 +428,12 @@ u16 animation_duracion ( u16 ani )
 	while ( i-- )
 	{
 		cnt += _list[ani].frame[i].timer;
+	}
+
+	if ( DEV && ani == DUST  && 0 )
+	{
+		drawUInt(cnt,6,6,3);
+		drawUInt(_list[ani].frames,6,7,3);
 	}
 
 	return cnt;
