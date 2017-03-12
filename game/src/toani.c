@@ -12,11 +12,10 @@ toani.c
 
 
 static s16 _cnt_dead      = 0;
-static s16 _inc_dead      = 0;
 static s16 _cnt_dust      = 0;
-static s16 _inc_dust      = 0;
 static s16 _cnt_explosion = 0;
-static s16 _inc_explosion = 0;
+
+static s16 _inc_dust      = 0;
 
 
 
@@ -54,9 +53,7 @@ void toani_init ( )
 	_cnt_dust      = 0;
 	_cnt_explosion = 0;
 
-	_inc_dead      = 1;
 	_inc_dust      = 1;
-	_inc_explosion = 1;
 
 	vobject_delete ( REMOVE_OBJECT );
 	vobject_delete ( ENEMY_DEAD    );
@@ -66,14 +63,13 @@ void toani_init ( )
 
 void toani_update ( )
 {
-	_cnt_dead      -= _inc_dead;
+	_cnt_dead      -= 1;
 	_cnt_dust      -= _inc_dust;
-	_cnt_explosion -= _inc_explosion;
+	_cnt_explosion -= 1;
 
-	drawInt(_cnt_dust,6,6,3);
-	if ( _cnt_dead      < 0 ) toani_delete_dead      ( );
-	if ( _cnt_dust      < 0 ) toani_delete_dust      ( );
-	if ( _cnt_explosion < 0 ) toani_delete_explosion ( );
+	if ( _cnt_dead      <  0 ) toani_delete_dead      ( );
+	if ( _cnt_dust      <= 1 ) toani_delete_dust      ( );
+	if ( _cnt_explosion <  0 ) toani_delete_explosion ( );
 }
 
 
@@ -81,13 +77,11 @@ void toani_update ( )
 void toani_set_dead ( s16 x, s16 y )
 {
 	_cnt_dead = _draw ( ENEMY_DEAD, x, y, splist_explosion );
-	_inc_dead = 1;
 }
 
 void toani_set_explosion ( s16 x, s16 y )
 {
 	_cnt_explosion = _draw ( REMOVE_OBJECT, x, y, splist_element );
-	_inc_explosion = 1;
 }
 
 
@@ -100,7 +94,7 @@ void toani_draw_undo ( )
 
 void toani_draw_dust ( )
 {
-	if ( _cnt_dust >= 0 )
+	if ( _cnt_dust > 0 )
 	{
 		return;
 	}
@@ -114,7 +108,6 @@ void toani_draw_dust ( )
 void toani_delete_dead ( )
 {
 	_cnt_dead = 0;
-	_inc_dead = 0;
 	vsprite_animation ( splist_explosion, EMPTY_SPRITE );
 	vobject_delete ( ENEMY_DEAD );
 }
@@ -132,15 +125,16 @@ void toani_delete_dust ( )
 void toani_delete_explosion ( )
 {
 	_cnt_explosion = 0;
-	_inc_explosion = 0;
 	vsprite_animation ( splist_element, EMPTY_SPRITE );
 	vobject_delete ( REMOVE_OBJECT );
 }
 
 
-void toani_inc_dead      ( u8 inc ) { _inc_dead      = inc; }
-void toani_inc_dust      ( u8 inc ) { _inc_dust      = inc; }
-void toani_inc_explosion ( u8 inc ) { _inc_explosion = inc; }
+void toani_inc_dust ( u8 inc )
+{
+	_inc_dust = inc;
+}
+
 
 
 

@@ -819,20 +819,18 @@ void player_control_buttons ( LEVEL *wl )
 		undo_last_move ( wl );
 	}
 
+	u16 speed = PLAYER_VEL_NORMAL;
+
 	if ( joy1_active_b )
 	{
-		player_speed ( PLAYER_VEL_FAST );
-		toani_inc_dust ( 2 );
-		vobject_speed ( DUST, 2 );
-		vobject_speed ( players[0].object, 2 );
+		speed = PLAYER_VEL_FAST;
 	}
-	else
-	{
-		player_speed ( PLAYER_VEL_NORMAL );
-		toani_inc_dust ( 1 );
-		vobject_speed ( DUST, 1 );
-		vobject_speed ( players[0].object, 1 );
-	}
+
+	player_speed ( speed );
+	toani_inc_dust ( speed );
+	vobject_speed ( DUST, speed );
+	vobject_speed ( players[0].object, speed );
+	vobject_speed ( weapon_get_object(), speed );
 }
 
 
@@ -883,19 +881,19 @@ void player_interact_with_object ( LEVEL *wl )
 		players [ PLAYER_1 ].on_door = true;
 	}
 
-	if ( object_is_hurts ( obj )  )
+	else if ( object_is_hurts ( obj )  )
 	{
 		JoyReader_reset ( );
 		player_on_hurts ( PLAYER_1 );
 		level_actualizar_marcador ( );
 	}
 
-	if ( object_is_key ( obj ) )
+	else if ( object_is_key ( obj ) )
 	{
 		//
 	}
 
-	if ( object_is_arrow ( obj ) )
+	else if ( object_is_arrow ( obj ) )
 	{
 		player_on_arrow ( PLAYER_1 );
 	}

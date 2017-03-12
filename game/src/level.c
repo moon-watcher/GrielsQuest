@@ -27,35 +27,35 @@ extern const LEVEL w4r00, w4r01, w4r02, w4r03, w4r04, w4r05;
 
 const LEVELLIST level_list [ LEVEL_DIF_MAX_AMBIENTES ] [ LEVEL_DIF_MAX_DIFICULTAD ] =
 {
-   {
-      { "FOREST",       6, DARKELF, MS0, { LV w0r00, LV w0r01, LV w0r02, LV w0r03, LV w0r04, LV w0r13 } },
-      { "FOREST",      10, DARKELF, MS0, { LV w0r00, LV w0r01, LV w0r02, LV w0r03, LV w0r04, LV w0r05, LV w0r06, LV w0r07, LV w0r08, LV w0r13 } },
-      { "FOREST",      14, DARKELF, MS0, { LV w0r00, LV w0r01, LV w0r02, LV w0r03, LV w0r04, LV w0r05, LV w0r06, LV w0r07, LV w0r08, LV w0r09, LV w0r10, LV w0r11, LV w0r12, LV w0r13 } },
-   },
+	{
+		{ "FOREST",       6, DARKELF, MS0, { LV w0r00, LV w0r01, LV w0r02, LV w0r03, LV w0r04, LV w0r13 } },
+		{ "FOREST",      10, DARKELF, MS0, { LV w0r00, LV w0r01, LV w0r02, LV w0r03, LV w0r04, LV w0r05, LV w0r06, LV w0r07, LV w0r08, LV w0r13 } },
+		{ "FOREST",      14, DARKELF, MS0, { LV w0r00, LV w0r01, LV w0r02, LV w0r03, LV w0r04, LV w0r05, LV w0r06, LV w0r07, LV w0r08, LV w0r09, LV w0r10, LV w0r11, LV w0r12, LV w0r13 } },
+	},
 
-   {
-      { "ICELAND",      6, WAMPA,   MS1, { LV w1r00, LV w1r01, LV w1r02, LV w1r03, LV w1r04, LV w1r13 } },
-      { "ICELAND",     10, WAMPA,   MS1, { LV w1r00, LV w1r01, LV w1r02, LV w1r03, LV w1r04, LV w1r05, LV w1r06, LV w1r07, LV w1r08, LV w1r13 } },
-      { "ICELAND",     14, WAMPA,   MS1, { LV w1r00, LV w1r01, LV w1r02, LV w1r03, LV w1r04, LV w1r05, LV w1r06, LV w1r07, LV w1r08, LV w1r09, LV w1r10, LV w1r11, LV w1r12, LV w1r13 } },
-   },
+	{
+		{ "ICELAND",      6, WAMPA,   MS1, { LV w1r00, LV w1r01, LV w1r02, LV w1r03, LV w1r04, LV w1r13 } },
+		{ "ICELAND",     10, WAMPA,   MS1, { LV w1r00, LV w1r01, LV w1r02, LV w1r03, LV w1r04, LV w1r05, LV w1r06, LV w1r07, LV w1r08, LV w1r13 } },
+		{ "ICELAND",     14, WAMPA,   MS1, { LV w1r00, LV w1r01, LV w1r02, LV w1r03, LV w1r04, LV w1r05, LV w1r06, LV w1r07, LV w1r08, LV w1r09, LV w1r10, LV w1r11, LV w1r12, LV w1r13 } },
+	},
 
-   {
-      { "THE PYRAMID",  6, MUMMY,   MS2, { LV w2r00, LV w2r01, LV w2r02, LV w2r03, LV w2r04, LV w2r13 } },
-      { "THE PYRAMID", 10, MUMMY,   MS2, { LV w2r00, LV w2r01, LV w2r02, LV w2r03, LV w2r04, LV w2r05, LV w2r06, LV w2r07, LV w2r08, LV w2r13 } },
-      { "THE PYRAMID", 14, MUMMY,   MS2, { LV w2r00, LV w2r01, LV w2r02, LV w2r03, LV w2r04, LV w2r05, LV w2r06, LV w2r07, LV w2r08, LV w2r09, LV w2r10, LV w2r11, LV w2r12, LV w2r13 } },
-   },
+	{
+		{ "THE PYRAMID",  6, MUMMY,   MS2, { LV w2r00, LV w2r01, LV w2r02, LV w2r03, LV w2r04, LV w2r13 } },
+		{ "THE PYRAMID", 10, MUMMY,   MS2, { LV w2r00, LV w2r01, LV w2r02, LV w2r03, LV w2r04, LV w2r05, LV w2r06, LV w2r07, LV w2r08, LV w2r13 } },
+		{ "THE PYRAMID", 14, MUMMY,   MS2, { LV w2r00, LV w2r01, LV w2r02, LV w2r03, LV w2r04, LV w2r05, LV w2r06, LV w2r07, LV w2r08, LV w2r09, LV w2r10, LV w2r11, LV w2r12, LV w2r13 } },
+	},
 
-   {
-      { "BEACH",        6, PLESI,   MS3, { LV w3r00, LV w3r01, LV w3r02, LV w3r03, LV w3r04, LV w3r13 } },
-      { "BEACH",       10, PLESI,   MS3, { LV w3r00, LV w3r01, LV w3r02, LV w3r03, LV w3r04, LV w3r05, LV w3r06, LV w3r07, LV w3r08, LV w3r13 } },
-      { "BEACH",       14, PLESI,   MS3, { LV w3r00, LV w3r01, LV w3r02, LV w3r03, LV w3r04, LV w3r05, LV w3r06, LV w3r07, LV w3r08, LV w3r09, LV w3r10, LV w3r11, LV w3r12, LV w3r13 } },
-   },
+	{
+		{ "BEACH",        6, PLESI,   MS3, { LV w3r00, LV w3r01, LV w3r02, LV w3r03, LV w3r04, LV w3r13 } },
+		{ "BEACH",       10, PLESI,   MS3, { LV w3r00, LV w3r01, LV w3r02, LV w3r03, LV w3r04, LV w3r05, LV w3r06, LV w3r07, LV w3r08, LV w3r13 } },
+		{ "BEACH",       14, PLESI,   MS3, { LV w3r00, LV w3r01, LV w3r02, LV w3r03, LV w3r04, LV w3r05, LV w3r06, LV w3r07, LV w3r08, LV w3r09, LV w3r10, LV w3r11, LV w3r12, LV w3r13 } },
+	},
 
-   {
-      { "VOLCANO",      4, DEMON,   MS4, { LV w4r00, LV w4r01, LV w4r02, LV w4r05 } },
-      { "VOLCANO",      5, DEMON,   MS4, { LV w4r00, LV w4r01, LV w4r02, LV w4r03, LV w4r05 } },
-      { "VOLCANO",      6, DEMON,   MS4, { LV w4r00, LV w4r01, LV w4r02, LV w4r03, LV w4r04, LV w4r05 } },
-   }
+	{
+		{ "VOLCANO",      4, DEMON,   MS4, { LV w4r00, LV w4r01, LV w4r02, LV w4r05 } },
+		{ "VOLCANO",      5, DEMON,   MS4, { LV w4r00, LV w4r01, LV w4r02, LV w4r03, LV w4r05 } },
+		{ "VOLCANO",      6, DEMON,   MS4, { LV w4r00, LV w4r01, LV w4r02, LV w4r03, LV w4r04, LV w4r05 } },
+	}
 };
 
 
@@ -313,7 +313,11 @@ void level_draw ( LEVEL *level )
 	level_draw_ambiente_3 ( );
 	level_draw_ambiente_4 ( );
 
-	if ( !on_medallon )
+	if ( on_medallon && gamestate.current_ambiente < 4)
+	{
+		//
+	}
+	else
 	{
 		level_draw_area ( level, 0, 0, LEVEL_WIDTH, LEVEL_HEIGHT );
 	}
@@ -333,7 +337,7 @@ void level_draw ( LEVEL *level )
 	{
 		if ( gamestate.current_ambiente == 4 )
 		{
-			preparePal ( PAL3, cs_kbrah_32x32.pal );
+			preparePal ( PAL2, cs_kbrah_32x32.pal );
 		}
 		else
 		{
@@ -470,6 +474,11 @@ u16 level_get_music ( )
 	u16 ambiente   = (u16) gamestate.current_ambiente;
 	u16 dificultad = gamestate_get_dificultad ( );
 	u16 round      = (u16) gamestate.current_round;
+
+	if ( ambiente == 4  &&  level_list [ ambiente ] [ dificultad ].cuantos == round + 1 )
+	{
+		return  MUSIC_CAVERNA_3;
+	}
 
 	while ( level_list [ ambiente ] [ dificultad ].musicas [ cuantas ] > 0 )
 	{

@@ -3,7 +3,7 @@
 
 /////////////////////////////////////////////////////////////////////////////////
 
-
+static u16 _weapon_object;
 
 static const struct
 {
@@ -112,6 +112,7 @@ void weapon_init ( )
 {
 	_cached_pos = -1;
 	_prev_aux   = -1;
+	_weapon_object  = 0;
 }
 
 
@@ -142,6 +143,7 @@ void weapon_draw ( )
 		vsprite_set ( splist_weapon, p->x + x, p->y + y, aux );
 
 		_prev_aux = aux;
+		_weapon_object = aux;
 	}
 }
 
@@ -161,5 +163,12 @@ void weapon_reset ( )
 	if ( i >= 0 )
 	{
 		vobject_reset ( _list[i].result );
+		_weapon_object = _list[i].result;
 	}
+}
+
+
+u16 weapon_get_object ( )
+{
+	return _weapon_object;
 }

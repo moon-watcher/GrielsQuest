@@ -75,7 +75,7 @@ void vobject_update ( )
 
 void vobject_upload ( )
 {
-	if ( DEV )
+	if ( DEV && 0 )
 	{
 		drawUInt ( _objects,  10, 0, 2 );
 		drawUInt ( _contador, 13, 0, 2 );

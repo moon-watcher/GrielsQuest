@@ -78,11 +78,23 @@ u16 gamestate_get_dificultad ( )
 
 bool gamestate_go_to_ending ( u16 state )
 {
+//	return (bool)
+//	(
+//		state                          == LEVEL_COMPLETED  &&
+//		gamestate_cuantos_terminados() == 5                &&
+//		gamestate.current_ambiente     == 4
+//	);
+
+	u16 ambiente   = (u16) gamestate.current_ambiente;
+	u16 dificultad = gamestate_get_dificultad ( );
+	u16 round      = (u16) gamestate.current_round;
+	u16 cuantos    = level_list [ ambiente ] [ dificultad ].cuantos;
+
 	return (bool)
 	(
-		state                          == LEVEL_COMPLETED  &&
-		gamestate_cuantos_terminados() == 5                &&
-		gamestate.current_ambiente     == 4
+		state     == LEVEL_COMPLETED  &&
+		cuantos   == round + 1        &&
+		ambiente  == 4
 	);
 }
 

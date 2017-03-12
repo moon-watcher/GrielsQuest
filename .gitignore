@@ -10,6 +10,7 @@ $RECYCLE.BIN/
 game/data/
 sgdk/
 out/
+videos/
 Griel.workspace
 Griel.workspace.layout
 GrielsQuest.cbp
@@ -56,6 +57,3 @@ SGDK_v1.21.layout
 Network Trash Folder
 Temporary Items
 .apdisk
-GrielsQuest.layout
-*.layout
-*.layout

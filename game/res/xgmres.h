@@ -6,6 +6,7 @@ extern const u8 vgm_bosque_2[41952];
 extern const u8 vgm_boss[48989];
 extern const u8 vgm_caverna_1[47766];
 extern const u8 vgm_caverna_2[47719];
+extern const u8 vgm_caverna_3[17175];
 extern const u8 vgm_desierto_1[42490];
 extern const u8 vgm_desierto_2[46289];
 extern const u8 vgm_desierto_3[40283];
