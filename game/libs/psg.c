@@ -3,6 +3,7 @@
 /* gcc version 12.12.07 */
 
 /* Modified by @MoonWatcherMD at 20151019. Thanks, Shiru! */
+/* Modified by @MoonWatcherMD at 20170126. Added psg_stop() */
 
 
 #include <genesis.h>
@@ -11,8 +12,8 @@
 
 
 
-#define PSG_DATA		0xc00011
-#define PSG_VCH_MAX	4
+#define PSG_DATA     0xc00011
+#define PSG_VCH_MAX  4
 
 
 
@@ -36,6 +37,7 @@ static struct
 }
 _psg = { };
 
+static int stopped = 0;
 
 
 
@@ -196,6 +198,8 @@ void _frame ( void )
 
 void psg_play ( u8 *data, u8 track )
 {
+	stopped = 0;
+
 	volatile u8 *pb;
 
 	s16 chn, eoff, doff, chcnt;
@@ -237,8 +241,14 @@ void psg_play ( u8 *data, u8 track )
 
 void psg_callback ()
 {
-	if ( 	IS_PALSYSTEM || ( vtimer % 6 ) )
+	if ( !stopped && IS_PALSYSTEM || ( vtimer % 6 ) )
 	{
 		_frame();
 	}
+}
+
+
+void psg_stop ( )
+{
+	stopped = 1;
 }
