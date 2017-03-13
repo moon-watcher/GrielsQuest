@@ -243,6 +243,15 @@ void game_loop()
 					   gamestate.lenguaje         = SPANISH;
 
 
+					   gamestate.dificultad   =  2;
+					   gamestate.ambientes[0] = 13; // 14;
+					   gamestate.ambientes[1] = 13; // 14;
+					   gamestate.ambientes[2] = 13; // 14;
+					   gamestate.ambientes[3] = 13; // 14;
+					   gamestate.ambientes[4] =  0; // 6 ;
+					   gamestate.visito_la_puerta = false;
+					   gamestate.lenguaje         = SPANISH;
+
 //					   gamestate.dificultad   =  2;
 //					   gamestate.ambientes[0] =  0; // 14;
 //					   gamestate.ambientes[1] =  0; // 14;

@@ -338,7 +338,7 @@ void inc_difficulty_level ( )
 
 	++gamestate.dificultad;
 
-	if ( gamestate.dificultad > 3 ) // 3 para la dificultad extra de los niveles invetidos
+	if ( gamestate.dificultad >= 3 ) // 3 para la dificultad extra de los niveles invetidos
 	{
 		inc = 0;
 		gamestate.dificultad = 3;

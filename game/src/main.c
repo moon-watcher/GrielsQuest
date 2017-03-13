@@ -392,12 +392,80 @@ u16 _check_password ( u8 password[], u16 *ptrLevel )
 
 
 
+void jap()
+{
 
+   u8 i, ch;
+   u8 *str1 =  "鬆";
+   u8 *str2 =  "鬆大ｼｵ繧� ・�";
+   u8 *str3 =  "輔″蛻・￠";
+   u8 *str4 =  "蜍晏茜";
+   u8 *str5 =  "蠕礼せ";
+   u8 *str6 =  "繧ｳ繧､繝ｳ";
+
+   i=0;
+   ch = str1[i];
+   while ( ch != '\0' )
+   {
+      drawUInt ( ch, 0, i, 3);
+      ch = str1[i++];
+   }
+   drawUInt(i, 0, i, 2);
+
+   i=0;
+   ch = str2[i];
+   while ( ch != '\0' )
+   {
+      drawUInt ( ch, 4, i, 3);
+      ch = str2[i++];
+   }
+   drawUInt(i, 4, i, 2);
+
+   i=0;
+   ch = str3[i];
+   while ( ch != '\0' )
+   {
+      drawUInt ( ch, 8, i, 3);
+      ch = str3[i++];
+   }
+   drawUInt(i, 8, i, 2);
+
+   i=0;
+   ch = str4[i];
+   while ( ch != '\0' )
+   {
+      drawUInt ( ch,12, i, 3);
+      ch = str4[i++];
+   }
+   drawUInt(i,12, i, 2);
+
+   i=0;
+   ch = str5[i];
+   while ( ch != '\0' )
+   {
+      drawUInt ( ch,16, i, 3);
+      ch = str5[i++];
+   }
+   drawUInt(i,16, i, 2);
+
+   i=0;
+   ch = str6[i];
+   while ( ch != '\0' )
+   {
+      drawUInt ( ch,20, i, 3);
+      ch = str6[i++];
+   }
+   drawUInt(i,20, i, 2);
+
+
+   while(1) ;
+}
 
 
 
 int main ( )
 {
+   //jap();
    dev_init ( 1 );
 
    JoyReader_init ( 1 );
