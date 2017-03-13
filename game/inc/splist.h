@@ -20,9 +20,10 @@ u8 splist_ui_key;
 #define splist_hide_sprites()  splist_hide_sprites_from_to ( 0, 80 )
 
 
-void splist_init                   ( );
-void splist_draw                   ( );
-void splist_hide_sprites_in_height ( u16 min, u16 max );
-void splist_reorder                ( );
-void splist_reorder_bigboys        ( );
-void splist_hide_sprites_from_to   ( u16 from, u16 to );
+void       splist_init                   ( );
+void       splist_draw                   ( );
+void       splist_hide_sprites_in_height ( u16 min, u16 max );
+void       splist_reorder                ( );
+void       splist_reorder_bigboys        ( );
+void       splist_hide_sprites_from_to   ( u16 from, u16 to );
+VDPSprite *splist_get_parent             ( u16 index );

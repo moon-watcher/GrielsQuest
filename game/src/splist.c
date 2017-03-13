@@ -122,3 +122,27 @@ void splist_reorder_bigboys ( )
 		vdpSpriteCache [ BIGBOY_START - 1         ].link = BIGBOY_START + total;
 	}
 }
+
+
+
+VDPSprite *splist_get_parent ( u16 index )
+{
+	if ( index > 79 )
+	{
+		return 0;
+	}
+
+	int i = MAX_SPRITE;
+
+	while ( i-- )
+	{
+		VDPSprite *v = &vdpSpriteCache[i];
+
+		if ( v->link == index )
+		{
+			return v;
+		}
+	}
+
+	return NULL;
+}

@@ -185,7 +185,21 @@ static void _stopPlayerIfNecessary ( u8 player )
 	}
 }
 
+static void _change_explosion_link ( s16 x, s16 y )
+{
+	BIGBOY *b = bigboy_getByPos ( x, y );
 
+	if ( b )
+	{
+		VDPSprite *bb_parent = splist_get_parent ( b->index );
+
+		int aux = vdpSpriteCache[splist_explosion].link;
+
+		vdpSpriteCache[splist_explosion].link = b->index;
+		bb_parent->link                       = vdpSpriteCache[(u8)b->index].link;
+		vdpSpriteCache[(u8)b->index].link     = aux;
+	}
+}
 
 
 static void _do_slash ( u8 player, LEVEL *level, s8 inc_x, s8 inc_y, s16 x, s16 y  )
@@ -199,7 +213,7 @@ static void _do_slash ( u8 player, LEVEL *level, s8 inc_x, s8 inc_y, s16 x, s16 
 	if ( inc_x == -1 ) { anim = GRIEL_HACK_LEFT;  slash = SLASH_LEFT;  aux = 0; }
 	if ( inc_x == +1 ) { anim = GRIEL_HACK_RIGHT; slash = SLASH_RIGHT; aux = 1; }
 	if ( inc_y == -1 ) { anim = GRIEL_HACK_UP;    slash = SLASH_UP;    aux = 2; }
-	if ( inc_y == +1 ) { anim = GRIEL_HACK_DOWN;  slash = SLASH_DOWN;  aux = 3; }
+	if ( inc_y == +1 ) { anim = GRIEL_HACK_DOWN;  slash = SLASH_DOWN;  aux = 3; _change_explosion_link ( x, y ); }
 
 	wavelist_play(WAVE_GRIEL_IA);
 
