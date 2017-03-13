@@ -48,7 +48,7 @@ void screen_sound_test ()
 	while ( true )
 	{
 		MUSIC *track = musiclist_get ( music );
-		PSG   *psg   = psglist_get     ( sound );
+		PSG   *psg   = psglist_get   ( sound );
 
 		if ( option == 0 ) pos = 12;
 		if ( option == 1 ) pos = 14;
@@ -90,7 +90,7 @@ void screen_sound_test ()
 		{
 			if ( joy1_pressed_abc || joy1_pressed_start )
 			{
-				psglist_play(PSG_WRONG);
+				psglist_play(PSG_BACK);
 				waitMs(500);
 				break;
 			}
