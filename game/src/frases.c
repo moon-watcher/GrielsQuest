@@ -117,7 +117,7 @@ const static FRASE _list [ ] =
 	(FRASE) { SPANISH,  9, "¿Mmmm? |WAIT ¿Quién ha estado hurgando aquí durante la noche? |WCLEAR ¡AAAHHHHH!" }, // El cofre real está abierto... ¡OH, NO! |BREAK |WAIT:60 ¡HAN ROBADO EL HOLY PORRÓN!" },
 	(FRASE) { SPANISH,  9, "¡Mi porrón! |WAIT ¡LO HAN ROBADO!" }, // El cofre real está abierto... ¡OH, NO! |BREAK |WAIT:60 ¡HAN ROBADO EL HOLY PORRÓN!" },
 	(FRASE) { SPANISH,  9, "¡La princesa también ha desaparecido!" },
-	(FRASE) { SPANISH,  9, "Minucias, |WAIT hay que recuperar el Holy Porrón. |WAIT Avisa a Griel, es el único que se acostó temprano." },
+	(FRASE) { SPANISH,  9, "Minucias, |WAIT hay que recuperar el Holy Porrón. |WAIT Avisa a Griel, él siempre se acuesta temprano." },
 
 
 //                          //"Todo apesta a mi archienemigo Kbrah. Lo primero es el Holy porrón, pero vuelve con mi hija y te concederé su mano"
@@ -128,12 +128,12 @@ const static FRASE _list [ ] =
                           //"Todo apesta a mi archienemigo Kbrah. Lo primero es el Holy porrón, pero vuelve con mi hija y te concederé su mano"
 	(FRASE) { SPANISH, 10, "Griel, sin el Holy Porrón el reino está perdido. |WAIT ¡Debes recuperarlo cuanto antes! |WCLEAR:180 Esto apesta a mi archienemigo Kbrah, seguro que ha sido él."},//  "Griel, han robado el Holy Porrón, su poder es temible. ¡Debes recuperarlo cuanto antes!" },
 	(FRASE) { SPANISH, 10, "¡También se ha llevado a la princesa!" }, // "¿Y qué hay de la princesa? |BREAK También ha sido secuestrada..." },
-	(FRASE) { SPANISH, 10, "¿La princesa? ¡Ah, sí, sí! |WAIT Ve al castillo de ese rufián, vuelve con el porrón y te concederé su mano. |WAIT ¿Entendido? |WBREAK ¡Ahora largo de aquí!" },
+	(FRASE) { SPANISH, 10, "¿La princesa? Ah, sí, sí... |WAIT Ve al castillo de ese rufián, vuelve con el porrón y te concederé su mano. |WAIT ¿Entendido? |WBREAK ¡Ahora largo de aquí!" },
 
 	(FRASE) { SPANISH, 11, "Vuelve con el porrón y te concederé la mano de mi hija. |WBREAK ¡Ahora largo de aquí!" },
 
 	// puerta opcion 1
-	(FRASE) { SPANISH, 12, "Cerrado. |WCLEAR:180 Un momento, esos huecos tienen la forma de... |WBREAK ¡Los Monedones Legendarios! |WCLEAR:180 Creo que tendré que buscarlos y ponerlos ahí, lo he visto en otros juegos. |WCLEAR:180 Diablos, |WAIT esto me va a llevar toda la tarde." },// "Vaya, la típica puerta cerrada. |WAIT:60 |BREAK Parece que será un juego difícil. |WCLEAR Un momento, esos huecos en la pared... |WAIT:60 |BREAK Diablos, esto me va a llevar toda la tarde. |WAIT:60 |BREAK ¡Vamos allá!" },
+	(FRASE) { SPANISH, 12, "Cerrado. |WCLEAR:180 Un momento, esos huecos tienen la forma de... |WBREAK ¡Los Monedones Legendarios! |WCLEAR:180 Creo que tendré que buscarlos y ponerlos ahí, lo he visto en otros juegos. |WCLEAR:180 Diablos, esto me va a llevar toda la tarde." },// "Vaya, la típica puerta cerrada. |WAIT:60 |BREAK Parece que será un juego difícil. |WCLEAR Un momento, esos huecos en la pared... |WAIT:60 |BREAK Diablos, esto me va a llevar toda la tarde. |WAIT:60 |BREAK ¡Vamos allá!" },
 	// puerta opcion 2
 	(FRASE) { SPANISH, 13, "Parece que no cuela, mejor vuelvo luego." }, //(FRASE) { SPANISH, 14,  "(Ese día el programador estaba vago y no enseñó a Griel a restar)" },
 
@@ -149,7 +149,7 @@ const static FRASE _list [ ] =
 	(FRASE) { SPANISH, 15, "¡Uoh! |WAIT Papi, qué chico más chachi. |WAIT ¿Me lo puedo quedar?" },
 	(FRASE) { SPANISH, 15, "¡Ni hablar! |WAIT No te he maleducado para que ahora te juntes con caballeretes. |WCLEAR:180 Además ya se iba, ¿verdad, campeón?" },
 	(FRASE) { SPANISH, 15, "No tan rápido malandrín, la princesa Beach también se viene conmigo." },
-	(FRASE) { SPANISH, 15, "Ya no está aquí. |WAIT No pudimos emm... |WAIT retenerla por más tiempo. |WCLEAR:180 Y ahora coge el porrón y lárgate antes de que me arrepienta." },
+	(FRASE) { SPANISH, 15, "La princesa está en otro castaillo, no pudimos emm... |WAIT retenerla por más tiempo. |WCLEAR:180 Y ahora coge el porrón y lárgate antes de que me arrepienta." },
 
 	// final 2
 	(FRASE) { SPANISH, 16, "¡Fantástico, hijo! Lo has conseguido. |WCLEAR:180 ¡Oh, mi Holy Porrón querido! Al fin estás de vuelta." }, // La verdad es que no daba un duro por ti pero has hecho un buen trabajo." },
