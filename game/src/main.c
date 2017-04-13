@@ -466,7 +466,7 @@ void jap()
 int main ( )
 {
    //jap();
-   //dev_init ( 1 );
+   dev_init ( 1 );
 
    JoyReader_init ( 1 );
 
