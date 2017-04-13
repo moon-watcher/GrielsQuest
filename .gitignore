@@ -11,6 +11,7 @@ game/data/
 sgdk/
 out/
 videos/
+roms/
 Griel.workspace
 Griel.workspace.layout
 GrielsQuest.cbp
@@ -58,3 +59,4 @@ Network Trash Folder
 Temporary Items
 .apdisk
 GrielsQuest.cbp
+GrielsQuest.layout
