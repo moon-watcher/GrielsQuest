@@ -503,6 +503,8 @@ int main ( )
 
 
 
+    screen_staff ( );
+    screen_oldending ( );
 
 
 
