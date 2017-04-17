@@ -1,3 +1,10 @@
+BITMAP ob_staff_kbrah    "game/data/other/staff/kbrah.bmp"      0
+BITMAP ob_staff_kbrah2   "game/data/other/staff/kbrah2.bmp"     0
+BITMAP ob_staff_notah    "game/data/other/staff/notah.bmp"      0
+BITMAP ob_staff_griel    "game/data/other/staff/griel.bmp"      0
+BITMAP ob_staff_beach    "game/data/other/staff/beach.bmp"      0
+BITMAP ob_staff_kbritah  "game/data/other/staff/kbritah.bmp"    0
+
 BITMAP ob_logo_Sega      "game/data/other/logo_Sega.bmp"        0
 BITMAP ob_logo_Karoshi   "game/data/other/logo_Karoshi.bmp"     0
 BITMAP ob_logo_OookLab   "game/data/other/logo_OookLab.bmp"     0

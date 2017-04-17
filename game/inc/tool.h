@@ -20,7 +20,6 @@ void planHide              ( );
 void planHide_Ex           ( VDPPlan plan );
 void planHide_and_sprites  ( );
 void showBmp               ( u16 pal, struct genresTiles *grt, u16 tile, VDPPlan plan, u16 x, u16 y, u8 pal_steps );
-void showBmp_bn            ( u16 pal, struct genresTiles *grt, u16 tile, VDPPlan plan, u16 x, u16 y, u8 pal_steps );
 void typeText              ( u8 *str, u8 x, u8 y, u16 ms );
 u16  typeTextHalt          ( u8 *str, u8 x, u8 y, u16 ms, u16 joy, u16 buttons );
 //void tool_reset            ( );
@@ -40,3 +39,6 @@ void waitSc    ( u16 sc );
 void waitJoy   ( );
 void waitJoyHz ( u16 hz );
 void waitJoySc ( u16 sc );
+
+void tool_reset_plan ( VDPPlan plan );
+void tool_move_plan  ( VDPPlan plan, s16 dir );

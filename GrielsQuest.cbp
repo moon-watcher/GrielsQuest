@@ -892,6 +892,7 @@
 		<Unit filename="game/inc/screens/final.h" />
 		<Unit filename="game/inc/screens/intro.h" />
 		<Unit filename="game/inc/screens/mapa.h" />
+		<Unit filename="game/inc/screens/oldending.h" />
 		<Unit filename="game/inc/screens/puerta.h" />
 		<Unit filename="game/inc/splist.h" />
 		<Unit filename="game/inc/stars.h" />
@@ -1205,6 +1206,9 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="game/src/screens/mapa.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/src/screens/oldending.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="game/src/screens/oooklab.c">

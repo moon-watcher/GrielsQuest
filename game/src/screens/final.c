@@ -607,21 +607,3 @@ void screen_final ( u16 jump )
 
 	VDP_setPlanSize ( 64, 32 );
 }
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-

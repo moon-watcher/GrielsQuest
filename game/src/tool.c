@@ -171,46 +171,11 @@ void planHide ( )
 void showBmp ( u16 pal, struct genresTiles *grt, u16 tile, VDPPlan plan, u16 x, u16 y, u8 pal_steps )
 {
 	SYS_disableInts();
-
 	VDP_loadTileData ( grt->tiles, tile, grt->width * grt->height, 0 );
-	//VDP_loadTileData ( grt->tiles, tile, grt->width * grt->height, 1 ); VDP_waitDMACompletion();
-
 	VDP_fillTileMapRectInc ( plan, TILE_ATTR_FULL ( pal, 1, 0, 0, tile ), x, y, grt->width, grt->height );
-	waitMs(4);
-
-	if ( pal_steps > 1 )
-	{
-		VDP_fadePalIn ( pal, grt->pal, pal_steps, 0 );
-	}
-
-	VDP_setPalette ( pal, grt->pal );
-
 	SYS_enableInts();
 }
 
-
-void showBmp_bn ( u16 pal, struct genresTiles *grt, u16 tile, VDPPlan plan, u16 x, u16 y, u8 pal_steps )
-{
-	const u16 grey [16] = { 0x000, 0x111, 0x222, 0x333, 0x444, 0x555, 0x666, 0x777, 0x888, 0x999, 0xAAA, 0xBBB, 0xCCC, 0xDDD, 0xEEE, 0xFFF };
-
-	SYS_disableInts();
-
-	VDP_setPalette ( pal, palette_black );
-
-	VDP_loadTileData ( grt->tiles, tile, grt->width * grt->height, 0 );
-	//VDP_loadTileData ( grt->tiles, tile, grt->width * grt->height, 1 ); VDP_waitDMACompletion ( );
-
-	VDP_fillTileMapRectInc ( plan, TILE_ATTR_FULL ( pal, 1, 0, 0, tile ), x, y, grt->width, grt->height );
-
-	if ( pal_steps > 1 )
-	{
-		VDP_fadePalIn ( pal, grey, pal_steps, 0 );
-	}
-
-	VDP_setPalette ( pal, grt->pal );
-
-	SYS_enableInts();
-}
 
 
 void typeText ( u8 *str, u8 x, u8 y, u16 ms )
@@ -350,8 +315,30 @@ void waitJoySc ( u16 sc )
 }
 
 
+static s16 _plan_dir_a = 0;
+static s16 _plan_dir_b = 0;
 
+void tool_reset_plan ( VDPPlan plan )
+{
+    if ( plan.value == PLAN_A.value ) _plan_dir_a = 0;
+    else _plan_dir_b = 0;
 
+    VDP_setHorizontalScroll( plan, 0 );
+}
+
+void tool_move_plan ( VDPPlan plan, s16 dir )
+{
+    if ( plan.value == PLAN_A.value )
+    {
+        _plan_dir_a += dir;
+        VDP_setHorizontalScroll( plan, _plan_dir_a );
+    }
+    else
+    {
+        _plan_dir_b += dir;
+        VDP_setHorizontalScroll( plan, _plan_dir_b );
+    }
+}
 
 
 

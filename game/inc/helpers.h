@@ -40,6 +40,7 @@ char *StringPadRight            ( char *string, int padded_len, char *pad );
 void drawInt                    ( u32 number, u8 x, u8 y, u8 leading_zeros );
 void drawUInt                   ( u32 number, u8 x, u8 y, u8 leading_zeros );
 void drawUIntBG                 ( u32 number, u8 x, u8 y, u8 leading_zeros, u16 plan, u16 flags );
+
 void showFPS                    ( );
 u32  ntsc2pal                   ( u32 value );
 u8   getHz                      ( );

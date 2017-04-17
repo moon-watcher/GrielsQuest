@@ -465,47 +465,50 @@ void jap()
 
 int main ( )
 {
-   //jap();
-   dev_init ( 1 );
+    //jap();
+    //dev_init ( 1 );
 
-   JoyReader_init ( 1 );
+    JoyReader_init ( 1 );
+    monos();
 
-
-   monos();
-
-   //object_viewer();
-   //conio();
+    //object_viewer();
+    //conio();
 
 
 
-   gamestate.lenguaje = ENGLISH;
+    gamestate.lenguaje = ENGLISH;
 
 
-   Z80_init();
-   Z80_unloadDriver();
-	Z80_loadDriver ( Z80_DRIVER_XGM, true );
-	SND_setForceDelayDMA_XGM ( true );
+    Z80_init();
+    Z80_unloadDriver();
+    Z80_loadDriver ( Z80_DRIVER_XGM, true );
+    SND_setForceDelayDMA_XGM ( true );
 
-   VDP_setPlanSize ( 64, 32 );
+    VDP_setPlanSize ( 64, 32 );
+
+    JOY_init ( );
+    JOY_setSupport ( PORT_1, DEV ? JOY_SUPPORT_6BTN : JOY_SUPPORT_3BTN ); // JOY_SUPPORT_3BTN
+    //JOY_setSupport ( PORT_1, JOY_SUPPORT_6BTN  ); // JOY_SUPPORT_3BTN
+    JOY_setSupport ( PORT_2, JOY_SUPPORT_OFF );
+
+    JoyReader_init ( 1 );
+
+    //vram_init ( TILE_USERINDEX );
+
+    vint_init ( );
+    vint_setJoyReader ( true );
+
+    SYS_setVIntCallback ( (_voidCallback*) vint_callback );
 
 
 
-   JOY_init ( );
-   JOY_setSupport ( PORT_1, DEV ? JOY_SUPPORT_6BTN : JOY_SUPPORT_3BTN ); // JOY_SUPPORT_3BTN
-   //JOY_setSupport ( PORT_1, JOY_SUPPORT_6BTN  ); // JOY_SUPPORT_3BTN
-   JOY_setSupport ( PORT_2, JOY_SUPPORT_OFF );
 
-   JoyReader_init ( 1 );
 
-   //vram_init ( TILE_USERINDEX );
 
-   vint_init ( );
-   vint_setJoyReader ( true );
 
-   SYS_setVIntCallback ( (_voidCallback*) vint_callback );
 
-   font_init ( );
-	gamestate_init ( ); // debe estar aqui y tras introducir un password correcto
+    font_init ( );
+    gamestate_init ( ); // debe estar aqui y tras introducir un password correcto
 
 
 

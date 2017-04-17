@@ -11,6 +11,8 @@
 static u16 _vint_JoyReader      = 0;
 static u16 _vint_ob_intro_2_b_f = 0;
 static u16 _vint_flecha_map     = 0;
+static s16 _plan_dir_a          = 0;
+static s16 _plan_dir_b          = 0;
 
 
 
@@ -29,6 +31,8 @@ _voidCallback *vint_callback ( )
 	if ( _vint_JoyReader      ) JoyReader_update ( );
 	if ( _vint_ob_intro_2_b_f ) screen_ob_intro_2_b_f ( );
 	if ( _vint_flecha_map     ) screen_mapa_flecha ( );
+	if ( _plan_dir_a          ) tool_move_plan ( PLAN_A, _plan_dir_a );
+	if ( _plan_dir_b          ) tool_move_plan ( PLAN_B, _plan_dir_b );
 
 	SND_setMusicTempo_XGM ( 50 );
 
@@ -43,3 +47,9 @@ void vint_setFlechaMap      ( u16 active ) { _vint_flecha_map     = active; }
 u16  vint_getJoyReader      ( ) { return _vint_JoyReader;      }
 u16  vint_getOb_intro_2_b_f ( ) { return _vint_ob_intro_2_b_f; }
 u16  vint_getFlechaMap      ( ) { return _vint_flecha_map;     }
+
+void vint_setPlanScroll ( VDPPlan plan, s16 direction )
+{
+    if ( plan.value == PLAN_A.value ) _plan_dir_a = direction;
+    else _plan_dir_b = direction;
+}

@@ -11,6 +11,13 @@ extern const struct genresTiles          ob_logo_Karoshi;
 extern const struct genresTiles          ob_logo_OookLab;
 extern const struct genresTiles          ob_logo_copyright;
 
+extern const struct genresTiles          ob_staff_griel;
+extern const struct genresTiles          ob_staff_kbrah;
+extern const struct genresTiles          ob_staff_kbrah2;
+extern const struct genresTiles          ob_staff_notah;
+extern const struct genresTiles          ob_staff_beach;
+extern const struct genresTiles          ob_staff_kbritah;
+
 //extern const struct genresTiles          ob_intro_1;
 //extern const struct genresTiles          ob_intro_2;
 //extern const struct genresTiles          ob_intro_3;
