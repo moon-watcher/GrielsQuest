@@ -6,6 +6,7 @@ void screen_oldending ( )
     u16 colors[64] = { };
 
     displayOff ( 0 );
+    JoyReader_pause();
 
 
     // text colors
@@ -13,7 +14,6 @@ void screen_oldending ( )
     colors[2] = 0x888;
     prepareColors(colors);
 
-    font_init();
 	musiclist_play ( MUSIC_ENDING_1 );
 	XGM_setMusicTempo(60);
 
@@ -80,4 +80,5 @@ void screen_oldending ( )
 
 	planHide();
 	waitMs(1000);
+	JoyReader_resume();
 }

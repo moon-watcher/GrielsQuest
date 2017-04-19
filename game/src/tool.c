@@ -200,7 +200,10 @@ u16 typeTextHalt ( u8 *str, u8 x, u8 y, u16 ms, u16 joy, u16 buttons )
 			return 1;
 		}
 
-		waitMs(ms);
+		if ( chr[0] != ' ' )
+        {
+            waitMs(ms);
+        }
 	}
 
 	return 0;

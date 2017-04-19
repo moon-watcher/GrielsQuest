@@ -4,14 +4,13 @@
 void screen_staff()
 {
     displayInit();
-
     displayOff(0);
+    JoyReader_pause();
 
 	u16 i;
 	u8 wait1 = ntsc2pal ( 69 );
 	u16 colors [ 64 ] = { };
 
-    font_init();
 	musiclist_play ( MUSIC_STAFF );
 	XGM_setMusicTempo(50);
 
@@ -245,6 +244,7 @@ salto:
     VDP_clearPlan(PLAN_A, 1);
 	VDP_clearPlan(PLAN_B, 1);
 
+	JoyReader_resume();
 	//music_stop();
 }
 

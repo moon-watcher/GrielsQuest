@@ -623,17 +623,17 @@ int main ( )
     vint_setJoyReader ( true );
 
     SYS_setVIntCallback ( (_voidCallback*) vint_callback );
+    font_init ( );
 
 
-
-
+	prayer_show ( 6 );
     screen_staff ( );
     screen_oldending ( );
 
 
 
 
-    font_init ( );
+
     gamestate_init ( ); // debe estar aqui y tras introducir un password correcto
 
 
@@ -730,7 +730,7 @@ int main ( )
 
 /*
 
-   //	prayer_show ( 6 );
+   	prayer_show ( 6 );
    //	prayer_show ( 11 );
    //	prayer_show ( 16 );
    //	prayer_show ( 21 );zz
