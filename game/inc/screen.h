@@ -43,7 +43,6 @@ u16   screen_title_menu_1       ( ) ;
 void  screen_gameover           ( );
 void  screen_ending             ( );
 void  screen_sound_test         ( );
-void  screen_staff              ( );
 u16   screen_ingame_how_to_play ( LEVEL wl );
 void  screen_disclaimer         ( );
 void  screen_ob_intro_2_b_f     ( );

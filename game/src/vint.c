@@ -1,6 +1,7 @@
 #include <genesis.h>
 
 #include "../inc/vint.h"
+#include "../inc/tool.h"
 #include "../inc/screens/intro.h"
 #include "../inc/screens/mapa.h"
 #include "../libs/psg.h"

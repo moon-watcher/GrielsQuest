@@ -170,10 +170,10 @@ void planHide ( )
 
 void showBmp ( u16 pal, struct genresTiles *grt, u16 tile, VDPPlan plan, u16 x, u16 y, u8 pal_steps )
 {
-	SYS_disableInts();
+//	SYS_disableInts();
 	VDP_loadTileData ( grt->tiles, tile, grt->width * grt->height, 0 );
 	VDP_fillTileMapRectInc ( plan, TILE_ATTR_FULL ( pal, 1, 0, 0, tile ), x, y, grt->width, grt->height );
-	SYS_enableInts();
+//	SYS_enableInts();
 }
 
 

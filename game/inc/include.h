@@ -276,6 +276,7 @@ bool;
 #include "../inc/screens/final.h"
 #include "../inc/screens/puerta.h"
 #include "../inc/screens/oldending.h"
+#include "../inc/screens/staff.h"
 #include "../inc/worlds/worlds.h"
 #include "../inc/vint.h"
 #include "../inc/typetext.h"

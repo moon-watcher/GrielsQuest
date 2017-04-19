@@ -873,7 +873,6 @@
 		<Unit filename="game/inc/game.h" />
 		<Unit filename="game/inc/gamestate.h" />
 		<Unit filename="game/inc/genres_externs.h" />
-		<Unit filename="game/inc/gfx.h" />
 		<Unit filename="game/inc/helpers.h" />
 		<Unit filename="game/inc/howtoplay.h" />
 		<Unit filename="game/inc/include.h" />
@@ -894,6 +893,7 @@
 		<Unit filename="game/inc/screens/mapa.h" />
 		<Unit filename="game/inc/screens/oldending.h" />
 		<Unit filename="game/inc/screens/puerta.h" />
+		<Unit filename="game/inc/screens/staff.h" />
 		<Unit filename="game/inc/splist.h" />
 		<Unit filename="game/inc/stars.h" />
 		<Unit filename="game/inc/stdint.h" />
@@ -1221,6 +1221,9 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="game/src/screens/soundtest.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/src/screens/staff.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="game/src/screens/title.c">
