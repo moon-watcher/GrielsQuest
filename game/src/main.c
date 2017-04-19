@@ -626,7 +626,7 @@ int main ( )
     font_init ( );
 
 
-	prayer_show ( 6 );
+	prayer_show ( 10 );
     screen_staff ( );
     screen_oldending ( );
 

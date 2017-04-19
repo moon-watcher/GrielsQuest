@@ -1,7 +1,7 @@
 #include "../inc/include.h"
 //#include "../inc/prayer.h"
 
-static const PRAYER _list [ PRAYER_PRAYERS ] =
+static const PRAYER _list [ PRAYER_PRAYERS+1 ] =
 {
 	{
 		"GENESIS",
@@ -132,9 +132,16 @@ static const PRAYER _list [ PRAYER_PRAYERS ] =
 			"     died here, four changed    ",
 			"          their faith.          ",
 			"                                ",
-			"            Jean Raymond 20:14. "
+			"            Jean Raymond 20:17. "
 		}
+	},
+
+	{
+	    "",
+	    {
+	    }
 	}
+
 };
 
 
