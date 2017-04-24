@@ -851,7 +851,7 @@ void player_control_buttons ( LEVEL *wl )
 
 void player_ctrldev ( u16 *ret )
 {
-	if ( !DEV )
+	if ( DEV == 0 )
 	{
 		return;
 	}

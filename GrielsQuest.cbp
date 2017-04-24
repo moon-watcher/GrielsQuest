@@ -1200,6 +1200,9 @@
 		<Unit filename="game/src/screens/final.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="game/src/screens/gameover.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="game/src/screens/griels.c">
 			<Option compilerVar="CC" />
 		</Unit>

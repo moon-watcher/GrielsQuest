@@ -222,8 +222,8 @@ void game_loop()
 		gamestate.visito_la_puerta = false;
 		puerta_abierta = 0;
 
-		screen_oooklab ( 4, BUTTON_BTN, 0 );
 		screen_playonretro ( );
+		screen_oooklab ( 4, BUTTON_BTN, 0 );
 		screen_languages();
 		screen_intro ( 1 );
 		to = screen_title ( 0 );
@@ -233,7 +233,7 @@ void game_loop()
 
 
 
-					if ( DEV )
+					if ( DEV > 1 )
 					{
 					   gamestate.dificultad   =  3;
 					   gamestate.ambientes[0] = 14; // 14;
@@ -353,9 +353,9 @@ void game_loop()
 		if ( to == SCREEN_JUMP_TO_ENDING )
 		{
 			screen_final(0);
-			//screen_staff ();
 			//screen_ending();
 			screen_gameover();
+			screen_staff ();
 		}
 
 	}

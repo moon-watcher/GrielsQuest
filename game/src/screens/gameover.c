@@ -52,7 +52,9 @@ void screen_gameover ( )
 
 	planHide();
 	resetSprites();
-	waitMs(1000);
+
+	music_stop();
+    waitMs(1000);
 
 	//music_stop();
 }

@@ -11,139 +11,139 @@ const static FRASE _list [ ] =
 
 
 
-	(FRASE) { ENGLISH,   1, "RISKY WOODS" },
-	(FRASE) { ENGLISH,   1, "MURCIANO'S LAIR" },
-	(FRASE) { ENGLISH,   1, "ABU ABYSS" },
-	(FRASE) { ENGLISH,   1, "PUSSY BEACH" },
-	(FRASE) { ENGLISH,   1, "KBRAH CASTLE" },
-	(FRASE) { ENGLISH,   1, "DUDEWORLD" },
-	(FRASE) { ENGLISH,   1, "You forgot something?" },
-	(FRASE) { ENGLISH,   1, "LEVEL %02d" },
+    (FRASE) { ENGLISH,   1, "RISKY WOODS" },
+    (FRASE) { ENGLISH,   1, "MURCIANO'S LAIR" },
+    (FRASE) { ENGLISH,   1, "ABU ABYSS" },
+    (FRASE) { ENGLISH,   1, "PUSSY BEACH" },
+    (FRASE) { ENGLISH,   1, "KBRAH CASTLE" },
+    (FRASE) { ENGLISH,   1, "DUDEWORLD" },
+    (FRASE) { ENGLISH,   1, "You forgot something?" },
+    (FRASE) { ENGLISH,   1, "LEVEL %02d" },
 
-	(FRASE) { ENGLISH,   2, "\\ CONTINUE" },
-	(FRASE) { ENGLISH,   2, "  RESTART" },
-	(FRASE) { ENGLISH,   2, "  EXIT" },
-	(FRASE) { ENGLISH,   2, "RESTART LEVEL" },
-	(FRASE) { ENGLISH,   2, "QUIT LEVEL" },
-	(FRASE) { ENGLISH,   2, "LEVEL COMPLETED" },
+    (FRASE) { ENGLISH,   2, "\\ CONTINUE" },
+    (FRASE) { ENGLISH,   2, "  RESTART" },
+    (FRASE) { ENGLISH,   2, "  EXIT" },
+    (FRASE) { ENGLISH,   2, "RESTART LEVEL" },
+    (FRASE) { ENGLISH,   2, "QUIT LEVEL" },
+    (FRASE) { ENGLISH,   2, "LEVEL COMPLETED" },
 
 
-	(FRASE) { ENGLISH,   3, "LEVEL COMPLETED" },
+    (FRASE) { ENGLISH,   3, "LEVEL COMPLETED" },
 
-	(FRASE) { ENGLISH,   4, "LEVEL   " },
+    (FRASE) { ENGLISH,   4, "LEVEL   " },
 
-	(FRASE) { ENGLISH,   5, "BINGO!" },
-	(FRASE) { ENGLISH,   5, "BURNING UP" },
-	(FRASE) { ENGLISH,   5, "RED HOT" },
-	(FRASE) { ENGLISH,   5, "HOT" },
-	(FRASE) { ENGLISH,   5, "WARM" },
-	(FRASE) { ENGLISH,   5, "WARMISH" },
-	(FRASE) { ENGLISH,   5, "LUKEWARM" },
-	(FRASE) { ENGLISH,   5, "COOL" },
-	(FRASE) { ENGLISH,   5, "CHILLY" },
-	(FRASE) { ENGLISH,   5, "COLD" },
-	(FRASE) { ENGLISH,   5, "ICE" },
-	(FRASE) { ENGLISH,   5, "BELOW ZERO" },
+    (FRASE) { ENGLISH,   5, "BINGO!" },
+    (FRASE) { ENGLISH,   5, "BURNING UP" },
+    (FRASE) { ENGLISH,   5, "RED HOT" },
+    (FRASE) { ENGLISH,   5, "HOT" },
+    (FRASE) { ENGLISH,   5, "WARM" },
+    (FRASE) { ENGLISH,   5, "WARMISH" },
+    (FRASE) { ENGLISH,   5, "LUKEWARM" },
+    (FRASE) { ENGLISH,   5, "COOL" },
+    (FRASE) { ENGLISH,   5, "CHILLY" },
+    (FRASE) { ENGLISH,   5, "COLD" },
+    (FRASE) { ENGLISH,   5, "ICE" },
+    (FRASE) { ENGLISH,   5, "BELOW ZERO" },
 
-	//
-	// excuses
-	(FRASE) { ENGLISH,  6, "The wolf always fools me." },                            // woods
-	(FRASE) { ENGLISH,  6, "Ice for soft drinks." },                                 // iceland
-	(FRASE) { ENGLISH,  6, "The sand gets into my dust." },                          // egypt
-	(FRASE) { ENGLISH,  6, "I have no swimsuit." },                                  // beach
-	//
-	(FRASE) { ENGLISH,  6, "Here's Johnny!" },                                                     // The shinning ref.
-	(FRASE) { ENGLISH,  6, "These aren't the droids you're looking for" },                        // Starwars ref
-	(FRASE) { ENGLISH,  6, "I can't go there, that's the forbidden triangle." },                   // Monkey Island 2 refference
-	(FRASE) { ENGLISH,  6, "I can't go there, that's the forbidden dodecahedron." },               // Monkey Island 2 refference
-	(FRASE) { ENGLISH,  6, "RISE FROM YOUR GRAVE!" },                                              // Altered beast refference
-	(FRASE) { ENGLISH,  6, "Look behind you, a three headed monkey!" },                            // Monkey Island 2 refference
-	(FRASE) { ENGLISH,  6, "Is that a banana in your pocket or are you just happy to see me?." },  // Monkey Island 2 refference
-	(FRASE) { ENGLISH,  6, "Scotty, we need more power!" },                                        // Star trek refference
-	(FRASE) { ENGLISH,  6, "How many Klingons does it take to change a light bulb?." },            // Joke, Star trek refference
-	(FRASE) { ENGLISH,  6, "Do you know that joke which says...?" },                               // Eugenio LoL
-	(FRASE) { ENGLISH,  6, "Go Kbrah's castle." },                                                 //
-	(FRASE) { ENGLISH,  6, "Oh, c'mon! I Have not all day." },                                     //
-	(FRASE) { ENGLISH,  6, "Hasn't you look over enough?" },                                       //
-	//
+    //
+    // excuses
+    (FRASE) { ENGLISH,  6, "The wolf always fools me." },                            // woods
+    (FRASE) { ENGLISH,  6, "Ice for soft drinks." },                                 // iceland
+    (FRASE) { ENGLISH,  6, "The sand gets into my dust." },                          // egypt
+    (FRASE) { ENGLISH,  6, "I have no swimsuit." },                                  // beach
+    //
+    (FRASE) { ENGLISH,  6, "Here's Johnny!" },                                                     // The shinning ref.
+    (FRASE) { ENGLISH,  6, "These aren't the droids you're looking for" },                        // Starwars ref
+    (FRASE) { ENGLISH,  6, "I can't go there, that's the forbidden triangle." },                   // Monkey Island 2 refference
+    (FRASE) { ENGLISH,  6, "I can't go there, that's the forbidden dodecahedron." },               // Monkey Island 2 refference
+    (FRASE) { ENGLISH,  6, "RISE FROM YOUR GRAVE!" },                                              // Altered beast refference
+    (FRASE) { ENGLISH,  6, "Look behind you, a three headed monkey!" },                            // Monkey Island 2 refference
+    (FRASE) { ENGLISH,  6, "Is that a banana in your pocket or are you just happy to see me?." },  // Monkey Island 2 refference
+    (FRASE) { ENGLISH,  6, "Scotty, we need more power!" },                                        // Star trek refference
+    (FRASE) { ENGLISH,  6, "How many Klingons does it take to change a light bulb?." },            // Joke, Star trek refference
+    (FRASE) { ENGLISH,  6, "Do you know that joke which says...?" },                               // Eugenio LoL
+    (FRASE) { ENGLISH,  6, "Go Kbrah's castle." },                                                 //
+    (FRASE) { ENGLISH,  6, "Oh, c'mon! I Have not all day." },                                     //
+    (FRASE) { ENGLISH,  6, "Hasn't you look over enough?" },                                       //
+    //
 
-	(FRASE) { ENGLISH,  7, "This is evil Kbrah, a happy villain." },
-	(FRASE) { ENGLISH,  7, "He kidnaps princesses and changes them from a castle to other." },
-	(FRASE) { ENGLISH,  7, "Playing hours and hours horrible violent video games." },
-	(FRASE) { ENGLISH,  7, "And playing in a group that does wake the dead. |WCLEAR:180 And..." },
+    (FRASE) { ENGLISH,  7, "This is evil Kbrah, a happy villain." },
+    (FRASE) { ENGLISH,  7, "He kidnaps princesses and changes them from a castle to other." },
+    (FRASE) { ENGLISH,  7, "Playing hours and hours horrible violent video games." },
+    (FRASE) { ENGLISH,  7, "And playing in a group that does wake the dead. |WCLEAR:180 And..." },
 
-	(FRASE) { ENGLISH,  8, "He gives parties to his evil friends. |WAIT Parties that sometimes end badly." },
+    (FRASE) { ENGLISH,  8, "He gives parties to his evil friends. |WAIT Parties that sometimes end badly." },
 
-	(FRASE) { ENGLISH,  9, "The next morning, at King Notah's Castle." },
-	(FRASE) { ENGLISH,  9, "Hmmm? |WAIT Who has been rummaging here this night? |WCLEAR AAAHHHHH!" },
-	(FRASE) { ENGLISH,  9, "My Porron! |WAIT IT HAS BEEN STOLEN!" },
-	(FRASE) { ENGLISH,  9, "Princess has been taken too!" },
-	(FRASE) { ENGLISH,  9, "Petty details, |WAIT Holy Porron must be recovered. |WAIT Alert Griel, he always goes to bed early." },
+    (FRASE) { ENGLISH,  9, "The next morning, at King Notah's Castle." },
+    (FRASE) { ENGLISH,  9, "Hmmm? |WAIT Who has been rummaging here this night? |WCLEAR AAAHHHHH!" },
+    (FRASE) { ENGLISH,  9, "My Porron! |WAIT IT HAS BEEN STOLEN!" },
+    (FRASE) { ENGLISH,  9, "Princess has been taken too!" },
+    (FRASE) { ENGLISH,  9, "Petty details, |WAIT Holy Porron must be recovered. |WAIT Alert Griel, he always goes to bed early." },
 
     (FRASE) { ENGLISH, 10, "Griel, the kingdom is lost without the Holy Porron. |WAIT You must recover it as soon as possible! |WCLEAR:180 This smells like to be a Kbrah thing, my archenemy, it must to has been him."},
-	(FRASE) { ENGLISH, 10, "Princess has been taken too!" },
-	(FRASE) { ENGLISH, 10, "Princess? Ah, yes, yes... |WAIT Go the that ruffian castle, back with Holy Porron and I'll grant you her hand. |WAIT Got It? |WBREAK Now, get out of here." },
+    (FRASE) { ENGLISH, 10, "Princess has been taken too!" },
+    (FRASE) { ENGLISH, 10, "Princess? Ah, yes, yes... |WAIT Go the that ruffian castle, back with Holy Porron and I'll grant you her hand. |WAIT Got It? |WBREAK Now, get out of here." },
 
-	(FRASE) { ENGLISH, 11, "Back with Holy Porron and I'll grant you her hand. |WBREAK Now, get out of here!" },
+    (FRASE) { ENGLISH, 11, "Back with Holy Porron and I'll grant you her hand. |WBREAK Now, get out of here!" },
 
-	// Door option 1
-	(FRASE) { ENGLISH, 12, "Closed. |WCLEAR:180 Wait a moment, those slots have the shape of... |WBREAK Legendary Purses! |WCLEAR:180 I guess I have to find and place them there, I'd seen that in other games. |WCLEAR:180 Damn, It will take me all evening." },
-	// door option 2
-	(FRASE) { ENGLISH, 13, "It looks that won't work, better I'll back later." },
+    // Door option 1
+    (FRASE) { ENGLISH, 12, "Closed. |WCLEAR:180 Wait a moment, those slots have the shape of... |WBREAK Legendary Purses! |WCLEAR:180 I guess I have to find and place them there, I'd seen that in other games. |WCLEAR:180 Damn, It will take me all evening." },
+    // door option 2
+    (FRASE) { ENGLISH, 13, "It looks that won't work, better I'll back later." },
 
-	// door option 3
-	(FRASE) { ENGLISH, 14, "You have recovered the Legendary Purses. They look great! |WAIT Why you did that?" },
-	(FRASE) { ENGLISH, 14, "To open the door, I'd come to settle scores with Kbrah..." },
-	(FRASE) { ENGLISH, 14, "So much useless effort... |WAIT:60 you could ring the doorbell, loser! HA, HA!" },
-	(FRASE) { ENGLISH, 14, "Damn! |WAIT Say nothing about this or I'll kill you." },
+    // door option 3
+    (FRASE) { ENGLISH, 14, "You have recovered the Legendary Purses. They look great! |WAIT Why you did that?" },
+    (FRASE) { ENGLISH, 14, "To open the door, I'd come to settle scores with Kbrah..." },
+    (FRASE) { ENGLISH, 14, "So much useless effort... |WAIT:60 you could ring the doorbell, loser! HA, HA!" },
+    (FRASE) { ENGLISH, 14, "Damn! |WAIT Say nothing about this or I'll kill you." },
 
-	// final 1
-	(FRASE) { ENGLISH, 15, "Kbrah, pestilent beast. |WAIT Bring me back the Holy Porron, I know you have." },
-	(FRASE) { ENGLISH, 15, "Did you really come for that trinket? |WAIT Here you have, take it, I didn't like at all..." },
-	(FRASE) { ENGLISH, 15, "Uoh! |WAIT chat a cute kid, daddy. |WAIT Can I keep him?" },
-	(FRASE) { ENGLISH, 15, "No way! |WAIT I din't spoiled you for being with jerky knights now. |WCLEAR:180 He's leaving anyway, is not, buddy?" },
-	(FRASE) { ENGLISH, 15, "Not so fast, scoundrel, Beach Princess is coming with me too." },
-	(FRASE) { ENGLISH, 15, "The Princess is in another castle, we couldn't... |WAIT retain her any longer. |WCLEAR:180 now take that Holy Porron and get away of here before I regret." },
+    // final 1
+    (FRASE) { ENGLISH, 15, "Kbrah, pestilent beast. |WAIT Bring me back the Holy Porron, I know you have." },
+    (FRASE) { ENGLISH, 15, "Did you really come for that trinket? |WAIT Here you have, take it, I didn't like at all..." },
+    (FRASE) { ENGLISH, 15, "Uoh! |WAIT chat a cute kid, daddy. |WAIT Can I keep him?" },
+    (FRASE) { ENGLISH, 15, "No way! |WAIT I din't spoiled you for being with jerky knights now. |WCLEAR:180 He's leaving anyway, is not, buddy?" },
+    (FRASE) { ENGLISH, 15, "Not so fast, scoundrel, Beach Princess is coming with me too." },
+    (FRASE) { ENGLISH, 15, "The Princess is in another castle, we couldn't... |WAIT retain her any longer. |WCLEAR:180 now take that Holy Porron and get away of here before I regret." },
 
-	// final 2
-	(FRASE) { ENGLISH, 16, "Great, son! You did it. |WCLEAR:180 Oh, my loved Holy Porron! you are back at last." },
-	(FRASE) { ENGLISH, 16, "Which is its great power?" },
-	(FRASE) { ENGLISH, 16, "This magical artifact provides endless wine to its owner. |WAIT:60 a fresh nectar stream, a bit chopped, but infinite." },
-	(FRASE) { ENGLISH, 16, "WINE?! |WAIT JUST WINE?! |WAIT I can't believe it... |WCLEAR:180 You promised the hand of the Princess." },
+    // final 2
+    (FRASE) { ENGLISH, 16, "Great, son! You did it. |WCLEAR:180 Oh, my loved Holy Porron! you are back at last." },
+    (FRASE) { ENGLISH, 16, "Which is its great power?" },
+    (FRASE) { ENGLISH, 16, "This magical artifact provides endless wine to its owner. |WAIT:60 a fresh nectar stream, a bit chopped, but infinite." },
+    (FRASE) { ENGLISH, 16, "WINE?! |WAIT JUST WINE?! |WAIT I can't believe it... |WCLEAR:180 You promised the hand of the Princess." },
 
-	// final 2 // weak
-	(FRASE) { ENGLISH, 17, "Anything like that! |WAIT You completed the game in easiest mode. You thought I won't notice that?" },
-	(FRASE) { ENGLISH, 17, "But, but..." },
-	(FRASE) { ENGLISH, 17, "Sorry, but my daughter needs a real man. |WAIT Take a note of password and try again." },
-	// Weak ending finishes here
+    // final 2 // weak
+    (FRASE) { ENGLISH, 17, "Anything like that! |WAIT You completed the game in easiest mode. You thought I won't notice that?" },
+    (FRASE) { ENGLISH, 17, "But, but..." },
+    (FRASE) { ENGLISH, 17, "Sorry, but my daughter needs a real man. |WAIT Take a note of password and try again." },
+    // Weak ending finishes here
 
-	// final 2 // hard guy or nightmare
-	(FRASE) { ENGLISH, 18, "Of course |WAIT:120 SWEETHEART, GET OUT!" },
-	(FRASE) { ENGLISH, 18, "Call the Princess, |WAIT Griel came for your hand." },
-	(FRASE) { ENGLISH, 18, "She is already a woman, you will see." },
-	(FRASE) { ENGLISH, 18, "Griel? |WCLEAR:180 Are you Griel...?" },
+    // final 2 // hard guy or nightmare
+    (FRASE) { ENGLISH, 18, "Of course |WAIT:120 SWEETHEART, GET OUT!" },
+    (FRASE) { ENGLISH, 18, "Call the Princess, |WAIT Griel came for your hand." },
+    (FRASE) { ENGLISH, 18, "She is already a woman, you will see." },
+    (FRASE) { ENGLISH, 18, "Griel? |WCLEAR:180 Are you Griel...?" },
 
 
-	// final 3 // hard guy or nightmare
-	(FRASE) { ENGLISH, 19, "GROARRR! |WAIT you are hot! |WAIT COME IN MY ARMAS, HANDSOME!" },
-	(FRASE) { ENGLISH, 19, "AAAAAAH! PLEASE; DON'T EAT ME!" },
-	(FRASE) { ENGLISH, 19, "Ha, ha, ha! |WAIT Just a little bit!" },
+    // final 3 // hard guy or nightmare
+    (FRASE) { ENGLISH, 19, "GROARRR! |WAIT you are hot! |WAIT COME IN MY ARMAS, HANDSOME!" },
+    (FRASE) { ENGLISH, 19, "AAAAAAH! PLEASE; DON'T EAT ME!" },
+    (FRASE) { ENGLISH, 19, "Ha, ha, ha! |WAIT Just a little bit!" },
 
-	// final 3 // hard guy
-	(FRASE) { ENGLISH, 20, "What a bad luck, there wasn't a better ending?" },
-	// This is hard guy ending
+    // final 3 // hard guy
+    (FRASE) { ENGLISH, 20, "What a bad luck, there wasn't a better ending?" },
+    // This is hard guy ending
 
-	// final 3 // nightmare
-	(FRASE) { ENGLISH, 21, "TAKE THIS! |WAIT Canned boy is mine." },
-	(FRASE) { ENGLISH, 21, "...?! |WAIT Kbritah?" },
+    // final 3 // nightmare
+    (FRASE) { ENGLISH, 21, "TAKE THIS! |WAIT Canned boy is mine." },
+    (FRASE) { ENGLISH, 21, "...?! |WAIT Kbritah?" },
 
-	// final 4 // nightmare
-	(FRASE) { ENGLISH, 22, "It was close |WAIT Why you saved me?" },
-	(FRASE) { ENGLISH, 22, "You completed the game in hardest mode, you deserve something better, don't you think? |WCLEAR:180 And you are so cute with those lovely little horns..." },
-	(FRASE) { ENGLISH, 22, "Oh, thanks but you are not taking me, is it?" },
-	(FRASE) { ENGLISH, 22, "Ha, ha, ha. |WAIT We must celebrate this. |WAIT I'll show you the \"real\" ending." },
-	(FRASE) { ENGLISH, 22, "Great, road to next scene." } ,
-	(FRASE) { ENGLISH, 22, "Oh, c'mon. |WAIT You are silliest than I thought... |WAIT:200" },
+    // final 4 // nightmare
+    (FRASE) { ENGLISH, 22, "It was close |WAIT Why you saved me?" },
+    (FRASE) { ENGLISH, 22, "You completed the game in hardest mode, you deserve something better, don't you think? |WCLEAR:180 And you are so cute with those lovely little horns..." },
+    (FRASE) { ENGLISH, 22, "Oh, thanks but you are not taking me, is it?" },
+    (FRASE) { ENGLISH, 22, "Ha, ha, ha. |WAIT We must celebrate this. |WAIT I'll show you the \"real\" ending." },
+    (FRASE) { ENGLISH, 22, "Great, road to next scene." } ,
+    (FRASE) { ENGLISH, 22, "Oh, c'mon. |WAIT You are silliest than I thought... |WAIT:200" },
 
 
 
@@ -227,9 +227,9 @@ const static FRASE _list [ ] =
     (FRASE) { ENGLISH, 25, "Inverted mode" },
 
     // game difficulty modes ----------------------------------------------------------------------
-    (FRASE) { ENGLISH, 26, "Weak" },
-    (FRASE) { ENGLISH, 26, "Hard guy" },
-    (FRASE) { ENGLISH, 26, "Mind-blowing" }, // PESADILLA
+    (FRASE) { ENGLISH, 26, "WEAK" },
+    (FRASE) { ENGLISH, 26, "HARD GUY" },
+    (FRASE) { ENGLISH, 26, "MIND-BLOWING" }, // PESADILLA
 
     // Title screen options ----------------------------------------------------
     (FRASE) { ENGLISH, 27, "NEW GAME" },

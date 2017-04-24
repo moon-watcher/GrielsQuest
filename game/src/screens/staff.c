@@ -167,30 +167,30 @@ salto:
 
 
     preparePal(PAL3, ob_staff_kbrah2.pal);
-	memcpyU16(&colors[48], ob_staff_kbrah2.pal, 16 );
-	prepareColors( colors );
-	showBmp ( PAL3, (struct genresTiles*) &ob_staff_kbrah2, HOW_TO_PLAY_TILE, PLAN_B, 11, -5, wait1 );
+    memcpyU16(&colors[48], ob_staff_kbrah2.pal, 16 );
+    prepareColors( colors );
+    showBmp ( PAL3, (struct genresTiles*) &ob_staff_kbrah2, HOW_TO_PLAY_TILE, PLAN_B, 11, -5, wait1 );
     displayOn(60);
 
-	VDP_setTextPalette(PAL1);
-	typeText( "Beta testing",     3,  3, wait1 );
+    VDP_setTextPalette(PAL1);
+    typeText( "Beta testing",     3,  3, wait1 );
 
-	waitSc(1);
+    waitSc(1);
 
-	VDP_setTextPalette(PAL0);
-	typeText( "Alfonso Martinez", 3, 7, wait1 );
-	typeText( "@_SrPresley_",     3, 9, wait1 );
-	waitSc(1);
-    typeText( "Alfonso Martinez", 3, 13, wait1 );
-	typeText( "@_SrPresley_",     3, 15, wait1 );
-	waitSc(1);
-    typeText( "Alfonso Martinez", 3, 19, wait1 );
-	typeText( "@_SrPresley_",     3, 21, wait1 );
+    VDP_setTextPalette(PAL0);
+    typeText( "Alfonso Martinez", 3, 7, wait1 );
+    typeText( "@_SrPresley_",     3, 9, wait1 );
+//    waitSc(1);
+//    typeText( "Alfonso Martinez", 3, 13, wait1 );
+//    typeText( "@_SrPresley_",     3, 15, wait1 );
+//    waitSc(1);
+//    typeText( "Alfonso Martinez", 3, 19, wait1 );
+//    typeText( "@_SrPresley_",     3, 21, wait1 );
     waitSc(3);
-	planHide_Ex(PLAN_A);
+    planHide_Ex(PLAN_A);
     displayOff(0);
     VDP_clearPlan(PLAN_A, 1);
-	VDP_clearPlan(PLAN_B, 1);
+    VDP_clearPlan(PLAN_B, 1);
 
 
 

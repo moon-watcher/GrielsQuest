@@ -532,8 +532,7 @@ void screen_ob_intro_2_b_f( )
 
 void screen_intro ( u8 jump )
 {
-	//if ( DEV ) return;
-
+    if ( DEV > 1 ) return;
 
 
 	music_stop();

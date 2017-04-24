@@ -69,6 +69,10 @@ static void _show_message ( u8 content )
 
 void _draw_content ( u16 i )
 {
+    const u8 enemies[4] = {32, 33, 34, 35,36 } ;
+    const u8 enemy = enemies [ gamestate.current_ambiente ];
+
+
 	//drawInt(i, 0,0,3);
 	if ( i == 0 )
 	{
@@ -105,12 +109,12 @@ void _draw_content ( u16 i )
 		VDP_clearTileMapRect ( PLAN_B, 7, 14, 2, 2 );
 		animation_set_raw();
 		animation_draw ( o1,  7, 14, true, PLAN_A, 1, 0, 0, 0, 0 );
-		text_write ( animation_get(o1)->name, 10, 15 );
+		text_write ( frases_find(31,0), 10, 15 );
 
 		VDP_clearTileMapRect ( PLAN_B, 21, 14, 2, 2 );
 		animation_set_raw();
 		animation_draw ( o2, 21, 14, true, PLAN_A, 1, 0, 0, 0, 0 );
-		text_write ( animation_get(o2)->name, 24, 15 );
+		text_write ( frases_find(enemy,0), 24, 15 );
 	}
 	else if ( i == 13 )
 	{
@@ -126,12 +130,12 @@ void _draw_content ( u16 i )
 		VDP_clearTileMapRect ( PLAN_B, 7, 17, 2, 2 );
 		animation_set_raw();
 		animation_draw ( o1, 7 , 17, true, PLAN_A, 1, 0, 0, 0, 0 );
-		text_write ( animation_get(o1)->name, 10, 18 );
+		text_write ( frases_find(31,1), 10, 18 );
 
 		VDP_clearTileMapRect ( PLAN_B, 21, 17, 2, 2 );
 		animation_set_raw();
 		animation_draw ( o2, 21, 17, true, PLAN_A, 1, 0, 0, 0, 0 );
-		text_write ( animation_get(o2)->name, 24, 18 );
+		text_write ( frases_find(enemy,1), 24, 18 );
 	}
 	else if ( i == 16 )
 	{
@@ -147,12 +151,12 @@ void _draw_content ( u16 i )
 		VDP_clearTileMapRect ( PLAN_B,  7, 20, 2, 2 );
 		animation_set_raw();
 		animation_draw ( o1,  7, 20, true, PLAN_A, 1, 0, 0, 0, 0 );
-		text_write ( animation_get(o1)->name, 10, 21 );
+		text_write ( frases_find(31,2), 10, 21 );
 
 		VDP_clearTileMapRect ( PLAN_B, 21, 19, 2, 3 );
 		animation_set_raw();
 		animation_draw ( o2, 21, 19, true, PLAN_A, 1, 0, 0, 0, 0 );
-		text_write ( animation_get(o2)->name, 24, 21 );
+		text_write ( frases_find(enemy,2), 24, 21 );
 	}
 	else if ( i == 19 )
 	{
@@ -168,12 +172,12 @@ void _draw_content ( u16 i )
 		VDP_clearTileMapRect ( PLAN_B, 7, 22, 2, 3 );
 		animation_set_raw();
 		animation_draw ( o1, 7, 22, true, PLAN_A, 1, 0, 0, 0, 0 );
-		text_write ( animation_get(o1)->name, 10, 24 );
+		text_write ( frases_find(31,3), 10, 24 );
 
 		VDP_clearTileMapRect ( PLAN_B, 21, 22, 2, 3 );
 		animation_set_raw();
 		animation_draw ( o2, 21, 22, true, PLAN_A, 1, 0, 0, 0, 0 );
-		text_write ( animation_get(o2)->name, 24, 24 );
+		text_write ( frases_find(37,0), 24, 24 );
 	}
 }
 

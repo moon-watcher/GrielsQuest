@@ -6,7 +6,7 @@
 
 void screen_playonretro ( )
 {
-	if ( DEV ) return;
+    if ( DEV > 1 ) return;
 
 	displayOff(0);
 

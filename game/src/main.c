@@ -590,7 +590,7 @@ void jap()
 int main ( )
 {
     //jap();
-    dev_init ( 1 );
+    dev_init ( 2 );
 
     JoyReader_init ( 1 );
     monos();
@@ -660,7 +660,7 @@ int main ( )
 
 
    screen_disclaimer ( 1 );
-   //screen_sega ( 0, BUTTON_BTN, 0 );
+   screen_sega ( 0, BUTTON_BTN, 0 );
    screen_griels ( 4, BUTTON_BTN, 0 ); // solo para Barcelona y demos
 
 
