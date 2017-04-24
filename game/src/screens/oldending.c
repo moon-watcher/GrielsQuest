@@ -6,6 +6,9 @@ void screen_oldending ( )
     u16 colors[64] = { };
 
     displayOff ( 0 );
+    resetScreen();
+
+
     JoyReader_pause();
 
 

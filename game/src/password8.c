@@ -144,48 +144,53 @@ static void _draw ( PASSWORD8 password )
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-
-//void pwd8_generate ( )
-void pwd8_generate ( PASSWORD8 letras )
+static u16 compare ( u8 *str, PASSWORD8 pwd )
 {
-	setRandomSeed(vtimer);
+    u8 i, len = strlen(str);
 
-	letras [ 0 ] = _rnd();
-	letras [ 1 ] = '-';
-	letras [ 2 ] = '-';
-	letras [ 3 ] = '-';
-	letras [ 4 ] = '-';
-	letras [ 5 ] = '-';
-	letras [ 6 ] = '-';
-	letras [ 7 ] = '-';
-	letras [ 8 ] = '\0';
+    for ( i=0; i<len; i++ )
+    {
+        if ( str[i] != pwd[i] )
+        {
+            return 0;
+        }
+    }
 
-	u8 pos1, pos2, pos3, pos4, pos5, pos6, pos7;
+    return 1;
+}
 
-	_posiciones ( letras, &pos1, &pos2, &pos3, &pos4, &pos5, &pos6, &pos7 );
+static void pwdCheats ( PASSWORD8 pwd )
+{
+    if ( compare ("STAFF",  pwd) ) screen_staff();
+    if ( compare ("OLDEND", pwd) ) screen_oldending();
 
-	u8 aux = gamestate_get_dificultad ( );
+    u8 i=0;
 
-	letras [ pos2 ] = numero_a_letra ( gamestate.dificultad, 3 ); // 0, 1, 2, 3
-	letras [ pos3 ] = numero_a_letra ( gamestate.ambientes[0], level_list [ 0 ] [ aux ].cuantos );
-	letras [ pos4 ] = numero_a_letra ( gamestate.ambientes[1], level_list [ 1 ] [ aux ].cuantos );
-	letras [ pos5 ] = numero_a_letra ( gamestate.ambientes[2], level_list [ 2 ] [ aux ].cuantos );
-	letras [ pos6 ] = numero_a_letra ( gamestate.ambientes[3], level_list [ 3 ] [ aux ].cuantos );
-	letras [ pos7 ] = numero_a_letra ( gamestate.ambientes[4], level_list [ 4 ] [ aux ].cuantos );
+    while ( 1 )
+    {
+        u8 *word = prayer_get ( i )->keyword;
 
-	u16 posicion    = letras [ 0 ] % 7;
-	u16 suma        = ( gamestate.dificultad + gamestate.ambientes[0] + gamestate.ambientes[1] + gamestate.ambientes[2] + gamestate.ambientes[3] + gamestate.ambientes[4] + posicion ) / 3;
+        if ( strcmp ( word, "" ) == 0 )
+        {
+            break;
+        }
 
-	letras [ pos1 ] = suma + PWD8_A_STARTS_AT;
+        if ( compare ( word, pwd ) )
+        {
+            prayer_show ( i );
+        }
 
-	//text_draw ( (u8*) letras, 12, 12, 0 );
-	//pwd8_is_ok ( letras );
+        ++i;
+    }
 }
 
 
-
-bool pwd8_is_ok ( PASSWORD8 pwd )
+static bool pwd_is_ok ( PASSWORD8 pwd )
 {
+    pwdCheats( pwd );
+
+
+
 	u16  i    = 0;
 	bool ret  = false;
 	u16  play = 1;
@@ -269,6 +274,48 @@ bool pwd8_is_ok ( PASSWORD8 pwd )
 
 
 
+/////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
+
+
+//void pwd8_generate ( )
+void pwd8_generate ( PASSWORD8 letras )
+{
+	setRandomSeed(vtimer);
+
+	letras [ 0 ] = _rnd();
+	letras [ 1 ] = '-';
+	letras [ 2 ] = '-';
+	letras [ 3 ] = '-';
+	letras [ 4 ] = '-';
+	letras [ 5 ] = '-';
+	letras [ 6 ] = '-';
+	letras [ 7 ] = '-';
+	letras [ 8 ] = '\0';
+
+	u8 pos1, pos2, pos3, pos4, pos5, pos6, pos7;
+
+	_posiciones ( letras, &pos1, &pos2, &pos3, &pos4, &pos5, &pos6, &pos7 );
+
+	u8 aux = gamestate_get_dificultad ( );
+
+	letras [ pos2 ] = numero_a_letra ( gamestate.dificultad, 3 ); // 0, 1, 2, 3
+	letras [ pos3 ] = numero_a_letra ( gamestate.ambientes[0], level_list [ 0 ] [ aux ].cuantos );
+	letras [ pos4 ] = numero_a_letra ( gamestate.ambientes[1], level_list [ 1 ] [ aux ].cuantos );
+	letras [ pos5 ] = numero_a_letra ( gamestate.ambientes[2], level_list [ 2 ] [ aux ].cuantos );
+	letras [ pos6 ] = numero_a_letra ( gamestate.ambientes[3], level_list [ 3 ] [ aux ].cuantos );
+	letras [ pos7 ] = numero_a_letra ( gamestate.ambientes[4], level_list [ 4 ] [ aux ].cuantos );
+
+	u16 posicion    = letras [ 0 ] % 7;
+	u16 suma        = ( gamestate.dificultad + gamestate.ambientes[0] + gamestate.ambientes[1] + gamestate.ambientes[2] + gamestate.ambientes[3] + gamestate.ambientes[4] + posicion ) / 3;
+
+	letras [ pos1 ] = suma + PWD8_A_STARTS_AT;
+
+	//text_draw ( (u8*) letras, 12, 12, 0 );
+	//pwd_is_ok ( letras );
+}
+
+
+
 
 bool pwd8_screen()
 {
@@ -335,7 +382,7 @@ bool pwd8_screen()
 				pwd8_generate ( letras );
 
 				text_draw ( letras, 12, 12, 0 );
-				pwd8_is_ok ( letras );
+				pwd_is_ok ( letras );
 			}
 		}
 
@@ -344,14 +391,14 @@ bool pwd8_screen()
 		// Sale con START
 		if ( joy1_pressed_start )
 		{
-			ret = pwd8_is_ok ( password );
+			ret = pwd_is_ok ( password );
 			break;
 		}
 
 		// Sale con OK
 		if ( PRESSED && ch == 91 )
 		{
-			ret = pwd8_is_ok ( password );
+			ret = pwd_is_ok ( password );
 
 			if ( ret )
 			{

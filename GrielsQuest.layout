@@ -2,294 +2,14 @@
 <CodeBlocks_layout_file>
 	<FileVersion major="1" minor="0" />
 	<ActiveTarget name="default" />
-	<File name="game\inc\vsprite.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="67" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="game\res\final.rc" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1263" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="game\src\joy.c" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="0" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="funciones\calloc.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="419" topLine="3" />
-		</Cursor>
-	</File>
-	<File name="game\res\world1res.res" open="0" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="50" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="game\src\wavelist.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="140" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="game\libs\wave.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="100" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="game\res\intro.res" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="424" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="game\src\helpers.c" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3538" topLine="208" />
-		</Cursor>
-	</File>
-	<File name="funciones\cdaudio.c" open="0" top="0" tabpos="17" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3913" topLine="129" />
-		</Cursor>
-	</File>
-	<File name="game\src\screens\soundtest.c" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1056" topLine="25" />
-		</Cursor>
-	</File>
-	<File name="game\src\bigboy.c" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1334" topLine="51" />
-		</Cursor>
-	</File>
-	<File name="game\inc\object.h" open="0" top="0" tabpos="16" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="280" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="game\res\world0res.res" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="0" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="game\src\password8.c" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="5516" topLine="221" />
-		</Cursor>
-	</File>
-	<File name="game\src\screen.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="31" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="game\src\frases.c.-1" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1221" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="game\inc\level.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1286" topLine="55" />
-		</Cursor>
-	</File>
-	<File name="game\res\title.res" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="440" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="game\src\undo.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2249" topLine="127" />
-		</Cursor>
-	</File>
-	<File name="game\libs\waitbreak.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="101" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="game\src\key.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="34" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="game\inc\include.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="6963" topLine="229" />
-		</Cursor>
-	</File>
-	<File name="game\res\world0.rc" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="308" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="funciones\limits.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1843" topLine="57" />
-		</Cursor>
-	</File>
-	<File name="game\src\worlds\world0.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="30849" topLine="243" />
-		</Cursor>
-	</File>
-	<File name="game\inc\wavelist.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="90" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="libs\list.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1072" topLine="11" />
-		</Cursor>
-	</File>
-	<File name="game\src\stars.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1399" topLine="48" />
-		</Cursor>
-	</File>
-	<File name="game\libs\spritedispacher.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1403" topLine="42" />
-		</Cursor>
-	</File>
-	<File name="game\inc\screen.h" open="0" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1027" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="game\res\world2res.res" open="0" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="0" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="game\src\screens\sega.c" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="game\res\puerta.rc" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="98" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="game\libs\spritedispacher.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="game\inc\tool.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="237" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="game\src\screens\oooklab.c" open="0" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="100" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="game\src\colores_textos.c" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="71" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="game\res\other.rc" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1035" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="game\src\vsprite.c" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="386" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="game\src\main.c" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="7048" topLine="59" />
-		</Cursor>
-	</File>
-	<File name="game\inc\frases.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="158" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="game\res\world3res.res" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="0" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="game\src\worlds\world1.c" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="30855" topLine="215" />
-		</Cursor>
-	</File>
-	<File name="game\libs\joyreader.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="173" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="game\src\level.c" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="6961" topLine="191" />
-		</Cursor>
-	</File>
-	<File name="funciones\StringUtils.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1015" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="game\inc\howtoplay.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="33" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="game\src\screens\oldending.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="311" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="game\src\font.c" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="807" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="game\libs\spriteset.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="310" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="game\inc\screens\final.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="33" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="game\src\splist.c" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="389" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="game\inc\colores_textos.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="66" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="game\res\commonres.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="157" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="libs\stdarg.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="4578" topLine="71" />
-		</Cursor>
-	</File>
-	<File name="game\src\psglist.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="915" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="game\inc\stars.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="22" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="game\src\voffset.c" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="95" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="game\psg\back.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="62" topLine="0" />
+			<Cursor1 position="997" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="game\src\musiclist.c" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -297,94 +17,169 @@
 			<Cursor1 position="107" topLine="0" />
 		</Cursor>
 	</File>
-	<File name=".gitignore" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="game\libs\spriteset.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="241" topLine="0" />
+			<Cursor1 position="310" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="game\inc\pause.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="game\res\world4res.res" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="37" topLine="0" />
+			<Cursor1 position="0" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="game\inc\animation.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="game\res\intro.res" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="4574" topLine="320" />
+			<Cursor1 position="424" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="game\res\xgmres.res" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="game\inc\colores_textos.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1325" topLine="0" />
+			<Cursor1 position="66" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="game\src\worlds\world2.c" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="game\src\screen.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="30658" topLine="215" />
+			<Cursor1 position="31" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="game\libs\music.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="game\libs\spritedispacher.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="78" topLine="0" />
+			<Cursor1 position="237" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="game\src\howtoplay.c" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
+	<File name="funciones\atoi.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="7244" topLine="255" />
+			<Cursor1 position="1332" topLine="3" />
 		</Cursor>
 	</File>
-	<File name="game\src\animation.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
+	<File name="game\src\worlds\world3.c" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="24104" topLine="348" />
+			<Cursor1 position="28733" topLine="215" />
 		</Cursor>
 	</File>
-	<File name="game\src\screens\mapa.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="funciones\errno.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="9260" topLine="391" />
-		</Cursor>
-	</File>
-	<File name="game\src\gamestate.c" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="777" topLine="27" />
-		</Cursor>
-	</File>
-	<File name="game\inc\typetext.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="747" topLine="36" />
-		</Cursor>
-	</File>
-	<File name="game\inc\screens\intro.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="77" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="funciones\scanf.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="11824" topLine="318" />
-		</Cursor>
-	</File>
-	<File name="game\src\screens\staff.c" open="1" top="1" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="4496" topLine="189" />
-		</Cursor>
-	</File>
-	<File name="libs\list.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="530" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="game\src\tool.c" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3484" topLine="124" />
-		</Cursor>
-	</File>
-	<File name="game\inc\vint.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="453" topLine="0" />
+			<Cursor1 position="992" topLine="4" />
 		</Cursor>
 	</File>
 	<File name="game\res\commonres.res" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="218" topLine="0" />
+			<Cursor1 position="1036" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\inc\screens\mapa.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="90" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\src\screens\mapa.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="5689" topLine="191" />
+		</Cursor>
+	</File>
+	<File name="game\inc\password8.h" open="0" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="220" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\src\stars.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1399" topLine="48" />
+		</Cursor>
+	</File>
+	<File name="game\inc\screens\ambiente.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="63" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\inc\wavelist.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="90" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\src\wavelist.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="140" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\res\world3.rc" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\inc\screens\staff.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="22" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\inc\gamestate.h" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="125" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\src\screens\griels.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="229" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\libs\waitbreak.h" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="101" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\src\cheats.c" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="237" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="funciones\effect_cylinder.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1854" topLine="47" />
+		</Cursor>
+	</File>
+	<File name="game\res\ambiente.rc" open="0" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="182" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\src\pause.c" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="5164" topLine="195" />
+		</Cursor>
+	</File>
+	<File name="game\libs\vram.c" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1629" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="funciones\calloc.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="419" topLine="3" />
+		</Cursor>
+	</File>
+	<File name="tools\romhead\romhead.c" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\inc\screens\oldending.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="28" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\src\key.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="34" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\src\frases.c.1" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="311" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\src\prayer.c" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3345" topLine="61" />
 		</Cursor>
 	</File>
 	<File name="makefile.gen" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -397,19 +192,44 @@
 			<Cursor1 position="193" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="game\res\world1.rc" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="funciones\ctype_.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1187" topLine="0" />
+			<Cursor1 position="2204" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="game\src\weapon.c" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="game\src\screens\sega.c" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="4373" topLine="99" />
+			<Cursor1 position="98" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="game\inc\undo.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="game\inc\vsprite.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="268" topLine="0" />
+			<Cursor1 position="67" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\src\worlds\world2.c" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="30658" topLine="215" />
+		</Cursor>
+	</File>
+	<File name="game\res\xgmres.res" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1325" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="funciones\StringUtils.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1015" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\src\text.c" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1374" topLine="46" />
+		</Cursor>
+	</File>
+	<File name="game\inc\toani.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="200" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="libs\dev.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -417,159 +237,29 @@
 			<Cursor1 position="51" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="game\src\password.c" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1803" topLine="75" />
-		</Cursor>
-	</File>
-	<File name="game\inc\screens\oldending.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="28" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="game\inc\bigboy.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="372" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="game\res\puerta.rc" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="98" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="game\src\screens\griels.c" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="38" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="game\libs\wave.c" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="45" topLine="0" />
-		</Cursor>
-	</File>
 	<File name="funciones\strtol.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="6810" topLine="114" />
 		</Cursor>
 	</File>
-	<File name="game\src\chorrada.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="game\inc\screens\puerta.h" open="0" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1975" topLine="82" />
+			<Cursor1 position="99" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="game\inc\password8.h" open="0" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="game\src\password.c" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="150" topLine="0" />
+			<Cursor1 position="1803" topLine="75" />
 		</Cursor>
 	</File>
-	<File name="game\src\screens\puerta.c" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="7337" topLine="208" />
-		</Cursor>
-	</File>
-	<File name="game\src\boot\rom_head.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1287" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="game\libs\vram.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="314" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="game\inc\screens\mapa.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="90" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="game\src\typetext.c" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="5697" topLine="248" />
-		</Cursor>
-	</File>
-	<File name="game\libs\vram.c" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1629" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="game\src\cheats.c" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="237" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="game\res\world3.rc" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="game\res\world2res.res" open="0" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="0" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="game\src\scoreball.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="297" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="game\src\pause.c" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2760" topLine="88" />
-		</Cursor>
-	</File>
-	<File name="game\inc\display.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="125" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="game\res\world4.rc" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="game\res\world0res.res" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="0" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="funciones\string.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1200" topLine="9" />
-		</Cursor>
-	</File>
-	<File name="game\src\toani.c" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1772" topLine="84" />
-		</Cursor>
-	</File>
-	<File name="game\libs\mappy.c" open="0" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2625" topLine="46" />
-		</Cursor>
-	</File>
-	<File name="game\inc\player.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="142" topLine="8" />
-		</Cursor>
-	</File>
-	<File name="game\src\frases.c.1" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="311" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="game\inc\voffset.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="44" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="game\res\world4res.res" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="0" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="game\res\ambiente.rc" open="0" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="182" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="game\src\worlds\world4.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="13228" topLine="67" />
-		</Cursor>
-	</File>
-	<File name="game\src\object.c" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="3993" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="game\inc\vobject.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -577,19 +267,129 @@
 			<Cursor1 position="359" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="game\inc\splist.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="game\inc\game.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="291" topLine="0" />
+			<Cursor1 position="293" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="game\res\waveres.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="game\src\worlds\world4.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="147" topLine="0" />
+			<Cursor1 position="13228" topLine="67" />
 		</Cursor>
 	</File>
-	<File name="game\src\vobject.c" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="game\src\psglist.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="167" topLine="108" />
+			<Cursor1 position="915" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\libs\music.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="78" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\src\death.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3683" topLine="125" />
+		</Cursor>
+	</File>
+	<File name="game\res\other.rc" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1035" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\src\splist.c" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="389" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\libs\mappy.c" open="0" top="0" tabpos="14" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="647" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="romhead.conf" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="17" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\res\world2.rc" open="0" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="582" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\inc\player.h" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="142" topLine="8" />
+		</Cursor>
+	</File>
+	<File name="game\src\screens\intro.c" open="0" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="10662" topLine="517" />
+		</Cursor>
+	</File>
+	<File name="game\res\world4.rc" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\inc\animation.h" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1780" topLine="113" />
+		</Cursor>
+	</File>
+	<File name="funciones\atol.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="656" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="libs\list.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1072" topLine="11" />
+		</Cursor>
+	</File>
+	<File name="game\src\screens\disclaimer.c" open="0" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="8570" topLine="280" />
+		</Cursor>
+	</File>
+	<File name="game\src\screens\playonretro.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="93" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\src\main.c" open="1" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="20487" topLine="620" />
+		</Cursor>
+	</File>
+	<File name="game\src\game.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="4904" topLine="232" />
+		</Cursor>
+	</File>
+	<File name="game\res\world1.rc" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1187" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\inc\include.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="5194" topLine="186" />
+		</Cursor>
+	</File>
+	<File name="game\src\worlds\world1.c" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="30855" topLine="215" />
+		</Cursor>
+	</File>
+	<File name="game\src\screens\soundtest.c" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1056" topLine="25" />
+		</Cursor>
+	</File>
+	<File name="funciones\strcmp.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1433" topLine="34" />
 		</Cursor>
 	</File>
 	<File name="game\libs\psg.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -602,139 +402,24 @@
 			<Cursor1 position="204" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="game\src\frases.c" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="19553" topLine="316" />
-		</Cursor>
-	</File>
-	<File name="game\src\screens\disclaimer.c" open="0" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="64" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="game\libs\joyreader.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="14688" topLine="180" />
-		</Cursor>
-	</File>
-	<File name="libs\conio.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="885" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="game\src\boss.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="8432" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="funciones\atol.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="656" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="game\inc\helpers.h" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1072" topLine="14" />
-		</Cursor>
-	</File>
-	<File name="game\src\worlds\world3.c" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="28733" topLine="215" />
-		</Cursor>
-	</File>
-	<File name="game\libs\music.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="413" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="game\res\title.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="355" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="game\src\game.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="21" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="funciones\ctype_.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="2204" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="game\src\player.c" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="7504" topLine="246" />
-		</Cursor>
-	</File>
-	<File name="game\inc\gamestate.h" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="685" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="game\src\screens\title.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1973" topLine="47" />
-		</Cursor>
-	</File>
-	<File name="game\inc\toani.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="200" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="game\res\common.rc" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="903" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="tools\romhead\romhead.c" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="0" topLine="0" />
-		</Cursor>
-	</File>
 	<File name="game\src\display.c" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
 			<Cursor1 position="435" topLine="5" />
 		</Cursor>
 	</File>
-	<File name="game\inc\screens\puerta.h" open="0" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="game\res\title.res" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="99" topLine="0" />
+			<Cursor1 position="440" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="game\res\otherres.res" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="game\inc\display.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="57" topLine="0" />
+			<Cursor1 position="125" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="game\inc\screens\staff.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="game\src\object.c" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="22" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="game\src\screens\intro.c" open="0" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="10634" topLine="508" />
-		</Cursor>
-	</File>
-	<File name="game\libs\spriteset.c" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="357" topLine="1" />
-		</Cursor>
-	</File>
-	<File name="libs\conio.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="136" topLine="0" />
-		</Cursor>
-	</File>
-	<File name="funciones\effect_cylinder.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="1854" topLine="47" />
-		</Cursor>
-	</File>
-	<File name="game\inc\game.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
-		<Cursor>
-			<Cursor1 position="293" topLine="0" />
+			<Cursor1 position="3993" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="funciones\strcpy.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -742,29 +427,154 @@
 			<Cursor1 position="1277" topLine="36" />
 		</Cursor>
 	</File>
-	<File name="game\src\screens\final.c" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="game\inc\vint.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="14581" topLine="553" />
+			<Cursor1 position="453" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="game\inc\tool.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="game\src\boot\rom_head.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="997" topLine="0" />
+			<Cursor1 position="1299" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="game\res\world2.rc" open="0" top="0" tabpos="11" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="game\res\common.rc" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="582" topLine="0" />
+			<Cursor1 position="1601" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="game\src\death.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="game\src\toani.c" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="3683" topLine="125" />
+			<Cursor1 position="1772" topLine="84" />
 		</Cursor>
 	</File>
-	<File name="funciones\errno.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="game\src\chorrada.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="992" topLine="4" />
+			<Cursor1 position="1975" topLine="82" />
+		</Cursor>
+	</File>
+	<File name="game\libs\joyreader.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="9839" topLine="136" />
+		</Cursor>
+	</File>
+	<File name="libs\stdarg.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="4578" topLine="71" />
+		</Cursor>
+	</File>
+	<File name="game\src\player.c" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="7504" topLine="246" />
+		</Cursor>
+	</File>
+	<File name="game\res\quitados\resources.res" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="127" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\inc\frases.h" open="1" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="128" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\src\gamestate.c" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="383" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\src\screens\languages.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1161" topLine="18" />
+		</Cursor>
+	</File>
+	<File name="game\libs\spritedispacher.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1403" topLine="42" />
+		</Cursor>
+	</File>
+	<File name="game\inc\level.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1286" topLine="55" />
+		</Cursor>
+	</File>
+	<File name="game\src\vsprite.c" open="0" top="0" tabpos="9" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="386" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\src\scoreball.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="297" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\src\bigboy.c" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1334" topLine="51" />
+		</Cursor>
+	</File>
+	<File name="game\res\commonres.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="123" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\libs\wave.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="100" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\inc\object.h" open="0" top="0" tabpos="16" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="280" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\src\screens\oldending.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="2003" topLine="29" />
+		</Cursor>
+	</File>
+	<File name="funciones\scanf.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="11824" topLine="318" />
+		</Cursor>
+	</File>
+	<File name="game\inc\voffset.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="44" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="libs\conio.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="136" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\src\animation.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="9029" topLine="110" />
+		</Cursor>
+	</File>
+	<File name="game\res\title.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="355" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\inc\screen.h" open="0" top="0" tabpos="10" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1188" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\src\screens\puerta.c" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="7337" topLine="208" />
+		</Cursor>
+	</File>
+	<File name="game\src\frases.c" open="1" top="1" tabpos="3" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="14100" topLine="290" />
+		</Cursor>
+	</File>
+	<File name="game\libs\vram.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="314" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="game\src\vint.c" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
@@ -772,24 +582,254 @@
 			<Cursor1 position="71" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="game\src\prayer.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="game\src\password8.c" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="29" topLine="0" />
+			<Cursor1 position="3692" topLine="101" />
 		</Cursor>
 	</File>
-	<File name="funciones\atoi.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="funciones\text.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="1332" topLine="3" />
+			<Cursor1 position="4640" topLine="202" />
+		</Cursor>
+	</File>
+	<File name="funciones\limits.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1843" topLine="57" />
+		</Cursor>
+	</File>
+	<File name="game\res\otherres.res" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="57" topLine="0" />
 		</Cursor>
 	</File>
 	<File name="game\inc\genres_externs.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="632" topLine="0" />
+			<Cursor1 position="222" topLine="0" />
 		</Cursor>
 	</File>
-	<File name="game\src\text.c" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+	<File name="game\src\undo.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="1" zoom_2="0">
 		<Cursor>
-			<Cursor1 position="270" topLine="0" />
+			<Cursor1 position="2249" topLine="127" />
+		</Cursor>
+	</File>
+	<File name="game\src\helpers.c" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="4727" topLine="254" />
+		</Cursor>
+	</File>
+	<File name="game\res\world1res.res" open="0" top="0" tabpos="12" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="50" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\inc\splist.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="291" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\src\screens\final.c" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="14581" topLine="553" />
+		</Cursor>
+	</File>
+	<File name="game\psg\back.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="62" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\libs\spriteset.c" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="357" topLine="1" />
+		</Cursor>
+	</File>
+	<File name="libs\list.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="530" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\src\font.c" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="807" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\inc\pause.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="37" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\src\joy.c" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\libs\music.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="413" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\res\world3res.res" open="0" top="0" tabpos="8" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\res\waveres.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="147" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\libs\wave.c" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="45" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\inc\screens\final.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="33" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\src\screens\oooklab.c" open="0" top="0" tabpos="13" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="100" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\src\frases.c.-1" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1221" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\inc\bigboy.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="372" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\inc\undo.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="268" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\src\vobject.c" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="167" topLine="108" />
+		</Cursor>
+	</File>
+	<File name="game\src\screens\staff.c" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="80" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="libs\conio.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="885" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\src\howtoplay.c" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="-1" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="0" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="funciones\cdaudio.c" open="0" top="0" tabpos="17" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1774" topLine="23" />
+		</Cursor>
+	</File>
+	<File name="game\src\typetext.c" open="0" top="0" tabpos="6" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="5697" topLine="248" />
+		</Cursor>
+	</File>
+	<File name="game\libs\joyreader.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="499" topLine="9" />
+		</Cursor>
+	</File>
+	<File name="game\src\voffset.c" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="95" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\inc\prayer.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="165" topLine="0" />
+		</Cursor>
+	</File>
+	<File name=".gitignore" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="241" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\src\level.c" open="0" top="0" tabpos="3" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="20563" topLine="668" />
+		</Cursor>
+	</File>
+	<File name="game\inc\typetext.h" open="0" top="0" tabpos="5" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="747" topLine="36" />
+		</Cursor>
+	</File>
+	<File name="game\src\boss.c" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="8432" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\res\world0.rc" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="308" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\inc\screens\intro.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="77" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\src\tool.c" open="0" top="0" tabpos="1" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="3809" topLine="151" />
+		</Cursor>
+	</File>
+	<File name="game\src\colores_textos.c" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="71" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="funciones\string.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1200" topLine="9" />
+		</Cursor>
+	</File>
+	<File name="game\res\final.rc" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="1263" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\inc\stars.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="22" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\inc\howtoplay.h" open="0" top="0" tabpos="0" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="33" topLine="0" />
+		</Cursor>
+	</File>
+	<File name="game\src\weapon.c" open="0" top="0" tabpos="4" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="4373" topLine="99" />
+		</Cursor>
+	</File>
+	<File name="game\src\screens\title.c" open="1" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="690" topLine="26" />
+		</Cursor>
+	</File>
+	<File name="game\inc\helpers.h" open="0" top="0" tabpos="7" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="276" topLine="3" />
+		</Cursor>
+	</File>
+	<File name="game\src\worlds\world0.c" open="0" top="0" tabpos="2" split="0" active="1" splitpos="0" zoom_1="0" zoom_2="0">
+		<Cursor>
+			<Cursor1 position="30849" topLine="243" />
 		</Cursor>
 	</File>
 </CodeBlocks_layout_file>

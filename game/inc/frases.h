@@ -19,7 +19,7 @@ enum
 
 
 
-void  frases_init  ( u8 grupo );
+void  frases_init  ( u16 grupo );
 u8   *frases_next  ( );
-u8   *frases_find  ( u8 grupo, u8 numero );
-u8    frases_count ( u8 grupo );
+u8   *frases_find  ( u16 grupo, u16 numero );
+u16   frases_count ( u16 grupo );

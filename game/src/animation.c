@@ -257,13 +257,13 @@ static const ANIMATION _list [ ] =
 	{ "Galeon3",          GRS w3s_blocks,       PAL3,   1, { { 30,   0 } } },
 	{ "Galeon4",          GRS w3s_blocks,       PAL3,   1, { { 31,   0 } } },
 
-	{ "Cangrejo",         GRS w3s_enemies,      PAL2,   2, { {  0, WAG }, {  1, WAG } } },
-	{ "Cangrejo Alt",     GRS w3s_enemies,      PAL2,   2, { {  2, WAD }, {  3, WAD } } },
-	{ "Cangrejo Die",     GRS w3s_enemies,      PAL2,   4, { {  4, WA3 }, {  5, WA4 }, {  6, WAB }, {8,3} } }, // el último hace borrar la VRAM
+	{ "Crab",             GRS w3s_enemies,      PAL2,   2, { {  0, WAG }, {  1, WAG } } },
+	{ "Crab Alt",         GRS w3s_enemies,      PAL2,   2, { {  2, WAD }, {  3, WAD } } },
+	{ "Crab Die",         GRS w3s_enemies,      PAL2,   4, { {  4, WA3 }, {  5, WA4 }, {  6, WAB }, {8,3} } }, // el último hace borrar la VRAM
 
-	{ "Pirata",           GRS w3s_enemies,      PAL2,   2, { { 10, WAG }, { 11, WAG } } },
-	{ "Pirata Alt",       GRS w3s_enemies,      PAL2,   2, { { 12, WAA }, { 13, WAA } } },
-	{ "Pirata Die",       GRS w3s_enemies,      PAL2,   4, { { 14, WA3 }, { 15, WA4 }, { 16, WAB }, {8,3} } }, // el último hace borrar la VRAM
+	{ "Pirate",           GRS w3s_enemies,      PAL2,   2, { { 10, WAG }, { 11, WAG } } },
+	{ "Pirate Alt",       GRS w3s_enemies,      PAL2,   2, { { 12, WAA }, { 13, WAA } } },
+	{ "Pirate Die",       GRS w3s_enemies,      PAL2,   4, { { 14, WA3 }, { 15, WA4 }, { 16, WAB }, {8,3} } }, // el último hace borrar la VRAM
 
 	{ "Plesi",            GRS w3s_bigboy,       PAL2,   2, { {  0, WAG }, {  1, WAG } } },
 	{ "Plesi Alt",        GRS w3s_bigboy,       PAL2,   2, { {  2, WA1 }, {  3, WA1 } } },

@@ -223,6 +223,8 @@ void game_loop()
 		puerta_abierta = 0;
 
 		screen_oooklab ( 4, BUTTON_BTN, 0 );
+		screen_playonretro ( );
+		screen_languages();
 		screen_intro ( 1 );
 		to = screen_title ( 0 );
 
@@ -240,17 +242,17 @@ void game_loop()
 					   gamestate.ambientes[3] = 14; // 14;
 					   gamestate.ambientes[4] =  6; // 6 ;
 					   gamestate.visito_la_puerta = true;
-					   gamestate.lenguaje         = SPANISH;
+					   //gamestate.lenguaje         = SPANISH;
 
 
-					   gamestate.dificultad   =  2;
-					   gamestate.ambientes[0] = 13; // 14;
-					   gamestate.ambientes[1] = 13; // 14;
-					   gamestate.ambientes[2] = 13; // 14;
-					   gamestate.ambientes[3] = 13; // 14;
-					   gamestate.ambientes[4] =  0; // 6 ;
-					   gamestate.visito_la_puerta = false;
-					   gamestate.lenguaje         = SPANISH;
+//					   gamestate.dificultad   =  2;
+//					   gamestate.ambientes[0] = 13; // 14;
+//					   gamestate.ambientes[1] = 13; // 14;
+//					   gamestate.ambientes[2] = 13; // 14;
+//					   gamestate.ambientes[3] = 13; // 14;
+//					   gamestate.ambientes[4] =  0; // 6 ;
+//					   gamestate.visito_la_puerta = false;
+//					   //gamestate.lenguaje         = ENGLISH;
 
 //					   gamestate.dificultad   =  2;
 //					   gamestate.ambientes[0] =  0; // 14;
@@ -259,17 +261,26 @@ void game_loop()
 //					   gamestate.ambientes[3] =  0; // 14;
 //					   gamestate.ambientes[4] =  0; // 6 ;
 //					   gamestate.visito_la_puerta = true;
-//					   gamestate.lenguaje         = SPANISH;
+//					   //gamestate.lenguaje         = SPANISH;
 
 
 //					   gamestate.dificultad   = 0;
-//					   gamestate.ambientes[0] = 6;
-//					   gamestate.ambientes[1] = 6;
-//					   gamestate.ambientes[2] = 6;
-//					   gamestate.ambientes[3] = 6;
+//					   gamestate.ambientes[0] = 5;
+//					   gamestate.ambientes[1] = 5;
+//					   gamestate.ambientes[2] = 5;
+//					   gamestate.ambientes[3] = 5;
+//					   gamestate.ambientes[4] = 3;
+//					   gamestate.visito_la_puerta = false;
+//					   //gamestate.lenguaje         = SPANISH;
+
+//					   gamestate.dificultad   = 1;
+//					   gamestate.ambientes[0] = 9;
+//					   gamestate.ambientes[1] = 9;
+//					   gamestate.ambientes[2] = 9;
+//					   gamestate.ambientes[3] = 9;
 //					   gamestate.ambientes[4] = 4;
 //					   gamestate.visito_la_puerta = false;
-//					   gamestate.lenguaje         = SPANISH;
+//					   //gamestate.lenguaje         = SPANISH;
 
 					}
 

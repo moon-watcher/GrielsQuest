@@ -5,6 +5,7 @@ void screen_staff()
 {
     displayInit();
     displayOff(0);
+    resetScreen();
     JoyReader_pause();
 
 	u16 i;

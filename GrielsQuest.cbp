@@ -888,6 +888,7 @@
 		<Unit filename="game/inc/psglist.h" />
 		<Unit filename="game/inc/scoreball.h" />
 		<Unit filename="game/inc/screen.h" />
+		<Unit filename="game/inc/screens/ambiente.h" />
 		<Unit filename="game/inc/screens/final.h" />
 		<Unit filename="game/inc/screens/intro.h" />
 		<Unit filename="game/inc/screens/mapa.h" />
@@ -1205,6 +1206,9 @@
 		<Unit filename="game/src/screens/intro.c">
 			<Option compilerVar="CC" />
 		</Unit>
+		<Unit filename="game/src/screens/languages.c">
+			<Option compilerVar="CC" />
+		</Unit>
 		<Unit filename="game/src/screens/mapa.c">
 			<Option compilerVar="CC" />
 		</Unit>
@@ -1212,6 +1216,9 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="game/src/screens/oooklab.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/src/screens/playonretro.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="game/src/screens/puerta.c">

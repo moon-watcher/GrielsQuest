@@ -199,6 +199,9 @@ u16 screen_title ( u16 salto )
 	preparePal ( PAL2, ob_title_notah.palette->data );
 	preparePal ( PAL3, ob_title_griel.palette->data );
 
+    VDP_setTextPalette ( PAL0 );
+    VDP_drawText ( "@2017 Oook!Lab", 13, 26 );
+
 	SYS_enableInts();
 
 	displayOn(30);

@@ -146,9 +146,19 @@ static const PRAYER _list [ PRAYER_PRAYERS+1 ] =
 
 
 
+
+
+PRAYER *prayer_get ( u16 i )
+{
+    return (PRAYER *) &_list[i];
+}
+
+
 void prayer_show ( u16 level )
 {
     displayOff(0);
+    resetScreen();
+    resetSprites();
     JoyReader_pause();
 
 	u16 i;

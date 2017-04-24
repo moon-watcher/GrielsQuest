@@ -590,7 +590,7 @@ void jap()
 int main ( )
 {
     //jap();
-    //dev_init ( 1 );
+    dev_init ( 1 );
 
     JoyReader_init ( 1 );
     monos();
@@ -624,15 +624,6 @@ int main ( )
 
     SYS_setVIntCallback ( (_voidCallback*) vint_callback );
     font_init ( );
-
-
-	prayer_show ( 10 );
-    screen_staff ( );
-    screen_oldending ( );
-
-
-
-
 
     gamestate_init ( ); // debe estar aqui y tras introducir un password correcto
 
@@ -668,9 +659,10 @@ int main ( )
 
 
 
-   screen_disclaimer ( );
-   screen_sega ( 0, BUTTON_BTN, 0 );
+   screen_disclaimer ( 1 );
+   //screen_sega ( 0, BUTTON_BTN, 0 );
    screen_griels ( 4, BUTTON_BTN, 0 ); // solo para Barcelona y demos
+
 
    //http://www.dodgycoder.net/2012/02/coding-tricks-of-game-developers.html#
    __builtin_expect ( gamestate.current_ambiente, 0 );

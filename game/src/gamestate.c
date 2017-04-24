@@ -6,7 +6,7 @@ void gamestate_init ( )
 {
 	gamestate.current_round    = 0;
 	gamestate.current_ambiente = 0;
-	gamestate.lenguaje         = SPANISH; // ENGLISH;
+	gamestate.lenguaje         = 0; // ENGLISH;
 
 	gamestate.dificultad       = 0;
 	gamestate.ambientes [ 0 ]  = 0;

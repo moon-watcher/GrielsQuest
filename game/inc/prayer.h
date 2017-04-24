@@ -9,5 +9,5 @@ typedef struct
 }
 PRAYER;
 
-
-void prayer_show ( u16 level );
+PRAYER *prayer_get  ( u16 i );
+void    prayer_show ( u16 level );
