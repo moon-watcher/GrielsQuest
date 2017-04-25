@@ -307,7 +307,7 @@ const static FRASE _list [ ] =
 
 	(FRASE) { SPANISH,  4, "NIVEL   " },
 
-	(FRASE) { SPANISH,  5, "¡BINGO!" }, // 13
+	(FRASE) { SPANISH,  5, "¡PRÉMIO!" }, // 13
 	(FRASE) { SPANISH,  5, "TE QUEMAS" }, // 14
 	(FRASE) { SPANISH,  5, "AL ROJO VIVO" }, // 15
 	(FRASE) { SPANISH,  5, "ARDIENDO" }, // 16

@@ -147,9 +147,7 @@ static void _selector_init ( )
 
 static void _init ( )
 {
-
-
-	_tt_init ();
+    _tt_init ();
 	index = TILE_USERINDEX;
 
 
@@ -237,12 +235,6 @@ static void _init ( )
 static void _mostrar_niveles (  )
 {
 	u16 i;
-
-	//sprite = 4;
-
-
-
-
 
 	// borra el foreground (candados y cuadrados completados)
 	SYS_disableInts();
@@ -601,13 +593,14 @@ void screen_mapa_init()
 
 
 
-u16 screen_mapa ( )
+u16 screen_mapa ( bool first_time )
 {
 	music_stop();
 
 
 	flecha = 0;
-	ambiente = gamestate.current_ambiente;
+	ambiente = first_time ? 4 : gamestate.current_ambiente;
+
 
 
 	_visito_la_puerta();

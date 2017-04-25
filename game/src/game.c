@@ -217,6 +217,8 @@ void game_loop()
 
 	while ( true )
 	{
+	    bool first_time = true;
+
 		screen_mapa_init();
 
 		gamestate.visito_la_puerta = false;
@@ -298,6 +300,7 @@ void game_loop()
 		if ( to == SCREEN_JUMP_TO_CONTINUE  &&  pwd8_screen() )
 		{
 			to = SCREEN_JUMP_TO_AMBIENT;
+			first_time = false;
 		}
 
 		if (  to == SCREEN_JUMP_TO_AMBIENT ) // ||  to == SCREEN_JUMP_TO_DIFFICULT  )
@@ -313,7 +316,8 @@ void game_loop()
 				resetScroll   ( );
 				resetSprites  ( );
 
-				to = screen_mapa();
+				to = screen_mapa( first_time );
+				first_time = false;
 
 				// visita al rey
 				if ( to == SCREEN_JUMP_TO_INTRO5 )

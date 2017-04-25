@@ -69,8 +69,8 @@ static void _show_message ( u8 content )
 
 void _draw_content ( u16 i )
 {
-    const u8 enemies[4] = {32, 33, 34, 35,36 } ;
-    const u8 enemy = enemies [ gamestate.current_ambiente ];
+    const u8 enemies[5] = { 32, 33, 34, 35, 36 } ;
+    const u8 enemy = enemies [ (u8) gamestate.current_ambiente ];
 
 
 	//drawInt(i, 0,0,3);
