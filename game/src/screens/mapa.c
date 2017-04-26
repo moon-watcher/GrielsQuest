@@ -593,7 +593,7 @@ void screen_mapa_init()
 
 
 
-u16 screen_mapa ( bool first_time )
+u16 screen_mapa ( u16 first_time )
 {
 	music_stop();
 

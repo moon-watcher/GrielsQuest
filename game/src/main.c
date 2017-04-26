@@ -430,13 +430,13 @@ void todas_las_pantallas ( )
          if ( opcion == 16 )
          {
             gamestate.visito_la_puerta = true;
-            screen_mapa();
+            screen_mapa(TRUE);
          }
 
          if ( opcion == 17 )
          {
             gamestate.visito_la_puerta = false;
-            screen_mapa();
+            screen_mapa(TRUE);
          }
 
 
