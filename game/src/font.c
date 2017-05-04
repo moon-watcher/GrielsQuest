@@ -28,10 +28,10 @@ void font_init ()
 	VDP_loadFontData ( cb_font_8x8, FONT_LEN, 0 );
 
 	// carga los caractéres especiales
-	VDP_loadTileData ( (u32*)cb_font_8x8_spa, TILE_FONTINDEX-15, 15, 0);
+	VDP_loadTileData ( (u32*)cb_font_8x8_chars, TILE_FONTINDEX-29, 29, 0);
 
 	// hack for VDP_loadFont, inserts " " in 0 position
-	VDP_loadTileData ( _tile, TILE_FONTINDEX-15, 1, 0 );
+	VDP_loadTileData ( _tile, TILE_FONTINDEX-29, 1, 0 );
 	VDP_loadTileData ( _tile, TILE_FONTINDEX-00, 1, 0 );
 
 	SYS_enableInts();

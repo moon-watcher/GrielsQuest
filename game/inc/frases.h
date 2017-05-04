@@ -14,7 +14,9 @@ FRASE;
 enum
 {
 	ENGLISH = 1,
-	SPANISH
+	SPANISH,
+	ITALIAN,
+	FRENCH
 };
 
 

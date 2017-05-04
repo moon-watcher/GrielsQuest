@@ -1,0 +1,263 @@
+(FRASE) { ITALIAN,   1, "RISKY WOODS" },
+(FRASE) { ITALIAN,   1, "LA TANA DI MURCIANO" },
+(FRASE) { ITALIAN,   1, "L'ABISSO DI ABU" },
+(FRASE) { ITALIAN,   1, "PUSSY BEACH" },
+(FRASE) { ITALIAN,   1, "CASTELLO KBRAH" },
+(FRASE) { ITALIAN,   1, "DUDEWORLD" },
+(FRASE) { ITALIAN,   1, "Ti sei scordato qualcosa?" },
+(FRASE) { ITALIAN,   1, "LIVELLO %02d" },
+
+(FRASE) { ITALIAN,   2, "\\ CONTINUA" },
+(FRASE) { ITALIAN,   2, "  RICOMINCIA" },
+(FRASE) { ITALIAN,   2, "  ESCI" },
+(FRASE) { ITALIAN,   2, "RICOMINCIA LIVELLO" },
+(FRASE) { ITALIAN,   2, "ABBANDONA LIVELLO" },
+(FRASE) { ITALIAN,   2, "LIVELLO COMPLETATO" },
+
+(FRASE) { ITALIAN,   3, "LIVELLO COMPLETATO" },
+
+(FRASE) { ITALIAN,   4, "LIVELLO   " },
+
+(FRASE) { ITALIAN,   5, "TOMBOLA!" },
+(FRASE) { ITALIAN,   5, "INFUOCATO" },
+(FRASE) { ITALIAN,   5, "ROVENTE" },
+(FRASE) { ITALIAN,   5, "SCOTTANTE" },
+(FRASE) { ITALIAN,   5, "COCENTE" },
+(FRASE) { ITALIAN,   5, "CALDO" },
+(FRASE) { ITALIAN,   5, "TEMPERATO" },
+(FRASE) { ITALIAN,   5, "TIEPIDO" },
+(FRASE) { ITALIAN,   5, "FRESCO" },
+(FRASE) { ITALIAN,   5, "FREDDO" },
+(FRASE) { ITALIAN,   5, "CONGELATO" },
+(FRASE) { ITALIAN,   5, "SOTTO ZERO" },
+
+//
+// excuses
+(FRASE) { ITALIAN,  6, "Il lupo si prende sempre gioco di me." },                            // woods
+(FRASE) { ITALIAN,  6, "Ghiaccio per i cocktail" },                                 // iceland
+(FRASE) { ITALIAN,  6, "La sabbia mi va sempre nelle mutande." },                          // egypt
+(FRASE) { ITALIAN,  6, "Non ho il costume da bagno" },                                  // beach
+//
+(FRASE) { ITALIAN,  6, "Ecco Johnny!" },                                                     // The shinning ref.
+(FRASE) { ITALIAN,  6, "Questi non sono i droidi che stavi cercando" },                        // Starwars ref
+(FRASE) { ITALIAN,  6, "Non posso andare lì, è il triangolo proibito." },                   // Monkey Island 2 refference
+(FRASE) { ITALIAN,  6, "Non posso andare lì, è il dodecaedro proibito." },               // Monkey Island 2 refference
+(FRASE) { ITALIAN,  6, "SORGI DALLA TOMBA!" },                                              // Altered beast refference
+(FRASE) { ITALIAN,  6, "Guarda dietro di te, una scimmia a tre teste!" },                            // Monkey Island 2 refference
+(FRASE) { ITALIAN,  6, "Hai una banana in tasca o sei soltanto felice di vedermi?" },  // Monkey Island 2 refference
+(FRASE) { ITALIAN,  6, "Scotty, ci serve più energia!" },                                        // Star trek refference
+(FRASE) { ITALIAN,  6, "Quanti Klingon ci servono per cambiare una lampadina?." },            // Joke, Star trek refference
+(FRASE) { ITALIAN,  6, "Conosci quella barzelletta che dice...?" },                               // Eugenio LoL
+(FRASE) { ITALIAN,  6, "Vai al castello di Kbrah." },                                                 //
+(FRASE) { ITALIAN,  6, "Sbrigati! Non ho tutto il giorno." },                                     //
+(FRASE) { ITALIAN,  6, "Non starai curiosando troppo?" },                                       //
+//
+
+(FRASE) { ITALIAN,  7, "Questo è il malvagio Kbrah, un cattivo molto felice." },
+(FRASE) { ITALIAN,  7, "Rapisce le principesse e le sposta da un castello all'altro." },
+(FRASE) { ITALIAN,  7, "Giocando per ore ad orribili videogiochi violenti" },
+(FRASE) { ITALIAN,  7, "E suona in un gruppo che sveglia pure i morti. |WCLEAR:180 E..." },
+
+(FRASE) { ITALIAN,  8, "Da delle feste con i suoi terribili amichetti. |WAIT Feste che spesso finiscono molto male." },
+
+(FRASE) { ITALIAN,  9, "La mattina seguente, al castello del Re Notha." },
+(FRASE) { ITALIAN,  9, "Hmmm? |WAIT Chi ha rovistato qui ieri notte? |WCLEAR AAAHHHHH!" },
+(FRASE) { ITALIAN,  9, "Il mio Porrone! |WAIT E' STATO RUBATO!" },
+(FRASE) { ITALIAN,  9, "E' SPARITA ANCHE LA PRINCIPESSA!" },
+(FRASE) { ITALIAN,  9, "Cose da niente, |WAIT Il Porrone Sacro deve essere recuperato. |WAIT Chiama Griel, si alza sempre all'alba." },
+
+(FRASE) { ITALIAN, 10, "Griel, il regno è in pericolo senza il Porrone Sacro. |WAIT Devi ritrovarlo al più presto! |WCLEAR:180 C'è lo zampino di Kbrah , il mio arcinemico, deve esser opera sua."},
+(FRASE) { ITALIAN, 10, "Ha rapito anche la principessa!" },
+(FRASE) { ITALIAN, 10, "La principessa? Ah, si, si... |WAIT Vai al castello di quel ruffiano, torna con il Porrone Sacro e ti concederò la sua mano. |WAIT Intesi? |WBREAK Adesso, fuori di qui." },
+
+(FRASE) { ITALIAN, 11, "Torna con il Porrone Sacro e ti concederò la sua mano. |WBREAK Adesso, fuori di qui!" },
+
+// Door option 1
+(FRASE) { ITALIAN, 12, "Chiuso. |WCLEAR:180 Aspetta un momento, questi buchi hanno la forma dei... |WBREAK Monetoni Leggendari ! |WCLEAR:180 Scommetto che dovrò trovarli e metterli qui, l'ho visto in altri giochi. |WCLEAR:180 Perbacco, ci vorrà tutta la giornata." },
+// door option 2
+(FRASE) { ITALIAN, 13, "Non sembra funzionare, proverò più tardi." },
+
+// door option 3
+(FRASE) { ITALIAN, 14, "Hai recuperato i Monetoni Leggendari. Sono meravigliosi! |WAIT Perché l'hai fatto?" },
+(FRASE) { ITALIAN, 14, "Per aprire la porta, ho un conto in sospeso con Kbrah..." },
+(FRASE) { ITALIAN, 14, "Tanta fatica per niente... |WAIT:60 potevi suonare il campanello! HA, HA!" },
+(FRASE) { ITALIAN, 14, "Maledizione! |WAIT Non raccontarlo a nessuno o ti ucciderò." },
+
+// final 1
+(FRASE) { ITALIAN, 15, "Kbrah, mala bestia! |WAIT Consegnami il Porrone Sacro, so che ce l'hai." },
+(FRASE) { ITALIAN, 15, "Sei veramente venuto fino a qui per quell'arnese? |WAIT Eccolo, prendilo, non mi piace per niente..." },
+(FRASE) { ITALIAN, 15, "Uoh! |WAIT Papino, che bel bimbetto. |WAIT Posso tenerlo?" },
+(FRASE) { ITALIAN, 15, "Non se ne parla! |WAIT Non ti ho mal-cresciuto fino ad ora per farti frequentare questi cavalierucci. |WCLEAR:180 Comunque stai andando via,no?" },
+(FRASE) { ITALIAN, 15, "Non così in fretta, malandrino, anche la Principessa Beach viene con me." },
+(FRASE) { ITALIAN, 15, "La Principessa si trova in un altro castello, non potevamo... ehm... |WAIT trattenerla per altro tempo. |WCLEAR:180 Adesso prendi il Porrone Sacro e vattene prima che cambi idea." },
+
+// final 2
+(FRASE) { ITALIAN, 16, "Grandioso, figliolo! Ce l'hai fatta. |WCLEAR:180 Oh, il mio adorato Porrone Sacro! Sei ritornato alla fine." },
+(FRASE) { ITALIAN, 16, "Quale è il suo magnifico potere?" },
+(FRASE) { ITALIAN, 16, "Questo artefatto magico genera vino infinito per il suo possessore. |WAIT:60 Una fresca fonte di nettare, a bit chopped, but infinite." },
+(FRASE) { ITALIAN, 16, "VINO?! |WAIT SOLO VINO?! |WAIT Non ci posso credere... |WCLEAR:180 Mi avevi promesso la mano della principessa." },
+
+// final 2 // weak
+(FRASE) { ITALIAN, 17, "Niente di tutto ciò! |WAIT Hai completato il gioco nella modalità più facile. Pensi che non me ne sono accorto?" },
+(FRASE) { ITALIAN, 17, "Ma, ma..." },
+(FRASE) { ITALIAN, 17, "Sono spiacente ma mia figlia ha bisogno di un vero uomo. |WAIT Segnati la parola d'ordine e riprova." },
+// Weak ending finishes here
+
+// final 2 // hard guy or nightmare
+(FRASE) { ITALIAN, 18, "Certamente... |WAIT:120 AMORINOOO, VIENI FUORI!" },
+(FRASE) { ITALIAN, 18, "Chiama la principessa, |WAIT Griel è qui per la tua mano." },
+(FRASE) { ITALIAN, 18, "E' già una signorina, vedrai." },
+(FRASE) { ITALIAN, 18, "Griel? |WCLEAR:180 Tu sei Griel...?" },
+
+
+// final 3 // hard guy or nightmare
+(FRASE) { ITALIAN, 19, "GROARRR! |WAIT SEI CALDOO! |WAIT VIENI TRA LE MIE BRACCIA, FUSTACCHIONE!" },
+(FRASE) { ITALIAN, 19, "AAAAAAH! TI PREGO ; NON MANGIARMI!" },
+(FRASE) { ITALIAN, 19, "Ha, ha, ha! |WAIT Solo un pochino!" },
+
+// final 3 // hard guy
+(FRASE) { ITALIAN, 20, "Che io sia maledetto, non c'era un finale migliore?" },
+// This is hard guy ending
+
+// final 3 // nightmare
+(FRASE) { ITALIAN, 21, "Prendi questo! |WAIT Il bimbo di latta è mio." },
+(FRASE) { ITALIAN, 21, "...?! |WAIT Kbritah?" },
+
+// final 4 // nightmare
+(FRASE) { ITALIAN, 22, "C'eri quasi |WAIT Perché mi hai salvato?" },
+(FRASE) { ITALIAN, 22, "Hai completato il livello più difficile,e questo non si vede tutti i giorni ti meriti qualcosa di meglio, non credi? |WCLEAR:180 E sei così carino con queste corna..." },
+(FRASE) { ITALIAN, 22, "Oh, grazie ma tu non mi stai prendendo, vero?" },
+(FRASE) { ITALIAN, 22, "Ha, ha, ha. |WAIT Dobbiamo festeggiare. |WAIT Ti mostrerò il \"vero\" finale." },
+(FRASE) { ITALIAN, 22, "Grandioso, procediamo alla prossima scena." } ,
+(FRASE) { ITALIAN, 22, "Oh, dai. |WAIT Sei più tonto di quanto pensassi... |WAIT:200" },
+
+
+
+// ------------------> "Guide Griel in his quest for" <------- // 2 phrases 28 length max each  &  max 20/2 --> 10 phrases
+
+//	(FRASE) { SPANISH, 23, "-LONGITUD MAXIMA DISPONIBLE-" }, // 28 MAX
+
+(FRASE) { ITALIAN, 23, "Guida Griel nella sua missione" },
+(FRASE) { ITALIAN, 23, "alla ricerca del Porrone Sacro." },
+
+(FRASE) { ITALIAN, 23, "Raccogli tutte le chiavi per" },
+(FRASE) { ITALIAN, 23, "il sigillo magico." },
+
+(FRASE) { ITALIAN, 23, "Completa tutti i mondi per" },
+(FRASE) { ITALIAN, 23, "raggiungere Kbrah." },
+
+(FRASE) { ITALIAN, 23, "Impara a farti strada tra i" },
+(FRASE) { ITALIAN, 23, "nemici." },
+
+(FRASE) { ITALIAN, 23, "Usa l'arma giusta in ogni" },
+(FRASE) { ITALIAN, 23, "circostanza." },
+
+(FRASE) { ITALIAN, 23, "Pensa due volte prima di" },
+(FRASE) { ITALIAN, 23, "fare una mossa." },
+
+(FRASE) { ITALIAN, 23, "Premi il tasto C per" },
+(FRASE) { ITALIAN, 23, "cancellare una mossa." },
+
+(FRASE) { ITALIAN, 23, "Con un po' di pazienza puoi" },
+(FRASE) { ITALIAN, 23, "recuperare UNDOs." },
+
+(FRASE) { ITALIAN, 23, "Se cadi, ti bruci o affoghi," },
+(FRASE) { ITALIAN, 23, "perderai un UNDO." },
+
+(FRASE) { ITALIAN, 23, "Tutti i livelli hanno almeno" },
+(FRASE) { ITALIAN, 23, "una soluzione." },
+
+(FRASE) { ITALIAN, 23, "Ricomincia il livello quando" },
+(FRASE) { ITALIAN, 23, "pensi sia necessario." },
+
+(FRASE) { ITALIAN, 23, "Premi il tasto B e una" },
+(FRASE) { ITALIAN, 23, "direzione se hai fretta." },
+
+(FRASE) { ITALIAN, 23, "Segnati la password spesso" },
+(FRASE) { ITALIAN, 23, "" }, // needed, do not delete
+
+(FRASE) { ITALIAN, 23, "Puoi rigiocare i livelli una" },
+(FRASE) { ITALIAN, 23, "volta superati." },
+
+(FRASE) { ITALIAN, 23, "Premi il tasto START se devi" },
+(FRASE) { ITALIAN, 23, "andare al bagno." },
+
+(FRASE) { ITALIAN, 23, "Accadrà qualcosa se" },
+(FRASE) { ITALIAN, 23, "completerai tutti i livelli." },
+
+(FRASE) { ITALIAN, 23, "Nel dubbio consulta il tuo" },
+(FRASE) { ITALIAN, 23, "farmacista." },
+
+(FRASE) { ITALIAN, 23, "Griel e il re Notah contano" },
+(FRASE) { ITALIAN, 23, "su di te, non deluderli!" },
+
+(FRASE) { ITALIAN, 23, "Bevi con moderazione." },
+(FRASE) { ITALIAN, 23, "" }, // needed!! don't deleted!
+
+(FRASE) { ITALIAN, 23, "Soltanto il Sacro Porrone" },
+(FRASE) { ITALIAN, 23, "renderà il senno al Re." },
+
+(FRASE) { ITALIAN, 23, "Fatto su Marte." },
+(FRASE) { ITALIAN, 23, "@2049" },
+
+
+// How to play --------------------------------------------------------------------------
+(FRASE) { ITALIAN, 24, " NEMICI " }, // respect spaces
+(FRASE) { ITALIAN, 24, " OGGETTI "  },  // respect spaces
+
+
+// Game over ----------------------------------------------------------------------------
+(FRASE) { ITALIAN, 25, "GAME OVER" },
+(FRASE) { ITALIAN, 25, "Usa questa password" },
+(FRASE) { ITALIAN, 25, "Grazie per aver giocato!" },
+(FRASE) { ITALIAN, 25, "Modalità invertita" },
+
+// game difficulty modes ----------------------------------------------------------------------
+(FRASE) { ITALIAN, 26, "Deboluccio" },
+(FRASE) { ITALIAN, 26, "Un duro" },
+(FRASE) { ITALIAN, 26, "Superfigo" }, // PESADILLA
+
+// Title screen options ----------------------------------------------------
+(FRASE) { ITALIAN, 27, "NUOVO GIOCO" },
+(FRASE) { ITALIAN, 27, "CONTINUA" },
+(FRASE) { ITALIAN, 27, "TEST SONORO" },
+
+// Sound test ---------------------- ----------------------------------------------------
+(FRASE) { ITALIAN, 28, "TEST SONORO" },
+(FRASE) { ITALIAN, 28, "Indietro" },
+
+// --------------------------------- ----------------------------------------------------
+(FRASE) { ITALIAN, 29, "PASSWORD" }, // LEAVE AS IS UNLESS TRANSLATION WERE SAME LENGTH
+
+// - Password screen --------------- ----------------------------------------------------
+(FRASE) { ITALIAN, 30, "PASSWORD" },
+
+
+// HOW TO PLAY // WEAPONS
+(FRASE) { ITALIAN, 31, "Bastone" },
+(FRASE) { ITALIAN, 31, "Croce" },
+(FRASE) { ITALIAN, 31, "Spada" },
+(FRASE) { ITALIAN, 31, "Chiave" },
+
+// HOW TO PLAY // ENEMIES
+(FRASE) { ITALIAN, 32, "Cinghiale" },
+(FRASE) { ITALIAN, 32, "Fungo" }, // Fungo Velenoso
+(FRASE) { ITALIAN, 32, "Elfo Oscuro" },
+
+(FRASE) { ITALIAN, 33, "Tricheco" },
+(FRASE) { ITALIAN, 33, "Eskimo" },
+(FRASE) { ITALIAN, 33, "Wampa" },
+
+(FRASE) { ITALIAN, 34, "Spadaccino" },
+(FRASE) { ITALIAN, 34, "Scorpione" },
+(FRASE) { ITALIAN, 34, "Mummia" },
+
+(FRASE) { ITALIAN, 35, "Granchio" },
+(FRASE) { ITALIAN, 35, "Pirata" },
+(FRASE) { ITALIAN, 35, "Plesi" },
+
+(FRASE) { ITALIAN, 36, "Ogre" },
+(FRASE) { ITALIAN, 36, "Occhio" },
+(FRASE) { ITALIAN, 36, "Demonio" },
+
+(FRASE) { ITALIAN, 37, "Porta" },

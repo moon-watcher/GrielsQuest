@@ -518,14 +518,13 @@ u16 _check_password ( u8 password[], u16 *ptrLevel )
 
 void jap()
 {
-
    u8 i, ch;
-   u8 *str1 =  "鬆";
-   u8 *str2 =  "鬆大ｼｵ繧� ・�";
-   u8 *str3 =  "輔″蛻・￠";
-   u8 *str4 =  "蜍晏茜";
-   u8 *str5 =  "蠕礼せ";
-   u8 *str6 =  "繧ｳ繧､繝ｳ";
+   u8 str1[40] =  "鬆";
+   u8 str2[40] =  "鬆大ｼｵ繧� ・�";
+   u8 str3[40] =  "輔″蛻・￠";
+   u8 str4[40] =  "蜍晏茜";
+   u8 str5[40] =  "蠕礼せ";
+   u8 str6[40] =  "繧ｳ繧､繝ｳ";
 
    i=0;
    ch = str1[i];
@@ -584,7 +583,6 @@ void jap()
 
    while(1) ;
 }
-
 
 
 int main ( )

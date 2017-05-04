@@ -32,7 +32,7 @@ extern const struct genresTiles          ob_ending_3;
 //extern const struct genresTiles          ob_title_2;
 
 extern const u32                        *cb_font_8x8;
-extern const u32                        *cb_font_8x8_spa;
+extern const u32                        *cb_font_8x8_chars;
 extern const struct genresTiles          cb_square;
 extern const struct genresSprites        cs_font_16x16;
 

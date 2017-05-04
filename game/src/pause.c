@@ -155,9 +155,9 @@ static void _marco_desplegar ( )
 
 		_hide_sprites ( i );
 
-		if ( i == 2 ) text_write ( frases_next(), 15, 12 );
-		if ( i == 4 ) text_write ( frases_next(), 15, 14 );
-		if ( i == 7 ) text_write ( frases_next(), 15, 17 );
+		if ( i == 2 ) text_write ( frases_next(), 14, 12 );
+		if ( i == 4 ) text_write ( frases_next(), 14, 14 );
+		if ( i == 7 ) text_write ( frases_next(), 14, 17 );
 
 		waitMs(19);
 	}
@@ -283,10 +283,10 @@ void pause_show ( LEVEL *wl, u16 *ret )
 			if ( joy1_pressed_up    &&  --option < 0 ) option = 2;
 			if ( joy1_pressed_down  &&  ++option > 2 ) option = 0;
 
-			VDP_drawText ( " ",  15, opciones[0].y );
-			VDP_drawText ( " ",  15, opciones[1].y );
-			VDP_drawText ( " ",  15, opciones[2].y );
-			VDP_drawText ( "\\", 15, opciones[option].y );
+			VDP_drawText ( " ",  14, opciones[0].y );
+			VDP_drawText ( " ",  14, opciones[1].y );
+			VDP_drawText ( " ",  14, opciones[2].y );
+			VDP_drawText ( "\\", 14, opciones[option].y );
 
 			psglist_play ( PSG_SELECT );
 		}

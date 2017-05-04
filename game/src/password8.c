@@ -232,11 +232,14 @@ static bool pwd_is_ok ( PASSWORD8 pwd )
 	_debug ( 3, dificultad, ambiente0, ambiente1, ambiente2, ambiente3, ambiente4, suma, verifica, -1 );
 
 
-	if ( verifica > 10 )
+	u8 max_verifica = frases_count ( 5 ) - 1;
+
+	if ( verifica > max_verifica )
 	{
-		verifica = 10;
+		verifica = max_verifica;
 	}
-	else if ( verifica == 0 ) // 0 es que no hay diferencias entre la verificacion y el código
+
+	if ( verifica == 0 ) // 0 es que no hay diferencias entre la verificacion y el código
 	{
 		gamestate.current_ambiente = 0;
 		gamestate.current_round    = 0;
