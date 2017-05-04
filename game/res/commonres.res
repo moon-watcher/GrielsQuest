@@ -10,9 +10,9 @@ IMAGE screen_disclaimerBGImage_all      "../data/common/disclaimer/disclaimerBG.
 IMAGE screen_disclaimerLogoImage_all    "../data/common/disclaimer/disclaimerLogo.bmp"     0
 IMAGE screen_disclaimerLogoLedImage_all "../data/common/disclaimer/disclaimerLogoLed.bmp"  0
 
-IMAGE screen_playonretro_00              "../data/common/playonretro/00.bmp"                0
-#IMAGE screen_playonretro_01             "../data/common/playonretro/01.bmp"                0
-#IMAGE screen_playonretro_02             "../data/common/playonretro/02.bmp"                0
-#IMAGE screen_playonretro_03             "../data/common/playonretro/03.bmp"                0
-#IMAGE screen_playonretro_04             "../data/common/playonretro/04.bmp"                0
+IMAGE screen_publisher_00               "../data/common/publisher/00.bmp"                  0
+#IMAGE screen_publisher_01              "../data/common/publisher/01.bmp"                  0
+#IMAGE screen_publisher_02              "../data/common/publisher/02.bmp"                  0
+#IMAGE screen_publisher_03              "../data/common/publisher/03.bmp"                  0
+#IMAGE screen_publisher_04              "../data/common/publisher/04.bmp"                  0
 

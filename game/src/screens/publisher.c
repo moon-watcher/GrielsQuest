@@ -4,7 +4,7 @@
 #define IMAGES  1
 
 
-void screen_playonretro ( )
+void screen_publisher ( )
 {
     if ( DEV > 1 ) return;
 
@@ -30,7 +30,7 @@ void screen_playonretro ( )
 
 	Image *images [ IMAGES ] =
 	{
-		(Image*) &screen_playonretro_00
+		(Image*) &screen_publisher_00
 	};
 
 	for ( i=0; i<IMAGES; i++ )
@@ -66,7 +66,7 @@ void screen_playonretro ( )
 //#include "../../inc/include.h"
 //#include "../../res/all/screens.h"
 //
-//void screen_playonretro ( )
+//void screen_publisher ( )
 //{
 //	if ( DEV ) return;
 //
@@ -83,7 +83,7 @@ void screen_playonretro ( )
 //
 //	//play_music ( MUSIC_PROLOGUE );
 //
-//	drawImage ( (Image*) &screen_playonretro_all, PLAN_B );
+//	drawImage ( (Image*) &screen_publisher_all, PLAN_B );
 //
 //	displayOn(30);
 //

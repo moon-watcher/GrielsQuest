@@ -224,7 +224,7 @@ void game_loop()
 		gamestate.visito_la_puerta = false;
 		puerta_abierta = 0;
 
-		screen_playonretro ( );
+		screen_publisher ( );
 		screen_oooklab ( 4, BUTTON_BTN, 0 );
 		screen_languages();
 		screen_intro ( 1 );

@@ -79,13 +79,12 @@
  *
  *
  * --------------------------------------------------------------------------------------------------------------------------------
- *  PLAYONRETRO'S PHYSICAL RELEASE
+ *  1985 ALTERNATIVO'S PHYSICAL RELEASE
  * --------------------------------------------------------------------------------------------------------------------------------
  *
  * @ILLUSTRATIONS             => Dani Nevado                    | Twitter: @DanySnowyman      | Mail:                     |Notes:
- * @COVER                     => Felipe Monge Corbalán          | Twitter: @vakapp            | Mail:                     |Notes:
- * @INSTRUCTION-MANUAL        => Felipe Monge Corbalán          | Twitter: @vakapp            | Mail:                     |Notes:
- * @INSTRUCTION-MANUAL        => Alfonso Martínez               | Twitter: @_SrPresley_       | Mail:                     |Notes:
+ * @COVER                     =>                                | Twitter:                    | Mail:                     |Notes:
+ * @INSTRUCTION-MANUAL        =>                                | Twitter:                    | Mail:                     |Notes:
  *
  *
  *

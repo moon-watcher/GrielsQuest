@@ -46,7 +46,7 @@ void  screen_sound_test         ( );
 u16   screen_ingame_how_to_play ( LEVEL wl );
 void  screen_disclaimer         ( );
 void  screen_ob_intro_2_b_f     ( );
-void  screen_playonretro        ( );
+void  screen_publisher          ( );
 void  screen_languages          ( );
 
 //void  screen_chose_ambient      ( );
