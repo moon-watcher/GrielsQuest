@@ -66,7 +66,7 @@
 (FRASE) { ITALIAN,  9, "E' SPARITA ANCHE LA PRINCIPESSA!" },
 (FRASE) { ITALIAN,  9, "Cose da niente, |WAIT Il Porrone Sacro deve essere recuperato. |WAIT Chiama Griel, si alza sempre all'alba." },
 
-(FRASE) { ITALIAN, 10, "Griel, il regno è in pericolo senza il Porrone Sacro. |WAIT Devi ritrovarlo al più presto! |WCLEAR:180 C'è lo zampino di Kbrah , il mio arcinemico, deve esser opera sua."},
+(FRASE) { ITALIAN, 10, "Griel, il regno è in pericolo senza il Porrone Sacro. |WAIT Devi ritrovarlo al più presto! |WCLEAR:180 C'è lo zampino di Kbrah, il mio arcinemico, deve esser opera sua."},
 (FRASE) { ITALIAN, 10, "Ha rapito anche la principessa!" },
 (FRASE) { ITALIAN, 10, "La principessa? Ah, si, si... |WAIT Vai al castello di quel ruffiano, torna con il Porrone Sacro e ti concederò la sua mano. |WAIT Intesi? |WBREAK Adesso, fuori di qui." },
 
@@ -87,7 +87,7 @@
 (FRASE) { ITALIAN, 15, "Kbrah, mala bestia! |WAIT Consegnami il Porrone Sacro, so che ce l'hai." },
 (FRASE) { ITALIAN, 15, "Sei veramente venuto fino a qui per quell'arnese? |WAIT Eccolo, prendilo, non mi piace per niente..." },
 (FRASE) { ITALIAN, 15, "Uoh! |WAIT Papino, che bel bimbetto. |WAIT Posso tenerlo?" },
-(FRASE) { ITALIAN, 15, "Non se ne parla! |WAIT Non ti ho mal-cresciuto fino ad ora per farti frequentare questi cavalierucci. |WCLEAR:180 Comunque stai andando via,no?" },
+(FRASE) { ITALIAN, 15, "Non se ne parla! |WAIT Non ti ho mal-cresciuto fino ad ora per farti frequentare questi cavalierucci. |WCLEAR:180 Comunque stai andando via, no?" },
 (FRASE) { ITALIAN, 15, "Non così in fretta, malandrino, anche la Principessa Beach viene con me." },
 (FRASE) { ITALIAN, 15, "La Principessa si trova in un altro castello, non potevamo... ehm... |WAIT trattenerla per altro tempo. |WCLEAR:180 Adesso prendi il Porrone Sacro e vattene prima che cambi idea." },
 
@@ -112,7 +112,7 @@
 
 // final 3 // hard guy or nightmare
 (FRASE) { ITALIAN, 19, "GROARRR! |WAIT SEI CALDOO! |WAIT VIENI TRA LE MIE BRACCIA, FUSTACCHIONE!" },
-(FRASE) { ITALIAN, 19, "AAAAAAH! TI PREGO ; NON MANGIARMI!" },
+(FRASE) { ITALIAN, 19, "AAAAAAH! TI PREGO; NON MANGIARMI!" },
 (FRASE) { ITALIAN, 19, "Ha, ha, ha! |WAIT Solo un pochino!" },
 
 // final 3 // hard guy
@@ -125,10 +125,10 @@
 
 // final 4 // nightmare
 (FRASE) { ITALIAN, 22, "C'eri quasi |WAIT Perché mi hai salvato?" },
-(FRASE) { ITALIAN, 22, "Hai completato il livello più difficile,e questo non si vede tutti i giorni ti meriti qualcosa di meglio, non credi? |WCLEAR:180 E sei così carino con queste corna..." },
+(FRASE) { ITALIAN, 22, "Hai completato il livello più difficile, e questo non si vede tutti i giorni ti meriti qualcosa di meglio, non credi? |WCLEAR:180 E sei così carino con queste corna..." },
 (FRASE) { ITALIAN, 22, "Oh, grazie ma tu non mi stai prendendo, vero?" },
 (FRASE) { ITALIAN, 22, "Ha, ha, ha. |WAIT Dobbiamo festeggiare. |WAIT Ti mostrerò il \"vero\" finale." },
-(FRASE) { ITALIAN, 22, "Grandioso, procediamo alla prossima scena." } ,
+(FRASE) { ITALIAN, 22, "Grandioso, procediamo alla prossima scena." },
 (FRASE) { ITALIAN, 22, "Oh, dai. |WAIT Sei più tonto di quanto pensassi... |WAIT:200" },
 
 
@@ -137,8 +137,8 @@
 
 //	(FRASE) { SPANISH, 23, "-LONGITUD MAXIMA DISPONIBLE-" }, // 28 MAX
 
-(FRASE) { ITALIAN, 23, "Guida Griel nella sua missione" },
-(FRASE) { ITALIAN, 23, "alla ricerca del Porrone Sacro." },
+(FRASE) { ITALIAN, 23, "Guida Griel alla ricerca" },
+(FRASE) { ITALIAN, 23, "del Porrone Sacro" },
 
 (FRASE) { ITALIAN, 23, "Raccogli tutte le chiavi per" },
 (FRASE) { ITALIAN, 23, "il sigillo magico." },
