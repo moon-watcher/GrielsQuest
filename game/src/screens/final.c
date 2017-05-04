@@ -606,4 +606,7 @@ void screen_final ( u16 jump )
 	}
 
 	VDP_setPlanSize ( 64, 32 );
+
+    vdpSpriteCache[0].link = 0;
+	VDP_updateSprites(80,1);
 }

@@ -337,6 +337,9 @@ bool pwd8_screen()
 
 
 
+	u8 activeTo = 0;
+	u8 activeCo = 0;
+
 	while ( true )
 	{
 		u8 ch = 0;
@@ -344,35 +347,58 @@ bool pwd8_screen()
 
 		//JoyReader_update ( );
 
-		if ( joy1_pressed_dir )
+		if ( joy1_active_dir )
 		{
-			psglist_play ( PSG_SELECT );
+		    ++activeCo;
 
-			do
-			{
-				if ( joy1_active_up    ) --y;
-				if ( joy1_active_down  ) ++y;
-				if ( joy1_active_left  ) --x;
-				if ( joy1_active_right ) ++x;
+		    if ( activeTo == 0 )
+            {
+                psglist_play ( PSG_SELECT );
 
-				if ( y < 0              ) y = PWD_HEIGHT - 1;
-				if ( x < 0              ) x = PWD_WIDTH  - 1;
-				if ( y > PWD_HEIGHT - 1 ) y = 0;
-				if ( x > PWD_WIDTH  - 1 ) x = 0;
+                do
+                {
+                    if ( joy1_active_up    ) --y;
+                    if ( joy1_active_down  ) ++y;
+                    if ( joy1_active_left  ) --x;
+                    if ( joy1_active_right ) ++x;
 
-				ch = _letras[y][x];
-			}
-			while ( ch == 32 );
+                    if ( y < 0              ) y = PWD_HEIGHT - 1;
+                    if ( x < 0              ) x = PWD_WIDTH  - 1;
+                    if ( y > PWD_HEIGHT - 1 ) y = 0;
+                    if ( x > PWD_WIDTH  - 1 ) x = 0;
 
-			VDP_setSpritePosition ( 0, x * 24 + 40, y * 24 + 112 );
-			VDP_updateSprites (80,1);
+                    ch = _letras[y][x];
+                }
+                while ( ch == 32 );
 
-			continue;
+                VDP_setSpritePosition ( 0, x * 24 + 40, y * 24 + 112 );
+                VDP_updateSprites (80,1);
+
+                if ( activeCo == 1 )
+                {
+                    activeTo = 9;
+                }
+                else
+                {
+                    activeTo = 3;
+                }
+
+                continue;
+            }
 		}
 		else
-		{
-			ch = _letras[y][x];
-		}
+        {
+            activeCo = 0;
+        }
+
+
+        ch = _letras[y][x];
+
+
+		if ( activeTo )
+        {
+            --activeTo;
+        }
 
 
 		if ( DEV )
