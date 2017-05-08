@@ -25,6 +25,7 @@ static u16  sprite_last_letter = 0;
 static u16  _counter     = 0;
 static u16  _counter_sp1 = 0;
 static u16  _counter_sp2 = 0;
+static u16  _selector_inc = 0;
 static bool jump_loop_niveles = false;
 
 
@@ -136,11 +137,28 @@ static void _selector_mover ( s16 i )
 
 	VDP_setSpriteFull ( 2, x-12, y, SIZE, ATTR(1), 3 );
 	VDP_setSpriteFull ( 3, x+20, y, SIZE, ATTR(2), 4 );
+
+	u8 hz = getHz()/2;
+
+	++_selector_inc;
+
+	if ( _selector_inc > hz )
+    {
+        vdpSpriteCache[1].x = 3;
+        vdpSpriteCache[2].x = 3;
+        vdpSpriteCache[3].x = 3;
+
+        if ( _selector_inc == hz+hz/3 )
+        {
+            _selector_inc = 0;
+        }
+    }
 }
 
 
 static void _selector_init ( )
 {
+    _selector_inc = 0;
 	_selector_mover ( -1 );
 }
 
@@ -485,7 +503,7 @@ static u16 _loop_niveles ( )
 				nivel = saved;
 			}
 
-			_selector_mover ( nivel );
+            _selector_inc = 0;
 		}
 
 
@@ -499,6 +517,8 @@ static u16 _loop_niveles ( )
 
 			break;
 		}
+
+		_selector_mover ( nivel );
 
 		_update_sprites ();
 
