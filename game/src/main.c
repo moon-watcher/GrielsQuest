@@ -170,7 +170,7 @@ void monos()
       VDP_waitVSync();
    }
 
-   VDP_fadeOutAll ( 30, 0 );
+   displayOff( 30 );
 }
 
 
@@ -587,7 +587,7 @@ void jap()
 int main ( )
 {
     //jap();
-    dev_init ( 1 );
+    dev_init ( 2 );
 
     JoyReader_init ( 1 );
     monos();
