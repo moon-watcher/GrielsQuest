@@ -156,6 +156,7 @@ PRAYER *prayer_get ( u16 i )
 
 void prayer_show ( u16 level )
 {
+    displayInit();
     displayOff(0);
     resetScreen();
     resetSprites();
@@ -189,7 +190,7 @@ void prayer_show ( u16 level )
 	waitSc(2);
 
 	JoyReader_resume();
-	JOY_waitPress ( JOY_1, BUTTON_BTN );
+	waitJoy(); // JOY_waitPress ( JOY_1, BUTTON_BTN );
 
 	planHide ( );
 	displayOff ( 0 );

@@ -86,9 +86,7 @@ void screen_languages ()
 
     while ( 1 )
     {
-        JOY_waitPress(JOY_1, BUTTON_UP | BUTTON_DOWN | BUTTON_ABCS );
-
-        JoyReader_update();
+        waitJoy ( ); //JOY_waitPress(JOY_1, BUTTON_UP | BUTTON_DOWN | BUTTON_ABCS );
 
         SYS_disableInts();
         VDP_drawText ( " ", DEFAULT_X-2, option*2+y_pos );

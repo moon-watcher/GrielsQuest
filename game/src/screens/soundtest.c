@@ -12,8 +12,8 @@ void screen_sound_test ()
 		pos    = 12;
 
 
+    displayOff(0);
 
-	VDP_setEnable(false);
 
 	SYS_disableInts();
 
@@ -43,7 +43,7 @@ void screen_sound_test ()
 	VDP_setPalette(PAL0, (u16*) font_getPalette());
 
 	SYS_enableInts();
-	VDP_setEnable(true);
+
 
 	while ( true )
 	{
@@ -67,7 +67,7 @@ void screen_sound_test ()
 
 		SYS_enableInts();
 
-		JOY_waitPress ( JOY_1, BUTTON_ALL );
+		waitJoy(); //JOY_waitPress ( JOY_1, BUTTON_ALL );
 
 		//if ( joy1_pressed_dir ) psglist_play ( PSG_SELECT );
 

@@ -177,6 +177,9 @@ static void pwdCheats ( PASSWORD8 pwd )
 
         if ( compare ( word, pwd ) )
         {
+            displayOff(10);
+            vdpSpriteCache[0].link = 0;
+
             prayer_show ( i );
         }
 

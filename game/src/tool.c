@@ -280,7 +280,7 @@ void waitJoy ( )
 
 		JoyReader_update();
 
-		if ( joy1_pressed_abc || joy1_pressed_start )
+		if ( joy1_pressed )
 		{
 			return ;
 		}
@@ -295,7 +295,7 @@ void waitJoyHz ( u16 hz )
 
 		JoyReader_update();
 
-		if ( joy1_pressed_abc || joy1_pressed_start )
+		if ( joy1_pressed )
 		{
 			return ;
 		}
@@ -304,19 +304,7 @@ void waitJoyHz ( u16 hz )
 
 void waitJoySc ( u16 sc )
 {
-	sc *= getHz();
-
-	while ( sc-- )
-	{
-		VDP_waitVSync();
-
-		JoyReader_update();
-
-		if ( joy1_pressed_abc || joy1_pressed_start )
-		{
-			return ;
-		}
-	}
+    waitJoyHz ( sc * getHz() );
 }
 
 void waitMusicStop ( )
