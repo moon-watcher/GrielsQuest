@@ -1,5 +1,6 @@
 #include "../inc/include.h"
 #include "../inc/colores_textos.h"
+#include "../../libs/psg.h"
 
 
 
@@ -350,10 +351,12 @@ salto_2:
 		}
 	}
 
+	music_stop();
+	waitSc(1);
+    psg_pause();
 	displayOff (60);
 
-	//tool_reset();
-	resetScroll ();
+    resetScroll ();
 	resetScreen();
 
 
