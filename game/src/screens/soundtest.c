@@ -108,7 +108,7 @@ void screen_sound_test ()
 	//music_override_repeat ( AUTO );
 	//music_override_repeat ( 2 );
 
-	VDP_fadeOutAll(30, false );
+	displayOff (30 );
 }
 
 

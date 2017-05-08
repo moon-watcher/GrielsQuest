@@ -268,7 +268,7 @@ u16 screen_puerta ( )
 
 fin:
 	vram_destroy();
-	VDP_fadeOutAll ( 30, false );
+	displayOff ( 30 );
 
 	VDP_setPlanSize ( 64, 32 );
 

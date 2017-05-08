@@ -472,7 +472,7 @@ bool pwd8_screen()
 
 	waitMs(1000);
 
-	VDP_fadeOutAll ( 10, false );
+	displayOff( 10 );
 	resetSprites ( );
 
 	return ret;

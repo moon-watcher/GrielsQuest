@@ -161,7 +161,7 @@ static u8 _escena_1 ( )
 
 fin:
 
-	VDP_fadeOutAll ( 30, false );
+	displayOff ( 30 );
 
 	return go;
 }
@@ -217,7 +217,7 @@ fin:
 	vint_setOb_intro_2_b_f(false);
 //	VDP_waitVSync();
 
-	VDP_fadeOutAll ( 30, false );
+	displayOff  ( 30);
 
 
    return go;
@@ -390,7 +390,7 @@ static u8 _escena_3 ()
 
 fin:
 
-	VDP_fadeOutAll ( 30, false );
+	displayOff  ( 30 );
 
 	vint_setOb_intro_2_b_f(false);
 	VDP_waitVSync();
@@ -508,7 +508,7 @@ static u8 _escena_4 ( int repeat )
 
 fin:
 
-	VDP_fadeOutAll ( 30, false );
+	displayOff  ( 30 );
 
 	return go;
 }

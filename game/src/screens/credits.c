@@ -99,10 +99,7 @@ static u16 writeCredits ( u8 part, u8 y_pos )
 
 void screen_credits ()
 {
-    if ( DEV > 1 )
-    {
-        return;
-    }
+    if ( DEV > 1 ) return;
 
     music_stop();
     displayOff(0);

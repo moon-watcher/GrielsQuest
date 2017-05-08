@@ -617,7 +617,7 @@ u16 screen_mapa ( u16 first_time )
 	vint_setFlechaMap ( false );
 	music_stop ( );
 
-	VDP_fadeOutAll ( 30, false );
+	displayOff(30);
 	waitMs ( 500 ); // pausa valorativa
 
 	jump_loop_niveles = (bool) to;

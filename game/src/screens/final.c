@@ -245,8 +245,8 @@ static void _final_1 ( )
 
 
 fin:
-   vram_destroy();
-	VDP_fadeOutAll ( 30, false );
+    vram_destroy();
+	displayOff ( 30 );
 }
 
 
@@ -340,7 +340,7 @@ static void _final_2()
 
 fin:
 	vram_destroy();
-	VDP_fadeOutAll ( 30, false );
+	displayOff ( 30 );
 }
 
 
@@ -493,7 +493,7 @@ static void _final_3()
 
 fin:
 	vram_destroy();
-	VDP_fadeOutAll ( 30, false );
+	displayOff ( 30 );
 }
 
 
@@ -567,7 +567,7 @@ static void _final_4()
 
 fin:
 	vram_destroy();
-	VDP_fadeOutAll ( 30, false );
+	displayOff ( 30 );
 }
 
 

@@ -350,7 +350,7 @@ salto_2:
 		}
 	}
 
-	VDP_fadeOutAll(60, false);
+	displayOff (60);
 
 	//tool_reset();
 	resetScroll ();

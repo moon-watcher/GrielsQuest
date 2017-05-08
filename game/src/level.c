@@ -823,7 +823,7 @@ void level_presentation()
 	waitSc(3);
 
 
-	VDP_fadeOutAll ( 30, false );
+	displayOff(30);
 
 	resetSprites();
 	splist_reorder();
