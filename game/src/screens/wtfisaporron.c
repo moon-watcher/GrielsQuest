@@ -4,7 +4,7 @@
 #define IMAGES  1
 
 
-void screen_publisher ( )
+void screen_wtfisaporron ( )
 {
     if ( DEV > 1 ) return;
 
@@ -30,7 +30,7 @@ void screen_publisher ( )
 
 	Image *images [ IMAGES ] =
 	{
-		(Image*) &screen_publisher_00
+		(Image*) &wtf_is_a_porron
 	};
 
 	for ( i=0; i<IMAGES; i++ )
@@ -41,11 +41,9 @@ void screen_publisher ( )
 	}
 
 
-	waitHz(20);
-
 	for ( i=0; i<IMAGES; i++ )
 	{
-		waitHz(3);
+		waitHz(1);
 
 		SYS_disableInts();
 		VDP_setPalette ( PAL1, images[i]->palette->data );
@@ -55,7 +53,7 @@ void screen_publisher ( )
 
 	vram_destroy();
 
-	waitJoySc(6);
+	waitJoySc(12);
 
 	displayOff(10);
 	//musicStop ( );

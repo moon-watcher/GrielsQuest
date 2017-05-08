@@ -225,6 +225,8 @@ static void _init ( )
 
 	SYS_enableInts ( );
 
+	music_stop();
+
 	displayOn(30);
 
 	musiclist_play ( MUSIC_MAP );

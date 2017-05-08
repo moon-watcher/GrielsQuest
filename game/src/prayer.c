@@ -171,6 +171,8 @@ void prayer_show ( u16 level )
 
 	PRAYER *p = (PRAYER *) &_list[level];
 
+	music_stop();
+
 	displayOn(10);
 	VDP_setTextPalette(PAL0);
 

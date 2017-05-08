@@ -224,9 +224,6 @@ void game_loop()
 		gamestate.visito_la_puerta = false;
 		puerta_abierta = 0;
 
-		screen_publisher ( );
-		screen_oooklab ( 4, BUTTON_BTN, 0 );
-		screen_languages();
 		screen_intro ( 1 );
 		to = screen_title ( 0 );
 
@@ -235,7 +232,7 @@ void game_loop()
 
 
 
-					if ( DEV > 1 )
+					if ( DEV  )
 					{
 					   gamestate.dificultad   =  3;
 					   gamestate.ambientes[0] = 14; // 14;
@@ -353,6 +350,13 @@ void game_loop()
 			}
 		}
 
+        if ( to == SCREEN_JUMP_TO_INTRO )
+        {
+            music_stop();
+            screen_wtfisaporron ();
+            screen_griels ( ); // solo para Barcelona y demos
+            screen_credits ( );
+        }
 
 		if ( to == SCREEN_JUMP_TO_ENDING )
 		{

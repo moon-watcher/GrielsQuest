@@ -820,7 +820,7 @@ void level_presentation()
 	VDP_updateSprites (80,1);
 
 
-	waitMs ( 2000 );
+	waitSc(3);
 
 
 	VDP_fadeOutAll ( 30, false );

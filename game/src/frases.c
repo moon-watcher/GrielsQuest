@@ -169,3 +169,11 @@ u16 frases_count ( u16 grupo )
 
 	return contador;
 }
+
+
+u8 *prepare_string ( u8 *str )
+{
+    _prepare_string ( str );
+
+    return (u8*) _string;
+}

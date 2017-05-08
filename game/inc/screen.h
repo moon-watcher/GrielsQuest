@@ -35,11 +35,12 @@ bool ob_intro_2_b_f;
 
 
 
-void  screen_sega               ( u16 secs, u16 buttons, u8 on_release );
-void  screen_oooklab            ( u16 secs, u16 buttons, u8 on_release );
-void  screen_griels             ( u16 secs, u16 buttons, u8 on_release );
+void  screen_sega               ( );
+void  screen_oooklab            ( );
+void  screen_griels             ( );
+void  screen_credits            ( );
 u16   screen_title              ( u16 salto );
-u16   screen_title_menu_1       ( ) ;
+u16   screen_title_menu_1       ( );
 void  screen_gameover           ( );
 void  screen_ending             ( );
 void  screen_sound_test         ( );
@@ -47,6 +48,7 @@ u16   screen_ingame_how_to_play ( LEVEL wl );
 void  screen_disclaimer         ( );
 void  screen_ob_intro_2_b_f     ( );
 void  screen_publisher          ( );
+void  screen_wtfisaporron       ( );
 void  screen_languages          ( );
 
 //void  screen_chose_ambient      ( );

@@ -161,11 +161,6 @@ u16 screen_title ( u16 salto )
 		goto salto_2;
 	}
 
-   //psgfx_init();
-	musiclist_play ( MUSIC_TITLE );
-
-
-
 	displayInit();
 	displayOff(0);
 
@@ -205,6 +200,9 @@ u16 screen_title ( u16 salto )
 	SYS_enableInts();
 
 	displayOn(30);
+
+   //psgfx_init();
+	musiclist_play ( MUSIC_TITLE );
 
 	waitSc(2);
 

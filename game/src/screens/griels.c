@@ -1,40 +1,56 @@
 #include "../inc/include.h"
 
 
-void screen_griels ( u16 secs, u16 buttons, u8 on_release )
+void screen_griels ( )
 {
-   return;
+//    if ( DEV ) return;
+
+    displayOff(0);
+    resetScreen();
+    music_stop();
 
 
-   VDP_setEnable(false);
-   resetScreen();
+    VDP_setTextPalette ( PAL0 );
+    prepareColor (  1, 0xfff );
+    prepareColor (  2, 0x444 );
+    prepareColor ( 17, font_palette.data [ 7 ] );
+    prepareColor ( 18, font_palette.data [ 8 ] );
+    prepareColor ( 33, 0xfff );
+    prepareColor ( 34, 0x444 );
+
+    //	VDP_drawText ( "                 RK709EX                ",  0, 10 );
+    //	VDP_drawText ( "                                        ",  0, 11 );
+    //	VDP_drawText ( "     GRIEL'S QUEST FOR THE SANGRAAL     ",  0, 12 );
+    //	VDP_drawText ( "                                        ",  0, 13 );
+    //	VDP_drawText ( "          - EXTENDED EDITION -          ",  0, 14 );
+    //	VDP_drawText ( "                                        ",  0, 15 );
+    //	VDP_drawText ( "                                        ",  0, 16 );
+    //	VDP_drawText ( "           26th December 2005           ",  0, 17 );
+
+    u8 y = 4;
+
+    VDP_setTextPalette ( PAL1 );
+    text_write ( "              Griel's Quest             ",  0,  y+=2 );
+    text_write ( prepare_string ("           for the Holy Porrón          "),  0, y+=2 );
+
+    VDP_setTextPalette ( PAL2 );
+    text_write ( "       For Sega Megadrive/Genesis       ",  0, y+=2 );
+    text_write ( "              @2013 - 2017              ",  0, y+=2 );
 
 
-   VDP_setTextPalette ( PAL0 );
-	VDP_setPaletteColor ( 1, 0xfff );
+    VDP_setTextPalette ( PAL1 );
+    text_write ( "            Original game by            ",  0, y+=7 );
 
-//	VDP_drawText ( "                 RK709EX                ",  0, 10 );
-//	VDP_drawText ( "                                        ",  0, 11 );
-//	VDP_drawText ( "     GRIEL'S QUEST FOR THE SANGRAAL     ",  0, 12 );
-//	VDP_drawText ( "                                        ",  0, 13 );
-//	VDP_drawText ( "          - EXTENDED EDITION -          ",  0, 14 );
-//	VDP_drawText ( "                                        ",  0, 15 );
-//	VDP_drawText ( "                                        ",  0, 16 );
-//	VDP_drawText ( "           26th December 2005           ",  0, 17 );
+    VDP_setTextPalette ( PAL2 );
+    text_write ( "           Karoshi Corporation          ",  0, y+=2 );
+    text_write ( "                 @2015                  ",  0, y+=2 );
 
+    displayOn(10);
 
-	VDP_drawText ( "      GRIEL'S QUEST FOR THE PORRON      ",  0,  8 );
-	VDP_drawText ( "       FOR SEGA MEGADRIVE/GENESIS       ",  0, 10 );
+    waitJoySc(6);
 
-	VDP_drawText ( "          SPECIAL VERSION FOR           ",  0, 16 );
-	VDP_drawText ( "             GAMESCOM  2016             ",  0, 18 );
-
-	VDP_setEnable(true);
-
-	waitJoySc(3);
-
-   VDP_fadeOutAll(10, 0);
-   resetScreen();
+    displayOff(10);
+    resetScreen();
 }
 
 

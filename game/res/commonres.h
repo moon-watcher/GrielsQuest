@@ -10,5 +10,6 @@ extern const Image screen_disclaimerBGImage_all;
 extern const Image screen_disclaimerLogoImage_all;
 extern const Image screen_disclaimerLogoLedImage_all;
 extern const Image screen_publisher_00;
+extern const Image wtf_is_a_porron;
 
 #endif // _GAME_RES_COMMONRES_H_

@@ -93,7 +93,8 @@ salto:
 	prepareColors( colors );
 	showBmp ( PAL3, (struct genresTiles*) &ob_staff_griel, HOW_TO_PLAY_TILE, PLAN_B, 18, 2, wait1 );
 
-    displayOn(60);
+    displayFadeIn(getHz());
+
 
 	VDP_setTextPalette(PAL1);
 	typeText( "Graphics",   7, 10, wait1 );
@@ -119,7 +120,7 @@ salto:
 	memcpyU16(&colors[48], ob_staff_kbrah.pal, 16 );
 	prepareColors( colors );
 	showBmp ( PAL3, (struct genresTiles*) &ob_staff_kbrah, HOW_TO_PLAY_TILE, PLAN_B, 10, 4, wait1 );
-    displayOn(60);
+    displayFadeIn(getHz());
 
 	VDP_setTextPalette(PAL1);
 	typeText( "Music & SFX",     5,  5, wait1 );
@@ -144,7 +145,7 @@ salto:
 	memcpyU16(&colors[48], ob_staff_notah.pal, 16 );
 	prepareColors( colors );
 	showBmp ( PAL3, (struct genresTiles*) &ob_staff_notah, HOW_TO_PLAY_TILE, PLAN_B, 0, 1, wait1 );
-    displayOn(60);
+    displayFadeIn(getHz());
 
 	VDP_setTextPalette(PAL1);
 	typeText( "Code",     23,  15, wait1 );
@@ -170,7 +171,7 @@ salto:
     memcpyU16(&colors[48], ob_staff_kbrah2.pal, 16 );
     prepareColors( colors );
     showBmp ( PAL3, (struct genresTiles*) &ob_staff_kbrah2, HOW_TO_PLAY_TILE, PLAN_B, 11, -5, wait1 );
-    displayOn(60);
+    displayFadeIn(getHz());
 
     VDP_setTextPalette(PAL1);
     typeText( "Beta testing",     3,  3, wait1 );
@@ -200,7 +201,7 @@ salto:
 	memcpyU16(&colors[48], ob_staff_beach.pal, 16 );
 	prepareColors( colors );
 	showBmp ( PAL3, (struct genresTiles*) &ob_staff_beach, HOW_TO_PLAY_TILE, PLAN_B, 16, 10, wait1 );
-    displayOn(60);
+    displayFadeIn(getHz());
 
 	VDP_setTextPalette(PAL1);
 	typeText( "Thank to",     8,  5, wait1 );
@@ -233,19 +234,19 @@ salto:
 	memcpyU16(&colors[48], ob_staff_kbritah.pal, 16 );
 	prepareColors( colors );
 	showBmp ( PAL3, (struct genresTiles*) &ob_staff_kbritah, HOW_TO_PLAY_TILE, PLAN_B, 8, 5, wait1 );
-    displayOn(60);
+    displayFadeIn(getHz());
 
     VDP_setTextPalette(PAL0);
 	typeText ( "...and you", 15, 4, wait1 );
 	typeText ( "Thanks for playing", 11, 6, wait1 );
 
 	waitSc(10);
-    displayOff(120);
+    VDP_fadeOutAll(120,0);
 
     VDP_clearPlan(PLAN_A, 1);
 	VDP_clearPlan(PLAN_B, 1);
 
 	JoyReader_resume();
-	//music_stop();
+	music_stop();
 }
 

@@ -317,6 +317,14 @@ void waitJoySc ( u16 sc )
 	}
 }
 
+void waitMusicStop ( )
+{
+    while ( XGM_isPlaying() )
+    {
+        VDP_waitVSync();
+    }
+}
+
 
 static s16 _plan_dir_a = 0;
 static s16 _plan_dir_b = 0;

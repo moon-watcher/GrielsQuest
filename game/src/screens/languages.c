@@ -1,12 +1,12 @@
 #include "../inc/include.h"
-
+#include "../../libs/psg.h"
 
 
 static void _blink ( const u16 x, const u16 y, u8 option )
 {
     VDP_setTileMapDataRect ( PLAN_A, 0, x, y, 20, 1 );
 
-	u8 i = ntsc2pal(15);
+	u8 i = getHz();
 
 	while ( i-- )
 	{
@@ -78,6 +78,9 @@ void screen_languages ()
     _blink ( 17, option*2+y, option );
 
     gamestate.lenguaje = option + 1;
+
+    psg_pause();
+    music_stop();
 
     displayOff(30);
 }

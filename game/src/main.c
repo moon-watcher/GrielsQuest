@@ -67,8 +67,8 @@
  * @SFX                       => David Sánchez                  | Twitter: @DavidBonus        | Mail:                     |Notes:
  *
  * @ENGLISH-TRANSLATION       => Felipe Monge Corbalán          | Twitter: @vakapp            | Mail:                     |Notes:
- * @FRENCH-TRANSLATION        => KanedaFr                       | Twitter: @SpritesMind      ‏ | Mail:                     |Notes:
  * @ITALIAN-TRANSLATION       => DaRkHoRaCe                     | Twitter: @oongamoonga       | Mail:                     |Notes:
+ * @FRENCH-TRANSLATION        => KanedaFr                       | Twitter: @SpritesMind      ‏ | Mail:                     |Notes:
  *
  * @BETA-TESING               => Alfonso Martínez               | Twitter: @_SrPresley_       | Mail:                     |Notes:
  *
@@ -378,8 +378,8 @@ void todas_las_pantallas ( )
       {
          //tool_reset ( );
 
-         if ( opcion == 0 ) screen_sega   ( 0, 0, 0 );
-         if ( opcion == 1 ) screen_griels ( 8, 0, 0 );
+         if ( opcion == 0 ) screen_sega   ( );
+         if ( opcion == 1 ) screen_griels ( );
          if ( opcion == 2 ) screen_title  ( 0 );
          //if ( opcion == 3 ) screen_options ( );
          if ( opcion == 4 ) screen_intro ( 1 );
@@ -587,7 +587,7 @@ void jap()
 int main ( )
 {
     //jap();
-    dev_init ( 2 );
+    dev_init ( 1 );
 
     JoyReader_init ( 1 );
     monos();
@@ -656,18 +656,20 @@ int main ( )
 
 
 
-   screen_disclaimer ( 1 );
-   screen_sega ( 0, BUTTON_BTN, 0 );
-   screen_griels ( 4, BUTTON_BTN, 0 ); // solo para Barcelona y demos
+    screen_disclaimer ( 1 );
+    //screen_sega ( );
+    screen_publisher ( );
+    screen_oooklab ( );
+    screen_languages();
 
 
-   //http://www.dodgycoder.net/2012/02/coding-tricks-of-game-developers.html#
-   __builtin_expect ( gamestate.current_ambiente, 0 );
+    //http://www.dodgycoder.net/2012/02/coding-tricks-of-game-developers.html#
+    __builtin_expect ( gamestate.current_ambiente, 0 );
 
 
-   game_loop();
+    game_loop();
 
-   return 0;
+    return 0;
 }
 
 

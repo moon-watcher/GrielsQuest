@@ -2,14 +2,15 @@
 
 
 
-void screen_oooklab ( u16 secs, u16 buttons, u8 on_release )
+void screen_oooklab ( )
 {
     if ( DEV > 1 ) return;
 
+    music_stop();
 	displayInit();
 	displayOff(0);
 
-	SYS_disableInts();
+    SYS_disableInts();
 
 	resetScreen   ( );
 	resetPalettes ( );
@@ -17,24 +18,23 @@ void screen_oooklab ( u16 secs, u16 buttons, u8 on_release )
 	resetSprites  ( );
 
 	VDP_loadTileData ( ob_logo_OookLab.tiles, HOW_TO_PLAY_TILE, ob_logo_OookLab.width * ob_logo_OookLab.height, 0 );
-	VDP_fillTileMapRectInc ( PLAN_A, TILE_ATTR_FULL ( PAL0, 1, 0, 0, HOW_TO_PLAY_TILE ), 12, 7, ob_logo_OookLab.width, ob_logo_OookLab.height );
+	VDP_fillTileMapRectInc ( PLAN_A, TILE_ATTR_FULL ( PAL0, 1, 0, 0, HOW_TO_PLAY_TILE ), 12, 8, ob_logo_OookLab.width, ob_logo_OookLab.height );
 	preparePal ( PAL0, ob_logo_OookLab.pal );
 
-    prepareColor(17, 0x444 );
+    prepareColor(17, 0x000 );
     prepareColor(18, 0xddd );
     prepareColor(33, 0x00f );
     prepareColor(34, 0xddd );
 
     VDP_setTextPalette(PAL1);
-    VDP_drawText("Mun @MoonWatcherMD", 11, 15 );
-    VDP_drawText("Daniel Nevado @DanySnowyman", 7, 17 );
-    VDP_drawText("David Sanchez @DavidBonus", 8, 19 );
-    VDP_drawText("Alfonso Martinez @_SrPresley_", 6, 21 );
+    VDP_drawText("Mun @MoonWatcherMD", 11, 17 );
+    VDP_drawText("Daniel Nevado @DanySnowyman", 7, 19 );
+    VDP_drawText("David Sanchez @DavidBonus", 8, 21 );
 
     VDP_setTextPalette(PAL2);
-    VDP_drawText("@2013 - 2017", 14, 25 );
+    VDP_drawText("@2013 - 2017", 14, 26 );
 
-	SYS_enableInts();
+    SYS_enableInts();
 
 	displayOn ( 15 );
 

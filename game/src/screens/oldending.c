@@ -7,6 +7,7 @@ void screen_oldending ( )
 
     displayOff ( 0 );
     resetScreen();
+    music_stop();
 
 
     JoyReader_pause();

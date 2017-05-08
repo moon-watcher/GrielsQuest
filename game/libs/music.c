@@ -35,7 +35,13 @@ void music_stop ( )
 	}
 	else if ( _type == MUSIC_TYPE_XGM )
 	{
-		SND_stopPlay_XGM ( );
+	    if ( XGM_isPlaying() )
+        {
+            XGM_stopPlay();
+            VDP_waitVSync();
+            VDP_waitVSync();
+            VDP_waitVSync();
+        }
 	}
 	else if ( _type == MUSIC_TYPE_VGM )
 	{
