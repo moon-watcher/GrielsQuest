@@ -14,6 +14,16 @@ const static FRASE _list [ ] =
 };
 
 
+const static u8 *language_name [ ] =
+{
+    "English",
+    "Español",
+    "Italiano",
+    "Français",
+    NULL
+};
+
+
 
 
 static u16 _next;
@@ -176,4 +186,20 @@ u8 *prepare_string ( u8 *str )
     _prepare_string ( str );
 
     return (u8*) _string;
+}
+
+
+u8 *getLanguage ( u8 i )
+{
+    return (u8*) language_name[i];
+}
+
+
+u8 countLanguages ( )
+{
+    u8 inc = 0 ;
+
+    while ( getLanguage(inc++) != NULL );
+
+    return inc-1;
 }

@@ -43,7 +43,7 @@ void screen_griels ( )
 
     VDP_setTextPalette ( PAL2 );
     text_write ( "           Karoshi Corporation          ",  0, y+=2 );
-    text_write ( "                 @2015                  ",  0, y+=2 );
+    text_write ( "                  @2015                 ",  0, y+=2 );
 
     displayOn(10);
 

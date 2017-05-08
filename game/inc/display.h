@@ -9,7 +9,6 @@ void  prepareColor   ( u16 index, u16 color );
 void  displayOff     ( u16 frames );
 void  displayOn      ( u16 frames );
 u16  *getColors      ( );
-void  displayFadeIn  ( u16 frames );
-void  displayFadeOut ( u16 frames );
+
 
 #endif // _DISPLAY_H_

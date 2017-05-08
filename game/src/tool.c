@@ -192,7 +192,9 @@ u16 typeTextHalt ( u8 *str, u8 x, u8 y, u16 ms, u16 joy, u16 buttons )
 	{
 		u8 chr[2] = { *str++ };
 
+        SYS_disableInts();
 		VDP_drawText ( chr, x++, y );
+		SYS_enableInts();
 
 		//if ( joy1.state & buttons )
 		if ( joy1_pressed_abc )
