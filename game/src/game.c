@@ -25,7 +25,7 @@ static void _leave_text ( u16 ret )
 		VDP_setSpriteLink ( sprite, 0 );
 		VDP_updateSprites ( 80, 1 );
 
-		waitSc(1);
+		waitSc(2);
 		displayOff(30);
 
 		waitMs(500); // pausa valorativa

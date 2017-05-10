@@ -4,7 +4,7 @@
 
 
 #undef  WAITBREAK
-#define WAITBREAK  { go = 0; goto fin; }
+#define WAITBREAK  { if ( joy1_pressed_abc ) goto next; if ( joy1_pressed_start ) goto fin; }
 
 
 
@@ -16,6 +16,15 @@ static u16 ind = 0;
 static u16 vel_text = 0;
 
 
+#define GONEXT \
+    next: \
+    VDP_fadeOutAll ( 30, 1 );\
+    ++go; \
+    return go;
+
+#define GOEND \
+    fin: \
+	return 0;
 
 
 
@@ -30,10 +39,10 @@ static void _frases_tt_init ( u16 grupo )
 	#undef TT_C
 	#undef TT_START
 
-	#define TT_A       { go = 0; goto fin; } // tt_info.go_next = true;
-	#define TT_B       { go = 0; goto fin; } // tt_info.go_next = true;
-	#define TT_C       { go = 0; goto fin; } // tt_info.go_next = true;
-	#define TT_START   { go = 0; goto fin; }
+	#define TT_A       { goto next; } // tt_info.go_next = true;
+	#define TT_B       { goto next; } // tt_info.go_next = true;
+	#define TT_C       { goto next; } // tt_info.go_next = true;
+	#define TT_START   { goto fin;  }
 
 	tt_info.buttons = ( BUTTON_A|BUTTON_B|BUTTON_C|BUTTON_START );
 	tt_info.speed = 2;
@@ -45,7 +54,6 @@ static void _frases_tt_init ( u16 grupo )
 
 static u8 _escena_1 ( )
 {
-	go  = 2;
 	ind = TILE_USERINDEX;
 
 	u16 vel_show = 20;
@@ -86,7 +94,7 @@ static u8 _escena_1 ( )
 	VDP_fadePalTo ( PAL1, ob_intro_1_a.palette->data, vel_show, true );
 
 
-	wb_fade ( joy1_pressed_btn );
+	wb_fade ( joy1_pressed_abc | joy1_pressed_start );
 
 
 
@@ -102,7 +110,7 @@ static u8 _escena_1 ( )
 
 	VDP_fadePalTo ( PAL2, ob_intro_1_c.palette->data, vel_show, true );
 
-	wb_fade ( joy1_pressed_btn );
+	wb_fade ( joy1_pressed_abc | joy1_pressed_start );
 
 	frases_tt_write ( NARRADOR );
 
@@ -125,7 +133,7 @@ static u8 _escena_1 ( )
 
 	while( i-- )
 	{
-		wb_wait ( 1, joy1_pressed_btn );
+		wb_wait ( 1, joy1_pressed_abc | joy1_pressed_start );
 
 		if ( i == 10 )
 		{
@@ -147,7 +155,7 @@ static u8 _escena_1 ( )
 		VDP_setVerticalScroll ( PLAN_B, i );
 		SYS_enableInts();
 
-		wb_wait ( 1, joy1_pressed_btn );
+		wb_wait ( 1, joy1_pressed_abc | joy1_pressed_start );
 	}
 
 	SYS_disableInts();
@@ -158,12 +166,8 @@ static u8 _escena_1 ( )
 	frases_tt_write ( NARRADOR );
 
 
-
-fin:
-
-	displayOff ( 30 );
-
-	return go;
+    GONEXT
+    GOEND
 }
 
 
@@ -172,7 +176,6 @@ fin:
 static u8 _escena_2()
 {
 	cont = 0;
-	go   = 3;
 	ind  = TILE_USERINDEX;
 
 	VDP_setEnable ( false );
@@ -212,15 +215,8 @@ static u8 _escena_2()
 	frases_tt_write ( NARRADOR );
 
 
-fin:
-
-	vint_setOb_intro_2_b_f(false);
-//	VDP_waitVSync();
-
-	displayOff  ( 30);
-
-
-   return go;
+    GONEXT
+    GOEND
 }
 
 
@@ -228,7 +224,6 @@ fin:
 
 static u8 _escena_3 ()
 {
-	go  = 4;
 	ind = TILE_USERINDEX;
 
 
@@ -386,16 +381,8 @@ static u8 _escena_3 ()
 
 
 
-
-
-fin:
-
-	displayOff  ( 30 );
-
-	vint_setOb_intro_2_b_f(false);
-	VDP_waitVSync();
-
-   return go;
+    GONEXT
+    GOEND
 }
 
 
@@ -404,7 +391,6 @@ fin:
 
 static u8 _escena_4 ( int repeat )
 {
-	go  = 0;
 	ind = TILE_USERINDEX;
 
 
@@ -506,11 +492,8 @@ static u8 _escena_4 ( int repeat )
 	}
 
 
-fin:
-
-	displayOff  ( 30 );
-
-	return go;
+    GONEXT
+    GOEND
 }
 
 
@@ -555,15 +538,22 @@ void screen_intro ( u8 jump )
 
 	SYS_enableInts();
 
+    go = jump;
 
-	while ( jump )
-	{
-             if ( jump == 1 ) jump = _escena_1 ( );
-		else if ( jump == 2 ) jump = _escena_2 ( );
-		else if ( jump == 3 ) jump = _escena_3 ( );
-		else if ( jump == 4 ) jump = _escena_4 ( 0 );
-		else if ( jump == 5 ) jump = _escena_4 ( 1 );
-	}
+    if ( go == 5 )
+    {
+        _escena_4 ( 1 );
+    }
+    else
+    {
+        while ( go )
+        {
+                 if ( go == 1 ) { go = _escena_1 ( ); }
+            else if ( go == 2 ) { go = _escena_2 ( ); }
+            else if ( go == 3 ) { go = _escena_3 ( ); }
+            else if ( go == 4 ) { go = _escena_4 ( 0 ); break; }
+        }
+    }
 
 	vint_setOb_intro_2_b_f(false);
 	VDP_waitVSync();

@@ -152,19 +152,20 @@ static void _draw_spriteset ( SPRITESET *set, struct genresSprites *res, u8 widt
 
 static void _final_1 ( )
 {
+    displayOff(0);
+
 	sprite = 0;
 
 	s16 griel_x = -145;
 
 	vram_init(VRAM_DEFAULT);
 
-	VDP_setEnable ( false );
 	SYS_disableInts ( );
 
 	splist_reorder ( );
 
 	//resetVRAM();
-	resetPalettes();
+	//resetPalettes();
 	resetScroll();
 	resetSprites();
 	resetScreen();
@@ -190,7 +191,6 @@ static void _final_1 ( )
 	_initTextColors ( os_f1_griel_1_32x32.pal[5], ob_f1_fondo_a.palette->data[8], os_f1_kbritah_1_32x32.pal[4], 0, 0 );
 
 	SYS_enableInts();
-	VDP_setEnable ( true );
 
 
 	// Muestra la pantalla
@@ -208,7 +208,7 @@ static void _final_1 ( )
 		griel_x += vel;
 
 		VDP_updateSprites(80,1);
-		wb_wait ( 1, joy1_pressed_btn );
+		wb_wait ( 1, joy1_pressed_abc | joy1_pressed_start );
 	}
 
 
@@ -246,7 +246,7 @@ static void _final_1 ( )
 
 fin:
     vram_destroy();
-	displayOff ( 30 );
+	VDP_fadeOutAll( 30,1 );
 }
 
 
@@ -254,17 +254,17 @@ fin:
 
 static void _final_2()
 {
+    displayOff(0);
 	sprite = 0;
 
 	vram_init(VRAM_DEFAULT);
 
-	VDP_setEnable ( false );
-	SYS_disableInts ( );
+    SYS_disableInts ( );
 
 	splist_reorder ( );
 
 	//resetVRAM();
-	resetPalettes();
+	//resetPalettes();
 	resetScroll();
 	resetSprites();
 	resetScreen();
@@ -289,7 +289,6 @@ static void _final_2()
 	_initTextColors ( os_f2_griel_32x32.pal[6], 0, 0, ob_f2_fondo_a.palette->data[9], ob_f3_fondo_a_1.palette->data[4] ); //recoge el color de la gorda del final3
 
 	SYS_enableInts();
-	VDP_setEnable ( true );
 
 	VDP_waitVSync();
 
@@ -340,7 +339,7 @@ static void _final_2()
 
 fin:
 	vram_destroy();
-	displayOff ( 30 );
+	VDP_fadeOutAll( 30,1 );
 }
 
 
@@ -348,17 +347,17 @@ fin:
 
 static void _final_3()
 {
+    displayOff(0);
 	sprite = 0;
 
 	vram_init(VRAM_DEFAULT);
 
-	VDP_setEnable ( false );
 	SYS_disableInts ( );
 
 	splist_reorder ( );
 
 	//resetVRAM();
-	resetPalettes();
+	//resetPalettes();
 	resetScroll();
 	resetSprites();
 	resetScreen();
@@ -380,7 +379,6 @@ static void _final_3()
 	_initTextColors ( os_f3_griel_1_32x32.pal[6], 0, 0, 0, ob_f3_fondo_a_1.palette->data[4] );
 
 	SYS_enableInts();
-	VDP_setEnable ( true );
 
 
 
@@ -493,7 +491,7 @@ static void _final_3()
 
 fin:
 	vram_destroy();
-	displayOff ( 30 );
+	VDP_fadeOutAll( 30,1 );
 }
 
 
@@ -501,17 +499,18 @@ fin:
 
 static void _final_4()
 {
+	displayOff(0);
+
 	sprite = 0;
 
 	vram_init(VRAM_DEFAULT);
 
-	VDP_setEnable ( false );
 	SYS_disableInts ( );
 
 	splist_reorder ( );
 
 	//resetVRAM();
-	resetPalettes();
+	//resetPalettes();
 	resetScroll();
 	resetSprites();
 	resetScreen();
@@ -536,7 +535,6 @@ static void _final_4()
 	_initTextColors ( os_f4_griel_32x32.pal[6], 0, os_f4_kbritah_32x32.pal[8], 0, 0 );
 
 	SYS_enableInts();
-	VDP_setEnable ( true );
 
 	VDP_waitVSync();
 
@@ -567,7 +565,7 @@ static void _final_4()
 
 fin:
 	vram_destroy();
-	displayOff ( 30 );
+	VDP_fadeOutAll( 30,1 );
 }
 
 
@@ -575,6 +573,7 @@ fin:
 
 void screen_final ( u16 jump )
 {
+    displayOff(0);
 	VDP_setTextPalette(PAL0);
 
 	sprite   = 0;

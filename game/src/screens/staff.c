@@ -92,7 +92,6 @@ salto:
 	memcpyU16(&colors[48], ob_staff_griel.pal, 16 );
 	prepareColors( colors );
 	showBmp ( PAL3, (struct genresTiles*) &ob_staff_griel, HOW_TO_PLAY_TILE, PLAN_B, 18, 2, wait1 );
-
     VDP_fadeAllTo ( getColors(), getHz(), 1 );
 
 
@@ -108,8 +107,7 @@ salto:
 	waitSc(3);
 	planHide_Ex(PLAN_A);
     displayOff(0);
-    VDP_clearPlan(PLAN_A, 1);
-	VDP_clearPlan(PLAN_B, 1);
+    resetScreen();
 
 
 
@@ -134,8 +132,7 @@ salto:
 	waitSc(3);
 	planHide_Ex(PLAN_A);
     displayOff(0);
-    VDP_clearPlan(PLAN_A, 1);
-	VDP_clearPlan(PLAN_B, 1);
+    resetScreen();
 
 
 
@@ -159,8 +156,7 @@ salto:
 	waitSc(3);
 	planHide_Ex(PLAN_A);
     displayOff(0);
-    VDP_clearPlan(PLAN_A, 1);
-	VDP_clearPlan(PLAN_B, 1);
+    resetScreen();
 
 
 
@@ -190,8 +186,7 @@ salto:
     waitSc(3);
     planHide_Ex(PLAN_A);
     displayOff(0);
-    VDP_clearPlan(PLAN_A, 1);
-    VDP_clearPlan(PLAN_B, 1);
+    resetScreen();
 
 
 
@@ -220,9 +215,7 @@ salto:
 
 	planHide_Ex(PLAN_A);
     displayOff(0);
-
-    VDP_clearPlan(PLAN_A, 1);
-	VDP_clearPlan(PLAN_B, 1);
+    resetScreen();
 
 
 
@@ -241,10 +234,10 @@ salto:
 	typeText ( "Thanks for playing", 11, 6, wait1 );
 
 	waitSc(10);
-    displayOff(120);
+    VDP_fadeOutAll ( 120, 1 );
+    waitHz ( 121 );
 
-    VDP_clearPlan(PLAN_A, 1);
-	VDP_clearPlan(PLAN_B, 1);
+    resetScreen();
 
 	JoyReader_resume();
 	music_stop();

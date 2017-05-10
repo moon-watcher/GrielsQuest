@@ -250,15 +250,15 @@ void tt_init ( )
 
 void tt_clear ( )
 {
-    SYS_disableInts();
-
 	if ( tt_info.reset_pal )
 	{
-		VDP_fadeOut ( 1, 2,  tt_info.fade_out, false );
+		VDP_fadeOut ( 1, 2,  tt_info.fade_out, 1 );
 	}
 
-	VDP_fillTileMapRect  (  VDP_getTextPlan(),  0,  tt_info.x,  tt_info.y,  tt_info.width,  tt_info.height );
+	waitHz(tt_info.fade_out+1);
 
+    SYS_disableInts();
+	VDP_fillTileMapRect  (  VDP_getTextPlan(),  0,  tt_info.x,  tt_info.y,  tt_info.width,  tt_info.height );
 	SYS_enableInts();
 }
 

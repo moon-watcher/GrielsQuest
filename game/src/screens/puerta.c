@@ -209,7 +209,7 @@ u16 screen_puerta ( )
 		++posicion;
 
 		VDP_updateSprites(80,1);
-		wb_wait ( 1, joy1_pressed_btn );
+		wb_wait ( 1, joy1_pressed_abc | joy1_pressed_start );
 	}
 
 	_mover_escena ( 144 );

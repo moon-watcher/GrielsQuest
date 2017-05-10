@@ -86,15 +86,15 @@
 // final 1
 (FRASE) { ENGLISH, 15, "Kbrah, pestilent beast. |WAIT Bring me back the Holy Porron, I know you have." },
 (FRASE) { ENGLISH, 15, "Did you really come for that trinket? |WAIT Here you have, take it, I didn't like at all..." },
-(FRASE) { ENGLISH, 15, "Uoh! |WAIT chat a cute kid, daddy. |WAIT Can I keep him?" },
+(FRASE) { ENGLISH, 15, "Uoh! |WAIT What a cute kid, daddy. |WAIT Can I keep him?" },
 (FRASE) { ENGLISH, 15, "No way! |WAIT I din't spoiled you for being with jerky knights now. |WCLEAR:180 He's leaving anyway, is not, buddy?" },
 (FRASE) { ENGLISH, 15, "Not so fast, scoundrel, Beach Princess is coming with me too." },
-(FRASE) { ENGLISH, 15, "The Princess is in another castle, we couldn't... |WAIT retain her any longer. |WCLEAR:180 now take that Holy Porron and get away of here before I regret." },
+(FRASE) { ENGLISH, 15, "The Princess is in another castle, we couldn't... |WAIT retain her any longer. |WCLEAR:180 Now take that Holy Porron and get away of here before I regret." },
 
 // final 2
 (FRASE) { ENGLISH, 16, "Great, son! You did it. |WCLEAR:180 Oh, my loved Holy Porron! you are back at last." },
 (FRASE) { ENGLISH, 16, "Which is its great power?" },
-(FRASE) { ENGLISH, 16, "This magical artifact provides endless wine to its owner. |WAIT:60 a fresh nectar stream, a bit chopped, but infinite." },
+(FRASE) { ENGLISH, 16, "This magical artifact provides endless wine to its owner. |WAIT:60 A fresh nectar stream, a bit chopped, but infinite." },
 (FRASE) { ENGLISH, 16, "WINE?! |WAIT JUST WINE?! |WAIT I can't believe it... |WCLEAR:180 You promised the hand of the Princess." },
 
 // final 2 // weak
@@ -105,13 +105,13 @@
 
 // final 2 // hard guy or nightmare
 (FRASE) { ENGLISH, 18, "Of course |WAIT:120 SWEETHEART, GET OUT!" },
-(FRASE) { ENGLISH, 18, "Call the Princess, |WAIT Griel came for your hand." },
+(FRASE) { ENGLISH, 18, "Call the Princess, |WAIT Griel came for her hand." },
 (FRASE) { ENGLISH, 18, "She is already a woman, you will see." },
 (FRASE) { ENGLISH, 18, "Griel? |WCLEAR:180 Are you Griel...?" },
 
 
 // final 3 // hard guy or nightmare
-(FRASE) { ENGLISH, 19, "GROARRR! |WAIT you are hot! |WAIT COME IN MY ARMAS, HANDSOME!" },
+(FRASE) { ENGLISH, 19, "GROARRR! |WAIT You are hot! |WAIT COME IN MY ARMAS, HANDSOME!" },
 (FRASE) { ENGLISH, 19, "AAAAAAH! PLEASE; DON'T EAT ME!" },
 (FRASE) { ENGLISH, 19, "Ha, ha, ha! |WAIT Just a little bit!" },
 
@@ -124,7 +124,7 @@
 (FRASE) { ENGLISH, 21, "...?! |WAIT Kbritah?" },
 
 // final 4 // nightmare
-(FRASE) { ENGLISH, 22, "It was close |WAIT Why you saved me?" },
+(FRASE) { ENGLISH, 22, "It was close. |WAIT Why you saved me?" },
 (FRASE) { ENGLISH, 22, "You completed the game in hardest mode, you deserve something better, don't you think? |WCLEAR:180 And you are so cute with those lovely little horns..." },
 (FRASE) { ENGLISH, 22, "Oh, thanks but you are not taking me, is it?" },
 (FRASE) { ENGLISH, 22, "Ha, ha, ha. |WAIT We must celebrate this. |WAIT I'll show you the \"real\" ending." },
