@@ -232,7 +232,7 @@ void game_loop()
 
 
 
-					if ( DEV  )
+					//if ( DEV  )
 					{
 					   gamestate.dificultad   =  3;
 					   gamestate.ambientes[0] = 14; // 14;
@@ -272,14 +272,14 @@ void game_loop()
 //					   gamestate.visito_la_puerta = false;
 //					   //gamestate.lenguaje         = SPANISH;
 
-//					   gamestate.dificultad   = 1;
-//					   gamestate.ambientes[0] = 9;
-//					   gamestate.ambientes[1] = 9;
-//					   gamestate.ambientes[2] = 9;
-//					   gamestate.ambientes[3] = 9;
-//					   gamestate.ambientes[4] = 4;
+//					   gamestate.dificultad   = 0;
+//					   gamestate.ambientes[0] = 6;
+//					   gamestate.ambientes[1] = 6;
+//					   gamestate.ambientes[2] = 6;
+//					   gamestate.ambientes[3] = 6;
+//					   gamestate.ambientes[4] = 0;
 //					   gamestate.visito_la_puerta = false;
-//					   //gamestate.lenguaje         = SPANISH;
+//					   gamestate.lenguaje         = FRENCH;
 
 					}
 

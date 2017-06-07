@@ -10,7 +10,20 @@ static u8             _positions[96] = { };
 static u8             _sprite = 0;
 
 
+static u8 get_jump_pos ( u8 *string )
+{
+    u8 i;
 
+    for ( i=0; i<strlen(string); i++ )
+    {
+        if ( string[i] == '|' )
+        {
+            return i;
+        }
+    }
+
+    return 0;
+}
 
 
 void text_init ( struct genresSprites *genres, u16 vram, u16 palette )
@@ -157,10 +170,31 @@ u16 text_draw_sprite ( u8 *string, u16 x, u16 y, u16 ms )
 
 
 
+
+
 u16 text_draw_sprites_centered ( u8 *string, u16 ms )
 {
-	const u16 x = VDP_getScreenWidth()  / 2  -  strlen (string) * _genres->width / 2;
-	const u16 y = VDP_getScreenHeight() / 2  - _genres->height  / 2;
+    u16 x = VDP_getScreenWidth()  / 2  - _genres->width  / 2 * strlen ( string );
+    u16 y = VDP_getScreenHeight() / 2  - _genres->height / 2;
+
+	u8 pos = get_jump_pos ( string );
+
+	if ( pos )
+    {
+        u8 sprite, aux[40];
+
+        memcpy ( aux, &string[0], pos - 1 );
+        x = VDP_getScreenWidth()  / 2  -  strlen (aux) * _genres->width / 2;
+        y = VDP_getScreenHeight() / 2  - _genres->height  / 2 - 16;
+        sprite = text_draw_sprite ( aux, x, y, ms );
+
+        memcpy ( aux, &string[pos+1], strlen(string)-pos );
+        x = VDP_getScreenWidth()  / 2  -  strlen (aux) * _genres->width / 2;
+        y = VDP_getScreenHeight() / 2  - _genres->height  / 2 - 0;
+        sprite = text_draw_sprite ( aux, x, y+_genres->height, ms );
+
+        return sprite;
+    }
 
 	return text_draw_sprite ( string, x, y, ms );
 }
@@ -169,7 +203,24 @@ u16 text_draw_sprites_centered ( u8 *string, u16 ms )
 
 u16 text_draw_sprites_x_centered ( u8 *string, u16 y, u16 ms )
 {
-	const u16 x = VDP_getScreenWidth()  / 2  -  strlen (string) * _genres->width / 2;
+    u16 x = VDP_getScreenWidth()  / 2  - _genres->width  / 2 * strlen ( string );
+
+	u8 pos = get_jump_pos ( string );
+
+	if ( pos )
+    {
+        u8 sprite, aux[40];
+
+        memcpy ( aux, &string[0], pos - 1 );
+        x = VDP_getScreenWidth()  / 2  -  strlen (aux) * _genres->width / 2;
+        sprite = text_draw_sprite ( aux, x, y, ms );
+
+        memcpy ( aux, &string[pos+1], strlen(string)-pos );
+        x = VDP_getScreenWidth()  / 2  -  strlen (aux) * _genres->width / 2;
+        sprite = text_draw_sprite ( aux, x, y+_genres->height, ms );
+
+        return sprite;
+    }
 
 	return text_draw_sprite ( string, x, y, ms );
 }
