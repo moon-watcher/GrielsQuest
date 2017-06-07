@@ -232,7 +232,7 @@ void game_loop()
 
 
 
-					//if ( DEV  )
+					if ( DEV  )
 					{
 					   gamestate.dificultad   =  3;
 					   gamestate.ambientes[0] = 14; // 14;

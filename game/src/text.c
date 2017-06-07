@@ -183,7 +183,7 @@ u16 text_draw_sprites_centered ( u8 *string, u16 ms )
     {
         u8 sprite, aux[40];
 
-        memcpy ( aux, &string[0], pos - 1 );
+        memcpy ( aux, &string[0], pos );
         x = VDP_getScreenWidth()  / 2  -  strlen (aux) * _genres->width / 2;
         y = VDP_getScreenHeight() / 2  - _genres->height  / 2 - 16;
         sprite = text_draw_sprite ( aux, x, y, ms );
@@ -211,7 +211,7 @@ u16 text_draw_sprites_x_centered ( u8 *string, u16 y, u16 ms )
     {
         u8 sprite, aux[40];
 
-        memcpy ( aux, &string[0], pos - 1 );
+        memcpy ( aux, &string[0], pos );
         x = VDP_getScreenWidth()  / 2  -  strlen (aux) * _genres->width / 2;
         sprite = text_draw_sprite ( aux, x, y, ms );
 

@@ -379,7 +379,7 @@ void htp_marco_enrollar ( LEVEL *wl )
 
 		if ( i < 10 )
 		{
-			VDP_setMapEx ( PLAN_B, wl->background->map, TILE_ATTR_FULL(PAL0, false, false, false, level_vram_pos ( PLAN_B ) ), 2, i*2+5, 2, i*2+5, 38, 2 );
+			VDP_setMapEx ( PLAN_B, wl->background->map, TILE_ATTR_FULL(PAL0, false, false, false, level_vram_pos ( PLAN_B ) ), 3, i*2+5, 3, i*2+5, 34, 2 );
 		}
 
 		level_draw_area ( wl, 0, i, 16, 1 );

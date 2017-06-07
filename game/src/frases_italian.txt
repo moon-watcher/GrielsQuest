@@ -60,7 +60,7 @@
 
 (FRASE) { ITALIAN,  8, "Da delle feste con i suoi terribili amichetti. |WAIT Feste che spesso finiscono molto male." },
 
-(FRASE) { ITALIAN,  9, "La mattina seguente, al castello del Re Notha." },
+(FRASE) { ITALIAN,  9, "La mattina seguente, al castello del Re Drugoh." },
 (FRASE) { ITALIAN,  9, "Hmmm? |WAIT Chi ha rovistato qui ieri notte? |WCLEAR AAAHHHHH!" },
 (FRASE) { ITALIAN,  9, "Il mio Porrone! |WAIT E' STATO RUBATO!" },
 (FRASE) { ITALIAN,  9, "E' SPARITA ANCHE LA PRINCIPESSA!" },
@@ -188,7 +188,7 @@
 (FRASE) { ITALIAN, 23, "Nel dubbio consulta il tuo" },
 (FRASE) { ITALIAN, 23, "farmacista." },
 
-(FRASE) { ITALIAN, 23, "Griel e il re Notah contano" },
+(FRASE) { ITALIAN, 23, "Griel e il re Drugoh contano" },
 (FRASE) { ITALIAN, 23, "su di te, non deluderli!" },
 
 (FRASE) { ITALIAN, 23, "Bevi con moderazione." },
