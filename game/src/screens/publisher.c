@@ -20,7 +20,7 @@ void screen_publisher ( )
 	resetScreen();
 
 
-	const u16 x = 9;
+	const u16 x = 12;
 	const u16 y = 8;
 
 
