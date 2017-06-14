@@ -54,6 +54,7 @@ static void writeTextCredits2 ()
     writeText ( "Felipe Monge Corbalán @vakapp", PAL2, 2 );
     writeText ( "DaRkHoRaCe @oongamoonga", PAL2, 2 );
     writeText ( "KanedaFr @SpritesMind", PAL2, 2 );
+    writeText ( "Jordi Montornés Solé @jordimontornes", PAL2, 2 );
 
 
 }
@@ -115,7 +116,7 @@ void screen_credits ()
 
     writeCredits ( 1, 6 );
     writeCredits ( 2, 6 );
-    writeCredits ( 3, 10 );
+    writeCredits ( 3, 9 );
 
     waitSc(2);
 }

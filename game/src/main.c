@@ -69,6 +69,7 @@
  * @ENGLISH-TRANSLATION       => Felipe Monge Corbalán          | Twitter: @vakapp            | Mail:                     |Notes:
  * @ITALIAN-TRANSLATION       => DaRkHoRaCe                     | Twitter: @oongamoonga       | Mail:                     |Notes:
  * @FRENCH-TRANSLATION        => KanedaFr                       | Twitter: @SpritesMind      ‏ | Mail:                     |Notes:
+ * @CATALAN-TRANSLATION       => Jordi Montornés Solé           | Twitter: @jordimontornes   ‏ | Mail:                     |Notes:
  *
  * @BETA-TESING               => Alfonso Martínez               | Twitter: @_SrPresley_       | Mail:                     |Notes:
  *
@@ -587,7 +588,7 @@ void jap()
 int main ( )
 {
     //jap();
-    dev_init ( 2 );
+    dev_init ( 1 );
 
     JoyReader_init ( 1 );
     monos();

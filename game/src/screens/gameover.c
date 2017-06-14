@@ -40,7 +40,7 @@ void screen_gameover ( )
 	}
 
 	VDP_drawText ( phrasepwd, x3, 19 );
-	VDP_drawText ( pwd, 16, 21 );
+	VDP_drawText ( pwd, 16, 22 );
 
 
 

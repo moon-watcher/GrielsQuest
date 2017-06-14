@@ -9,6 +9,7 @@ const static FRASE _list [ ] =
     #include "frases_spanish.txt"
     #include "frases_italian.txt"
     #include "frases_french.txt"
+    #include "frases_catalan.txt"
 
     (FRASE) {  0,  0, "" }, // No quitar
 };
@@ -20,6 +21,7 @@ const static u8 *language_name [ ] =
     "Español",
     "Italiano",
     "Français",
+    "Català",
     NULL
 };
 
