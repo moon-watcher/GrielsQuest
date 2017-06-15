@@ -35,6 +35,8 @@ extern const u32                        *cb_font_8x8;
 extern const u32                        *cb_font_8x8_chars;
 extern const struct genresTiles          cb_square;
 extern const struct genresSprites        cs_font_16x16;
+extern const struct genresSprites        cs_publisher_1;
+extern const struct genresSprites        cs_publisher_2;
 
 
 extern const struct genresSprites        as_rounds_squares_32x24;

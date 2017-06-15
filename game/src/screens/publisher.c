@@ -26,6 +26,29 @@ void screen_publisher ( )
 
 	u16 i, vram_pos [ IMAGES ];
 
+//
+//
+//    VDP_setPalette(PAL2, cs_publisher_1.pal) ;
+//
+//
+//    u16 pos1 = 400;
+//    u16 pos2 = 404;
+//
+//	VDP_loadTileData ( cs_publisher_1.sprites[0], pos1, 3, 0 );
+//	VDP_loadTileData ( cs_publisher_2.sprites[0], pos2, 3, 0 );
+//
+//	VDP_setSpriteFull ( 0, 160,  94, 3, TILE_ATTR_FULL(PAL2, 0,0,0, pos1 ), 1 );
+//	VDP_setSpriteFull ( 1, 160,  73, 3, TILE_ATTR_FULL(PAL2, 0,0,0, pos1 ), 0 );
+//    //VDP_setSpriteLink(0,1);
+//
+//
+//
+//
+//	VDP_updateSprites(80, 0);
+//	VDP_waitVSync();
+//
+//
+
 
 
 	Image *images [ IMAGES ] =

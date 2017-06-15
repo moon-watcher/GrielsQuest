@@ -25,6 +25,10 @@ SPRITE cs_square        "game/data/common/square.bmp"        24 24  0  0  0
 SPRITE cs_htp_objects   "game/data/common/htp_objects.bmp"   16 24  0  0  0
 SPRITE cs_ui_left       "game/data/common/ui_left.bmp"       16 24  0  0  0
 
+SPRITE cs_publisher_1   "game/data/common/publisher/sp1.bmp"  8 24  0  0  0
+SPRITE cs_publisher_2   "game/data/common/publisher/sp2.bmp" 24  8  0  0  0
+
+
 
 ;SPRITE cs_scoreball     "game/data/common/scoreball.bmp"     32 32  0  0  0
 ;

@@ -243,7 +243,7 @@
     (FRASE) { CATALAN, 31, "Clau" },
 
     // HOW TO PLAY // ENEMIES
-    (FRASE) { CATALAN, 32, "Porc Senglar" }, //////////////////<------------------ máximo 10/11
+    (FRASE) { CATALAN, 32, "Senglar" },
     (FRASE) { CATALAN, 32, "Bolet" },
     (FRASE) { CATALAN, 32, "Elfa" },
 
