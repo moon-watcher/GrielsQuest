@@ -77,6 +77,9 @@
  * @SPECIAL-THANKS-TO         => Eduardo Robsy                  | Twitter: @EduRobsy    ‏      | Mail:                     |Notes:
  * @SPECIAL-THANKS-TO         => Jon Cortazar                   | Twitter: @Jon_Cortazar   ‏   | Mail:                     |Notes:
  *
+ * @ENGLISH-REVIEWER          => Clare Eddleston                | Twitter:                 ‏   | Mail:                     |Notes:
+ * @ENGLISH-REVIEWER          => Xavier Bravo                   | Twitter:                 ‏   | Mail:                     |Notes:
+ *
  *
  *
  * --------------------------------------------------------------------------------------------------------------------------------

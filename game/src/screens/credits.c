@@ -47,16 +47,18 @@ static void writeTextCredits1 ()
 static void writeTextCredits2 ()
 {
     writeText ( "Testing", PAL1, 2 );
-    writeText ( "Alfonso Martínez @_SrPresley_", PAL2, 2 );
-    writeText ( "Jimy @TodoMegaDrive", PAL2, 4 );
+
+    writeText ( "Alfonso Martínez @_SrPresley_", PAL2, 4 );
+//    writeText ( "Alfonso Martínez @_SrPresley_", PAL2, 2 );
+//    writeText ( "Jimy @TodoMegaDrive", PAL2, 4 );
 
     writeText ( "Translators", PAL1, 2 );
     writeText ( "Felipe Monge Corbalán @vakapp", PAL2, 2 );
     writeText ( "DaRkHoRaCe @oongamoonga", PAL2, 2 );
     writeText ( "KanedaFr @SpritesMind", PAL2, 2 );
     writeText ( "Jordi Montornés Solé @jordimontornes", PAL2, 2 );
-
-
+    writeText ( "Clare Eddleston", PAL2, 2 ); // ENGLISH-REVIEWER
+    writeText ( "Xavier Bravo", PAL2, 2 ); // ENGLISH-REVIEWER
 }
 
 
@@ -115,7 +117,7 @@ void screen_credits ()
     prepareColor ( 34, 0x444 );
 
     writeCredits ( 1, 6 );
-    writeCredits ( 2, 6 );
+    writeCredits ( 2, 4 );
     writeCredits ( 3, 9 );
 
     waitSc(2);
