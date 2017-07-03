@@ -10,22 +10,10 @@ const static FRASE _list [ ] =
     #include "frases_italian.txt"
     #include "frases_french.txt"
     #include "frases_catalan.txt"
+    #include "frases_finnish.txt"
 
     (FRASE) {  0,  0, "" }, // No quitar
 };
-
-
-const static u8 *language_name [ ] =
-{
-    "English",
-    "Español",
-    "Italiano",
-    "Français",
-    "Català",
-    NULL
-};
-
-
 
 
 static u16 _next;
@@ -44,17 +32,20 @@ static void _prepare_string ( u8 *str )
 
 	while ( ( chr = str[i++] ) )
 	{
-//	    //
-//	    // debug special chars
-//	    // DON'T DELETE
-//	    //
-//	    VDP_init();
+	    //
+	    // debug special chars
+	    // DON'T DELETE
+	    //
+	    //VDP_init();
+	    //if ( devu0 )
+        //{
 //	    u8 write[2] = { chr, '\0' };
-//	    drawUInt( chr, 0, 0, 5 );
-//	    VDP_drawText ( write, 10, 0 );
-//	    waitSc(1);
-//	    //
-//	    //
+//	    drawUInt( chr, 0, devu0, 5 );
+//	    VDP_drawText ( write, 10, devu0++ );
+//	    //waitSc(1);
+	    //}
+	    //
+	    //
 
 
         _string[j] = chr;
@@ -97,7 +88,22 @@ static void _prepare_string ( u8 *str )
             case 206: _string[j] = 250;  break; // Î
             case 212: _string[j] = 249;  break; // Ê
             case 229: _string[j] = 248;  break; // Â
+            case 196: _string[j] = 246;  break; // Ä
+            case 228: _string[j] = 247;  break; // ä
+            case 214: _string[j] =   4;  break; // Ö
+            case 246: _string[j] =   5;  break; // ö
+            case 197: _string[j] = 248;  break; // Å
         }
+
+        // Exception. Weird collision :?
+        if ( gamestate.lenguaje == FINNISH )
+        {
+            if ( chr == 229 )
+            {
+                _string[j] = 254; // å
+            }
+        }
+
 
         ++j;
 	}
@@ -199,20 +205,4 @@ u8 *prepare_string ( u8 *str )
     _prepare_string ( str );
 
     return (u8*) _string;
-}
-
-
-u8 *getLanguage ( u8 i )
-{
-    return (u8*) language_name[i];
-}
-
-
-u8 countLanguages ( )
-{
-    u8 inc = 0 ;
-
-    while ( getLanguage(inc++) != NULL );
-
-    return inc-1;
 }

@@ -877,6 +877,7 @@
 		<Unit filename="game/inc/howtoplay.h" />
 		<Unit filename="game/inc/include.h" />
 		<Unit filename="game/inc/joy.h" />
+		<Unit filename="game/inc/language.h" />
 		<Unit filename="game/inc/level.h" />
 		<Unit filename="game/inc/musiclist.h" />
 		<Unit filename="game/inc/object.h" />
@@ -1141,6 +1142,7 @@
 		<Unit filename="game/src/frases.c.1" />
 		<Unit filename="game/src/frases_catalan.txt" />
 		<Unit filename="game/src/frases_english.txt" />
+		<Unit filename="game/src/frases_finnish.txt" />
 		<Unit filename="game/src/frases_french.txt" />
 		<Unit filename="game/src/frases_italian.txt" />
 		<Unit filename="game/src/frases_spanish.txt" />
@@ -1160,6 +1162,9 @@
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="game/src/key.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="game/src/language.c">
 			<Option compilerVar="CC" />
 		</Unit>
 		<Unit filename="game/src/level.c">

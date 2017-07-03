@@ -75,6 +75,7 @@ static u8 _escena_1 ( )
 	_frases_tt_init( 7 );
 	musiclist_play ( MUSIC_INTRO );
 
+    devu0 = 0;
 	frases_tt_write ( NARRADOR );
 
 

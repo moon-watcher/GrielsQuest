@@ -14,7 +14,7 @@ static u8             _sprite = 0;
 static u8 parse_chr ( u8 chr )
 {
     chr -= ( 32 + 1 );
-    chr  = ( chr == 255 ) ? 0 : chr;
+    chr  = ( chr == 255 ) ? 0 : chr; //drawUInt( chr,0, devu0++, 4 );
 
     switch ( chr )
     {
@@ -28,6 +28,9 @@ static u8 parse_chr ( u8 chr )
         case 231: chr = 88; break; // Ì
         case 230: chr = 87; break; // È
         case 229: chr = 86; break; // À
+        case 213: chr = 84; break; // Ä
+        case 227: chr = 85; break; // Ö
+        case 215: chr = 83; break; // Å
     };
 
     return chr;
@@ -91,7 +94,7 @@ void text_draw ( u8 *string, u8 x, u8 y, u16 ms )
 	const u8 height = _genres->height >> 3;
 	const u8 tiles  = width * height;
 
-
+	//devu0 = 0;
 	SYS_disableInts();
 
 	while ( (chr = *string++) )
