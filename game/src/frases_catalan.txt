@@ -217,7 +217,7 @@
     (FRASE) { CATALAN, 25, "Mode invertit" },
 
     // Niveles dificul ----------------------------------------------------------------------
-    (FRASE) { CATALAN, 26, "POCA CHICHA" },
+    (FRASE) { CATALAN, 26, "NYICRIS" },
     (FRASE) { CATALAN, 26, "PAIO DUR" },
     (FRASE) { CATALAN, 26, "ET CAGUES" }, // PESADILLA
 
@@ -244,7 +244,7 @@
     (FRASE) { CATALAN, 31, "Clau" },
 
     // HOW TO PLAY // ENEMIES
-    (FRASE) { CATALAN, 32, "Porc Senglar" },
+    (FRASE) { CATALAN, 32, "Senglar" },
     (FRASE) { CATALAN, 32, "Bolet" },
     (FRASE) { CATALAN, 32, "Elfa" },
 
