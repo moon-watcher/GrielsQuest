@@ -216,7 +216,7 @@
     (FRASE) { CATALAN, 25, "Mode invertit" },
 
     // Niveles dificul ----------------------------------------------------------------------
-    (FRASE) { CATALAN, 26, "POCA CHICHA" },
+    (FRASE) { CATALAN, 26, "NYICRIS" },
     (FRASE) { CATALAN, 26, "PAIO DUR" },
     (FRASE) { CATALAN, 26, "ET CAGUES" }, // PESADILLA
 
