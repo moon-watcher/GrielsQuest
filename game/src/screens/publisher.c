@@ -71,12 +71,13 @@ void screen_publisher ( )
 		waitHz(3);
 
 		SYS_disableInts();
-		VDP_setPalette ( PAL1, images[i]->palette->data );
+		preparePal ( PAL1, images[i]->palette->data );
 		VDP_setMap ( PLAN_A, images[i]->map,TILE_ATTR_FULL ( PAL1, 0, 0, 0, vram_pos[i] ), x, y );
 		SYS_enableInts();
 	}
 
 	vram_destroy();
+	displayOn(10);
 
 	waitJoySc(6);
 
