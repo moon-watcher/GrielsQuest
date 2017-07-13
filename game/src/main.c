@@ -70,6 +70,7 @@
  * @ITALIAN-TRANSLATION       => DaRkHoRaCe                     | Twitter: @oongamoonga       | Mail:                     |Notes:
  * @FRENCH-TRANSLATION        => KanedaFr                       | Twitter: @SpritesMind      ‏ | Mail:                     |Notes:
  * @CATALAN-TRANSLATION       => Jordi Montornés Solé           | Twitter: @jordimontornes   ‏ | Mail:                     |Notes:
+ * @FINNISH-TRANSLATION       => Natsumi                        | Twitter:                    | Mail:                     |Notes:
  *
  * @BETA-TESING               => Alfonso Martínez               | Twitter: @_SrPresley_       | Mail:                     |Notes:
  *

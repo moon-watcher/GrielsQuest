@@ -53,12 +53,14 @@ static void writeTextCredits2 ()
 //    writeText ( "Jimy @TodoMegaDrive", PAL2, 4 );
 
     writeText ( "Translators", PAL1, 2 );
-    writeText ( "Felipe Monge Corbalán @vakapp", PAL2, 2 );
-    writeText ( "DaRkHoRaCe @oongamoonga", PAL2, 2 );
-    writeText ( "KanedaFr @SpritesMind", PAL2, 2 );
-    writeText ( "Jordi Montornés Solé @jordimontornes", PAL2, 2 );
+    writeText ( "Felipe Monge Corbalán @vakapp", PAL2, 2 ); // ENGLISH
+    writeText ( "DaRkHoRaCe @oongamoonga", PAL2, 2 ); // ITALIAN
+    writeText ( "KanedaFr @SpritesMind", PAL2, 2 ); // FRENCH
+    writeText ( "Jordi Montornés Solé @jordimontornes", PAL2, 2 ); // CATALÀ
+    writeText ( "Natsumi", PAL2, 2 ); // FINNISH
     writeText ( "Clare Eddleston", PAL2, 2 ); // ENGLISH-REVIEWER
     writeText ( "Xavier Bravo", PAL2, 2 ); // ENGLISH-REVIEWER
+
 }
 
 

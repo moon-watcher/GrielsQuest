@@ -21,7 +21,7 @@ static const u16 _palette [ 16 ] =
 void font_init ()
 {
 	const u32 _tile[8] = {};
-	const u8 nb_chars = 1 + 14 * 3;
+	const u8 nb_chars = 1 + 14 * 4;
 
 	SYS_disableInts();
 

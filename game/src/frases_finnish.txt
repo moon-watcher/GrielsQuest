@@ -290,3 +290,6 @@
 // A "Porrón" is just a wine vessel
 // "ALOITA ALUSTA" is too long. it must be 11 chars max
 // "Pimeä Tonttu" is too long, max length is 11 chars, so please, find another name. Can be literal, and abreviation or something funny
+// How do you say finnish in finnish? Suomi?
+// How do you want to be credited? "Natsumi" and your twitter? real name?
+// I can't review it!

@@ -5,7 +5,7 @@ typedef struct
 {
 	u8  lang;
 	u8  grupo;
-	u8  cadena [ FRASES_MAX_CHARS ];
+	char *cadena;
 }
 FRASE;
 

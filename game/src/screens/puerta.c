@@ -152,7 +152,7 @@ u16 screen_puerta ( )
 	VDP_setEnable ( false );
 	SYS_disableInts ( );
 
-	VDP_setPlanSize ( 64, 128 );
+	VDP_setPlanSize ( 64, 64 );
 
 	splist_reorder ( );
 

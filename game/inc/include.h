@@ -252,7 +252,6 @@ bool;
 #include "../inc/vobject.h"
 #include "../inc/death.h"
 #include "../inc/font.h"
-#include "../inc/prayer.h"
 #include "../inc/weapon.h"
 #include "../inc/player.h"
 #include "../inc/screen.h"
@@ -281,7 +280,7 @@ bool;
 #include "../inc/vint.h"
 #include "../inc/typetext.h"
 #include "../inc/language.h"
-
+#include "../inc/prayer.h"
 
 
 

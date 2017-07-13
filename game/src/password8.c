@@ -144,56 +144,9 @@ static void _draw ( PASSWORD8 password )
 
 /////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-static u16 compare ( u8 *str, PASSWORD8 pwd )
-{
-    u8 i, len = strlen(str);
-
-    for ( i=0; i<len; i++ )
-    {
-        if ( str[i] != pwd[i] )
-        {
-            return 0;
-        }
-    }
-
-    return 1;
-}
-
-static void pwdCheats ( PASSWORD8 pwd )
-{
-    if ( compare ("STAFF",  pwd) ) screen_staff();
-    if ( compare ("OLDEND", pwd) ) screen_oldending();
-
-    u8 i=0;
-
-    while ( 1 )
-    {
-        u8 *word = prayer_get ( i )->keyword;
-
-        if ( strcmp ( word, "" ) == 0 )
-        {
-            break;
-        }
-
-        if ( compare ( word, pwd ) )
-        {
-            displayOff(10);
-            vdpSpriteCache[0].link = 0;
-
-            prayer_show ( i );
-        }
-
-        ++i;
-    }
-}
-
 
 static bool pwd_is_ok ( PASSWORD8 pwd )
 {
-    pwdCheats( pwd );
-
-
-
 	u16  i    = 0;
 	bool ret  = false;
 	u16  play = 1;
@@ -325,8 +278,6 @@ void pwd8_generate ( PASSWORD8 letras )
 
 bool pwd8_screen()
 {
-	#define PRESSED  ( joy1_pressed_a || joy1_pressed_c )
-
 	s16 len = 0;
 	s16 y   = 0;
 	s16 x   = 0;
@@ -419,17 +370,28 @@ bool pwd8_screen()
 		}
 
 
-
-		// Sale con START
-		if ( joy1_pressed_start )
+		// C salir
+		if ( joy1_pressed_c )
 		{
-			ret = pwd_is_ok ( password );
+		    if ( prayer_compare( password ) )
+            {
+                ret = false;
+                break;
+            }
+
+		    ret = pwd_is_ok ( password );
 			break;
 		}
 
-		// Sale con OK
-		if ( PRESSED && ch == 91 )
+		// A+OK | START: check password
+		if (  joy1_pressed_start || ( joy1_pressed_a && ch == 91 ) )
 		{
+		    if ( prayer_compare( password ) )
+            {
+                ret = false;
+                break;
+            }
+
 			ret = pwd_is_ok ( password );
 
 			if ( ret )
@@ -438,8 +400,8 @@ bool pwd8_screen()
 			}
 		}
 
-		// A o C
-		if ( len < 8  &&  PRESSED  &&  ch >= 65  &&  ch <= 90 )
+		// A seleccionar
+		if ( len < 8  &&  joy1_pressed_a  &&  ch >= 65  &&  ch <= 90 )
 		{
 			psglist_play(2);
 
@@ -447,8 +409,8 @@ bool pwd8_screen()
 			paint = true;
 		}
 
-		// borrar
-		if ( len > 0  &&  ( joy1_pressed_b  ||  ( PRESSED && ch == 60 ) )  )
+		// B borrar
+		if ( len > 0  &&  ( joy1_pressed_b  ||  ( joy1_pressed_a && ch == 60 ) )  )
 		{
 			psglist_play(3);
 
@@ -470,7 +432,7 @@ bool pwd8_screen()
 	}
 
 
-	waitMs(1000);
+	//waitMs(1000);
 
 	displayOff( 10 );
 	resetSprites ( );

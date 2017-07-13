@@ -41,9 +41,9 @@ void displayOff ( u16 frames )
 
 void displayOn ( u16 frames )
 {
-    SYS_disableInts();
+    //SYS_disableInts();
     VDP_fadeAllTo ( (u16*) cache, frames ? frames : 1, 0 );
-    SYS_enableInts();
+    //SYS_enableInts();
 }
 
 

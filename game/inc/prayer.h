@@ -11,3 +11,4 @@ PRAYER;
 
 PRAYER *prayer_get  ( u16 i );
 void    prayer_show ( u16 level );
+bool    prayer_compare ( PASSWORD8 pwd );

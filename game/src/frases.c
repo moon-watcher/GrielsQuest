@@ -93,6 +93,8 @@ static void _prepare_string ( u8 *str )
             case 214: _string[j] =   4;  break; // Ö
             case 246: _string[j] =   5;  break; // ö
             case 197: _string[j] = 248;  break; // Å
+
+// for ïüõã ÏÜÕÃ ---> portuguese
         }
 
         // Exception. Weird collision :?

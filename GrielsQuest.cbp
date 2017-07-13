@@ -1138,8 +1138,6 @@
 		<Unit filename="game/src/frases.c">
 			<Option compilerVar="CC" />
 		</Unit>
-		<Unit filename="game/src/frases.c.0" />
-		<Unit filename="game/src/frases.c.1" />
 		<Unit filename="game/src/frases_catalan.txt" />
 		<Unit filename="game/src/frases_english.txt" />
 		<Unit filename="game/src/frases_finnish.txt" />

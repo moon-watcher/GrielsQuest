@@ -196,3 +196,52 @@ void prayer_show ( u16 level )
 	displayOff ( 0 );
 	waitSc ( 1 );
 }
+
+
+
+static u16 compare ( u8 *str, PASSWORD8 pwd )
+{
+    u8 i, len = strlen(str);
+
+    for ( i=0; i<len; i++ )
+    {
+        if ( str[i] != pwd[i] )
+        {
+            return 0;
+        }
+    }
+
+    return 1;
+}
+
+bool prayer_compare ( PASSWORD8 pwd )
+{
+    if ( compare ("STAFF",  pwd) ) { screen_staff();     return true; }
+    if ( compare ("OLDEND", pwd) ) { screen_oldending(); return true; }
+
+    u8 i=0;
+
+    while ( 1 )
+    {
+        u8 *word = prayer_get ( i )->keyword;
+
+        if ( strcmp ( word, "" ) == 0 )
+        {
+            break;
+        }
+
+        if ( compare ( word, pwd ) )
+        {
+            displayOff(10);
+            vdpSpriteCache[0].link = 0;
+
+            prayer_show ( i );
+
+            return true;
+        }
+
+        ++i;
+    }
+
+    return false;
+}
