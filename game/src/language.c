@@ -11,6 +11,7 @@ const static u8 *language_name [ ] =
     "Français",
     "Català",
     "Suomi",
+    "Galego",
     NULL
 };
 

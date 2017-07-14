@@ -53,7 +53,7 @@
  * @CODE:                     =>  Mun                           | Twitter: @MoonWatcherMD
  * @PROJECT:                  =>  #GrielsQuestMD
  * @START-DATE:               =>  20130509
- * @LAST-UPDATE:              =>  20170419
+ * @LAST-UPDATE:              =>  20170714
  * @LIB:                      =>  SGDK (v1.22a) by Stephane Dallongeville
  *
  *
@@ -71,7 +71,8 @@
  * @FRENCH-TRANSLATION        => KanedaFr                       | Twitter: @SpritesMind      ‏ | Mail:                     |Notes:
  * @CATALAN-TRANSLATION       => Jordi Montornés Solé           | Twitter: @jordimontornes   ‏ | Mail:                     |Notes:
  * @FINNISH-TRANSLATION       => Natsumi                        | Twitter:                    | Mail:                     |Notes:
- *
+ * @GALEGO-TRANSLATION        => Paspallas                      | Twitter: @PaspallasDev      | Mail:                     |Notes:
+
  * @BETA-TESING               => Alfonso Martínez               | Twitter: @_SrPresley_       | Mail:                     |Notes:
  *
  * @SPECIAL-THANKS-TO         => Bruce Rodríguez                | Twitter: @emigrantebruce    | Mail:                     |Notes:

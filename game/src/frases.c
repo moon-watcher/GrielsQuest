@@ -11,6 +11,7 @@ const static FRASE _list [ ] =
     #include "frases_french.txt"
     #include "frases_catalan.txt"
     #include "frases_finnish.txt"
+    #include "frases_galego.txt"
 
     (FRASE) {  0,  0, "" }, // No quitar
 };

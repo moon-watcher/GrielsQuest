@@ -58,6 +58,7 @@ static void writeTextCredits2 ()
     writeText ( "KanedaFr @SpritesMind", PAL2, 2 ); // FRENCH
     writeText ( "Jordi Montornés Solé @jordimontornes", PAL2, 2 ); // CATALÀ
     writeText ( "Natsumi", PAL2, 2 ); // FINNISH
+    writeText ( "Paspallas @PaspallasDev ", PAL2, 2 ); // GALEGO
     writeText ( "Clare Eddleston", PAL2, 2 ); // ENGLISH-REVIEWER
     writeText ( "Xavier Bravo", PAL2, 2 ); // ENGLISH-REVIEWER
 
@@ -119,7 +120,7 @@ void screen_credits ()
     prepareColor ( 34, 0x444 );
 
     writeCredits ( 1, 6 );
-    writeCredits ( 2, 4 );
+    writeCredits ( 2, 3 );
     writeCredits ( 3, 9 );
 
     waitSc(2);

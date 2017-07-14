@@ -9,6 +9,7 @@ enum
 	FRENCH,
 	CATALAN,
 	FINNISH,
+	GALEGO,
 };
 
 
