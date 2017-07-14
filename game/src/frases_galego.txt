@@ -69,7 +69,7 @@
 (FRASE) { GALEGO, 10, "¡Tamén levou á princesa!" },
 (FRASE) { GALEGO, 10, "¿A princesa? Ah, sí, sí... |WAIT Vai ata o castelo dese brigante, volve co porrón e concedereiche a súa man. |WAIT ¿Entendiches? |WBREAK ¡Agora largo de aquí!" },
 
-(FRASE) { GALEGO, 11, "Volve co porrón e dareiche a man dan miña filla. |WBREAK ¡Agora largo de aquí!" },
+(FRASE) { GALEGO, 11, "Volve co porrón e dareiche a man da miña filla. |WBREAK ¡Agora largo de aquí!" },
 
 // puerta opcion 1
 (FRASE) { GALEGO, 12, "Pechado. |WCLEAR:180 Que diaños, esos ocos teñen a forma dos... |WBREAK ¡Os Moedóns Lexendarios! |WCLEAR:180 Creo que terei que buscalos e poñelos ahí, isto xa o vin noutros xogos. |WCLEAR: Raios, isto vaime levar toda a tarde." },
