@@ -160,7 +160,6 @@ static void _final_1 ( )
 
 	vram_init(VRAM_DEFAULT);
 
-	SYS_disableInts ( );
 
 	splist_reorder ( );
 
@@ -190,7 +189,6 @@ static void _final_1 ( )
 
 	_initTextColors ( os_f1_griel_1_32x32.pal[5], ob_f1_fondo_a.palette->data[8], os_f1_kbritah_1_32x32.pal[4], 0, 0 );
 
-	SYS_enableInts();
 
 
 	// Muestra la pantalla
@@ -259,7 +257,6 @@ static void _final_2()
 
 	vram_init(VRAM_DEFAULT);
 
-    SYS_disableInts ( );
 
 	splist_reorder ( );
 
@@ -288,7 +285,6 @@ static void _final_2()
 	// 4 Gorda
 	_initTextColors ( os_f2_griel_32x32.pal[6], 0, 0, ob_f2_fondo_a.palette->data[9], ob_f3_fondo_a_1.palette->data[4] ); //recoge el color de la gorda del final3
 
-	SYS_enableInts();
 
 	VDP_waitVSync();
 
@@ -352,7 +348,6 @@ static void _final_3()
 
 	vram_init(VRAM_DEFAULT);
 
-	SYS_disableInts ( );
 
 	splist_reorder ( );
 
@@ -378,7 +373,6 @@ static void _final_3()
 	// 4 Gorda
 	_initTextColors ( os_f3_griel_1_32x32.pal[6], 0, 0, 0, ob_f3_fondo_a_1.palette->data[4] );
 
-	SYS_enableInts();
 
 
 
@@ -413,7 +407,6 @@ static void _final_3()
 	else
 	{
 		// flash blanco
-		SYS_disableInts ( );
 
 		sprite = 0;
 		vram_init(VRAM_DEFAULT);
@@ -443,7 +436,6 @@ static void _final_3()
 
 
 
-		SYS_enableInts();
 
 		VDP_waitVSync();
 
@@ -505,7 +497,6 @@ static void _final_4()
 
 	vram_init(VRAM_DEFAULT);
 
-	SYS_disableInts ( );
 
 	splist_reorder ( );
 
@@ -534,7 +525,6 @@ static void _final_4()
 	// 4 Gorda
 	_initTextColors ( os_f4_griel_32x32.pal[6], 0, os_f4_kbritah_32x32.pal[8], 0, 0 );
 
-	SYS_enableInts();
 
 	VDP_waitVSync();
 
