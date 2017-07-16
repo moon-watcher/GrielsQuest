@@ -1142,6 +1142,7 @@
 		<Unit filename="game/src/frases_english.txt" />
 		<Unit filename="game/src/frases_finnish.txt" />
 		<Unit filename="game/src/frases_french.txt" />
+		<Unit filename="game/src/frases_galego.txt" />
 		<Unit filename="game/src/frases_italian.txt" />
 		<Unit filename="game/src/frases_spanish.txt" />
 		<Unit filename="game/src/game.c">

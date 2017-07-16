@@ -156,11 +156,53 @@ static void _marco_desplegar ( )
 		_hide_sprites ( i );
 
 		if ( i == 2 ) text_write ( frases_next(), 14, 12 );
-		if ( i == 4 ) text_write ( frases_next(), 14, 14 );
+		if ( i == 5 )
+        {
+            char *str = frases_next();
+
+            if ( strlen (str) > 11 )  // special case for finnish "ALOITA ALUSTA" text
+            {
+                char str1[30];
+
+                memset(str1, NULL, 29 );
+                memcpy( str1, &str[0], 9 );
+                text_write ( str1, 14, 14 );
+
+                memset ( str1, NULL, 29 );
+                memcpy ( str1, &str[9], 6 );
+                text_write ( str1, 20, 15 );
+            }
+            else
+            {
+                text_write ( str, 14, 14 );
+            }
+        }
 		if ( i == 7 ) text_write ( frases_next(), 14, 17 );
 
 		waitMs(19);
 	}
+
+
+	/* void frases_back ( s8 nb )
+
+		char *str = frases_find(enemy,2);
+
+		if ( strlen (str) > 11 )  // special case for finnish "Pimeä Tonttu" text
+		{
+            char str1[30];
+            char str2[30];
+
+            memcpy( str1, &str[0],  5 );
+            memcpy( str2, &str[6], 10 );
+
+		    text_write ( str1, 24, 20 );
+		    text_write ( str2, 25, 21 );
+		}
+		else
+        {
+            text_write ( str, 24, 21 );
+        }
+*/
 }
 
 

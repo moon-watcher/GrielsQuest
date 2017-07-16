@@ -156,7 +156,25 @@ void _draw_content ( u16 i )
 		VDP_clearTileMapRect ( PLAN_B, 21, 19, 2, 3 );
 		animation_set_raw();
 		animation_draw ( o2, 21, 19, true, PLAN_A, 1, 0, 0, 0, 0 );
-		text_write ( frases_find(enemy,2), 24, 21 );
+
+		char *str = frases_find(enemy,2);
+
+		if ( strlen (str) > 11 )  // special case for finnish "Pimeä Tonttu" text
+		{
+            char str1[30];
+
+            memset ( str1, NULL, 29 );
+            memcpy ( str1, &str[0],  5 );
+            text_write ( str1, 24, 20 );
+
+            memset ( str1, NULL, 29 );
+            memcpy ( str1, &str[6], 10 );
+		    text_write ( str1, 27, 21 );
+		}
+		else
+        {
+            text_write ( str, 24, 21 );
+        }
 	}
 	else if ( i == 19 )
 	{

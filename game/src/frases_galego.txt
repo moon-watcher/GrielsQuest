@@ -3,7 +3,7 @@
 (FRASE) { GALEGO, 1, "RISKY WOODS" },
 (FRASE) { GALEGO, 1, "GORIDA MURCIANA" },
 (FRASE) { GALEGO, 1, "ABISMO DE ABU" },
-(FRASE) { GALEGO, 1, "PRAIA PARROCHIÑA" },
+(FRASE) { GALEGO, 1, "PRAIA PARROCHInA" },  // n is Ñ in bigfont
 (FRASE) { GALEGO, 1, "CASTELO DE KBRAH" },
 (FRASE) { GALEGO, 1, "DUDEWORLD" },
 (FRASE) { GALEGO, 1, "¿Esqueciches algo?" },

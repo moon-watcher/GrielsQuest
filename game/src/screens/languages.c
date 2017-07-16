@@ -1,8 +1,8 @@
 #include "../inc/include.h"
 #include "../../libs/psg.h"
 
-#define DEFAULT_Y 8
-#define DEFAULT_X 17
+static u8 DEFAULT_Y;
+static u8 DEFAULT_X;
 
 
 
@@ -52,6 +52,13 @@ void screen_languages ()
         return;
     }
 
+
+    u8 i, count = countLanguages();
+
+    DEFAULT_Y = VDP_getScreenHeight() / 8 / 2 - count;
+    DEFAULT_X = 16;
+
+
     y_pos = DEFAULT_Y;
 
     s8 option = 0;
@@ -67,9 +74,6 @@ void screen_languages ()
 
     font_setPalette();
     resetScreen();
-
-    u8 i, count = countLanguages();
-
 
     for ( i=0; i<count; i++ )
     {
@@ -99,7 +103,7 @@ void screen_languages ()
 		if ( option > count-1 ) option = 0;
 
 		SYS_disableInts();
-		VDP_drawText ( ">", 15, option*2+y_pos );
+		VDP_drawText ( ">", DEFAULT_X-2, option*2+y_pos );
 		SYS_enableInts();
 
 
