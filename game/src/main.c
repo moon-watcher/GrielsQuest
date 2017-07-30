@@ -606,9 +606,6 @@ int main ( )
     gamestate.lenguaje = ENGLISH;
 
 
-    Z80_init();
-    Z80_unloadDriver();
-    Z80_loadDriver ( Z80_DRIVER_XGM, true );
     SND_setForceDelayDMA_XGM ( true );
 
     VDP_setPlanSize ( 64, 32 );

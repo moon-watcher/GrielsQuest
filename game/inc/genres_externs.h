@@ -18,9 +18,9 @@ extern const struct genresTiles          ob_staff_notah;
 extern const struct genresTiles          ob_staff_beach;
 extern const struct genresTiles          ob_staff_kbritah;
 
-//extern const struct genresTiles          ob_intro_1;
-//extern const struct genresTiles          ob_intro_2;
-//extern const struct genresTiles          ob_intro_3;
+extern const struct genresTiles          ob_intro_1;
+extern const struct genresTiles          ob_intro_2;
+extern const struct genresTiles          ob_intro_3;
 
 extern const struct genresTiles          cb_poyete;
 

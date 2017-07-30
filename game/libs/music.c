@@ -17,7 +17,19 @@ void music_play ( MUSIC *m )
 	}
 	else if ( _type == MUSIC_TYPE_XGM )
 	{
+		u8 playing = SND_isPlaying_XGM();
+
+		music_stop();
+
+		if ( playing )
+		{
+			VDP_waitVSync();
+			VDP_waitVSync();
+			VDP_waitVSync();
+		}
+
 		SND_startPlay_XGM ( (u8*) m->data );
+		SND_setForceDelayDMA_XGM ( 1 );
 	}
 	else if ( _type == MUSIC_TYPE_VGM )
 	{
@@ -38,6 +50,12 @@ void music_stop ( )
 	    if ( XGM_isPlaying() )
         {
             XGM_stopPlay();
+
+            XGM_stopPlayPCM ( SOUND_PCM_CH1 ); // prevents long samples
+            //XGM_stopPlayPCM ( SOUND_PCM_CH2 );
+            //XGM_stopPlayPCM ( SOUND_PCM_CH3 );
+            //XGM_stopPlayPCM ( SOUND_PCM_CH4 );
+
             VDP_waitVSync();
             VDP_waitVSync();
             VDP_waitVSync();

@@ -218,6 +218,7 @@ bool prayer_compare ( PASSWORD8 pwd )
 {
     if ( compare ("STAFF",  pwd) ) { screen_staff();     return true; }
     if ( compare ("OLDEND", pwd) ) { screen_oldending(); return true; }
+    if ( compare ("OLDINTRO", pwd) ) { screen_oldintro();  return true; }
 
     u8 i=0;
 

@@ -10,9 +10,9 @@ BITMAP ob_logo_Karoshi   "game/data/other/logo_Karoshi.bmp"     0
 BITMAP ob_logo_OookLab   "game/data/other/logo_OookLab.bmp"     0
 BITMAP ob_logo_copyright "game/data/other/logo_copyright.bmp"   0
 
-;BITMAP ob_intro_1        "game/data/other/intro_1.bmp"         0
-;BITMAP ob_intro_2        "game/data/other/intro_2.bmp"         0
-;BITMAP ob_intro_3        "game/data/other/intro_3.bmp"         0
+BITMAP ob_intro_1        "game/data/other/intro_1.bmp"         0
+BITMAP ob_intro_2        "game/data/other/intro_2.bmp"         0
+BITMAP ob_intro_3        "game/data/other/intro_3.bmp"         0
 
 SPRITE os_intro_3_c       "game/data/other/intro/intro3c.bmp"  32 32  0  0  0
 SPRITE os_intro_3_d       "game/data/other/intro/intro3d.bmp"   8 16  0  0  0
