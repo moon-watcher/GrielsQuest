@@ -38,6 +38,9 @@ static void writeTextCredits1 ()
 
     writeText ( "Music & SFX", PAL1, 2 );
     writeText ( "David Sánchez @DavidBonus", PAL2, 4 );
+
+    writeText ( "Testing", PAL1, 2 );
+    writeText ( "Alfonso Martínez @_SrPresley_", PAL2, 4 );
 }
 
 
@@ -46,12 +49,6 @@ static void writeTextCredits1 ()
 
 static void writeTextCredits2 ()
 {
-    writeText ( "Testing", PAL1, 2 );
-
-    writeText ( "Alfonso Martínez @_SrPresley_", PAL2, 4 );
-//    writeText ( "Alfonso Martínez @_SrPresley_", PAL2, 2 );
-//    writeText ( "Jimy @TodoMegaDrive", PAL2, 4 );
-
     writeText ( "Translators", PAL1, 2 );
     writeText ( "Felipe Monge Corbalán @vakapp", PAL2, 2 ); // ENGLISH
     writeText ( "DaRkHoRaCe @oongamoonga", PAL2, 2 ); // ITALIAN
@@ -59,6 +56,8 @@ static void writeTextCredits2 ()
     writeText ( "Jordi Montornés Solé @jordimontornes", PAL2, 2 ); // CATALÀ
     writeText ( "Natsumi", PAL2, 2 ); // FINNISH
     writeText ( "Paspallas @PaspallasDev ", PAL2, 2 ); // GALEGO
+writeText ( "netpredakonn", PAL2, 2 ); // BRAZILIAN-PORTUGUESE
+writeText ( "teaduckie", PAL2, 2 ); // ESPERANTO & INTERLINGUA
     writeText ( "Clare Eddleston", PAL2, 2 ); // ENGLISH-REVIEWER
     writeText ( "Xavier Bravo", PAL2, 2 ); // ENGLISH-REVIEWER
 
@@ -119,8 +118,8 @@ void screen_credits ()
     prepareColor ( 33, 0xfff );
     prepareColor ( 34, 0x444 );
 
-    writeCredits ( 1, 6 );
-    writeCredits ( 2, 3 );
+    writeCredits ( 1, 4 );
+    writeCredits ( 2, 4 );
     writeCredits ( 3, 9 );
 
     waitSc(2);

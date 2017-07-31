@@ -72,6 +72,9 @@
  * @CATALAN-TRANSLATION       => Jordi Montornés Solé           | Twitter: @jordimontornes   ‏ | Mail:                     |Notes:
  * @FINNISH-TRANSLATION       => Natsumi                        | Twitter:                    | Mail:                     |Notes:
  * @GALEGO-TRANSLATION        => Paspallas                      | Twitter: @PaspallasDev      | Mail:                     |Notes:
+         * @BRAZILIAN-PORTUGUESE-TRANSLATION => netpredakonn            | Twitter:                    | Mail:                     |Notes:
+         * @ESPERANTO-TRANSLATION     => teaduckie                      | Twitter:                    | Mail:                     |Notes:
+         * @INTERLINGUA-TRANSLATION   => teaduckie                      | Twitter:                    | Mail:                     |Notes:
 
  * @BETA-TESING               => Alfonso Martínez               | Twitter: @_SrPresley_       | Mail:                     |Notes:
  *
@@ -89,8 +92,8 @@
  * --------------------------------------------------------------------------------------------------------------------------------
  *
  * @ILLUSTRATIONS             => Dani Nevado                    | Twitter: @DanySnowyman      | Mail:                     |Notes:
- * @COVER                     =>                                | Twitter:                    | Mail:                     |Notes:
- * @INSTRUCTION-MANUAL        =>                                | Twitter:                    | Mail:                     |Notes:
+ * @COVER                     => Dani Nevado                    | Twitter: @DanySnowyman      | Mail:                     |Notes:
+ * @INSTRUCTION-MANUAL        => Alfonso Martínez               | Twitter: @_SrPresley_       | Mail:                     |Notes:
  *
  *
  *
@@ -629,7 +632,7 @@ int main ( )
 
 
 
-
+screen_staff();
 
 
 //         gamestate.dificultad   = 2;

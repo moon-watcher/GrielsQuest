@@ -39,7 +39,7 @@ void screen_griels ( )
 
 
     VDP_setTextPalette ( PAL1 );
-    text_write ( "            Original game by            ",  0, y+=7 );
+    text_write ( "            Original game by            ",  0, y+=6 );
 
     VDP_setTextPalette ( PAL2 );
     text_write ( "           Karoshi Corporation          ",  0, y+=2 );

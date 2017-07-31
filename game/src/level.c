@@ -477,7 +477,7 @@ u16 level_get_music ( )
 
 	if ( ambiente == 4  &&  level_list [ ambiente ] [ dificultad ].cuantos == round + 1 )
 	{
-		return  MUSIC_CAVERNA_3;
+		return  MUSIC_SOLO_DRUMS;
 	}
 
 	while ( level_list [ ambiente ] [ dificultad ].musicas [ cuantas ] > 0 )

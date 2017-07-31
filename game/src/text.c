@@ -16,10 +16,15 @@ static u8 parse_chr ( u8 chr )
     chr -= ( 32 + 1 );
     chr  = ( chr == 255 ) ? 0 : chr; //drawUInt( chr,0, devu0++, 4 );
 
+//      // for debug
+//    drawUInt( chr,1,2,4 );
+//    waitSc(1);
+
     switch ( chr )
     {
         case 248: chr = 95; break; // Ú
         case 247: chr = 94; break; // Ó
+        case 178: chr = 94; break; // Ó
         case 245: chr = 93; break; // Í
         case 244: chr = 92; break; // É
         case 243: chr = 91; break; // Á
@@ -95,7 +100,6 @@ void text_draw ( u8 *string, u8 x, u8 y, u16 ms )
 	const u8 tiles  = width * height;
 
 	//devu0 = 0;
-	SYS_disableInts();
 
 	while ( (chr = *string++) )
 	{
@@ -105,14 +109,20 @@ void text_draw ( u8 *string, u8 x, u8 y, u16 ms )
 		if ( ! _positions[chr] )
 		{
 			_positions[chr] = _counter++;
+
+			SYS_disableInts();
 			VDP_loadTileData ( _genres->sprites[chr], POSITION, 4, 0 );
+			SYS_enableInts();
 		}
 
 		for ( j = 0; j < height; j++ )
 		{
 			for ( k = 0; k < width; k++ )
 			{
+			    SYS_disableInts();
 				VDP_setTileMapXY ( PLAN_A, TILE_ATTR_FULL ( _palette, 0, 0, 0, POSITION ), i*width + x + j, y + k );
+				SYS_enableInts();
+
 				++inc;
 			}
 		}
@@ -124,8 +134,6 @@ void text_draw ( u8 *string, u8 x, u8 y, u16 ms )
 
 		++i;
 	}
-
-	SYS_enableInts();
 }
 
 

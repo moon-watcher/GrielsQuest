@@ -30,6 +30,7 @@ void screen_oooklab ( )
     VDP_drawText("Mun @MoonWatcherMD", 11, 17 );
     VDP_drawText("Daniel Nevado @DanySnowyman", 7, 19 );
     VDP_drawText("David Sanchez @DavidBonus", 8, 21 );
+    VDP_drawText("Alfonso Martinez @_SrPresley_", 6, 23 );
 
     VDP_setTextPalette(PAL2);
     VDP_drawText("@2013 - 2017", 14, 26 );

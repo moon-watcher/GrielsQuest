@@ -1,5 +1,6 @@
 #include "../inc/include.h"
 #include "../inc/colores_textos.h"
+#include "../res/xgmres.h"
 
 
 
@@ -73,7 +74,6 @@ static u8 _escena_1 ( )
 
 
 	_frases_tt_init( 7 );
-	musiclist_play ( MUSIC_INTRO );
 
     devu0 = 0;
 	frases_tt_write ( NARRADOR );
@@ -519,7 +519,20 @@ void screen_intro ( u8 jump )
     if ( DEV > 1 ) return;
 
 
-	music_stop();
+    XGM_stopPlay();
+
+    VDP_waitVSync();
+    VDP_waitVSync();
+    VDP_waitVSync();
+
+    XGM_startPlay ( (u8*) &vgm_intro );
+
+    VDP_waitVSync();
+    VDP_waitVSync();
+    VDP_waitVSync();
+
+    XGM_startPlay ( (u8*) &vgm_intro );
+
 	vel_text = 70;
 
 	displayInit();

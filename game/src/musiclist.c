@@ -27,7 +27,7 @@ static const MUSIC _list [] =
 	{ MUSIC_TYPE_XGM, "Gate",              (u8*) &vgm_gate       },
 	{ MUSIC_TYPE_XGM, "Kbrah's castle 1",  (u8*) &vgm_caverna_1  },
 	{ MUSIC_TYPE_XGM, "Kbrah's castle 2",  (u8*) &vgm_caverna_2  },
-	{ MUSIC_TYPE_XGM, "Kbrah's castle 3",  (u8*) &vgm_caverna_3  },
+	{ MUSIC_TYPE_XGM, "Solo drums",        (u8*) &vgm_solo_drumps},
 	{ MUSIC_TYPE_XGM, "Old ending ",       (u8*) &vgm_ending_1   },
 	{ MUSIC_TYPE_XGM, "Ending",            (u8*) &vgm_ending_3   },
 	{ MUSIC_TYPE_XGM, "Boss",              (u8*) &vgm_boss       },

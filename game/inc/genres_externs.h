@@ -17,6 +17,10 @@ extern const struct genresTiles          ob_staff_kbrah2;
 extern const struct genresTiles          ob_staff_notah;
 extern const struct genresTiles          ob_staff_beach;
 extern const struct genresTiles          ob_staff_kbritah;
+extern const struct genresTiles          ob_staff_kbritah2;
+extern const struct genresTiles          ob_staff_title_1;
+extern const struct genresTiles          ob_staff_title_2;
+extern const struct genresTiles          ob_staff_title_3;
 
 extern const struct genresTiles          ob_intro_1;
 extern const struct genresTiles          ob_intro_2;
