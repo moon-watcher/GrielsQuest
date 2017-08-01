@@ -438,11 +438,9 @@ void htp_show ( LEVEL *wl )
 	VDP_setTextPriority ( 1 );
 
 	_count = 0;
-
-	JoyReader_pause();
 	_hide_important_sprites ( wl );
+
 	_marco_desplegar ( );
-	JoyReader_resume();
 
 
 	const u8 max = ( frases_count ( 23 ) / 2 ) - 1;
@@ -502,10 +500,8 @@ void htp_show ( LEVEL *wl )
 	}
 
 
-	JoyReader_pause();
 	htp_marco_enrollar ( wl );
-	_restore_important_sprites ( );
-    JoyReader_resume();
 
-	JoyReader_update();
+
+	_restore_important_sprites ( );
 }
