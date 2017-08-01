@@ -26,9 +26,8 @@ static void _leave_text ( u16 ret )
 		VDP_updateSprites ( 80, 1 );
 
 		waitSc(2);
+		music_stop();
 		displayOff(30);
-
-		waitMs(500); // pausa valorativa
 	}
 
 	vram_destroy();

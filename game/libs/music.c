@@ -2,46 +2,33 @@
 #include "music.h"
 
 
+#define wait  VDP_waitVSync();VDP_waitVSync();VDP_waitVSync();
+
+
 void music_play ( MUSIC *m )
 {
-    VDP_waitVSync();
-    VDP_waitVSync();
-    VDP_waitVSync();
-
+    wait
     SND_setForceDelayDMA_XGM ( 1 );
 
-    VDP_waitVSync();
-    VDP_waitVSync();
-    VDP_waitVSync();
-
+    wait
     SND_startPlay_XGM ( (u8*) m->data );
 
-    VDP_waitVSync();
-    VDP_waitVSync();
-    VDP_waitVSync();
+    wait
 }
 
 
 void music_stop ( )
 {
-    VDP_waitVSync();
-    VDP_waitVSync();
-    VDP_waitVSync();
-
+    wait
     XGM_stopPlay();
 
-    VDP_waitVSync();
-    VDP_waitVSync();
-    VDP_waitVSync();
-
+    wait
     XGM_stopPlayPCM ( SOUND_PCM_CH1 ); // prevents long samples
     //XGM_stopPlayPCM ( SOUND_PCM_CH2 );
     //XGM_stopPlayPCM ( SOUND_PCM_CH3 );
     //XGM_stopPlayPCM ( SOUND_PCM_CH4 );
 
-    VDP_waitVSync();
-    VDP_waitVSync();
-    VDP_waitVSync();
+    wait
 }
 
 

@@ -546,11 +546,12 @@ void screen_intro ( u8 jump )
         }
     }
 
+	music_stop();
+
 	vint_setOb_intro_2_b_f(false);
 	VDP_waitVSync();
 	VDP_interruptFade();
 
-	music_stop();
 	displayOff ( 30 );
 	VDP_setPlanSize ( 64, 32 );
 }

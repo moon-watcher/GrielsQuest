@@ -83,6 +83,7 @@ void screen_oldending ( )
 	waitMs ( 8000 );
 
 	planHide();
+	music_stop();
 	waitMs(1000);
 	JoyReader_resume();
 }

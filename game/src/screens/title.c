@@ -204,227 +204,196 @@ void screen_title_menu_2 ( )
 
 u16 screen_title ( u16 salto )
 {
-   u16 ind = TILE_USERINDEX;
+    u16 ind = TILE_USERINDEX;
 
 
-	if ( salto == 2 )
-	{
-		goto salto_2;
-	}
+    if ( salto == 2 )
+    {
+        goto salto_2;
+    }
 
-	displayInit();
-	displayOff(0);
+    displayInit();
+    displayOff(0);
 
-	SYS_disableInts();
+    resetPalettes();
+    resetScroll();
+    resetScreen();
+    resetSprites();
 
-	//resetVRAM();
-	resetPalettes();
-	resetScroll();
-	resetScreen();
-	resetSprites();
+    font_init();
 
+    SYS_disableInts();
+    VDP_drawImageEx ( PLAN_B, &ob_title_title, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, ind),  4,  8, 0, 0 ); ind += ob_title_title.tileset->numTile;
+    SYS_enableInts();
 
-	font_init();
+    SYS_disableInts();
+    VDP_drawImageEx ( PLAN_A, &ob_title_kbrah, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, ind),  8, -3, 0, 0 ); ind += ob_title_kbrah.tileset->numTile;
+    SYS_enableInts();
 
+    SYS_disableInts();
+    VDP_drawImageEx ( PLAN_A, &ob_title_notah, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, ind),  0, 13, 0, 0 ); ind += ob_title_notah.tileset->numTile;
+    SYS_enableInts();
 
+    SYS_disableInts();
+    VDP_drawImageEx ( PLAN_A, &ob_title_mano,  TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, ind), 11, 16, 0, 0 ); ind += ob_title_mano.tileset->numTile;
+    SYS_enableInts();
 
+    SYS_disableInts();
+    VDP_drawImageEx ( PLAN_A, &ob_title_griel, TILE_ATTR_FULL(PAL3, FALSE, FALSE, FALSE, ind), 30, 13, 0, 0 );
+    SYS_enableInts();
 
-//   VDP_drawImageEx ( PLAN_B, &ob_title_title, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, ind),  4,  8, 0, true ); VDP_waitDMACompletion(); ind += ob_title_title.tileset->numTile;
-//   VDP_drawImageEx ( PLAN_A, &ob_title_kbrah, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, ind),  8, -3, 0, true ); VDP_waitDMACompletion(); ind += ob_title_kbrah.tileset->numTile;
-//   VDP_drawImageEx ( PLAN_A, &ob_title_notah, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, ind),  0, 13, 0, true ); VDP_waitDMACompletion(); ind += ob_title_notah.tileset->numTile;
-//   VDP_drawImageEx ( PLAN_A, &ob_title_mano,  TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, ind), 11, 16, 0, true ); VDP_waitDMACompletion(); ind += ob_title_mano.tileset->numTile;
-//   VDP_drawImageEx ( PLAN_A, &ob_title_griel, TILE_ATTR_FULL(PAL3, FALSE, FALSE, FALSE, ind), 30, 13, 0, true ); VDP_waitDMACompletion();
-	SYS_disableInts();
-	VDP_drawImageEx ( PLAN_B, &ob_title_title, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, ind),  4,  8, 0, 0 ); ind += ob_title_title.tileset->numTile;
-	SYS_enableInts();
-
-	SYS_disableInts();
-	VDP_drawImageEx ( PLAN_A, &ob_title_kbrah, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, ind),  8, -3, 0, 0 ); ind += ob_title_kbrah.tileset->numTile;
-	SYS_enableInts();
-
-	SYS_disableInts();
-	VDP_drawImageEx ( PLAN_A, &ob_title_notah, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, ind),  0, 13, 0, 0 ); ind += ob_title_notah.tileset->numTile;
-	SYS_enableInts();
-
-	SYS_disableInts();
-	VDP_drawImageEx ( PLAN_A, &ob_title_mano,  TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, ind), 11, 16, 0, 0 ); ind += ob_title_mano.tileset->numTile;
-	SYS_enableInts();
-
-	SYS_disableInts();
-	VDP_drawImageEx ( PLAN_A, &ob_title_griel, TILE_ATTR_FULL(PAL3, FALSE, FALSE, FALSE, ind), 30, 13, 0, 0 );
-	SYS_enableInts();
-
-	preparePal ( PAL0, ob_title_title.palette->data );
-	preparePal ( PAL1, ob_title_kbrah.palette->data );
-	preparePal ( PAL2, ob_title_notah.palette->data );
-	preparePal ( PAL3, ob_title_griel.palette->data );
+    preparePal ( PAL0, ob_title_title.palette->data );
+    preparePal ( PAL1, ob_title_kbrah.palette->data );
+    preparePal ( PAL2, ob_title_notah.palette->data );
+    preparePal ( PAL3, ob_title_griel.palette->data );
 
     VDP_setTextPalette ( PAL0 );
+
     SYS_disableInts();
-	VDP_drawText ( "@2017 Oook!Lab", 13, 26 );
-	SYS_enableInts();
-
-	SYS_enableInts();
-
-	displayOn(30);
-
-   //psgfx_init();
-	musiclist_play ( MUSIC_TITLE );
-
-	waitSc(2);
-
-	ind = TILE_USERINDEX;
-
-	SYS_disableInts();
-	//VDP_drawImageEx ( PLAN_B, &ob_title_title, TILE_ATTR_FULL(PAL0, true, FALSE, FALSE, ind),  4,  8, 1, true ); VDP_waitDMACompletion(); ind += ob_title_title.tileset->numTile;
-	VDP_drawImageEx ( PLAN_B, &ob_title_title, TILE_ATTR_FULL(PAL0, true, FALSE, FALSE, ind),  4,  8, 1, 0 ); ind += ob_title_title.tileset->numTile;
-	SYS_enableInts();
-
-   VDP_fadePalOut ( PAL1, getHz(), false );
-   VDP_fadePalOut ( PAL2, getHz(), false );
-   VDP_fadePalOut ( PAL3, getHz(), false );
-
-//   VDP_clearPlan ( PLAN_A, true ); VDP_waitDMACompletion();
-   VDP_clearPlan ( PLAN_A, 0 );
-   //WAITSECS1(1,etiqueta_1);
+    VDP_drawText ( "@2017 Oook!Lab", 13, 26 );
+    SYS_enableInts();
 
 
-   waitMs(500);
+    displayOn(30);
 
-   u8 i;
+    //psgfx_init();
+    musiclist_play ( MUSIC_TITLE );
 
-   for ( i=0; i<120; i++ )
-   {
-      VDP_setVerticalScroll ( PLAN_B, i/2 );
-      VDP_waitVSync();
-   }
+    waitSc(2);
+
+    ind = TILE_USERINDEX;
+
+    SYS_disableInts();
+    VDP_drawImageEx ( PLAN_B, &ob_title_title, TILE_ATTR_FULL(PAL0, true, FALSE, FALSE, ind),  4,  8, 1, 0 ); ind += ob_title_title.tileset->numTile;
+    SYS_enableInts();
+
+    VDP_fadePalOut ( PAL1, getHz(), false );
+    VDP_fadePalOut ( PAL2, getHz(), false );
+    VDP_fadePalOut ( PAL3, getHz(), false );
+
+    SYS_disableInts();
+    VDP_clearPlan ( PLAN_A, 1 );
+    SYS_enableInts();
+
+    waitMs(500);
+
+    u8 i;
+
+    for ( i=0; i<120; i++ )
+    {
+        VDP_setVerticalScroll ( PLAN_B, i/2 );
+        VDP_waitVSync();
+    }
 
 
 
 
-	SYS_disableInts();
-	//VDP_drawImageEx ( PLAN_B, &ob_title_subtitle, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, ind), 8, 24, false, true ); VDP_waitDMACompletion(); ind += ob_title_subtitle.tileset->numTile;
-	VDP_drawImageEx ( PLAN_B, &ob_title_subtitle, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, ind), 8, 24, false, 0 ); ind += ob_title_subtitle.tileset->numTile;
-	SYS_enableInts();
+    SYS_disableInts();
+    VDP_drawImageEx ( PLAN_B, &ob_title_subtitle, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, ind), 8, 24, false, 0 ); ind += ob_title_subtitle.tileset->numTile;
+    SYS_enableInts();
 
 
 salto_2:
 
 
-   VDP_fadePalTo ( PAL1, ob_title_subtitle.palette->data, getHz(), false );
+    VDP_fadePalTo ( PAL1, ob_title_subtitle.palette->data, getHz(), false );
 
 
-   //WAITSECS1(1,etiqueta_1);
-   waitMs(100);
+    //WAITSECS1(1,etiqueta_1);
+    waitMs(100);
 
 
+    //JOY_setEventHandler( &_readJOY );
+
+    s16 tiles[28] = { };
+    tiles[20] = -4;
+
+    u16 counter = 0;
+    u16 ret     = 0;
+    u16 blink   = 0;
+    u16 hz      = ntsc2pal ( 60 );
 
 
-   //JOY_setEventHandler( &_readJOY );
-
-
-	s16 tiles[28] = { };
-	tiles[20] = -4;
-
-	u16 counter = 0;
-	u16 ret     = 0;
-	u16 blink   = 0;
-	u16 hz      = ntsc2pal ( 60 );
-
-
-
-
-	//_blink_title_cnt = 0;
-	//SYS_setVIntCallback ( (_voidCallback*) _blink_title_callback );
-
-
-	SYS_disableInts();
-	//VDP_drawImageEx ( PLAN_A, &ob_title_press_start, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, ind), 15, 23, 1, true ); VDP_waitDMACompletion();
-	VDP_drawImageEx ( PLAN_A, &ob_title_press_start, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, ind), 15, 23, 1, 0 );
-	SYS_enableInts();
+    SYS_disableInts();
+    VDP_drawImageEx ( PLAN_A, &ob_title_press_start, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, ind), 15, 23, 1, 0 );
+    SYS_enableInts();
 
 
 
-	while ( true )
-	{
-		if ( counter % hz == 0 )
-		{
-			VDP_setPalette ( PAL2, ob_title_press_start.palette->data ); // tool_setPalette (PAL2, ob_title_press_start.palette->data );
+    while ( true )
+    {
+        if ( counter % hz == 0 )
+        {
+            VDP_setPalette ( PAL2, ob_title_press_start.palette->data ); // tool_setPalette (PAL2, ob_title_press_start.palette->data );
 
-			blink = 0;
-		}
+            blink = 0;
+        }
 
-		if ( ++blink == 45 )
-		{
-			VDP_setPalette ( PAL2, (u16*) palette_black );
-		}
+        if ( ++blink == 45 )
+        {
+            VDP_setPalette ( PAL2, (u16*) palette_black );
+        }
 
-		if ( counter == hz * 20 ) // 20 segundos de espera y si no salta de nuevo a Ooklab
-		{
-			ret = SCREEN_JUMP_TO_INTRO;
-			break;
-		}
+        if ( counter == hz * 20 ) // 20 segundos de espera y si no salta de nuevo a Ooklab
+        {
+            ret = SCREEN_JUMP_TO_INTRO;
+            break;
+        }
 
-//		if ( ( joy = _pressed(JOY_1,BUTTON_BTN) )  )
-//		{
-//			_release ( joy, JOY_1 ) ;
+        if ( joy1_pressed_abc || joy1_pressed_start )
+        {
+            VDP_setPalette ( PAL2, (u16*) palette_black );
+            VDP_fadeOutAll (10, true );
 
-		if ( joy1_pressed_abc || joy1_pressed_start )
-		{
-			VDP_setPalette ( PAL2, (u16*) palette_black );
-			VDP_fadeOutAll (10, true );
+            u8 i=0;
+            while ( VDP_isDoingFade() )
+            {
+                if ( i++ == 5 )
+                {
+                    VDP_interruptFade();
+                    break;
+                }
 
-			u8 i=0;
-			while ( VDP_isDoingFade() )
-			{
-				if ( i++ == 5 )
-				{
-					VDP_interruptFade();
-					break;
-				}
+                VDP_waitVSync();
+            }
 
-				VDP_waitVSync();
-			}
-
-			VDP_setTextPalette (PAL3);
-			VDP_setPalette(PAL3, font_getPalette());
+            VDP_setTextPalette (PAL3);
+            VDP_setPalette(PAL3, font_getPalette());
 
 
-			psglist_play ( PSG_START );
-			ret = SCREEN_JUMP_TO_NEWGAME;
-			break;
-		}
+            psglist_play ( PSG_START );
+            ret = SCREEN_JUMP_TO_NEWGAME;
+            break;
+        }
 
-		VDP_waitVSync();
+        VDP_waitVSync();
 
-		++counter;
+        ++counter;
 	}
 
 
-//etiqueta_1:
-//etiqueta_2:
 
 
-	if ( ret == SCREEN_JUMP_TO_NEWGAME )
-	{
-		ret = screen_title_menu_1 ( );
+    if ( ret == SCREEN_JUMP_TO_NEWGAME )
+    {
+        ret = screen_title_menu_1 ( );
 
-		if ( ret == SCREEN_JUMP_TO_DIFFICULT )
-		{
-			screen_title_menu_2 ( );
+        if ( ret == SCREEN_JUMP_TO_DIFFICULT )
+        {
+            screen_title_menu_2 ( );
 
-			ret = SCREEN_JUMP_TO_AMBIENT;
-		}
-	}
+            ret = SCREEN_JUMP_TO_AMBIENT;
+        }
+    }
 
-	music_stop();
+    music_stop();
 	waitSc(1);
-    psg_pause();
-	displayOff (60);
+
+	displayOff (30);
+	psg_pause();
 
     resetScroll ();
-	resetScreen();
+    resetScreen();
 
-
-	return ret;
+    return ret;
 }

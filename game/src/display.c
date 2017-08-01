@@ -33,17 +33,13 @@ void prepareColor ( u16 index, u16 color )
 
 void displayOff ( u16 frames )
 {
-    SYS_disableInts();
     VDP_fadeOutAll ( frames ? frames : 1, 0 );
-    SYS_enableInts();
 }
 
 
 void displayOn ( u16 frames )
 {
-    //SYS_disableInts();
     VDP_fadeAllTo ( (u16*) cache, frames ? frames : 1, 0 );
-    //SYS_enableInts();
 }
 
 

@@ -276,7 +276,9 @@ void object_viewer()
       if ( opcion == MAX_ANIMATIONS ) opcion = 0;
       if ( opcion == -1             ) opcion = MAX_ANIMATIONS - 1;
 
-      VDP_clearPlan ( PLAN_A, 0 );
+      SYS_disableInts();
+      VDP_clearPlan ( PLAN_A, 1 );
+      SYS_enableInts();
 
       VOBJECT *v = vobject_add ( opcion );
       vobject_reset ( opcion );
@@ -601,6 +603,7 @@ int main ( )
     JoyReader_init ( 1 );
     monos();
 
+    //todas_las_pantallas ( );
     //object_viewer();
     //conio();
 

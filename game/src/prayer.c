@@ -247,6 +247,8 @@ bool prayer_compare ( PASSWORD8 pwd )
         {
             displayOff(10);
             vdpSpriteCache[0].link = 0;
+            vdpSpriteCache[0].x = -50;
+            VDP_updateSprites ( 80, 1 );
 
             prayer_show ( i );
 

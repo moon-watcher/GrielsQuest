@@ -66,6 +66,7 @@ void screen_oldintro ( )
 	planHide ( );
 
 
+    music_stop();
     displayOff ( 0 );
 	JoyReader_resume();
 }
