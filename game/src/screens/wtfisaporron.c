@@ -37,7 +37,9 @@ void screen_wtfisaporron ( )
 	{
 		u16 size = images[i]->tileset->numTile;
 		vram_pos [ i ] = vram_new ( size );
+		SYS_disableInts();
 		VDP_loadTileData ( images[i]->tileset->tiles, vram_pos[i], size, 0 );
+		SYS_enableInts();
 	}
 
 

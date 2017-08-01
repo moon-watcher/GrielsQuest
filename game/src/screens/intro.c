@@ -55,6 +55,8 @@ static void _frases_tt_init ( u16 grupo )
 
 static u8 _escena_1 ( )
 {
+    musiclist_play( MUSIC_INTRO );
+
 	ind = TILE_USERINDEX;
 
 	u16 vel_show = 20;
@@ -105,7 +107,6 @@ static u8 _escena_1 ( )
 
 
 	SYS_disableInts();
-	//VDP_drawImageEx ( PLAN_A, &ob_intro_1_c, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, ind), 27, 1, false, true ); VDP_waitDMACompletion();
 	VDP_drawImageEx ( PLAN_A, &ob_intro_1_c, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, ind), 27, 1, false, 0 );
 	SYS_enableInts();
 
@@ -118,7 +119,6 @@ static u8 _escena_1 ( )
 
 
 	SYS_disableInts();
-	//VDP_drawImageEx ( PLAN_A, &ob_intro_1_c, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, ind), 27, 1, false, true );  VDP_waitDMACompletion(); ind += ob_intro_1_c.tileset->numTile;
 	VDP_drawImageEx ( PLAN_A, &ob_intro_1_c, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, ind), 27, 1, false, 0 );  ind += ob_intro_1_c.tileset->numTile;
 	SYS_enableInts();
 
@@ -185,8 +185,6 @@ static u8 _escena_2()
 	VDP_interruptFade ( );
 	resetScroll ( );
 
-//   VDP_drawImageEx ( PLAN_B, &ob_intro_2_b, TILE_ATTR_FULL(PAL1, false, FALSE, FALSE, ind), 0, 0, true, true ); VDP_waitDMACompletion(); ind += ob_intro_2_b.tileset->numTile;
-//   VDP_drawImageEx ( PLAN_A, &ob_intro_2_a, TILE_ATTR_FULL(PAL2, false, FALSE, FALSE, ind), 0, 0, true, true ); VDP_waitDMACompletion(); ind += ob_intro_2_a.tileset->numTile;
 	VDP_drawImageEx ( PLAN_B, &ob_intro_2_b, TILE_ATTR_FULL(PAL1, false, FALSE, FALSE, ind), 0, 0, true, 0 ); ind += ob_intro_2_b.tileset->numTile;
 	VDP_drawImageEx ( PLAN_A, &ob_intro_2_a, TILE_ATTR_FULL(PAL2, false, FALSE, FALSE, ind), 0, 0, true, 0 ); ind += ob_intro_2_a.tileset->numTile;
 
@@ -263,9 +261,6 @@ static u8 _escena_3 ()
 	resetScreen ();
 
 
-
-//   VDP_drawImageEx ( PLAN_B, &ob_intro_3_a, TILE_ATTR_FULL(PAL1, false, FALSE, FALSE, ind),  0, 0, true, true ); VDP_waitDMACompletion(); ind += ob_intro_3_a.tileset->numTile;
-//   VDP_drawImageEx ( PLAN_A, &ob_intro_3_b, TILE_ATTR_FULL(PAL2, false, FALSE, FALSE, ind), 10, 0, true, true ); VDP_waitDMACompletion(); ind += ob_intro_3_b.tileset->numTile;
 	VDP_drawImageEx ( PLAN_B, &ob_intro_3_a, TILE_ATTR_FULL(PAL1, false, FALSE, FALSE, ind),  0, 0, true, 0 ); ind += ob_intro_3_a.tileset->numTile;
 	VDP_drawImageEx ( PLAN_A, &ob_intro_3_b, TILE_ATTR_FULL(PAL2, false, FALSE, FALSE, ind), 10, 0, true, 0 ); ind += ob_intro_3_b.tileset->numTile;
 
@@ -285,7 +280,9 @@ static u8 _escena_3 ()
 	attr = TILE_ATTR_FULL ( PAL3, 0, 0, 0, ind );
 
 	spriteset_new  ( &gota,   (struct genresSprites*) &os_intro_3_d, 1, 1 );
+	SYS_disableInts();
 	spriteset_load ( &gota, ind, 0 );
+	SYS_enableInts();
 	spriteset_show ( &gota, 0, gota_x, gota_y, attr );
 
 	ind += 2;
@@ -297,7 +294,9 @@ static u8 _escena_3 ()
 	attr = TILE_ATTR_FULL ( PAL3, 0, 0, 0, ind );
 
 	spriteset_new  ( &jon,   (struct genresSprites*) &os_intro_3_c, 4, 4 );
+	SYS_disableInts();
 	spriteset_load ( &jon, ind, 0 );
+	SYS_enableInts();
 	spriteset_show ( &jon, 1, jon_x, 32, attr );
 
 
@@ -313,14 +312,12 @@ static u8 _escena_3 ()
 	memsetU16(values_b, -80, 28 );
 
 	VDP_setScrollingMode ( HSCROLL_TILE, VSCROLL_PLANE );
-//	VDP_setHorizontalScrollTile ( PLAN_A, 0, values_a, 19, true ); VDP_waitDMACompletion();
-//	VDP_setHorizontalScrollTile ( PLAN_B, 0, values_b, 28, true ); VDP_waitDMACompletion();
 	VDP_setHorizontalScrollTile ( PLAN_A, 0, values_a, 19, 0 );
 	VDP_setHorizontalScrollTile ( PLAN_B, 0, values_b, 28, 0 );
 
 
 	SYS_enableInts();
-   VDP_setEnable ( true );
+    VDP_setEnable ( true );
 
 
 	frases_tt_write ( NOTA );
@@ -355,13 +352,11 @@ static u8 _escena_3 ()
 
 		if ( i % 3 == 0 )
 		{
-			memsetU16 ( values, ++curval, 19 );
-         //VDP_setHorizontalScrollTile ( PLAN_A, 0, values, 19, true );
-         VDP_setHorizontalScrollTile ( PLAN_A, 0, values, 19, 0 );
+            memsetU16 ( values, ++curval, 19 );
+            VDP_setHorizontalScrollTile ( PLAN_A, 0, values, 19, 0 );
 		}
 
-      //VDP_waitDMACompletion();
-      VDP_updateSprites(80,1);
+        VDP_updateSprites(80,1);
 
       VDP_waitVSync();
 
@@ -407,8 +402,6 @@ static u8 _escena_4 ( int repeat )
 	resetScroll();
 
 
-//   VDP_drawImageEx ( PLAN_B, &ob_intro_4_b, TILE_ATTR_FULL(PAL1, 0, 0, 0, ind), 0, 0, true, true ); VDP_waitDMACompletion(); ind += ob_intro_4_b.tileset->numTile;
-//   VDP_drawImageEx ( PLAN_A, &ob_intro_4_a, TILE_ATTR_FULL(PAL2, 0, 0, 0, ind), 0, 0, true, true ); VDP_waitDMACompletion(); ind += ob_intro_4_a.tileset->numTile;
 	VDP_drawImageEx ( PLAN_B, &ob_intro_4_b, TILE_ATTR_FULL(PAL1, 0, 0, 0, ind), 0, 0, true, 0 ); ind += ob_intro_4_b.tileset->numTile;
 	VDP_drawImageEx ( PLAN_A, &ob_intro_4_a, TILE_ATTR_FULL(PAL2, 0, 0, 0, ind), 0, 0, true, 0 ); ind += ob_intro_4_a.tileset->numTile;
 
@@ -420,16 +413,14 @@ static u8 _escena_4 ( int repeat )
 
 
 
-	//VDP_loadTileData ( os_intro_4_c.sprites[0], ind, 5*4*5*4, true ); VDP_waitDMACompletion();
-
-
-
 
 	SPRITESET griel;
 	u16 tile_attr = TILE_ATTR_FULL ( PAL3, 0, 0, 0, ind );
 
 	spriteset_new  ( &griel,   (struct genresSprites*) &os_intro_4_c, 5, 5 );
+	SYS_enableInts();
 	spriteset_load ( &griel, ind, 0 );
+	SYS_disableInts();
 	spriteset_show ( &griel, 0, 285, 0, tile_attr ); // x = 285
 
 //font_init ( );
@@ -518,20 +509,6 @@ void screen_intro ( u8 jump )
 {
     if ( DEV > 1 ) return;
 
-
-    XGM_stopPlay();
-
-    VDP_waitVSync();
-    VDP_waitVSync();
-    VDP_waitVSync();
-
-    XGM_startPlay ( (u8*) &vgm_intro );
-
-    VDP_waitVSync();
-    VDP_waitVSync();
-    VDP_waitVSync();
-
-    XGM_startPlay ( (u8*) &vgm_intro );
 
 	vel_text = 70;
 

@@ -216,9 +216,21 @@ static u16 compare ( u8 *str, PASSWORD8 pwd )
 
 bool prayer_compare ( PASSWORD8 pwd )
 {
-    if ( compare ("STAFF",  pwd) ) { screen_staff();     return true; }
-    if ( compare ("OLDEND", pwd) ) { screen_oldending(); return true; }
-    if ( compare ("OLDINTRO", pwd) ) { screen_oldintro();  return true; }
+    void (*function)() = NULL;
+
+    if ( compare ("STAFF",    pwd) ) function = screen_staff;
+    if ( compare ("OLDEND",   pwd) ) function = screen_oldending;
+    if ( compare ("OLDINTRO", pwd) ) function = screen_oldintro;
+
+    if ( function )
+    {
+        vdpSpriteCache[0].link = 0;
+        vdpSpriteCache[0].x = -50;
+        VDP_updateSprites ( 80, 1 );
+        function();
+
+        return true;
+    }
 
     u8 i=0;
 

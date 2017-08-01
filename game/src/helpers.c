@@ -192,7 +192,9 @@ void showFPS()
 {
 	if ( DEV )
 	{
+	    SYS_disableInts();
 		drawUInt ( getFPS(), 37, 27, 2 );
+		SYS_enableInts();
 	}
 }
 
@@ -202,7 +204,9 @@ void drawInt( u32 nb, u8 x, u8 y, u8 zeros )
 {
 	u8 str [ zeros+1 ];
 	intToStr ( nb, str, zeros );
+	SYS_disableInts();
 	VDP_drawText ( str, x, y );
+	SYS_enableInts();
 }
 
 
@@ -211,7 +215,9 @@ void drawUInt( u32 nb, u8 x, u8 y, u8 zeros )
 {
 	u8 str [ zeros+1 ];
 	uintToStr ( nb, str, zeros );
+	SYS_disableInts();
 	VDP_drawText ( str, x, y );
+	SYS_enableInts();
 }
 
 
@@ -220,7 +226,9 @@ void drawUIntBG( u32 nb, u8 x, u8 y, u8 zeros, u16 plan, u16 flags )
 {
 	u8 str [ zeros+1 ];
 	uintToStr ( nb, str, zeros );
+	SYS_disableInts();
 	VDP_drawTextBG ( PLAN_B, str, x, y );
+	SYS_enableInts();
 }
 
 
@@ -270,26 +278,33 @@ void resetVRAM ( )
    u16 i = 16;
    while ( i-- )
    {
+       SYS_disableInts();
       VDP_fillTileData ( i | (i << 4), TILE_SYSTEMINDEX + i, 1, 1 );
+      SYS_enableInts();
    }
 }
 
 
 void resetScreen ( )
 {
-	VDP_clearPlan ( PLAN_A, 1 );
+    SYS_disableInts();
+    VDP_clearPlan ( PLAN_A, 1 );
 	VDP_clearPlan ( PLAN_B, 1 );
+	SYS_enableInts();
 }
 
 
 void resetScroll ( )
 {
+    SYS_disableInts();
+
 	VDP_setScrollingMode ( HSCROLL_PLANE, VSCROLL_PLANE );
 
 	VDP_setHorizontalScroll ( PLAN_A, 0 );
 	VDP_setVerticalScroll   ( PLAN_A, 0 );
 	VDP_setHorizontalScroll ( PLAN_B, 0 );
 	VDP_setVerticalScroll   ( PLAN_B, 0 );
+	SYS_enableInts();
 }
 
 

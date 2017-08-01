@@ -5,7 +5,7 @@
 (FRASE) { GALEGO, 1, "ABISMO DE ABU" },
 (FRASE) { GALEGO, 1, "PRAIA PARROCHInA" },  // n is Ñ in bigfont
 (FRASE) { GALEGO, 1, "CASTELO DE KBRAH" },
-(FRASE) { GALEGO, 1, "DUDEWORLD" },
+(FRASE) { GALEGO, 1, "DUDEHWORLD" },
 (FRASE) { GALEGO, 1, "¿Esqueciches algo?" },
 (FRASE) { GALEGO, 1, "NIVEL %02d" },
 
@@ -67,7 +67,7 @@
 
 (FRASE) { GALEGO, 10, "Griel, sen o Holy Porrón o reino está perdido. |WAIT ¡Debes recuperalo canto antes! |WCLEAR:180 Isto fede ó meu arquiinimigo Kbrah, estou seguro que foi Él." },
 (FRASE) { GALEGO, 10, "¡Tamén levou á princesa!" },
-(FRASE) { GALEGO, 10, "¿A princesa? Ah, sí, sí... |WAIT Vai ata o castelo dese brigante, volve co porrón e concedereiche a súa man. |WAIT ¿Entendiches? |WBREAK ¡Agora largo de aquí!" },
+(FRASE) { GALEGO, 10, "¿A princesa? Ah, sí, sí... |WAIT Vai ata o castelo dese brigante, volve co porrón e concedereiche a súa man. |BREAK ¿Entendiches? |WBREAK ¡Agora largo de aquí!" },
 
 (FRASE) { GALEGO, 11, "Volve co porrón e dareiche a man da miña filla. |WBREAK ¡Agora largo de aquí!" },
 

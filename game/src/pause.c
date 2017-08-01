@@ -140,9 +140,13 @@ static void _restore_important_sprites ( )
 
 static void _marco_desplegar ( )
 {
+    SYS_disableInts();
 	VDP_loadTileSet ( cb_pause.tileset, 900, 0 );
+    SYS_enableInts();
 
+    SYS_disableInts();
 	VDP_setMapEx ( PLAN_A, cb_pause.map,TILE_ATTR_FULL(PAL1, true, false, false, 900), 12,  9, 0,  0, 16, 1 );
+	SYS_enableInts();
 
 	toani_delete_explosion ( );
 
@@ -150,8 +154,13 @@ static void _marco_desplegar ( )
 
 	for ( i=0; i<10; i++ )
 	{
+	    SYS_disableInts();
 		VDP_setMapEx ( PLAN_A, cb_pause.map, TILE_ATTR_FULL(PAL1, true, false, false, 900), 12, i+10, 0, i+1, 16, 1 );
+		SYS_enableInts();
+
+		SYS_disableInts();
 		VDP_setMapEx ( PLAN_A, cb_pause.map, TILE_ATTR_FULL(PAL1, true, false, false, 900), 12, i+11, 0,  11, 16, 1 );
+		SYS_enableInts();
 
 		_hide_sprites ( i );
 
@@ -160,7 +169,7 @@ static void _marco_desplegar ( )
 		{
             char *str = frases_next();
 
-            if ( strlen (str) > 11 )  // special case for finnish "ALOITA ALUSTA" text
+            if ( strlen (str) > 13 )  // special case for finnish "ALOITA ALUSTA" text
             {
                 char str1[30];
 
@@ -189,62 +198,125 @@ static void _marco_enrollar( LEVEL *wl )
 {
 	u16 wait = 7; // 22;
 
+	SYS_disableInts();
 	VDP_setMapEx ( PLAN_A, cb_pause.map,TILE_ATTR_FULL(PAL1, true, false, false, 900), 12, 19, 0,  11, 16, 1 );
+    SYS_enableInts();
+
+	SYS_disableInts();
 	VDP_setMapEx ( PLAN_A, cb_pause.map, 0, 12, 20, 0,  11, 16, 1 );
+    SYS_enableInts();
+
 	waitMs(wait);
 
 
 	_restore_sprites ( 8 );
 	_restore_sprites ( 7 );
+	SYS_disableInts();
 	VDP_setMapEx ( PLAN_A, cb_pause.map,TILE_ATTR_FULL(PAL1, true, false, false, 900), 12, 18, 0,  11, 16, 1 );
+    SYS_enableInts();
+
+	SYS_disableInts();
 	VDP_setMapEx ( PLAN_B, wl->background->map, TILE_ATTR_FULL(PAL0, false, false, false, level_vram_pos ( PLAN_B ) ), 13, 19, 13, 19, 16, 2 );
+    SYS_enableInts();
+
 	level_draw_area ( wl, 4, 7, 8, 1 );
 	waitMs(wait);
 
+	SYS_disableInts();
 	VDP_setMapEx ( PLAN_A, cb_pause.map,TILE_ATTR_FULL(PAL1, true, false, false, 900), 12, 17, 0,  11, 16, 1 );
+    SYS_enableInts();
+
+	SYS_disableInts();
 	VDP_setMapEx ( PLAN_A, cb_pause.map, 0, 12, 18, 0,  11, 16, 1 );
+    SYS_enableInts();
+
 	waitMs(wait);
 
 	_restore_sprites( 6 );
+	SYS_disableInts();
 	VDP_setMapEx ( PLAN_A, cb_pause.map,TILE_ATTR_FULL(PAL1, true, false, false, 900), 12, 16, 0,  11, 16, 1 );
+    SYS_enableInts();
+
+	SYS_disableInts();
 	VDP_setMapEx ( PLAN_B, wl->background->map, TILE_ATTR_FULL(PAL0, false, false, false, level_vram_pos ( PLAN_B ) ), 13, 17, 13, 17, 16, 2 );
+    SYS_enableInts();
+
 	level_draw_area ( wl, 4, 6, 8, 1 );
 	waitMs(wait);
 
+	SYS_disableInts();
 	VDP_setMapEx ( PLAN_A, cb_pause.map,TILE_ATTR_FULL(PAL1, true, false, false, 900), 12, 15, 0,  11, 16, 1 );
+    SYS_enableInts();
+
+	SYS_disableInts();
 	VDP_setMapEx ( PLAN_A, cb_pause.map, 0, 12, 16, 0,  11, 16, 1 );
+    SYS_enableInts();
+
 	waitMs(wait);
 
 	_restore_sprites( 5 );
+	SYS_disableInts();
 	VDP_setMapEx ( PLAN_A, cb_pause.map,TILE_ATTR_FULL(PAL1, true, false, false, 900), 12, 14, 0,  11, 16, 1 );
+    SYS_enableInts();
+
+	SYS_disableInts();
 	VDP_setMapEx ( PLAN_B, wl->background->map, TILE_ATTR_FULL(PAL0, false, false, false, level_vram_pos ( PLAN_B ) ), 13, 15, 13, 15, 16, 2 );
+    SYS_enableInts();
+
 	level_draw_area ( wl, 4, 5, 8, 1 );
 	waitMs(wait);
 
+	SYS_disableInts();
 	VDP_setMapEx ( PLAN_A, cb_pause.map,TILE_ATTR_FULL(PAL1, true, false, false, 900), 12, 13, 0,  11, 16, 1 );
+    SYS_enableInts();
+
+	SYS_disableInts();
 	VDP_setMapEx ( PLAN_A, cb_pause.map, 0, 12, 14, 0,  11, 16, 1 );
+    SYS_enableInts();
+
 	waitMs(wait);
 
 	_restore_sprites( 4 );
+	SYS_disableInts();
 	VDP_setMapEx ( PLAN_A, cb_pause.map,TILE_ATTR_FULL(PAL1, true, false, false, 900), 12, 12, 0,  11, 16, 1 );
+    SYS_enableInts();
+
+	SYS_disableInts();
 	VDP_setMapEx ( PLAN_B, wl->background->map, TILE_ATTR_FULL(PAL0, false, false, false, level_vram_pos ( PLAN_B ) ), 13, 13, 13, 13, 16, 2 );
+    SYS_enableInts();
+
 	level_draw_area ( wl, 4, 4, 8, 1 );
 	waitMs(wait);
 
+	SYS_disableInts();
 	VDP_setMapEx ( PLAN_A, cb_pause.map,TILE_ATTR_FULL(PAL1, true, false, false, 900), 12, 11, 0,  11, 16, 1 );
+    SYS_enableInts();
+
+	SYS_disableInts();
 	VDP_setMapEx ( PLAN_A, cb_pause.map, 0, 12, 12, 0,  11, 16, 1 );
+    SYS_enableInts();
+
 	waitMs(wait);
 
 	_restore_sprites( 3 );
+	SYS_disableInts();
 	VDP_setMapEx ( PLAN_A, cb_pause.map,TILE_ATTR_FULL(PAL1, true, false, false, 900), 12, 10, 0,  11, 16, 1 );
+    SYS_enableInts();
+
+	SYS_disableInts();
 	VDP_setMapEx ( PLAN_B, wl->background->map, TILE_ATTR_FULL(PAL0, false, false, false, level_vram_pos ( PLAN_B ) ), 13, 11, 13, 11, 16, 2 );
+    SYS_enableInts();
+
 	level_draw_area ( wl, 4, 3, 8, 1 );
 	waitMs(wait);
 
 	_restore_sprites( 2 );
 	_restore_sprites( 1 );
 	_restore_sprites( 0 );
+	SYS_disableInts();
 	VDP_setMapEx ( PLAN_B, wl->background->map, TILE_ATTR_FULL(PAL0, false, false, false, level_vram_pos ( PLAN_B ) ), 13,  9, 13,  9, 16, 2 );
+    SYS_enableInts();
+
 	level_draw_area ( wl, 4, 2, 8, 1 );
 	waitMs(wait);
 }
@@ -303,10 +375,21 @@ void pause_show ( LEVEL *wl, u16 *ret )
 			if ( joy1_pressed_up    &&  --option < 0 ) option = 2;
 			if ( joy1_pressed_down  &&  ++option > 2 ) option = 0;
 
+			SYS_disableInts();
 			VDP_drawText ( " ",  14, opciones[0].y );
+			SYS_enableInts();
+
+			SYS_disableInts();
 			VDP_drawText ( " ",  14, opciones[1].y );
+			SYS_enableInts();
+
+			SYS_disableInts();
 			VDP_drawText ( " ",  14, opciones[2].y );
+			SYS_enableInts();
+
+			SYS_disableInts();
 			VDP_drawText ( "\\", 14, opciones[option].y );
+			SYS_enableInts();
 
 			psglist_play ( PSG_SELECT );
 		}
@@ -323,6 +406,7 @@ void pause_show ( LEVEL *wl, u16 *ret )
 	_restore_important_sprites ( );
 
 	JoyReader_reset();
+	JoyReader_update();
 
 	if ( *ret == LEVEL_RESTART )
 	{

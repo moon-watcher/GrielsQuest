@@ -10,24 +10,32 @@ static void _blink ( u8 *str, const u16 x, const u16 y )
 	u8 i   = ntsc2pal(15);
 	u8 len = strlen(str);
 
+	SYS_disableInts();
 	VDP_drawText ( str, x, y );
+	SYS_enableInts();
 
 	while ( i-- )
 	{
 		if ( i % 2  )
 		{
+            SYS_disableInts();
 			VDP_clearText ( x, y, len );
+			SYS_enableInts();
 		}
 		else
 		{
+            SYS_disableInts();
 			VDP_drawText ( str, x, y );
+			SYS_enableInts();
 		}
 
 		VDP_waitVSync();
 		VDP_waitVSync();
 	}
 
+	SYS_disableInts();
 	VDP_drawText ( str, x, y );
+    SYS_enableInts();
 }
 
 
@@ -41,9 +49,17 @@ u16 screen_title_menu_1 ( )
 	s16 option = 0, ret = 0;
 	const u8 pos[4] = { 19, 21, 23 };
 
+    SYS_disableInts();
 	VDP_clearTextLine ( pos[0] );
+    SYS_enableInts();
+
+	SYS_disableInts();
 	VDP_clearTextLine ( pos[1] );
+    SYS_enableInts();
+
+	SYS_disableInts();
 	VDP_clearTextLine ( pos[2] );
+    SYS_enableInts();
 
 	u8 f1[30];
 	u8 f2[30];
@@ -55,14 +71,27 @@ u16 screen_title_menu_1 ( )
 	strcpy ( f2, frases_next ( ) );
 	strcpy ( f3, frases_next ( ) );
 
+	SYS_disableInts();
 	VDP_drawText ( f1, 16, pos[0] ); // NEW GAME
+	SYS_enableInts();
+
+	SYS_disableInts();
 	VDP_drawText ( f2, 16, pos[1] ); // CONTINUE
+	SYS_enableInts();
+
+	SYS_disableInts();
 	VDP_drawText ( f3, 16, pos[2] ); // SOUND TEST
+    SYS_enableInts();
 
 	while ( not ret )
 	{
+	    SYS_disableInts();
 		VDP_clearTileMapRect ( PLAN_A, 14, pos[0], 1, pos[2]-pos[0]+1);
+		SYS_enableInts();
+
+		SYS_disableInts();
 		VDP_drawText ( ">", 14, pos[option] );
+		SYS_enableInts();
 
 		if ( joy1_pressed_down ) { option++; psglist_play ( PSG_SELECT_2 ); }
 		if ( joy1_pressed_up   ) { option--; psglist_play ( PSG_SELECT_2 ); }
@@ -94,9 +123,17 @@ void screen_title_menu_2 ( )
 	s16 option = 0;
 	const u8 pos[4] = { 19, 21, 23 };
 
+	SYS_disableInts();
 	VDP_clearTextLine ( pos[0] );
+	SYS_enableInts();
+
+	SYS_disableInts();
 	VDP_clearTextLine ( pos[1] );
+	SYS_enableInts();
+
+	SYS_disableInts();
 	VDP_clearTextLine ( pos[2] );
+	SYS_enableInts();
 
 	u8 f1[30];
 	u8 f2[30];
@@ -108,14 +145,27 @@ void screen_title_menu_2 ( )
 	strcpy ( f2, frases_next ( ) );
 	strcpy ( f3, frases_next ( ) );
 
+    SYS_disableInts();
 	VDP_drawText ( f1, 16, pos[0] ); // debilucho
+	SYS_enableInts();
+
+	SYS_disableInts();
 	VDP_drawText ( f2, 16, pos[1] ); // tipo duro
+	SYS_enableInts();
+
+	SYS_disableInts();
 	VDP_drawText ( f3, 16, pos[2] ); // pesadilla
+	SYS_enableInts();
 
 	while ( true )
 	{
+	    SYS_disableInts();
 		VDP_clearTileMapRect ( PLAN_A, 14, pos[0], 1, pos[2]-pos[0]+1);
+		SYS_enableInts();
+
+		SYS_disableInts();
 		VDP_drawText ( ">", 14, pos[option] );
+		SYS_enableInts();
 
 		if ( joy1_pressed_down ) { option++; psglist_play ( PSG_SELECT_2 ); }
 		if ( joy1_pressed_up   ) { option--; psglist_play ( PSG_SELECT_2 ); }
@@ -184,11 +234,25 @@ u16 screen_title ( u16 salto )
 //   VDP_drawImageEx ( PLAN_A, &ob_title_notah, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, ind),  0, 13, 0, true ); VDP_waitDMACompletion(); ind += ob_title_notah.tileset->numTile;
 //   VDP_drawImageEx ( PLAN_A, &ob_title_mano,  TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, ind), 11, 16, 0, true ); VDP_waitDMACompletion(); ind += ob_title_mano.tileset->numTile;
 //   VDP_drawImageEx ( PLAN_A, &ob_title_griel, TILE_ATTR_FULL(PAL3, FALSE, FALSE, FALSE, ind), 30, 13, 0, true ); VDP_waitDMACompletion();
+	SYS_disableInts();
 	VDP_drawImageEx ( PLAN_B, &ob_title_title, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, ind),  4,  8, 0, 0 ); ind += ob_title_title.tileset->numTile;
+	SYS_enableInts();
+
+	SYS_disableInts();
 	VDP_drawImageEx ( PLAN_A, &ob_title_kbrah, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, ind),  8, -3, 0, 0 ); ind += ob_title_kbrah.tileset->numTile;
+	SYS_enableInts();
+
+	SYS_disableInts();
 	VDP_drawImageEx ( PLAN_A, &ob_title_notah, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, ind),  0, 13, 0, 0 ); ind += ob_title_notah.tileset->numTile;
+	SYS_enableInts();
+
+	SYS_disableInts();
 	VDP_drawImageEx ( PLAN_A, &ob_title_mano,  TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, ind), 11, 16, 0, 0 ); ind += ob_title_mano.tileset->numTile;
+	SYS_enableInts();
+
+	SYS_disableInts();
 	VDP_drawImageEx ( PLAN_A, &ob_title_griel, TILE_ATTR_FULL(PAL3, FALSE, FALSE, FALSE, ind), 30, 13, 0, 0 );
+	SYS_enableInts();
 
 	preparePal ( PAL0, ob_title_title.palette->data );
 	preparePal ( PAL1, ob_title_kbrah.palette->data );
@@ -196,7 +260,9 @@ u16 screen_title ( u16 salto )
 	preparePal ( PAL3, ob_title_griel.palette->data );
 
     VDP_setTextPalette ( PAL0 );
-    VDP_drawText ( "@2017 Oook!Lab", 13, 26 );
+    SYS_disableInts();
+	VDP_drawText ( "@2017 Oook!Lab", 13, 26 );
+	SYS_enableInts();
 
 	SYS_enableInts();
 

@@ -67,7 +67,10 @@ static void _update_sprites ()
 	{
 		++_counter_sp1;
 		_counter_sp1 %= 7;
+
+		SYS_disableInts();
 		VDP_loadTileData ( as_sprites_16x16.sprites[0+_counter_sp1], sprites[0], 4, 0 );
+		SYS_enableInts();
 	}
 
 
@@ -75,7 +78,10 @@ static void _update_sprites ()
 	{
 		++_counter_sp2;
 		_counter_sp2 %= 7;
+
+		SYS_disableInts();
 		VDP_loadTileData ( as_sprites_16x16.sprites[7+_counter_sp2], sprites[1], 4, 0 );
+		SYS_enableInts();
 	}
 }
 

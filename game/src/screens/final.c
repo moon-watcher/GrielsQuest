@@ -142,7 +142,9 @@ void _visible ( u8 escena, u8 sprite, bool visible, u8 segundos )
 static void _draw_spriteset ( SPRITESET *set, struct genresSprites *res, u8 width, u8 height, s16 x, s16 y, u16 tile_attr )
 {
 	spriteset_new  ( set, res, width, height );
+	SYS_disableInts();
 	spriteset_load ( set, vram_new ( spriteset_tiles(set) ), 0 );
+    SYS_enableInts();
 	spriteset_show ( set, sprite, x, y, tile_attr );
 
 	sprite += spriteset_sprites ( set );
@@ -171,10 +173,15 @@ static void _final_1 ( )
 
 
 	// Fondo
+    SYS_disableInts();
 	VDP_drawImageEx ( PLAN_B, &ob_f1_fondo_b, TILE_ATTR_FULL(PAL3, 0, 0, 0, vram_new ( ob_f1_fondo_b.tileset->numTile ) ),  1, 1, 0, 0 );
+    SYS_enableInts();
+
 
 	// Kbrah
+    SYS_disableInts();
 	VDP_drawImageEx ( PLAN_A, &ob_f1_fondo_a, TILE_ATTR_FULL(PAL1, 1, 0, 0, vram_new ( ob_f1_fondo_a.tileset->numTile ) ), 19, 2, 0, 0 );
+    SYS_enableInts();
 
 	_draw_spriteset ( &sets[0], (struct genresSprites*) &os_f1_griel_2_32x32,   1, 1,     320,   0, TILE_ATTR(PAL2,1,0,0) ); // Cara de Griel
 	_draw_spriteset ( &sets[1], (struct genresSprites*) &os_f1_kbritah_2_32x32, 2, 1,     320,   8, TILE_ATTR(PAL1,1,0,0) ); // Cara de Kbritah // --> 240
@@ -267,8 +274,13 @@ static void _final_2()
 	resetScreen();
 
 
+    SYS_disableInts();
 	VDP_drawImageEx ( PLAN_B, &ob_f2_fondo_b, TILE_ATTR_FULL(PAL0, 0, 0, 0, vram_new ( ob_f2_fondo_b.tileset->numTile ) ),  1, 1, 0, 0 ); // Fondo
+    SYS_enableInts();
+
+    SYS_disableInts();
 	VDP_drawImageEx ( PLAN_A, &ob_f2_fondo_a, TILE_ATTR_FULL(PAL1, 1, 0, 0, vram_new ( ob_f2_fondo_a.tileset->numTile ) ),  1, 1, 0, 0 ); // Rey
+    SYS_enableInts();
 
 	_draw_spriteset ( &sets[0], (struct genresSprites*) &os_f2_griel_32x32, 4, 4,  32,  24, TILE_ATTR(PAL2,1,0,0) ); // Griel
 	_draw_spriteset ( &sets[1], (struct genresSprites*) &os_f2_gorda_32x32, 1, 2, 320,   8, TILE_ATTR(PAL3,0,0,0) ); // Gorda
@@ -357,8 +369,13 @@ static void _final_3()
 	resetSprites();
 	resetScreen();
 
+    SYS_disableInts();
 	VDP_drawImageEx ( PLAN_B, &ob_f3_fondo_b_1, TILE_ATTR_FULL(PAL0, 0, 0, 0, vram_new ( ob_f3_fondo_b_1.tileset->numTile ) ),  1, 1, 0, 0 ); // Fondo
+    SYS_enableInts();
+
+    SYS_disableInts();
 	VDP_drawImageEx ( PLAN_A, &ob_f3_fondo_a_1, TILE_ATTR_FULL(PAL1, 0, 0, 0, vram_new ( ob_f3_fondo_a_1.tileset->numTile ) ),  1, 1, 0, 0 ); // Gorda
+    SYS_enableInts();
 
 	_draw_spriteset ( &sets[0], (struct genresSprites*) &os_f3_griel_1_32x32, 4, 3, 190,  56, TILE_ATTR(PAL2,0,0,0) ); // Griel
 	vdpSpriteCache[sprite-1].link = 0;
@@ -417,8 +434,13 @@ static void _final_3()
 
 		resetScreen();
 
+		SYS_disableInts();
 		VDP_drawImageEx ( PLAN_B, &ob_f3_fondo_b_2, TILE_ATTR_FULL(PAL0, 0, 0, 0, vram_new ( ob_f3_fondo_b_2.tileset->numTile ) ),  1, 1, 0, 0 ); // Gorda
+	    SYS_enableInts();
+
+	    SYS_disableInts();
 		VDP_drawImageEx ( PLAN_A, &ob_f3_fondo_a_2, TILE_ATTR_FULL(PAL1, 0, 0, 0, vram_new ( ob_f3_fondo_a_2.tileset->numTile ) ),  1, 1, 0, 0 ); // Kbritah
+	    SYS_enableInts();
 
 		_draw_spriteset ( &sets[0], (struct genresSprites*) &os_f3_griel_2_32x32, 2, 2, 320,  64, TILE_ATTR(PAL2,0,0,0) ); // Cara de Griel // 206, 64
 		_draw_spriteset ( &sets[1], (struct genresSprites*) &os_f3_griel_1_32x32, 4, 3, 190,  56, TILE_ATTR(PAL2,0,0,0) ); // Griel
@@ -507,8 +529,13 @@ static void _final_4()
 	resetScreen();
 
 
-	VDP_drawImageEx ( PLAN_B, &ob_f4_fondo_b, TILE_ATTR_FULL(PAL0, 0, 0, 0, vram_new ( ob_f4_fondo_b.tileset->numTile ) ),  1, 1, 0, 0 ); // Fondo
+    SYS_disableInts();
+    VDP_drawImageEx ( PLAN_B, &ob_f4_fondo_b, TILE_ATTR_FULL(PAL0, 0, 0, 0, vram_new ( ob_f4_fondo_b.tileset->numTile ) ),  1, 1, 0, 0 ); // Fondo
+    SYS_enableInts();
+
+	SYS_disableInts();
 	VDP_drawImageEx ( PLAN_A, &ob_f4_fondo_a, TILE_ATTR_FULL(PAL1, 1, 0, 0, vram_new ( ob_f4_fondo_a.tileset->numTile ) ),  1, 1, 0, 0 ); // Moto
+    SYS_enableInts();
 
 
 	_draw_spriteset ( &sets[0], (struct genresSprites*) &os_f4_griel_32x32,   2, 4, 192, -16, TILE_ATTR(PAL2,1,0,0) ); // Griel
@@ -569,8 +596,10 @@ void screen_final ( u16 jump )
 	sprite   = 0;
 	vel_text = VEL_TEXT;
 
+    VDP_setPlanSize ( 64, 32 );
+
 	resetPalettes ( );
-	VDP_setPlanSize ( 64, 64 );
+	resetScreen();
 
 	musiclist_play ( MUSIC_ENDING_3 );
 

@@ -3,7 +3,7 @@
 	(FRASE) { CATALAN,  1, "GORJA D'ABU" },
 	(FRASE) { CATALAN,  1, "PLATJA PATATONA" },
 	(FRASE) { CATALAN,  1, "CASTELL DE KBRAH" },
-	(FRASE) { CATALAN,  1, "DUDEWORLD" },
+	(FRASE) { CATALAN,  1, "DUDEHWORLD" },
 	(FRASE) { CATALAN,  1, "Has oblidat quelcom?" },
 	(FRASE) { CATALAN,  1, "NIVELL %02d" },
 

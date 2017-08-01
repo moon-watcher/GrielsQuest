@@ -19,10 +19,9 @@ SPRITE w4s_line_down_4  "game/data/world_4/line_down_4_24x8.bmp"   24  8  0  0  
 ;SPRITE w4s_demon     "game/data/world_4/demon.bmp"       32 16  0  0  0
 
 SPRITE w4s_lava       "game/data/world_4/lava.bmp"        24 32  0  0  0
-;SPRITE w4s_lava       "game/data/world_4/lava.bmp"        32 32  0  0  0
 
 SPRITE w4s_ventana_1  "game/data/world_4/ventana_1.bmp"   16  8  0  0  0
-SPRITE w4s_ventana_2  "game/data/world_4/ventana_2.bmp"   32 32  0  0  0
-SPRITE w4s_ventana_3  "game/data/world_4/ventana_3.bmp"   32 32  0  0  0
+SPRITE w4s_ventana_2  "game/data/world_4/ventana_2.bmp"   16 32  0  0  0
+SPRITE w4s_ventana_3  "game/data/world_4/ventana_3.bmp"   24 32  0  0  0
 SPRITE w4s_ventana_4  "game/data/world_4/ventana_4.bmp"   32 24  0  0  0
 ;

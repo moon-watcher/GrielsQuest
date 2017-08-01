@@ -97,7 +97,6 @@ static u8 numero_a_letra ( u16 numero, u16 max )
 static void _draw ( PASSWORD8 password )
 {
 	VDP_setEnable ( FALSE );
-	SYS_disableInts();
 
 	resetScreen();
 	//tool_reset();
@@ -116,7 +115,9 @@ static void _draw ( PASSWORD8 password )
 			u16 y0   = 15 + y * 3;
 			u16 tile = TILE_FONTINDEX + _letras [ y ] [ x ] - 32;
 
+			SYS_disableInts();
 			VDP_setTileMapXY ( PLAN_A, tile, x0, y0 );
+			SYS_enableInts();
 		}
 	}
 
@@ -130,13 +131,14 @@ static void _draw ( PASSWORD8 password )
 	text_draw ( ( u8*) password, 12, 9, 0 ) ; // ">>>>>>>>" --> ">" Es el "guión alto"
 
 	VDP_setPalette ( PAL3, cs_square.pal );
+	SYS_disableInts();
 	VDP_loadTileData ( cs_square.sprites[0], 5, cs_square.size>>8, 0 );
+	SYS_enableInts();
 	VDP_setSprite ( 0, 40, 112, cs_square.size>>8, TILE_ATTR_FULL(PAL3, 1,0,0,5) );
 	VDP_updateSprites(80,1);
 
 	_debug ( 0, gamestate.dificultad, gamestate.ambientes[0], gamestate.ambientes[1], gamestate.ambientes[2], gamestate.ambientes[3], gamestate.ambientes[4], -1 );
 
-	SYS_enableInts();
 	VDP_setEnable ( TRUE );
 }
 
@@ -220,8 +222,13 @@ static bool pwd_is_ok ( PASSWORD8 pwd )
 
 	u8 *string = frases_find ( 5, verifica );
 
+	SYS_disableInts();
 	VDP_clearTextLine ( 25 );
+    SYS_enableInts();
+
+	SYS_disableInts();
 	VDP_drawText ( string, 20 - strlen ( string ) / 2, 25 );
+	SYS_enableInts();
 
 	psglist_play ( play );
 
@@ -330,11 +337,11 @@ bool pwd8_screen()
 
                 if ( activeCo == 1 )
                 {
-                    activeTo = 9;
+                    activeTo = 10;
                 }
                 else
                 {
-                    activeTo = 3;
+                    activeTo = 4;
                 }
 
                 continue;
@@ -423,6 +430,9 @@ bool pwd8_screen()
 		{
 			SYS_disableInts();
 			text_draw ( ( u8*) password, 12, 9, 0 ) ;
+			SYS_enableInts();
+
+			SYS_disableInts();
 			VDP_clearTextLine ( 25 );
 			SYS_enableInts();
 		}

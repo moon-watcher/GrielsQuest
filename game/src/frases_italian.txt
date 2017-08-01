@@ -3,7 +3,7 @@
 (FRASE) { ITALIAN,   1, "L'ABISSO DI ABU" },
 (FRASE) { ITALIAN,   1, "PUSSY BEACH" },
 (FRASE) { ITALIAN,   1, "CASTELLO KBRAH" },
-(FRASE) { ITALIAN,   1, "DUDEWORLD" },
+(FRASE) { ITALIAN,   1, "DUDEHWORLD" },
 (FRASE) { ITALIAN,   1, "Ti sei scordato qualcosa?" },
 (FRASE) { ITALIAN,   1, "LIVELLO %02d" },
 

@@ -50,9 +50,17 @@ static void _poner_mascara()
 {
 	pos_tile_vacio = vram_new ( 1 );
 
+	SYS_disableInts();
 	VDP_loadTileData ( tile_vacio, pos_tile_vacio, 1, 1 );
+	SYS_enableInts();
+
+	SYS_disableInts();
 	VDP_fillTileMapRect ( PLAN_A, TILE_ATTR_FULL ( PAL0, 1, 0, 0, pos_tile_vacio ),  1,  0, 38,  1 );
+	SYS_enableInts();
+
+	SYS_disableInts();
 	VDP_fillTileMapRect ( PLAN_A, TILE_ATTR_FULL ( PAL0, 1, 0, 0, pos_tile_vacio ),  1, 19, 38,  9 );
+	SYS_enableInts();
 }
 
 
@@ -60,7 +68,9 @@ static void _poner_mascara()
 static void _draw_spriteset ( SPRITESET *set, struct genresSprites *res, u8 width, u8 height, s16 x, s16 y, u16 tile_attr )
 {
 	spriteset_new  ( set, res, width, height );
+	SYS_disableInts();
 	spriteset_load ( set, vram_new ( spriteset_tiles(set) ), 0 );
+	SYS_enableInts();
 	spriteset_show ( set, sprite, x, y, tile_attr );
 
 	sprite += spriteset_sprites ( set );
@@ -162,8 +172,9 @@ u16 screen_puerta ( )
 	resetScreen();
 
 
-
-	VDP_drawImageEx ( PLAN_B, &ob_puerta_fondo_b, TILE_ATTR_FULL(PAL0, 0, 0, 0, vram_new ( ob_puerta_fondo_b.tileset->numTile ) ),  1, 1, 0, 0 ); // Fondo
+	SYS_disableInts();
+    VDP_drawImageEx ( PLAN_B, &ob_puerta_fondo_b, TILE_ATTR_FULL(PAL0, 0, 0, 0, vram_new ( ob_puerta_fondo_b.tileset->numTile ) ),  1, 1, 0, 0 ); // Fondo
+    SYS_enableInts();
 
 	_poner_mascara();
 
@@ -238,7 +249,9 @@ u16 screen_puerta ( )
 		frases_tt_write ( GRIEL );
 		frases_tt_write ( YONKI );
 
+		SYS_disableInts();
 		VDP_fillTileMapRect (PLAN_A, TILE_ATTR_FULL ( PAL0, 1, 0, 0, pos_tile_vacio ),  1, 19, 38,  9 );
+        SYS_enableInts();
 
 		s16 x= 0, i= 144;
 

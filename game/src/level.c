@@ -97,8 +97,13 @@ static bool _flip_vh ( )
 
 static void _draw_marcador ()
 {
+    SYS_disableInts();
 	VDP_loadTileSet ( cb_ui.tileset, _vram_pos[1], 0 );
+	SYS_enableInts();
+
+	SYS_disableInts();
 	VDP_setMapEx ( PLAN_A,cb_ui.map, TILE_ATTR_FULL(PAL1, true, false, false, _vram_pos[1]),  4,  0,  2,  0,  17,  5 );
+	SYS_enableInts();
 
 	vsprite_set ( splist_ui_left_1, 16,  0, UI_LEFT_1 );
 	vsprite_set ( splist_ui_left_2, 16, 24, UI_LEFT_2 );
@@ -304,6 +309,7 @@ void level_draw ( LEVEL *level )
 	_vram_pos[0] = vram_new ( level->background->tileset->numTile );
 	_vram_pos[1] = vram_new ( cb_ui.tileset->numTile );
 
+
 	VDP_drawImageEx ( PLAN_B, level->background, TILE_ATTR_FULL(PAL0, false, false, false, _vram_pos[0]), 0, 0, false, 0 );
 
 	//level_draw_linedown  ( level );
@@ -385,7 +391,9 @@ void level_actualizar_marcador ( )
 	}
 
 	const u16 pos_y [ 4 ] = { 11, 8, 5, 1 };
+	SYS_disableInts();
 	VDP_setMapEx ( PLAN_A, cb_ui.map, TILE_ATTR_FULL(PAL1, false, false, false, _vram_pos[1]), 9, 1, 7, pos_y [ (u16) un ], 8, 3 );
+    SYS_enableInts();
 }
 
 
@@ -513,6 +521,9 @@ void level_draw_ambiente_0 ( )
 		return;
 	}
 
+
+	SYS_disableInts();
+
 	u16 vrampos [ 6 ], nbTiles, sp;
 
 	nbTiles = ( w0s_line_down_1.width  >> 3 ) * ( w0s_line_down_1.height >> 3 );
@@ -557,6 +568,8 @@ void level_draw_ambiente_0 ( )
 
 	sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN );
 	VDP_setSpriteFull ( sp, 256, 208, w0s_line_down_6.size >> 8, TILE_ATTR_FULL ( PAL0, 0, 0, 0, vrampos[5] ), sp + 1 );
+
+    SYS_enableInts();
 }
 
 
@@ -566,6 +579,8 @@ void level_draw_ambiente_1 ( )
 	{
 		return;
 	}
+
+	SYS_disableInts();
 
 	u16 vrampos [ 7 ], nbTiles, sp;
 
@@ -618,6 +633,8 @@ void level_draw_ambiente_1 ( )
 
 	sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN );
 	VDP_setSpriteFull ( sp, 280, 208, w1s_line_down_7.size >> 8, TILE_ATTR_FULL ( PAL0, 0, 0, 0, vrampos[6] ), sp + 1 );
+
+    SYS_enableInts();
 }
 
 
@@ -627,6 +644,8 @@ void level_draw_ambiente_2 ( )
 	{
 		return;
 	}
+
+	SYS_disableInts();
 
 	u16 vrampos, nbTiles, sp;
 
@@ -651,6 +670,8 @@ void level_draw_ambiente_2 ( )
 
 	sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN );
 	VDP_setSpriteFull ( sp, 276, 208, w2s_line_down_1.size >> 8, TILE_ATTR_FULL ( PAL0, 0, 0, 0, vrampos ), sp + 1 );
+
+    SYS_enableInts();
 }
 
 
@@ -661,6 +682,8 @@ void level_draw_ambiente_3 ( )
 		return;
 	}
 
+
+	SYS_disableInts();
 
 	u8 x = 0;
 	u8 y = 26;
@@ -676,6 +699,8 @@ void level_draw_ambiente_3 ( )
 			VDP_setTileMapXY ( PLAN_B, TILE_ATTR_FULL ( PAL0, 0, 0, 0, pos++ ), x + i, y + 1 );
 		}
 	}
+
+	SYS_enableInts();
 }
 
 
@@ -685,6 +710,8 @@ void level_draw_ambiente_4 ( )
 	{
 		return;
 	}
+
+	SYS_disableInts();
 
 	VDP_setScrollingMode ( HSCROLL_PLANE, VSCROLL_2TILE );
 
@@ -714,11 +741,11 @@ void level_draw_ambiente_4 ( )
 	animation_draw ( VENTANA_1,   0,  0, true, PLAN_B, true,  0, 0, 2, 1 );
 	animation_draw ( VENTANA_1,  38,  0, true, PLAN_B, true,  1, 0, 2, 1 );
 
-	animation_draw ( VENTANA_2,   5,  0, true, PLAN_B, false, 0, 0, 4, 4 );
-	animation_draw ( VENTANA_2,  31,  0, true, PLAN_B, false, 1, 0, 4, 4 );
+	animation_draw ( VENTANA_2,   6,  0, true, PLAN_B, false, 0, 0, 2, 4 );
+	animation_draw ( VENTANA_2,  32,  0, true, PLAN_B, false, 1, 0, 2, 4 );
 
-	animation_draw ( VENTANA_3,  11,  0, true, PLAN_B, false, 0, 0, 4, 4 );
-	animation_draw ( VENTANA_3,  26,  0, true, PLAN_B, false, 1, 0, 4, 4 );
+	animation_draw ( VENTANA_3,  11,  0, true, PLAN_B, false, 0, 0, 3, 4 );
+	animation_draw ( VENTANA_3,  26,  0, true, PLAN_B, false, 1, 0, 3, 4 );
 
 	animation_draw ( VENTANA_4,  18,  2, true, PLAN_B, false, 0, 0, 4, 3 );
 
@@ -770,6 +797,8 @@ void level_draw_ambiente_4 ( )
 
 	sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN );
 	VDP_setSpriteFull ( sp, 272, 192, w4s_line_down_1.size >> 8, TILE_ATTR_FULL ( PAL0, 0, 0, 1, vrampos[0] ), sp + 1 );
+
+	SYS_enableInts();
 }
 
 

@@ -90,7 +90,10 @@ void vobject_upload ( )
 	while ( _contador-- )
 	{
 		VOBJECT *v = _upload [ _contador ];
+
+		SYS_disableInts();
 		VDP_loadTileData ( v->object->res->sprites [ v->object->frame[v->frame].pos ], v->vram_pos, v->tiles, 0 );
+		SYS_enableInts();
 	}
 }
 

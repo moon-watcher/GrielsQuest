@@ -16,7 +16,9 @@ void spriteset_new ( SPRITESET *set, struct genresSprites *res, u8 width, u8 hei
 void spriteset_load ( SPRITESET *set, u16 vrampos, u16 dma )
 {
 	set->vrampos = vrampos;
+	SYS_disableInts();
 	VDP_loadTileData ( set->res->sprites[0], set->vrampos, spriteset_tiles(set), dma );
+	SYS_enableInts();
 }
 
 

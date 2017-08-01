@@ -280,7 +280,9 @@ u16 _tt_write_init ( u16 indice, u8 *cadena )
 	tt_info.chr      = '\0';
 
 
+	SYS_disableInts();
 	VDP_fillTileMapRect  (  VDP_getTextPlan(),  0,  tt_info.x,  tt_info.y,  tt_info.width,  tt_info.height );
+	SYS_enableInts();
 
 	_speed           = tt_info.speed;
 	_color[0]        = tt_info.color[0];

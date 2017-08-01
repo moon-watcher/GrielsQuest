@@ -15,7 +15,11 @@ static s16 plan_y;
 static _voidCallback *move1 ()
 {
     if ( vtimer % 3 == 0 )
+    {
+        SYS_disableInts();
         VDP_setHorizontalScroll( PLAN_B, plan_x++ );
+        SYS_enableInts();
+    }
 
     return 0;
 }
@@ -23,7 +27,11 @@ static _voidCallback *move1 ()
 static _voidCallback *move3 ()
 {
     if ( vtimer % 4 == 0 )
+    {
+        SYS_disableInts();
         VDP_setHorizontalScroll( PLAN_B, plan_x-- );
+        SYS_enableInts();
+    }
 
     return 0;
 }
@@ -31,7 +39,11 @@ static _voidCallback *move3 ()
 static _voidCallback *move2 ()
 {
     if ( vtimer % 4 == 0 )
+    {
+        SYS_disableInts();
         VDP_setVerticalScroll( PLAN_B, plan_y-- );
+        SYS_enableInts();
+    }
 
     return 0;
 }
@@ -65,25 +77,14 @@ void screen_staff()
     resetScreen();
     JoyReader_pause();
 
-palette_text_init();
+    palette_text_init();
+
 	VDP_setTextPalette(PAL0);
     colors[1] = 0xfff;
     colors[2] = 0x444;
     colors[17] = 0x84f;
     colors[18] = 0x224;
     prepareColors(colors);
-
-    //        colors[1] = 0xfff;
-//    colors[2] = 0x444;
-//    colors[17] = 0x84f;
-//    colors[18] = 0x224;
-//	    prepareColor ( 17,  );
-//    prepareColor ( 18, font_palette.data [ 8 ] );
-//    prepareColor ( 33, 0xfff );
-//    prepareColor ( 34, 0x444 )
-
-
-
 
 
 //goto salto;
@@ -264,11 +265,6 @@ salto:
 
 
 
-
-
-//    preparePal(PAL3, ob_staff_kbrah2.pal);
-//    memcpyU16(&colors[48], ob_staff_kbrah2.pal, 16 );
-//    prepareColors( colors );
     showBmp ( PAL3, (struct genresTiles*) &ob_staff_kbrah2, HOW_TO_PLAY_TILE, PLAN_B, 19, 6, wait1 );
     VDP_fadePalTo ( PAL3, ob_staff_kbrah2.pal, getHz(), 1 );
 

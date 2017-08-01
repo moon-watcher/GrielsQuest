@@ -79,7 +79,7 @@ static void writeTextCredits3 ()
 /* :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 
 
-static u16 writeCredits ( u8 part, u8 y_pos )
+static void writeCredits ( u8 part, u8 y_pos )
 {
     y = y_pos;
 
@@ -89,13 +89,10 @@ static u16 writeCredits ( u8 part, u8 y_pos )
 
     displayOn(10);
 
-    u16 ret = JOY_waitPressBtnTime(6000);
+    waitJoySc ( 10 );
 
     displayOff ( 10 );
-
     resetScreen();
-
-    return ret;
 }
 
 

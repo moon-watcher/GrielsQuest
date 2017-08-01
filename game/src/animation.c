@@ -312,7 +312,7 @@ static const ANIMATION _list [ ] =
 	{ "Demon Die",        GRS w4s_bigboy,       PAL2,   4, { {  4, WA3 }, {  5, WA4 }, {  6, WAB }, {8,3} } }, // el último hace borrar la VRAM
 
 	{ "Lava 1",           GRS w4s_lava,         PAL0,   8, { {  0, 11 }, {  1, 23 }, {  0, 11 }, {  1, 11 }, {  2, 83 }, {  1, 23 }, {  2, 37 }, {  1, 11 } } }, // el último hace borrar la VRAM
-	{ "Lava 2",           GRS w4s_lava,         PAL0,   8, { {  3, 11 }, {  4, 23 }, {  3, 11 }, {  4, 11 }, {  5, 83 }, {  4, 23 }, {  5, 37 }, {  4, 11 } } }, // el último hace borrar la VRAM
+	{ "Lava 2",           GRS w4s_lava,         PAL0,   8, { {  3, 13 }, {  4, 21 }, {  3, 13 }, {  4,  9 }, {  5, 85 }, {  4, 21 }, {  5, 39 }, {  4, 11 } } }, // el último hace borrar la VRAM
 
 	{ "Ventana 1",        GRS w4s_ventana_1,    PAL0,   2, { {  0, 49 }, {  1, 49 } } },
 	{ "Ventana 2",        GRS w4s_ventana_2,    PAL0,   2, { {  0, 49 }, {  1, 49 } } },
@@ -501,13 +501,17 @@ void animation_draw ( u16 ani, u8 x, u8 y, bool absolutepos, VDPPlan plan, s16 p
 
 	if ( ani == 0 )
 	{
+	    SYS_disableInts();
 		VDP_clearTileMapRect ( plan, x, y, width, height );
+		SYS_enableInts();
 	}
 	else if ( is_big )
 	{
 		if ( !absolutepos ) // relative
 		{
+		    SYS_disableInts();
 			VDP_clearTileMapRect ( plan, x, y, width, --height );
+			SYS_enableInts();
 		}
 	}
 	else

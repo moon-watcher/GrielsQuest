@@ -1,7 +1,7 @@
 (FRASE) { ENGLISH,   1, "RISKY WOODS" },
 (FRASE) { ENGLISH,   1, "MURCIANO'S LAIR" },
 (FRASE) { ENGLISH,   1, "ABU ABYSS" },
-(FRASE) { ENGLISH,   1, "KITTY BEACH" },
+(FRASE) { ENGLISH,   1, "PUSSY BEACH" },
 (FRASE) { ENGLISH,   1, "KBRAH CASTLE" },
 (FRASE) { ENGLISH,   1, "DUDEHWORLD" },
 (FRASE) { ENGLISH,   1, "Did you forget anything?" },

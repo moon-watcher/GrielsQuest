@@ -632,7 +632,6 @@ int main ( )
 
 
 
-screen_staff();
 
 
 //         gamestate.dificultad   = 2;
@@ -667,6 +666,15 @@ screen_staff();
     screen_publisher ( );
     screen_oooklab ( );
     screen_languages();
+
+
+//        gamestate.dificultad   = 2;
+//        gamestate.visito_la_puerta = true;
+//        screen_final(0);
+//        screen_staff();
+
+//        screen_oldintro();
+
 
 
     //http://www.dodgycoder.net/2012/02/coding-tricks-of-game-developers.html#
