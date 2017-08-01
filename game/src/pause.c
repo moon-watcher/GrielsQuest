@@ -360,8 +360,10 @@ void pause_show ( LEVEL *wl, u16 *ret )
 	};
 
 
+    JoyReader_pause();
 	_hide_important_sprites( wl );
 	_marco_desplegar();
+	JoyReader_resume();
 
 
 	s16 option = 0;
@@ -402,15 +404,17 @@ void pause_show ( LEVEL *wl, u16 *ret )
 
 	psglist_play ( opciones[option].psgfx );
 
+	JoyReader_pause();
 	_marco_enrollar ( wl );
 	_restore_important_sprites ( );
+	JoyReader_resume();
 
-	JoyReader_reset();
 	JoyReader_update();
 
 	if ( *ret == LEVEL_RESTART )
 	{
 		//player_dead ( PLAYER_1, wl, ret );
+		music_stop();
 	}
 
 	if ( *ret == LEVEL_EXIT )
