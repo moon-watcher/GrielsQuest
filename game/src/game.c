@@ -140,6 +140,19 @@ u16 game_play ( )
 		splist_reorder ( );
 		splist_reorder_bigboys ( );
 		pause_show ( &wl, &ret );
+
+		if ( ret == LEVEL_EXIT )
+		{
+			break;
+		}
+
+		if ( ret == LEVEL_RESTART )
+		{
+			player_dead ( PLAYER_1, &wl, ret );
+			break;
+		}
+
+
 		player_control_buttons ( &wl );
 		player_ctrldev ( &ret );
 
@@ -172,16 +185,7 @@ u16 game_play ( )
 			break;
 		}
 
-		if ( ret == LEVEL_EXIT )
-		{
-			break;
-		}
 
-		if ( ret == LEVEL_RESTART )
-		{
-			player_dead ( PLAYER_1, &wl, ret );
-			break;
-		}
 
 		player_move ( PLAYER_1 );
 		player_update ( PLAYER_1 );

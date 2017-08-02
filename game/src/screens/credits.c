@@ -56,8 +56,8 @@ static void writeTextCredits2 ()
     writeText ( "Jordi Montornés Solé @jordimontornes", PAL2, 2 ); // CATALÀ
     writeText ( "Natsumi", PAL2, 2 ); // FINNISH
     writeText ( "Paspallas @PaspallasDev ", PAL2, 2 ); // GALEGO
-writeText ( "netpredakonn", PAL2, 2 ); // BRAZILIAN-PORTUGUESE
-writeText ( "teaduckie", PAL2, 2 ); // ESPERANTO & INTERLINGUA
+//    writeText ( "netpredakonn", PAL2, 2 ); // BRAZILIAN-PORTUGUESE
+//    writeText ( "teaduckie", PAL2, 2 ); // ESPERANTO & INTERLINGUA
     writeText ( "Clare Eddleston", PAL2, 2 ); // ENGLISH-REVIEWER
     writeText ( "Xavier Bravo", PAL2, 2 ); // ENGLISH-REVIEWER
 

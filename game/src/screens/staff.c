@@ -291,20 +291,28 @@ salto:
     waitSc(1);
 
     palette_text_init();
+
+    SYS_disableInts();
+
 	VDP_setTextPalette(PAL1);
     VDP_drawText ( prepare_string("Translators"), 2, 2 );
 
     VDP_setTextPalette(PAL0);
-    VDP_drawText ( prepare_string("Felipe Monge Corbalán @vakapp"), 2, 5 );
-    VDP_drawText ( prepare_string("DaRkHoRaCe @oongamoonga"), 2, 7 ); // ITALIAN
-    VDP_drawText ( prepare_string("KanedaFr @SpritesMind"), 2, 9 ); // FRENCH
-    VDP_drawText ( prepare_string("Jordi Montornés Solé @jordimontornes"), 2,11 ); // CATALÀ
-    VDP_drawText ( prepare_string("Natsumi"), 2,13 ); // FINNISH
-    VDP_drawText ( prepare_string("Paspallas @PaspallasDev"), 2, 15); // GALEGO
-VDP_drawText ( prepare_string("netpredakonn"), 2, 17); // BRAZILIAN-PORTUGUESE
-VDP_drawText ( prepare_string("teaduckie"), 2,19 ); // ESPERANTO & INTERLINGUA
-    VDP_drawText ( prepare_string("Clare Eddleston"), 2,21 ); // ENGLISH-REVIEWER
-    VDP_drawText ( prepare_string("Xavier Bravo"), 2, 23); // ENGLISH-REVIEWER
+
+    u8 y = 5;
+
+    VDP_drawText ( prepare_string("Felipe Monge Corbalán @vakapp"), 2, y+=2 );
+    VDP_drawText ( prepare_string("DaRkHoRaCe @oongamoonga"), 2, y+=2 ); // ITALIAN
+    VDP_drawText ( prepare_string("KanedaFr @SpritesMind"), 2, y+=2 ); // FRENCH
+    VDP_drawText ( prepare_string("Jordi Montornés Solé @jordimontornes"), 2, y+=2 ); // CATALÀ
+    VDP_drawText ( prepare_string("Natsumi"), 2, y+=2 ); // FINNISH
+    VDP_drawText ( prepare_string("Paspallas @PaspallasDev"), 2, y+=2 ); // GALEGO
+//    VDP_drawText ( prepare_string("netpredakonn"), 2, y+=2 ); // BRAZILIAN-PORTUGUESE
+//    VDP_drawText ( prepare_string("teaduckie"), 2, y+=2 ); // ESPERANTO & INTERLINGUA
+    VDP_drawText ( prepare_string("Clare Eddleston"), 2, y+=2 ); // ENGLISH-REVIEWER
+    VDP_drawText ( prepare_string("Xavier Bravo"), 2, y+=2 ); // ENGLISH-REVIEWER
+
+    SYS_enableInts();
 
     waitSc(7);
 

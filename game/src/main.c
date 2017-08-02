@@ -72,9 +72,9 @@
  * @CATALAN-TRANSLATION       => Jordi Montornés Solé           | Twitter: @jordimontornes   ‏ | Mail:                     |Notes:
  * @FINNISH-TRANSLATION       => Natsumi                        | Twitter:                    | Mail:                     |Notes:
  * @GALEGO-TRANSLATION        => Paspallas                      | Twitter: @PaspallasDev      | Mail:                     |Notes:
-         * @BRAZILIAN-PORTUGUESE-TRANSLATION => netpredakonn            | Twitter:                    | Mail:                     |Notes:
-         * @ESPERANTO-TRANSLATION     => teaduckie                      | Twitter:                    | Mail:                     |Notes:
-         * @INTERLINGUA-TRANSLATION   => teaduckie                      | Twitter:                    | Mail:                     |Notes:
+//         * @BRAZILIAN-PORTUGUESE-TRANSLATION => netpredakonn            | Twitter:                    | Mail:                     |Notes:
+//         * @ESPERANTO-TRANSLATION     => teaduckie                      | Twitter:                    | Mail:                     |Notes:
+//         * @INTERLINGUA-TRANSLATION   => teaduckie                      | Twitter:                    | Mail:                     |Notes:
 
  * @BETA-TESING               => Alfonso Martínez               | Twitter: @_SrPresley_       | Mail:                     |Notes:
  *
@@ -598,7 +598,7 @@ void jap()
 int main ( )
 {
     //jap();
-    dev_init ( 1 );
+    dev_init ( 0 );
 
     JoyReader_init ( 1 );
     monos();
@@ -606,7 +606,6 @@ int main ( )
     //todas_las_pantallas ( );
     //object_viewer();
     //conio();
-
 
 
     gamestate.lenguaje = ENGLISH;
@@ -618,7 +617,6 @@ int main ( )
 
     JOY_init ( );
     JOY_setSupport ( PORT_1, DEV ? JOY_SUPPORT_6BTN : JOY_SUPPORT_3BTN ); // JOY_SUPPORT_3BTN
-    //JOY_setSupport ( PORT_1, JOY_SUPPORT_6BTN  ); // JOY_SUPPORT_3BTN
     JOY_setSupport ( PORT_2, JOY_SUPPORT_OFF );
 
     JoyReader_init ( 1 );
@@ -634,36 +632,6 @@ int main ( )
     gamestate_init ( ); // debe estar aqui y tras introducir un password correcto
 
 
-
-
-
-//         gamestate.dificultad   = 2;
-//         gamestate.ambientes[0] = 14;
-//         gamestate.ambientes[1] = 14;
-//         gamestate.ambientes[2] = 14;
-//         gamestate.ambientes[3] = 14;
-//         gamestate.ambientes[4] = 6 ;
-//         gamestate.visito_la_puerta = true;
-
-//         gamestate.lenguaje   = SPANISH;
-//         gamestate.dificultad = 1;
-//         gamestate.current_ambiente   = 0;
-//         gamestate.current_round      = 0;
-//         //screen_mapa();
-//         game_ingame ( );
-//
-//         gamestate.lenguaje = SPANISH;
-
-            //displayInit();
-//            drawUInt(VDP_getTextPalette(),0,0,3);
-//            waitMs(1000);
-//
-//            screen_final(0);
-
-
-
-
-
     screen_disclaimer ( 1 );
     //screen_sega ( );
     screen_publisher ( );
@@ -671,13 +639,9 @@ int main ( )
     screen_languages();
 
 
-//        gamestate.dificultad   = 2;
-//        gamestate.visito_la_puerta = true;
 //        screen_final(0);
 //        screen_staff();
-
 //        screen_oldintro();
-
 
 
     //http://www.dodgycoder.net/2012/02/coding-tricks-of-game-developers.html#
@@ -688,76 +652,3 @@ int main ( )
 
     return 0;
 }
-
-
-
-
-
-
-
-//      // passwords //////////
-//
-//      if ( to == SCREEN_CHEAT_MUMMY )
-//      {
-//         // hacer alguna modificacion // algo del oh mummy
-//         to = SCREEN_JUMP_TO_NEWGAME ;
-//      }
-//
-//      if ( to == SCREEN_CHEAT_SONIC )
-//      {
-//         // hacer alguna modificacion // select level
-//         to = SCREEN_JUMP_TO_NEWGAME ;
-//      }
-//
-//      if ( to == SCREEN_CHEAT_KONAMI )
-//      {
-//         // hacer alguna modificacion // change player
-//         to = SCREEN_JUMP_TO_NEWGAME ;
-//      }
-//
-//      if ( to == SCREEN_CHEAT_SOUND )
-//      {
-//         screen_sound_test ( );
-//         to = SCREEN_JUMP_TO_INTRO;
-//      }
-//
-//      if ( to == SCREEN_CHEAT_STAFF )
-//      {
-//         screen_staff ( );
-//         to = SCREEN_JUMP_TO_INTRO;
-//      }
-//
-//      if ( to == SCREEN_CHEAT_ENDING )
-//      {
-//         screen_ending ( );
-//         to = SCREEN_JUMP_TO_INTRO;
-//      }
-
-
-
-
-/*
-
-   	prayer_show ( 6 );
-   //	prayer_show ( 11 );
-   //	prayer_show ( 16 );
-   //	prayer_show ( 21 );zz
-   //	screen_ending();
-//   	u8 pwd[9]; screen_password(pwd);
-//   	screen_sound_test();
-   //	screen_intro();
-   //	screen_oooklab ( 8, BUTTON_BTN, 1 );
-   //	screen_staff(); //pendiente
-   //	u16 title = screen_title ( );
-   //	game ( 58 );
-	//	game ( 4 );
-
-
-
-//typedef void* VirtualFunction (...);
-typedef void (*VirtualFunctionPointer)(u8 a, ...);
-
-// // FUNCIONA!!!
-//execl("asd", "d", "asd", "asda","asd", "asda","asd", "asda","asd" );
-
-*/
