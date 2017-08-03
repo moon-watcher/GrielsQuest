@@ -262,26 +262,26 @@ inline u16 between ( s32 min, s32 nb, s32 max )
 
 void resetPalettes ()
 {
-	const u16 colores [ 64 ] = { };
-	memsetU16 ( (u16*) colores, 0, 64 );
+    const u16 colores [ 64 ] = { };
+    memsetU16 ( (u16*) colores, 0, 64 );
 
-   VDP_setPaletteColors ( 0, (u16*)colores, 64 );
+    VDP_setPaletteColors ( 0, (u16*)colores, 64 );
 }
 
 
 void resetVRAM ( )
 {
-   // reset video memory (len = 0 is a special value to define 0x10000)
-   DMA_doVRamFill ( 0, 0, 0, 0 );
+    // reset video memory (len = 0 is a special value to define 0x10000)
+    DMA_doVRamFill ( 0, 0, 0, 0 );
 
-   // system tiles (16 "flat" tile)
-   u16 i = 16;
-   while ( i-- )
-   {
-       SYS_disableInts();
-      VDP_fillTileData ( i | (i << 4), TILE_SYSTEMINDEX + i, 1, 1 );
-      SYS_enableInts();
-   }
+    // system tiles (16 "flat" tile)
+    u16 i = 16;
+    while ( i-- )
+    {
+        SYS_disableInts();
+        VDP_fillTileData ( i | (i << 4), TILE_SYSTEMINDEX + i, 1, 1 );
+        SYS_enableInts();
+    }
 }
 
 

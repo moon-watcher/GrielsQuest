@@ -7,9 +7,6 @@ void text_write ( u8 *str, u8 x, u8 y )
 {
 	SYS_disableInts ( );
 	VDP_clearTileMapRect ( PLAN_B, x, y, strlen(str), 1 );
-	SYS_enableInts ( );
-
-	SYS_disableInts ( );
 	VDP_drawText ( str, x, y );
 	SYS_enableInts ( );
 }
@@ -32,7 +29,8 @@ void planHide_Ex (  VDPPlan plan )
         VDP_clearTileMapRect ( plan, width - 1 + desp, 0, 1, planHeight );
         SYS_enableInts ( );
 
-		waitMs ( PLAN_HIDE_MS );
+		//waitMs ( PLAN_HIDE_MS );
+		waitHz(1);
 	}
 }
 
@@ -59,13 +57,11 @@ void planHide_and_sprites (  )
 
 		SYS_disableInts();
         VDP_clearTileMapRect ( PLAN_B, w-1+desp, 0, 1, height );
-        SYS_enableInts ( );
-
-        SYS_disableInts();
         VDP_clearTileMapRect ( PLAN_A, w-1+desp, 0, 1, height );
         SYS_enableInts ( );
 
-		waitMs ( PLAN_HIDE_MS );
+		//waitMs ( PLAN_HIDE_MS );
+		waitHz(1);
 	}
 }
 
@@ -77,17 +73,12 @@ void planHide ( )
 	u16 width  = VDP_getScreenWidth()  / 8 + 1;
 	s16 desp   = VDP_getScreenWidth() == 320 ? 0 : 4;
 
-	for ( ; width > 0; width-- )
+    for ( ; width > 0; width-- )
 	{
-		bool update = false;
+        bool update = false;
+
 		for ( sprite=0; sprite<MAX_SPRITE; sprite++ )
 		{
-         // las fuentes 2x2 empiezan en el sprite 4 y terminan en el 15
-//         if ( sprite >= 4 && sprite < 15 )
-//         {
-//            continue;
-//         }
-
 			if ( vdpSpriteCache[sprite].x/8+2  - 16 + 1 >= width )
 			{
 				splist_hide_sprite ( sprite );
@@ -102,13 +93,11 @@ void planHide ( )
 
 		SYS_disableInts();
 		VDP_clearTileMapRect ( PLAN_B, width - 1 + desp, 0, 1, planHeight );
-		SYS_enableInts();
-
-		SYS_disableInts();
 		VDP_clearTileMapRect ( PLAN_A, width - 1 + desp, 0, 1, planHeight );
 		SYS_enableInts();
 
-		waitMs ( PLAN_HIDE_MS );
+		//waitMs ( PLAN_HIDE_MS );
+		waitHz(1);
 	}
 }
 

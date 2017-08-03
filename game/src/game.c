@@ -26,11 +26,7 @@ static void _leave_text ( u16 ret )
 		VDP_updateSprites ( 80, 1 );
 
 		waitSc(2);
-		music_stop();
-		displayOff(30);
 	}
-
-	vram_destroy();
 }
 
 
@@ -143,11 +139,13 @@ u16 game_play ( )
 
 		if ( ret == LEVEL_EXIT )
 		{
+		    music_stop();
 			break;
 		}
 
 		if ( ret == LEVEL_RESTART )
 		{
+		    music_stop();
 			player_dead ( PLAYER_1, &wl, ret );
 			break;
 		}
@@ -202,6 +200,8 @@ u16 game_play ( )
 
 	planHide();
 	_leave_text ( ret );
+    music_stop();
+    displayOff(30);
 	resetSprites();
 	vint_setJoyReader(joyState);
 	vram_destroy();
