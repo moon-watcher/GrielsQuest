@@ -29,6 +29,7 @@ _voidCallback *vint_callback ( )
 {
 	psg_callback ();
 
+	if ( _vint_JoyReader      ) ; //JoyReader_update ( );
 	if ( _vint_ob_intro_2_b_f ) screen_ob_intro_2_b_f ( );
 	if ( _vint_flecha_map     ) screen_mapa_flecha ( );
 	if ( _plan_dir_a          ) tool_move_plan ( PLAN_A, _plan_dir_a );
