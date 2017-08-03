@@ -6,7 +6,6 @@ void screen_oooklab ( )
 {
     if ( DEV > 1 ) return;
 
-    music_stop();
 	displayInit();
 	displayOff(0);
 

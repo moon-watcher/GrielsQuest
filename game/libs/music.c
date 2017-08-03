@@ -7,11 +7,22 @@
 
 void music_play ( MUSIC *m )
 {
-    wait
-    SND_setForceDelayDMA_XGM ( 1 );
+    if ( !m || !m->data )
+    {
+        music_stop ( );
+        return;
+    }
+
+    if ( XGM_isPlaying() )
+    {
+        music_stop ( );
+    }
 
     wait
-    SND_startPlay_XGM ( (u8*) m->data );
+    XGM_startPlay ( (u8*) m->data );
+
+    wait
+    XGM_setForceDelayDMA ( 1 );
 
     wait
 }
@@ -19,6 +30,11 @@ void music_play ( MUSIC *m )
 
 void music_stop ( )
 {
+    if ( !XGM_isPlaying() )
+    {
+        return;
+    }
+
     wait
     XGM_stopPlay();
 

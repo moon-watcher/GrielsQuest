@@ -304,6 +304,7 @@ void resetScroll ( )
 	VDP_setVerticalScroll   ( PLAN_A, 0 );
 	VDP_setHorizontalScroll ( PLAN_B, 0 );
 	VDP_setVerticalScroll   ( PLAN_B, 0 );
+
 	SYS_enableInts();
 }
 
