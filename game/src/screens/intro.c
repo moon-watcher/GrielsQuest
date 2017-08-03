@@ -17,15 +17,15 @@ static u16 ind = 0;
 static u16 vel_text = 0;
 
 
-#define GONEXT \
-    next: \
-    VDP_fadeOutAll ( 30, 1 );\
-    ++go; \
-    return go;
+#define GONEXT             \
+    next:                  \
+        displayOff ( 5 );  \
+        ++go;              \
+        return go;
 
-#define GOEND \
-    fin: \
-	return 0;
+#define GOEND              \
+	fin:                   \
+        return 0;
 
 
 
@@ -433,41 +433,24 @@ static u8 _escena_4 ( int repeat )
 
 
 
+	s16 i = 0;
 
-
-
-	u16 i = 0;
-	s16 inc_x =0;
-
-	while ( ++i )
+	while ( i++ < 116 )
 	{
-		while ( SYS_isInHIntCallback() );
-
-		++inc_x;
-
-		JoyReader_update();
-
-		//_draw_griel ( 285-inc_x, ind );
-		spriteset_move ( &griel, 285 - inc_x, 0) ;
-		VDP_setHorizontalScroll ( PLAN_A, + inc_x - 116 );
-
-		if ( inc_x == 116 || joy1_pressed_btn  )
-		{
-			break;
-		}
-
+		spriteset_move ( &griel, 285 - i, 0) ;
+		SYS_disableInts();
+		VDP_setHorizontalScroll ( PLAN_A, i - 116 );
+		SYS_enableInts();
 
 		VDP_updateSprites(80,1);
-
 		VDP_waitVSync();
 
-		//JoyReader_update();
+		JoyReader_update();
 
 		if ( joy1_pressed_abc|joy1_pressed_start )
 		{
 			goto fin;
 		}
-
 	}
 
 
