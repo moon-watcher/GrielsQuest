@@ -106,8 +106,8 @@ LEVEL *game_get_wl ( )
 
 void game_level_inc ( )
 {
-	// sÃ³lo incrementa el round si se ha
-	// completado el Ãºtlimo nivel disponible
+	// sólo incrementa el round si se ha
+	// completado el útlimo nivel disponible
 
 	if ( gamestate.current_round == gamestate.ambientes [ (u8) gamestate.current_ambiente ] )
 	{
@@ -325,7 +325,7 @@ void game_loop()
 					screen_intro ( 5 ) ;
 				}
 
-				// Muestra la puerta del ambiente volcÃ¡n
+				// Muestra la puerta del ambiente volcán
 				if ( to == SCREEN_JUMP_TO_PUERTA )
 				{
 					to = screen_puerta();
@@ -356,7 +356,7 @@ void game_loop()
         if ( to == SCREEN_JUMP_TO_INTRO )
         {
             music_stop();
-            screen_wtfisaporron ();
+            //screen_wtfisaporron ();
             screen_griels ( ); // solo para Barcelona y demos
             screen_credits ( );
         }
@@ -364,9 +364,12 @@ void game_loop()
 		if ( to == SCREEN_JUMP_TO_ENDING )
 		{
 			screen_final(0);
-			//screen_ending();
 			screen_gameover();
-			screen_staff ();
+
+			if (gamestate.dificultad == 3 )
+			{
+				screen_staff ();
+			}
 		}
 
 	}

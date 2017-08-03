@@ -306,7 +306,7 @@ bool pwd8_screen()
 		u8 ch = 0;
 		bool paint = false;
 
-		//JoyReader_update ( );
+		JoyReader_update ( );
 
 		if ( joy1_active_dir )
 		{
@@ -430,9 +430,6 @@ bool pwd8_screen()
 		{
 			SYS_disableInts();
 			text_draw ( ( u8*) password, 12, 9, 0 ) ;
-			SYS_enableInts();
-
-			SYS_disableInts();
 			VDP_clearTextLine ( 25 );
 			SYS_enableInts();
 		}

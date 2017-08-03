@@ -50,10 +50,10 @@
  *
  * Original game by Karoshi Corporation, released for MSX, CHECK OUT THIS! [http://karoshi.auic.es/]
  *
- * @CODE:                     =>  Mun                           | Twitter: @MoonWatcherMD
+ * @CODE:                     =>  Mun                           | Twitter: @MoonWatcherMD     | Mail:                     |Notes: do you like puzzles? Try Poplis for Gamegear
  * @PROJECT:                  =>  #GrielsQuestMD
  * @START-DATE:               =>  20130509
- * @LAST-UPDATE:              =>  20170714
+ * @LAST-UPDATE:              =>  20170803
  * @LIB:                      =>  SGDK (v1.22a) by Stephane Dallongeville
  *
  *
@@ -80,7 +80,7 @@
  *
  * @SPECIAL-THANKS-TO         => Bruce Rodríguez                | Twitter: @emigrantebruce    | Mail:                     |Notes:
  * @SPECIAL-THANKS-TO         => Eduardo Robsy                  | Twitter: @EduRobsy    ‏      | Mail:                     |Notes:
- * @SPECIAL-THANKS-TO         => Jon Cortazar                   | Twitter: @Jon_Cortazar   ‏   | Mail:                     |Notes:
+ * @SPECIAL-THANKS-TO         => Jon Cortazar                   | Twitter: @Jon_Cortazar   ‏   | Mail:                     |Notes: #DietaTorreznos
  *
  * @ENGLISH-REVIEWER          => Clare Eddleston                | Twitter:                 ‏   | Mail:                     |Notes:
  * @ENGLISH-REVIEWER          => Xavier Bravo                   | Twitter:                 ‏   | Mail:                     |Notes:
@@ -124,6 +124,7 @@
  *  CHANGELOG
  * --------------------------------------------------------------------------------------------------------------------------------
  * 19-04-2017 » First release
+ * 03-08-2017 » Works stunning on real hard
  * --------------------------------------------------------------------------------------------------------------------------------
  *
  */

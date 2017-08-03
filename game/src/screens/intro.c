@@ -445,6 +445,8 @@ static u8 _escena_4 ( int repeat )
 
 		++inc_x;
 
+		JoyReader_update();
+
 		//_draw_griel ( 285-inc_x, ind );
 		spriteset_move ( &griel, 285 - inc_x, 0) ;
 		VDP_setHorizontalScroll ( PLAN_A, + inc_x - 116 );
@@ -459,7 +461,7 @@ static u8 _escena_4 ( int repeat )
 
 		VDP_waitVSync();
 
-		JoyReader_update();
+		//JoyReader_update();
 
 		if ( joy1_pressed_abc|joy1_pressed_start )
 		{

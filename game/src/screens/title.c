@@ -16,18 +16,18 @@ static void _blink ( u8 *str, const u16 x, const u16 y )
 
 	while ( i-- )
 	{
+        SYS_disableInts();
+
 		if ( i % 2  )
 		{
-            SYS_disableInts();
 			VDP_clearText ( x, y, len );
-			SYS_enableInts();
 		}
 		else
 		{
-            SYS_disableInts();
 			VDP_drawText ( str, x, y );
-			SYS_enableInts();
 		}
+
+        SYS_enableInts();
 
 		VDP_waitVSync();
 		VDP_waitVSync();
@@ -51,13 +51,7 @@ u16 screen_title_menu_1 ( )
 
     SYS_disableInts();
 	VDP_clearTextLine ( pos[0] );
-    SYS_enableInts();
-
-	SYS_disableInts();
 	VDP_clearTextLine ( pos[1] );
-    SYS_enableInts();
-
-	SYS_disableInts();
 	VDP_clearTextLine ( pos[2] );
     SYS_enableInts();
 
@@ -73,23 +67,16 @@ u16 screen_title_menu_1 ( )
 
 	SYS_disableInts();
 	VDP_drawText ( f1, 16, pos[0] ); // NEW GAME
-	SYS_enableInts();
-
-	SYS_disableInts();
 	VDP_drawText ( f2, 16, pos[1] ); // CONTINUE
-	SYS_enableInts();
-
-	SYS_disableInts();
 	VDP_drawText ( f3, 16, pos[2] ); // SOUND TEST
     SYS_enableInts();
 
 	while ( not ret )
 	{
+	    JoyReader_update();
+
 	    SYS_disableInts();
 		VDP_clearTileMapRect ( PLAN_A, 14, pos[0], 1, pos[2]-pos[0]+1);
-		SYS_enableInts();
-
-		SYS_disableInts();
 		VDP_drawText ( ">", 14, pos[option] );
 		SYS_enableInts();
 
@@ -98,7 +85,6 @@ u16 screen_title_menu_1 ( )
 
 		if ( option > 2 ) option = 0;
 		if ( option < 0 ) option = 2;
-
 
 		if ( joy1_pressed_abc || joy1_pressed_start )
 		{
@@ -125,13 +111,7 @@ void screen_title_menu_2 ( )
 
 	SYS_disableInts();
 	VDP_clearTextLine ( pos[0] );
-	SYS_enableInts();
-
-	SYS_disableInts();
 	VDP_clearTextLine ( pos[1] );
-	SYS_enableInts();
-
-	SYS_disableInts();
 	VDP_clearTextLine ( pos[2] );
 	SYS_enableInts();
 
@@ -147,23 +127,16 @@ void screen_title_menu_2 ( )
 
     SYS_disableInts();
 	VDP_drawText ( f1, 16, pos[0] ); // debilucho
-	SYS_enableInts();
-
-	SYS_disableInts();
 	VDP_drawText ( f2, 16, pos[1] ); // tipo duro
-	SYS_enableInts();
-
-	SYS_disableInts();
 	VDP_drawText ( f3, 16, pos[2] ); // pesadilla
 	SYS_enableInts();
 
 	while ( true )
 	{
+        JoyReader_update();
+
 	    SYS_disableInts();
 		VDP_clearTileMapRect ( PLAN_A, 14, pos[0], 1, pos[2]-pos[0]+1);
-		SYS_enableInts();
-
-		SYS_disableInts();
 		VDP_drawText ( ">", 14, pos[option] );
 		SYS_enableInts();
 
@@ -224,21 +197,9 @@ u16 screen_title ( u16 salto )
 
     SYS_disableInts();
     VDP_drawImageEx ( PLAN_B, &ob_title_title, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, ind),  4,  8, 0, 0 ); ind += ob_title_title.tileset->numTile;
-    SYS_enableInts();
-
-    SYS_disableInts();
     VDP_drawImageEx ( PLAN_A, &ob_title_kbrah, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, ind),  8, -3, 0, 0 ); ind += ob_title_kbrah.tileset->numTile;
-    SYS_enableInts();
-
-    SYS_disableInts();
     VDP_drawImageEx ( PLAN_A, &ob_title_notah, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, ind),  0, 13, 0, 0 ); ind += ob_title_notah.tileset->numTile;
-    SYS_enableInts();
-
-    SYS_disableInts();
     VDP_drawImageEx ( PLAN_A, &ob_title_mano,  TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, ind), 11, 16, 0, 0 ); ind += ob_title_mano.tileset->numTile;
-    SYS_enableInts();
-
-    SYS_disableInts();
     VDP_drawImageEx ( PLAN_A, &ob_title_griel, TILE_ATTR_FULL(PAL3, FALSE, FALSE, FALSE, ind), 30, 13, 0, 0 );
     SYS_enableInts();
 
@@ -322,6 +283,8 @@ salto_2:
 
     while ( true )
     {
+        JoyReader_update();
+
         if ( counter % hz == 0 )
         {
             VDP_setPalette ( PAL2, ob_title_press_start.palette->data ); // tool_setPalette (PAL2, ob_title_press_start.palette->data );

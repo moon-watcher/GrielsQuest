@@ -42,7 +42,6 @@ void  screen_credits            ( );
 u16   screen_title              ( u16 salto );
 u16   screen_title_menu_1       ( );
 void  screen_gameover           ( );
-void  screen_ending             ( );
 void  screen_sound_test         ( );
 u16   screen_ingame_how_to_play ( LEVEL wl );
 void  screen_disclaimer         ( );

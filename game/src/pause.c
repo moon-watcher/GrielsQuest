@@ -303,17 +303,8 @@ void pause_show ( LEVEL *wl, u16 *ret )
 
 			SYS_disableInts();
 			VDP_drawText ( " ",  14, opciones[0].y );
-			SYS_enableInts();
-
-			SYS_disableInts();
 			VDP_drawText ( " ",  14, opciones[1].y );
-			SYS_enableInts();
-
-			SYS_disableInts();
 			VDP_drawText ( " ",  14, opciones[2].y );
-			SYS_enableInts();
-
-			SYS_disableInts();
 			VDP_drawText ( "\\", 14, opciones[option].y );
 			SYS_enableInts();
 

@@ -10,6 +10,7 @@
 		u16 t = (s) * getHz();                  \
 		while ( t-- )                                \
 		{                                            \
+			JoyReader_update();                      \
 			if ( joy1_pressed_abc )                   \
 			{                                         \
 				return;                                \
