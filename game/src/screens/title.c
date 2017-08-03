@@ -287,14 +287,18 @@ salto_2:
 
         if ( counter % hz == 0 )
         {
+            SYS_disableInts();
             VDP_setPalette ( PAL2, ob_title_press_start.palette->data ); // tool_setPalette (PAL2, ob_title_press_start.palette->data );
+            SYS_enableInts();
 
             blink = 0;
         }
 
         if ( ++blink == 45 )
         {
+            SYS_disableInts();
             VDP_setPalette ( PAL2, (u16*) palette_black );
+            SYS_enableInts();
         }
 
         if ( counter == hz * 20 ) // 20 segundos de espera y si no salta de nuevo a Ooklab
@@ -305,33 +309,27 @@ salto_2:
 
         if ( joy1_pressed_abc || joy1_pressed_start )
         {
+            SYS_disableInts();
             VDP_setPalette ( PAL2, (u16*) palette_black );
+            SYS_enableInts();
+
             VDP_fadeOutAll (10, true );
+            waitHz(5);
+            VDP_interruptFade();
 
-            u8 i=0;
-            while ( VDP_isDoingFade() )
-            {
-                if ( i++ == 5 )
-                {
-                    VDP_interruptFade();
-                    break;
-                }
-
-                VDP_waitVSync();
-            }
-
+            SYS_disableInts();
             VDP_setTextPalette (PAL3);
             VDP_setPalette(PAL3, font_getPalette());
-
+            SYS_enableInts();
 
             psglist_play ( PSG_START );
             ret = SCREEN_JUMP_TO_NEWGAME;
             break;
         }
 
-        VDP_waitVSync();
-
         ++counter;
+
+        VDP_waitVSync();
 	}
 
 

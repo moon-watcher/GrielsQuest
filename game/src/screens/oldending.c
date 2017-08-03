@@ -7,6 +7,7 @@ void screen_oldending ( )
 
     displayOff ( 0 );
     resetScreen();
+    resetPalettes ();
     music_stop();
 
 
@@ -34,6 +35,7 @@ void screen_oldending ( )
 	typeText ( "Only Griel stands still... ", 7, 21, 100 );
 	waitMs(8000);
 	planHide();
+	resetPalettes ();
 
 
 	// 2
@@ -49,6 +51,7 @@ void screen_oldending ( )
 	typeText ( "that destroys the Devil... ", 7, 21, 100 );
 	waitMs ( 8000 );
 	planHide();
+	resetPalettes ();
 
 
 	// 3
@@ -64,6 +67,7 @@ void screen_oldending ( )
 	typeText ( "Our Planet is safe again.  ", 7, 21, 100 );
 	waitMs ( 8000 );
 	planHide ( );
+	resetPalettes ();
 
 
 	// 4

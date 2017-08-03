@@ -179,7 +179,7 @@ void prayer_show ( u16 level )
 
 	for ( i=0; i<PRAYER_LINES; i++ )
 	{
-	    typeText ( (u8*) p->pharse[i], 4, 7+i*2, wait1 );
+	    typeText ( (char*) p->pharse[i], 4, 7+i*2, wait1 );
 	}
 
 	typeText ( "Holy Pray:", 6, 21, wait1 );
@@ -199,9 +199,9 @@ void prayer_show ( u16 level )
 
 
 
-static u16 compare ( u8 *str, PASSWORD8 pwd )
+static u16 compare ( char *str, PASSWORD8 pwd )
 {
-    u8 i, len = strlen(str);
+    char i, len = strlen(str);
 
     for ( i=0; i<len; i++ )
     {
@@ -236,7 +236,7 @@ bool prayer_compare ( PASSWORD8 pwd )
 
     while ( 1 )
     {
-        u8 *word = prayer_get ( i )->keyword;
+        char *word = prayer_get ( i )->keyword;
 
         if ( strcmp ( word, "" ) == 0 )
         {

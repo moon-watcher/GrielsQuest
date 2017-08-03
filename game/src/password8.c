@@ -6,7 +6,7 @@
 
 
 
-const static u8 _letras [ PWD_HEIGHT ] [ PWD_WIDTH ] =
+const static char _letras [ PWD_HEIGHT ] [ PWD_WIDTH ] =
 {
 	{ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J' },
 	{ 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T' },
@@ -62,7 +62,7 @@ static void _debug ( u16 x, s32 args, ... )
 }
 
 
-static u8 _rnd ( )
+static char _rnd ( )
 {
 	return random() % 26 + PWD8_A_STARTS_AT;
 }
@@ -76,13 +76,13 @@ static u16 letra_a_numero ( u16 letra, u16 max )
 }
 
 
-static u8 numero_a_letra ( u16 numero, u16 max )
+static char numero_a_letra ( u16 numero, u16 max )
 {
 	++max;
 
 	while ( true )
 	{
-		u8 letra = _rnd();
+		char letra = _rnd();
 
 		if ( letra % max == numero )
 		{
@@ -99,10 +99,6 @@ static void _draw ( PASSWORD8 password )
 	VDP_setEnable ( FALSE );
 
 	resetScreen();
-	//tool_reset();
-
-	//struct mappyLevel lvl = { PAL1, 900, 0, APLAN, (struct mappyResource*) &cb_password };
-	//mappy_all ( &lvl, 0, 0, 0, 0, 40, 28, 0 );
 
 	u16 y = 0;
 	u16 x = 0;
@@ -121,20 +117,23 @@ static void _draw ( PASSWORD8 password )
 		}
 	}
 
+	SYS_disableInts();
 	VDP_setTextPalette (PAL0);
 	VDP_setPalette ( PAL0, font_getPalette());
+	SYS_enableInts();
 
 	text_init ( (struct genresSprites*) &cs_font_16x16, 1200, PAL0 );
 
 	frases_init (30);
 	text_draw_center ( frases_next(), 3,  0 );
-	text_draw ( ( u8*) password, 12, 9, 0 ) ; // ">>>>>>>>" --> ">" Es el "guión alto"
+	text_draw ( ( char*) password, 12, 9, 0 ) ; // ">>>>>>>>" --> ">" Es el "guión alto"
 
-	VDP_setPalette ( PAL3, cs_square.pal );
 	SYS_disableInts();
+	VDP_setPalette ( PAL3, cs_square.pal );
 	VDP_loadTileData ( cs_square.sprites[0], 5, cs_square.size>>8, 0 );
-	SYS_enableInts();
 	VDP_setSprite ( 0, 40, 112, cs_square.size>>8, TILE_ATTR_FULL(PAL3, 1,0,0,5) );
+	SYS_enableInts();
+
 	VDP_updateSprites(80,1);
 
 	_debug ( 0, gamestate.dificultad, gamestate.ambientes[0], gamestate.ambientes[1], gamestate.ambientes[2], gamestate.ambientes[3], gamestate.ambientes[4], -1 );
@@ -220,13 +219,10 @@ static bool pwd_is_ok ( PASSWORD8 pwd )
 		_debug ( 35, gamestate.dificultad, gamestate.ambientes[0], gamestate.ambientes[1], gamestate.ambientes[2], gamestate.ambientes[3], gamestate.ambientes[4], -1 );
 	}
 
-	u8 *string = frases_find ( 5, verifica );
+	char *string = frases_find ( 5, verifica );
 
 	SYS_disableInts();
 	VDP_clearTextLine ( 25 );
-    SYS_enableInts();
-
-	SYS_disableInts();
 	VDP_drawText ( string, 20 - strlen ( string ) / 2, 25 );
 	SYS_enableInts();
 
@@ -288,7 +284,7 @@ bool pwd8_screen()
 	s16 len = 0;
 	s16 y   = 0;
 	s16 x   = 0;
-	u8 password[9] = { '-', '-', '-', '-', '-', '-', '-', '-', '\0' };
+	char password[9] = { '-', '-', '-', '-', '-', '-', '-', '-', '\0' };
 	bool ret = false;
 
 
@@ -303,7 +299,7 @@ bool pwd8_screen()
 
 	while ( true )
 	{
-		u8 ch = 0;
+		char ch = 0;
 		bool paint = false;
 
 		JoyReader_update ( );
@@ -429,7 +425,7 @@ bool pwd8_screen()
 		if ( paint )
 		{
 			SYS_disableInts();
-			text_draw ( ( u8*) password, 12, 9, 0 ) ;
+			text_draw ( ( char*) password, 12, 9, 0 ) ;
 			VDP_clearTextLine ( 25 );
 			SYS_enableInts();
 		}

@@ -10,35 +10,35 @@
 
 #define wb_fade(botones)          \
 {                                 \
-	while ( VDP_isDoingFade() )    \
-	{                              \
-      JoyReader_update ( );       \
+    while ( VDP_isDoingFade() )   \
+    {                             \
+        JoyReader_update ( );     \
                                   \
-      if ( (botones) )            \
-      {                           \
-         WAITBREAK;               \
-      }                           \
+        if ( (botones) )          \
+        {                         \
+            WAITBREAK;            \
+        }                         \
                                   \
-		VDP_waitVSync ( );          \
-	}                              \
+        VDP_waitVSync ( );        \
+    }                             \
 }
 
 
 #define wb_wait(wait,botones)     \
 {                                 \
-	u16 tiempo = (wait);           \
-											 \
-	while ( tiempo-- )             \
-	{                              \
-      JoyReader_update ( );       \
+    u16 tiempo = (wait);          \
                                   \
-      if ( (botones) )            \
-      {                           \
-         WAITBREAK;               \
-      }                           \
+    while ( tiempo-- )            \
+    {                             \
+        JoyReader_update ( );     \
                                   \
-		VDP_waitVSync ( );          \
-	}                              \
+        if ( (botones) )          \
+        {                         \
+            WAITBREAK;            \
+        }                         \
+                                  \
+        VDP_waitVSync ( );        \
+    }                             \
 }
 
 

@@ -366,8 +366,7 @@ salto:
 	typeText ( "Thanks for playing", 11, 6, wait1 );
 
 	waitSc(10);
-    VDP_fadeOutAll ( 120, 1 );
-    waitHz ( 121 );
+    displayOff(120);
 
     resetScreen();
 

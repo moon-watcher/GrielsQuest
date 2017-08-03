@@ -265,7 +265,9 @@ void resetPalettes ()
     const u16 colores [ 64 ] = { };
     memsetU16 ( (u16*) colores, 0, 64 );
 
+    SYS_disableInts();
     VDP_setPaletteColors ( 0, (u16*)colores, 64 );
+    SYS_enableInts();
 }
 
 

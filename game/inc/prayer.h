@@ -5,7 +5,7 @@
 typedef struct
 {
 	u8  keyword [ 9 ];
-	u8 *pharse [ PRAYER_LINES ];
+	char *pharse [ PRAYER_LINES ];
 }
 PRAYER;
 

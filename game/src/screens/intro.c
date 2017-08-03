@@ -326,59 +326,53 @@ static u8 _escena_3 ()
 
 
 	s16 curval = 0;
-   s16 inc_x_b = -80;
+	s16 inc_x_b = -80;
 	u16 values [ 28 ];
 
-   i = 0;
+	i = 0;
 
-   while ( inc_x_b )
-   {
-      if ( i % 2 == 0 )
-      {
+	while ( inc_x_b )
+	{
+		JoyReader_update();
+
+		if ( joy1_pressed_start ) goto fin;
+		if ( joy1_pressed_abc   ) goto next;
+
+
+		if ( i % 2 == 0 )
+		{
 			memsetU16 ( values, ++inc_x_b, 28 );
 
 			VDP_setHorizontalScrollTile ( PLAN_B, 0, values, 28, true );
 
-         jon_x+=2;
+			jon_x+=2;
 
-         if (  inc_x_b % 4 == 0  &&  inc_x_b > -30  )
+			if (  inc_x_b % 4 == 0  &&  inc_x_b > -30  )
 			{
-			   gota_y += 1;
+				gota_y += 1;
 			}
 
-         spriteset_move ( &jon,  jon_x,    32 ) ;
-         spriteset_move ( &gota, jon_x+55, gota_y ) ;
-      }
+			spriteset_move ( &jon,  jon_x,    32 ) ;
+			spriteset_move ( &gota, jon_x+55, gota_y ) ;
+		}
 
 		if ( i % 3 == 0 )
 		{
-            memsetU16 ( values, ++curval, 19 );
-            VDP_setHorizontalScrollTile ( PLAN_A, 0, values, 19, 0 );
+			memsetU16 ( values, ++curval, 19 );
+			VDP_setHorizontalScrollTile ( PLAN_A, 0, values, 19, 0 );
 		}
 
-        VDP_updateSprites(80,1);
+		i++;
 
-      VDP_waitVSync();
-
-      JoyReader_update();
-
-      if ( joy1_pressed_abc|joy1_pressed_start )
-      {
-         goto fin;
-      }
-
-
-      i++;
-   }
-
+		VDP_updateSprites(80,1);
+		VDP_waitVSync();
+	}
 
 	frases_tt_write ( CORTAZAR );
 	frases_tt_write ( NOTA );
 
-
-
-    GONEXT
-    GOEND
+	GONEXT
+	GOEND
 }
 
 

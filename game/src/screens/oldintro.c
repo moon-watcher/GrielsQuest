@@ -7,6 +7,7 @@ void screen_oldintro ( )
 
     displayOff ( 0 );
     resetScreen();
+    resetPalettes ();
     music_stop();
 
 
@@ -34,6 +35,7 @@ void screen_oldintro ( )
 	typeText ( "A dark age begins now...   ", 7, 21, 100 );
 	waitMs(8000);
 	planHide();
+	resetPalettes ();
 
 
 	// 2
@@ -49,6 +51,7 @@ void screen_oldintro ( )
 	typeText ( "to defeat the Evil Lord.   ", 7, 21, 100 );
 	waitMs ( 8000 );
 	planHide();
+	resetPalettes ();
 
 
 	// 3
@@ -64,6 +67,7 @@ void screen_oldintro ( )
 	typeText ( "from total annihilation.   ", 7, 21, 100 );
 	waitMs ( 8000 );
 	planHide ( );
+    resetPalettes ();
 
 
     music_stop();

@@ -3,7 +3,7 @@
 
 
 
-void text_write ( u8 *str, u8 x, u8 y )
+void text_write ( char *str, u8 x, u8 y )
 {
 	SYS_disableInts ( );
 	VDP_clearTileMapRect ( PLAN_B, x, y, strlen(str), 1 );
@@ -116,39 +116,25 @@ void showBmp ( u16 pal, struct genresTiles *grt, u16 tile, VDPPlan plan, u16 x, 
 
 
 
-void typeText ( u8 *str, u8 x, u8 y, u16 ms )
-{
-	typeTextHalt ( str, x, y, ms, 0, 0 );
-}
-
-
-u16 typeTextHalt ( u8 *str, u8 x, u8 y, u16 ms, u16 joy, u16 buttons )
+void typeText ( char *str, u8 x, u8 y, u16 ms )
 {
 	u8 i, len = strlen ( str );
 
 	for ( i=0; i<len; i++ )
 	{
-		u8 chr[2] = { *str++ };
+	    const char aux[2] = { str[i], '\0' };
 
         SYS_disableInts();
-		VDP_drawText ( chr, x++, y );
+		VDP_drawText ( aux, x++, y );
 		SYS_enableInts();
 
-		JoyReader_update();
-
-		if ( joy1_pressed_abc )
-		{
-			return 1;
-		}
-
-		if ( chr[0] != ' ' )
+		if ( aux[0] != ' ' )
         {
             waitMs(ms);
         }
 	}
-
-	return 0;
 }
+
 
 
 void waitHz ( u16 hz )

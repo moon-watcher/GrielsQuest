@@ -54,6 +54,7 @@ void JoyReader_reset ( )
 void JoyReader_pause ( )
 {
     _pause = 1;
+    JoyReader_reset ( );
 }
 
 
