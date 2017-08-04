@@ -3,6 +3,12 @@
 
 /* :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 
+#define bp(str) \
+    VDP_setPalette(PAL0, palette_red);\
+    VDP_setTextPalette(PAL0);\
+    VDP_drawText(str,0,0);\
+    //waitSc(1);
+
 
 static u16 y;
 
@@ -12,12 +18,11 @@ static u16 y;
 
 static void writeText ( u8 *str, u16 pal, u8 inc_y )
 {
-    VDP_setTextPalette ( pal );
-
     u8 len = strlen(str);
     u8 x = 20 - len/2;
 
     SYS_disableInts();
+    VDP_setTextPalette ( pal );
     VDP_drawText ( prepare_string(str), x, y );
     SYS_enableInts();
 
@@ -119,7 +124,7 @@ void screen_credits ()
     writeCredits ( 2, 4 );
     writeCredits ( 3, 9 );
 
-    waitSc(2);
+    //waitSc(2);
 }
 
 
