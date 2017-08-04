@@ -274,7 +274,8 @@ void resetPalettes ()
 void resetVRAM ( )
 {
     // reset video memory (len = 0 is a special value to define 0x10000)
-    DMA_doVRamFill ( 0, 0, 0, 0 );
+    DMA_doVRamFill ( 0, 0, 0, 1 );
+    VDP_waitDMACompletion();
 
     // system tiles (16 "flat" tile)
     u16 i = 16;
@@ -293,6 +294,17 @@ void resetScreen ( )
     VDP_clearPlan ( PLAN_A, 1 );
 	VDP_clearPlan ( PLAN_B, 1 );
 	SYS_enableInts();
+	VDP_waitVSync();
+
+//	SYS_disableInts();
+//	VDP_fillTileMapRect( PLAN_A, 0, 0, 0, planWidth, planHeight );
+//	SYS_enableInts();
+//	VDP_waitVSync();
+//
+//	SYS_disableInts();
+//	VDP_fillTileMapRect( PLAN_B, 0, 0, 0, planWidth, planHeight );
+//	SYS_enableInts();
+//	VDP_waitVSync();
 }
 
 
