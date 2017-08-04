@@ -295,16 +295,6 @@ void resetScreen ( )
 	VDP_clearPlan ( PLAN_B, 1 );
 	SYS_enableInts();
 	VDP_waitVSync();
-
-//	SYS_disableInts();
-//	VDP_fillTileMapRect( PLAN_A, 0, 0, 0, planWidth, planHeight );
-//	SYS_enableInts();
-//	VDP_waitVSync();
-//
-//	SYS_disableInts();
-//	VDP_fillTileMapRect( PLAN_B, 0, 0, 0, planWidth, planHeight );
-//	SYS_enableInts();
-//	VDP_waitVSync();
 }
 
 

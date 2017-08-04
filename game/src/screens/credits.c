@@ -3,12 +3,6 @@
 
 /* :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 
-#define bp(str) \
-    VDP_setPalette(PAL0, palette_red);\
-    VDP_setTextPalette(PAL0);\
-    VDP_drawText(str,0,0);\
-    //waitSc(1);
-
 
 static u16 y;
 
