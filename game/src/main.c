@@ -625,7 +625,7 @@ int main ( )
     //vram_init ( TILE_USERINDEX );
 
     vint_init ( );
-    vint_setJoyReader ( true );
+    //vint_setJoyReader ( true );
 
     SYS_setVIntCallback ( (_voidCallback*) vint_callback );
     font_init ( );

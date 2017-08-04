@@ -290,11 +290,8 @@ void resetVRAM ( )
 
 void resetScreen ( )
 {
-    SYS_disableInts();
     VDP_clearPlan ( PLAN_A, 1 );
 	VDP_clearPlan ( PLAN_B, 1 );
-	SYS_enableInts();
-	VDP_waitVSync();
 }
 
 

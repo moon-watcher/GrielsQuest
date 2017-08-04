@@ -25,6 +25,7 @@ static u16 vel_text = 0;
 
 #define GOEND              \
 	fin:                   \
+        music_stop();      \
         return 0;
 
 
@@ -463,8 +464,15 @@ static u8 _escena_4 ( int repeat )
 	}
 
 
-    GONEXT
-    GOEND
+next:
+	music_stop();
+	displayOff ( 5 );
+	++go;
+	return go;
+
+fin:
+	music_stop();
+	return 0;
 }
 
 

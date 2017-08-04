@@ -12,8 +12,7 @@ static u16 y;
 
 static void writeText ( u8 *str, u16 pal, u8 inc_y )
 {
-    u8 len = strlen(str);
-    u8 x = 20 - len/2;
+    u8 x = 20 - strlen ( str ) / 2;
 
     SYS_disableInts();
     VDP_setTextPalette ( pal );
@@ -86,11 +85,11 @@ static void writeCredits ( u8 part, u8 y_pos )
     if ( part == 2 ) writeTextCredits2();
     if ( part == 3 ) writeTextCredits3();
 
-    displayOn(10);
+    displayOn(1);
 
     waitJoySc ( 10 );
 
-    displayOff ( 10 );
+    displayOff ( 1 );
     resetScreen();
 }
 
