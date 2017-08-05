@@ -807,7 +807,7 @@ void level_presentation()
 	displayInit();
 	displayOff(0);
 
-	SYS_disableInts();
+
 
 	resetScreen();
 	resetSprites();
@@ -820,6 +820,8 @@ void level_presentation()
 	musiclist_play ( MUSIC_NEW_ROUND );
 
 	u16 *palette = font_getPalette ();
+
+	SYS_disableInts();
 
 	VDP_setPaletteColor( PAL0+0, palette[0] );
 	VDP_setPaletteColor( PAL0+1, palette[1] );

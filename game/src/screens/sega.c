@@ -61,12 +61,12 @@ void screen_sega ( )
 	displayInit();
 	displayOff(0);
 
-	SYS_disableInts();
-
 	resetPalettes();
 	resetScroll();
 	resetSprites();
 	resetScreen();
+
+	SYS_disableInts();
 
 	VDP_loadTileData ( ob_logo_Sega.tiles, HOW_TO_PLAY_TILE, ob_logo_Sega.width * ob_logo_Sega.height, 0 );
 	VDP_fillTileMapRectInc ( PLAN_A, TILE_ATTR_FULL ( PAL1, 1, 0, 0, HOW_TO_PLAY_TILE ), 14, 12, ob_logo_Sega.width, ob_logo_Sega.height );

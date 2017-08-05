@@ -52,13 +52,7 @@ static void _poner_mascara()
 
 	SYS_disableInts();
 	VDP_loadTileData ( tile_vacio, pos_tile_vacio, 1, 1 );
-	SYS_enableInts();
-
-	SYS_disableInts();
 	VDP_fillTileMapRect ( PLAN_A, TILE_ATTR_FULL ( PAL0, 1, 0, 0, pos_tile_vacio ),  1,  0, 38,  1 );
-	SYS_enableInts();
-
-	SYS_disableInts();
 	VDP_fillTileMapRect ( PLAN_A, TILE_ATTR_FULL ( PAL0, 1, 0, 0, pos_tile_vacio ),  1, 19, 38,  9 );
 	SYS_enableInts();
 }
@@ -160,8 +154,6 @@ u16 screen_puerta ( )
 	vram_init(1);
 
 	VDP_setEnable ( false );
-	SYS_disableInts ( );
-
 	VDP_setPlanSize ( 64, 64 );
 
 	splist_reorder ( );
@@ -174,7 +166,6 @@ u16 screen_puerta ( )
 
 	SYS_disableInts();
     VDP_drawImageEx ( PLAN_B, &ob_puerta_fondo_b, TILE_ATTR_FULL(PAL0, 0, 0, 0, vram_new ( ob_puerta_fondo_b.tileset->numTile ) ),  1, 1, 0, 0 ); // Fondo
-    SYS_enableInts();
 
 	_poner_mascara();
 
