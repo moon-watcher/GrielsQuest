@@ -70,10 +70,10 @@ void screen_languages ()
     prepareColor( 1, 0xfff );
     prepareColor( 2, 0x444 );
 
-    SYS_disableInts();
-
     font_setPalette();
     resetScreen();
+
+    SYS_disableInts();
 
     for ( i=0; i<count; i++ )
     {

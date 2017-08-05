@@ -66,14 +66,11 @@ static u8 _escena_1 ( )
 	displayInit();
 	displayOff(0);
 
-	SYS_disableInts();
-
 	resetScreen();
 	resetSprites();
 	resetScroll();
 	resetPalettes();
 
-	SYS_enableInts();
 
 
 	_frases_tt_init( 7 );
@@ -83,12 +80,12 @@ static u8 _escena_1 ( )
 
 
 
-	SYS_disableInts();
 
 	resetScreen();
 	resetSprites();
 	resetScroll();
 
+	SYS_disableInts();
 	VDP_drawImageEx ( PLAN_A, &ob_intro_1_a, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, ind), 0, 1, false, 0 );
 	ind += ob_intro_1_a.tileset->numTile;
 
@@ -233,10 +230,13 @@ static u8 _escena_3 ()
    //SYS_setVIntCallback ( NULL );
 
 
+	displayOff(0);
 	VDP_setEnable ( false );
-	SYS_disableInts();
+
 
 	resetScreen();
+
+	SYS_disableInts();
 	VDP_setPalette ( PAL0, font_getPalette() );
 
 	SYS_enableInts();
@@ -249,19 +249,16 @@ static u8 _escena_3 ()
 	frases_tt_write ( NOTA );
 
 
-
-
-
-
-
+	displayOff(0);
 	VDP_setEnable ( false );
-	SYS_disableInts();
+
 
 	VDP_interruptFade();
 
 	resetScreen ();
 
 
+	SYS_disableInts();
 	VDP_drawImageEx ( PLAN_B, &ob_intro_3_a, TILE_ATTR_FULL(PAL1, false, FALSE, FALSE, ind),  0, 0, true, 0 ); ind += ob_intro_3_a.tileset->numTile;
 	VDP_drawImageEx ( PLAN_A, &ob_intro_3_b, TILE_ATTR_FULL(PAL2, false, FALSE, FALSE, ind), 10, 0, true, 0 ); ind += ob_intro_3_b.tileset->numTile;
 
@@ -384,10 +381,8 @@ static u8 _escena_4 ( int repeat )
 {
 	ind = TILE_USERINDEX;
 
-
+	displayOff(0);
 	VDP_setEnable ( false );
-	SYS_disableInts();
-
 
 	VDP_interruptFade();
 	VDP_resetSprites();
@@ -396,7 +391,7 @@ static u8 _escena_4 ( int repeat )
 	resetScreen();
 	resetScroll();
 
-
+	SYS_disableInts();
 	VDP_drawImageEx ( PLAN_B, &ob_intro_4_b, TILE_ATTR_FULL(PAL1, 0, 0, 0, ind), 0, 0, true, 0 ); ind += ob_intro_4_b.tileset->numTile;
 	VDP_drawImageEx ( PLAN_A, &ob_intro_4_a, TILE_ATTR_FULL(PAL2, 0, 0, 0, ind), 0, 0, true, 0 ); ind += ob_intro_4_a.tileset->numTile;
 
@@ -406,17 +401,11 @@ static u8 _escena_4 ( int repeat )
 	VDP_setVerticalScroll   ( PLAN_A, 0 );
 
 
-
-
-
 	SPRITESET griel;
-	u16 tile_attr = TILE_ATTR_FULL ( PAL3, 0, 0, 0, ind );
 
 	spriteset_new  ( &griel,   (struct genresSprites*) &os_intro_4_c, 5, 5 );
-	SYS_enableInts();
 	spriteset_load ( &griel, ind, 0 );
-	SYS_disableInts();
-	spriteset_show ( &griel, 0, 285, 0, tile_attr ); // x = 285
+	spriteset_show ( &griel, 0, 285, 0, TILE_ATTR_FULL ( PAL3, 0, 0, 0, ind ) ); // x = 285
 
 //font_init ( );
 	VDP_setPalette( PAL3, os_intro_4_c.pal );
@@ -502,7 +491,6 @@ void screen_intro ( u8 jump )
 	displayInit();
 	displayOff(0);
 
-	SYS_disableInts();
 	VDP_setTextPalette(PAL0);
 
 	font_init();
@@ -514,9 +502,7 @@ void screen_intro ( u8 jump )
 
 	VDP_setPlanSize ( 64, 64 );
 
-	SYS_enableInts();
-
-    go = jump;
+	go = jump;
 
     if ( go == 5 )
     {
