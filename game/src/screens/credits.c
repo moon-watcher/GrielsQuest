@@ -85,11 +85,11 @@ static void writeCredits ( u8 part, u8 y_pos )
     if ( part == 2 ) writeTextCredits2();
     if ( part == 3 ) writeTextCredits3();
 
-    displayOn(1);
+    displayOn(10);
 
     waitJoySc ( 10 );
 
-    displayOff ( 1 );
+    displayOff ( 10 );
     resetScreen();
 }
 
