@@ -178,12 +178,12 @@ static void _init ( )
 	displayInit();
 	displayOff(0);
 
+	SYS_disableInts();
+
 	resetPalettes();
 	resetScroll();
 	resetScreen();
 	resetSprites();
-
-	SYS_disableInts();
 
 	VDP_drawImageEx ( PLAN_B, &ob_ambiente_b_1, TILE_ATTR_FULL(PAL0, false, FALSE, FALSE, index),  0,  0, false, 0 ); index += ob_ambiente_b_1.tileset->numTile;
 	VDP_drawImageEx ( PLAN_A, &ob_ambiente_a_1, TILE_ATTR_FULL(PAL1, false, FALSE, FALSE, index),  0,  0, false, 0 ); index += ob_ambiente_a_1.tileset->numTile;

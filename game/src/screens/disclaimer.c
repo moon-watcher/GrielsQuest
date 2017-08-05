@@ -312,16 +312,18 @@ static void _disclaimer_simple ( )
 	displayInit();
 	displayOff(0);
 
+	SYS_disableInts();
+
 	resetPalettes();
 	resetScroll();
 	resetSprites();
 	resetScreen();
 
-	SYS_disableInts();
 	VDP_drawImageEx ( PLAN_A, &ob_cs_disclaimer, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, 16),  0, 0, 0, 0 );
-	SYS_enableInts();
 
 	preparePal ( PAL1, ob_cs_disclaimer.palette->data );
+
+	SYS_enableInts();
 
 	displayOn(0);
 

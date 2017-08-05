@@ -37,12 +37,12 @@ static void _init ( )
 {
 	displayInit();
 	displayOff(0);
-
+	SYS_disableInts();
 	resetScreen();
 	resetSprites();
 	resetScroll();
 	resetPalettes();
-
+	SYS_enableInts();
 
 	voffset_horizontal = VOFFSET_HORIZONTAL;
 	voffset_vertical   = VOFFSET_VERTICAL;
@@ -70,11 +70,11 @@ static void _init ( )
 
 	displayInit();
 	displayOff(0);
-
+	SYS_disableInts();
 	resetScreen();
 	resetScroll();
 	resetPalettes();
-
+	SYS_enableInts();
 
 	splist_draw ( );
 	player_update ( PLAYER_1 );
