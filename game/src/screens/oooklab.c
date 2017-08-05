@@ -9,12 +9,12 @@ void screen_oooklab ( )
 	displayInit();
 	displayOff(0);
 
+    SYS_disableInts();
+
 	resetScreen   ( );
 	resetPalettes ( );
 	resetScroll   ( );
 	resetSprites  ( );
-
-    SYS_disableInts();
 
 	VDP_loadTileData ( ob_logo_OookLab.tiles, HOW_TO_PLAY_TILE, ob_logo_OookLab.width * ob_logo_OookLab.height, 0 );
 	VDP_fillTileMapRectInc ( PLAN_A, TILE_ATTR_FULL ( PAL0, 1, 0, 0, HOW_TO_PLAY_TILE ), 12, 8, ob_logo_OookLab.width, ob_logo_OookLab.height );
