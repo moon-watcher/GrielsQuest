@@ -117,10 +117,10 @@ static void _draw ( PASSWORD8 password )
 		}
 	}
 
-	SYS_disableInts();
+	//SYS_disableInts();
 	VDP_setTextPalette (PAL0);
-	VDP_setPalette ( PAL0, font_getPalette());
-	SYS_enableInts();
+	preparePal ( PAL0, font_getPalette());//VDP_setPalette ( PAL0, font_getPalette());
+	//SYS_enableInts();
 
 	text_init ( (struct genresSprites*) &cs_font_16x16, 1200, PAL0 );
 
@@ -228,7 +228,10 @@ static bool pwd_is_ok ( PASSWORD8 pwd )
 
 	psglist_play ( play );
 
-	waitSc(1);
+	if ( ret )
+	{
+		waitSc(1);
+	}
 
 
 	return ret;
