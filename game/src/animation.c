@@ -193,7 +193,7 @@ static const ANIMATION _list [ ] =
 
    // inicio // ambiente 2
 
-	{ "Hole",             GRS w2s_trampa,       PAL0,   2, { {  0, WA4 }, { 1, WAF } } },
+	{ "Hole",             GRS w2s_trampa,       PAL0,   2, { {  0, WAE }, { 1, WAF } } },
 	{ "Cruz",             GRS w2s_blocks,       PAL3,   1, { {  1, 0 } } },
 	{ "Up",               GRS w2s_blocks,       PAL3,   1, { {  3, 0 } } },
 	{ "Down",             GRS w2s_blocks,       PAL3,   1, { {  4, 0 } } },

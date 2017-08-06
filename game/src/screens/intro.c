@@ -180,7 +180,7 @@ static u8 _escena_2()
 	cont = 0;
 	ind  = TILE_USERINDEX;
 
-	displayOff(0);//VDP_setEnable ( false );
+	displayOff(0);
 	SYS_disableInts ( );
 
 	VDP_interruptFade ( );
@@ -198,24 +198,18 @@ static u8 _escena_2()
 	paleta[1] = ob_intro_2_b.palette->data[2];
 	paleta[2] = ob_intro_2_b.palette->data[1];
 
-	preparePal ( PAL0, font_getPalette() );//VDP_setPalette ( PAL0, font_getPalette() );
+	preparePal ( PAL0, font_getPalette() );
 	preparePal ( PAL1, ob_intro_2_b.palette->data );
 	preparePal ( PAL2, ob_intro_2_a.palette->data );
 
-	vint_setOb_intro_2_b_f(true);
-
 	SYS_enableInts();
-	displayOn(0);//VDP_setEnable ( true );
+	displayOn(0);
 
-
-
-	//wb_wait(3*getHz(), joy1_pressed_btn );
-
+	vint_setOb_intro_2_b_f(true);
 
 	_frases_tt_init ( 8 );
 
 	frases_tt_write ( NARRADOR );
-
 
     GONEXT
     GOEND
