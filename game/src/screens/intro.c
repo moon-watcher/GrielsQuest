@@ -180,14 +180,14 @@ static u8 _escena_2()
 	cont = 0;
 	ind  = TILE_USERINDEX;
 
-	VDP_setEnable ( false );
+	displayOff(0);//VDP_setEnable ( false );
 	SYS_disableInts ( );
 
 	VDP_interruptFade ( );
 	resetScroll ( );
 
-	VDP_drawImageEx ( PLAN_B, &ob_intro_2_b, TILE_ATTR_FULL(PAL1, false, FALSE, FALSE, ind), 0, 0, true, 0 ); ind += ob_intro_2_b.tileset->numTile;
-	VDP_drawImageEx ( PLAN_A, &ob_intro_2_a, TILE_ATTR_FULL(PAL2, false, FALSE, FALSE, ind), 0, 0, true, 0 ); ind += ob_intro_2_a.tileset->numTile;
+	VDP_drawImageEx ( PLAN_B, &ob_intro_2_b, TILE_ATTR_FULL(PAL1, false, FALSE, FALSE, ind), 0, 0, 0, 0 ); ind += ob_intro_2_b.tileset->numTile;
+	VDP_drawImageEx ( PLAN_A, &ob_intro_2_a, TILE_ATTR_FULL(PAL2, false, FALSE, FALSE, ind), 0, 0, 0, 0 ); ind += ob_intro_2_a.tileset->numTile;
 
 	u16 i;
 	for ( i=0; i<16; i++)
@@ -198,12 +198,14 @@ static u8 _escena_2()
 	paleta[1] = ob_intro_2_b.palette->data[2];
 	paleta[2] = ob_intro_2_b.palette->data[1];
 
-	VDP_setPalette ( PAL0, font_getPalette() );
+	preparePal ( PAL0, font_getPalette() );//VDP_setPalette ( PAL0, font_getPalette() );
+	preparePal ( PAL1, ob_intro_2_b.palette->data );
+	preparePal ( PAL2, ob_intro_2_a.palette->data );
 
 	vint_setOb_intro_2_b_f(true);
 
 	SYS_enableInts();
-	VDP_setEnable ( true );
+	displayOn(0);//VDP_setEnable ( true );
 
 
 
@@ -233,14 +235,14 @@ static u8 _escena_3 ()
    //SYS_setVIntCallback ( NULL );
 
 
-	VDP_setEnable ( false );
+	displayOff(0);//VDP_setEnable ( false );
 	SYS_disableInts();
 
 	resetScreen();
-	VDP_setPalette ( PAL0, font_getPalette() );
+	preparePal ( PAL0, font_getPalette() );//VDP_setPalette ( PAL0, font_getPalette() );
 
 	SYS_enableInts();
-	VDP_setEnable ( true );
+	displayOn(0);//VDP_setEnable ( true );
 
 
 	_frases_tt_init ( 9 );
@@ -254,7 +256,7 @@ static u8 _escena_3 ()
 
 
 
-	VDP_setEnable ( false );
+	displayOff(0);//VDP_setEnable ( false );
 	SYS_disableInts();
 
 	VDP_interruptFade();
@@ -262,12 +264,12 @@ static u8 _escena_3 ()
 	resetScreen ();
 
 
-	VDP_drawImageEx ( PLAN_B, &ob_intro_3_a, TILE_ATTR_FULL(PAL1, false, FALSE, FALSE, ind),  0, 0, true, 0 ); ind += ob_intro_3_a.tileset->numTile;
-	VDP_drawImageEx ( PLAN_A, &ob_intro_3_b, TILE_ATTR_FULL(PAL2, false, FALSE, FALSE, ind), 10, 0, true, 0 ); ind += ob_intro_3_b.tileset->numTile;
+	VDP_drawImageEx ( PLAN_B, &ob_intro_3_a, TILE_ATTR_FULL(PAL1, false, FALSE, FALSE, ind),  0, 0, 0, 0 ); ind += ob_intro_3_a.tileset->numTile;
+	VDP_drawImageEx ( PLAN_A, &ob_intro_3_b, TILE_ATTR_FULL(PAL2, false, FALSE, FALSE, ind), 10, 0, 0, 0 ); ind += ob_intro_3_b.tileset->numTile;
 
 	VDP_setHorizontalScroll ( PLAN_B, -80 );
 
-	VDP_setPalette   ( PAL3, os_intro_3_c.pal );
+	preparePal ( PAL3, os_intro_3_c.pal );//VDP_setPalette   ( PAL3, os_intro_3_c.pal );
 
 
 
@@ -303,7 +305,9 @@ static u8 _escena_3 ()
 
 
 
-	VDP_setPalette ( PAL0, font_getPalette() );
+	preparePal ( PAL0, font_getPalette() );//VDP_setPalette ( PAL0, font_getPalette() );
+	preparePal ( PAL1, ob_intro_3_a.palette->data );
+	preparePal ( PAL2, ob_intro_3_b.palette->data );
 
 
 	s16 values_a [ 19 ];
@@ -318,7 +322,7 @@ static u8 _escena_3 ()
 
 
 	SYS_enableInts();
-    VDP_setEnable ( true );
+	displayOn(0);//VDP_setEnable ( true );
 
 
 	frases_tt_write ( NOTA );
@@ -385,7 +389,7 @@ static u8 _escena_4 ( int repeat )
 	ind = TILE_USERINDEX;
 
 
-	VDP_setEnable ( false );
+	displayOff(0);//VDP_setEnable ( false );
 	SYS_disableInts();
 
 
@@ -397,8 +401,8 @@ static u8 _escena_4 ( int repeat )
 	resetScroll();
 
 
-	VDP_drawImageEx ( PLAN_B, &ob_intro_4_b, TILE_ATTR_FULL(PAL1, 0, 0, 0, ind), 0, 0, true, 0 ); ind += ob_intro_4_b.tileset->numTile;
-	VDP_drawImageEx ( PLAN_A, &ob_intro_4_a, TILE_ATTR_FULL(PAL2, 0, 0, 0, ind), 0, 0, true, 0 ); ind += ob_intro_4_a.tileset->numTile;
+	VDP_drawImageEx ( PLAN_B, &ob_intro_4_b, TILE_ATTR_FULL(PAL1, 0, 0, 0, ind), 0, 0, 0, 0 ); ind += ob_intro_4_b.tileset->numTile;
+	VDP_drawImageEx ( PLAN_A, &ob_intro_4_a, TILE_ATTR_FULL(PAL2, 0, 0, 0, ind), 0, 0, 0, 0 ); ind += ob_intro_4_a.tileset->numTile;
 
 	VDP_setScrollingMode ( HSCROLL_PLANE, VSCROLL_PLANE );
 
@@ -419,12 +423,14 @@ static u8 _escena_4 ( int repeat )
 	spriteset_show ( &griel, 0, 285, 0, tile_attr ); // x = 285
 
 //font_init ( );
-	VDP_setPalette( PAL3, os_intro_4_c.pal );
+	preparePal( PAL3, os_intro_4_c.pal );//VDP_setPalette( PAL3, os_intro_4_c.pal );
+	preparePal( PAL1, ob_intro_4_b.palette->data );
+	preparePal( PAL2, ob_intro_4_a.palette->data );
 
 	VDP_setTextPalette(PAL0);
 
 	SYS_enableInts();
-	VDP_setEnable ( true );
+	displayOn(0);//VDP_setEnable ( true );
 
 
 

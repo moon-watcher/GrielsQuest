@@ -96,7 +96,7 @@ static char numero_a_letra ( u16 numero, u16 max )
 
 static void _draw ( PASSWORD8 password )
 {
-	VDP_setEnable ( FALSE );
+	displayOff(0);//VDP_setEnable ( FALSE );
 
 	resetScreen();
 
@@ -129,7 +129,7 @@ static void _draw ( PASSWORD8 password )
 	text_draw ( ( char*) password, 12, 9, 0 ) ; // ">>>>>>>>" --> ">" Es el "guión alto"
 
 	SYS_disableInts();
-	VDP_setPalette ( PAL3, cs_square.pal );
+	preparePal ( PAL3, cs_square.pal ); //VDP_setPalette ( PAL3, cs_square.pal );
 	VDP_loadTileData ( cs_square.sprites[0], 5, cs_square.size>>8, 0 );
 	VDP_setSprite ( 0, 40, 112, cs_square.size>>8, TILE_ATTR_FULL(PAL3, 1,0,0,5) );
 	SYS_enableInts();
@@ -138,7 +138,7 @@ static void _draw ( PASSWORD8 password )
 
 	_debug ( 0, gamestate.dificultad, gamestate.ambientes[0], gamestate.ambientes[1], gamestate.ambientes[2], gamestate.ambientes[3], gamestate.ambientes[4], -1 );
 
-	VDP_setEnable ( TRUE );
+	displayOn(10);//VDP_setEnable ( TRUE );
 }
 
 

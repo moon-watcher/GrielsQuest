@@ -159,7 +159,7 @@ u16 screen_puerta ( )
 
 	vram_init(1);
 
-	VDP_setEnable ( false );
+	displayOff(0);//VDP_setEnable ( false );
 	SYS_disableInts ( );
 
 	VDP_setPlanSize ( 64, 64 );
@@ -200,7 +200,7 @@ u16 screen_puerta ( )
 	VDP_updateSprites(80,1);
 
 	SYS_enableInts();
-	VDP_setEnable ( true );
+	//VDP_setEnable ( true );
 
 	musiclist_play ( MUSIC_GATE );
 
