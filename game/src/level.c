@@ -849,7 +849,8 @@ void level_presentation()
 	VDP_updateSprites (80,1);
 
 
-	waitSc(3);
+	waitJoyScBtn ( 3 );
+	music_stop();
 
 
 	displayOff(30);

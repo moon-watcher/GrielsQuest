@@ -190,6 +190,26 @@ void waitJoySc ( u16 sc )
     waitJoyHz ( sc * getHz() );
 }
 
+void waitJoyHzBtn ( u16 hz )
+{
+    while ( hz-- )
+	{
+		VDP_waitVSync();
+
+		JoyReader_update();
+
+		if ( joy1_pressed_abc|joy1_pressed_start )
+		{
+			return ;
+		}
+	}
+}
+
+void waitJoyScBtn ( u16 sc )
+{
+    waitJoyHzBtn( sc * getHz() );
+}
+
 void waitMusicStop ( )
 {
     while ( XGM_isPlaying() )

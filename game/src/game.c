@@ -25,7 +25,8 @@ static void _leave_text ( u16 ret )
 		VDP_setSpriteLink ( sprite, 0 );
 		VDP_updateSprites ( 80, 1 );
 
-		waitSc(2);
+		waitJoyScBtn ( 2 );
+		music_stop();
 	}
 }
 

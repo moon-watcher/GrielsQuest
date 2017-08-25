@@ -38,6 +38,8 @@ void waitSc    ( u16 sc );
 void waitJoy   ( );
 void waitJoyHz ( u16 hz );
 void waitJoySc ( u16 sc );
+void waitJoyHzBtn ( u16 hz );
+void waitJoyScBtn ( u16 sc );
 void waitMusicStop ( );
 
 void tool_reset_plan ( VDPPlan plan );
