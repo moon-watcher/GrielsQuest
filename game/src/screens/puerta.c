@@ -281,7 +281,9 @@ u16 screen_puerta ( )
 
 fin:
 	vram_destroy();
+	music_stop();
 	displayOff ( 30 );
+
 
 	VDP_setPlanSize ( 64, 32 );
 
