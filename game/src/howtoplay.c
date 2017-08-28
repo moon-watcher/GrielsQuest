@@ -55,15 +55,6 @@ static void _show_message ( u8 content )
 	u8 string1 [ 40 ];
 	u8 string2 [ 40 ];
 
-<<<<<<< HEAD
-	strcpy ( string, frases_find ( 23, content * 2 + 0 ) );
-	StringPadRight ( string, 29, " " );
-	text_write ( string, 6, 7 );
-
-	strcpy ( string, frases_find ( 23, content * 2 + 1 ) );
-	StringPadRight ( string, 29, " " );
-	text_write ( string, 6, 9 );
-=======
 	strcpy ( string1, frases_find ( 23, content * 2 + 0 ) );
 	strcpy ( string2, frases_find ( 23, content * 2 + 1 ) );
 
@@ -72,7 +63,6 @@ static void _show_message ( u8 content )
 
 	text_write ( string1, 6, 7 );
 	text_write ( string2, 6, 9 );
->>>>>>> refs/heads/finnish
 }
 
 
