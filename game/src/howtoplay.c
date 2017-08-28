@@ -52,8 +52,10 @@ static void _show_nb_message ( u8 nb )
 
 static void _show_message ( u8 content )
 {
-	u8 string [ 40 ];
+	u8 string1 [ 40 ];
+	u8 string2 [ 40 ];
 
+<<<<<<< HEAD
 	strcpy ( string, frases_find ( 23, content * 2 + 0 ) );
 	StringPadRight ( string, 29, " " );
 	text_write ( string, 6, 7 );
@@ -61,6 +63,16 @@ static void _show_message ( u8 content )
 	strcpy ( string, frases_find ( 23, content * 2 + 1 ) );
 	StringPadRight ( string, 29, " " );
 	text_write ( string, 6, 9 );
+=======
+	strcpy ( string1, frases_find ( 23, content * 2 + 0 ) );
+	strcpy ( string2, frases_find ( 23, content * 2 + 1 ) );
+
+	StringPadRight ( string1, 29, " " );
+	StringPadRight ( string2, 29, " " );
+
+	text_write ( string1, 6, 7 );
+	text_write ( string2, 6, 9 );
+>>>>>>> refs/heads/finnish
 }
 
 
@@ -171,19 +183,19 @@ void _draw_content ( u16 i )
 
 		char *str = frases_find(enemy,2);
 
-		if ( strlen (str) > 11 )  // special case for finnish "Pimeä Tonttu" text
-		{
-            char str1[30];
-
-            memset ( str1, NULL, 29 );
-            memcpy ( str1, &str[0],  5 );
-            text_write ( str1, 24, 20 );
-
-            memset ( str1, NULL, 29 );
-            memcpy ( str1, &str[6], 10 );
-		    text_write ( str1, 27, 21 );
-		}
-		else
+//		if ( strlen (str) > 11 )  // special case for finnish "Pimeä Tonttu" text
+//		{
+//            char str1[30];
+//
+//            memset ( str1, NULL, 29 );
+//            memcpy ( str1, &str[0],  5 );
+//            text_write ( str1, 24, 20 );
+//
+//            memset ( str1, NULL, 29 );
+//            memcpy ( str1, &str[6], 10 );
+//		    text_write ( str1, 27, 21 );
+//		}
+//		else
         {
             text_write ( str, 24, 21 );
         }

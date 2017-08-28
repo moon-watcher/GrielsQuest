@@ -163,19 +163,19 @@ static void _marco_desplegar ( )
 		{
             char *str = frases_next();
 
-            if ( strlen (str) > 13 )  // special case for finnish "ALOITA ALUSTA" text
-            {
-                char str1[30];
-
-                memset(str1, NULL, 29 );
-                memcpy( str1, &str[0], 9 );
-                text_write ( str1, 14, 14 );
-
-                memset ( str1, NULL, 29 );
-                memcpy ( str1, &str[9], 6 );
-                text_write ( str1, 20, 15 );
-            }
-            else
+//            if ( strlen (str) > 13 )  // special case for finnish "ALOITA ALUSTA" text
+//            {
+//                char str1[30];
+//
+//                memset(str1, NULL, 29 );
+//                memcpy( str1, &str[0], 9 );
+//                text_write ( str1, 14, 14 );
+//
+//                memset ( str1, NULL, 29 );
+//                memcpy ( str1, &str[9], 6 );
+//                text_write ( str1, 20, 15 );
+//            }
+//            else
             {
                 text_write ( str, 14, 14 );
             }
