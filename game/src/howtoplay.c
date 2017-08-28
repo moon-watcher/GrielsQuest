@@ -55,11 +55,11 @@ static void _show_message ( u8 content )
 	u8 string [ 40 ];
 
 	strcpy ( string, frases_find ( 23, content * 2 + 0 ) );
-	StringPadRight ( string, 28, " " );
+	StringPadRight ( string, 29, " " );
 	text_write ( string, 6, 7 );
 
 	strcpy ( string, frases_find ( 23, content * 2 + 1 ) );
-	StringPadRight ( string, 28, " " );
+	StringPadRight ( string, 29, " " );
 	text_write ( string, 6, 9 );
 }
 
