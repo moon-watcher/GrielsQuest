@@ -174,6 +174,9 @@ static void _init ( )
     _tt_init ();
 	index = TILE_USERINDEX;
 
+	sprites[0] = index; index += 4;
+	sprites[1] = index; index += 4;
+
 
 	displayInit();
 	displayOff(0);
@@ -213,9 +216,6 @@ static void _init ( )
 
 
 
-
-	sprites[0] = 1280;
-	sprites[1] = 1284;
 
 	VDP_loadTileData ( as_sprites_16x16.sprites[0], sprites[0], 4, 0 );
 	VDP_loadTileData ( as_sprites_16x16.sprites[7], sprites[1], 4, 0 );
