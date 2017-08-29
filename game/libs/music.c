@@ -18,6 +18,8 @@ void music_play ( MUSIC *m )
         music_stop ( );
     }
 
+    XGM_stopPlay();
+
     wait
     XGM_startPlay ( (u8*) m->data );
 
