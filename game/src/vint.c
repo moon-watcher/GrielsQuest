@@ -35,7 +35,7 @@ _voidCallback *vint_callback ( )
 	if ( _plan_dir_a          ) tool_move_plan ( PLAN_A, _plan_dir_a );
 	if ( _plan_dir_b          ) tool_move_plan ( PLAN_B, _plan_dir_b );
 
-	SND_setMusicTempo_XGM ( 50 );
+	//SND_setMusicTempo_XGM ( 50 );
 
 	return 0;
 }
