@@ -7,7 +7,7 @@
 
 static const WAVE _list [ ] =
 {
-	{ 64, "Ding",   (u8*) &wave_ding,         sizeof(wave_ding),         1, SOUND_PCM_CH1 },
+	{ 64, "Ding",   (u8*) &wave_ding,         sizeof(wave_ding),         1, SOUND_PCM_CH1 }, // WAVE_DING (SOUND_PCM_CH1) no se está usando. Por eso parece que no hay problemas de tipo sfx como en Abbaye
 	{ 65, "Hooo!",  (u8*) &wave_griel_hooo,   sizeof(wave_griel_hooo),   1, SOUND_PCM_CH2 },
 	{ 66, "Ia!",    (u8*) &wave_griel_ia,     sizeof(wave_griel_ia),     1, SOUND_PCM_CH3 },
 	{ 67, "Ouch 1", (u8*) &wave_griel_ouch_1, sizeof(wave_griel_ouch_1), 1, SOUND_PCM_CH4 },
