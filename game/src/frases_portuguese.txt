@@ -4,7 +4,7 @@
 (FRASE) { PORTUGUESE,   1, "PRAIA DOS GATINHOS" },
 (FRASE) { PORTUGUESE,   1, "CASTELO KBRAH" },
 (FRASE) { PORTUGUESE,   1, "MUNDO DE DUDEH" },
-(FRASE) { PORTUGUESE,   1, "Vocï¿½ nï¿½o se esqueceu de algo?" },
+(FRASE) { PORTUGUESE,   1, "Você não se esqueceu de algo?" },
 (FRASE) { PORTUGUESE,   1, "FASE %02d" },
 
 (FRASE) { PORTUGUESE,   2, "\\ CONTINUAR" },
@@ -23,7 +23,7 @@
 (FRASE) { PORTUGUESE,   5, "MUITO QUENTE" },
 (FRASE) { PORTUGUESE,   5, "QUENTE" },
 (FRASE) { PORTUGUESE,   5, "MORNO" },
-(FRASE) { PORTUGUESE,   5, "Tï¿½PIDO" },
+(FRASE) { PORTUGUESE,   5, "TÉPIDO" },
 (FRASE) { PORTUGUESE,   5, "TEMPERATURA AMBIENTE" },
 (FRASE) { PORTUGUESE,   5, "FRIO" },
 (FRASE) { PORTUGUESE,   5, "RESFRIADO" },
@@ -36,139 +36,168 @@
 (FRASE) { PORTUGUESE,  6, "O lobo sempre me engana." },                            // woods
 (FRASE) { PORTUGUESE,  6, "Gelo para refrigerantes." },                                 // iceland
 (FRASE) { PORTUGUESE,  6, "A areia entra na minha coquilha." },                          // egypt
+(FRASE) { PORTUGUESE,  6, "Eu não tenho traje de banho." },                                  // beach
 //
-(FRASE) { PORTUGUESE,  6, "Aqui estï¿½ o Johnny!" },                                                                     // The shinning ref.
-(FRASE) { PORTUGUESE,  6, "Estes nï¿½o sï¿½o os droides pelos quais estï¿½ procurando." },                               // Starwars ref
-(FRASE) { PORTUGUESE,  6, "Eu nï¿½o posso ir lï¿½, aquele ï¿½ o triï¿½ngulo proibido." },                         // Monkey Island 2 reference
-(FRASE) { PORTUGUESE,  6, "Eu nï¿½o posso ir lï¿½, aquele ï¿½ o dodecaedro proibido." },                       // Monkey Island 2 reference
+(FRASE) { PORTUGUESE,  6, "Aqui está o Johnny!" },                                                                     // The shinning ref.
+(FRASE) { PORTUGUESE,  6, "Estes não são os droides pelos quais está procurando." },                               // Starwars ref
+(FRASE) { PORTUGUESE,  6, "Eu não posso ir lá, aquele é o triângulo proibido." },                         // Monkey Island 2 reference
+(FRASE) { PORTUGUESE,  6, "Eu não posso ir lá, aquele é o dodecaedro proibido." },                       // Monkey Island 2 reference
 (FRASE) { PORTUGUESE,  6, "SAIA DE SUA TUMBA!" },                                                      // Altered beast reference
-(FRASE) { PORTUGUESE,  6, "Olhe atrï¿½s de vocï¿½, um macaco de trï¿½s cabeï¿½as!" },                                    // Monkey Island 2 reference
-(FRASE) { PORTUGUESE,  6, "ï¿½ uma banana no seu bolso ou estï¿½ sï¿½ feliz de me ver?" },  // Monkey Island 2 reference
-(FRASE) { PORTUGUESE,  6, "Scotty, nï¿½s precisamos de mais forï¿½a!" },                                                        // Star trek reference
-(FRASE) { PORTUGUESE,  6, "Quantos Klingons sï¿½o necessï¿½rios para se trocar uma lï¿½mpada?" },                    // Joke, Star trek reference
-(FRASE) { PORTUGUESE,  6, "Vocï¿½ conhece aquela piada que diz...?" },                                       // Eugenio LoL
-(FRASE) { PORTUGUESE,  6, "Vï¿½ para o castelo de Kbrah." },                                                                 //
-(FRASE) { PORTUGUESE,  6, "Vamos lï¿½! Eu nï¿½o o dia todo para esperar." },                                                     //
-(FRASE) { PORTUGUESE,  6, "Vocï¿½ jï¿½ nï¿½o bisbilhotou o suficiente?" },                                                       //Yo usaria: Didn't you nose around enough?
+(FRASE) { PORTUGUESE,  6, "Olhe atrás de você, um macaco de três cabeças!" },                                    // Monkey Island 2 reference
+(FRASE) { PORTUGUESE,  6, "É uma banana no seu bolso ou está só feliz de me ver?" },  // Monkey Island 2 reference
+(FRASE) { PORTUGUESE,  6, "Scotty, nós precisamos de mais força!" },                                                        // Star trek reference
+(FRASE) { PORTUGUESE,  6, "Quantos Klingons são necessários para se trocar uma lâmpada?" },                    // Joke, Star trek reference
+(FRASE) { PORTUGUESE,  6, "Você conhece aquela piada que diz...?" },                                       // Eugenio LoL
+(FRASE) { PORTUGUESE,  6, "Vá para o castelo de Kbrah." },                                                                 //
+(FRASE) { PORTUGUESE,  6, "Vamos lá! Eu não o dia todo para esperar." },                                                     //
+(FRASE) { PORTUGUESE,  6, "Você já não bisbilhotou o suficiente?" },                                                       //Yo usaria: Didn't you nose around enough?
 //
 
+(FRASE) { PORTUGUESE,  7, "Esse é o cruel Kbrah, um vilão bem feliz." },
 (FRASE) { PORTUGUESE,  7, "Ele rapta princesas e leva elas de castelo em castelo." },
-(FRASE) { PORTUGUESE,  7, "Ele joga games horrï¿½veis e violentos por horas e horas." },
+(FRASE) { PORTUGUESE,  7, "Ele joga games horríveis e violentos por horas e horas." },
 (FRASE) { PORTUGUESE,  7, "E toca em uma banda que poderia acordar os mortos. |WCLEAR:180 E..." },
-(FRASE) { PORTUGUESE,  8, "Ele dï¿½ festas para seus amigos malvados. |WAIT Festas que ï¿½s vezes terminam mal." },
+(FRASE) { PORTUGUESE,  8, "Ele dá festas para seus amigos malvados. |WAIT Festas que às vezes terminam mal." },
 
-(FRASE) { PORTUGUESE,  9, "Na manhï¿½ seguinte, no castelo do Rei Dudeh." },
-(FRASE) { PORTUGUESE,  9, "Huuum? |WAIT Quem esteve bisbilhotando por aqui hoje ï¿½ noite? |WCLEAR AAAHHHHH!" },
-(FRASE) { PORTUGUESE,  9, "Meu porrï¿½n! |WAIT ELE FOI ROUBADO!" },
-(FRASE) { PORTUGUESE,  9, "A princesa tambï¿½m foi levada!" },
-(FRASE) { PORTUGUESE,  9, "Pequenos detalhes. |WAIT Meu Porrï¿½n Sagrado deve ser recuperado. |WAIT Avise Griel, ele ï¿½ o ï¿½nico que foi dormir cedo." },
+(FRASE) { PORTUGUESE,  9, "Na manhã seguinte, no castelo do Rei Dudeh." },
+(FRASE) { PORTUGUESE,  9, "Huuum? |WAIT Quem esteve bisbilhotando por aqui hoje à noite? |WCLEAR AAAHHHHH!" },
+(FRASE) { PORTUGUESE,  9, "Meu porrón! |WAIT ELE FOI ROUBADO!" },
+(FRASE) { PORTUGUESE,  9, "A princesa também foi levada!" },
+(FRASE) { PORTUGUESE,  9, "Pequenos detalhes. |WAIT Meu Porrón Sagrado deve ser recuperado. |WAIT Avise Griel, ele é o único que foi dormir cedo." },
 
-(FRASE) { PORTUGUESE, 10, "Griel, o reino estarï¿½ perdido sem o Porrï¿½n Sagrado. |WAIT Vocï¿½ deve recuperï¿½-lo o quanto antes! |WCLEAR:180 Esse parece ser obra de Kbrah, meu arqui-inimigo. Deve ter sido ele."},
-(FRASE) { PORTUGUESE, 10, "A Princesa tambï¿½m foi levada!" },
-(FRASE) { PORTUGUESE, 10, "A Princesa? Ah, sim, sim... |WAIT Vï¿½ para o castelo do cruel Kbrah, traga de volta o Porrï¿½n Sagrado e a recompensa serï¿½ a mï¿½o dela, ok? |WAIT Entendeu? |WBREAK Agora, saia daqui." },
+(FRASE) { PORTUGUESE, 10, "Griel, o reino estará perdido sem o Porrón Sagrado. |WAIT Você deve recuperá-lo o quanto antes! |WCLEAR:180 Esse parece ser obra de Kbrah, meu arqui-inimigo. Deve ter sido ele."},
+(FRASE) { PORTUGUESE, 10, "A Princesa também foi levada!" },
+(FRASE) { PORTUGUESE, 10, "A Princesa? Ah, sim, sim... |WAIT Vá para o castelo do cruel Kbrah, traga de volta o Porrón Sagrado e a recompensa será a mão dela, ok? |WAIT Entendeu? |WBREAK Agora, saia daqui." },
 
+(FRASE) { PORTUGUESE, 11, "Vá para o castelo do cruel Kbrah, traga de volta o Porrón Sagrado e a recompensa será a mão dela, ok? |WBREAK Entendeu? |WBREAK Agora, saia daqui." },
 
 // Door option 1
-(FRASE) { PORTUGUESE, 12, "Trancada. |WCLEAR:180 Espere aï¿½, os buracos acima da porta tem o formato de... |WBREAK Moedas lendï¿½rias! |WCLEAR:180 Acho que vou precisar achï¿½-las e colocï¿½-las lï¿½, eu jï¿½ vi isso em outros jogos. |WCLEAR:180 Droga, isso vai levar ï¿½ noite inteira." },
+(FRASE) { PORTUGUESE, 12, "Trancada. |WCLEAR:180 Espere aí, os buracos acima da porta tem o formato de... |WBREAK Moedas lendárias! |WCLEAR:180 Acho que vou precisar achá-las e colocá-las lá, eu já vi isso em outros jogos. |WCLEAR:180 Droga, isso vai levar à noite inteira." },
 // door option 2
-(FRASE) { PORTUGUESE, 13, "Parece que isso nï¿½o vai funcionar, vou voltar depois." },
+(FRASE) { PORTUGUESE, 13, "Parece que isso não vai funcionar, vou voltar depois." },
 
 // door option 3
-(FRASE) { PORTUGUESE, 14, "Vocï¿½ achou as Moedas Lendï¿½rias. Elas tem ï¿½tima aparï¿½ncia! |WAIT Por quï¿½ vocï¿½ fez isso?" },
+(FRASE) { PORTUGUESE, 14, "Você achou as Moedas Lendárias. Elas tem ótima aparência! |WAIT Por quê você fez isso?" },
 (FRASE) { PORTUGUESE, 14, "Para abrir a porta, eu vim para acertar as contas com Kbrah..." },
-(FRASE) { PORTUGUESE, 14, "Tanto esforï¿½o desperdiï¿½ado... |WAIT:60 vocï¿½ poderia ter tocado a campanha, idiota! HA, HA!" },
-(FRASE) { PORTUGUESE, 14, "Droga! |WAIT Fale sobre isso para alguï¿½m e eu te mato." },
+(FRASE) { PORTUGUESE, 14, "Tanto esforço desperdiçado... |WAIT:60 você poderia ter tocado a campanha, idiota! HA, HA!" },
+(FRASE) { PORTUGUESE, 14, "Droga! |WAIT Fale sobre isso para alguém e eu te mato." },
 
 // final 1
-(FRASE) { PORTUGUESE, 15, "Kbrah, sua besta pestilenta. |WAIT Me devolva o Porrï¿½n Sagrado, eu sei que vocï¿½ estï¿½ com ele." },
-(FRASE) { PORTUGUESE, 15, "Vocï¿½ realmente veio atrï¿½s dessa bugiganga? |WAIT Aqui estï¿½ vocï¿½, eu nï¿½o gostava disso mesmo..." },
-(FRASE) { PORTUGUESE, 15, "Aah! |WAIT Que crianï¿½a mais fofa, papi. |WAIT Posso ficar com ele?" },
-(FRASE) { PORTUGUESE, 15, "De jeito nenhum! |WAIT Eu te mimei demais para aceitar um cavaleiro fracos. |WCLEAR:180 Ele estï¿½ indo embora de qualquer forma, nï¿½o ï¿½?" },
-(FRASE) { PORTUGUESE, 15, "Nï¿½o tï¿½o rï¿½pida, seu canalha! A Princesa Praia vem comigo tambï¿½m." },
-(FRASE) { PORTUGUESE, 15, "A princesa estï¿½ em outro castelo, nï¿½s nï¿½o conseguimos... |WAIT mantï¿½-la por mais tempo. |WCLEAR:180 Pegue o Porrï¿½n Sagrado e saia daqui antes que eu mude de ideia." },
+(FRASE) { PORTUGUESE, 15, "Kbrah, sua besta pestilenta. |WAIT Me devolva o Porrón Sagrado, eu sei que você está com ele." },
+(FRASE) { PORTUGUESE, 15, "Você realmente veio atrás dessa bugiganga? |WAIT Aqui está você, eu não gostava disso mesmo..." },
+(FRASE) { PORTUGUESE, 15, "Aah! |WAIT Que criança mais fofa, papi. |WAIT Posso ficar com ele?" },
+(FRASE) { PORTUGUESE, 15, "De jeito nenhum! |WAIT Eu te mimei demais para aceitar um cavaleiro fracos. |WCLEAR:180 Ele está indo embora de qualquer forma, não é?" },
+(FRASE) { PORTUGUESE, 15, "Não tão rápida, seu canalha! A Princesa Praia vem comigo também." },
+(FRASE) { PORTUGUESE, 15, "A princesa está em outro castelo, nós não conseguimos... |WAIT mantê-la por mais tempo. |WCLEAR:180 Pegue o Porrón Sagrado e saia daqui antes que eu mude de ideia." },
 
 // final 2
-(FRASE) { PORTUGUESE, 16, "ï¿½timo, filho! Vocï¿½ conseguiu. |WCLEAR:180 Ah, meu amado Porrï¿½n Sagrado! Vocï¿½ finalmente estï¿½ de volta." },
+(FRASE) { PORTUGUESE, 16, "Ótimo, filho! Você conseguiu. |WCLEAR:180 Ah, meu amado Porrón Sagrado! Você finalmente está de volta." },
 (FRASE) { PORTUGUESE, 16, "Que grande poder ele possui?" },
-(FRASE) { PORTUGUESE, 16, "Este artefato mï¿½gico produz vinho infinitamente para seu dono. |WAIT:60 Um fluxo fresco de nï¿½ctar, um pouco azedo, mas infinito." },
-(FRASE) { PORTUGUESE, 16, "VINHO?! |WAIT SOMENTE VINHO?! |WAIT Eu nï¿½o consigo acreditar... |WCLEAR:180 Me prometeram a mï¿½o da princesa." },
+(FRASE) { PORTUGUESE, 16, "Este artefato mágico produz vinho infinitamente para seu dono. |WAIT:60 Um fluxo fresco de néctar, um pouco azedo, mas infinito." },
+(FRASE) { PORTUGUESE, 16, "VINHO?! |WAIT SOMENTE VINHO?! |WAIT Eu não consigo acreditar... |WCLEAR:180 Me prometeram a mão da princesa." },
 
 // final 2 // weak
-(FRASE) { PORTUGUESE, 17, "De jeito nenhum! |WAIT Vocï¿½ terminou o jogo no modo mais fï¿½cil. Achou que eu nï¿½o ia perceber?" },
+(FRASE) { PORTUGUESE, 17, "De jeito nenhum! |WAIT Você terminou o jogo no modo mais fácil. Achou que eu não ia perceber?" },
 (FRASE) { PORTUGUESE, 17, "Mas, mas..." },
 (FRASE) { PORTUGUESE, 17, "Desculpe, mas minha filha precisa de um homem de verdade. |WAIT Anote este password e tente novamente." },
 // Weak ending finishes here
 
 // final 2 // hard guy or nightmare
 (FRASE) { PORTUGUESE, 18, "Claro |WAIT:120 AMORZINHO, VEM AQUI!" },
-(FRASE) { PORTUGUESE, 18, "Ligue para a Princesa, |WAIT Griel veio aqui pela sua mï¿½o." },
-(FRASE) { PORTUGUESE, 18, "Ela jï¿½ ï¿½ uma mulher maravilhosa, espere e verï¿½." },
-(FRASE) { PORTUGUESE, 18, "Griel? |WCLEAR:180 Vocï¿½ ï¿½ o Griel...?" },
+(FRASE) { PORTUGUESE, 18, "Ligue para a Princesa, |WAIT Griel veio aqui pela sua mão." },
+(FRASE) { PORTUGUESE, 18, "Ela já é uma mulher maravilhosa, espere e verá." },
+(FRASE) { PORTUGUESE, 18, "Griel? |WCLEAR:180 Você é o Griel...?" },
 
 
 // final 3 // hard guy or nightmare
-(FRASE) { PORTUGUESE, 19, "GROARRR! |WAIT Vocï¿½ ï¿½ lindo! |WAIT VEM AQUI, LINDï¿½O!" },
-(FRASE) { PORTUGUESE, 19, "AAAAAAH! POR FAVOR: Nï¿½O ME COMA!" },
-(FRASE) { PORTUGUESE, 19, "Ha, ha, ha! |WAIT Sï¿½ um pedacinho!" },
+(FRASE) { PORTUGUESE, 19, "GROARRR! |WAIT Você é lindo! |WAIT VEM AQUI, LINDÃO!" },
+(FRASE) { PORTUGUESE, 19, "AAAAAAH! POR FAVOR: NÃO ME COMA!" },
+(FRASE) { PORTUGUESE, 19, "Ha, ha, ha! |WAIT Só um pedacinho!" },
 
 // final 3 // hard guy
-(FRASE) { PORTUGUESE, 20, "Isso ï¿½ muito zuado, nï¿½o tinha um final melhor?" },
+(FRASE) { PORTUGUESE, 20, "Isso é muito zuado, não tinha um final melhor?" },
 // This is hard guy ending
 
 // final 3 // nightmare
-(FRASE) { PORTUGUESE, 21, "PEGUE ISSO! |WAIT O homem de lata ï¿½ meu." },
+(FRASE) { PORTUGUESE, 21, "PEGUE ISSO! |WAIT O homem de lata é meu." },
 (FRASE) { PORTUGUESE, 21, "...?! |WAIT Kbritah?" },
 
 // final 4 // nightmare
-(FRASE) { PORTUGUESE, 22, "Foi por pouco. |WAIT Por quï¿½ vocï¿½ me salvou?" },
-(FRASE) { PORTUGUESE, 22, "Vocï¿½ terminou o jogo no modo mais difï¿½cil, vocï¿½ merece algo melhor, nï¿½o acha? |WCLEAR:180 E vocï¿½ ï¿½ tï¿½o fofo que esses chifrinhos..." },
-(FRASE) { PORTUGUESE, 22, "Ah, obrigado, mas... vocï¿½ nï¿½o estï¿½ me sequestrando, estï¿½?" },
-(FRASE) { PORTUGUESE, 22, "Ha, ha, ha. |WAIT Nï¿½s precisamos comemorar isso. |WAIT Eu irei te mostrar o \"final\" verdadeiro." },
-(FRASE) { PORTUGUESE, 22, "ï¿½timo, vamos para a proxima cena." } ,
-(FRASE) { PORTUGUESE, 22, "Ah, vamos lï¿½. |WAIT Vocï¿½ ï¿½ mais burro do que eu imaginava... |WAIT:200" },
+(FRASE) { PORTUGUESE, 22, "Foi por pouco. |WAIT Por quê você me salvou?" },
+(FRASE) { PORTUGUESE, 22, "Você terminou o jogo no modo mais difícil, você merece algo melhor, não acha? |WCLEAR:180 E você é tão fofo que esses chifrinhos..." },
+(FRASE) { PORTUGUESE, 22, "Ah, obrigado, mas... você não está me sequestrando, está?" },
+(FRASE) { PORTUGUESE, 22, "Ha, ha, ha. |WAIT Nós precisamos comemorar isso. |WAIT Eu irei te mostrar o \"final\" verdadeiro." },
+(FRASE) { PORTUGUESE, 22, "Ótimo, vamos para a proxima cena." } ,
+(FRASE) { PORTUGUESE, 22, "Ah, vamos lá. |WAIT Você é mais burro do que eu imaginava... |WAIT:200" },
 
 
 
 // ------------------> "Guie Griel em sua busca pelo" <------- // 2 phrases 28 length max each  &  max 20/2 --> 10 phrases
 
-//   (FRASE) { SPANI  23, "-LONGITUDE Mï¿½XIMA DISPONï¿½VEL-" }, // 28 MAX
+//   (FRASE) { SPANI  23, "-LONGITUDE MÁXIMA DISPONÍVEL-" }, // 28 MAX
 
 (FRASE) { PORTUGUESE, 23, "Guie Griel em sua busca pelo" },
-(FRASE) { PORTUGUESE, 23, "Porrï¿½n Sagrado." },
+(FRASE) { PORTUGUESE, 23, "Porrón Sagrado." },
 
+(FRASE) { PORTUGUESE, 23, "Ache as chaves para quebrar" },
+(FRASE) { PORTUGUESE, 23, "o selo mágico." },
 
 (FRASE) { PORTUGUESE, 23, "Complete todas as palavras" },
+(FRASE) { PORTUGUESE, 23, "para alcançar Kbrah." },
 
 (FRASE) { PORTUGUESE, 23, "Aprenda a evitar inimigos." },
+(FRASE) { PORTUGUESE, 23, "" },                              // needed, do not delete
 
 (FRASE) { PORTUGUESE, 23, "Use a arma correta em todas" },
-(FRASE) { PORTUGUESE, 23, "as circunstï¿½ncias." },
+(FRASE) { PORTUGUESE, 23, "as circunstâncias." },
 
 (FRASE) { PORTUGUESE, 23, "Pense duas vezes antes de se" },
+(FRASE) { PORTUGUESE, 23, "mexer." },
 
-(FRASE) { PORTUGUESE, 23, "Aperte o botï¿½o C para" },
-(FRASE) { PORTUGUESE, 23, "desfazer uma aï¿½ï¿½o." },
+(FRASE) { PORTUGUESE, 23, "Aperte o botão C para" },
+(FRASE) { PORTUGUESE, 23, "desfazer uma ação." },
 
+(FRASE) { PORTUGUESE, 23, "Se você for paciente você" },
+(FRASE) { PORTUGUESE, 23, "poderá conseguir VOLTAR ações" },
 
+(FRASE) { PORTUGUESE, 23, "Se você cair, queimar ou se" },       // <--------------- TOO LARGE
+(FRASE) { PORTUGUESE, 23, "afogar você vai perder um VOLTAR." }, // <--------------- TOO LARGE
 
 (FRASE) { PORTUGUESE, 23, "Todas as fases tem pelo menos" },
-(FRASE) { PORTUGUESE, 23, "uma soluï¿½ï¿½o." },
+(FRASE) { PORTUGUESE, 23, "uma solução." },
 
-(FRASE) { PORTUGUESE, 23, "Reinicie o nï¿½vel, se vocï¿½" },
+(FRASE) { PORTUGUESE, 23, "Reinicie o nível, se você" },
 (FRASE) { PORTUGUESE, 23, "precisar." },
 
+(FRASE) { PORTUGUESE, 23, "Aperte o botão B e o direcional" },   // <--------------- TOO LARGE
+(FRASE) { PORTUGUESE, 23, "se você estiver com pressa." },       // <--------------- TOO LARGE
 
+(FRASE) { PORTUGUESE, 23, "Anote seu password com" },
+(FRASE) { PORTUGUESE, 23, "frequência." },
 
+(FRASE) { PORTUGUESE, 23, "Você pode jogar qualquer fase" },
+(FRASE) { PORTUGUESE, 23, "novamente após completá-la." },
 
+(FRASE) { PORTUGUESE, 23, "Aperte Start se você precisar" },
+(FRASE) { PORTUGUESE, 23, "ir ao banheiro." },
 
-(FRASE) { PORTUGUESE, 23, "Alguma irï¿½ acontecer se vocï¿½" },
+(FRASE) { PORTUGUESE, 23, "Alguma irá acontecer se você" },
 (FRASE) { PORTUGUESE, 23, "completar todas as fases." },
 
+(FRASE) { PORTUGUESE, 23, "Se estiver em dúvida, pergunte" },    // <--------------- TOO LARGE
+(FRASE) { PORTUGUESE, 23, "para seu farmacêutico." },            // <--------------- TOO LARGE
 
+(FRASE) { PORTUGUESE, 23, "Griel & Dudeh contam com" },
+(FRASE) { PORTUGUESE, 23, "você, não os decepcione!" },
 
-(FRASE) { PORTUGUESE, 23, "Beba com moderaï¿½ï¿½o." },
+(FRASE) { PORTUGUESE, 23, "Beba com moderação." },
+(FRASE) { PORTUGUESE, 23, "" },                                // needed!! don't deleted!
 
+(FRASE) { PORTUGUESE, 23, "Todas suas coisa são nossa." },
+(FRASE) { PORTUGUESE, 23, "" },
 
+(FRASE) { PORTUGUESE, 23, "Só o Porrón Sagrado conseguirá" },  // <--------------- TOO LARGE
+(FRASE) { PORTUGUESE, 23, "deixar o Rei são novamente." },     // <--------------- TOO LARGE
 
 (FRASE) { PORTUGUESE, 23, "Feito em Marte." },
 (FRASE) { PORTUGUESE, 23, "@2049" },
@@ -187,7 +216,7 @@
 
 // game difficulty modes ----------------------------------------------------------------------
 (FRASE) { PORTUGUESE, 26, "FRACO" },
-(FRASE) { PORTUGUESE, 26, "DURï¿½O" },
+(FRASE) { PORTUGUESE, 26, "DURÃO" },
 (FRASE) { PORTUGUESE, 26, "FERRADO" }, // PESADILLA
 
 // Title screen options ----------------------------------------------------
