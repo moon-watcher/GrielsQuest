@@ -312,7 +312,7 @@ salto:
     VDP_drawText ( prepare_string("Jordi Montornés Solé @jordimontornes"), 2, y ); y+=2; // CATALÀ
     VDP_drawText ( prepare_string("Natsumi"), 2, y ); y+=2; // FINNISH
     VDP_drawText ( prepare_string("Paspallas @PaspallasDev"), 2, y ); y+=2; // GALEGO
-//    VDP_drawText ( prepare_string("netpredakonn"), 2, y ); y+=2; // BRAZILIAN-PORTUGUESE
+    VDP_drawText ( prepare_string("Thiago F. Alves"), 2, y ); y+=2; // BR-PORTUGUESE
 //    VDP_drawText ( prepare_string("teaduckie"), 2, y ); y+=2; // ESPERANTO & INTERLINGUA
     VDP_drawText ( prepare_string("Clare Eddleston"), 2, y ); y+=2; // ENGLISH-REVIEWER
     VDP_drawText ( prepare_string("Xavier Bravo"), 2, y ); y+=2;// ENGLISH-REVIEWER

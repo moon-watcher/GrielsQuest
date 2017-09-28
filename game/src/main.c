@@ -72,7 +72,7 @@
  * @CATALAN-TRANSLATION       => Jordi Montornés Solé           | Twitter: @jordimontornes   ‏ | Mail:                     |Notes:
  * @FINNISH-TRANSLATION       => Natsumi                        | Twitter:                    | Mail:                     |Notes:
  * @GALEGO-TRANSLATION        => Paspallas                      | Twitter: @PaspallasDev      | Mail:                     |Notes:
-//         * @BRAZILIAN-PORTUGUESE-TRANSLATION => netpredakonn            | Twitter:                    | Mail:                     |Notes:
+ * @BR-PORTUGUESE-TRANSLATION => Thiago F. Alves                | Twitter:                    | Mail:                     |Notes:
 //         * @ESPERANTO-TRANSLATION     => teaduckie                      | Twitter:                    | Mail:                     |Notes:
 //         * @INTERLINGUA-TRANSLATION   => teaduckie                      | Twitter:                    | Mail:                     |Notes:
 

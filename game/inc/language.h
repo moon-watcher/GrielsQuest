@@ -10,6 +10,7 @@ enum
 	CATALAN,
 	FINNISH,
 	GALEGO,
+	PORTUGUESE,
 };
 
 
