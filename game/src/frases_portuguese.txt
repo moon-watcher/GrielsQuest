@@ -39,17 +39,17 @@
 (FRASE) { PORTUGUESE,  6, "Eu não tenho traje de banho." },                                  // beach
 //
 (FRASE) { PORTUGUESE,  6, "Aqui está o Johnny!" },                                                                     // The shinning ref.
-(FRASE) { PORTUGUESE,  6, "Estes não são os droides pelos quais está procurando." },                               // Starwars ref
+(FRASE) { PORTUGUESE,  6, "Estes não são os droides que vocês estão procurando." },                               // Starwars ref
 (FRASE) { PORTUGUESE,  6, "Eu não posso ir lá, aquele é o triângulo proibido." },                         // Monkey Island 2 reference
 (FRASE) { PORTUGUESE,  6, "Eu não posso ir lá, aquele é o dodecaedro proibido." },                       // Monkey Island 2 reference
-(FRASE) { PORTUGUESE,  6, "SAIA DE SUA TUMBA!" },                                                      // Altered beast reference
+(FRASE) { PORTUGUESE,  6, "RISE FROM YOUR GRAVE!" },                                                      // Altered beast reference
 (FRASE) { PORTUGUESE,  6, "Olhe atrás de você, um macaco de três cabeças!" },                                    // Monkey Island 2 reference
 (FRASE) { PORTUGUESE,  6, "É uma banana no seu bolso ou está só feliz de me ver?" },  // Monkey Island 2 reference
 (FRASE) { PORTUGUESE,  6, "Scotty, nós precisamos de mais força!" },                                                        // Star trek reference
 (FRASE) { PORTUGUESE,  6, "Quantos Klingons são necessários para se trocar uma lâmpada?" },                    // Joke, Star trek reference
 (FRASE) { PORTUGUESE,  6, "Você conhece aquela piada que diz...?" },                                       // Eugenio LoL
 (FRASE) { PORTUGUESE,  6, "Vá para o castelo de Kbrah." },                                                                 //
-(FRASE) { PORTUGUESE,  6, "Vamos lá! Eu não o dia todo para esperar." },                                                     //
+(FRASE) { PORTUGUESE,  6, "Vamos lá! Eu não tenho o dia todo para esperar." },                                                     //
 (FRASE) { PORTUGUESE,  6, "Você já não bisbilhotou o suficiente?" },                                                       //Yo usaria: Didn't you nose around enough?
 //
 
@@ -83,7 +83,7 @@
 (FRASE) { PORTUGUESE, 14, "Droga! |WAIT Fale sobre isso para alguém e eu te mato." },
 
 // final 1
-(FRASE) { PORTUGUESE, 15, "Kbrah, sua besta pestilenta. |WAIT Me devolva o Porrón Sagrado, eu sei que você está com ele." },
+(FRASE) { PORTUGUESE, 15, "ãÃ Kbrah, sua besta pestilenta. |WAIT Me devolva o Porrón Sagrado, eu sei que você está com ele." },
 (FRASE) { PORTUGUESE, 15, "Você realmente veio atrás dessa bugiganga? |WAIT Aqui está você, eu não gostava disso mesmo..." },
 (FRASE) { PORTUGUESE, 15, "Aah! |WAIT Que criança mais fofa, papi. |WAIT Posso ficar com ele?" },
 (FRASE) { PORTUGUESE, 15, "De jeito nenhum! |WAIT Eu te mimei demais para aceitar um cavaleiro fracos. |WCLEAR:180 Ele está indo embora de qualquer forma, não é?" },
@@ -154,23 +154,23 @@
 (FRASE) { PORTUGUESE, 23, "Pense duas vezes antes de se" },
 (FRASE) { PORTUGUESE, 23, "mexer." },
 
-(FRASE) { PORTUGUESE, 23, "Aperte o botão C para" },
-(FRASE) { PORTUGUESE, 23, "desfazer uma ação." },
+(FRASE) { PORTUGUESE, 23, "Aperte o botão C para desfazer" },
+(FRASE) { PORTUGUESE, 23, "uma ação." },
 
 (FRASE) { PORTUGUESE, 23, "Se você for paciente você" },
 (FRASE) { PORTUGUESE, 23, "poderá conseguir VOLTAR ações" },
 
-(FRASE) { PORTUGUESE, 23, "Se você cair, queimar ou se" },       // <--------------- TOO LARGE
-(FRASE) { PORTUGUESE, 23, "afogar você vai perder um VOLTAR." }, // <--------------- TOO LARGE
+(FRASE) { PORTUGUESE, 23, "Caso caia, queime ou se" },       // <--------------- TOO LARGE - 23 characters, now
+(FRASE) { PORTUGUESE, 23, "afogue, você perde um VOLTAR." }, // <--------------- TOO LARGE - 29 characters, now
 
-(FRASE) { PORTUGUESE, 23, "Todas as fases tem pelo menos" },
-(FRASE) { PORTUGUESE, 23, "uma solução." },
+(FRASE) { PORTUGUESE, 23, "Todas as fases tem pelo" },
+(FRASE) { PORTUGUESE, 23, "menos uma solução." },
 
 (FRASE) { PORTUGUESE, 23, "Reinicie o nível, se você" },
 (FRASE) { PORTUGUESE, 23, "precisar." },
 
-(FRASE) { PORTUGUESE, 23, "Aperte o botão B e o direcional" },   // <--------------- TOO LARGE
-(FRASE) { PORTUGUESE, 23, "se você estiver com pressa." },       // <--------------- TOO LARGE
+(FRASE) { PORTUGUESE, 23, "Aperte B e o direcional se" },   // <--------------- TOO LARGE - 23 characters, now
+(FRASE) { PORTUGUESE, 23, "você estiver com pressa." },       // <--------------- TOO LARGE - 27 characters, now
 
 (FRASE) { PORTUGUESE, 23, "Anote seu password com" },
 (FRASE) { PORTUGUESE, 23, "frequência." },
@@ -178,14 +178,14 @@
 (FRASE) { PORTUGUESE, 23, "Você pode jogar qualquer fase" },
 (FRASE) { PORTUGUESE, 23, "novamente após completá-la." },
 
-(FRASE) { PORTUGUESE, 23, "Aperte Start se você precisar" },
-(FRASE) { PORTUGUESE, 23, "ir ao banheiro." },
+(FRASE) { PORTUGUESE, 23, "Aperte Start se você" },
+(FRASE) { PORTUGUESE, 23, "precisar ir ao banheiro." },
 
 (FRASE) { PORTUGUESE, 23, "Alguma irá acontecer se você" },
 (FRASE) { PORTUGUESE, 23, "completar todas as fases." },
 
-(FRASE) { PORTUGUESE, 23, "Se estiver em dúvida, pergunte" },    // <--------------- TOO LARGE
-(FRASE) { PORTUGUESE, 23, "para seu farmacêutico." },            // <--------------- TOO LARGE
+(FRASE) { PORTUGUESE, 23, "Se tiver dúvidas, pergunte" },    // <--------------- TOO LARGE - 26 characters, now
+(FRASE) { PORTUGUESE, 23, "para seu farmacêutico." },            // <--------------- TOO LARGE - Why is this one too large?
 
 (FRASE) { PORTUGUESE, 23, "Griel & Dudeh contam com" },
 (FRASE) { PORTUGUESE, 23, "você, não os decepcione!" },
@@ -196,8 +196,8 @@
 (FRASE) { PORTUGUESE, 23, "Todas suas coisa são nossa." },
 (FRASE) { PORTUGUESE, 23, "" },
 
-(FRASE) { PORTUGUESE, 23, "Só o Porrón Sagrado conseguirá" },  // <--------------- TOO LARGE
-(FRASE) { PORTUGUESE, 23, "deixar o Rei são novamente." },     // <--------------- TOO LARGE
+(FRASE) { PORTUGUESE, 23, "Só o Porrón Sagrado pode" },  // <--------------- TOO LARGE - 24 characters, now
+(FRASE) { PORTUGUESE, 23, "deixar o Rei são novamente." },     // <--------------- TOO LARGE - Why is this one too large?
 
 (FRASE) { PORTUGUESE, 23, "Feito em Marte." },
 (FRASE) { PORTUGUESE, 23, "@2049" },
@@ -245,30 +245,30 @@
 
 
 // HOW TO PLAY // WEAPONS
-(FRASE) { PORTUGUESE, 31, "Staff" }, // 10 chars max
-(FRASE) { PORTUGUESE, 31, "Cross" }, // 10 chars max
-(FRASE) { PORTUGUESE, 31, "Sword" }, // 10 chars max
-(FRASE) { PORTUGUESE, 31, "Key" }, // 10 chars max
+(FRASE) { PORTUGUESE, 31, "Cajado" }, // 10 chars max
+(FRASE) { PORTUGUESE, 31, "Cruz" }, // 10 chars max
+(FRASE) { PORTUGUESE, 31, "Espada" }, // 10 chars max
+(FRASE) { PORTUGUESE, 31, "Chave" }, // 10 chars max
 
 // HOW TO PLAY // ENEMIES
-(FRASE) { PORTUGUESE, 32, "Wildboar" },  // 11 chars max
-(FRASE) { PORTUGUESE, 32, "Toadstool" }, // 11 chars max
-(FRASE) { PORTUGUESE, 32, "Dark Elf" },  // 11 chars max
+(FRASE) { PORTUGUESE, 32, "Javali" },  // 11 chars max
+(FRASE) { PORTUGUESE, 32, "Cogumelo" }, // 11 chars max
+(FRASE) { PORTUGUESE, 32, "Elfo Negro" },  // 11 chars max
 
-(FRASE) { PORTUGUESE, 33, "Walrus" },    // 11 chars max
-(FRASE) { PORTUGUESE, 33, "Eskimo" },    // 11 chars max
+(FRASE) { PORTUGUESE, 33, "Morsa" },    // 11 chars max
+(FRASE) { PORTUGUESE, 33, "Esquimó" },    // 11 chars max
 (FRASE) { PORTUGUESE, 33, "Wampa" },     // 11 chars max
 
-(FRASE) { PORTUGUESE, 34, "Swordman" },  // 11 chars max
-(FRASE) { PORTUGUESE, 34, "Scorpio" },   // 11 chars max
-(FRASE) { PORTUGUESE, 34, "Mommy" },     // 11 chars max
+(FRASE) { PORTUGUESE, 34, "Espadachim" },  // 11 chars max
+(FRASE) { PORTUGUESE, 34, "Escorpião" },   // 11 chars max
+(FRASE) { PORTUGUESE, 34, "Mamãe" },     // 11 chars max
 
-(FRASE) { PORTUGUESE, 35, "Crab" },      // 11 chars max
-(FRASE) { PORTUGUESE, 35, "Pirate" },    // 11 chars max
+(FRASE) { PORTUGUESE, 35, "Caranguejo" },      // 11 chars max
+(FRASE) { PORTUGUESE, 35, "Pirata" },    // 11 chars max
 (FRASE) { PORTUGUESE, 35, "Plesi" },     // 11 chars max
 
-(FRASE) { PORTUGUESE, 36, "Ogre" },      // 11 chars max
-(FRASE) { PORTUGUESE, 36, "Eye" },       // 11 chars max
-(FRASE) { PORTUGUESE, 36, "Demon" },     // 11 chars max
+(FRASE) { PORTUGUESE, 36, "Ogro" },      // 11 chars max
+(FRASE) { PORTUGUESE, 36, "Olho" },       // 11 chars max
+(FRASE) { PORTUGUESE, 36, "Demônio" },     // 11 chars max
 
-(FRASE) { PORTUGUESE, 37, "Door" },      // 11 chars max
+(FRASE) { PORTUGUESE, 37, "Porta" },      // 11 chars max
