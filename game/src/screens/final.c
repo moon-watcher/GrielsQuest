@@ -189,7 +189,7 @@ static void _final_1 ( )
 	_draw_spriteset ( &sets[2], (struct genresSprites*) &os_f1_kbrah_32x32,     2, 2,     320,   0, TILE_ATTR(PAL1,1,0,0) ); // Cara de Kbrah
 	_draw_spriteset ( &sets[3], (struct genresSprites*) &os_f1_griel_1_32x32,   3, 3, griel_x,  56, TILE_ATTR(PAL2,0,0,0) ); // Griel
 	_draw_spriteset ( &sets[4], (struct genresSprites*) &os_f1_kbritah_1_32x32, 2, 4,     320,  24, TILE_ATTR(PAL1,1,0,0) ); // Kbritah
-	_draw_spriteset ( &sets[5], (struct genresSprites*) &os_f1_sombras_1_32x32, 3, 2,     158,  88, TILE_ATTR(PAL3,0,0,0) ); // sombra Kbrah
+//	_draw_spriteset ( &sets[5], (struct genresSprites*) &os_f1_sombras_1_32x32, 3, 2,     158,  88, TILE_ATTR(PAL3,0,0,0) ); // sombra Kbrah
 	_draw_spriteset ( &sets[6], (struct genresSprites*) &os_f1_sombras_2_32x32, 2, 1,     320, 120, TILE_ATTR(PAL3,0,0,0) ); // sombra Kbritah
 	vdpSpriteCache[sprite-1].link = 0;
 

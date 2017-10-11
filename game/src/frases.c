@@ -12,6 +12,7 @@ const static FRASE _list [ ] =
     #include "frases_catalan.txt"
     #include "frases_finnish.txt"
     #include "frases_galego.txt"
+    #include "frases_portuguese.txt"
 
     (FRASE) {  0,  0, "" }, // No quitar
 };
@@ -85,15 +86,17 @@ static void _prepare_string ( u8 *str )
             case 234: _string[j] = 255;  break; // ê
             case 226: _string[j] = 254;  break; // â
             case 194: _string[j] = 253;  break; // Û
-            case 202: _string[j] = 252;  break; // Ô
+            case 212: _string[j] = 252;  break; // Ô
             case 206: _string[j] = 250;  break; // Î
-            case 212: _string[j] = 249;  break; // Ê
+            case 202: _string[j] = 249;  break; // Ê
             case 229: _string[j] = 248;  break; // Â
             case 196: _string[j] = 246;  break; // Ä
             case 228: _string[j] = 247;  break; // ä
             case 214: _string[j] =   4;  break; // Ö
             case 246: _string[j] =   5;  break; // ö
             case 197: _string[j] = 248;  break; // Å
+            case 195: _string[j] = 232;  break; // Ã
+            case 227: _string[j] = 233;  break; // ã
 
 // for ïüõã ÏÜÕÃ ---> portuguese
         }
