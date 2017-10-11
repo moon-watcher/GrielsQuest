@@ -132,9 +132,9 @@
 
 
 
-// ------------------> "Guie Griel em sua busca pelo" <------- // 2 phrases 28 length max each  &  max 20/2 --> 10 phrases
+// ------------------> "Guie Griel em sua busca pelo" <------- // 2 phrases 29 length max each  &  max 20/2 --> 10 phrases
 
-//   (FRASE) { SPANI  23, "-LONGITUDE MÁXIMA DISPONÍVEL-" }, // 28 MAX
+//   (FRASE) { SPANI  23, "-LONGITUDE MÁXIMA DISPONÍVEL-" }, // 29 MAX
 
 (FRASE) { PORTUGUESE, 23, "Guie Griel em sua busca pelo" },
 (FRASE) { PORTUGUESE, 23, "Porrón Sagrado." },
@@ -245,30 +245,30 @@
 
 
 // HOW TO PLAY // WEAPONS
-(FRASE) { PORTUGUESE, 31, "Staff" },
-(FRASE) { PORTUGUESE, 31, "Cross" },
-(FRASE) { PORTUGUESE, 31, "Sword" },
-(FRASE) { PORTUGUESE, 31, "Key" },
+(FRASE) { PORTUGUESE, 31, "Staff" }, // 10 chars max
+(FRASE) { PORTUGUESE, 31, "Cross" }, // 10 chars max
+(FRASE) { PORTUGUESE, 31, "Sword" }, // 10 chars max
+(FRASE) { PORTUGUESE, 31, "Key" }, // 10 chars max
 
 // HOW TO PLAY // ENEMIES
-(FRASE) { PORTUGUESE, 32, "Wildboar" },
-(FRASE) { PORTUGUESE, 32, "Toadstool" },
-(FRASE) { PORTUGUESE, 32, "Dark Elf" },
+(FRASE) { PORTUGUESE, 32, "Wildboar" },  // 11 chars max
+(FRASE) { PORTUGUESE, 32, "Toadstool" }, // 11 chars max
+(FRASE) { PORTUGUESE, 32, "Dark Elf" },  // 11 chars max
 
-(FRASE) { PORTUGUESE, 33, "Walrus" },
-(FRASE) { PORTUGUESE, 33, "Eskimo" },
-(FRASE) { PORTUGUESE, 33, "Wampa" },
+(FRASE) { PORTUGUESE, 33, "Walrus" },    // 11 chars max
+(FRASE) { PORTUGUESE, 33, "Eskimo" },    // 11 chars max
+(FRASE) { PORTUGUESE, 33, "Wampa" },     // 11 chars max
 
-(FRASE) { PORTUGUESE, 34, "Swordman" },
-(FRASE) { PORTUGUESE, 34, "Scorpio" },
-(FRASE) { PORTUGUESE, 34, "Mommy" },
+(FRASE) { PORTUGUESE, 34, "Swordman" },  // 11 chars max
+(FRASE) { PORTUGUESE, 34, "Scorpio" },   // 11 chars max
+(FRASE) { PORTUGUESE, 34, "Mommy" },     // 11 chars max
 
-(FRASE) { PORTUGUESE, 35, "Crab" },
-(FRASE) { PORTUGUESE, 35, "Pirate" },
-(FRASE) { PORTUGUESE, 35, "Plesi" },
+(FRASE) { PORTUGUESE, 35, "Crab" },      // 11 chars max
+(FRASE) { PORTUGUESE, 35, "Pirate" },    // 11 chars max
+(FRASE) { PORTUGUESE, 35, "Plesi" },     // 11 chars max
 
-(FRASE) { PORTUGUESE, 36, "Ogre" },
-(FRASE) { PORTUGUESE, 36, "Eye" },
-(FRASE) { PORTUGUESE, 36, "Demon" },
+(FRASE) { PORTUGUESE, 36, "Ogre" },      // 11 chars max
+(FRASE) { PORTUGUESE, 36, "Eye" },       // 11 chars max
+(FRASE) { PORTUGUESE, 36, "Demon" },     // 11 chars max
 
-(FRASE) { PORTUGUESE, 37, "Door" },
+(FRASE) { PORTUGUESE, 37, "Door" },      // 11 chars max
