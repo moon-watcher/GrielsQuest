@@ -83,7 +83,7 @@
 (FRASE) { PORTUGUESE, 14, "Droga! |WAIT Fale sobre isso para alguém e eu te mato." },
 
 // final 1
-(FRASE) { PORTUGUESE, 15, "ãÃ Kbrah, sua besta pestilenta. |WAIT Me devolva o Porrón Sagrado, eu sei que você está com ele." },
+(FRASE) { PORTUGUESE, 15, "Kbrah, sua besta pestilenta. |WAIT Me devolva o Porrón Sagrado, eu sei que você está com ele." },
 (FRASE) { PORTUGUESE, 15, "Você realmente veio atrás dessa bugiganga? |WAIT Aqui está você, eu não gostava disso mesmo..." },
 (FRASE) { PORTUGUESE, 15, "Aah! |WAIT Que criança mais fofa, papi. |WAIT Posso ficar com ele?" },
 (FRASE) { PORTUGUESE, 15, "De jeito nenhum! |WAIT Eu te mimei demais para aceitar um cavaleiro fracos. |WCLEAR:180 Ele está indo embora de qualquer forma, não é?" },

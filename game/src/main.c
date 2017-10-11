@@ -599,7 +599,7 @@ void jap()
 int main ( )
 {
     //jap();
-    dev_init ( 2 );
+    dev_init ( 0 );
 
     JoyReader_init ( 1 );
     monos();
