@@ -154,8 +154,8 @@
 (FRASE) { PORTUGUESE, 23, "Pense duas vezes antes de se" },
 (FRASE) { PORTUGUESE, 23, "mexer." },
 
-(FRASE) { PORTUGUESE, 23, "Aperte o botão C para desfazer" },
-(FRASE) { PORTUGUESE, 23, "uma ação." },
+(FRASE) { PORTUGUESE, 23, "Aperte o botão C para" },
+(FRASE) { PORTUGUESE, 23, "desfazer uma ação." },
 
 (FRASE) { PORTUGUESE, 23, "Se você for paciente você" },
 (FRASE) { PORTUGUESE, 23, "poderá conseguir VOLTAR ações" },
