@@ -78,7 +78,7 @@
 
 // door option 3
 (FRASE) { PORTUGUESE, 14, "Você achou as Moedas Lendárias. Elas tem ótima aparência! |WAIT Por quê você fez isso?" },
-(FRASE) { PORTUGUESE, 14, "Para abrir a porta, eu vim para acertar as contas com Kbrah..." },
+(FRASE) { PORTUGUESE, 14, "Para abrir a porta. Eu vim para acertar as contas com Kbrah..." },
 (FRASE) { PORTUGUESE, 14, "Tanto esforço desperdiçado... |WAIT:60 você poderia ter tocado a campanha, idiota! HA, HA!" },
 (FRASE) { PORTUGUESE, 14, "Droga! |WAIT Fale sobre isso para alguém e eu te mato." },
 
