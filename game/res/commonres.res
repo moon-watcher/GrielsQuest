@@ -18,3 +18,10 @@ IMAGE screen_publisher_00               "../data/common/publisher/00.bmp"       
 
 IMAGE wtf_is_a_porron                   "../data/common/wtf_is_a_porron.bmp"               0
 
+
+
+IMAGE logo_1985_bg  "../data/common/publisher/1985_logo_bg.bmp"  0
+IMAGE logo_1985_1   "../data/common/publisher/1985_logo_1.bmp"   0
+IMAGE logo_1985_2   "../data/common/publisher/1985_logo_2.bmp"   0
+IMAGE logo_1985_3   "../data/common/publisher/1985_logo_3.bmp"   0
+IMAGE logo_1985_4   "../data/common/publisher/1985_logo_4.bmp"   0
