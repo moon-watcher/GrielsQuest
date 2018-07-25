@@ -150,6 +150,7 @@ static void resetNumbers ( )
 
 void screen_publisher ( )
 {
+
     if ( DEV > 1 ) return;
 
 	displayOff(0);

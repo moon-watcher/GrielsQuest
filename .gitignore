@@ -7,8 +7,8 @@ Desktop.ini
 
 # Recycle Bin used on file shares
 $RECYCLE.BIN/
-game/data/
-sgdk/
+#game/data/
+#sgdk/
 out/
 videos/
 roms/

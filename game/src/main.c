@@ -634,7 +634,7 @@ int main ( )
 
 
     screen_disclaimer ( 1 );
-    //screen_sega ( );
+    screen_sega ( );
     screen_publisher ( );
     screen_oooklab ( );
     screen_languages();
