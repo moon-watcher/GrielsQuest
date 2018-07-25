@@ -150,6 +150,7 @@ static void resetNumbers ( )
 
 void screen_publisher ( )
 {
+    return; // will not show except for the 1985 Alternativo physical release
 
     if ( DEV > 1 ) return;
 
