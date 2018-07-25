@@ -67,12 +67,15 @@
   SPECIAL THANKS TO
  --------------------------------------------------------------------------------------------------------------------------------
 
- @GRAPHICS                  => Dani Nevado                    | Twitter: @@DanySnowyman      | Mail:                     |Notes:
+ @GRAPHICS                  => Dani Nevado                    | Twitter: @DanySnowyman      | Mail:                     |Notes:
+ 
  @MUSIC                     => David Sánchez                  | Twitter: @DavidBonus        | Mail:                     |Notes:
+ 
  @SFX                       => David Sánchez                  | Twitter: @DavidBonus        | Mail:                     |Notes:
  
-
-
+ 
+ 
+ 
  @ENGLISH-TRANSLATION       => Felipe Monge Corbalán          | Twitter: @vakapp            | Mail:                     |Notes:
  
  @ITALIAN-TRANSLATION       => DaRkHoRaCe                     | Twitter: @oongamoonga       | Mail:                     |Notes:
