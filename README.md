@@ -51,10 +51,15 @@
  Original game by Karoshi Corporation, released for MSX, CHECK OUT THIS! [http://karoshi.auic.es/]
 
  @CODE:                     =>  Mun                           | Twitter: @MoonWatcherMD     | Mail:                     |Notes: do you like puzzles? Try Poplis for Gamegear
+ 
  @PROJECT:                  =>  #GrielsQuestMD
+ 
  @START-DATE:               =>  20130509
- @LAST-UPDATE:              =>  20170803
+ 
+ @LAST-UPDATE:              =>  20180725
+ 
  @LIB:                      =>  SGDK (v1.22a) by Stephane Dallongeville
+ 
 
 
 
@@ -62,28 +67,48 @@
   SPECIAL THANKS TO
  --------------------------------------------------------------------------------------------------------------------------------
 
- @GRAPHICS                  => Dani Nevado                    | Twitter: @DanySnowyman      | Mail:                     |Notes:
+ @GRAPHICS                  => Dani Nevado                    | Twitter: @@DanySnowyman      | Mail:                     |Notes:
  @MUSIC                     => David Sánchez                  | Twitter: @DavidBonus        | Mail:                     |Notes:
  @SFX                       => David Sánchez                  | Twitter: @DavidBonus        | Mail:                     |Notes:
+ 
+
 
  @ENGLISH-TRANSLATION       => Felipe Monge Corbalán          | Twitter: @vakapp            | Mail:                     |Notes:
+ 
  @ITALIAN-TRANSLATION       => DaRkHoRaCe                     | Twitter: @oongamoonga       | Mail:                     |Notes:
+ 
  @FRENCH-TRANSLATION        => KanedaFr                       | Twitter: @SpritesMind      ‏ | Mail:                     |Notes:
+ 
  @CATALAN-TRANSLATION       => Jordi Montornés Solé           | Twitter: @jordimontornes   ‏ | Mail:                     |Notes:
+ 
  @FINNISH-TRANSLATION       => Natsumi                        | Twitter:                    | Mail:                     |Notes:
+ 
  @GALEGO-TRANSLATION        => Paspallas                      | Twitter: @PaspallasDev      | Mail:                     |Notes:
+ 
  @BR-PORTUGUESE-TRANSLATION => Thiago F. Alves                | Twitter:                    | Mail:                     |Notes:
+ 
 //         @ESPERANTO-TRANSLATION     => teaduckie                      | Twitter:                    | Mail:                     |Notes:
+
 //         @INTERLINGUA-TRANSLATION   => teaduckie                      | Twitter:                    | Mail:                     |Notes:
 
+
+
  @BETA-TESING               => Alfonso Martínez               | Twitter: @_SrPresley_       | Mail:                     |Notes:
+ 
+
 
  @SPECIAL-THANKS-TO         => Bruce Rodríguez                | Twitter: @emigrantebruce    | Mail:                     |Notes:
+ 
  @SPECIAL-THANKS-TO         => Eduardo Robsy                  | Twitter: @EduRobsy    ‏      | Mail:                     |Notes:
+ 
  @SPECIAL-THANKS-TO         => Jon Cortazar                   | Twitter: @Jon_Cortazar   ‏   | Mail:                     |Notes: #DietaTorreznos
+ 
+ 
 
  @ENGLISH-REVIEWER          => Clare Eddleston                | Twitter:                 ‏   | Mail:                     |Notes:
+ 
  @ENGLISH-REVIEWER          => Xavier Bravo                   | Twitter:                 ‏   | Mail:                     |Notes:
+ 
 
 
 
@@ -92,8 +117,11 @@
  --------------------------------------------------------------------------------------------------------------------------------
 
  @ILLUSTRATIONS             => Dani Nevado                    | Twitter: @DanySnowyman      | Mail:                     |Notes:
+ 
  @COVER                     => Dani Nevado                    | Twitter: @DanySnowyman      | Mail:                     |Notes:
+ 
  @INSTRUCTION-MANUAL        => Alfonso Martínez               | Twitter: @_SrPresley_       | Mail:                     |Notes:
+ 
 
 
 
@@ -123,9 +151,9 @@
  --------------------------------------------------------------------------------------------------------------------------------
   CHANGELOG
  --------------------------------------------------------------------------------------------------------------------------------
- 19-04-2017 » First release
- 03-08-2017 » Works stunning on real hard
- 25-07-2018 » Free and public release
+ - 19-04-2017 » First release
+ - 03-08-2017 » Works stunning on real hard
+ - 25-07-2018 » Free and public release
  --------------------------------------------------------------------------------------------------------------------------------
 
 
