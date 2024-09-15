@@ -1,5 +1,5 @@
 #include"../inc/include.h"
-
+#include "../../res/world2res.h"
 
 const LEVEL w2r00 =
 {

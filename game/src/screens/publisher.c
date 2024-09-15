@@ -157,7 +157,7 @@ void screen_publisher ( )
 	displayOff(0);
 
 	VDP_setScreenWidth320();
-	VDP_setPlanSize ( 64, 32 );
+	VDP_setPlaneSize ( 64, 32, false );
 
 	vram_init ( VRAM_DEFAULT );
 
@@ -165,11 +165,11 @@ void screen_publisher ( )
 	resetScreen();
 
 
-	VDP_drawImageEx( PLAN_B, &logo_1985_bg, TILE_ATTR_FULL ( PAL0, 0, 0, 0,  16 ), 12,  8, 0, 0 );
-    VDP_drawImageEx( PLAN_A, &logo_1985_1,  TILE_ATTR_FULL ( PAL0, 0, 0, 0, 100 ), 12,  9, 0, 0 );
-    VDP_drawImageEx( PLAN_A, &logo_1985_2,  TILE_ATTR_FULL ( PAL1, 0, 0, 0, 150 ), 16,  9, 0, 0 );
-    VDP_drawImageEx( PLAN_A, &logo_1985_3,  TILE_ATTR_FULL ( PAL2, 0, 0, 0, 200 ), 20,  9, 0, 0 );
-    VDP_drawImageEx( PLAN_A, &logo_1985_4,  TILE_ATTR_FULL ( PAL3, 0, 0, 0, 250 ), 24,  9, 0, 0 );
+	VDP_drawImageEx( BG_B, &logo_1985_bg, TILE_ATTR_FULL ( PAL0, 0, 0, 0,  16 ), 12,  8, 0, 0 );
+    VDP_drawImageEx( BG_A, &logo_1985_1,  TILE_ATTR_FULL ( PAL0, 0, 0, 0, 100 ), 12,  9, 0, 0 );
+    VDP_drawImageEx( BG_A, &logo_1985_2,  TILE_ATTR_FULL ( PAL1, 0, 0, 0, 150 ), 16,  9, 0, 0 );
+    VDP_drawImageEx( BG_A, &logo_1985_3,  TILE_ATTR_FULL ( PAL2, 0, 0, 0, 200 ), 20,  9, 0, 0 );
+    VDP_drawImageEx( BG_A, &logo_1985_4,  TILE_ATTR_FULL ( PAL3, 0, 0, 0, 250 ), 24,  9, 0, 0 );
 
     preparePal ( PAL0, logo_1985_bg.palette->data );
     preparePal ( PAL1, logo_1985_2.palette->data );
@@ -222,7 +222,7 @@ void screen_publisher ( )
 //	displayOff(0);
 //
 //	VDP_setScreenWidth320();
-//	VDP_setPlanSize ( 64, 32 );
+//	VDP_setPlaneSize ( 64, 32 );
 //
 ////	palette_init();
 //	vram_init ( VRAM_DEFAULT );
@@ -261,7 +261,7 @@ void screen_publisher ( )
 //
 //		SYS_disableInts();
 //		preparePal ( PAL1, images[i]->palette->data );
-//		VDP_setMap ( PLAN_A, images[i]->map,TILE_ATTR_FULL ( PAL1, 0, 0, 0, vram_pos[i] ), x, y );
+//		VDP_setMap ( BG_A, images[i]->tilemap,TILE_ATTR_FULL ( PAL1, 0, 0, 0, vram_pos[i] ), x, y );
 //		SYS_enableInts();
 //	}
 //

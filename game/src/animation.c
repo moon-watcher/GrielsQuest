@@ -1,5 +1,5 @@
 #include "../inc/include.h"
-
+#include "../inc/genres_externs.h"
 
 #define GRS    (struct genresSprites*)&
 
@@ -21,6 +21,17 @@
 #define WAF  250
 #define WAG   37
 
+
+	u8                    name[16];
+	struct genresSprites *res;
+	u16                   pal;
+	u8                    frames;
+
+	struct {
+      u8 pos;
+      u8 timer;
+   	}
+   	frame [ MAX_FRAMES ];
 
 
 static const ANIMATION _list [ ] =
@@ -455,12 +466,12 @@ void animation_set_raw ( )
 #define DO_GFX_STUFF                                                               \
 {                                                                                  \
     SYS_disableInts();                                                             \
-    *plctrl = GFX_WRITE_VRAM_ADDR ( plane_dir + ( ( j + planWidth * i ) << 1 ) );  \
+    *plctrl = VDP_WRITE_VRAM_ADDR ( plane_dir + ( ( j + planeWidth * i ) << 1 ) );  \
     *pwdata = TILE_ATTR_FULL ( palette, prioridad, flip_v, flip_h, tile++ );       \
     SYS_enableInts();                                                              \
 }
 
-void animation_draw ( u16 ani, u8 x, u8 y, bool absolutepos, VDPPlan plan, s16 prioridad, u16 flip_h, u16 flip_v, u8 width, u8 height )
+void animation_draw ( u16 ani, u8 x, u8 y, bool absolutepos, VDPPlane plan, s16 prioridad, u16 flip_h, u16 flip_v, u8 width, u8 height )
 {
 	bool notraw = !_is_raw;
 	_is_raw = false;
@@ -534,10 +545,10 @@ void animation_draw ( u16 ani, u8 x, u8 y, bool absolutepos, VDPPlan plan, s16 p
 			prioridad = object_is_over ( ani ) ? 1 : 0;
 		}
 
-		u16 plane_dir = ( plan.value == PLAN_B.value ) ? VDP_PLAN_B : VDP_PLAN_A;
+		u16 plane_dir = ( plan == BG_B ) ? VDP_BG_B : VDP_BG_A;
 
-		vu32 *plctrl = (u32 *) GFX_CTRL_PORT;
-		vu16 *pwdata = (u16 *) GFX_DATA_PORT;
+		vu32 *plctrl = (u32 *) VDP_CTRL_PORT;
+		vu16 *pwdata = (u16 *) VDP_DATA_PORT;
 		//
 		//
 

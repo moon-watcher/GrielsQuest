@@ -1,3 +1,5 @@
+#pragma once
+
 #ifndef _VOBJECT_H_
 #define _VOBJECT_H_
 

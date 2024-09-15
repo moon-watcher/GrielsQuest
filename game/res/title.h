@@ -1,5 +1,5 @@
-#ifndef _GAME_RES_TITLE_H_
-#define _GAME_RES_TITLE_H_
+#ifndef _RES_TITLE_H_
+#define _RES_TITLE_H_
 
 extern const Image ob_title_griel;
 extern const Image ob_title_kbrah;
@@ -10,4 +10,4 @@ extern const Image ob_title_subtitle;
 extern const Image ob_title_press_start;
 extern const Image ob_title_monos_mi;
 
-#endif // _GAME_RES_TITLE_H_
+#endif // _RES_TITLE_H_

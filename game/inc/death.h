@@ -1,3 +1,5 @@
+#pragma once
+
 #define DEATH_MAX     ASYNCOBJ9 - ASYNCOBJ0 + 1
 
 

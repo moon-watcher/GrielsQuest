@@ -1,3 +1,5 @@
+#pragma once
+
 #ifndef _JOYREADER_H_
 #define _JOYREADER_H_
 

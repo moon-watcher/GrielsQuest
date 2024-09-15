@@ -1,5 +1,5 @@
 #include "../inc/include.h"
-
+#include "../inc/genres_externs.h"
 
 static LEVEL wl;
 
@@ -48,7 +48,7 @@ static void _init ( )
 	voffset_horizontal = VOFFSET_HORIZONTAL;
 	voffset_vertical   = VOFFSET_VERTICAL;
 
-	VDP_setPlanSize ( 64, 32 );
+	VDP_setPlaneSize ( 64, 32, false );
 
 	font_init ( );
 	sd_init();
@@ -107,8 +107,8 @@ LEVEL *game_get_wl ( )
 
 void game_level_inc ( )
 {
-	// sólo incrementa el round si se ha
-	// completado el útlimo nivel disponible
+	// sï¿½lo incrementa el round si se ha
+	// completado el ï¿½tlimo nivel disponible
 
 	if ( gamestate.current_round == gamestate.ambientes [ (u8) gamestate.current_ambiente ] )
 	{
@@ -326,7 +326,7 @@ void game_loop()
 					screen_intro ( 5 ) ;
 				}
 
-				// Muestra la puerta del ambiente volcán
+				// Muestra la puerta del ambiente volcï¿½n
 				if ( to == SCREEN_JUMP_TO_PUERTA )
 				{
 					to = screen_puerta();

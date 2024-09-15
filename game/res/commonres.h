@@ -1,5 +1,5 @@
-#ifndef _GAME_RES_COMMONRES_H_
-#define _GAME_RES_COMMONRES_H_
+#ifndef _RES_COMMONRES_H_
+#define _RES_COMMONRES_H_
 
 extern const Image cb_languages;
 extern const Image cb_ui;
@@ -17,4 +17,4 @@ extern const Image logo_1985_2;
 extern const Image logo_1985_3;
 extern const Image logo_1985_4;
 
-#endif // _GAME_RES_COMMONRES_H_
+#endif // _RES_COMMONRES_H_

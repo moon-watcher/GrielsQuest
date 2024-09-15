@@ -1,5 +1,5 @@
-#ifndef _GAME_RES_INTRO_H_
-#define _GAME_RES_INTRO_H_
+#ifndef _RES_INTRO_H_
+#define _RES_INTRO_H_
 
 extern const Image ob_intro_1_a;
 extern const Image ob_intro_1_b;
@@ -11,4 +11,4 @@ extern const Image ob_intro_3_b;
 extern const Image ob_intro_4_a;
 extern const Image ob_intro_4_b;
 
-#endif // _GAME_RES_INTRO_H_
+#endif // _RES_INTRO_H_

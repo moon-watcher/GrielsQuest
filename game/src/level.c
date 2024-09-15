@@ -1,8 +1,5 @@
-#include <genesis.h>
-#include <genres.h>
-
 #include "../inc/include.h"
-
+#include "../inc/genres_externs.h"
 
 #define FIRST_SPRITE_BASE  0
 
@@ -102,16 +99,16 @@ static void _draw_marcador ()
 	SYS_enableInts();
 
 	SYS_disableInts();
-	VDP_setMapEx ( PLAN_A,cb_ui.map, TILE_ATTR_FULL(PAL1, true, false, false, _vram_pos[1]),  4,  0,  2,  0,  17,  5 );
+	VDP_setMapEx ( BG_A,cb_ui.tilemap, TILE_ATTR_FULL(PAL1, true, false, false, _vram_pos[1]),  4,  0,  2,  0,  17,  5 );
 	SYS_enableInts();
 
 	vsprite_set ( splist_ui_left_1, 16,  0, UI_LEFT_1 );
 	vsprite_set ( splist_ui_left_2, 16, 24, UI_LEFT_2 );
 
-	VDP_setSpritePriority ( splist_ui_weapon, 1 );
-	VDP_setSpritePriority ( splist_ui_enemy,  1 );
-	VDP_setSpritePriority ( splist_ui_left_1, 1 );
-	VDP_setSpritePriority ( splist_ui_left_2, 1 );
+	VDP_setSpritePriorityGQ ( splist_ui_weapon, 1 );
+	VDP_setSpritePriorityGQ ( splist_ui_enemy,  1 );
+	VDP_setSpritePriorityGQ ( splist_ui_left_1, 1 );
+	VDP_setSpritePriorityGQ ( splist_ui_left_2, 1 );
 
 	VDP_updateSprites(80,1);
 }
@@ -130,7 +127,7 @@ static LEVEL _reorder_level ( LEVEL *level )
 
 	if ( _flip_h )
 	{
-		memsetU16 ( flipped_h, MAX_U16, MAX_ANIMATIONS );
+		memset ( flipped_h, 0, MAX_ANIMATIONS );
 
 		flipped_h [ LEFT1       ] = RIGHT1;
 		flipped_h [ RIGHT1      ] = LEFT1;
@@ -168,7 +165,7 @@ static LEVEL _reorder_level ( LEVEL *level )
 
 	if ( _flip_v )
 	{
-		memsetU16 ( flipped_v, MAX_U16, MAX_ANIMATIONS );
+		memset ( flipped_v, 0, MAX_ANIMATIONS );
 
 		flipped_v [ UP1         ] = DOWN1;
 		flipped_v [ DOWN1       ] = UP1;
@@ -310,7 +307,7 @@ void level_draw ( LEVEL *level )
 	_vram_pos[1] = vram_new ( cb_ui.tileset->numTile );
 
 
-	VDP_drawImageEx ( PLAN_B, level->background, TILE_ATTR_FULL(PAL0, false, false, false, _vram_pos[0]), 0, 0, false, 0 );
+	VDP_drawImageEx ( BG_B, level->background, TILE_ATTR_FULL(PAL0, false, false, false, _vram_pos[0]), 0, 0, false, 0 );
 
 	//level_draw_linedown  ( level );
 	level_draw_ambiente_0 ( );
@@ -350,7 +347,7 @@ void level_draw ( LEVEL *level )
 			u16 tile = 800;
 
 			VDP_loadTileData ( cb_poyete.tiles, tile, cb_poyete.width * cb_poyete.height, 0 );
-			VDP_fillTileMapRectInc ( PLAN_A, TILE_ATTR_FULL ( PAL3, 0, 0, 0, tile ), 12, 7, cb_poyete.width, cb_poyete.height );
+			VDP_fillTileMapRectInc ( BG_A, TILE_ATTR_FULL ( PAL3, 0, 0, 0, tile ), 12, 7, cb_poyete.width, cb_poyete.height );
 			preparePal ( PAL2, cs_monedon_16x24.pal );
 			preparePal ( PAL3, cb_poyete.pal );
 		}
@@ -381,7 +378,7 @@ void level_actualizar_marcador ( )
 	}
 
 	vsprite_set ( splist_ui_key, x, y, key );
-	VDP_setSpritePriority ( splist_ui_key, 1 );
+	VDP_setSpritePriorityGQ ( splist_ui_key, 1 );
 
 	s16 un = undo_rest ( 0 );
 
@@ -392,7 +389,7 @@ void level_actualizar_marcador ( )
 
 	const u16 pos_y [ 4 ] = { 11, 8, 5, 1 };
 	SYS_disableInts();
-	VDP_setMapEx ( PLAN_A, cb_ui.map, TILE_ATTR_FULL(PAL1, false, false, false, _vram_pos[1]), 9, 1, 7, pos_y [ (u16) un ], 8, 3 );
+	VDP_setMapEx ( BG_A, cb_ui.tilemap, TILE_ATTR_FULL(PAL1, false, false, false, _vram_pos[1]), 9, 1, 7, pos_y [ (u16) un ], 8, 3 );
     SYS_enableInts();
 }
 
@@ -418,7 +415,7 @@ void level_draw_area ( LEVEL *level, u8 x, u8 y, u8 width, u8 height )
 				 if ( !_pal2 && animation_get(obj)->pal == PAL2 ) _pal2 = obj;
 			else if ( !_pal3 && animation_get(obj)->pal == PAL3 ) _pal3 = obj;
 
-			animation_draw ( obj, j, i, false, PLAN_A, -1, 0, 0, _force_width, _force_height );
+			animation_draw ( obj, j, i, false, BG_A, -1, 0, 0, _force_width, _force_height );
 		}
 	}
 }
@@ -470,9 +467,9 @@ void level_set_key ( u16 x, u16 y )
 }
 
 
-u16 level_vram_pos ( VDPPlan plan )
+u16 level_vram_pos ( VDPPlane plan )
 {
-	return _vram_pos [ plan.value == PLAN_B.value ? 0 : 1 ] ;
+	return _vram_pos [ plan == BG_B ? 0 : 1 ] ;
 }
 
 
@@ -501,7 +498,7 @@ void level_update ( )
 {
 	if ( gamestate.current_ambiente == 4 )
 	{
-		_vscroll = fix16Sub ( _vscroll, 2.3 );
+		_vscroll -= FIX16(2.3);
 
 		s16 values[20] = { };
 		s16 value = fix16ToInt ( _vscroll );
@@ -509,7 +506,7 @@ void level_update ( )
 		values[0]  = values[1]  = +value; // baja
 		values[18] = values[19] = -value; // sube
 
-		VDP_setVerticalScrollTile(PLAN_A, 0, values, 20, 0 );
+		VDP_setVerticalScrollTile(BG_A, 0, values, 20, 0 );
 	}
 }
 
@@ -695,8 +692,8 @@ void level_draw_ambiente_3 ( )
 
 		for ( i=0; i<4; i++ )
 		{
-			VDP_setTileMapXY ( PLAN_B, TILE_ATTR_FULL ( PAL0, 0, 0, 0, pos++ ), x + i, y + 0 );
-			VDP_setTileMapXY ( PLAN_B, TILE_ATTR_FULL ( PAL0, 0, 0, 0, pos++ ), x + i, y + 1 );
+			VDP_setTileMapXY ( BG_B, TILE_ATTR_FULL ( PAL0, 0, 0, 0, pos++ ), x + i, y + 0 );
+			VDP_setTileMapXY ( BG_B, TILE_ATTR_FULL ( PAL0, 0, 0, 0, pos++ ), x + i, y + 1 );
 		}
 	}
 
@@ -713,41 +710,42 @@ void level_draw_ambiente_4 ( )
 
 	SYS_disableInts();
 
-	VDP_setScrollingMode ( HSCROLL_PLANE, VSCROLL_2TILE );
+	// VDP_setScrollingMode ( HSCROLL_PLANE, VSCROLL_2TILE );
+	VDP_setScrollingMode ( HSCROLL_PLANE, VSCROLL_COLUMN );
 
-	VDP_setMapEx ( PLAN_B, level_get()->background->map, TILE_ATTR_FULL(PAL0, true, 0, 0, level_vram_pos(PLAN_B)),  0, 0,  0, 0, 4, 28 );
-	VDP_setMapEx ( PLAN_B, level_get()->background->map, TILE_ATTR_FULL(PAL0, true, 0, 0, level_vram_pos(PLAN_B)), 36, 0, 36, 0, 4, 28 );
+	VDP_setMapEx ( BG_B, level_get()->background->tilemap, TILE_ATTR_FULL(PAL0, true, 0, 0, level_vram_pos(BG_B)),  0, 0,  0, 0, 4, 28 );
+	VDP_setMapEx ( BG_B, level_get()->background->tilemap, TILE_ATTR_FULL(PAL0, true, 0, 0, level_vram_pos(BG_B)), 36, 0, 36, 0, 4, 28 );
 
-	animation_draw ( LAVA1,  0,  0, true, PLAN_A, false, 0, 0, 3, 4 );
-	animation_draw ( LAVA2,  0,  4, true, PLAN_A, false, 0, 0, 3, 4 );
-	animation_draw ( LAVA1,  0,  8, true, PLAN_A, false, 0, 0, 3, 4 );
-	animation_draw ( LAVA2,  0, 12, true, PLAN_A, false, 0, 0, 3, 4 );
-	animation_draw ( LAVA1,  0, 16, true, PLAN_A, false, 0, 0, 3, 4 );
-	animation_draw ( LAVA2,  0, 20, true, PLAN_A, false, 0, 0, 3, 4 );
-	animation_draw ( LAVA1,  0, 24, true, PLAN_A, false, 0, 0, 3, 4 );
-	animation_draw ( LAVA2,  0, 28, true, PLAN_A, false, 0, 0, 3, 4 );
-
-
-	animation_draw ( LAVA2, 37,  0, true, PLAN_A, false, 1, 1, 3, 4 );
-	animation_draw ( LAVA1, 37,  4, true, PLAN_A, false, 1, 1, 3, 4 );
-	animation_draw ( LAVA2, 37,  8, true, PLAN_A, false, 1, 1, 3, 4 );
-	animation_draw ( LAVA1, 37, 12, true, PLAN_A, false, 1, 1, 3, 4 );
-	animation_draw ( LAVA2, 37, 16, true, PLAN_A, false, 1, 1, 3, 4 );
-	animation_draw ( LAVA1, 37, 20, true, PLAN_A, false, 1, 1, 3, 4 );
-	animation_draw ( LAVA2, 37, 24, true, PLAN_A, false, 1, 1, 3, 4 );
-	animation_draw ( LAVA1, 37, 28, true, PLAN_A, false, 1, 1, 3, 4 );
+	animation_draw ( LAVA1,  0,  0, true, BG_A, false, 0, 0, 3, 4 );
+	animation_draw ( LAVA2,  0,  4, true, BG_A, false, 0, 0, 3, 4 );
+	animation_draw ( LAVA1,  0,  8, true, BG_A, false, 0, 0, 3, 4 );
+	animation_draw ( LAVA2,  0, 12, true, BG_A, false, 0, 0, 3, 4 );
+	animation_draw ( LAVA1,  0, 16, true, BG_A, false, 0, 0, 3, 4 );
+	animation_draw ( LAVA2,  0, 20, true, BG_A, false, 0, 0, 3, 4 );
+	animation_draw ( LAVA1,  0, 24, true, BG_A, false, 0, 0, 3, 4 );
+	animation_draw ( LAVA2,  0, 28, true, BG_A, false, 0, 0, 3, 4 );
 
 
-	animation_draw ( VENTANA_1,   0,  0, true, PLAN_B, true,  0, 0, 2, 1 );
-	animation_draw ( VENTANA_1,  38,  0, true, PLAN_B, true,  1, 0, 2, 1 );
+	animation_draw ( LAVA2, 37,  0, true, BG_A, false, 1, 1, 3, 4 );
+	animation_draw ( LAVA1, 37,  4, true, BG_A, false, 1, 1, 3, 4 );
+	animation_draw ( LAVA2, 37,  8, true, BG_A, false, 1, 1, 3, 4 );
+	animation_draw ( LAVA1, 37, 12, true, BG_A, false, 1, 1, 3, 4 );
+	animation_draw ( LAVA2, 37, 16, true, BG_A, false, 1, 1, 3, 4 );
+	animation_draw ( LAVA1, 37, 20, true, BG_A, false, 1, 1, 3, 4 );
+	animation_draw ( LAVA2, 37, 24, true, BG_A, false, 1, 1, 3, 4 );
+	animation_draw ( LAVA1, 37, 28, true, BG_A, false, 1, 1, 3, 4 );
 
-	animation_draw ( VENTANA_2,   6,  0, true, PLAN_B, false, 0, 0, 2, 4 );
-	animation_draw ( VENTANA_2,  32,  0, true, PLAN_B, false, 1, 0, 2, 4 );
 
-	animation_draw ( VENTANA_3,  11,  0, true, PLAN_B, false, 0, 0, 3, 4 );
-	animation_draw ( VENTANA_3,  26,  0, true, PLAN_B, false, 1, 0, 3, 4 );
+	animation_draw ( VENTANA_1,   0,  0, true, BG_B, true,  0, 0, 2, 1 );
+	animation_draw ( VENTANA_1,  38,  0, true, BG_B, true,  1, 0, 2, 1 );
 
-	animation_draw ( VENTANA_4,  18,  2, true, PLAN_B, false, 0, 0, 4, 3 );
+	animation_draw ( VENTANA_2,   6,  0, true, BG_B, false, 0, 0, 2, 4 );
+	animation_draw ( VENTANA_2,  32,  0, true, BG_B, false, 1, 0, 2, 4 );
+
+	animation_draw ( VENTANA_3,  11,  0, true, BG_B, false, 0, 0, 3, 4 );
+	animation_draw ( VENTANA_3,  26,  0, true, BG_B, false, 1, 0, 3, 4 );
+
+	animation_draw ( VENTANA_4,  18,  2, true, BG_B, false, 0, 0, 4, 3 );
 
 
 
@@ -821,9 +819,9 @@ void level_presentation()
 
 	u16 *palette = font_getPalette ();
 
-	VDP_setPaletteColor( PAL0+0, palette[0] );
-	VDP_setPaletteColor( PAL0+1, palette[1] );
-	VDP_setPaletteColor( PAL0+2, palette[2] );
+	PAL_setColor( PAL0+0, palette[0] );
+	PAL_setColor( PAL0+1, palette[1] );
+	PAL_setColor( PAL0+2, palette[2] );
 
 	SYS_enableInts();
 
@@ -893,7 +891,7 @@ u16 level_find ( u16 object, LEVEL *level, Vect2D_u16 grid[] )
 
 void level_draw_animation ( u16 ani, u8 x, u8 y )
 {
-	animation_draw ( ani, x, y, false, PLAN_A, -1, 0, 0, _force_width, _force_height );
+	animation_draw ( ani, x, y, false, BG_A, -1, 0, 0, _force_width, _force_height );
 
 	_force_height = 0;
 	_force_width  = 0;

@@ -1,3 +1,5 @@
+#pragma once
+
 void text_init                    ( struct genresSprites *genres, u16 vram, u16 palette );
 void text_reset                   ( );
 void text_draw                    ( u8 *string, u8 x, u8 y, u16 ms );

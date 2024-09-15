@@ -1,3 +1,5 @@
+#pragma once
+
 #define TT_UP
 #define TT_DOWN
 #define TT_LEFT

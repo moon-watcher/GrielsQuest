@@ -1,3 +1,5 @@
+#pragma once
+
 
 #define FRASES_MAX_CHARS 512
 

@@ -1,3 +1,5 @@
+#pragma once
+
 #define MAX_UNDO 3
 
 

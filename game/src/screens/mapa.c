@@ -1,5 +1,6 @@
 #include "../inc/include.h"
 #include "../inc/colores_textos.h"
+#include "../inc/genres_externs.h"
 
 
 #define SIZE        as_rounds_sprites_32x32.size   >> 8
@@ -172,7 +173,7 @@ static void _selector_init ( )
 static void _init ( )
 {
     _tt_init ();
-	index = TILE_USERINDEX;
+	index = TILE_USER_INDEX;
 
 	sprites[0] = index; index += 4;
 	sprites[1] = index; index += 4;
@@ -188,18 +189,18 @@ static void _init ( )
 	resetScreen();
 	resetSprites();
 
-	VDP_drawImageEx ( PLAN_B, &ob_ambiente_b_1, TILE_ATTR_FULL(PAL0, false, FALSE, FALSE, index),  0,  0, false, 0 ); index += ob_ambiente_b_1.tileset->numTile;
-	VDP_drawImageEx ( PLAN_A, &ob_ambiente_a_1, TILE_ATTR_FULL(PAL1, false, FALSE, FALSE, index),  0,  0, false, 0 ); index += ob_ambiente_a_1.tileset->numTile;
+	VDP_drawImageEx ( BG_B, &ob_ambiente_b_1, TILE_ATTR_FULL(PAL0, false, FALSE, FALSE, index),  0,  0, false, 0 ); index += ob_ambiente_b_1.tileset->numTile;
+	VDP_drawImageEx ( BG_A, &ob_ambiente_a_1, TILE_ATTR_FULL(PAL1, false, FALSE, FALSE, index),  0,  0, false, 0 ); index += ob_ambiente_a_1.tileset->numTile;
 
 	index += ob_ambiente_a_2.tileset->numTile;
 
 	VDP_loadTileSet ( ob_ambiente_a_2.tileset, index, 0 );
-	VDP_setMapEx ( PLAN_A, ob_ambiente_a_2.map, TILE_ATTR_FULL(PAL2, false, false, false, index),  0, 18,  0,  0, 40,  2 );
-	VDP_setMapEx ( PLAN_B, ob_ambiente_a_2.map, TILE_ATTR_FULL(PAL2, false, false, false, index), 11, 19, 11,  0, 18,  1 );
-	VDP_setMapEx ( PLAN_A, ob_ambiente_a_2.map, TILE_ATTR_FULL(PAL2, false, false, false, index),  0, 20,  0,  2,  2,  6 );
-	VDP_setMapEx ( PLAN_A, ob_ambiente_a_2.map, TILE_ATTR_FULL(PAL2, false, false, false, index), 38, 20, 38,  2,  2,  6 );
-	VDP_setMapEx ( PLAN_A, ob_ambiente_a_2.map, TILE_ATTR_FULL(PAL2, false, false, false, index),  0, 26,  0,  8, 40,  2 );
-	VDP_setMapEx ( PLAN_B, ob_ambiente_a_2.map, TILE_ATTR_FULL(PAL2, false, false, false, index),  2, 20,  2,  2, 36,  6 );
+	VDP_setMapEx ( BG_A, ob_ambiente_a_2.tilemap, TILE_ATTR_FULL(PAL2, false, false, false, index),  0, 18,  0,  0, 40,  2 );
+	VDP_setMapEx ( BG_B, ob_ambiente_a_2.tilemap, TILE_ATTR_FULL(PAL2, false, false, false, index), 11, 19, 11,  0, 18,  1 );
+	VDP_setMapEx ( BG_A, ob_ambiente_a_2.tilemap, TILE_ATTR_FULL(PAL2, false, false, false, index),  0, 20,  0,  2,  2,  6 );
+	VDP_setMapEx ( BG_A, ob_ambiente_a_2.tilemap, TILE_ATTR_FULL(PAL2, false, false, false, index), 38, 20, 38,  2,  2,  6 );
+	VDP_setMapEx ( BG_A, ob_ambiente_a_2.tilemap, TILE_ATTR_FULL(PAL2, false, false, false, index),  0, 26,  0,  8, 40,  2 );
+	VDP_setMapEx ( BG_B, ob_ambiente_a_2.tilemap, TILE_ATTR_FULL(PAL2, false, false, false, index),  2, 20,  2,  2, 36,  6 );
 
 	index += ob_ambiente_a_2.tileset->numTile;
 
@@ -264,14 +265,14 @@ static void _mostrar_niveles (  )
 
 	// borra el foreground (candados y cuadrados completados)
 	SYS_disableInts();
-	VDP_fillTileMapRect(PLAN_A, 0, 2, 20, 36, 6 );
+	VDP_fillTileMapRect(BG_A, 0, 2, 20, 36, 6 );
 	SYS_enableInts();
 
 	if ( ambiente == 5 )
 	{
-		// borra el fondo (los cuadrados vacíos)
+		// borra el fondo (los cuadrados vacï¿½os)
 		SYS_disableInts();
-		VDP_fillTileMapRect(PLAN_B, 0, 2, 20, 36, 6 );
+		VDP_fillTileMapRect(BG_B, 0, 2, 20, 36, 6 );
 
 
 		vdpSpriteCache [ sprite-1 ].link = 74; //0;
@@ -362,7 +363,7 @@ static void _mostrar_niveles (  )
 			if ( superado == cuantos ) tile = 17 * 4;
 		}
 
-		VDP_setMapEx ( PLAN_A, ob_round_numbers.map, TILE_ATTR_FULL(PAL2, 0, false, false, POS_TILES), x, y, tile, 0, 4, 3 );
+		VDP_setMapEx ( BG_A, ob_round_numbers.tilemap, TILE_ATTR_FULL(PAL2, 0, false, false, POS_TILES), x, y, tile, 0, 4, 3 );
 	}
 
 
@@ -381,7 +382,7 @@ static u16 _loop_niveles ( )
 	psglist_play ( 5 ); // 4,5 seleecionada // 8
 
 
-	// vamos a casa del Nota a que nos dé unos consejos
+	// vamos a casa del Nota a que nos dï¿½ unos consejos
 	if ( ambiente == 5 )
 	{
 		return SCREEN_JUMP_TO_INTRO5;
@@ -420,8 +421,8 @@ static u16 _loop_niveles ( )
 				VDP_updateSprites(80,1);
 
 
-				VDP_clearTileMapRect ( PLAN_A, 2, 20, 36, 6 );
-				VDP_clearTileMapRect ( PLAN_B, 2, 20, 36, 6 );
+				VDP_clearTileMapRect ( BG_A, 2, 20, 36, 6 );
+				VDP_clearTileMapRect ( BG_B, 2, 20, 36, 6 );
 
 				VDP_setTextPalette ( PAL1 );
 

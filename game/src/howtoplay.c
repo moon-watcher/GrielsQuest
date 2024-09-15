@@ -103,23 +103,23 @@ void _draw_content ( u16 i )
 		vobject_reset ( o1 );
 		vobject_reset ( o2 );
 
-		VDP_setPalette ( PAL2, vo2->object->res->pal );
+		PAL_setPalette ( PAL2, vo2->object->res->pal, CPU);
 
 		vobject_update ( );
 		vobject_upload ( );
 
 		SYS_disableInts();
-		VDP_clearTileMapRect ( PLAN_B, 7, 14, 2, 2 );
+		VDP_clearTileMapRect ( BG_B, 7, 14, 2, 2 );
 		SYS_enableInts();
 		animation_set_raw();
-		animation_draw ( o1,  7, 14, true, PLAN_A, 1, 0, 0, 0, 0 );
+		animation_draw ( o1,  7, 14, true, BG_A, 1, 0, 0, 0, 0 );
 		text_write ( frases_find(31,0), 10, 15 );
 
 		SYS_disableInts();
-		VDP_clearTileMapRect ( PLAN_B, 21, 14, 2, 2 );
+		VDP_clearTileMapRect ( BG_B, 21, 14, 2, 2 );
 		SYS_enableInts();
 		animation_set_raw();
-		animation_draw ( o2, 21, 14, true, PLAN_A, 1, 0, 0, 0, 0 );
+		animation_draw ( o2, 21, 14, true, BG_A, 1, 0, 0, 0, 0 );
 		text_write ( frases_find(enemy,0), 24, 15 );
 	}
 	else if ( i == 13 )
@@ -134,17 +134,17 @@ void _draw_content ( u16 i )
 		vobject_upload ( );
 
 		SYS_disableInts();
-		VDP_clearTileMapRect ( PLAN_B, 7, 17, 2, 2 );
+		VDP_clearTileMapRect ( BG_B, 7, 17, 2, 2 );
 		SYS_enableInts();
 		animation_set_raw();
-		animation_draw ( o1, 7 , 17, true, PLAN_A, 1, 0, 0, 0, 0 );
+		animation_draw ( o1, 7 , 17, true, BG_A, 1, 0, 0, 0, 0 );
 		text_write ( frases_find(31,1), 10, 18 );
 
 		SYS_disableInts();
-		VDP_clearTileMapRect ( PLAN_B, 21, 17, 2, 2 );
+		VDP_clearTileMapRect ( BG_B, 21, 17, 2, 2 );
 		SYS_enableInts();
 		animation_set_raw();
-		animation_draw ( o2, 21, 17, true, PLAN_A, 1, 0, 0, 0, 0 );
+		animation_draw ( o2, 21, 17, true, BG_A, 1, 0, 0, 0, 0 );
 		text_write ( frases_find(enemy,1), 24, 18 );
 	}
 	else if ( i == 16 )
@@ -159,17 +159,17 @@ void _draw_content ( u16 i )
 		vobject_upload ( );
 
 		SYS_disableInts();
-		VDP_clearTileMapRect ( PLAN_B,  7, 20, 2, 2 );
+		VDP_clearTileMapRect ( BG_B,  7, 20, 2, 2 );
 		SYS_enableInts();
 		animation_set_raw();
-		animation_draw ( o1,  7, 20, true, PLAN_A, 1, 0, 0, 0, 0 );
+		animation_draw ( o1,  7, 20, true, BG_A, 1, 0, 0, 0, 0 );
 		text_write ( frases_find(31,2), 10, 21 );
 
 		SYS_disableInts();
-		VDP_clearTileMapRect ( PLAN_B, 21, 19, 2, 3 );
+		VDP_clearTileMapRect ( BG_B, 21, 19, 2, 3 );
 		SYS_enableInts();
 		animation_set_raw();
-		animation_draw ( o2, 21, 19, true, PLAN_A, 1, 0, 0, 0, 0 );
+		animation_draw ( o2, 21, 19, true, BG_A, 1, 0, 0, 0, 0 );
 
 		char *str = frases_find(enemy,2);
 
@@ -202,17 +202,17 @@ void _draw_content ( u16 i )
 		vobject_upload ( );
 
 		SYS_disableInts();
-		VDP_clearTileMapRect ( PLAN_B, 7, 22, 2, 3 );
+		VDP_clearTileMapRect ( BG_B, 7, 22, 2, 3 );
 		SYS_enableInts();
 		animation_set_raw();
-		animation_draw ( o1, 7, 22, true, PLAN_A, 1, 0, 0, 0, 0 );
+		animation_draw ( o1, 7, 22, true, BG_A, 1, 0, 0, 0, 0 );
 		text_write ( frases_find(31,3), 10, 24 );
 
 		SYS_disableInts();
-		VDP_clearTileMapRect ( PLAN_B, 21, 22, 2, 3 );
+		VDP_clearTileMapRect ( BG_B, 21, 22, 2, 3 );
 		SYS_enableInts();
 		animation_set_raw();
-		animation_draw ( o2, 21, 22, true, PLAN_A, 1, 0, 0, 0, 0 );
+		animation_draw ( o2, 21, 22, true, BG_A, 1, 0, 0, 0, 0 );
 		text_write ( frases_find(37,0), 24, 24 );
 	}
 }
@@ -353,11 +353,11 @@ static void _restore_important_sprites ( )
 static void _show_line ( u8 line )
 {
     SYS_disableInts();
-	VDP_setMapEx ( PLAN_A, cb_howtoplay.map, TILE_ATTR_FULL ( PAL1, true, false, false, 900 ), 4, line+5, 0, line, 32, 1 );
+	VDP_setMapEx ( BG_A, cb_howtoplay.tilemap, TILE_ATTR_FULL ( PAL1, true, false, false, 900 ), 4, line+5, 0, line, 32, 1 );
 	SYS_enableInts();
 
 	SYS_disableInts();
-	VDP_setMapEx ( PLAN_A, cb_howtoplay.map, TILE_ATTR_FULL ( PAL1, true, false, false, 900 ), 4, line+6, 0,   21, 32, 1 );
+	VDP_setMapEx ( BG_A, cb_howtoplay.tilemap, TILE_ATTR_FULL ( PAL1, true, false, false, 900 ), 4, line+6, 0,   21, 32, 1 );
 	SYS_enableInts();
 }
 
@@ -406,7 +406,7 @@ void htp_marco_enrollar ( LEVEL *wl )
 		if ( i )
 		{
 		    SYS_disableInts();
-			VDP_setMapEx ( PLAN_A, cb_howtoplay.map,TILE_ATTR_FULL(PAL1, true, false, false, 900), 4, i*2+4, 0,  21, 32, 1 );
+			VDP_setMapEx ( BG_A, cb_howtoplay.tilemap,TILE_ATTR_FULL(PAL1, true, false, false, 900), 4, i*2+4, 0,  21, 32, 1 );
 			SYS_enableInts();
 		}
 
@@ -420,7 +420,7 @@ void htp_marco_enrollar ( LEVEL *wl )
 		if ( i < 10 )
 		{
 		    SYS_disableInts();
-			VDP_setMapEx ( PLAN_B, wl->background->map, TILE_ATTR_FULL(PAL0, false, false, false, level_vram_pos ( PLAN_B ) ), 3, i*2+5, 3, i*2+5, 34, 2 );
+			VDP_setMapEx ( BG_B, wl->background->tilemap, TILE_ATTR_FULL(PAL0, false, false, false, level_vram_pos ( BG_B ) ), 3, i*2+5, 3, i*2+5, 34, 2 );
 			SYS_enableInts();
 		}
 

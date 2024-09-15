@@ -4,7 +4,7 @@
 
 #define EOF         '\0'
 #define SPACE        32  // ' '
-#define SOFTBREAK	  172  // '¬' breaks a line (with exceptions)
+#define SOFTBREAK	  172  // 'ï¿½' breaks a line (with exceptions)
 #define HARDBREAK	  126  // '~' breaks a line
 #define NEXT	     124  // '|' new page
 #define SEPARATOR   ':'
@@ -144,9 +144,9 @@ static void _reset_pal ( )
 {
 	if ( tt_info.reset_pal )
 	{
-		VDP_waitFadeCompletion ( );
-		VDP_setPaletteColor ( 16 * VDP_getTextPalette() + 1, tt_info.color[0] );
-		VDP_setPaletteColor ( 16 * VDP_getTextPalette() + 2, tt_info.color[1] );
+		PAL_waitFadeCompletion ( );
+		PAL_setColor ( 16 * VDP_getTextPalette() + 1, tt_info.color[0] );
+		PAL_setColor ( 16 * VDP_getTextPalette() + 2, tt_info.color[1] );
 	}
 }
 
@@ -252,13 +252,13 @@ void tt_clear ( )
 {
 	if ( tt_info.reset_pal )
 	{
-		VDP_fadeOut ( 1, 2,  tt_info.fade_out, 1 );
+		PAL_fadeOut ( 1, 2,  tt_info.fade_out, 1 );
 	}
 
 	waitHz(tt_info.fade_out+1);
 
     SYS_disableInts();
-	VDP_fillTileMapRect  (  VDP_getTextPlan(),  0,  tt_info.x,  tt_info.y,  tt_info.width,  tt_info.height );
+	VDP_fillTileMapRect  (  VDP_getTextPlane(),  0,  tt_info.x,  tt_info.y,  tt_info.width,  tt_info.height );
 	SYS_enableInts();
 }
 
@@ -281,7 +281,7 @@ u16 _tt_write_init ( u16 indice, u8 *cadena )
 
 
 	SYS_disableInts();
-	VDP_fillTileMapRect  (  VDP_getTextPlan(),  0,  tt_info.x,  tt_info.y,  tt_info.width,  tt_info.height );
+	VDP_fillTileMapRect  (  VDP_getTextPlane(),  0,  tt_info.x,  tt_info.y,  tt_info.width,  tt_info.height );
 	SYS_enableInts();
 
 	_speed           = tt_info.speed;
@@ -326,7 +326,7 @@ u16 _tt_write_process ( u16 i, u8 *cadena )
 
 		else if ( cmd("BREAK") )
 		{
-			// Salto de linea forzado o bien sólo lo hace si x > 0
+			// Salto de linea forzado o bien sï¿½lo lo hace si x > 0
 			if ( tt_info.cmd_value[0] || tt_info.vx > 0 )
 			{
 				_inc_y () ;
@@ -345,8 +345,8 @@ u16 _tt_write_process ( u16 i, u8 *cadena )
 			tt_info.color[0] = tt_info.cmd_value[0] ? tt_info.cmd_value[0] : _color[0];
 			tt_info.color[1] = tt_info.cmd_value[0] ? tt_info.cmd_value[0] : _color[1];
 
-			VDP_setPaletteColor ( 16 * VDP_getTextPalette() + 1, tt_info.color[0] );
-			VDP_setPaletteColor ( 16 * VDP_getTextPalette() + 2, tt_info.color[1] );
+			PAL_setColor ( 16 * VDP_getTextPalette() + 1, tt_info.color[0] );
+			PAL_setColor ( 16 * VDP_getTextPalette() + 2, tt_info.color[1] );
 		}
 
 		else if ( cmd("CLEAR") )
@@ -368,7 +368,7 @@ u16 _tt_write_process ( u16 i, u8 *cadena )
 
 			if ( wait )
 			{
-				btn = _wait ( wait ); // este falla, hace que se quede cogado porque el valor debe ser altísimo
+				btn = _wait ( wait ); // este falla, hace que se quede cogado porque el valor debe ser altï¿½simo
 			}
 
          _reset_area ( false );
@@ -382,7 +382,7 @@ u16 _tt_write_process ( u16 i, u8 *cadena )
 
 			u16 w = _wait ( wait ? wait : getHz() );
 
-			// Salto de linea forzado o bien sólo lo hace si x > 0
+			// Salto de linea forzado o bien sï¿½lo lo hace si x > 0
 			if ( tt_info.cmd_value[1] || tt_info.vx > 0 )
 			{
             _inc_y () ;
@@ -394,7 +394,7 @@ u16 _tt_write_process ( u16 i, u8 *cadena )
 
 	else
 	{
-		// Salto de pagina o último caracter
+		// Salto de pagina o ï¿½ltimo caracter
 		if ( tt_info.chr == EOF  )
 		{
 			if ( tt_info.reset_area_at_end )
@@ -413,7 +413,7 @@ u16 _tt_write_process ( u16 i, u8 *cadena )
 				return 0; // continue
 			}
 
-			// Cuenta las letras de ésta palabra
+			// Cuenta las letras de ï¿½sta palabra
 			tt_info.word = 0;
 
 			while ( cadena [ i + tt_info.word + 1 ] != SPACE  &&  cadena [ i + tt_info.word + 1 ] != EOF )

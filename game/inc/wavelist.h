@@ -1,3 +1,5 @@
+#pragma once
+
 #ifndef _WAVELIST_H_
 #define _WAVELIST_H_
 

@@ -1,9 +1,11 @@
+#pragma once
+
 typedef struct
 {
 	struct genresSprites *res; // el recurso
 
-	u8 width;   // nº sprites ancho
-	u8 height;  // nº sprites alto
+	u8 width;   // nï¿½ sprites ancho
+	u8 height;  // nï¿½ sprites alto
 
 	s16 vrampos; // posicion en la memoria
 

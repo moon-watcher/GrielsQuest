@@ -43,8 +43,8 @@ void EFFECT_cylinder(int sens, int speed, int length)
 
     void hblank()
     {
-        vu16 *pw = (u16 *) GFX_DATA_PORT;
-        vu32 *pl = (u32 *) GFX_CTRL_PORT;
+        vu16 *pw = (u16 *) VDP_DATA_PORT;
+        vu32 *pl = (u32 *) VDP_CTRL_PORT;
         int val = -posY-ttt/4;
 
         int x;
@@ -71,18 +71,18 @@ void EFFECT_cylinder(int sens, int speed, int length)
 
     u16 w = cylinder[0];
     u16 h = cylinder[1];
-    VDP_setPalette(PAL2, &cylinder[2]);
+    PAL_setPalette(PAL2, &cylinder[2], CPU);
     VDP_loadBMPTileData((u32*) &cylinder[18], 1, w / 8, h / 8, w/8 );
-    for (ys=0 ; ys<VDP_getPlanHeight()/(h/8); ++ys)
-    for (xs=0 ; xs<VDP_getPlanWidth()/(w/8); ++xs)
+    for (ys=0 ; ys<VDP_getPlaneHeight()/(h/8); ++ys)
+    for (xs=0 ; xs<VDP_getPlaneWidth()/(w/8); ++xs)
         VDP_fillTileMapRectInc(APLAN, TILE_ATTR_FULL(PAL2, 0, 0, 0, 1), xs*(w/8), ys*(h/8), w/8, h/8);
 
     w = cylinder_back[0];
     h = cylinder_back[1];
-    VDP_setPalette(PAL1, &cylinder_back[2]);
+    PAL_setPalette(PAL1, &cylinder_back[2], CPU);
     VDP_loadBMPTileData((u32*) &cylinder_back[18], 257, w / 8, h / 8, w/8 );
-    for (ys=0 ; ys<VDP_getPlanHeight()/(h/8); ++ys)
-    for (xs=0 ; xs<VDP_getPlanWidth()/(w/8); ++xs)
+    for (ys=0 ; ys<VDP_getPlaneHeight()/(h/8); ++ys)
+    for (xs=0 ; xs<VDP_getPlaneWidth()/(w/8); ++xs)
         VDP_fillTileMapRectInc(BPLAN, TILE_ATTR_FULL(PAL1, 0, 0, 0, 257), xs*(w/8), ys*(h/8), w/8, h/8);
 
     SYS_setVIntCallback(vblank);

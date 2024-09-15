@@ -22,20 +22,20 @@ static u8 parse_chr ( u8 chr )
 
     switch ( chr )
     {
-        case 248: chr = 95; break; // Ú
-        case 247: chr = 94; break; // Ó
-        case 178: chr = 94; break; // Ó
-        case 245: chr = 93; break; // Í
-        case 244: chr = 92; break; // É
-        case 243: chr = 91; break; // Á
-        case 234: chr = 90; break; // Ù
-        case 233: chr = 89; break; // Ò
-        case 231: chr = 88; break; // Ì
-        case 230: chr = 87; break; // È
-        case 229: chr = 86; break; // À
-        case 213: chr = 84; break; // Ä
-        case 227: chr = 85; break; // Ö
-        case 215: chr = 83; break; // Å
+        case 248: chr = 95; break; // ï¿½
+        case 247: chr = 94; break; // ï¿½
+        case 178: chr = 94; break; // ï¿½
+        case 245: chr = 93; break; // ï¿½
+        case 244: chr = 92; break; // ï¿½
+        case 243: chr = 91; break; // ï¿½
+        case 234: chr = 90; break; // ï¿½
+        case 233: chr = 89; break; // ï¿½
+        case 231: chr = 88; break; // ï¿½
+        case 230: chr = 87; break; // ï¿½
+        case 229: chr = 86; break; // ï¿½
+        case 213: chr = 84; break; // ï¿½
+        case 227: chr = 85; break; // ï¿½
+        case 215: chr = 83; break; // ï¿½
     };
 
     return chr;
@@ -120,7 +120,7 @@ void text_draw ( u8 *string, u8 x, u8 y, u16 ms )
 			for ( k = 0; k < width; k++ )
 			{
 			    SYS_disableInts();
-				VDP_setTileMapXY ( PLAN_A, TILE_ATTR_FULL ( _palette, 0, 0, 0, POSITION ), i*width + x + j, y + k );
+				VDP_setTileMapXY ( BG_A, TILE_ATTR_FULL ( _palette, 0, 0, 0, POSITION ), i*width + x + j, y + k );
 				SYS_enableInts();
 
 				++inc;

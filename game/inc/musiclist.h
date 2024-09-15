@@ -1,3 +1,5 @@
+#pragma once
+
 #ifndef _MUSICLIST_H_
 #define _MUSICLIST_H_
 

@@ -145,7 +145,7 @@ void monos()
 
    SYS_disableInts();
    VDP_loadTileSet ( ob_title_monos_mi.tileset, 16, 0 );
-   VDP_setPalette ( PAL1, ob_title_monos_mi.palette->data );
+   PAL_setPalette ( PAL1, ob_title_monos_mi.palette->data, CPU );
    SYS_enableInts();
 
    u16 x = 0;
@@ -154,7 +154,7 @@ void monos()
    while ( 1 )
    {
       SYS_disableInts();
-      VDP_setMapEx ( PLAN_A, ob_title_monos_mi.map, TILE_ATTR_FULL(PAL1,0,0,0,16), 14, 10, x*13, y*6, 13, 6 );
+      VDP_setMapEx ( BG_A, ob_title_monos_mi.tilemap, TILE_ATTR_FULL(PAL1,0,0,0,16), 14, 10, x*13, y*6, 13, 6 );
       SYS_enableInts();
 
       ++x;
@@ -279,14 +279,14 @@ void object_viewer()
       if ( opcion == -1             ) opcion = MAX_ANIMATIONS - 1;
 
       SYS_disableInts();
-      VDP_clearPlan ( PLAN_A, 1 );
+      VDP_clearPlane ( BG_A, 1 );
       SYS_enableInts();
 
       VOBJECT *v = vobject_add ( opcion );
       vobject_reset ( opcion );
 		animation_set_raw();
-		animation_draw ( opcion, 10, 10, true, PLAN_A, 1, 0, 0, 0, 0 );
-      VDP_setPalette ( animation_get ( opcion )->pal, animation_get ( opcion )->res->pal );
+		animation_draw ( opcion, 10, 10, true, BG_A, 1, 0, 0, 0, 0 );
+      PAL_setPalette ( animation_get ( opcion )->pal, animation_get ( opcion )->res->pal, CPU);
 
       drawUInt ( opcion, 2, 3, 3 );
       VDP_drawText ( v->object->name, 7, 3 );
@@ -456,7 +456,7 @@ void todas_las_pantallas ( )
 
 //         tool_reset ( );
          VDP_init();
-         VDP_setPlanSize ( 64, 32 );
+         VDP_setPlaneSize ( 64, 32, false );
 
 //         joy_init ( );
 //         joy_enable ( );
@@ -613,9 +613,9 @@ int main ( )
     gamestate.lenguaje = ENGLISH;
 
 
-    SND_setForceDelayDMA_XGM ( true );
+    XGM_setForceDelayDMA(true);
 
-    VDP_setPlanSize ( 64, 32 );
+    VDP_setPlaneSize ( 64, 32, false );
 
     JOY_init ( );
     JOY_setSupport ( PORT_1, DEV ? JOY_SUPPORT_6BTN : JOY_SUPPORT_3BTN ); // JOY_SUPPORT_3BTN
@@ -623,12 +623,12 @@ int main ( )
 
     JoyReader_init ( 1 );
 
-    //vram_init ( TILE_USERINDEX );
+    //vram_init ( TILE_USER_INDEX );
 
     vint_init ( );
     //vint_setJoyReader ( true );
 
-    SYS_setVIntCallback ( (_voidCallback*) vint_callback );
+    SYS_setVIntCallback ( (VoidCallback*) vint_callback );
     font_init ( );
 
     gamestate_init ( ); // debe estar aqui y tras introducir un password correcto

@@ -142,7 +142,7 @@ static void _marco_desplegar ( )
 {
     SYS_disableInts();
 	VDP_loadTileSet ( cb_pause.tileset, 900, 0 );
-	VDP_setMapEx ( PLAN_A, cb_pause.map,TILE_ATTR_FULL(PAL1, true, false, false, 900), 12,  9, 0,  0, 16, 1 );
+	VDP_setMapEx ( BG_A, cb_pause.tilemap,TILE_ATTR_FULL(PAL1, true, false, false, 900), 12,  9, 0,  0, 16, 1 );
 	SYS_enableInts();
 
 	toani_delete_explosion ( );
@@ -152,8 +152,8 @@ static void _marco_desplegar ( )
 	for ( i=0; i<10; i++ )
 	{
 	    SYS_disableInts();
-		VDP_setMapEx ( PLAN_A, cb_pause.map, TILE_ATTR_FULL(PAL1, true, false, false, 900), 12, i+10, 0, i+1, 16, 1 );
-		VDP_setMapEx ( PLAN_A, cb_pause.map, TILE_ATTR_FULL(PAL1, true, false, false, 900), 12, i+11, 0,  11, 16, 1 );
+		VDP_setMapEx ( BG_A, cb_pause.tilemap, TILE_ATTR_FULL(PAL1, true, false, false, 900), 12, i+10, 0, i+1, 16, 1 );
+		VDP_setMapEx ( BG_A, cb_pause.tilemap, TILE_ATTR_FULL(PAL1, true, false, false, 900), 12, i+11, 0,  11, 16, 1 );
 		SYS_enableInts();
 
 		_hide_sprites ( i );
@@ -192,46 +192,46 @@ static void _marco_enrollar( LEVEL *wl )
 {
 	u16 wait = 1; // 22;
 	u16 aux1 = TILE_ATTR_FULL(PAL1, true, false, false, 900);
-	u16 aux2 = TILE_ATTR_FULL(PAL0, false, false, false, level_vram_pos ( PLAN_B ) );
+	u16 aux2 = TILE_ATTR_FULL(PAL0, false, false, false, level_vram_pos ( BG_B ) );
 
 
 	_restore_sprites ( 8 );
 	_restore_sprites ( 7 );
 	SYS_disableInts();
-	VDP_setMapEx ( PLAN_A, cb_pause.map, aux1, 12, 18, 0,  11, 16, 1 );
-	VDP_setMapEx ( PLAN_B, wl->background->map, aux2, 13, 19, 13, 19, 16, 2 );
+	VDP_setMapEx ( BG_A, cb_pause.tilemap, aux1, 12, 18, 0,  11, 16, 1 );
+	VDP_setMapEx ( BG_B, wl->background->tilemap, aux2, 13, 19, 13, 19, 16, 2 );
     SYS_enableInts();
 	level_draw_area ( wl, 4, 7, 8, 1 );
 	waitHz(wait);
 
 	_restore_sprites( 6 );
 	SYS_disableInts();
-	VDP_setMapEx ( PLAN_A, cb_pause.map, aux1, 12, 16, 0,  11, 16, 1 );
-	VDP_setMapEx ( PLAN_B, wl->background->map, aux2, 13, 17, 13, 17, 16, 2 );
+	VDP_setMapEx ( BG_A, cb_pause.tilemap, aux1, 12, 16, 0,  11, 16, 1 );
+	VDP_setMapEx ( BG_B, wl->background->tilemap, aux2, 13, 17, 13, 17, 16, 2 );
     SYS_enableInts();
 	level_draw_area ( wl, 4, 6, 8, 1 );
 	waitHz(wait);
 
 	_restore_sprites( 5 );
 	SYS_disableInts();
-	VDP_setMapEx ( PLAN_A, cb_pause.map, aux1, 12, 14, 0,  11, 16, 1 );
-	VDP_setMapEx ( PLAN_B, wl->background->map, aux2, 13, 15, 13, 15, 16, 2 );
+	VDP_setMapEx ( BG_A, cb_pause.tilemap, aux1, 12, 14, 0,  11, 16, 1 );
+	VDP_setMapEx ( BG_B, wl->background->tilemap, aux2, 13, 15, 13, 15, 16, 2 );
     SYS_enableInts();
 	level_draw_area ( wl, 4, 5, 8, 1 );
 	waitHz(wait);
 
 	_restore_sprites( 4 );
 	SYS_disableInts();
-	VDP_setMapEx ( PLAN_A, cb_pause.map, aux1, 12, 12, 0,  11, 16, 1 );
-	VDP_setMapEx ( PLAN_B, wl->background->map, aux2, 13, 13, 13, 13, 16, 2 );
+	VDP_setMapEx ( BG_A, cb_pause.tilemap, aux1, 12, 12, 0,  11, 16, 1 );
+	VDP_setMapEx ( BG_B, wl->background->tilemap, aux2, 13, 13, 13, 13, 16, 2 );
     SYS_enableInts();
 	level_draw_area ( wl, 4, 4, 8, 1 );
 	waitHz(wait);
 
 	_restore_sprites( 3 );
 	SYS_disableInts();
-	VDP_setMapEx ( PLAN_A, cb_pause.map, aux1, 12, 10, 0,  11, 16, 1 );
-	VDP_setMapEx ( PLAN_B, wl->background->map, aux2, 13, 11, 13, 11, 16, 2 );
+	VDP_setMapEx ( BG_A, cb_pause.tilemap, aux1, 12, 10, 0,  11, 16, 1 );
+	VDP_setMapEx ( BG_B, wl->background->tilemap, aux2, 13, 11, 13, 11, 16, 2 );
     SYS_enableInts();
 	level_draw_area ( wl, 4, 3, 8, 1 );
 	waitHz(wait);
@@ -240,7 +240,7 @@ static void _marco_enrollar( LEVEL *wl )
 	_restore_sprites( 1 );
 	_restore_sprites( 0 );
 	SYS_disableInts();
-	VDP_setMapEx ( PLAN_B, wl->background->map, aux2, 13,  9, 13,  9, 16, 2 );
+	VDP_setMapEx ( BG_B, wl->background->tilemap, aux2, 13,  9, 13,  9, 16, 2 );
     SYS_enableInts();
 
 	level_draw_area ( wl, 4, 2, 8, 1 );

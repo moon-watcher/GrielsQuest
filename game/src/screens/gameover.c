@@ -1,4 +1,5 @@
 #include "../inc/include.h"
+#include "../inc/genres_externs.h"
 
 
 void screen_gameover ( )

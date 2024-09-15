@@ -1,3 +1,5 @@
+#pragma once
+
 
 #define LEVEL_NB_LEVELS	 64
 
@@ -94,7 +96,7 @@ Vect2D_u16  level_get_door            ( );
 void        level_set_door            ( u16 x, u16 y );
 
 void        level_draw_demon          ( u16 x, u16 y, u8 ojos, u8 cola );
-u16         level_vram_pos            ( VDPPlan plan );
+u16         level_vram_pos            ( VDPPlane plan );
 
 void        level_ol_set              ( u8 obj, bool value );
 bool        level_ol_get              ( u8 obj );

@@ -1,4 +1,6 @@
-#define PWD8_DIFFICULT_TO_FIND_A_PASSWORD  40 // cuanto mayor más difícil
+#pragma once
+
+#define PWD8_DIFFICULT_TO_FIND_A_PASSWORD  40 // cuanto mayor mï¿½s difï¿½cil
 #define PWD8_A_STARTS_AT                   65
 
 typedef char PASSWORD8[9];

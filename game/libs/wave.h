@@ -1,3 +1,5 @@
+#pragma once
+
 #ifndef _WAVE_H_
 #define _WAVE_H_
 

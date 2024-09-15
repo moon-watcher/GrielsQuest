@@ -1,10 +1,11 @@
 #include "../../inc/include.h"
+#include "../inc/genres_externs.h"
 
 
-static void show_staff_title ( struct genresTiles *grt, u16 pal, u16 tile, VDPPlan plan, s16 x, u16 y, u16 fade, u16 wait )
+static void show_staff_title ( struct genresTiles *grt, u16 pal, u16 tile, VDPPlane plan, s16 x, u16 y, u16 fade, u16 wait )
 {
 	showBmp ( pal, (struct genresTiles*) grt, tile, plan, x, y, 0 );
-    VDP_fadePalTo( pal, grt->pal, fade, 0 );
+    PAL_fadeToPalette( pal, grt->pal, fade, 0 );
     waitSc ( wait );
 }
 
@@ -12,36 +13,36 @@ static void show_staff_title ( struct genresTiles *grt, u16 pal, u16 tile, VDPPl
 static s16 plan_x;
 static s16 plan_y;
 
-static _voidCallback *move1 ()
+static VoidCallback *move1 ()
 {
     if ( vtimer % 3 == 0 )
     {
         SYS_disableInts();
-        VDP_setHorizontalScroll( PLAN_B, plan_x++ );
+        VDP_setHorizontalScroll( BG_B, plan_x++ );
         SYS_enableInts();
     }
 
     return 0;
 }
 
-static _voidCallback *move3 ()
+static VoidCallback *move3 ()
 {
     if ( vtimer % 4 == 0 )
     {
         SYS_disableInts();
-        VDP_setHorizontalScroll( PLAN_B, plan_x-- );
+        VDP_setHorizontalScroll( BG_B, plan_x-- );
         SYS_enableInts();
     }
 
     return 0;
 }
 
-static _voidCallback *move2 ()
+static VoidCallback *move2 ()
 {
     if ( vtimer % 4 == 0 )
     {
         SYS_disableInts();
-        VDP_setVerticalScroll( PLAN_B, plan_y-- );
+        VDP_setVerticalScroll( BG_B, plan_y-- );
         SYS_enableInts();
     }
 
@@ -51,10 +52,10 @@ static _voidCallback *move2 ()
 
 static void palette_text_init()
 {
-    VDP_setPaletteColor (  1, 0xfff );
-	VDP_setPaletteColor (  2, 0x444 );
-    VDP_setPaletteColor ( 17, font_palette.data [ 7 ] );
-	VDP_setPaletteColor ( 18, font_palette.data [ 8 ] );
+    PAL_setColor (  1, 0xfff );
+	PAL_setColor (  2, 0x444 );
+    PAL_setColor ( 17, font_palette.data [ 7 ] );
+	PAL_setColor ( 18, font_palette.data [ 8 ] );
 
 }
 
@@ -66,9 +67,9 @@ void screen_staff()
     u16 colors [ 64 ] = { };
     u8 wait1;
 
-    u16 aux_planHeight = planHeight;
-    u16 aux_planWidth  = planWidth;
-    VDP_setPlanSize(64,64);
+    u16 aux_planeHeight = planeHeight;
+    u16 aux_planeWidth  = planeWidth;
+    VDP_setPlaneSize(64,64, false);
 
     wait1 = ntsc2pal ( 69 );
 
@@ -94,33 +95,33 @@ void screen_staff()
 //goto salto;
 
 
-    VDP_setHorizontalScroll(PLAN_A, 8);
+    VDP_setHorizontalScroll(BG_A, 8);
 	displayOn(0);
 
 
 	text_init ( (struct genresSprites*) &cs_font_16x16, 1200, PAL0 );
     text_draw ( "GRIEL'S QUEST",   6,  6, wait1 ) ;
 	text_draw ( "FOR THE",        12, 9, wait1 ) ;
-	text_draw ( "HOLY PORRÓN",      8, 12, wait1 ) ;
+	text_draw ( "HOLY PORRï¿½N",      8, 12, wait1 ) ;
 
 
 	musiclist_play ( MUSIC_STAFF );
 	XGM_setMusicTempo(50);
 
-    VDP_setTextPlan(PLAN_B);
+    VDP_setTextPlane(BG_B);
 	typeText( "For Sega Genesis / Megadrive", 6, 21, wait1 ); // desp 4
 
 	waitSc(3);
 	planHide();
 	displayOff(0);
-    VDP_setTextPlan(PLAN_A);
-    VDP_setHorizontalScroll(PLAN_A, 0);
+    VDP_setTextPlane(BG_A);
+    VDP_setHorizontalScroll(BG_A, 0);
 
 
 
 
 	preparePal(PAL3, ob_logo_Karoshi.pal);
-	memcpyU16(&colors[48], ob_logo_Karoshi.pal, 16 );
+	memcpy(&colors[48], ob_logo_Karoshi.pal, 16 );
 	prepareColors( colors );
 
     displayOn(0);
@@ -128,7 +129,7 @@ void screen_staff()
 	typeText( "Based on", 16, 6, wait1);
 	waitHz ( ntsc2pal(110) );
 
-	showBmp ( PAL3, (struct genresTiles*) &ob_logo_Karoshi, HOW_TO_PLAY_TILE, PLAN_B, 12, 10, wait1 );
+	showBmp ( PAL3, (struct genresTiles*) &ob_logo_Karoshi, HOW_TO_PLAY_TILE, BG_B, 12, 10, wait1 );
 
 
     u16 colores[17*3] =
@@ -141,7 +142,7 @@ void screen_staff()
 	for ( i=0; i<17*3; i+=3 )
 	{
 	    prepareColor( colores[i+0], colores[i+1] );
-		VDP_setPaletteColor ( colores[i+0], colores[i+1] );
+		PAL_setColor ( colores[i+0], colores[i+1] );
 		if ( colores[i+2] ) VDP_waitVSync();
 	}
 
@@ -161,20 +162,20 @@ void screen_staff()
 goto salto;
 salto:
 
-    VDP_fadeOutAll(1,0);
+    PAL_fadeOutAll(1,0);
     displayOn(0);
 
 
-    show_staff_title ( (struct genresTiles*) &ob_staff_title_1, PAL0,  16, PLAN_A,  4,  2, getHz(), 1 );
-    show_staff_title ( (struct genresTiles*) &ob_staff_title_2, PAL1, 600, PLAN_A,  8, 18, getHz(), 1 );
+    show_staff_title ( (struct genresTiles*) &ob_staff_title_1, PAL0,  16, BG_A,  4,  2, getHz(), 1 );
+    show_staff_title ( (struct genresTiles*) &ob_staff_title_2, PAL1, 600, BG_A,  8, 18, getHz(), 1 );
 
     waitSc(4);
-    VDP_fadeOutAll ( getHz(), 0 );
+    PAL_fadeOutAll ( getHz(), 0 );
 
-    show_staff_title ( (struct genresTiles*) &ob_staff_title_3, PAL2, 800, PLAN_A, 18, 11, getHz(), 1 );
+    show_staff_title ( (struct genresTiles*) &ob_staff_title_3, PAL2, 800, BG_A, 18, 11, getHz(), 1 );
 
     waitSc(3);
-    VDP_fadeOutAll ( getHz(), 0 );
+    PAL_fadeOutAll ( getHz(), 0 );
     resetScreen();
 
 
@@ -191,16 +192,16 @@ salto:
 
 	waitSc(1);
 
-	showBmp ( PAL3, (struct genresTiles*) &ob_staff_griel, HOW_TO_PLAY_TILE, PLAN_B, 18, 2, wait1 );
-    VDP_fadePalTo( PAL3, ob_staff_griel.pal, getHz(), 1 );
+	showBmp ( PAL3, (struct genresTiles*) &ob_staff_griel, HOW_TO_PLAY_TILE, BG_B, 18, 2, wait1 );
+    PAL_fadeToPalette( PAL3, ob_staff_griel.pal, getHz(), 1 );
 
     waitSc(4);
 
     plan_x = 0;
-	SYS_setVIntCallback( (_voidCallback *)move1 );
+	SYS_setVIntCallback( (VoidCallback *)move1 );
 
-	planHide_Ex(PLAN_A);
-    VDP_fadePalOut( PAL3, getHz()*4, 0 );
+	planHide_Ex(BG_A);
+    PAL_fadeOutPalette( PAL3, getHz()*4, 0 );
 
     displayOff(0);
     SYS_setVIntCallback( NULL );
@@ -213,8 +214,8 @@ salto:
 
 
 
-	showBmp ( PAL3, (struct genresTiles*) &ob_staff_kbrah, HOW_TO_PLAY_TILE, PLAN_B, 13, 4, wait1 );
-    VDP_fadePalTo( PAL3, ob_staff_kbrah.pal, getHz(), 1 );
+	showBmp ( PAL3, (struct genresTiles*) &ob_staff_kbrah, HOW_TO_PLAY_TILE, BG_B, 13, 4, wait1 );
+    PAL_fadeToPalette( PAL3, ob_staff_kbrah.pal, getHz(), 1 );
 
 	palette_text_init();
 
@@ -227,10 +228,10 @@ salto:
 	waitSc(5);
 
     plan_y = 0;
-    SYS_setVIntCallback( (_voidCallback *)move2 );
+    SYS_setVIntCallback( (VoidCallback *)move2 );
 
-	planHide_Ex(PLAN_A);
-	VDP_fadePalOut( PAL3, getHz()*4,0 );
+	planHide_Ex(BG_A);
+	PAL_fadeOutPalette( PAL3, getHz()*4,0 );
 
     displayOff(0);
     SYS_setVIntCallback( NULL );
@@ -251,15 +252,15 @@ salto:
 
 	waitSc(2);
 
-	showBmp ( PAL3, (struct genresTiles*) &ob_staff_notah, HOW_TO_PLAY_TILE, PLAN_B, 0, 1, wait1 );
-    VDP_fadePalTo( PAL3, ob_staff_notah.pal, getHz(), 0 );
+	showBmp ( PAL3, (struct genresTiles*) &ob_staff_notah, HOW_TO_PLAY_TILE, BG_B, 0, 1, wait1 );
+    PAL_fadeToPalette( PAL3, ob_staff_notah.pal, getHz(), 0 );
 
     waitSc(4);
-	planHide_Ex(PLAN_A);
+	planHide_Ex(BG_A);
 
 	plan_x = 0;
-	SYS_setVIntCallback( (_voidCallback *)move3 );
-	VDP_fadePalOut( PAL3, getHz()*3,0 );
+	SYS_setVIntCallback( (VoidCallback *)move3 );
+	PAL_fadeOutPalette( PAL3, getHz()*3,0 );
 	SYS_setVIntCallback( NULL );
 
     displayOff(0);
@@ -269,8 +270,8 @@ salto:
 
 
 
-    showBmp ( PAL3, (struct genresTiles*) &ob_staff_kbrah2, HOW_TO_PLAY_TILE, PLAN_B, 19, 6, wait1 );
-    VDP_fadePalTo ( PAL3, ob_staff_kbrah2.pal, getHz(), 1 );
+    showBmp ( PAL3, (struct genresTiles*) &ob_staff_kbrah2, HOW_TO_PLAY_TILE, BG_B, 19, 6, wait1 );
+    PAL_fadeToPalette ( PAL3, ob_staff_kbrah2.pal, getHz(), 1 );
 
     palette_text_init();
 
@@ -284,9 +285,9 @@ salto:
     typeText( "@_SrPresley_",     3, 8, wait1 );
 
     waitSc(4);
-    planHide_Ex(PLAN_A);
+    planHide_Ex(BG_A);
 
-    VDP_fadePalOut(  PAL3, getHz()*4, 0 );
+    PAL_fadeOutPalette(  PAL3, getHz()*4, 0 );
 
     displayOff(0);
     resetScreen();
@@ -306,10 +307,10 @@ salto:
 
     VDP_setTextPalette(PAL0);
 
-    VDP_drawText ( prepare_string("Felipe Monge Corbalán @vakapp"), 2, y ); y+=2;
+    VDP_drawText ( prepare_string("Felipe Monge Corbalï¿½n @vakapp"), 2, y ); y+=2;
     VDP_drawText ( prepare_string("DaRkHoRaCe @oongamoonga"), 2, y ); y+=2; // ITALIAN
     VDP_drawText ( prepare_string("KanedaFr @SpritesMind"), 2, y ); y+=2; // FRENCH
-    VDP_drawText ( prepare_string("Jordi Montornés Solé @jordimontornes"), 2, y ); y+=2; // CATALÀ
+    VDP_drawText ( prepare_string("Jordi Montornï¿½s Solï¿½ @jordimontornes"), 2, y ); y+=2; // CATALï¿½
     VDP_drawText ( prepare_string("Natsumi"), 2, y ); y+=2; // FINNISH
     VDP_drawText ( prepare_string("Paspallas @PaspallasDev"), 2, y ); y+=2; // GALEGO
     VDP_drawText ( prepare_string("Thiago F. Alves"), 2, y ); y+=2; // BR-PORTUGUESE
@@ -321,17 +322,17 @@ salto:
 
     waitSc(7);
 
-    VDP_fadeOutAll(   getHz()*1, 0);
+    PAL_fadeOutAll(   getHz()*1, 0);
 
-    planHide_Ex(PLAN_A);
+    planHide_Ex(BG_A);
 
     displayOff(0);
     resetScreen();
     resetScroll();
 
 
-    showBmp ( PAL3, (struct genresTiles*) &ob_staff_kbritah, HOW_TO_PLAY_TILE, PLAN_B, 1, 5, wait1 );
-    VDP_fadePalTo( PAL3, ob_staff_kbritah.pal, getHz()*2, 0 );
+    showBmp ( PAL3, (struct genresTiles*) &ob_staff_kbritah, HOW_TO_PLAY_TILE, BG_B, 1, 5, wait1 );
+    PAL_fadeToPalette( PAL3, ob_staff_kbritah.pal, getHz()*2, 0 );
 
     palette_text_init();
 
@@ -347,16 +348,16 @@ salto:
 	typeText ( "@Jon_Cortazar",  22, 21, wait1 );
 	waitSc(4);
 
-	planHide_Ex(PLAN_A);
-	VDP_fadePalOut(  PAL3, getHz()*1, 0 );
+	planHide_Ex(BG_A);
+	PAL_fadeOutPalette(  PAL3, getHz()*1, 0 );
     displayOff(0);
     resetScreen();
     resetScroll();
 
 
 
-	showBmp ( PAL3, (struct genresTiles*) &ob_staff_kbritah2, HOW_TO_PLAY_TILE, PLAN_B, 10, 8, wait1 );
-    VDP_fadePalTo( PAL3, ob_staff_kbritah2.pal, getHz()*2, 1 );
+	showBmp ( PAL3, (struct genresTiles*) &ob_staff_kbritah2, HOW_TO_PLAY_TILE, BG_B, 10, 8, wait1 );
+    PAL_fadeToPalette( PAL3, ob_staff_kbritah2.pal, getHz()*2, 1 );
 
     palette_text_init();
     VDP_setTextPalette(PAL0);
@@ -375,7 +376,7 @@ salto:
 
     waitSc(2);
 
-    VDP_setPlanSize(aux_planWidth,aux_planHeight);
-    SYS_setVIntCallback ( (_voidCallback*) vint_callback );
+    VDP_setPlaneSize(aux_planeWidth,aux_planeHeight, false);
+    SYS_setVIntCallback ( (VoidCallback*) vint_callback );
 }
 

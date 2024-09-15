@@ -1,6 +1,9 @@
+#pragma once
 
 // 1) Date Version Types
-static const char DATE[];
+static const char #pragma once
+
+DATE[];
 static const char MONTH[];
 static const char YEAR[];
 static const double UBUNTU_VERSION_STYLE;

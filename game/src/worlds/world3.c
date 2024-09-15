@@ -1,5 +1,5 @@
 #include"../inc/include.h"
-
+#include "../../res/world3res.h"
 
 const LEVEL w3r00 =
 {

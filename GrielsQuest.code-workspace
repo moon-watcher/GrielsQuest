@@ -1,0 +1,18 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"GDK": "SGDK-master",
+		"custom-makefile": "makefile.gen",
+		"addStatusBarButtons": true,
+		"workbench.tree.indent": 20,
+		"files.associations": {
+			"include.h": "c",
+			"worlds.h": "c",
+			"genres_externs.h": "c"
+		}
+	}
+}

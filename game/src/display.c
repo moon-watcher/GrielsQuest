@@ -16,18 +16,19 @@ static void setDisplay ( u16 on, u16 frames, u16 *colors )
 	{
 	    if ( on )
         {
-            VDP_fadeAllTo ( (u16*) colors, frames, 0 );
+            PAL_fadeToAll ( (u16*) colors, frames, 0 );
         }
         else
         {
-            VDP_fadeOutAll ( frames, 0 );
+            PAL_fadeOutAll ( frames, 0 );
         }
 	}
     else
     {
         SYS_disableInts ( );
-        VDP_setPaletteColors ( 0, (u16*) colors, 64 );
         SYS_enableInts ( );
+        Palette p = { 64, colors};
+        PAL_setPaletteColors ( 0, &p, CPU);
     }
 }
 
@@ -37,19 +38,19 @@ static void setDisplay ( u16 on, u16 frames, u16 *colors )
 
 void displayInit ( )
 {
-	memsetU16 ( cache, 0, 64 );
+	memset ( cache, 0, 64 );
 }
 
 
 void preparePal ( u16 pal, u16 *colors )
 {
-	memcpyU16 ( cache + ( pal << 4 ), colors, 16 );
+	memcpy ( cache + ( pal << 4 ), colors, 16 );
 }
 
 
 void prepareColors ( u16 *colors )
 {
-	memcpyU16 ( cache, colors, 64 );
+	memcpy ( cache, colors, 64 );
 }
 
 

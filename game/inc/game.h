@@ -1,3 +1,5 @@
+#pragma once
+
 enum
 {
 	LEVEL_OK = 1,

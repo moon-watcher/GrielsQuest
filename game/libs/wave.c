@@ -4,12 +4,12 @@
 
 void wave_play ( WAVE *w )
 {
-	SND_setPCM_XGM       ( w->id, (u8*)w->data, w->size );
-	SND_startPlayPCM_XGM ( w->id, w->priority, w->channel );
+	XGM_setPCM       ( w->id, (u8*)w->data, w->size );
+	XGM_startPlayPCM ( w->id, w->priority, w->channel );
 }
 
 
 void wave_stop ( WAVE *w )
 {
-	SND_stopPlayPCM_XGM ( w->channel );
+	XGM_stopPlayPCM ( w->channel );
 }

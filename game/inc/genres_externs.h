@@ -1,3 +1,5 @@
+#pragma once
+
 #ifndef _GENRES_EXTERNS_H_
 #define _GENRES_EXTERNS_H_
 

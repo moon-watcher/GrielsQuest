@@ -1,3 +1,5 @@
+#pragma once
+
 #ifndef _INCLUDE_H_
 #define _INCLUDE_H_
 
@@ -50,14 +52,12 @@
 
 
 
-typedef enum
-{
-   false = 0,
-   true  = !false
-}
-bool;
-
-
+// typedef enum
+// {
+//    false = 0,
+//    true  = !false
+// }
+// bool;
 
 
 #define MAX_SPRITE 80
@@ -214,11 +214,6 @@ bool;
 #include "../res/title.h"
 #include "../res/otherres.h"
 #include "../res/commonres.h"
-#include "../res/world0res.h"
-#include "../res/world1res.h"
-#include "../res/world2res.h"
-#include "../res/world3res.h"
-#include "../res/world4res.h"
 #include "../res/ambienteres.h"
 #include "../res/finalres.h"
 #include "../res/puertares.h"
@@ -238,8 +233,8 @@ bool;
 
 #include "../inc/display.h"
 #include "../inc/gamestate.h"
-#include "../inc/genres_externs.h"
-#include "../inc/version.h"
+// #include "../inc/genres_externs.h"
+// #include "../inc/version.h"
 #include "../inc/bigboy.h"
 #include "../inc/animation.h"
 #include "../inc/frases.h"

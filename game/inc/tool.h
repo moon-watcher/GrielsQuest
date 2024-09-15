@@ -1,3 +1,5 @@
+#pragma once
+
 #include <genesis.h>
 #include <genres.h>
 
@@ -17,9 +19,9 @@
 void text_write            ( char *str, u8 x, u8 y );
 
 void planHide              ( );
-void planHide_Ex           ( VDPPlan plan );
+void planHide_Ex           ( VDPPlane plan );
 void planHide_and_sprites  ( );
-void showBmp               ( u16 pal, struct genresTiles *grt, u16 tile, VDPPlan plan, u16 x, u16 y, u8 pal_steps );
+void showBmp               ( u16 pal, struct genresTiles *grt, u16 tile, VDPPlane plan, u16 x, u16 y, u8 pal_steps );
 void typeText              ( char *str, u8 x, u8 y, u16 ms );
 //void tool_reset            ( );
 //void tool_deleteArea            ( u16 plan, u8 x, u8 y, u8 width, u8 height );
@@ -29,7 +31,7 @@ void typeText              ( char *str, u8 x, u8 y, u16 ms );
 //void tool_clearLinesText        ( );
 
 
-u16 sprintf(char *buffer, const char *fmt, ...);
+// u16 sprintf(char *buffer, const char *fmt, ...);
 
 
 u8   getHz     ( );
@@ -42,5 +44,5 @@ void waitJoyHzBtn ( u16 hz );
 void waitJoyScBtn ( u16 sc );
 void waitMusicStop ( );
 
-void tool_reset_plan ( VDPPlan plan );
-void tool_move_plan  ( VDPPlan plan, s16 dir );
+void tool_reset_plan ( VDPPlane plan );
+void tool_move_plan  ( VDPPlane plan, s16 dir );

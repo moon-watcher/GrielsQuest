@@ -1,3 +1,5 @@
+#pragma once
+
 #define PLAYER_MAX_PLAYERS    1
 
 #define PLAYER_1 0

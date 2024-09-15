@@ -1,5 +1,6 @@
 #include "../inc/include.h"
 #include "../inc/colores_textos.h"
+#include "../inc/genres_externs.h"
 
 
 
@@ -55,11 +56,11 @@ static void _poner_mascara()
 	SYS_enableInts();
 
 	SYS_disableInts();
-	VDP_fillTileMapRect ( PLAN_A, TILE_ATTR_FULL ( PAL0, 1, 0, 0, pos_tile_vacio ),  1,  0, 38,  1 );
+	VDP_fillTileMapRect ( BG_A, TILE_ATTR_FULL ( PAL0, 1, 0, 0, pos_tile_vacio ),  1,  0, 38,  1 );
 	SYS_enableInts();
 
 	SYS_disableInts();
-	VDP_fillTileMapRect ( PLAN_A, TILE_ATTR_FULL ( PAL0, 1, 0, 0, pos_tile_vacio ),  1, 19, 38,  9 );
+	VDP_fillTileMapRect ( BG_A, TILE_ATTR_FULL ( PAL0, 1, 0, 0, pos_tile_vacio ),  1, 19, 38,  9 );
 	SYS_enableInts();
 }
 
@@ -80,7 +81,7 @@ static void _draw_spriteset ( SPRITESET *set, struct genresSprites *res, u8 widt
 
 static void _mover_escena ( s16 posicion )
 {
-	VDP_setVerticalScroll ( PLAN_B, posicion );
+	VDP_setVerticalScroll ( BG_B, posicion );
 
 	spriteset_move ( &sets[0],  40, - (posicion)+200  );
 
@@ -162,7 +163,7 @@ u16 screen_puerta ( )
 	displayOff(0);//VDP_setEnable ( false );
 	SYS_disableInts ( );
 
-	VDP_setPlanSize ( 64, 64 );
+	VDP_setPlaneSize ( 64, 64, false );
 
 	splist_reorder ( );
 
@@ -173,7 +174,7 @@ u16 screen_puerta ( )
 
 
 	SYS_disableInts();
-    VDP_drawImageEx ( PLAN_B, &ob_puerta_fondo_b, TILE_ATTR_FULL(PAL0, 0, 0, 0, vram_new ( ob_puerta_fondo_b.tileset->numTile ) ),  1, 1, 0, 0 ); // Fondo
+    VDP_drawImageEx ( BG_B, &ob_puerta_fondo_b, TILE_ATTR_FULL(PAL0, 0, 0, 0, vram_new ( ob_puerta_fondo_b.tileset->numTile ) ),  1, 1, 0, 0 ); // Fondo
     SYS_enableInts();
 
 	_poner_mascara();
@@ -190,10 +191,10 @@ u16 screen_puerta ( )
 	_draw_spriteset ( &sets[6],  (struct genresSprites*) &os_puerta_puerta_4_16x24,   1, 2, 100,  10, TILE_ATTR(PAL1,0,0,0) ); // Puerta
 	_draw_spriteset ( &sets[7],  (struct genresSprites*) &os_puerta_puerta_5_16x24,   1, 1, 120,  10, TILE_ATTR(PAL1,0,0,0) ); // Puerta
 
-	_draw_spriteset ( &sets[8],  (struct genresSprites*) &os_puerta_medallon_1_24x24, 1, 1,  20,  10, TILE_ATTR(PAL1,0,0,0) ); // Medallón
-	_draw_spriteset ( &sets[9],  (struct genresSprites*) &os_puerta_medallon_2_24x24, 1, 1,  20,  40, TILE_ATTR(PAL1,0,0,0) ); // Medallón
-	_draw_spriteset ( &sets[10], (struct genresSprites*) &os_puerta_medallon_3_24x24, 1, 1,  20,  60, TILE_ATTR(PAL1,0,0,0) ); // Medallón
-	_draw_spriteset ( &sets[11], (struct genresSprites*) &os_puerta_medallon_4_24x24, 1, 1,  20, 100, TILE_ATTR(PAL1,0,0,0) ); // Medallón
+	_draw_spriteset ( &sets[8],  (struct genresSprites*) &os_puerta_medallon_1_24x24, 1, 1,  20,  10, TILE_ATTR(PAL1,0,0,0) ); // Medallï¿½n
+	_draw_spriteset ( &sets[9],  (struct genresSprites*) &os_puerta_medallon_2_24x24, 1, 1,  20,  40, TILE_ATTR(PAL1,0,0,0) ); // Medallï¿½n
+	_draw_spriteset ( &sets[10], (struct genresSprites*) &os_puerta_medallon_3_24x24, 1, 1,  20,  60, TILE_ATTR(PAL1,0,0,0) ); // Medallï¿½n
+	_draw_spriteset ( &sets[11], (struct genresSprites*) &os_puerta_medallon_4_24x24, 1, 1,  20, 100, TILE_ATTR(PAL1,0,0,0) ); // Medallï¿½n
 
 	vdpSpriteCache[sprite-1].link = 0;
 
@@ -250,7 +251,7 @@ u16 screen_puerta ( )
 		frases_tt_write ( YONKI );
 
 		SYS_disableInts();
-		VDP_fillTileMapRect (PLAN_A, TILE_ATTR_FULL ( PAL0, 1, 0, 0, pos_tile_vacio ),  1, 19, 38,  9 );
+		VDP_fillTileMapRect (BG_A, TILE_ATTR_FULL ( PAL0, 1, 0, 0, pos_tile_vacio ),  1, 19, 38,  9 );
         SYS_enableInts();
 
 		s16 x= 0, i= 144;
@@ -285,7 +286,7 @@ fin:
 	displayOff ( 30 );
 
 
-	VDP_setPlanSize ( 64, 32 );
+	VDP_setPlaneSize ( 64, 32, false );
 
 	return ret;
 }

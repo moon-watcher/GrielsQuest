@@ -1,12 +1,12 @@
 #include "../inc/include.h"
-
+#include "../inc/genres_externs.h"
 
 #define PWD_HEIGHT   3
 #define PWD_WIDTH   10
 
 
 
-const static char _letras [ PWD_HEIGHT ] [ PWD_WIDTH ] =
+static const char _letras [ PWD_HEIGHT ] [ PWD_WIDTH ] =
 {
 	{ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J' },
 	{ 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T' },
@@ -109,27 +109,27 @@ static void _draw ( PASSWORD8 password )
 		{
 			u16 x0   =  6 + x * 3;
 			u16 y0   = 15 + y * 3;
-			u16 tile = TILE_FONTINDEX + _letras [ y ] [ x ] - 32;
+			u16 tile = TILE_FONT_INDEX + _letras [ y ] [ x ] - 32;
 
 			SYS_disableInts();
-			VDP_setTileMapXY ( PLAN_A, tile, x0, y0 );
+			VDP_setTileMapXY ( BG_A, tile, x0, y0 );
 			SYS_enableInts();
 		}
 	}
 
 	//SYS_disableInts();
 	VDP_setTextPalette (PAL0);
-	preparePal ( PAL0, font_getPalette());//VDP_setPalette ( PAL0, font_getPalette());
+	preparePal ( PAL0, font_getPalette());//PAL_setPalette ( PAL0, font_getPalette());
 	//SYS_enableInts();
 
 	text_init ( (struct genresSprites*) &cs_font_16x16, 1200, PAL0 );
 
 	frases_init (30);
 	text_draw_center ( frases_next(), 3,  0 );
-	text_draw ( ( char*) password, 12, 9, 0 ) ; // ">>>>>>>>" --> ">" Es el "guión alto"
+	text_draw ( ( char*) password, 12, 9, 0 ) ; // ">>>>>>>>" --> ">" Es el "guiï¿½n alto"
 
 	SYS_disableInts();
-	preparePal ( PAL3, cs_square.pal ); //VDP_setPalette ( PAL3, cs_square.pal );
+	preparePal ( PAL3, cs_square.pal ); //PAL_setPalette ( PAL3, cs_square.pal );
 	VDP_loadTileData ( cs_square.sprites[0], 5, cs_square.size>>8, 0 );
 	VDP_setSprite ( 0, 40, 112, cs_square.size>>8, TILE_ATTR_FULL(PAL3, 1,0,0,5) );
 	SYS_enableInts();
@@ -153,7 +153,7 @@ static bool pwd_is_ok ( PASSWORD8 pwd )
 	u16  play = 1;
 
 
-	// que todas sean mayúsculas
+	// que todas sean mayï¿½sculas
 	for ( i=0; i<8; i++ )
 	{
 		if ( pwd[i] < 65 || pwd[i] > 90 )
@@ -196,7 +196,7 @@ static bool pwd_is_ok ( PASSWORD8 pwd )
 		verifica = max_verifica;
 	}
 
-	if ( verifica == 0 ) // 0 es que no hay diferencias entre la verificacion y el código
+	if ( verifica == 0 ) // 0 es que no hay diferencias entre la verificacion y el cï¿½digo
 	{
 		gamestate.current_ambiente = 0;
 		gamestate.current_round    = 0;

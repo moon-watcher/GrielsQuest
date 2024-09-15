@@ -1,3 +1,5 @@
+#pragma once
+
 #ifndef _WAITBREAK_H_
 #define _WAITBREAK_H_
 
@@ -10,7 +12,7 @@
 
 #define wb_fade(botones)          \
 {                                 \
-    while ( VDP_isDoingFade() )   \
+    while ( PAL_isDoingFade() )   \
     {                             \
         JoyReader_update ( );     \
                                   \

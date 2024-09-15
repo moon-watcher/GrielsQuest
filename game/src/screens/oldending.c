@@ -1,5 +1,5 @@
 #include "../inc/include.h"
-
+#include "../inc/genres_externs.h"
 
 void screen_oldending ( )
 {
@@ -24,7 +24,7 @@ void screen_oldending ( )
 
 
     // 1
-	showBmp ( PAL2, (struct genresTiles*) &ob_ending_1, HOW_TO_PLAY_TILE, PLAN_A, 12, 5, 60 );
+	showBmp ( PAL2, (struct genresTiles*) &ob_ending_1, HOW_TO_PLAY_TILE, BG_A, 12, 5, 60 );
 	preparePal( PAL2, ob_ending_1.pal );
 	displayOn ( getHz() );
 	waitMs ( 500 );
@@ -40,7 +40,7 @@ void screen_oldending ( )
 
 	// 2
     displayOff ( 0 );
-	showBmp ( PAL2, (struct genresTiles*) &ob_ending_2, HOW_TO_PLAY_TILE, PLAN_A, 12, 5, 60 );
+	showBmp ( PAL2, (struct genresTiles*) &ob_ending_2, HOW_TO_PLAY_TILE, BG_A, 12, 5, 60 );
 	preparePal( PAL2, ob_ending_2.pal );
     displayOn ( getHz() );
 	waitMs ( 500 );
@@ -56,7 +56,7 @@ void screen_oldending ( )
 
 	// 3
     displayOff ( 0 );
-	showBmp ( PAL2, (struct genresTiles*) &ob_ending_3, HOW_TO_PLAY_TILE, PLAN_A, 12, 5, 60 );
+	showBmp ( PAL2, (struct genresTiles*) &ob_ending_3, HOW_TO_PLAY_TILE, BG_A, 12, 5, 60 );
 	preparePal( PAL2, ob_ending_3.pal );
 	displayOn ( getHz() );
 	waitMs ( 500 );

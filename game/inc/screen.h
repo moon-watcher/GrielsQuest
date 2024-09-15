@@ -1,3 +1,5 @@
+#pragma once
+
 enum
 {
 	SCREEN_JUMP_TO_HOWTOPLAY = 1,
@@ -44,7 +46,7 @@ u16   screen_title_menu_1       ( );
 void  screen_gameover           ( );
 void  screen_sound_test         ( );
 u16   screen_ingame_how_to_play ( LEVEL wl );
-void  screen_disclaimer         ( );
+void  screen_disclaimer         ( bool);
 void  screen_ob_intro_2_b_f     ( );
 void  screen_publisher          ( );
 void  screen_wtfisaporron       ( );

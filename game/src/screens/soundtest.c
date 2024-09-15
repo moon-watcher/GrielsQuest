@@ -1,4 +1,5 @@
 #include "../inc/include.h"
+#include "../inc/genres_externs.h"
 
 
 void screen_sound_test ()
@@ -23,7 +24,7 @@ void screen_sound_test ()
 
 	music_stop();
 
-//	struct mappyLevel lvl = { PAL1, 900, 0, PLAN_A.plan, (struct mappyResource*) &cb_soundtest };
+//	struct mappyLevel lvl = { PAL1, 900, 0, BG_A.plan, (struct mappyResource*) &cb_soundtest };
 //	mappy_all ( &lvl, 0, 0, 0, 0, 40, 28, 0 );
 
 	font_init();
@@ -40,7 +41,7 @@ void screen_sound_test ()
 	text_draw_center ( f1, 3, 0 );
 
 	VDP_setTextPalette(PAL0);
-	VDP_setPalette(PAL0, (u16*) font_getPalette());
+	PAL_setPalette(PAL0, (u16*) font_getPalette(), CPU);
 
 	SYS_enableInts();
 

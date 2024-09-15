@@ -400,7 +400,7 @@ void player_stop ( u8 player )
 }
 
 
-// permite cambiar la dirección de Griel en mitad de dos casillas
+// permite cambiar la direcciï¿½n de Griel en mitad de dos casillas
 bool player_changed_dir ( u8 player )
 {
 	u8 aux = _p.object;
@@ -601,7 +601,7 @@ void player_on_arrow ( u8 player )
 {
 	_p.on_arrow   = false;
 
-	if ( ! _parado ( PLAYER_1 ) ) // si está en Arrow y No parado hacer sonar PSG_ARROW
+	if ( ! _parado ( PLAYER_1 ) ) // si estï¿½ en Arrow y No parado hacer sonar PSG_ARROW
 	{
 		psglist_play ( PSG_FLECHAS );
 	}
@@ -651,8 +651,8 @@ void player_on_hurts ( u8 player )
 	undo_can_undo ( false );
 	undo_explode();
 
-	_p.x = _restore_x; // aquí o fuera del if?
-	_p.y = _restore_y; // está por ver
+	_p.x = _restore_x; // aquï¿½ o fuera del if?
+	_p.y = _restore_y; // estï¿½ por ver
 }
 
 
@@ -724,10 +724,10 @@ void player_update_selected ( u8 player, u16 selected )
 	vsprite_set ( splist_ui_left_1, 16,  0, UI_LEFT_1 );
 	vsprite_set ( splist_ui_left_2, 16, 24, UI_LEFT_2 );
 
-	VDP_setSpritePriority ( splist_ui_weapon, 1 );
-	VDP_setSpritePriority ( splist_ui_enemy,  1 );
-	VDP_setSpritePriority ( splist_ui_left_1, 1 );
-	VDP_setSpritePriority ( splist_ui_left_2, 1 );
+	VDP_setSpritePriorityGQ ( splist_ui_weapon, 1 );
+	VDP_setSpritePriorityGQ ( splist_ui_enemy,  1 );
+	VDP_setSpritePriorityGQ ( splist_ui_left_1, 1 );
+	VDP_setSpritePriorityGQ ( splist_ui_left_2, 1 );
 }
 
 

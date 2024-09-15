@@ -3,13 +3,13 @@
 
 
 
-const static u8 *language_name [ ] =
+static const u8 *language_name [ ] =
 {
     "English",
-    "Español",
+    "Espaï¿½ol",
     "Italiano",
-    "Français",
-    "Català",
+    "Franï¿½ais",
+    "Catalï¿½",
     "Suomeksi",
     "Galego",
     "Br. Portuguese",

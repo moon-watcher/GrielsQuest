@@ -1,4 +1,5 @@
 #include "../inc/include.h"
+#include "../inc/genres_externs.h"
 
 
 
@@ -17,7 +18,7 @@ void screen_oooklab ( )
 	resetSprites  ( );
 
 	VDP_loadTileData ( ob_logo_OookLab.tiles, HOW_TO_PLAY_TILE, ob_logo_OookLab.width * ob_logo_OookLab.height, 0 );
-	VDP_fillTileMapRectInc ( PLAN_A, TILE_ATTR_FULL ( PAL0, 1, 0, 0, HOW_TO_PLAY_TILE ), 12, 8, ob_logo_OookLab.width, ob_logo_OookLab.height );
+	VDP_fillTileMapRectInc ( BG_A, TILE_ATTR_FULL ( PAL0, 1, 0, 0, HOW_TO_PLAY_TILE ), 12, 8, ob_logo_OookLab.width, ob_logo_OookLab.height );
 	preparePal ( PAL0, ob_logo_OookLab.pal );
 
     prepareColor(17, 0x000 );

@@ -1,9 +1,9 @@
 #include "../inc/include.h"
 
 
-const static FRASE _frases[][200] =
+static const FRASE _frases[][200] =
 {
-	// inglés
+	// inglï¿½s
 	{
 		(FRASE) {  1,  3, 21, "You forgot something?" },
 		(FRASE) {  1,  0,  0, "RISKY WOODS" },
@@ -49,9 +49,9 @@ const static FRASE _frases[][200] =
 	},
 
 
-	// español
+	// espaï¿½ol
 	{
-		(FRASE) {  1,  3, 21, "¿Olvidaste algo?" },
+		(FRASE) {  1,  3, 21, "ï¿½Olvidaste algo?" },
 		(FRASE) {  1,  0,  0, "RISKY WOODS" },
 		(FRASE) {  1,  0,  0, "GUARIDA MURCIANA" },
 		(FRASE) {  1,  0,  0, "ABISMO DE ABU" },
@@ -68,7 +68,7 @@ const static FRASE _frases[][200] =
 
 		(FRASE) {  4,  0,  0, "NIVEL   " },
 
-		(FRASE) {  5,  0,  0, "¡BINGO!" }, // 13
+		(FRASE) {  5,  0,  0, "ï¿½BINGO!" }, // 13
 		(FRASE) {  5,  0,  0, "TE QUEMAS" }, // 14
 		(FRASE) {  5,  0,  0, "AL ROJO VIVO" }, // 15
 		(FRASE) {  5,  0,  0, "ARDIENDO" }, // 16
@@ -80,97 +80,97 @@ const static FRASE _frases[][200] =
 		(FRASE) {  5,  0,  0, "CONGELADO" }, // 22
 		(FRASE) {  5,  0,  0, "BAJO CERO" }, // 23
 
-		(FRASE) {  6,  0,  0, "Siempre te engaña el lobo." },                           // 25 // woods
+		(FRASE) {  6,  0,  0, "Siempre te engaï¿½a el lobo." },                           // 25 // woods
 		(FRASE) {  6,  0,  0, "Hielo para los refrescos pero ahora no tienes sed." },   // 26 // iceland
 		(FRASE) {  6,  0,  0, "Mejor no, la arena se te mete en la coquilla." },        // 24 // egypt
-		(FRASE) {  6,  0,  0, "No llevas traje de baño." },                             // 27 // beach
-		(FRASE) {  6,  0,  0, "¿Por qué no vas directamente al volcán?" },              // 28
-		(FRASE) {  6,  0,  0, "¡Oh, venga ya! No tengo todo el día." },                 // 29
-		(FRASE) {  6,  0,  0, "¿No has curioseado ya suficiente?" },                    // 30
-		(FRASE) {  6,  0,  0, "No puedes ir ahí, ese es el triángulo prohibido."  },    // 31 // Monkey Island 2 refference
-		(FRASE) {  6,  0,  0, "No puedes ir ahí, ese es el cuadrado prohibido."   },    // 32 // Monkey Island 2 refference
-		(FRASE) {  6,  0,  0, "No puedes ir ahí, ese es el pentágono prohibido."  },    // 33 // Monkey Island 2 refference
-		(FRASE) {  6,  0,  0, "No puedes ir ahí, ese es el hexágono prohibido."   },    // 34 // Monkey Island 2 refference
-		(FRASE) {  6,  0,  0, "No puedes ir ahí, ese es el decágono prohibido."   },    // 35 // Monkey Island 2 refference
-		(FRASE) {  6,  0,  0, "No puedes ir ahí, ese es el dodecaedro prohibido." },    // 36 // Monkey Island 2 refference
+		(FRASE) {  6,  0,  0, "No llevas traje de baï¿½o." },                             // 27 // beach
+		(FRASE) {  6,  0,  0, "ï¿½Por quï¿½ no vas directamente al volcï¿½n?" },              // 28
+		(FRASE) {  6,  0,  0, "ï¿½Oh, venga ya! No tengo todo el dï¿½a." },                 // 29
+		(FRASE) {  6,  0,  0, "ï¿½No has curioseado ya suficiente?" },                    // 30
+		(FRASE) {  6,  0,  0, "No puedes ir ahï¿½, ese es el triï¿½ngulo prohibido."  },    // 31 // Monkey Island 2 refference
+		(FRASE) {  6,  0,  0, "No puedes ir ahï¿½, ese es el cuadrado prohibido."   },    // 32 // Monkey Island 2 refference
+		(FRASE) {  6,  0,  0, "No puedes ir ahï¿½, ese es el pentï¿½gono prohibido."  },    // 33 // Monkey Island 2 refference
+		(FRASE) {  6,  0,  0, "No puedes ir ahï¿½, ese es el hexï¿½gono prohibido."   },    // 34 // Monkey Island 2 refference
+		(FRASE) {  6,  0,  0, "No puedes ir ahï¿½, ese es el decï¿½gono prohibido."   },    // 35 // Monkey Island 2 refference
+		(FRASE) {  6,  0,  0, "No puedes ir ahï¿½, ese es el dodecaedro prohibido." },    // 36 // Monkey Island 2 refference
 
-		(FRASE) {  7,  0,  0, "Érase una vez el malvado Kbrah, señor de las tierras volcánicas..." },
-		(FRASE) {  7,  0,  0, "Él hacía que la princesa siempre estuviera en otro castillo." },
+		(FRASE) {  7,  0,  0, "ï¿½rase una vez el malvado Kbrah, seï¿½or de las tierras volcï¿½nicas..." },
+		(FRASE) {  7,  0,  0, "ï¿½l hacï¿½a que la princesa siempre estuviera en otro castillo." },
 		(FRASE) {  7,  0,  0, "Se pasaba todos los juegos con una sola vida." },
 		(FRASE) {  7,  0,  0, "Y tocaba en un grupo de heavy metal." },
 
 		(FRASE) {  8,  0,  0, "Pero sobre todo era conocido por las fiestas que organizaba con sus amigotes." },
 
-		(FRASE) {  9,  0,  0, "Todos comían perdices hasta que una mañana..." }, // "Todos comían perdices hasta que una mañana..." }, // A la mañana siguiente, el no menos fiestero Rey Notah, se despierta con su tradicional resaca..." },
-		(FRASE) {  9,  0,  0, "El cofre real está abierto... |WBREAK ¡OH, NO! |BREAK |WAIT:60 ¡HAN ROBADO EL HOLY PORRÓN!" },
-		(FRASE) {  9,  0,  0, "¡Rey Notah, la princesa Beach también ha sido secuestrada!" },
-		(FRASE) {  9,  0,  0, "No moleste, Cortázar.|BREAK Esto es muy serio, sin el porrón el reino está condenado.|WCLEAR ¡Rápido! ¡Avisa a Griel!" },
+		(FRASE) {  9,  0,  0, "Todos comï¿½an perdices hasta que una maï¿½ana..." }, // "Todos comï¿½an perdices hasta que una maï¿½ana..." }, // A la maï¿½ana siguiente, el no menos fiestero Rey Notah, se despierta con su tradicional resaca..." },
+		(FRASE) {  9,  0,  0, "El cofre real estï¿½ abierto... |WBREAK ï¿½OH, NO! |BREAK |WAIT:60 ï¿½HAN ROBADO EL HOLY PORRï¿½N!" },
+		(FRASE) {  9,  0,  0, "ï¿½Rey Notah, la princesa Beach tambiï¿½n ha sido secuestrada!" },
+		(FRASE) {  9,  0,  0, "No moleste, Cortï¿½zar.|BREAK Esto es muy serio, sin el porrï¿½n el reino estï¿½ condenado.|WCLEAR ï¿½Rï¿½pido! ï¿½Avisa a Griel!" },
 
-		(FRASE) { 10,  0,  0, "Griel, han robado el Holy Porrón, su poder es temible. |BREAK ¡Debes recuperarlo cuanto antes!" },
-		(FRASE) { 10,  0,  0, "¿Tiene alguna pista, majestad?" },
-		(FRASE) { 10,  0,  0, "Kbrah me la tiene jurada. |BREAK Además el salón apesta a ese truhán, seguro que ha sido él. |WCLEAR Encuentra a Kbrah y trae de vuelta el Porrón." },
-		(FRASE) { 10,  0,  0, "¿Y qué hay de la princesa? |BREAK También ha sido secuestrada..." },
-		(FRASE) { 10,  0,  0, "Eso no importa ahora. Vuelve con el Holy Porrón y te concederé su mano. |WCLEAR ¡Ponte en marcha! |BREAK ¡El reino se desploma sin su protección!" },
+		(FRASE) { 10,  0,  0, "Griel, han robado el Holy Porrï¿½n, su poder es temible. |BREAK ï¿½Debes recuperarlo cuanto antes!" },
+		(FRASE) { 10,  0,  0, "ï¿½Tiene alguna pista, majestad?" },
+		(FRASE) { 10,  0,  0, "Kbrah me la tiene jurada. |BREAK Ademï¿½s el salï¿½n apesta a ese truhï¿½n, seguro que ha sido ï¿½l. |WCLEAR Encuentra a Kbrah y trae de vuelta el Porrï¿½n." },
+		(FRASE) { 10,  0,  0, "ï¿½Y quï¿½ hay de la princesa? |BREAK Tambiï¿½n ha sido secuestrada..." },
+		(FRASE) { 10,  0,  0, "Eso no importa ahora. Vuelve con el Holy Porrï¿½n y te concederï¿½ su mano. |WCLEAR ï¿½Ponte en marcha! |BREAK ï¿½El reino se desploma sin su protecciï¿½n!" },
 
-		(FRASE) { 11,  0,  0, "Vuelve con el Porrón y te concederé la mano de mi hija. |BREAK ¡Ahora largo de aquí!" },
+		(FRASE) { 11,  0,  0, "Vuelve con el Porrï¿½n y te concederï¿½ la mano de mi hija. |BREAK ï¿½Ahora largo de aquï¿½!" },
 
 		// puerta opcion 1
-		(FRASE) { 12,  0,  0, "Vaya, la típica puerta cerrada. |WAIT:60 |BREAK Parece que será un juego difícil. |WCLEAR Un momento, esos huecos en la pared... |WAIT:60 |BREAK Seguro que hay que poner algo para abrir la puerta, lo he visto en otros juegos. |WCLEAR ¡Ya sé! Debo reunir los Monedones Legendarios repartidos por el reino. |WCLEAR Diablos, esto me va a llevar toda la tarde. |WAIT:60 |BREAK ¡Vamos allá!" },
+		(FRASE) { 12,  0,  0, "Vaya, la tï¿½pica puerta cerrada. |WAIT:60 |BREAK Parece que serï¿½ un juego difï¿½cil. |WCLEAR Un momento, esos huecos en la pared... |WAIT:60 |BREAK Seguro que hay que poner algo para abrir la puerta, lo he visto en otros juegos. |WCLEAR ï¿½Ya sï¿½! Debo reunir los Monedones Legendarios repartidos por el reino. |WCLEAR Diablos, esto me va a llevar toda la tarde. |WAIT:60 |BREAK ï¿½Vamos allï¿½!" },
 		// puerta opcion 2
-		(FRASE) { 13,  0,  0, "Nunca aprendí a restar. |BREAK Mejor vuelvo luego." }, //(FRASE) { 14,  0,  0, "(Ese día el programador estaba vago y no enseñó a Griel a restar)" },
+		(FRASE) { 13,  0,  0, "Nunca aprendï¿½ a restar. |BREAK Mejor vuelvo luego." }, //(FRASE) { 14,  0,  0, "(Ese dï¿½a el programador estaba vago y no enseï¿½ï¿½ a Griel a restar)" },
 
 		// puerta opcion 3
-		(FRASE) { 14,  0,  0, "Gracias por devolver los medallones |BREAK ¿Por qué te has molestado?" },
-		(FRASE) { 14,  0,  0, "¡Pues para abrir la puerta! |WBREAK Vengo a ajustar cuentas con Kbrah..." },
-		(FRASE) { 14,  0,  0, "Haber llamado al timbre. Basta con traerle un regalito, ya sabes cómo es." },
-		(FRASE) { 14,  0,  0, "¡Suerte, chaval! |BREAK La vas a necesitar." },
+		(FRASE) { 14,  0,  0, "Gracias por devolver los medallones |BREAK ï¿½Por quï¿½ te has molestado?" },
+		(FRASE) { 14,  0,  0, "ï¿½Pues para abrir la puerta! |WBREAK Vengo a ajustar cuentas con Kbrah..." },
+		(FRASE) { 14,  0,  0, "Haber llamado al timbre. Basta con traerle un regalito, ya sabes cï¿½mo es." },
+		(FRASE) { 14,  0,  0, "ï¿½Suerte, chaval! |BREAK La vas a necesitar." },
 
 		// final 1
-		(FRASE) { 15,  0,  0, "Kbrah, bestia pestilente. |WAIT:60 |BREAK Devuelve el Holy Porrón. Sé que lo tienes tú." },
-		(FRASE) { 15,  0,  0, "¿Ese cacharro? |WAIT:100 |BREAK Toma, llévatelo, no me ha gustado nada..." }, //Lo cogí por hacer el gamberro. No sabía que era tan valioso. Da igual, llévatelo." },
-		(FRASE) { 15,  0,  0, "Uuohh! |WAIT:60 |BREAK Papi, qué chico más chachi. |BREAK ¿Me lo puedo quedar?" },
-		(FRASE) { 15,  0,  0, "Ni hablar. |BREAK No te he educado para te juntes con chicos buenos. |WBREAK:60 Además ya se va ¿verdad?" },
-		(FRASE) { 15,  0,  0, "No tan rápido malandrín, la princesa Beach también se viene conmigo." },
-		(FRASE) { 15,  0,  0, "Ya no está aquí. |BREAK No pudimos retenerla por más tiempo... |WBREAK:60 Ahora coge el porrón y lárgate." },
+		(FRASE) { 15,  0,  0, "Kbrah, bestia pestilente. |WAIT:60 |BREAK Devuelve el Holy Porrï¿½n. Sï¿½ que lo tienes tï¿½." },
+		(FRASE) { 15,  0,  0, "ï¿½Ese cacharro? |WAIT:100 |BREAK Toma, llï¿½vatelo, no me ha gustado nada..." }, //Lo cogï¿½ por hacer el gamberro. No sabï¿½a que era tan valioso. Da igual, llï¿½vatelo." },
+		(FRASE) { 15,  0,  0, "Uuohh! |WAIT:60 |BREAK Papi, quï¿½ chico mï¿½s chachi. |BREAK ï¿½Me lo puedo quedar?" },
+		(FRASE) { 15,  0,  0, "Ni hablar. |BREAK No te he educado para te juntes con chicos buenos. |WBREAK:60 Ademï¿½s ya se va ï¿½verdad?" },
+		(FRASE) { 15,  0,  0, "No tan rï¿½pido malandrï¿½n, la princesa Beach tambiï¿½n se viene conmigo." },
+		(FRASE) { 15,  0,  0, "Ya no estï¿½ aquï¿½. |BREAK No pudimos retenerla por mï¿½s tiempo... |WBREAK:60 Ahora coge el porrï¿½n y lï¿½rgate." },
 
 		// final 2
-		(FRASE) { 16,  0,  0, "¡Fantástico, hijo! |BREAK Lo has conseguido. La verdad es que no daba un duro por ti pero has hecho un buen trabajo." },
-		(FRASE) { 16,  0,  0, "¿En qué consiste el magnífico poder del Holy Porrón?" },
-		(FRASE) { 16,  0,  0, "Este maravilloso artefacto proporciona vino sin fin a su poseedor. |WBREAK Un infinito torrente de fresco néctar, algo picao, pero fresco." },
-		(FRASE) { 16,  0,  0, "¿Y ESO ES TODO? |WBREAK ¿PARA ESO ME HE JUGADO LA VIDA? |WCLEAR No veo cómo contribuía a la prosperidad del reino." },
-		(FRASE) { 16,  0,  0, "Ahorramos un montón de dinero en vino. |BREAK Además no podría gobernar sin estar borracho." },
-		(FRASE) { 16,  0,  0, "No puedo creerlo... |WBREAK En fin, me prometió la mano de la princesa, ¿recuerda?" },
+		(FRASE) { 16,  0,  0, "ï¿½Fantï¿½stico, hijo! |BREAK Lo has conseguido. La verdad es que no daba un duro por ti pero has hecho un buen trabajo." },
+		(FRASE) { 16,  0,  0, "ï¿½En quï¿½ consiste el magnï¿½fico poder del Holy Porrï¿½n?" },
+		(FRASE) { 16,  0,  0, "Este maravilloso artefacto proporciona vino sin fin a su poseedor. |WBREAK Un infinito torrente de fresco nï¿½ctar, algo picao, pero fresco." },
+		(FRASE) { 16,  0,  0, "ï¿½Y ESO ES TODO? |WBREAK ï¿½PARA ESO ME HE JUGADO LA VIDA? |WCLEAR No veo cï¿½mo contribuï¿½a a la prosperidad del reino." },
+		(FRASE) { 16,  0,  0, "Ahorramos un montï¿½n de dinero en vino. |BREAK Ademï¿½s no podrï¿½a gobernar sin estar borracho." },
+		(FRASE) { 16,  0,  0, "No puedo creerlo... |WBREAK En fin, me prometiï¿½ la mano de la princesa, ï¿½recuerda?" },
 
-		// final 2 // sólo debilucho
-		(FRASE) { 17,  0,  0, "¡Ah no! |WBREAK No permito que mi hija se vaya con alguien que termina los juegos en nivel más fácil. |WCLEAR Inténtalo de nuevo en otra dificultad y ya veremos..." }, // Además, ni siquiera estaba borracho cuando te lo prometí, así que no cuenta. Eso sí, si te traes un vasito, te lo relleno un par de veces." },
+		// final 2 // sï¿½lo debilucho
+		(FRASE) { 17,  0,  0, "ï¿½Ah no! |WBREAK No permito que mi hija se vaya con alguien que termina los juegos en nivel mï¿½s fï¿½cil. |WCLEAR Intï¿½ntalo de nuevo en otra dificultad y ya veremos..." }, // Ademï¿½s, ni siquiera estaba borracho cuando te lo prometï¿½, asï¿½ que no cuenta. Eso sï¿½, si te traes un vasito, te lo relleno un par de veces." },
 		(FRASE) { 17,  0,  0, "Pero... |WAIT:60 pero..." },
-		(FRASE) { 17,  0,  0, "Lo sé, Griel, lo sé... ha, ha, ha. |WBREAK Mira, ahora vienen tus creadores... |WAIT:60 3... |WAIT:60 2... |WAIT:60 1..." },
-		// aquí acaba el final del debilucho
+		(FRASE) { 17,  0,  0, "Lo sï¿½, Griel, lo sï¿½... ha, ha, ha. |WBREAK Mira, ahora vienen tus creadores... |WAIT:60 3... |WAIT:60 2... |WAIT:60 1..." },
+		// aquï¿½ acaba el final del debilucho
 
 		// final 2 // tipo duro o pesadilla
-		(FRASE) { 18,  0,  0, "Por supuesto... |WBREAK ¡Esta hecha una mujercita! |WCLEAR ¡BEACH, CIELO! |WBREAK ¿RECUERDAS A GRIEL? |WBREAK ¡A VENIDO A PEDIR TU MANO!" },
-		(FRASE) { 18,  0,  0, "¿Griel? |WBREAK ¿Eres tú...?" },
+		(FRASE) { 18,  0,  0, "Por supuesto... |WBREAK ï¿½Esta hecha una mujercita! |WCLEAR ï¿½BEACH, CIELO! |WBREAK ï¿½RECUERDAS A GRIEL? |WBREAK ï¿½A VENIDO A PEDIR TU MANO!" },
+		(FRASE) { 18,  0,  0, "ï¿½Griel? |WBREAK ï¿½Eres tï¿½...?" },
 
 		// final 3 // tipo duro o pesadilla
-		(FRASE) { 19,  0,  0, "¡GROARRR! |BREAK ¡SI ESTÁS HECHO UN BOMBONCITO! |WBREAK Ven a los brazos de mami..." },
-		(FRASE) { 19,  0,  0, "¡AAAAAAH! |BREAK ¡SOCORRO, QUE ME COME! " },
-		(FRASE) { 19,  0,  0, "No corras, chiquitín. Deja que te estruje un poco." },
+		(FRASE) { 19,  0,  0, "ï¿½GROARRR! |BREAK ï¿½SI ESTï¿½S HECHO UN BOMBONCITO! |WBREAK Ven a los brazos de mami..." },
+		(FRASE) { 19,  0,  0, "ï¿½AAAAAAH! |BREAK ï¿½SOCORRO, QUE ME COME! " },
+		(FRASE) { 19,  0,  0, "No corras, chiquitï¿½n. Deja que te estruje un poco." },
 
-		// final 3 // sólo tipo duro
-		(FRASE) { 20,  0,  0, "¡Buah, vaya final! |WBREAK Cualquier otro hubiera sido mejor. |WBREAK Si lo sé elijo el nivel más difícil." },
-		// aquí acaba el final del tipo duro
+		// final 3 // sï¿½lo tipo duro
+		(FRASE) { 20,  0,  0, "ï¿½Buah, vaya final! |WBREAK Cualquier otro hubiera sido mejor. |WBREAK Si lo sï¿½ elijo el nivel mï¿½s difï¿½cil." },
+		// aquï¿½ acaba el final del tipo duro
 
-		// final 3 // sólo pesadilla
-		(FRASE) { 21,  0,  0, "¡TOMA ESTO! |WBREAK Yo vi primero a esta sardinilla." },
+		// final 3 // sï¿½lo pesadilla
+		(FRASE) { 21,  0,  0, "ï¿½TOMA ESTO! |WBREAK Yo vi primero a esta sardinilla." },
 		(FRASE) { 21,  0,  0, "......?! |WBREAK Ufff, me he librado por los pelos." },
 
-			// final 4 // sólo pesadilla
-		(FRASE) { 22,  0,  0, "Gracias por salvarme. |WBREAK ¿Por qué has venido en mi ayuda?" },
-		(FRASE) { 22,  0,  0, "Me hizo gracia tu casco con cuernecillos y además... |WCLEAR Has terminado el nivel más difícil y eso no se ve todos los días. |WBREAK !ENHORABUENA!" },
-		(FRASE) { 22,  0,  0, "Han sido muchas horas pero ha merecido la pena. |WBREAK Oye ¿no me estarás raptando, verdad?" },
-		(FRASE) { 22,  0,  0, "¡Ja, ja, ja! |WBREAK Esto hay que celebrarlo. Ahora te voy a enseñar el \"verdadero\" final." },
-		(FRASE) { 22,  0,  0, "Estupendo, pues en marcha hacia la siguiente escena." } , //¿Me llevas a la siguiente escena?" },
-		(FRASE) { 22,  0,  0, "Oh, vaya. Eres más bobo de lo que imaginaba... |WAIT:180" },
+			// final 4 // sï¿½lo pesadilla
+		(FRASE) { 22,  0,  0, "Gracias por salvarme. |WBREAK ï¿½Por quï¿½ has venido en mi ayuda?" },
+		(FRASE) { 22,  0,  0, "Me hizo gracia tu casco con cuernecillos y ademï¿½s... |WCLEAR Has terminado el nivel mï¿½s difï¿½cil y eso no se ve todos los dï¿½as. |WBREAK !ENHORABUENA!" },
+		(FRASE) { 22,  0,  0, "Han sido muchas horas pero ha merecido la pena. |WBREAK Oye ï¿½no me estarï¿½s raptando, verdad?" },
+		(FRASE) { 22,  0,  0, "ï¿½Ja, ja, ja! |WBREAK Esto hay que celebrarlo. Ahora te voy a enseï¿½ar el \"verdadero\" final." },
+		(FRASE) { 22,  0,  0, "Estupendo, pues en marcha hacia la siguiente escena." } , //ï¿½Me llevas a la siguiente escena?" },
+		(FRASE) { 22,  0,  0, "Oh, vaya. Eres mï¿½s bobo de lo que imaginaba... |WAIT:180" },
 
 
 
@@ -196,20 +196,20 @@ static u8 * _prepare_string ( u8 *cadena )
 	{
 		switch ( cadena[i] )
 		{
-			case 250: aux [ i ] = 32 -  1; break; // ú
-			case 243: aux [ i ] = 32 -  2; break; // ó
-			case 241: aux [ i ] = 32 -  3; break; // ñ
-			case 237: aux [ i ] = 32 -  4; break; // í
-			case 233: aux [ i ] = 32 -  5; break; // é
-			case 225: aux [ i ] = 32 -  6; break; // á
-			case 218: aux [ i ] = 32 -  7; break; // Ú
-			case 211: aux [ i ] = 32 -  8; break; // Ó
-			case 209: aux [ i ] = 32 -  9; break; // Ñ
-			case 205: aux [ i ] = 32 - 10; break; // Í
-			case 201: aux [ i ] = 32 - 11; break; // É
-			case 193: aux [ i ] = 32 - 12; break; // Á
-			case 191: aux [ i ] = 32 - 13; break; // ¿
-			case 161: aux [ i ] = 32 - 14; break; // ¡
+			case 250: aux [ i ] = 32 -  1; break; // ï¿½
+			case 243: aux [ i ] = 32 -  2; break; // ï¿½
+			case 241: aux [ i ] = 32 -  3; break; // ï¿½
+			case 237: aux [ i ] = 32 -  4; break; // ï¿½
+			case 233: aux [ i ] = 32 -  5; break; // ï¿½
+			case 225: aux [ i ] = 32 -  6; break; // ï¿½
+			case 218: aux [ i ] = 32 -  7; break; // ï¿½
+			case 211: aux [ i ] = 32 -  8; break; // ï¿½
+			case 209: aux [ i ] = 32 -  9; break; // ï¿½
+			case 205: aux [ i ] = 32 - 10; break; // ï¿½
+			case 201: aux [ i ] = 32 - 11; break; // ï¿½
+			case 193: aux [ i ] = 32 - 12; break; // ï¿½
+			case 191: aux [ i ] = 32 - 13; break; // ï¿½
+			case 161: aux [ i ] = 32 - 14; break; // ï¿½
 			default:	 aux [ i ] = cadena [ i ];
 		}
 	}

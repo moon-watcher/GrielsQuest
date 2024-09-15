@@ -1,4 +1,5 @@
 #include "../inc/include.h"
+#include "../inc/genres_externs.h"
 
 
 
@@ -69,7 +70,7 @@ void screen_sega ( )
 	resetScreen();
 
 	VDP_loadTileData ( ob_logo_Sega.tiles, HOW_TO_PLAY_TILE, ob_logo_Sega.width * ob_logo_Sega.height, 0 );
-	VDP_fillTileMapRectInc ( PLAN_A, TILE_ATTR_FULL ( PAL1, 1, 0, 0, HOW_TO_PLAY_TILE ), 14, 12, ob_logo_Sega.width, ob_logo_Sega.height );
+	VDP_fillTileMapRectInc ( BG_A, TILE_ATTR_FULL ( PAL1, 1, 0, 0, HOW_TO_PLAY_TILE ), 14, 12, ob_logo_Sega.width, ob_logo_Sega.height );
 
 	SYS_enableInts();
 
@@ -79,7 +80,7 @@ void screen_sega ( )
 	while ( logo[i].wait )
 	{
 		SYS_disableInts();
-		VDP_setPalette ( PAL1, logo[i].pal );
+		PAL_setPalette ( PAL1, logo[i].pal, CPU );
 		SYS_enableInts();
 
 		waitJoyHz ( logo[i].wait / 17 );

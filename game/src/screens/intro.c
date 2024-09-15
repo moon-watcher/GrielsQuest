@@ -1,7 +1,7 @@
 #include "../inc/include.h"
 #include "../inc/colores_textos.h"
 #include "../res/xgmres.h"
-
+#include "../inc/genres_externs.h"
 
 
 #undef  WAITBREAK
@@ -58,7 +58,7 @@ static u8 _escena_1 ( )
 {
     musiclist_play( MUSIC_INTRO );
 
-	ind = TILE_USERINDEX;
+	ind = TILE_USER_INDEX;
 
 	u16 vel_show = 20;
 
@@ -89,13 +89,14 @@ static u8 _escena_1 ( )
 	resetSprites();
 	resetScroll();
 
-	VDP_drawImageEx ( PLAN_A, &ob_intro_1_a, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, ind), 0, 1, false, 0 );
+	VDP_drawImageEx ( BG_A, &ob_intro_1_a, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, ind), 0, 1, false, 0 );
 	ind += ob_intro_1_a.tileset->numTile;
 
 	SYS_enableInts();
 
 
-	VDP_fadePalTo ( PAL1, ob_intro_1_a.palette->data, vel_show, true );
+	PAL_fadeToPalette ( PAL1, ob_intro_1_a.palette->data, vel_show, true );
+	
 
 
 	wb_fade ( joy1_pressed_abc | joy1_pressed_start );
@@ -108,10 +109,10 @@ static u8 _escena_1 ( )
 
 
 	SYS_disableInts();
-	VDP_drawImageEx ( PLAN_A, &ob_intro_1_c, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, ind), 27, 1, false, 0 );
+	VDP_drawImageEx ( BG_A, &ob_intro_1_c, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, ind), 27, 1, false, 0 );
 	SYS_enableInts();
 
-	VDP_fadePalTo ( PAL2, ob_intro_1_c.palette->data, vel_show, true );
+	PAL_fadeToPalette ( PAL2, ob_intro_1_c.palette->data, vel_show, true );
 
 	wb_fade ( joy1_pressed_abc | joy1_pressed_start );
 
@@ -120,12 +121,12 @@ static u8 _escena_1 ( )
 
 
 	SYS_disableInts();
-	VDP_drawImageEx ( PLAN_A, &ob_intro_1_c, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, ind), 27, 1, false, 0 );  ind += ob_intro_1_c.tileset->numTile;
+	VDP_drawImageEx ( BG_A, &ob_intro_1_c, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, ind), 27, 1, false, 0 );  ind += ob_intro_1_c.tileset->numTile;
 	SYS_enableInts();
 
 	//wb_wait ( getHz(), joy1_pressed_btn );
 
-	VDP_fadePalOut ( PAL1, vel_show, true );
+	PAL_fadeOutPalette ( PAL1, vel_show, true );
 
 
 
@@ -139,7 +140,7 @@ static u8 _escena_1 ( )
 
 		if ( i == 10 )
 		{
-			VDP_interruptFade();
+			PAL_interruptFade();
 			break;
 		}
 	}
@@ -147,25 +148,27 @@ static u8 _escena_1 ( )
 
 
 	SYS_disableInts();
-	VDP_setVerticalScroll ( PLAN_B, i-100 );
-	VDP_drawImageEx ( PLAN_B, &ob_intro_1_b, TILE_ATTR_FULL(PAL3, true, false, false, ind), 12, 0, true, 0 );
+	VDP_setVerticalScroll ( BG_B, i-100 );
+	VDP_drawImageEx ( BG_B, &ob_intro_1_b, TILE_ATTR_FULL(PAL3, true, false, false, ind), 12, 0, true, 0 );
 	SYS_enableInts();
 
 	for ( i = 250; i >= 0; i -= 6 )
 	{
 		SYS_disableInts();
-		VDP_setVerticalScroll ( PLAN_B, i );
+		VDP_setVerticalScroll ( BG_B, i );
 		SYS_enableInts();
 
 		wb_wait ( 1, joy1_pressed_abc | joy1_pressed_start );
 	}
 
 	SYS_disableInts();
-	VDP_setVerticalScroll ( PLAN_B, 0 );
-	VDP_setPalette ( PAL0, font_getPalette() );
+	VDP_setVerticalScroll ( BG_B, 0 );
+	PAL_setPalette ( PAL0, font_getPalette(), CPU);
 	SYS_enableInts();
 
 	frases_tt_write ( NARRADOR );
+
+
 
 
     GONEXT
@@ -178,16 +181,16 @@ static u8 _escena_1 ( )
 static u8 _escena_2()
 {
 	cont = 0;
-	ind  = TILE_USERINDEX;
+	ind  = TILE_USER_INDEX;
 
 	displayOff(0);
 	SYS_disableInts ( );
 
-	VDP_interruptFade ( );
+	PAL_interruptFade ( );
 	resetScroll ( );
 
-	VDP_drawImageEx ( PLAN_B, &ob_intro_2_b, TILE_ATTR_FULL(PAL1, false, FALSE, FALSE, ind), 0, 0, 0, 0 ); ind += ob_intro_2_b.tileset->numTile;
-	VDP_drawImageEx ( PLAN_A, &ob_intro_2_a, TILE_ATTR_FULL(PAL2, false, FALSE, FALSE, ind), 0, 0, 0, 0 ); ind += ob_intro_2_a.tileset->numTile;
+	VDP_drawImageEx ( BG_B, &ob_intro_2_b, TILE_ATTR_FULL(PAL1, false, FALSE, FALSE, ind), 0, 0, 0, 0 ); ind += ob_intro_2_b.tileset->numTile;
+	VDP_drawImageEx ( BG_A, &ob_intro_2_a, TILE_ATTR_FULL(PAL2, false, FALSE, FALSE, ind), 0, 0, 0, 0 ); ind += ob_intro_2_a.tileset->numTile;
 
 	u16 i;
 	for ( i=0; i<16; i++)
@@ -220,7 +223,7 @@ static u8 _escena_2()
 
 static u8 _escena_3 ()
 {
-	ind = TILE_USERINDEX;
+	ind = TILE_USER_INDEX;
 
 
 
@@ -233,7 +236,7 @@ static u8 _escena_3 ()
 	SYS_disableInts();
 
 	resetScreen();
-	preparePal ( PAL0, font_getPalette() );//VDP_setPalette ( PAL0, font_getPalette() );
+	preparePal ( PAL0, font_getPalette() );//PAL_setPalette ( PAL0, font_getPalette() );
 
 	SYS_enableInts();
 	displayOn(0);//VDP_setEnable ( true );
@@ -253,17 +256,17 @@ static u8 _escena_3 ()
 	displayOff(0);//VDP_setEnable ( false );
 	SYS_disableInts();
 
-	VDP_interruptFade();
+	PAL_interruptFade();
 
 	resetScreen ();
 
 
-	VDP_drawImageEx ( PLAN_B, &ob_intro_3_a, TILE_ATTR_FULL(PAL1, false, FALSE, FALSE, ind),  0, 0, 0, 0 ); ind += ob_intro_3_a.tileset->numTile;
-	VDP_drawImageEx ( PLAN_A, &ob_intro_3_b, TILE_ATTR_FULL(PAL2, false, FALSE, FALSE, ind), 10, 0, 0, 0 ); ind += ob_intro_3_b.tileset->numTile;
+	VDP_drawImageEx ( BG_B, &ob_intro_3_a, TILE_ATTR_FULL(PAL1, false, FALSE, FALSE, ind),  0, 0, 0, 0 ); ind += ob_intro_3_a.tileset->numTile;
+	VDP_drawImageEx ( BG_A, &ob_intro_3_b, TILE_ATTR_FULL(PAL2, false, FALSE, FALSE, ind), 10, 0, 0, 0 ); ind += ob_intro_3_b.tileset->numTile;
 
-	VDP_setHorizontalScroll ( PLAN_B, -80 );
+	VDP_setHorizontalScroll ( BG_B, -80 );
 
-	preparePal ( PAL3, os_intro_3_c.pal );//VDP_setPalette   ( PAL3, os_intro_3_c.pal );
+	preparePal ( PAL3, os_intro_3_c.pal );//PAL_setPalette   ( PAL3, os_intro_3_c.pal );
 
 
 
@@ -299,7 +302,7 @@ static u8 _escena_3 ()
 
 
 
-	preparePal ( PAL0, font_getPalette() );//VDP_setPalette ( PAL0, font_getPalette() );
+	preparePal ( PAL0, font_getPalette() );//PAL_setPalette ( PAL0, font_getPalette() );
 	preparePal ( PAL1, ob_intro_3_a.palette->data );
 	preparePal ( PAL2, ob_intro_3_b.palette->data );
 
@@ -307,12 +310,12 @@ static u8 _escena_3 ()
 	s16 values_a [ 19 ];
 	s16 values_b [ 28 ];
 
-	memsetU16(values_a,   0, 19 );
-	memsetU16(values_b, -80, 28 );
+	memset(values_a,   0, 19 );
+	memset(values_b, -80, 28 );
 
 	VDP_setScrollingMode ( HSCROLL_TILE, VSCROLL_PLANE );
-	VDP_setHorizontalScrollTile ( PLAN_A, 0, values_a, 19, 0 );
-	VDP_setHorizontalScrollTile ( PLAN_B, 0, values_b, 28, 0 );
+	VDP_setHorizontalScrollTile ( BG_A, 0, values_a, 19, 0 );
+	VDP_setHorizontalScrollTile ( BG_B, 0, values_b, 28, 0 );
 
 
 	SYS_enableInts();
@@ -340,9 +343,9 @@ static u8 _escena_3 ()
 
 		if ( i % 2 == 0 )
 		{
-			memsetU16 ( values, ++inc_x_b, 28 );
+			memset ( values, ++inc_x_b, 28 );
 
-			VDP_setHorizontalScrollTile ( PLAN_B, 0, values, 28, true );
+			VDP_setHorizontalScrollTile ( BG_B, 0, values, 28, true );
 
 			jon_x+=2;
 
@@ -357,8 +360,8 @@ static u8 _escena_3 ()
 
 		if ( i % 3 == 0 )
 		{
-			memsetU16 ( values, ++curval, 19 );
-			VDP_setHorizontalScrollTile ( PLAN_A, 0, values, 19, 0 );
+			memset ( values, ++curval, 19 );
+			VDP_setHorizontalScrollTile ( BG_A, 0, values, 19, 0 );
 		}
 
 		i++;
@@ -380,14 +383,14 @@ static u8 _escena_3 ()
 
 static u8 _escena_4 ( int repeat )
 {
-	ind = TILE_USERINDEX;
+	ind = TILE_USER_INDEX;
 
 
 	displayOff(0);//VDP_setEnable ( false );
 	SYS_disableInts();
 
 
-	VDP_interruptFade();
+	PAL_interruptFade();
 	VDP_resetSprites();
 	VDP_updateSprites(80,1);
 
@@ -395,13 +398,13 @@ static u8 _escena_4 ( int repeat )
 	resetScroll();
 
 
-	VDP_drawImageEx ( PLAN_B, &ob_intro_4_b, TILE_ATTR_FULL(PAL1, 0, 0, 0, ind), 0, 0, 0, 0 ); ind += ob_intro_4_b.tileset->numTile;
-	VDP_drawImageEx ( PLAN_A, &ob_intro_4_a, TILE_ATTR_FULL(PAL2, 0, 0, 0, ind), 0, 0, 0, 0 ); ind += ob_intro_4_a.tileset->numTile;
+	VDP_drawImageEx ( BG_B, &ob_intro_4_b, TILE_ATTR_FULL(PAL1, 0, 0, 0, ind), 0, 0, 0, 0 ); ind += ob_intro_4_b.tileset->numTile;
+	VDP_drawImageEx ( BG_A, &ob_intro_4_a, TILE_ATTR_FULL(PAL2, 0, 0, 0, ind), 0, 0, 0, 0 ); ind += ob_intro_4_a.tileset->numTile;
 
 	VDP_setScrollingMode ( HSCROLL_PLANE, VSCROLL_PLANE );
 
-	VDP_setHorizontalScroll ( PLAN_A, -116 );
-	VDP_setVerticalScroll   ( PLAN_A, 0 );
+	VDP_setHorizontalScroll ( BG_A, -116 );
+	VDP_setVerticalScroll   ( BG_A, 0 );
 
 
 
@@ -417,7 +420,7 @@ static u8 _escena_4 ( int repeat )
 	spriteset_show ( &griel, 0, 285, 0, tile_attr ); // x = 285
 
 //font_init ( );
-	preparePal( PAL3, os_intro_4_c.pal );//VDP_setPalette( PAL3, os_intro_4_c.pal );
+	preparePal( PAL3, os_intro_4_c.pal );//PAL_setPalette( PAL3, os_intro_4_c.pal );
 	preparePal( PAL1, ob_intro_4_b.palette->data );
 	preparePal( PAL2, ob_intro_4_a.palette->data );
 
@@ -434,7 +437,7 @@ static u8 _escena_4 ( int repeat )
 	{
 		spriteset_move ( &griel, 285 - i, 0) ;
 		SYS_disableInts();
-		VDP_setHorizontalScroll ( PLAN_A, i - 116 );
+		VDP_setHorizontalScroll ( BG_A, i - 116 );
 		SYS_enableInts();
 
 		VDP_updateSprites(80,1);
@@ -482,7 +485,7 @@ void screen_ob_intro_2_b_f( )
 {
    if ( cont % 5 == 0 )
    {
-      VDP_setPalette ( PAL1, ( cont % 10 == 0 ) ? ob_intro_2_b.palette->data : paleta );
+      PAL_setPalette ( PAL1, ( cont % 10 == 0 ) ? ob_intro_2_b.palette->data : paleta, CPU );
    }
 
    ++cont;
@@ -512,7 +515,7 @@ void screen_intro ( u8 jump )
 	resetScreen();
 	resetPalettes ( );
 
-	VDP_setPlanSize ( 64, 64 );
+	VDP_setPlaneSize ( 64, 64, false );
 
 	SYS_enableInts();
 
@@ -537,8 +540,8 @@ void screen_intro ( u8 jump )
 
 	vint_setOb_intro_2_b_f(false);
 	VDP_waitVSync();
-	VDP_interruptFade();
+	PAL_interruptFade();
 
 	displayOff ( 30 );
-	VDP_setPlanSize ( 64, 32 );
+	VDP_setPlaneSize ( 64, 32, false );
 }

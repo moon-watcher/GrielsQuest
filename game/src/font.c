@@ -1,9 +1,5 @@
 #include "../inc/include.h"
-
-
-
-
-
+#include "../inc/genres_externs.h"
 
 
 static const u16 _palette [ 16 ] =
@@ -28,12 +24,12 @@ void font_init ()
 	//VDP_loadFont ( cb_font_8x8, 1 );
 	VDP_loadFontData ( cb_font_8x8, FONT_LEN, 0 );
 
-	// carga los caractéres especiales
-	VDP_loadTileData ( (u32*)cb_font_8x8_chars, TILE_FONTINDEX-nb_chars, nb_chars, 0 );
+	// carga los caractï¿½res especiales
+	VDP_loadTileData ( (u32*)cb_font_8x8_chars, TILE_FONT_INDEX-nb_chars, nb_chars, 0 );
 
 	// hack for VDP_loadFont, inserts " " in 0 position
-	VDP_loadTileData ( _tile, TILE_FONTINDEX-nb_chars, 1, 0 );
-	VDP_loadTileData ( _tile, TILE_FONTINDEX,          1, 0 );
+	VDP_loadTileData ( _tile, TILE_FONT_INDEX-nb_chars, 1, 0 );
+	VDP_loadTileData ( _tile, TILE_FONT_INDEX,          1, 0 );
 
 	SYS_enableInts();
 }
@@ -42,9 +38,9 @@ void font_init ()
 void font_setPalette()
 {
 	VDP_setTextPalette  ( PAL0 );
-	VDP_setPaletteColor ( PAL0+0, _palette[0] );
-	VDP_setPaletteColor ( PAL0+1, _palette[1] );
-	VDP_setPaletteColor ( PAL0+2, _palette[2] );
+	PAL_setColor ( PAL0+0, _palette[0] );
+	PAL_setColor ( PAL0+1, _palette[1] );
+	PAL_setColor ( PAL0+2, _palette[2] );
 }
 
 

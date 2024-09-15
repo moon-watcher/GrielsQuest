@@ -1,3 +1,5 @@
+#pragma once
+
 
 typedef struct
 {
@@ -9,8 +11,8 @@ typedef struct
 	// dificultad actual elegida + 1 si supera knightmare
 	u8 dificultad;
 
-	// nivel máximo donde se han llegado por cada ambiente
-	u8 ambientes[5]; // número de rounds terminados
+	// nivel mï¿½ximo donde se han llegado por cada ambiente
+	u8 ambientes[5]; // nï¿½mero de rounds terminados
 
 	bool visito_la_puerta;
 }

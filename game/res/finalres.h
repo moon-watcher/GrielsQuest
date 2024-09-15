@@ -1,5 +1,5 @@
-#ifndef _GAME_RES_FINALRES_H_
-#define _GAME_RES_FINALRES_H_
+#ifndef _RES_FINALRES_H_
+#define _RES_FINALRES_H_
 
 extern const Image ob_f1_fondo_a;
 extern const Image ob_f1_fondo_b;
@@ -12,4 +12,4 @@ extern const Image ob_f3_fondo_b_2;
 extern const Image ob_f4_fondo_a;
 extern const Image ob_f4_fondo_b;
 
-#endif // _GAME_RES_FINALRES_H_
+#endif // _RES_FINALRES_H_

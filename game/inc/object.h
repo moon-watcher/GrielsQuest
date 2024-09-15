@@ -1,3 +1,5 @@
+#pragma once
+
 u16     object_is_enemy           ( u16 nb );
 u16     object_is_weapon          ( u16 nb );
 u16     object_is_block           ( u16 nb );

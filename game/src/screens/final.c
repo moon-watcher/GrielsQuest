@@ -1,6 +1,6 @@
 #include "../inc/include.h"
 #include "../inc/colores_textos.h"
-
+#include "../inc/genres_externs.h"
 
 
 #define VEL_TEXT 70
@@ -23,7 +23,7 @@
 #define BUCLE            { SALE; VDP_waitVSync(); }
 #define WAITSECS(s)      { u16 t = (s) * getHz(); while ( t-- ) BUCLE; }
 #define WAITMS(s)        { u16 t = (s) * getHz() / 1000; while ( t-- ) BUCLE; }
-#define WAITFADE         { while ( VDP_isDoingFade() ) BUCLE; }
+#define WAITFADE         { while ( PAL_isDoingFade() ) BUCLE; }
 
 #define TYPE(s,x,y)      {                         \
 		u8 *aux = (s);                               \
@@ -135,7 +135,7 @@ void _visible ( u8 escena, u8 sprite, bool visible, u8 segundos )
 //static void _setTextColor ( u8 color )
 //{
 //	VDP_setTextPalette ( PAL0 );
-//	VDP_setPaletteColor ( PAL0+1, colores[color] );
+//	PAL_setColor ( PAL0+1, colores[color] );
 //}
 
 
@@ -175,13 +175,13 @@ static void _final_1 ( )
 
 	// Fondo
     SYS_disableInts();
-	VDP_drawImageEx ( PLAN_B, &ob_f1_fondo_b, TILE_ATTR_FULL(PAL3, 0, 0, 0, vram_new ( ob_f1_fondo_b.tileset->numTile ) ),  1, 1, 0, 0 );
+	VDP_drawImageEx ( BG_B, &ob_f1_fondo_b, TILE_ATTR_FULL(PAL3, 0, 0, 0, vram_new ( ob_f1_fondo_b.tileset->numTile ) ),  1, 1, 0, 0 );
     SYS_enableInts();
 
 
 	// Kbrah
     SYS_disableInts();
-	VDP_drawImageEx ( PLAN_A, &ob_f1_fondo_a, TILE_ATTR_FULL(PAL1, 1, 0, 0, vram_new ( ob_f1_fondo_a.tileset->numTile ) ), 19, 2, 0, 0 );
+	VDP_drawImageEx ( BG_A, &ob_f1_fondo_a, TILE_ATTR_FULL(PAL1, 1, 0, 0, vram_new ( ob_f1_fondo_a.tileset->numTile ) ), 19, 2, 0, 0 );
     SYS_enableInts();
 
 	_draw_spriteset ( &sets[0], (struct genresSprites*) &os_f1_griel_2_32x32,   1, 1,     320,   0, TILE_ATTR(PAL2,1,0,0) ); // Cara de Griel
@@ -276,11 +276,11 @@ static void _final_2()
 
 
     SYS_disableInts();
-	VDP_drawImageEx ( PLAN_B, &ob_f2_fondo_b, TILE_ATTR_FULL(PAL0, 0, 0, 0, vram_new ( ob_f2_fondo_b.tileset->numTile ) ),  1, 1, 0, 0 ); // Fondo
+	VDP_drawImageEx ( BG_B, &ob_f2_fondo_b, TILE_ATTR_FULL(PAL0, 0, 0, 0, vram_new ( ob_f2_fondo_b.tileset->numTile ) ),  1, 1, 0, 0 ); // Fondo
     SYS_enableInts();
 
     SYS_disableInts();
-	VDP_drawImageEx ( PLAN_A, &ob_f2_fondo_a, TILE_ATTR_FULL(PAL1, 1, 0, 0, vram_new ( ob_f2_fondo_a.tileset->numTile ) ),  1, 1, 0, 0 ); // Rey
+	VDP_drawImageEx ( BG_A, &ob_f2_fondo_a, TILE_ATTR_FULL(PAL1, 1, 0, 0, vram_new ( ob_f2_fondo_a.tileset->numTile ) ),  1, 1, 0, 0 ); // Rey
     SYS_enableInts();
 
 	_draw_spriteset ( &sets[0], (struct genresSprites*) &os_f2_griel_32x32, 4, 4,  32,  24, TILE_ATTR(PAL2,1,0,0) ); // Griel
@@ -371,11 +371,11 @@ static void _final_3()
 	resetScreen();
 
     SYS_disableInts();
-	VDP_drawImageEx ( PLAN_B, &ob_f3_fondo_b_1, TILE_ATTR_FULL(PAL0, 0, 0, 0, vram_new ( ob_f3_fondo_b_1.tileset->numTile ) ),  1, 1, 0, 0 ); // Fondo
+	VDP_drawImageEx ( BG_B, &ob_f3_fondo_b_1, TILE_ATTR_FULL(PAL0, 0, 0, 0, vram_new ( ob_f3_fondo_b_1.tileset->numTile ) ),  1, 1, 0, 0 ); // Fondo
     SYS_enableInts();
 
     SYS_disableInts();
-	VDP_drawImageEx ( PLAN_A, &ob_f3_fondo_a_1, TILE_ATTR_FULL(PAL1, 0, 0, 0, vram_new ( ob_f3_fondo_a_1.tileset->numTile ) ),  1, 1, 0, 0 ); // Gorda
+	VDP_drawImageEx ( BG_A, &ob_f3_fondo_a_1, TILE_ATTR_FULL(PAL1, 0, 0, 0, vram_new ( ob_f3_fondo_a_1.tileset->numTile ) ),  1, 1, 0, 0 ); // Gorda
     SYS_enableInts();
 
 	_draw_spriteset ( &sets[0], (struct genresSprites*) &os_f3_griel_1_32x32, 4, 3, 190,  56, TILE_ATTR(PAL2,0,0,0) ); // Griel
@@ -430,17 +430,18 @@ static void _final_3()
 		vram_init(VRAM_DEFAULT);
 
 		u16 paleta_blanca[64];
-		memsetU16(paleta_blanca, 0xEEE, 64);
-		VDP_setPaletteColors ( 0, paleta_blanca, 64 );
+		memset(paleta_blanca, 0xEEE, 64);
+		Palette p = {64, paleta_blanca};
+		PAL_setPaletteColors ( 0, &p, CPU);
 
 		resetScreen();
 
 		SYS_disableInts();
-		VDP_drawImageEx ( PLAN_B, &ob_f3_fondo_b_2, TILE_ATTR_FULL(PAL0, 0, 0, 0, vram_new ( ob_f3_fondo_b_2.tileset->numTile ) ),  1, 1, 0, 0 ); // Gorda
+		VDP_drawImageEx ( BG_B, &ob_f3_fondo_b_2, TILE_ATTR_FULL(PAL0, 0, 0, 0, vram_new ( ob_f3_fondo_b_2.tileset->numTile ) ),  1, 1, 0, 0 ); // Gorda
 	    SYS_enableInts();
 
 	    SYS_disableInts();
-		VDP_drawImageEx ( PLAN_A, &ob_f3_fondo_a_2, TILE_ATTR_FULL(PAL1, 0, 0, 0, vram_new ( ob_f3_fondo_a_2.tileset->numTile ) ),  1, 1, 0, 0 ); // Kbritah
+		VDP_drawImageEx ( BG_A, &ob_f3_fondo_a_2, TILE_ATTR_FULL(PAL1, 0, 0, 0, vram_new ( ob_f3_fondo_a_2.tileset->numTile ) ),  1, 1, 0, 0 ); // Kbritah
 	    SYS_enableInts();
 
 		_draw_spriteset ( &sets[0], (struct genresSprites*) &os_f3_griel_2_32x32, 2, 2, 320,  64, TILE_ATTR(PAL2,0,0,0) ); // Cara de Griel // 206, 64
@@ -531,11 +532,11 @@ static void _final_4()
 
 
     SYS_disableInts();
-    VDP_drawImageEx ( PLAN_B, &ob_f4_fondo_b, TILE_ATTR_FULL(PAL0, 0, 0, 0, vram_new ( ob_f4_fondo_b.tileset->numTile ) ),  1, 1, 0, 0 ); // Fondo
+    VDP_drawImageEx ( BG_B, &ob_f4_fondo_b, TILE_ATTR_FULL(PAL0, 0, 0, 0, vram_new ( ob_f4_fondo_b.tileset->numTile ) ),  1, 1, 0, 0 ); // Fondo
     SYS_enableInts();
 
 	SYS_disableInts();
-	VDP_drawImageEx ( PLAN_A, &ob_f4_fondo_a, TILE_ATTR_FULL(PAL1, 1, 0, 0, vram_new ( ob_f4_fondo_a.tileset->numTile ) ),  1, 1, 0, 0 ); // Moto
+	VDP_drawImageEx ( BG_A, &ob_f4_fondo_a, TILE_ATTR_FULL(PAL1, 1, 0, 0, vram_new ( ob_f4_fondo_a.tileset->numTile ) ),  1, 1, 0, 0 ); // Moto
     SYS_enableInts();
 
 
@@ -597,7 +598,7 @@ void screen_final ( u16 jump )
 	sprite   = 0;
 	vel_text = VEL_TEXT;
 
-    VDP_setPlanSize ( 64, 32 );
+    VDP_setPlaneSize ( 64, 32, false );
 
 	resetPalettes ( );
 	resetScreen();
@@ -624,7 +625,7 @@ void screen_final ( u16 jump )
 		}
 	}
 
-	VDP_setPlanSize ( 64, 32 );
+	VDP_setPlaneSize ( 64, 32, false );
 
     vdpSpriteCache[0].link = 0;
 	VDP_updateSprites(80,1);

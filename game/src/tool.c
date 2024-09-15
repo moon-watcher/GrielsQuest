@@ -6,19 +6,19 @@
 void text_write ( char *str, u8 x, u8 y )
 {
 	SYS_disableInts ( );
-	VDP_clearTileMapRect ( PLAN_B, x, y, strlen(str), 1 );
+	VDP_clearTileMapRect ( BG_B, x, y, strlen(str), 1 );
 	VDP_drawText ( str, x, y );
 	SYS_enableInts ( );
 }
 
 
-void planHide_Ex (  VDPPlan plan )
+void planHide_Ex (  VDPPlane plan )
 {
 	u16 width = screenWidth / 8 + 1;
 	s16 desp  = screenWidth == 320 ? 0 : 4;
 	u16 pal   = PAL1;
 
-	if ( plan.value == PLAN_B.value )
+	if ( plan == BG_B )
 	{
 		pal = PAL2;
 	}
@@ -26,7 +26,7 @@ void planHide_Ex (  VDPPlan plan )
 	while ( width-- )
 	{
 	    SYS_disableInts();
-        VDP_clearTileMapRect ( plan, width - 1 + desp, 0, 1, planHeight );
+        VDP_clearTileMapRect ( plan, width - 1 + desp, 0, 1, planeHeight );
         SYS_enableInts ( );
 
 		//waitMs ( PLAN_HIDE_MS );
@@ -56,8 +56,8 @@ void planHide_and_sprites (  )
 		VDP_updateSprites(80,1);
 
 		SYS_disableInts();
-        VDP_clearTileMapRect ( PLAN_B, w-1+desp, 0, 1, height );
-        VDP_clearTileMapRect ( PLAN_A, w-1+desp, 0, 1, height );
+        VDP_clearTileMapRect ( BG_B, w-1+desp, 0, 1, height );
+        VDP_clearTileMapRect ( BG_A, w-1+desp, 0, 1, height );
         SYS_enableInts ( );
 
 		//waitMs ( PLAN_HIDE_MS );
@@ -92,8 +92,8 @@ void planHide ( )
 		}
 
 		SYS_disableInts();
-		VDP_clearTileMapRect ( PLAN_B, width - 1 + desp, 0, 1, planHeight );
-		VDP_clearTileMapRect ( PLAN_A, width - 1 + desp, 0, 1, planHeight );
+		VDP_clearTileMapRect ( BG_B, width - 1 + desp, 0, 1, planeHeight );
+		VDP_clearTileMapRect ( BG_A, width - 1 + desp, 0, 1, planeHeight );
 		SYS_enableInts();
 
 		//waitMs ( PLAN_HIDE_MS );
@@ -103,7 +103,7 @@ void planHide ( )
 
 
 
-void showBmp ( u16 pal, struct genresTiles *grt, u16 tile, VDPPlan plan, u16 x, u16 y, u8 pal_steps )
+void showBmp ( u16 pal, struct genresTiles *grt, u16 tile, VDPPlane plan, u16 x, u16 y, u8 pal_steps )
 {
 	SYS_disableInts();
 	VDP_loadTileData ( grt->tiles, tile, grt->width * grt->height, 0 );
@@ -222,9 +222,9 @@ void waitMusicStop ( )
 static s16 _plan_dir_a = 0;
 static s16 _plan_dir_b = 0;
 
-void tool_reset_plan ( VDPPlan plan )
+void tool_reset_plan ( VDPPlane plan )
 {
-    if ( plan.value == PLAN_A.value ) _plan_dir_a = 0;
+    if ( plan == BG_A ) _plan_dir_a = 0;
     else _plan_dir_b = 0;
 
     SYS_disableInts();
@@ -232,9 +232,9 @@ void tool_reset_plan ( VDPPlan plan )
     SYS_enableInts();
 }
 
-void tool_move_plan ( VDPPlan plan, s16 dir )
+void tool_move_plan ( VDPPlane plan, s16 dir )
 {
-    if ( plan.value == PLAN_A.value )
+    if ( plan == BG_A )
     {
         _plan_dir_a += dir;
 

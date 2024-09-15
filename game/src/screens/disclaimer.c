@@ -127,7 +127,7 @@ static void doDisclaimerLogoLedUpdate ( void )
 		return;
 	}
 
-	VDP_setPaletteColors( 33, (u16 *) disclaimerLogoLedFadeColors[ disclaimerLogoLedIndex ], DISCLAIMERLOGOLED_NUMCOLORS );
+	PAL_setColors( 33, (u16 *) disclaimerLogoLedFadeColors[ disclaimerLogoLedIndex ], DISCLAIMERLOGOLED_NUMCOLORS, CPU );
 
 	disclaimerLogoLedIndex++;
 
@@ -149,7 +149,7 @@ static void doTextDisclaimerFadeIn( void )
 	{
 		WAITBREAK_DISCLAIMER(6);
 
-		VDP_setPaletteColors( 13, (u16 *) textDisclaimerFadeColors[ i ], TEXTDISCLAIMER_NUMCOLORS );
+		PAL_setColors( 13, (u16 *) textDisclaimerFadeColors[ i ], TEXTDISCLAIMER_NUMCOLORS, CPU );
 	}
 }
 
@@ -165,7 +165,7 @@ static void doDisclaimerBGFadeIn( void )
 	{
 		WAITBREAK_DISCLAIMER(4);
 
-		VDP_setPaletteColors( 1, (u16 *) disclaimerBGFadeColors[ i ], DISCLAIMERBG_NUMCOLORS );
+		PAL_setColors( 1, (u16 *) disclaimerBGFadeColors[ i ], DISCLAIMERBG_NUMCOLORS, CPU );
 	}
 }
 
@@ -181,7 +181,7 @@ static void doDisclaimerLogoFadeIn( void )
 	{
 		WAITBREAK_DISCLAIMER(4);
 
-		VDP_setPaletteColors( 17, (u16 *) disclaimerLogoFadeColors[ i ], DISCLAIMERLOGO_NUMCOLORS );
+		PAL_setColors( 17, (u16 *) disclaimerLogoFadeColors[ i ], DISCLAIMERLOGO_NUMCOLORS, CPU );
 		doDisclaimerLogoLedUpdate( );
 	}
 }
@@ -198,7 +198,7 @@ static void doDisclaimerBGFadeOut( void )
 	{
 		WAITBREAK_DISCLAIMER(4);
 
-		VDP_setPaletteColors( 1, (u16 *) disclaimerBGFadeColors[ ( u8 ) i ], DISCLAIMERBG_NUMCOLORS );
+		PAL_setColors( 1, (u16 *) disclaimerBGFadeColors[ ( u8 ) i ], DISCLAIMERBG_NUMCOLORS, CPU );
 		doDisclaimerLogoLedUpdate ( );
 	}
 }
@@ -215,7 +215,7 @@ static void doTextDisclaimerFadeOut( void )
 	{
 		WAITBREAK_DISCLAIMER(4);
 
-		VDP_setPaletteColors( 13, (u16 *) textDisclaimerFadeColors[ ( u8 ) i ], TEXTDISCLAIMER_NUMCOLORS );
+		PAL_setColors( 13, (u16 *) textDisclaimerFadeColors[ ( u8 ) i ], TEXTDISCLAIMER_NUMCOLORS, CPU );
 		doDisclaimerLogoLedUpdate ( );
 	}
 }
@@ -232,7 +232,7 @@ static void doDisclaimerLogoFadeOut( void )
 	{
 		WAITBREAK_DISCLAIMER(4);
 
-		VDP_setPaletteColors( 17, (u16 *) disclaimerLogoFadeColors[ ( u8 ) i ], DISCLAIMERLOGO_NUMCOLORS );
+		PAL_setColors( 17, (u16 *) disclaimerLogoFadeColors[ ( u8 ) i ], DISCLAIMERLOGO_NUMCOLORS, CPU );
 		doDisclaimerLogoLedUpdate( );
 	}
 }
@@ -248,14 +248,14 @@ static void drawDisclaimerGraphics( void )
 
 	SYS_disableInts();
 
-	tileIndex = TILE_USERINDEX;
-	VDP_drawImageEx( PLAN_B, &screen_disclaimerBGImage_all, IMG_ATTRIBUTES( PAL0 ), 0, 0, 0, FALSE );
+	tileIndex = TILE_USER_INDEX;
+	VDP_drawImageEx( BG_B, &screen_disclaimerBGImage_all, IMG_ATTRIBUTES( PAL0 ), 0, 0, 0, FALSE );
 
 	tileIndex += screen_disclaimerBGImage_all.tileset->numTile;
-	VDP_drawImageEx( PLAN_A, &screen_disclaimerLogoImage_all, IMG_ATTRIBUTES( PAL1 ), 9, 9, 0, FALSE );
+	VDP_drawImageEx( BG_A, &screen_disclaimerLogoImage_all, IMG_ATTRIBUTES( PAL1 ), 9, 9, 0, FALSE );
 
 	tileIndex += screen_disclaimerLogoImage_all.tileset->numTile;
-	VDP_drawImageEx( PLAN_B, &screen_disclaimerLogoLedImage_all, IMG_ATTRIBUTES( PAL2 ), 26, 9, 0, FALSE );
+	VDP_drawImageEx( BG_B, &screen_disclaimerLogoLedImage_all, IMG_ATTRIBUTES( PAL2 ), 26, 9, 0, FALSE );
 
 	SYS_enableInts();
 
@@ -319,7 +319,7 @@ static void _disclaimer_simple ( )
 	resetSprites();
 	resetScreen();
 
-	VDP_drawImageEx ( PLAN_A, &ob_cs_disclaimer, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, 16),  0, 0, 0, 0 );
+	VDP_drawImageEx ( BG_A, &ob_cs_disclaimer, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, 16),  0, 0, 0, 0 );
 
 	preparePal ( PAL1, ob_cs_disclaimer.palette->data );
 
