@@ -66,3 +66,4 @@ GrielsQuest.layout
 GrielsQuest.layout
 GrielsQuest.cbp
 *.layout
+game/res/*.h
