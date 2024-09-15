@@ -56,7 +56,7 @@ static void drawUntil ( u16 pal, u16 max )
     {
         drawNumber ( pal, i );
 
-		VDP_waitVSync();
+		SYS_doVBlankProcess();
         displayOn(0);
 
         READ_JOY;
@@ -93,8 +93,8 @@ static void logo_fucnt_2()
         if ( j<=8 ) drawNumber ( PAL2, j );
         if ( j<=5 ) drawNumber ( PAL3, j );
 
-        VDP_waitVSync();
-        VDP_waitVSync();
+        SYS_doVBlankProcess();
+        SYS_doVBlankProcess();
         displayOn(0);
 
         READ_JOY;

@@ -326,7 +326,7 @@ static void _hide_important_sprites ( LEVEL *level )
 		vobject_upload ( );
 
 		VDP_updateSprites (80,1);
-		VDP_waitVSync ( );
+		SYS_doVBlankProcess ( );
 	}
 
 	_hide_sprite ( splist_griel );
@@ -389,7 +389,7 @@ static void _marco_desplegar ( )
 
 		VDP_updateSprites(80,1);
 
-		VDP_waitVSync();
+		SYS_doVBlankProcess();
 	}
 }
 
@@ -401,7 +401,7 @@ void htp_marco_enrollar ( LEVEL *wl )
 
 	for ( i = 10; i >= 0; i-- )
 	{
-		VDP_waitVSync();
+		SYS_doVBlankProcess();
 
 		if ( i )
 		{
@@ -498,7 +498,7 @@ void htp_show ( LEVEL *wl )
 		vobject_upload ( );
 
 		VDP_updateSprites(80,1);
-		VDP_waitVSync();
+		SYS_doVBlankProcess();
 	}
 
 

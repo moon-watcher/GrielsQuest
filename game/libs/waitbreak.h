@@ -21,7 +21,7 @@
             WAITBREAK;            \
         }                         \
                                   \
-        VDP_waitVSync ( );        \
+        SYS_doVBlankProcess ( );        \
     }                             \
 }
 
@@ -39,7 +39,7 @@
             WAITBREAK;            \
         }                         \
                                   \
-        VDP_waitVSync ( );        \
+        SYS_doVBlankProcess ( );        \
     }                             \
 }
 

@@ -15,12 +15,12 @@
 			{                                         \
 				return;                                \
 			}                                         \
-			VDP_waitVSync();                          \
+			SYS_doVBlankProcess();                          \
 		}                                            \
 	}
 
 #define SALE             { if ( joy1_pressed_start ) goto fin; if ( joy1_active_abc ) vel_text = 5; else vel_text = VEL_TEXT; }
-#define BUCLE            { SALE; VDP_waitVSync(); }
+#define BUCLE            { SALE; SYS_doVBlankProcess(); }
 #define WAITSECS(s)      { u16 t = (s) * getHz(); while ( t-- ) BUCLE; }
 #define WAITMS(s)        { u16 t = (s) * getHz() / 1000; while ( t-- ) BUCLE; }
 #define WAITFADE         { while ( PAL_isDoingFade() ) BUCLE; }
@@ -299,7 +299,7 @@ static void _final_2()
 	_initTextColors ( os_f2_griel_32x32.pal[6], 0, 0, ob_f2_fondo_a.palette->data[9], ob_f3_fondo_a_1.palette->data[4] ); //recoge el color de la gorda del final3
 
 
-	VDP_waitVSync();
+	SYS_doVBlankProcess();
 
 	// Muestra la pantalla
 	fadeIn ( ob_f2_fondo_b.palette->data, ob_f2_fondo_a.palette->data, os_f2_griel_32x32.pal, os_f2_gorda_32x32.pal, 30, true );
@@ -394,7 +394,7 @@ static void _final_3()
 
 
 
-	VDP_waitVSync();
+	SYS_doVBlankProcess();
 
 	// Muestra la pantalla
 	fadeIn ( ob_f3_fondo_b_1.palette->data, ob_f3_fondo_a_1.palette->data, os_f3_griel_2_32x32.pal, ob_f3_fondo_a_2.palette->data, 30, true );
@@ -461,7 +461,7 @@ static void _final_3()
 
 
 
-		VDP_waitVSync();
+		SYS_doVBlankProcess();
 
 
 
@@ -478,7 +478,7 @@ static void _final_3()
 			VDP_updateSprites(80,1);
 
 			u16 espera = 3;
-			while ( espera-- ) VDP_waitVSync();
+			while ( espera-- ) SYS_doVBlankProcess();
 		}
 
 //		WAITSECS(1);
@@ -555,7 +555,7 @@ static void _final_4()
 	_initTextColors ( os_f4_griel_32x32.pal[6], 0, os_f4_kbritah_32x32.pal[8], 0, 0 );
 
 
-	VDP_waitVSync();
+	SYS_doVBlankProcess();
 
 	// Muestra la pantalla
 	fadeIn ( ob_f4_fondo_b.palette->data, ob_f4_fondo_a.palette->data, os_f4_griel_32x32.pal, os_f4_kbritah_32x32.pal, 30, true );

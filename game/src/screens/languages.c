@@ -112,7 +112,7 @@ void screen_languages ()
             break;
         }
 
-        VDP_waitVSync();
+        SYS_doVBlankProcess();
     }
 
     psglist_play ( PSG_START );

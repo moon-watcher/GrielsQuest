@@ -10,7 +10,7 @@ static const u16 blacks [ 64 ] = { [0 ... 63] = 0x0000 };
 
 static void setDisplay ( u16 on, u16 frames, u16 *colors )
 {
-    VDP_waitVSync();
+    SYS_doVBlankProcess();
 
 	if ( frames )
 	{

@@ -434,7 +434,7 @@ bool pwd8_screen()
 		}
 
 
-		VDP_waitVSync();
+		SYS_doVBlankProcess();
 	}
 
 

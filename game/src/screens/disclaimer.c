@@ -99,7 +99,7 @@ static u16 wait ( u16 hz )
 
     while ( hz-- )
     {
-        VDP_waitVSync();
+        SYS_doVBlankProcess();
         JoyReader_update();
 
         if( joy1_pressed_abc | joy1_pressed_start )

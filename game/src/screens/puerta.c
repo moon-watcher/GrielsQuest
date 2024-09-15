@@ -207,7 +207,7 @@ u16 screen_puerta ( )
 
 	// Muestra la pantalla
 	fadeIn ( ob_puerta_fondo_b.palette->data, os_puerta_medallon_1_24x24.pal, os_puerta_orco_2_24x24.pal, 0, 30, true );
-	VDP_waitVSync();
+	SYS_doVBlankProcess();
 
 
 
@@ -226,7 +226,7 @@ u16 screen_puerta ( )
 
 	_mover_escena ( 144 );
 	VDP_updateSprites(80,1);
-	VDP_waitVSync();
+	SYS_doVBlankProcess();
 
 
 	VDP_setTextPalette(PAL0);
@@ -265,12 +265,12 @@ u16 screen_puerta ( )
 			--i;
 
 			VDP_updateSprites(80,1);
-			VDP_waitVSync();
+			SYS_doVBlankProcess();
 		}
 
 		_mover_puerta(300,0);
 		VDP_updateSprites(80,1);
-		VDP_waitVSync();
+		SYS_doVBlankProcess();
 
 		frases_tt_write ( GRIEL );
 

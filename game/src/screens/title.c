@@ -29,8 +29,8 @@ static void _blink ( u8 *str, const u16 x, const u16 y )
 
         SYS_enableInts();
 
-		VDP_waitVSync();
-		VDP_waitVSync();
+		SYS_doVBlankProcess();
+		SYS_doVBlankProcess();
 	}
 
 	SYS_disableInts();
@@ -91,7 +91,7 @@ u16 screen_title_menu_1 ( )
 			break;
 		}
 
-		VDP_waitVSync();
+		SYS_doVBlankProcess();
 	}
 
 	psglist_play ( PSG_START );
@@ -151,7 +151,7 @@ void screen_title_menu_2 ( )
 			break;
 		}
 
-		VDP_waitVSync();
+		SYS_doVBlankProcess();
 	}
 
 
@@ -243,7 +243,7 @@ u16 screen_title ( u16 salto )
     for ( i=0; i<120; i++ )
     {
         VDP_setVerticalScroll ( BG_B, i/2 );
-        VDP_waitVSync();
+        SYS_doVBlankProcess();
     }
 
 
@@ -329,7 +329,7 @@ salto_2:
 
         ++counter;
 
-        VDP_waitVSync();
+        SYS_doVBlankProcess();
 	}
 
 

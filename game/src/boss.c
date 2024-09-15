@@ -266,7 +266,7 @@
 //		++inc;
 //
 //		VDP_updateSprites();
-//		VDP_waitVSync();
+//		SYS_doVBlankProcess();
 //	}
 //}
 //
@@ -371,7 +371,7 @@
 //		//drawUInt(getFPS(), 1,0, 2 );
 //
 //		VDP_updateSprites();
-//		VDP_waitVSync();
+//		SYS_doVBlankProcess();
 //	}
 //
 //}
@@ -688,7 +688,7 @@
 //		drawAnimation ( &bc );
 //
 //		VDP_updateSprites();
-//		VDP_waitVSync();
+//		SYS_doVBlankProcess();
 //	}
 //
 //}

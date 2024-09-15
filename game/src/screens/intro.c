@@ -367,7 +367,7 @@ static u8 _escena_3 ()
 		i++;
 
 		VDP_updateSprites(80,1);
-		VDP_waitVSync();
+		SYS_doVBlankProcess();
 	}
 
 	frases_tt_write ( CORTAZAR );
@@ -441,7 +441,7 @@ static u8 _escena_4 ( int repeat )
 		SYS_enableInts();
 
 		VDP_updateSprites(80,1);
-		VDP_waitVSync();
+		SYS_doVBlankProcess();
 
 		JoyReader_update();
 
@@ -539,7 +539,7 @@ void screen_intro ( u8 jump )
 	music_stop();
 
 	vint_setOb_intro_2_b_f(false);
-	VDP_waitVSync();
+	SYS_doVBlankProcess();
 	PAL_interruptFade();
 
 	displayOff ( 30 );

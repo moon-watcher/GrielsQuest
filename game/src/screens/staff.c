@@ -143,7 +143,7 @@ void screen_staff()
 	{
 	    prepareColor( colores[i+0], colores[i+1] );
 		PAL_setColor ( colores[i+0], colores[i+1] );
-		if ( colores[i+2] ) VDP_waitVSync();
+		if ( colores[i+2] ) SYS_doVBlankProcess();
 	}
 
 	displayOn(0);

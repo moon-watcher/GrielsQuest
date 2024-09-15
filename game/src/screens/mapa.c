@@ -277,7 +277,7 @@ static void _mostrar_niveles (  )
 
 		vdpSpriteCache [ sprite-1 ].link = 74; //0;
 
-		VDP_waitVSync();
+		SYS_doVBlankProcess();
 		VDP_updateSprites(80,1);
 		VDP_setTextPalette ( PAL1 );
 
@@ -530,7 +530,7 @@ static u16 _loop_niveles ( )
 		_update_sprites ();
 
 		VDP_updateSprites(80,1);
-		VDP_waitVSync();
+		SYS_doVBlankProcess();
 	}
 
 	return to;
@@ -573,7 +573,7 @@ static u16 _loop_main ( )
 
 
 		VDP_updateSprites(80,1);
-		VDP_waitVSync();
+		SYS_doVBlankProcess();
 	}
 
 	return to;

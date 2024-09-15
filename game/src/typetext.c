@@ -205,7 +205,7 @@ static u16 _wait ( u16 wait )
 			return ret;
       }
 
-		VDP_waitVSync ( );
+		SYS_doVBlankProcess ( );
 	}
 
 	return 0;

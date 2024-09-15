@@ -195,7 +195,7 @@ u16 game_play ( )
 		showFPS ( );
 
 		VDP_updateSprites(80, 1);
-		VDP_waitVSync();
+		SYS_doVBlankProcess();
 	}
 
 

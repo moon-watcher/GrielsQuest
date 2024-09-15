@@ -119,7 +119,7 @@ static void _hide_important_sprites( LEVEL *level )
 		vobject_upload ( );
 
 		VDP_updateSprites(80,1);
-		VDP_waitVSync();
+		SYS_doVBlankProcess();
 	}
 
 	_hide_sprite ( splist_griel );

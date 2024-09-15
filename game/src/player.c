@@ -143,7 +143,7 @@ static void _death_animation ( )
 		vobject_upload ( );
 
 		VDP_updateSprites(80,1);
-		VDP_waitVSync();
+		SYS_doVBlankProcess();
 	}
 
 
@@ -260,7 +260,7 @@ static void _do_slash ( u8 player, LEVEL *level, s8 inc_x, s8 inc_y, s16 x, s16 
 		vobject_upload ( );
 
 		VDP_updateSprites(80,1);
-		VDP_waitVSync();
+		SYS_doVBlankProcess();
 	}
 
 
@@ -288,7 +288,7 @@ static void _do_slash ( u8 player, LEVEL *level, s8 inc_x, s8 inc_y, s16 x, s16 
 	vobject_upload ( );
 
 	VDP_updateSprites(80,1);
-	VDP_waitVSync();
+	SYS_doVBlankProcess();
 }
 
 
@@ -791,7 +791,7 @@ void player_inc_level ( )
 		vobject_upload ( );
 
 		VDP_updateSprites(80,1);
-		VDP_waitVSync();
+		SYS_doVBlankProcess();
 	}
 }
 
@@ -1057,7 +1057,7 @@ void player_interact_with_object ( LEVEL *wl )
 //			VDP_setSprite ( 6, cords[i][12], cords[i][13], SIZE_SP_DEMON, TILE_ATTR_FULL ( PAL3, 1, 0, 0, POS_SP_EXPLOSION(k) ), 7 );
 //
 //			VDP_updateSprites();
-//			VDP_waitVSync();
+//			SYS_doVBlankProcess();
 //			waitMs(20);
 //		}
 //	}

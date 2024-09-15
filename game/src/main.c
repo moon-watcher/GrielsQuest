@@ -178,7 +178,12 @@ void monos()
          break;
       }
 
-      VDP_waitVSync();
+      SYS_doVBlankProcess();
+      SYS_doVBlankProcess();
+      SYS_doVBlankProcess();
+      SYS_doVBlankProcess();
+      SYS_doVBlankProcess();
+      SYS_doVBlankProcess();
    }
 
    displayOff( 30 );
@@ -310,13 +315,13 @@ void object_viewer()
          vobject_update();
          vobject_upload ( );
 
-         VDP_waitVSync();
+         SYS_doVBlankProcess();
       }
 
       vobject_reset(opcion);
       vobject_delete(opcion);
 
-      VDP_waitVSync();
+      SYS_doVBlankProcess();
    }
 
 

@@ -141,7 +141,7 @@ void waitHz ( u16 hz )
 {
 	while ( hz-- )
 	{
-		VDP_waitVSync();
+		SYS_doVBlankProcess();
 	}
 }
 
@@ -151,7 +151,7 @@ void waitSc ( u16 sc )
 
 	while ( sc-- )
 	{
-		VDP_waitVSync();
+		SYS_doVBlankProcess();
 	}
 }
 
@@ -159,7 +159,7 @@ void waitJoy ( )
 {
 	while ( 1 )
 	{
-		VDP_waitVSync();
+		SYS_doVBlankProcess();
 
 		JoyReader_update();
 
@@ -174,7 +174,7 @@ void waitJoyHz ( u16 hz )
 {
 	while ( hz-- )
 	{
-		VDP_waitVSync();
+		SYS_doVBlankProcess();
 
 		JoyReader_update();
 
@@ -194,7 +194,7 @@ void waitJoyHzBtn ( u16 hz )
 {
     while ( hz-- )
 	{
-		VDP_waitVSync();
+		SYS_doVBlankProcess();
 
 		JoyReader_update();
 
@@ -214,7 +214,7 @@ void waitMusicStop ( )
 {
     while ( XGM_isPlaying() )
     {
-        VDP_waitVSync();
+        SYS_doVBlankProcess();
     }
 }
 
