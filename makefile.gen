@@ -51,6 +51,7 @@ RES_RES+= $(wildcard $(RES)/*.res)
 
 RES_RS= $(RES_RES:.res=.rs)
 RES_H= $(RES_RES:.res=.h)
+RES_TMP_S= $(RES_RES:.res=.s)
 RES_DEP= $(RES_RES:.res=.d)
 RES_DEPS= $(addprefix $(OUT)/, $(RES_DEP))
 
@@ -142,7 +143,7 @@ cleanlst:
 .PHONY: cleanlst
 
 cleanres: cleantmp
-	$(RM) -f $(RES_H) $(RES_DEP) $(RES_DEPS)
+	$(RM) -f $(RES_H) $(RES_DEP) $(RES_DEPS) $(RES_TMP_S)
 .PHONY: cleanres
 
 cleanobj:
