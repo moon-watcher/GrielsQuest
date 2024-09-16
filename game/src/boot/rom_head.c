@@ -9,10 +9,10 @@ const ROMHeader rom_header = {
 #else
     "SEGA MEGA DRIVE ",
 #endif
-    "(C)SGDK 2024    ",
-    "SAMPLE PROGRAM                                  ",
-    "SAMPLE PROGRAM                                  ",
-    "GM 00000000-00",
+    "(C)Oook!Lab 2025",
+    "Griel's Quest for the Holy Porron       PoR 2025",
+    "Griel's Quest for the Holy Porron       PoR 2025",
+    "D^3 001-v2    ",
     0x000,
     "JD              ",
     0x00000000,
@@ -28,6 +28,6 @@ const ROMHeader rom_header = {
     0x00200000,
     0x0020FFFF,
     "            ",
-    "DEMONSTRATION PROGRAM                   ",
+    "                                        ",
     "JUE             "
 };
