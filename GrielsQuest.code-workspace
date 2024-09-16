@@ -6,7 +6,7 @@
 	],
 	"settings": {
 		"GDK": "SGDK-master",
-		"custom-makefile": "makefile.gen",
+		"custom-makefile": "Makefile",
 		"addStatusBarButtons": true,
 		"workbench.tree.indent": 20,
 		"files.associations": {
