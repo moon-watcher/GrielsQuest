@@ -56,6 +56,8 @@ static void _frases_tt_init ( u16 grupo )
 
 static u8 _escena_1 ( )
 {
+	// goto end;
+
     musiclist_play( MUSIC_INTRO );
 
 	ind = TILE_USER_INDEX;
@@ -171,6 +173,7 @@ static u8 _escena_1 ( )
 
 
 
+end:
     GONEXT
     GOEND
 }
@@ -180,6 +183,8 @@ static u8 _escena_1 ( )
 
 static u8 _escena_2()
 {
+	// goto end;
+
 	cont = 0;
 	ind  = TILE_USER_INDEX;
 
@@ -214,6 +219,7 @@ static u8 _escena_2()
 
 	frases_tt_write ( NARRADOR );
 
+end:
     GONEXT
     GOEND
 }
