@@ -38,19 +38,19 @@ static void setDisplay ( u16 on, u16 frames, u16 *colors )
 
 void displayInit ( )
 {
-	memset ( cache, 0, 64 );
+	memset ( cache, 0, 64*2);
 }
 
 
 void preparePal ( u16 pal, u16 *colors )
 {
-	memcpy ( cache + ( pal << 4 ), colors, 16 );
+	memcpy ( cache + ( pal << 4 ), colors, 16*2 );
 }
 
 
 void prepareColors ( u16 *colors )
 {
-	memcpy ( cache, colors, 64 );
+	memcpy ( cache, colors, 64*2 );
 }
 
 
