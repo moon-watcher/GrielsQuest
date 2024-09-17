@@ -127,7 +127,7 @@ static LEVEL _reorder_level ( LEVEL *level )
 
 	if ( _flip_h )
 	{
-		memset ( flipped_h, 0, MAX_ANIMATIONS );
+		memset ( flipped_h, 0, MAX_ANIMATIONS*2 );
 
 		flipped_h [ LEFT1       ] = RIGHT1;
 		flipped_h [ RIGHT1      ] = LEFT1;
@@ -165,7 +165,7 @@ static LEVEL _reorder_level ( LEVEL *level )
 
 	if ( _flip_v )
 	{
-		memset ( flipped_v, 0, MAX_ANIMATIONS );
+		memset ( flipped_v, 0, MAX_ANIMATIONS*2 );
 
 		flipped_v [ UP1         ] = DOWN1;
 		flipped_v [ DOWN1       ] = UP1;

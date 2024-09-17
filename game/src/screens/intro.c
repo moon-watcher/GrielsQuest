@@ -316,8 +316,8 @@ static u8 _escena_3 ()
 	s16 values_a [ 19 ];
 	s16 values_b [ 28 ];
 
-	memset(values_a,   0, 19 );
-	memset(values_b, -80, 28 );
+	memset(values_a,   0, 19*2 );
+	memset(values_b, -80, 28*2 );
 
 	VDP_setScrollingMode ( HSCROLL_TILE, VSCROLL_PLANE );
 	VDP_setHorizontalScrollTile ( BG_A, 0, values_a, 19, 0 );
@@ -349,7 +349,7 @@ static u8 _escena_3 ()
 
 		if ( i % 2 == 0 )
 		{
-			memset ( values, ++inc_x_b, 28 );
+			memset ( values, ++inc_x_b, 28*2 );
 
 			VDP_setHorizontalScrollTile ( BG_B, 0, values, 28, true );
 
@@ -366,7 +366,7 @@ static u8 _escena_3 ()
 
 		if ( i % 3 == 0 )
 		{
-			memset ( values, ++curval, 19 );
+			memset ( values, ++curval, 19*2 );
 			VDP_setHorizontalScrollTile ( BG_A, 0, values, 19, 0 );
 		}
 

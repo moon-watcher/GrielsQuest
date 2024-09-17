@@ -430,7 +430,7 @@ static void _final_3()
 		vram_init(VRAM_DEFAULT);
 
 		u16 paleta_blanca[64];
-		memset(paleta_blanca, 0xEEE, 64);
+		memset(paleta_blanca, 0xEEE, 64*2);
 		Palette p = {64, paleta_blanca};
 		PAL_setPaletteColors ( 0, &p, CPU);
 

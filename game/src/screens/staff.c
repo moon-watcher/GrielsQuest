@@ -201,7 +201,7 @@ salto:
 	SYS_setVIntCallback( (VoidCallback *)move1 );
 
 	planHide_Ex(BG_A);
-    PAL_fadeOutPalette( PAL3, getHz()*4, 0 );
+    PAL_fadeOutPalette( PAL3, getHz()*2, 0 );
 
     displayOff(0);
     SYS_setVIntCallback( NULL );
@@ -231,7 +231,7 @@ salto:
     SYS_setVIntCallback( (VoidCallback *)move2 );
 
 	planHide_Ex(BG_A);
-	PAL_fadeOutPalette( PAL3, getHz()*4,0 );
+	PAL_fadeOutPalette( PAL3, getHz()*2,0 );
 
     displayOff(0);
     SYS_setVIntCallback( NULL );
@@ -287,7 +287,7 @@ salto:
     waitSc(4);
     planHide_Ex(BG_A);
 
-    PAL_fadeOutPalette(  PAL3, getHz()*4, 0 );
+    PAL_fadeOutPalette(  PAL3, getHz()*2, 0 );
 
     displayOff(0);
     resetScreen();
