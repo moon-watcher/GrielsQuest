@@ -68,3 +68,4 @@ GrielsQuest.cbp
 *.layout
 game/res/*.h
 SGDK-master/
+game/res/*.s
