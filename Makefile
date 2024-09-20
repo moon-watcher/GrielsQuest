@@ -153,7 +153,7 @@ cleanobj:
 .PHONY: cleanobj
 
 clean: cleanobj cleanres cleanlst cleandep
-	$(RM) -f $(OUT)/out.lst $(OUT)/cmd_ $(OUT)/symbol.txt $(OUT)/rom.nm $(OUT)/rom.wch $(OUT)/rom.bin
+	$(RM) -f $(OUT)/out.lst $(OUT)/cmd_ $(OUT)/symbol.txt $(OUT)/rom.nm $(OUT)/rom.wch $(OUT)/rom.bin $(OUT)/rom.md
 .PHONY: clean
 
 cleanrelease: clean
