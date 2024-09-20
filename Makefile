@@ -13,7 +13,7 @@ GENRES= tools/genres
 
 SRC := game/src
 RES := game/res
-RC := game/res
+RC := game/rc
 INCLUDE := inc
 OUT := out
 
