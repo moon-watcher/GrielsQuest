@@ -1,3 +1,5 @@
+# $(RM) -f $(RES)/*.s
+
 MAKEFILE_DIR := $(dir $(lastword $(MAKEFILE_LIST)))
 MAKEFILE_DIR := $(subst \,/,$(MAKEFILE_DIR))
 
@@ -11,6 +13,7 @@ GENRES= tools/genres
 
 SRC := game/src
 RES := game/res
+RC := game/res
 INCLUDE := inc
 OUT := out
 
@@ -29,9 +32,6 @@ SRC_S+= $(wildcard $(SRC)/*/*.s)
 SRC_S+= $(wildcard $(SRC)/*/*/*.s)
 SRC_C+= $(wildcard $(SRC)/../../libs/*.c)
 SRC_C+= $(wildcard $(SRC)/../libs/*.c)
-# SRC_C+= $(wildcard $(SRC)/*.c)
-# SRC_C+= $(wildcard $(SRC)/screens/*.c)
-# SRC_C+= $(wildcard $(SRC)/worlds/*.c)
 SRC_S:= $(filter-out $(SRC)/boot/sega.s,$(SRC_S))
 SRC_ASM= $(wildcard *.asm)
 SRC_ASM+= $(wildcard $(SRC)/*.asm)
@@ -44,15 +44,17 @@ SRC_S80+= $(wildcard $(SRC)/*/*/*.s80)
 
 RES_C= $(wildcard $(RES)/*.c)
 RES_S= $(wildcard $(RES)/*.s)
-RES_RC= $(wildcard game/*.rc)
-RES_RC+= $(wildcard $(RES)/*.rc)
-RES_RES= $(wildcard game/*.res)
+RES_RES= $(wildcard *.res)
+RES_RC= $(wildcard *.rc)
 RES_RES+= $(wildcard $(RES)/*.res)
+RES_RC+= $(wildcard $(RC)/*.rc)
 
 RES_RS= $(RES_RES:.res=.rs)
+RES_RS+= $(RES_RC:.rc=.s)
 RES_H= $(RES_RES:.res=.h)
-RES_TMP_S= $(RES_RES:.res=.s)
+RES_H+= $(RES_RC:.rc=.h)
 RES_DEP= $(RES_RES:.res=.d)
+RES_DEP+= $(RES_RC:.rc=.d)
 RES_DEPS= $(addprefix $(OUT)/, $(RES_DEP))
 
 OBJ= $(RES_RES:.res=.o)
@@ -73,17 +75,17 @@ LST:= $(SRC_C:.c=.lst)
 LSTS:= $(addprefix $(OUT)/, $(LST))
 
 INCS:= -I$(INCLUDE) -I$(SRC) -I$(RES) -I$(INCLUDE_LIB) -I$(RES_LIB)
+# DEFAULT_FLAGS= $(EXTRA_FLAGS) -DSGDK_GCC -m68000 -Wall -Wextra -Wno-shift-negative-value -Wno-main -Wno-unused-parameter -fno-builtin -ffunction-sections -fdata-sections -fms-extensions $(INCS) -B$(BIN)
 DEFAULT_FLAGS= $(EXTRA_FLAGS) -DSGDK_GCC -m68000 -Wall -Wextra -Wno-shift-negative-value -Wno-main -Wno-unused-parameter -fno-builtin -ffunction-sections -fdata-sections -fms-extensions -fcommon $(INCS) -B$(BIN)
 FLAGSZ80:= -i$(SRC) -i$(INCLUDE) -i$(RES) -i$(SRC_LIB) -i$(INCLUDE_LIB) -i$(INCLUDE_LIB)/snd
 
 #release: FLAGS= $(DEFAULT_FLAGS) -Os -fomit-frame-pointer -fuse-linker-plugin -flto
-release: FLAGS= $(DEFAULT_FLAGS) -O3 -fuse-linker-plugin -fno-web -fno-gcse -fomit-frame-pointer -flto -flto=auto -ffat-lto-objects      -Wno-missing-field-initializers -Wno-pointer-sign -Wno-implicit-function-declaration -Wno-stringop-overflow -Wno-incompatible-pointer-types -Wno-unused-but-set-variable -Wno-int-conversion -Wno-char-subscripts -Wno-unused-const-variable -Wno-unused-value -Wno-discarded-qualifiers -Wno-uninitialized -Wno-sizeof-pointer-div -Wno-unused-variable -Wno-ignored-qualifiers
-
-
+# release: FLAGS= $(DEFAULT_FLAGS) -O3 -fuse-linker-plugin -fno-web -fno-gcse -fomit-frame-pointer -flto -flto=auto -ffat-lto-objects
+release: FLAGS= $(DEFAULT_FLAGS) -O3 -fuse-linker-plugin -fno-web -fno-gcse -fomit-frame-pointer -flto -flto=auto -ffat-lto-objects      -Wno-missing-field-initializers -Wno-pointer-sign -Wno-implicit-function-declaration -Wno-stringop-overflow -Wno-incompatible-pointer-types -Wno-unused-but-set-variable -Wno-int-conversion -Wno-char-subscripts -Wno-unused-const-variable -Wno-unused-value -Wno-discarded-qualifiers -Wno-uninitialized -Wno-sizeof-pointer-div -Wno-unused-variable -Wno-ignored-qualifiers -Wno-unused-label
 release: CFLAGS= $(FLAGS)
 release: AFLAGS= $(FLAGS)
 release: LIBMD= $(LIB)/libmd.a
-release: $(OUT)/rom.bin $(OUT)/symbol.txt
+release: pre-release $(OUT)/rom.bin $(OUT)/symbol.txt post-release
 .PHONY: release
 
 #release: $(info $$var is [${SRC_C}])
@@ -143,7 +145,7 @@ cleanlst:
 .PHONY: cleanlst
 
 cleanres: cleantmp
-	$(RM) -f $(RES_H) $(RES_DEP) $(RES_DEPS) $(RES_TMP_S) $(RES)/*.s
+	$(RM) -f $(RES_H) $(RES_DEP) $(RES_DEPS)
 .PHONY: cleanres
 
 cleanobj:
@@ -172,6 +174,14 @@ cleanDebug: cleandebug
 cleanAsm: cleanasm
 .PHONY: cleanRelease cleanDebug cleanAsm
 
+pre-release:
+	-$(RM) -f $(RES)/*.s
+	-$(RM) $(OUT)/rom.bin $(OUT)/rom.md
+
+post-release:
+	-$(CP) $(OUT)/rom.bin $(OUT)/rom.md
+	-$(RM) -f $(RES)/*.s
+	
 
 $(OUT)/rom.bin: $(OUT)/rom.out
 	$(OBJCPY) -O binary $(OUT)/rom.out $(OUT)/rom.bin
@@ -221,6 +231,7 @@ $(OUT)/%.o: %.c
 
 $(OUT)/%.o: %.s
 	$(MKDIR) -p $(dir $@)
+	-$(RM) $@
 	$(CC) -x assembler-with-cpp -Wa,--register-prefix-optional,--bitwise-or $(AFLAGS) -MMD -c $< -o $@
 
 $(OUT)/%.o: %.rs
