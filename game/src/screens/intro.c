@@ -231,146 +231,78 @@ static u8 _escena_3 ()
 {
 	ind = TILE_USER_INDEX;
 
-
-
 	vint_setOb_intro_2_b_f(false);
 
-   //SYS_setVIntCallback ( NULL );
-
-
-	displayOff(0);//VDP_setEnable ( false );
-	SYS_disableInts();
-
+   	displayOff(0);
 	resetScreen();
-	preparePal ( PAL0, font_getPalette() );//PAL_setPalette ( PAL0, font_getPalette() );
-
-	SYS_enableInts();
-	displayOn(0);//VDP_setEnable ( true );
-
+	preparePal(PAL0, font_getPalette());
+	displayOn(0);
 
 	_frases_tt_init ( 9 );
-
 	frases_tt_write ( NARRADOR );
 	frases_tt_write ( NOTA );
 
-
-
-
-
-
-
-	displayOff(0);//VDP_setEnable ( false );
-	SYS_disableInts();
-
+	displayOff(0);	
+	VDP_setPlaneSize ( 64, 32, false );
 	PAL_interruptFade();
-
 	resetScreen ();
+	resetScroll ();
 
-
-	VDP_drawImageEx ( BG_B, &ob_intro_3_a, TILE_ATTR_FULL(PAL1, false, FALSE, FALSE, ind),  0, 0, 0, 0 ); ind += ob_intro_3_a.tileset->numTile;
-	VDP_drawImageEx ( BG_A, &ob_intro_3_b, TILE_ATTR_FULL(PAL2, false, FALSE, FALSE, ind), 10, 0, 0, 0 ); ind += ob_intro_3_b.tileset->numTile;
-
-	VDP_setHorizontalScroll ( BG_B, -80 );
-
-	preparePal ( PAL3, os_intro_3_c.pal );//PAL_setPalette   ( PAL3, os_intro_3_c.pal );
-
-
-
-	u16 i;
+	s16 values_a[19];
+	s16 values_b[28];
 	u16 attr = 0;
-
-
-	s16 gota_x = -65;
-	s16 gota_y = 50;
-	SPRITESET gota;
-	attr = TILE_ATTR_FULL ( PAL3, 0, 0, 0, ind );
-
-	spriteset_new  ( &gota,   (struct genresSprites*) &os_intro_3_d, 1, 1 );
-	SYS_disableInts();
-	spriteset_load ( &gota, ind, 0 );
-	SYS_enableInts();
-	spriteset_show ( &gota, 0, gota_x, gota_y, attr );
-
-	ind += 2;
-
-
-
-	s16 jon_x = -180;
-	SPRITESET jon;
-	attr = TILE_ATTR_FULL ( PAL3, 0, 0, 0, ind );
-
-	spriteset_new  ( &jon,   (struct genresSprites*) &os_intro_3_c, 4, 4 );
-	SYS_disableInts();
-	spriteset_load ( &jon, ind, 0 );
-	SYS_enableInts();
-	spriteset_show ( &jon, 1, jon_x, 32, attr );
-
-
-
-
-	preparePal ( PAL0, font_getPalette() );//PAL_setPalette ( PAL0, font_getPalette() );
-	preparePal ( PAL1, ob_intro_3_a.palette->data );
-	preparePal ( PAL2, ob_intro_3_b.palette->data );
-
-
-	s16 values_a [ 19 ];
-	s16 values_b [ 28 ];
-
-	memset(values_a,   0, 19*2 );
-	memset(values_b, -80, 28*2 );
+	s16 gota_x =  -65, gota_y = 50;
+	s16 jon_x  = -180, jon_y  = 32;
+	s16 curval = 0;
+	s16 inc_x_b = -81;	
+	SPRITESET gota, jon;
 
 	VDP_setScrollingMode ( HSCROLL_TILE, VSCROLL_PLANE );
 	VDP_setHorizontalScrollTile ( BG_A, 0, values_a, 19, 0 );
 	VDP_setHorizontalScrollTile ( BG_B, 0, values_b, 28, 0 );
 
+	VDP_drawImageEx ( BG_B, &ob_intro_3_a, TILE_ATTR_FULL(PAL1, false, FALSE, FALSE, ind),  0, 0, 0, 0 ); ind += ob_intro_3_a.tileset->numTile;
+	VDP_drawImageEx ( BG_A, &ob_intro_3_b, TILE_ATTR_FULL(PAL2, false, FALSE, FALSE, ind), 10, 0, 0, 0 ); ind += ob_intro_3_b.tileset->numTile;
 
-	SYS_enableInts();
-	displayOn(0);//VDP_setEnable ( true );
+	memset(values_b, inc_x_b, 28*2);
+	VDP_setHorizontalScrollTile(BG_B, 0, values_b, 28, DMA);
+	SYS_doVBlankProcess();
 
+	spriteset_new  ( &jon,  &os_intro_3_c, 4, 4 );
+	spriteset_new  ( &gota, &os_intro_3_d, 1, 1 );
+	spriteset_load ( &jon,  ind, 0 );
+	spriteset_load ( &gota, ind, 0 );
+	spriteset_show ( &jon,  1, jon_x,  jon_y,  TILE_ATTR_FULL ( PAL3, 0, 0, 0, ind ) ); ind += 2;
+	spriteset_show ( &gota, 0, gota_x, gota_y, TILE_ATTR_FULL ( PAL3, 0, 0, 0, ind ) ); ind += 2;
+
+	preparePal(PAL0, font_getPalette());
+	preparePal(PAL1, ob_intro_3_a.palette->data);
+	preparePal(PAL2, ob_intro_3_b.palette->data);
+	preparePal(PAL3, os_intro_3_c.pal);
+
+	displayOn(0);
 
 	frases_tt_write ( NOTA );
 
 
-
-
-	s16 curval = 0;
-	s16 inc_x_b = -80;
-	u16 values [ 28 ];
-
-	i = 0;
-
-	while ( inc_x_b )
+	for (int i=0; inc_x_b<=0; i++ )
 	{
-		JoyReader_update();
+		memset(values_a, curval,  19*2);
+		memset(values_b, inc_x_b, 28*2);
 
+		JoyReader_update();
 		if ( joy1_pressed_start ) goto fin;
 		if ( joy1_pressed_abc   ) goto next;
+		if ( i % 2 == 0 ) inc_x_b+=2;
+		if ( i % 2 == 0 ) jon_x+=4;
+		if ( i % 3 == 0 ) curval+=2;
+		if ( inc_x_b % 3 == 0 && inc_x_b > -30) ++gota_y;
 
+		spriteset_move ( &jon,  jon_x,    32 ) ;
+		spriteset_move ( &gota, jon_x+55, gota_y ) ;
 
-		if ( i % 2 == 0 )
-		{
-			memset ( values, ++inc_x_b, 28*2 );
-
-			VDP_setHorizontalScrollTile ( BG_B, 0, values, 28, true );
-
-			jon_x+=2;
-
-			if (  inc_x_b % 4 == 0  &&  inc_x_b > -30  )
-			{
-				gota_y += 1;
-			}
-
-			spriteset_move ( &jon,  jon_x,    32 ) ;
-			spriteset_move ( &gota, jon_x+55, gota_y ) ;
-		}
-
-		if ( i % 3 == 0 )
-		{
-			memset ( values, ++curval, 19*2 );
-			VDP_setHorizontalScrollTile ( BG_A, 0, values, 19, 0 );
-		}
-
-		i++;
+		VDP_setHorizontalScrollTile(BG_A, 0, values_a, 19, DMA);
+		VDP_setHorizontalScrollTile(BG_B, 0, values_b, 28, DMA);
 
 		VDP_updateSprites(80,1);
 		SYS_doVBlankProcess();
