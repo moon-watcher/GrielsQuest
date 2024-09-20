@@ -202,7 +202,7 @@ void showFPS()
 
 void drawInt( u32 nb, u8 x, u8 y, u8 zeros )
 {
-	char str [ zeros+1 ];
+	char str [ 40 ];
 	intToStr ( nb, str, zeros );
 	SYS_disableInts();
 	VDP_drawText ( str, x, y );
@@ -211,9 +211,9 @@ void drawInt( u32 nb, u8 x, u8 y, u8 zeros )
 
 
 
-void drawUInt( u32 nb, u8 x, u8 y, u8 zeros )
+void drawUInt( u32 nb, u8 x, u8 y,  u8 zeros )
 {
-	char str [ zeros+1 ];
+	char str [ 40 ];
 	uintToStr ( nb, str, zeros );
 	SYS_disableInts();
 	VDP_drawText ( str, x, y );
@@ -224,7 +224,7 @@ void drawUInt( u32 nb, u8 x, u8 y, u8 zeros )
 
 void drawUIntBG( u32 nb, u8 x, u8 y, u8 zeros, u16 plan, u16 flags )
 {
-	char str [ zeros+1 ];
+	char str [ 40 ];
 	uintToStr ( nb, str, zeros );
 	SYS_disableInts();
 	VDP_drawTextBG ( BG_B, str, x, y );
