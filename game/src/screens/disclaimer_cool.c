@@ -83,7 +83,6 @@ static u16 _wait(u16 hz)
 		if (!(joy1_pressed_abc | joy1_pressed_start))
 			continue;
 
-		displayOff(5);
 		exit = 1;
 	}
 
@@ -97,7 +96,7 @@ static void _doDisclaimerLogoLedUpdate(void)
 	if (ledUpdate + disclaimerLogoLedIndex == 0)
 		return;
 
-	PAL_setColors(33, (u16 *)disclaimerLogoLedFadeColors[disclaimerLogoLedIndex], DISCLAIMERLOGOLED_NUMCOLORS, CPU);
+	PAL_setColors(33, disclaimerLogoLedFadeColors[disclaimerLogoLedIndex], DISCLAIMERLOGOLED_NUMCOLORS, CPU);
 
 	if (++disclaimerLogoLedIndex >= DISCLAIMERLOGOLED_FADESTEPS)
 		disclaimerLogoLedIndex = 0;
@@ -105,65 +104,88 @@ static void _doDisclaimerLogoLedUpdate(void)
 
 static void _doTextDisclaimerFadeIn(void)
 {
+	const int wait = 4;
+
 	for (int i = 1; i < TEXTDISCLAIMER_FADESTEPS; i++)
 	{
-		WAITBREAK_DISCLAIMER(6);
-		PAL_setColors(13, (u16 *)textDisclaimerFadeColors[i], TEXTDISCLAIMER_NUMCOLORS, CPU);
+		WAITBREAK_DISCLAIMER(wait);
+		PAL_setColors(13, textDisclaimerFadeColors[i], TEXTDISCLAIMER_NUMCOLORS, CPU);
 	}
 }
 
 static void _doDisclaimerBGFadeIn(void)
 {
+	const int wait = 4;
+
 	for (int i = 1; i < DISCLAIMERBG_FADESTEPS; i++)
 	{
-		WAITBREAK_DISCLAIMER(4);
-		PAL_setColors(1, (u16 *)disclaimerBGFadeColors[i], DISCLAIMERBG_NUMCOLORS, CPU);
+		WAITBREAK_DISCLAIMER(wait);
+		PAL_setColors(1, disclaimerBGFadeColors[i], DISCLAIMERBG_NUMCOLORS, CPU);
 	}
 }
 
 static void _doDisclaimerLogoFadeIn(void)
 {
+	const int wait = 4;
+
 	for (int i = 1; i < DISCLAIMERLOGO_FADESTEPS; i++)
 	{
-		WAITBREAK_DISCLAIMER(4);
-		PAL_setColors(17, (u16 *)disclaimerLogoFadeColors[i], DISCLAIMERLOGO_NUMCOLORS, CPU);
+		WAITBREAK_DISCLAIMER(wait);
+		PAL_setColors(17, disclaimerLogoFadeColors[i], DISCLAIMERLOGO_NUMCOLORS, CPU);
 		_doDisclaimerLogoLedUpdate();
 	}
 }
 
 static void _doDisclaimerBGFadeOut(void)
 {
+	const int wait = 4;
+
 	for (int i = DISCLAIMERBG_FADESTEPS - 2; i >= 0; i--)
 	{
-		WAITBREAK_DISCLAIMER(4);
-		PAL_setColors(1, (u16 *)disclaimerBGFadeColors[i], DISCLAIMERBG_NUMCOLORS, CPU);
+		WAITBREAK_DISCLAIMER(wait);
+		PAL_setColors(1, disclaimerBGFadeColors[i], DISCLAIMERBG_NUMCOLORS, CPU);
 		_doDisclaimerLogoLedUpdate();
 	}
 }
 
 static void _doTextDisclaimerFadeOut(void)
 {
+	const int wait = 4;
+
 	for (int i = TEXTDISCLAIMER_FADESTEPS - 2; i >= 0; i--)
 	{
-		WAITBREAK_DISCLAIMER(4);
-		PAL_setColors(13, (u16 *)textDisclaimerFadeColors[i], TEXTDISCLAIMER_NUMCOLORS, CPU);
+		WAITBREAK_DISCLAIMER(wait);
+		PAL_setColors(13, textDisclaimerFadeColors[i], TEXTDISCLAIMER_NUMCOLORS, CPU);
 		_doDisclaimerLogoLedUpdate();
 	}
 }
 
 static void _doDisclaimerLogoFadeOut(void)
 {
+	const int wait = 4;
 	ledUpdate = 0;
 
 	for (int i = DISCLAIMERLOGO_FADESTEPS - 2; i >= 0; i--)
 	{
-		WAITBREAK_DISCLAIMER(4);
-		PAL_setColors(17, (u16 *)disclaimerLogoFadeColors[i], DISCLAIMERLOGO_NUMCOLORS, CPU);
+		WAITBREAK_DISCLAIMER(wait);
+		PAL_setColors(17, disclaimerLogoFadeColors[i], DISCLAIMERLOGO_NUMCOLORS, CPU);
 		_doDisclaimerLogoLedUpdate();
 	}
 }
 
-static int _init(void)
+static void _doWaitForTimeout(int timeout)
+{
+	const int wait = 4;
+	timeout /= wait;
+
+	while (timeout--)
+	{
+		WAITBREAK_DISCLAIMER(wait);
+		_doDisclaimerLogoLedUpdate();
+	}
+}
+
+static int _init(int secs)
 {
 	disclaimerLogoLedIndex = 0;
 	ledUpdate = 1;
@@ -178,25 +200,18 @@ static int _init(void)
 	pos += screen_disclaimerLogoImage_all.tileset->numTile;
 	VDP_drawImageEx(BG_B, &screen_disclaimerLogoLedImage_all, TILE_ATTR_FULL(PAL2, 0, 0, 0, pos), 26, 9, 0, 0);
 
-	return IS_PAL_SYSTEM ? 50 : 60;
+	return (IS_PAL_SYSTEM ? 50 : 60) * secs;
 }
 
 /* :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 
 void screen_disclaimer_cool()
 {
-	int i = _init();
-
+	int timeout = _init(4);
 	_doTextDisclaimerFadeIn();
 	_doDisclaimerBGFadeIn();
 	_doDisclaimerLogoFadeIn();
-
-	while (i--)
-	{
-		WAITBREAK_DISCLAIMER(4);
-		_doDisclaimerLogoLedUpdate();
-	}
-
+	_doWaitForTimeout(timeout);
 	_doDisclaimerBGFadeOut();
 	_doTextDisclaimerFadeOut();
 	_doDisclaimerLogoFadeOut();
