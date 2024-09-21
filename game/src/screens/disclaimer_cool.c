@@ -1,6 +1,8 @@
-#include "../../inc/include.h"
+#include <genesis.h>
+#include "../../res/commonres.h"
 
 // disclaimer.c by Jack Nolddor
+// disclaimer_cool.c by Mun
 
 /* :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 
@@ -61,37 +63,30 @@ static const u16 disclaimerLogoLedFadeColors[DISCLAIMERLOGOLED_FADESTEPS][DISCLA
 	{0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x00A0},
 	{0x0000, 0x0000, 0x0000, 0x0000, 0x0000, 0x0000}};
 
-static int disclaimerLogoLedIndex;
-static int ledUpdate;
-static int exit;
+static int disclaimerLogoLedIndex, exit;
 
 /* :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 
-#define WAITBREAK_DISCLAIMER(n) \
-	if (_wait(n))               \
-	{                           \
-		break;                  \
-	}
-
-static u16 _wait(u16 hz)
+static void _init(int pos)
 {
-	while (!exit && hz--)
-	{
-		SYS_doVBlankProcess();
-		JoyReader_update();
+	disclaimerLogoLedIndex = exit = 0;
 
-		if (!(joy1_pressed_abc | joy1_pressed_start))
-			continue;
+	VDP_drawImageEx(BG_B, &screen_disclaimerBGImage_all, TILE_ATTR_FULL(PAL0, 0, 0, 0, pos), 0, 0, 0, 0);
+	pos += screen_disclaimerBGImage_all.tileset->numTile;
 
-		exit = 1;
-	}
+	VDP_drawImageEx(BG_A, &screen_disclaimerLogoImage_all, TILE_ATTR_FULL(PAL1, 0, 0, 0, pos), 9, 9, 0, 0);
+	pos += screen_disclaimerLogoImage_all.tileset->numTile;
 
-	return exit;
+	VDP_drawImageEx(BG_B, &screen_disclaimerLogoLedImage_all, TILE_ATTR_FULL(PAL2, 0, 0, 0, pos), 26, 9, 0, 0);
 }
 
-/* :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
+void _waitbreak_disclaimer(int hz, int (*joyctrl)())
+{
+	while (!(exit = joyctrl()) && hz--)
+		SYS_doVBlankProcess();
+}
 
-static void _doDisclaimerLogoLedUpdate(void)
+static void _doDisclaimerLogoLedUpdate(int ledUpdate)
 {
 	if (ledUpdate + disclaimerLogoLedIndex == 0)
 		return;
@@ -102,117 +97,83 @@ static void _doDisclaimerLogoLedUpdate(void)
 		disclaimerLogoLedIndex = 0;
 }
 
-static void _doTextDisclaimerFadeIn(void)
+static void _doTextDisclaimerFadeIn(int wait, int (*joyctrl)())
 {
-	const int wait = 4;
-
-	for (int i = 1; i < TEXTDISCLAIMER_FADESTEPS; i++)
+	for (int i = 1; i < TEXTDISCLAIMER_FADESTEPS && !exit; i++)
 	{
-		WAITBREAK_DISCLAIMER(wait);
 		PAL_setColors(13, textDisclaimerFadeColors[i], TEXTDISCLAIMER_NUMCOLORS, CPU);
+		_waitbreak_disclaimer(wait, joyctrl);
 	}
 }
 
-static void _doDisclaimerBGFadeIn(void)
+static void _doDisclaimerBGFadeIn(int wait, int (*joyctrl)())
 {
-	const int wait = 4;
-
-	for (int i = 1; i < DISCLAIMERBG_FADESTEPS; i++)
+	for (int i = 1; i < DISCLAIMERBG_FADESTEPS && !exit; i++)
 	{
-		WAITBREAK_DISCLAIMER(wait);
 		PAL_setColors(1, disclaimerBGFadeColors[i], DISCLAIMERBG_NUMCOLORS, CPU);
+		_waitbreak_disclaimer(wait, joyctrl);
 	}
 }
 
-static void _doDisclaimerLogoFadeIn(void)
+static void _doDisclaimerLogoFadeIn(int wait, int (*joyctrl)(), int ledUpdate)
 {
-	const int wait = 4;
-
-	for (int i = 1; i < DISCLAIMERLOGO_FADESTEPS; i++)
+	for (int i = 1; i < DISCLAIMERLOGO_FADESTEPS && !exit; i++)
 	{
-		WAITBREAK_DISCLAIMER(wait);
 		PAL_setColors(17, disclaimerLogoFadeColors[i], DISCLAIMERLOGO_NUMCOLORS, CPU);
-		_doDisclaimerLogoLedUpdate();
+		_doDisclaimerLogoLedUpdate(ledUpdate);
+		_waitbreak_disclaimer(wait, joyctrl);
 	}
 }
 
-static void _doDisclaimerBGFadeOut(void)
+static void _doWaitForTimeout(int wait, int (*joyctrl)(), int ledUpdate, int timeout)
 {
-	const int wait = 4;
-
-	for (int i = DISCLAIMERBG_FADESTEPS - 2; i >= 0; i--)
+	for (int i = timeout /= wait; i && !exit; i--)
 	{
-		WAITBREAK_DISCLAIMER(wait);
+		_doDisclaimerLogoLedUpdate(ledUpdate);
+		_waitbreak_disclaimer(wait, joyctrl);
+	}
+}
+
+static void _doDisclaimerBGFadeOut(int wait, int (*joyctrl)(), int ledUpdate)
+{
+	for (int i = DISCLAIMERBG_FADESTEPS - 2; i >= 0 && !exit; i--)
+	{
 		PAL_setColors(1, disclaimerBGFadeColors[i], DISCLAIMERBG_NUMCOLORS, CPU);
-		_doDisclaimerLogoLedUpdate();
+		_doDisclaimerLogoLedUpdate(ledUpdate);
+		_waitbreak_disclaimer(wait, joyctrl);
 	}
 }
 
-static void _doTextDisclaimerFadeOut(void)
+static void _doTextDisclaimerFadeOut(int wait, int (*joyctrl)(), int ledUpdate)
 {
-	const int wait = 4;
-
-	for (int i = TEXTDISCLAIMER_FADESTEPS - 2; i >= 0; i--)
+	for (int i = TEXTDISCLAIMER_FADESTEPS - 2; i >= 0 && !exit; i--)
 	{
-		WAITBREAK_DISCLAIMER(wait);
 		PAL_setColors(13, textDisclaimerFadeColors[i], TEXTDISCLAIMER_NUMCOLORS, CPU);
-		_doDisclaimerLogoLedUpdate();
+		_doDisclaimerLogoLedUpdate(ledUpdate);
+		_waitbreak_disclaimer(wait, joyctrl);
 	}
 }
 
-static void _doDisclaimerLogoFadeOut(void)
+static void _doDisclaimerLogoFadeOut(int wait, int (*joyctrl)(), int ledUpdate)
 {
-	const int wait = 4;
-	ledUpdate = 0;
-
-	for (int i = DISCLAIMERLOGO_FADESTEPS - 2; i >= 0; i--)
+	for (int i = DISCLAIMERLOGO_FADESTEPS - 2; i >= 0 && !exit; i--)
 	{
-		WAITBREAK_DISCLAIMER(wait);
 		PAL_setColors(17, disclaimerLogoFadeColors[i], DISCLAIMERLOGO_NUMCOLORS, CPU);
-		_doDisclaimerLogoLedUpdate();
+		_doDisclaimerLogoLedUpdate(ledUpdate);
+		_waitbreak_disclaimer(wait, joyctrl);
 	}
-}
-
-static void _doWaitForTimeout(int timeout)
-{
-	const int wait = 4;
-	timeout /= wait;
-
-	while (timeout--)
-	{
-		WAITBREAK_DISCLAIMER(wait);
-		_doDisclaimerLogoLedUpdate();
-	}
-}
-
-static int _init(int secs)
-{
-	disclaimerLogoLedIndex = 0;
-	ledUpdate = 1;
-	exit = 0;
-
-	int pos = TILE_USER_INDEX;
-	VDP_drawImageEx(BG_B, &screen_disclaimerBGImage_all, TILE_ATTR_FULL(PAL0, 0, 0, 0, pos), 0, 0, 0, 0);
-
-	pos += screen_disclaimerBGImage_all.tileset->numTile;
-	VDP_drawImageEx(BG_A, &screen_disclaimerLogoImage_all, TILE_ATTR_FULL(PAL1, 0, 0, 0, pos), 9, 9, 0, 0);
-
-	pos += screen_disclaimerLogoImage_all.tileset->numTile;
-	VDP_drawImageEx(BG_B, &screen_disclaimerLogoLedImage_all, TILE_ATTR_FULL(PAL2, 0, 0, 0, pos), 26, 9, 0, 0);
-
-	return (IS_PAL_SYSTEM ? 50 : 60) * secs;
 }
 
 /* :::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::::: */
 
-void screen_disclaimer_cool()
+void screen_disclaimer_cool(int vram, int waitHz, int (*joyctrl)())
 {
-	int timeout = _init(4);
-	_doTextDisclaimerFadeIn();
-	_doDisclaimerBGFadeIn();
-	_doDisclaimerLogoFadeIn();
-	_doWaitForTimeout(timeout);
-	_doDisclaimerBGFadeOut();
-	_doTextDisclaimerFadeOut();
-	_doDisclaimerLogoFadeOut();
+	_init(vram);
+	_doTextDisclaimerFadeIn(4, joyctrl);
+	_doDisclaimerBGFadeIn(4, joyctrl);
+	_doDisclaimerLogoFadeIn(4, joyctrl, 1);
+	_doWaitForTimeout(4, joyctrl, 1, waitHz);
+	_doDisclaimerBGFadeOut(4, joyctrl, 1);
+	_doTextDisclaimerFadeOut(4, joyctrl, 1);
+	_doDisclaimerLogoFadeOut(4, joyctrl, 0);
 }

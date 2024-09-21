@@ -646,7 +646,11 @@ int main()
       bool const nolddor_released_ZoS = 1;
 
       if (nolddor_released_ZoS)
-         screen_disclaimer_cool();
+         screen_disclaimer_cool(
+            TILE_USER_INDEX,
+            (IS_PAL_SYSTEM ? 50 : 60) * 4,
+            ({ int j(){ JoyReader_update(); return joy1_pressed_abc | joy1_pressed_start; }; j; })
+         );
       else
          screen_disclaimer_simple();
 
