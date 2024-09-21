@@ -1,12 +1,8 @@
 #include "../inc/include.h"
 #include "../inc/genres_externs.h"
 
-
-
 void screen_oooklab ( )
 {
-    if ( DEV > 1 ) return;
-
 	displayInit();
 	displayOff(0);
 
@@ -37,7 +33,12 @@ void screen_oooklab ( )
 
     SYS_enableInts();
 
-	displayOn ( 15 );
+	displayOn ( 10 );
+
+
+    prepare_string("á");
+    prepare_string("í");
+
 
 	waitJoySc(6);
 

@@ -47,11 +47,11 @@ static void _blink ( const u16 x, const u16 y, u8 option )
 
 void screen_languages ()
 {
-    if ( DEV > 1 )
-    {
-        gamestate.lenguaje = 1;
-        return;
-    }
+    // if ( DEV > 1 )
+    // {
+    //     gamestate.lenguaje = 1;
+    //     return;
+    // }
 
     if ( gamestate.lenguaje )
     {
