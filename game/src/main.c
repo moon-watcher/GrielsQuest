@@ -602,60 +602,71 @@ void jap()
 }
 
 
-int main ( )
+int main()
 {
-    //jap();
-    dev_init ( 0 );
+   // jap();
+   dev_init(0);
 
-    JoyReader_init ( 1 );
-    monos();
+   JoyReader_init(1);
+   monos();
 
-    //todas_las_pantallas ( );
-    //object_viewer();
-    //conio();
+   // todas_las_pantallas ( );
+   // object_viewer();
+   // conio();
 
+   gamestate.lenguaje = ENGLISH;
 
-    gamestate.lenguaje = ENGLISH;
+   XGM_setForceDelayDMA(true);
 
+   VDP_setPlaneSize(64, 32, false);
 
-    XGM_setForceDelayDMA(true);
-
-    VDP_setPlaneSize ( 64, 32, false );
-
-    JOY_init ( );
-    JOY_setSupport ( PORT_1, DEV ? JOY_SUPPORT_6BTN : JOY_SUPPORT_3BTN ); // JOY_SUPPORT_3BTN
-    JOY_setSupport ( PORT_2, JOY_SUPPORT_OFF );
-
-    JoyReader_init ( 1 );
-
-    //vram_init ( TILE_USER_INDEX );
-
-    vint_init ( );
-    //vint_setJoyReader ( true );
-
-    SYS_setVIntCallback ( (VoidCallback*) vint_callback );
-    font_init ( );
-
-    gamestate_init ( ); // debe estar aqui y tras introducir un password correcto
+   JOY_init();
+   JOY_setSupport(PORT_1, DEV ? JOY_SUPPORT_6BTN : JOY_SUPPORT_3BTN); // JOY_SUPPORT_3BTN
+   JOY_setSupport(PORT_2, JOY_SUPPORT_OFF);
 
 
-    screen_disclaimer ( 1 );
-    screen_sega ( );
-    screen_publisher ( );
-    screen_oooklab ( );
-    screen_languages();
+   // vram_init ( TILE_USER_INDEX );
+   // vint_setJoyReader ( true );
 
+   SYS_setVIntCallback((VoidCallback *)vint_callback);
 
-//        screen_final(0);
-//        screen_staff();
-//        screen_oldintro();
+   JoyReader_init(1);
+   vint_init();
+   font_init();
 
+	displayInit();
+   gamestate_init(); // debe estar aqui y tras introducir un password correcto
+	resetPalettes();
+	resetScroll();
+	resetSprites();
+	resetScreen();   
 
-    //http://www.dodgycoder.net/2012/02/coding-tricks-of-game-developers.html#
-    __builtin_expect ( gamestate.current_ambiente, 0 );
+   if (DEV < 2) 
+   {
+      bool const nolddor_released_ZoS = 1;
 
+      if (nolddor_released_ZoS)
+         screen_disclaimer_cool();
+      else
+         screen_disclaimer_simple();
 
-    game_loop();
+      displayOff(0);
+      resetScreen();
+   }
 
-    return 0;
+   screen_sega();
+   screen_publisher();
+   screen_oooklab();
+   screen_languages();
+
+   //        screen_final(0);
+   //        screen_staff();
+   //        screen_oldintro();
+
+   // http://www.dodgycoder.net/2012/02/coding-tricks-of-game-developers.html#
+   __builtin_expect(gamestate.current_ambiente, 0);
+
+   game_loop();
+
+   return 0;
 }
