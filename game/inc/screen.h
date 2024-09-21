@@ -49,7 +49,8 @@ u16   screen_ingame_how_to_play ( LEVEL wl );
 void  screen_disclaimer_simple  ();
 void  screen_disclaimer_cool    (int, int, int (*)());
 void  screen_ob_intro_2_b_f     ( );
-void  screen_publisher          ( );
+void  screen_publisher_1985     ( );
+void  screen_publisher_POR      ( );
 void  screen_wtfisaporron       ( );
 void  screen_languages          ( );
 

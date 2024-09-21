@@ -10,18 +10,20 @@ IMAGE screen_disclaimerBGImage_all      "../data/common/disclaimer/disclaimerBG.
 IMAGE screen_disclaimerLogoImage_all    "../data/common/disclaimer/disclaimerLogo.bmp"     0
 IMAGE screen_disclaimerLogoLedImage_all "../data/common/disclaimer/disclaimerLogoLed.bmp"  0
 
-IMAGE screen_publisher_00               "../data/common/publisher/00.bmp"                  0
-#IMAGE screen_publisher_01              "../data/common/publisher/01.bmp"                  0
-#IMAGE screen_publisher_02              "../data/common/publisher/02.bmp"                  0
-#IMAGE screen_publisher_03              "../data/common/publisher/03.bmp"                  0
-#IMAGE screen_publisher_04              "../data/common/publisher/04.bmp"                  0
+IMAGE screen_publisher_00               "../data/common/publisher/1985/00.bmp"                  0
+#IMAGE screen_publisher_01              "../data/common/publisher/1985/01.bmp"                  0
+#IMAGE screen_publisher_02              "../data/common/publisher/1985/02.bmp"                  0
+#IMAGE screen_publisher_03              "../data/common/publisher/1985/03.bmp"                  0
+#IMAGE screen_publisher_04              "../data/common/publisher/1985/04.bmp"                  0
 
 IMAGE wtf_is_a_porron                   "../data/common/wtf_is_a_porron.bmp"               0
 
 
 
-IMAGE logo_1985_bg  "../data/common/publisher/1985_logo_bg.bmp"  0
-IMAGE logo_1985_1   "../data/common/publisher/1985_logo_1.bmp"   0
-IMAGE logo_1985_2   "../data/common/publisher/1985_logo_2.bmp"   0
-IMAGE logo_1985_3   "../data/common/publisher/1985_logo_3.bmp"   0
-IMAGE logo_1985_4   "../data/common/publisher/1985_logo_4.bmp"   0
+IMAGE logo_1985_bg  "../data/common/publisher/1985/1985_logo_bg.bmp"  0
+IMAGE logo_1985_1   "../data/common/publisher/1985/1985_logo_1.bmp"   0
+IMAGE logo_1985_2   "../data/common/publisher/1985/1985_logo_2.bmp"   0
+IMAGE logo_1985_3   "../data/common/publisher/1985/1985_logo_3.bmp"   0
+IMAGE logo_1985_4   "../data/common/publisher/1985/1985_logo_4.bmp"   0
+
+IMAGE logo_POR_bgA  "../data/common/publisher/POR/3.title.1.publisher.bgA.png" NONE

@@ -130,42 +130,40 @@
  *
  */
 
-
-
 #include "../inc/include.h"
 
 void monos()
 {
    JoyReader_update();
 
-   if ( !joy1_pressed_btn )
+   if (!joy1_pressed_btn)
    {
       return;
    }
 
    SYS_disableInts();
-   VDP_loadTileSet ( ob_title_monos_mi.tileset, 16, 0 );
-   PAL_setPalette ( PAL1, ob_title_monos_mi.palette->data, CPU );
+   VDP_loadTileSet(ob_title_monos_mi.tileset, 16, 0);
+   PAL_setPalette(PAL1, ob_title_monos_mi.palette->data, CPU);
    SYS_enableInts();
 
    u16 x = 0;
    u16 y = 0;
 
-   while ( 1 )
+   while (1)
    {
       SYS_disableInts();
-      VDP_setMapEx ( BG_A, ob_title_monos_mi.tilemap, TILE_ATTR_FULL(PAL1,0,0,0,16), 14, 10, x*13, y*6, 13, 6 );
+      VDP_setMapEx(BG_A, ob_title_monos_mi.tilemap, TILE_ATTR_FULL(PAL1, 0, 0, 0, 16), 14, 10, x * 13, y * 6, 13, 6);
       SYS_enableInts();
 
       ++x;
 
-      if ( x == 10 )
+      if (x == 10)
       {
          x = 0;
          ++y;
       }
 
-      if ( x == 6 && y == 6 )
+      if (x == 6 && y == 6)
       {
          x = 0;
          y = 0;
@@ -173,7 +171,7 @@ void monos()
 
       JoyReader_update();
 
-      if ( joy1_pressed_btn )
+      if (joy1_pressed_btn)
       {
          break;
       }
@@ -186,39 +184,37 @@ void monos()
       SYS_doVBlankProcess();
    }
 
-   displayOff( 30 );
+   displayOff(30);
 }
-
-
 
 void conio()
 {
-   VDP_drawText ( "============", 0, 0 );
-   VDP_drawText ( "============", 0, 1 );
-   VDP_drawText ( "============", 0, 2 );
-   VDP_drawText ( "============", 0, 3 );
-   VDP_drawText ( "============", 0, 4 );
-   VDP_drawText ( "============", 0, 5 );
+   VDP_drawText("============", 0, 0);
+   VDP_drawText("============", 0, 1);
+   VDP_drawText("============", 0, 2);
+   VDP_drawText("============", 0, 3);
+   VDP_drawText("============", 0, 4);
+   VDP_drawText("============", 0, 5);
 
    inittextinfo();
-   window(1,1,10,4);
+   window(1, 1, 10, 4);
 
-   cputsxy(3,0,"AAAAA");
+   cputsxy(3, 0, "AAAAA");
    delay(1000);
    clrscr();
    delay(1000);
 
-   while(!kbhit())
+   while (!kbhit())
    {
-      cputsxy ( 0, 0, "holaaaaajldkj ");
+      cputsxy(0, 0, "holaaaaajldkj ");
       delay(1000);
 
-//      putch('a'); delay(1000);
-//      putch('e'); delay(1000);
-//      putch('i'); delay(1000);
-//      putch('o'); delay(1000);
+      //      putch('a'); delay(1000);
+      //      putch('e'); delay(1000);
+      //      putch('i'); delay(1000);
+      //      putch('o'); delay(1000);
 
-      gotoxy(2,2);
+      gotoxy(2, 2);
       cputs("XXXXXXXXXXXXXXXXXXZ");
       delay(1000);
 
@@ -230,10 +226,6 @@ void conio()
    }
 }
 
-
-
-
-
 /*
  *
  * // FUNCIONA!!!!!!!
@@ -243,77 +235,76 @@ void conio()
  */
 int execl(const char *file, const char *args, ...)
 {
-   #define  MAXARGS     31
+#define MAXARGS 31
 
    va_list ap;
-   char *array[MAXARGS +1];
+   char *array[MAXARGS + 1];
    int argno = 0;
 
    va_start(ap, args);
    while (args != 0 && argno < MAXARGS)
    {
-      array[argno++] = (char*) args;
+      array[argno++] = (char *)args;
       args = va_arg(ap, const char *);
    }
-   array[argno] = (char *) 0;
+   array[argno] = (char *)0;
    va_end(ap);
 
-   drawUInt ( argno, 0,0,4);
+   drawUInt(argno, 0, 0, 4);
    waitMs(2000);
 
    return argno;
 }
 
-
-
-
-
 void object_viewer()
 {
    s16 opcion = 12;
 
-   vram_init ( 16 );
-   vobject_init ( );
+   vram_init(16);
+   vobject_init();
 
-
-   while ( 1 )
+   while (1)
    {
-      JoyReader_update ( );
+      JoyReader_update();
 
-      if ( opcion == MAX_ANIMATIONS ) opcion = 0;
-      if ( opcion == -1             ) opcion = MAX_ANIMATIONS - 1;
+      if (opcion == MAX_ANIMATIONS)
+         opcion = 0;
+      if (opcion == -1)
+         opcion = MAX_ANIMATIONS - 1;
 
       SYS_disableInts();
-      VDP_clearPlane ( BG_A, 1 );
+      VDP_clearPlane(BG_A, 1);
       SYS_enableInts();
 
-      VOBJECT *v = vobject_add ( opcion );
-      vobject_reset ( opcion );
-		animation_set_raw();
-		animation_draw ( opcion, 10, 10, true, BG_A, 1, 0, 0, 0, 0 );
-      PAL_setPalette ( animation_get ( opcion )->pal, animation_get ( opcion )->res->pal, CPU);
+      VOBJECT *v = vobject_add(opcion);
+      vobject_reset(opcion);
+      animation_set_raw();
+      animation_draw(opcion, 10, 10, true, BG_A, 1, 0, 0, 0, 0);
+      PAL_setPalette(animation_get(opcion)->pal, animation_get(opcion)->res->pal, CPU);
 
-      drawUInt ( opcion, 2, 3, 3 );
-      VDP_drawText ( v->object->name, 7, 3 );
+      drawUInt(opcion, 2, 3, 3);
+      VDP_drawText(v->object->name, 7, 3);
 
-      while ( 1 )
+      while (1)
       {
          JoyReader_update();
 
-         drawUInt( v->frame,5,5,2);
-         VDP_drawText( "/", 8, 5);
-         drawUInt( v->object->frames,10,5,2);
+         drawUInt(v->frame, 5, 5, 2);
+         VDP_drawText("/", 8, 5);
+         drawUInt(v->object->frames, 10, 5, 2);
 
-         if ( joy1_pressed_dir )
+         if (joy1_pressed_dir)
          {
-            if ( joy1_pressed_right ) ++opcion;
-            if ( joy1_pressed_left  ) --opcion;
+            if (joy1_pressed_right)
+               ++opcion;
+            if (joy1_pressed_left)
+               --opcion;
 
             break;
          }
 
          vobject_update();
-         vobject_upload ( );
+         vobject_upload();
 
          SYS_doVBlankProcess();
       }
@@ -323,289 +314,288 @@ void object_viewer()
 
       SYS_doVBlankProcess();
    }
-
-
 }
 
-void todas_las_pantallas ( )
+void todas_las_pantallas()
 {
-   const u8 * pantallas[] =
-   {
-      "Sega",
-      "Karoshi",
-      "Titulo",
-      "Opciones",
-      "Intro",
-      "Passwords",
-      "Sound test",
-      "Ending",
-      "Game over",
-      "Credits",
-      "Puerta 1",
-      "Puerta 2",
-      "Puerta 3",
-      "Final 1",
-      "Final 2",
-      "Final 3",
-      "Mapa 1",
-      "Mapa 2",
-   };
-
+   const u8 *pantallas[] =
+       {
+           "Sega",
+           "Karoshi",
+           "Titulo",
+           "Opciones",
+           "Intro",
+           "Passwords",
+           "Sound test",
+           "Ending",
+           "Game over",
+           "Credits",
+           "Puerta 1",
+           "Puerta 2",
+           "Puerta 3",
+           "Final 1",
+           "Final 2",
+           "Final 3",
+           "Mapa 1",
+           "Mapa 2",
+       };
 
    s16 opcion = 0;
 
    VDP_init();
 
-   while ( 1 )
+   while (1)
    {
       music_stop();
 
       JoyReader_update();
 
+      VDP_drawText("Griel's Quest", 12, 1);
+      VDP_drawText("-------------", 12, 2);
+      VDP_drawText("  Level test ", 12, 5);
+      VDP_drawText("  2014-01-27 ", 12, 7);
+      VDP_drawText("<            >", 12, 12);
 
-
-      VDP_drawText ( "Griel's Quest",  12,  1 );
-      VDP_drawText ( "-------------",  12,  2 );
-      VDP_drawText ( "  Level test ",  12,  5 );
-      VDP_drawText ( "  2014-01-27 ",  12,  7 );
-      VDP_drawText ( "<            >", 12, 12 );
-
-      if ( opcion < 18 )
+      if (opcion < 18)
       {
-         VDP_drawText ( pantallas[opcion], 14, 12 );
+         VDP_drawText(pantallas[opcion], 14, 12);
       }
       else
       {
          u8 str[4];
-         uintToStr ( opcion - 18, str, 2 );
-         VDP_drawText ( str, 21, 12 );
-         VDP_drawText ( "Level:", 14, 12 );
+         uintToStr(opcion - 18, str, 2);
+         VDP_drawText(str, 21, 12);
+         VDP_drawText("Level:", 14, 12);
       }
 
+      if (joy1_pressed_right)
+         ++opcion;
+      if (joy1_pressed_left)
+         --opcion;
 
+      if (opcion >= 18 + 59)
+         opcion = 18 + 59 - 1;
+      if (opcion < 0)
+         opcion = 0;
 
-
-
-      if ( joy1_pressed_right ) ++opcion;
-      if ( joy1_pressed_left  ) --opcion;
-
-      if ( opcion >= 18 + 59 ) opcion = 18 + 59 - 1;
-      if ( opcion <  0 ) opcion = 0;
-
-      if (  joy1_pressed_abc )
+      if (joy1_pressed_abc)
       {
-         //tool_reset ( );
+         // tool_reset ( );
 
-         if ( opcion == 0 ) screen_sega   ( );
-         if ( opcion == 1 ) screen_griels ( );
-         if ( opcion == 2 ) screen_title  ( 0 );
-         //if ( opcion == 3 ) screen_options ( );
-         if ( opcion == 4 ) screen_intro ( 1 );
-         if ( opcion == 5 ) pwd8_screen() ;
-         if ( opcion == 6 ) screen_sound_test ( );
-         //if ( opcion == 7 ) screen_ending ( );
-         //if ( opcion == 8 ) screen_gameover ( );
-         if ( opcion == 9 ) screen_staff();
+         if (opcion == 0)
+            screen_sega();
+         if (opcion == 1)
+            screen_griels();
+         if (opcion == 2)
+            screen_title(0);
+         // if ( opcion == 3 ) screen_options ( );
+         if (opcion == 4)
+            screen_intro(1);
+         if (opcion == 5)
+            pwd8_screen();
+         if (opcion == 6)
+            screen_sound_test();
+         // if ( opcion == 7 ) screen_ending ( );
+         // if ( opcion == 8 ) screen_gameover ( );
+         if (opcion == 9)
+            screen_staff();
 
-         if ( opcion == 10) screen_puerta();
-         if ( opcion == 11 )
+         if (opcion == 10)
+            screen_puerta();
+         if (opcion == 11)
          {
-            gamestate.ambientes [ 0 ] = 0;
-            gamestate.ambientes [ 1 ] = level_list [ 1 ] [ 0 ].cuantos;
-            gamestate.ambientes [ 2 ] = 0;
-            gamestate.ambientes [ 3 ] = level_list [ 3 ] [ 0 ].cuantos;
+            gamestate.ambientes[0] = 0;
+            gamestate.ambientes[1] = level_list[1][0].cuantos;
+            gamestate.ambientes[2] = 0;
+            gamestate.ambientes[3] = level_list[3][0].cuantos;
             screen_puerta();
          }
 
-         if ( opcion == 12 )
+         if (opcion == 12)
          {
-            gamestate.ambientes [ 0 ] = level_list [ 0 ] [ 0 ].cuantos;
-            gamestate.ambientes [ 1 ] = level_list [ 1 ] [ 0 ].cuantos;
-            gamestate.ambientes [ 2 ] = level_list [ 2 ] [ 0 ].cuantos;
-            gamestate.ambientes [ 3 ] = level_list [ 3 ] [ 0 ].cuantos;
+            gamestate.ambientes[0] = level_list[0][0].cuantos;
+            gamestate.ambientes[1] = level_list[1][0].cuantos;
+            gamestate.ambientes[2] = level_list[2][0].cuantos;
+            gamestate.ambientes[3] = level_list[3][0].cuantos;
             screen_puerta();
          }
 
-         if ( opcion == 13 )
+         if (opcion == 13)
          {
             gamestate.dificultad = 0;
             screen_final(0);
          }
 
-         if ( opcion == 14 )
+         if (opcion == 14)
          {
             gamestate.dificultad = 1;
             screen_final(0);
          }
 
-         if ( opcion == 15 )
+         if (opcion == 15)
          {
             gamestate.dificultad = 2;
             screen_final(0);
          }
 
-         if ( opcion == 16 )
+         if (opcion == 16)
          {
             gamestate.visito_la_puerta = true;
             screen_mapa(TRUE);
          }
 
-         if ( opcion == 17 )
+         if (opcion == 17)
          {
             gamestate.visito_la_puerta = false;
             screen_mapa(TRUE);
          }
 
+         if (opcion >= 18)
+            game_play(opcion - 10);
 
-         if ( opcion >= 18 ) game_play ( opcion - 10 );
-
-//         tool_reset ( );
+         //         tool_reset ( );
          VDP_init();
-         VDP_setPlaneSize ( 64, 32, false );
+         VDP_setPlaneSize(64, 32, false);
 
-//         joy_init ( );
-//         joy_enable ( );
-//         joy_set_handler ( JOY_HANDLER_COMMON );
+         //         joy_init ( );
+         //         joy_enable ( );
+         //         joy_set_handler ( JOY_HANDLER_COMMON );
       }
    }
-
 }
 
-
-u16 _check_password ( u8 password[], u16 *ptrLevel )
+u16 _check_password(u8 password[], u16 *ptrLevel)
 {
-   u16 ret  = SCREEN_JUMP_TO_INTRO;
+   u16 ret = SCREEN_JUMP_TO_INTRO;
    u16 play = PSG_WRONG;
 
+   //    PENDIENTE DE REVISAR
+   //   LEVEL *levels = (LEVEL*) level ( );
+   //   u16 i;
+   //   for ( i = 1; i <= LEVEL_NB_LEVELS; i++ )
+   //   {
+   //      if ( my_strcmp ( password, levels[i].password ) )
+   //      {
+   //         *ptrLevel = i;
+   //         play = PSG_SELECT;
+   //         ret  = SCREEN_JUMP_TO_NEWGAME;
+   //      }
+   //   }
 
-//    PENDIENTE DE REVISAR
-//   LEVEL *levels = (LEVEL*) level ( );
-//   u16 i;
-//   for ( i = 1; i <= LEVEL_NB_LEVELS; i++ )
-//   {
-//      if ( my_strcmp ( password, levels[i].password ) )
-//      {
-//         *ptrLevel = i;
-//         play = PSG_SELECT;
-//         ret  = SCREEN_JUMP_TO_NEWGAME;
-//      }
-//   }
-
-   if ( strcmp ( password, "SOUND"  ) == 0 )
+   if (strcmp(password, "SOUND") == 0)
    {
       play = PSG_START;
       ret = SCREEN_CHEAT_SOUND;
    }
 
-   if ( strcmp ( password, "SONIC"  ) == 0 )
+   if (strcmp(password, "SONIC") == 0)
    {
       play = PSG_START;
       ret = SCREEN_CHEAT_SONIC;
    }
 
-   if ( strcmp ( password, "KONAMI" ) == 0 )
+   if (strcmp(password, "KONAMI") == 0)
    {
       play = PSG_START;
       ret = SCREEN_CHEAT_KONAMI;
    }
 
-   if ( strcmp ( password, "STAFF"  ) == 0 )
+   if (strcmp(password, "STAFF") == 0)
    {
       play = PSG_START;
       ret = SCREEN_CHEAT_STAFF;
    }
 
-   if ( strcmp ( password, "ENDING" ) == 0 )
+   if (strcmp(password, "ENDING") == 0)
    {
       play = PSG_START;
       ret = SCREEN_CHEAT_ENDING;
    }
 
-
-   psglist_play ( play );
+   psglist_play(play);
 
    return ret;
 }
 
-
-
-
-
-
-
 void jap()
 {
    u8 i, ch;
-   u8 str1[40] =  "鬆";
-   u8 str2[40] =  "鬆大ｼｵ繧� ・�";
-   u8 str3[40] =  "輔″蛻・￠";
-   u8 str4[40] =  "蜍晏茜";
-   u8 str5[40] =  "蠕礼せ";
-   u8 str6[40] =  "繧ｳ繧､繝ｳ";
+   u8 str1[40] = "鬆";
+   u8 str2[40] = "鬆大ｼｵ繧� ・�";
+   u8 str3[40] = "輔″蛻・￠";
+   u8 str4[40] = "蜍晏茜";
+   u8 str5[40] = "蠕礼せ";
+   u8 str6[40] = "繧ｳ繧､繝ｳ";
 
-   i=0;
+   i = 0;
    ch = str1[i];
-   while ( ch != '\0' )
+   while (ch != '\0')
    {
-      drawUInt ( ch, 0, i, 3);
+      drawUInt(ch, 0, i, 3);
       ch = str1[i++];
    }
    drawUInt(i, 0, i, 2);
 
-   i=0;
+   i = 0;
    ch = str2[i];
-   while ( ch != '\0' )
+   while (ch != '\0')
    {
-      drawUInt ( ch, 4, i, 3);
+      drawUInt(ch, 4, i, 3);
       ch = str2[i++];
    }
    drawUInt(i, 4, i, 2);
 
-   i=0;
+   i = 0;
    ch = str3[i];
-   while ( ch != '\0' )
+   while (ch != '\0')
    {
-      drawUInt ( ch, 8, i, 3);
+      drawUInt(ch, 8, i, 3);
       ch = str3[i++];
    }
    drawUInt(i, 8, i, 2);
 
-   i=0;
+   i = 0;
    ch = str4[i];
-   while ( ch != '\0' )
+   while (ch != '\0')
    {
-      drawUInt ( ch,12, i, 3);
+      drawUInt(ch, 12, i, 3);
       ch = str4[i++];
    }
-   drawUInt(i,12, i, 2);
+   drawUInt(i, 12, i, 2);
 
-   i=0;
+   i = 0;
    ch = str5[i];
-   while ( ch != '\0' )
+   while (ch != '\0')
    {
-      drawUInt ( ch,16, i, 3);
+      drawUInt(ch, 16, i, 3);
       ch = str5[i++];
    }
-   drawUInt(i,16, i, 2);
+   drawUInt(i, 16, i, 2);
 
-   i=0;
+   i = 0;
    ch = str6[i];
-   while ( ch != '\0' )
+   while (ch != '\0')
    {
-      drawUInt ( ch,20, i, 3);
+      drawUInt(ch, 20, i, 3);
       ch = str6[i++];
    }
-   drawUInt(i,20, i, 2);
+   drawUInt(i, 20, i, 2);
 
-
-   while(1) ;
+   while (1)
+      ;
 }
-
 
 int main()
 {
    // jap();
-   dev_init(0);
+
+   // 0: desde Disclaimer
+   // 1: desde SEGA
+   // 2: desde Publisher
+   // 3: desde Title
+   dev_init(0); 
+   int localdev = 1;
+
 
    JoyReader_init(1);
    monos();
@@ -624,7 +614,6 @@ int main()
    JOY_setSupport(PORT_1, DEV ? JOY_SUPPORT_6BTN : JOY_SUPPORT_3BTN); // JOY_SUPPORT_3BTN
    JOY_setSupport(PORT_2, JOY_SUPPORT_OFF);
 
-
    // vram_init ( TILE_USER_INDEX );
    // vint_setJoyReader ( true );
 
@@ -634,23 +623,25 @@ int main()
    vint_init();
    font_init();
 
-	displayInit();
+   displayInit();
    gamestate_init(); // debe estar aqui y tras introducir un password correcto
-	resetPalettes();
-	resetScroll();
-	resetSprites();
-	resetScreen();   
+   resetPalettes();
+   resetScroll();
+   resetSprites();
+   resetScreen();
 
-   if (DEV < 2) 
+
+   bool const nolddor_released_ZoS = 1; // Zooming Secretary MD
+   int publisher = 2; // 1: 1985 Alternativo; 2 Play On Retro
+
+
+   if (localdev++ > DEV)
    {
-      bool const nolddor_released_ZoS = 1;
-
       if (nolddor_released_ZoS)
          screen_disclaimer_cool(
-            TILE_USER_INDEX,
-            (IS_PAL_SYSTEM ? 50 : 60) * 4,
-            ({ int j(){ JoyReader_update(); return joy1_pressed_abc | joy1_pressed_start; }; j; })
-         );
+             TILE_USER_INDEX,
+             (IS_PAL_SYSTEM ? 50 : 60) * 4,
+             ({ int j(){ JoyReader_update(); return joy1_pressed_abc | joy1_pressed_start; }; j; }));
       else
          screen_disclaimer_simple();
 
@@ -658,9 +649,19 @@ int main()
       resetScreen();
    }
 
-   screen_sega();
-   screen_publisher();
-   screen_oooklab();
+   if (localdev > DEV)
+      screen_sega();
+
+   if (localdev > DEV)
+   {
+      if (publisher == 1) screen_publisher_1985();
+      if (publisher == 2) screen_publisher_POR();
+   }
+
+   if (localdev > DEV)
+      screen_oooklab();
+
+
    screen_languages();
 
    //        screen_final(0);
