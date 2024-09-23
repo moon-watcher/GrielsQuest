@@ -76,12 +76,12 @@ void screen_oldending ( )
 	text_init ( (struct genresSprites*) &cs_font_16x16, 1200, PAL0 );
 	text_draw ( "THE END", 13, 7, 0 );
 
-	VDP_drawText ( "Thank you for playing!", 9, 14 );
-	VDP_drawText ( "@2017 Oook!Lab", 13, 16 );
+	GRIEL_drawText ( "Thank you for playing!", 9, 14 );
+	GRIEL_drawText ( "@2017, 2025 Oook!Lab", 10, 16 );
     VDP_setTextPalette ( PAL2 );
 	prepareColor ( PAL2*16+1, 0x000f );
 	prepareColor ( PAL2*16+2, 0x0444 );
-	VDP_drawText ( "!", 23, 16 );
+	GRIEL_drawText ( "!", 23, 16 );
 
     displayOn(60);
 	waitMs ( 8000 );

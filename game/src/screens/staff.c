@@ -222,7 +222,7 @@ salto:
 	VDP_setTextPalette(PAL1);
 	typeText( "Music & SFX",     5,  4, wait1 );
 	VDP_setTextPalette(PAL0);
-	typeText( "David Sanchez", 5, 7, wait1 );
+	typeText( "David Sánchez", 5, 7, wait1 );
 	typeText( "@DavidBonus",   5, 9, wait1 );
 
 	waitSc(5);
@@ -281,7 +281,7 @@ salto:
     waitSc(1);
 
     VDP_setTextPalette(PAL0);
-    typeText( "Alfonso Martinez", 3, 6, wait1 );
+    typeText( "Alfonso Martínez", 3, 6, wait1 );
     typeText( "@_SrPresley_",     3, 8, wait1 );
 
     waitSc(4);
@@ -303,20 +303,20 @@ salto:
 
 
     VDP_setTextPalette(PAL1);
-    VDP_drawText ( prepare_string("Translators"), 2, y ); y+=3;
+    GRIEL_drawText ( "Translators", 2, y ); y+=3;
 
     VDP_setTextPalette(PAL0);
 
-    VDP_drawText ( prepare_string("Felipe Monge Corbal�n @vakapp"), 2, y ); y+=2;
-    VDP_drawText ( prepare_string("DaRkHoRaCe @oongamoonga"), 2, y ); y+=2; // ITALIAN
-    VDP_drawText ( prepare_string("KanedaFr @SpritesMind"), 2, y ); y+=2; // FRENCH
-    VDP_drawText ( prepare_string("Jordi Montorn�s Sol� @jordimontornes"), 2, y ); y+=2; // CATAL�
-    VDP_drawText ( prepare_string("Natsumi"), 2, y ); y+=2; // FINNISH
-    VDP_drawText ( prepare_string("Paspallas @PaspallasDev"), 2, y ); y+=2; // GALEGO
-    VDP_drawText ( prepare_string("Thiago F. Alves"), 2, y ); y+=2; // BR-PORTUGUESE
-//    VDP_drawText ( prepare_string("teaduckie"), 2, y ); y+=2; // ESPERANTO & INTERLINGUA
-    VDP_drawText ( prepare_string("Clare Eddleston"), 2, y ); y+=2; // ENGLISH-REVIEWER
-    VDP_drawText ( prepare_string("Xavier Bravo"), 2, y ); y+=2;// ENGLISH-REVIEWER
+    GRIEL_drawText ( "Felipe Monge Corbalán @vakapp", 2, y ); y+=2;
+    GRIEL_drawText ( "DaRkHoRaCe @oongamoonga", 2, y ); y+=2; // ITALIAN
+    GRIEL_drawText ( "KanedaFr @SpritesMind", 2, y ); y+=2; // FRENCH
+    GRIEL_drawText ( "Jordi Montornés Solé @jordimontornes", 2, y ); y+=2; // CATAL�
+    GRIEL_drawText ( "Natsumi", 2, y ); y+=2; // FINNISH
+    GRIEL_drawText ( "Paspallas @PaspallasDev", 2, y ); y+=2; // GALEGO
+    GRIEL_drawText ( "Thiago F. Alves", 2, y ); y+=2; // BR-PORTUGUESE
+//    GRIEL_drawText ( "teaduckie", 2, y ); y+=2; // ESPERANTO & INTERLINGUA
+    GRIEL_drawText ( "Clare Eddleston", 2, y ); y+=2; // ENGLISH-REVIEWER
+    GRIEL_drawText ( "Xavier Bravo", 2, y ); y+=2;// ENGLISH-REVIEWER
 
     SYS_enableInts();
 

@@ -31,11 +31,11 @@ void screen_griels ( )
 
     VDP_setTextPalette ( PAL1 );
     text_write ( "              Griel's Quest             ",  0,  y+=2 );
-    text_write ( prepare_string ("           for the Holy Porrón          "),  0, y+=2 );
+    text_write ( "           for the Holy PorrÃ³n          ",  0, y+=2 );
 
     VDP_setTextPalette ( PAL2 );
     text_write ( "       For Sega Megadrive/Genesis       ",  0, y+=2 );
-    text_write ( "              @2013 - 2017              ",  0, y+=2 );
+    text_write ( "            @2013-2017, 2025            ",  0, y+=2 );
 
 
     VDP_setTextPalette ( PAL1 );

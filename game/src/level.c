@@ -355,8 +355,8 @@ void level_draw ( LEVEL *level )
 
 	if ( DEV )
 	{
-		if ( _flip_h ) VDP_drawText("1",0,0); else VDP_drawText("0",0,0);
-		if ( _flip_v ) VDP_drawText("1",1,0); else VDP_drawText("0",1,0);
+		if ( _flip_h ) GRIEL_drawText("1",0,0); else GRIEL_drawText("0",0,0);
+		if ( _flip_v ) GRIEL_drawText("1",1,0); else GRIEL_drawText("0",1,0);
 	}
 
 	SYS_enableInts();

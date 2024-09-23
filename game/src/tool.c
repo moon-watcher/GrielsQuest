@@ -7,7 +7,7 @@ void text_write ( char *str, u8 x, u8 y )
 {
 	SYS_disableInts ( );
 	VDP_clearTileMapRect ( BG_B, x, y, strlen(str), 1 );
-	VDP_drawText ( str, x, y );
+	GRIEL_drawText ( str, x, y );
 	SYS_enableInts ( );
 }
 

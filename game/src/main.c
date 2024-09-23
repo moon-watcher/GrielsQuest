@@ -189,12 +189,12 @@ void monos()
 
 void conio()
 {
-   VDP_drawText("============", 0, 0);
-   VDP_drawText("============", 0, 1);
-   VDP_drawText("============", 0, 2);
-   VDP_drawText("============", 0, 3);
-   VDP_drawText("============", 0, 4);
-   VDP_drawText("============", 0, 5);
+   GRIEL_drawText("============", 0, 0);
+   GRIEL_drawText("============", 0, 1);
+   GRIEL_drawText("============", 0, 2);
+   GRIEL_drawText("============", 0, 3);
+   GRIEL_drawText("============", 0, 4);
+   GRIEL_drawText("============", 0, 5);
 
    inittextinfo();
    window(1, 1, 10, 4);
@@ -283,14 +283,14 @@ void object_viewer()
       PAL_setPalette(animation_get(opcion)->pal, animation_get(opcion)->res->pal, CPU);
 
       drawUInt(opcion, 2, 3, 3);
-      VDP_drawText(v->object->name, 7, 3);
+      GRIEL_drawText(v->object->name, 7, 3);
 
       while (1)
       {
          JoyReader_update();
 
          drawUInt(v->frame, 5, 5, 2);
-         VDP_drawText("/", 8, 5);
+         GRIEL_drawText("/", 8, 5);
          drawUInt(v->object->frames, 10, 5, 2);
 
          if (joy1_pressed_dir)
@@ -350,22 +350,22 @@ void todas_las_pantallas()
 
       JoyReader_update();
 
-      VDP_drawText("Griel's Quest", 12, 1);
-      VDP_drawText("-------------", 12, 2);
-      VDP_drawText("  Level test ", 12, 5);
-      VDP_drawText("  2014-01-27 ", 12, 7);
-      VDP_drawText("<            >", 12, 12);
+      GRIEL_drawText("Griel's Quest", 12, 1);
+      GRIEL_drawText("-------------", 12, 2);
+      GRIEL_drawText("  Level test ", 12, 5);
+      GRIEL_drawText("  2014-01-27 ", 12, 7);
+      GRIEL_drawText("<            >", 12, 12);
 
       if (opcion < 18)
       {
-         VDP_drawText(pantallas[opcion], 14, 12);
+         GRIEL_drawText(pantallas[opcion], 14, 12);
       }
       else
       {
          u8 str[4];
          uintToStr(opcion - 18, str, 2);
-         VDP_drawText(str, 21, 12);
-         VDP_drawText("Level:", 14, 12);
+         GRIEL_drawText(str, 21, 12);
+         GRIEL_drawText("Level:", 14, 12);
       }
 
       if (joy1_pressed_right)
@@ -594,7 +594,7 @@ int main()
    // 2: desde Publisher
    // 3: desde Oook!Lab
    // 4: desde Title
-   dev_init(2); 
+   dev_init(0); 
    unsigned localdev = 0;
 
 

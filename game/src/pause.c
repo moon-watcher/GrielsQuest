@@ -301,12 +301,10 @@ void pause_show ( LEVEL *wl, u16 *ret )
 			if ( joy1_pressed_up    &&  --option < 0 ) option = 2;
 			if ( joy1_pressed_down  &&  ++option > 2 ) option = 0;
 
-			SYS_disableInts();
-			VDP_drawText ( " ",  14, opciones[0].y );
-			VDP_drawText ( " ",  14, opciones[1].y );
-			VDP_drawText ( " ",  14, opciones[2].y );
-			VDP_drawText ( "\\", 14, opciones[option].y );
-			SYS_enableInts();
+			GRIEL_drawText ( " ",  14, opciones[0].y );
+			GRIEL_drawText ( " ",  14, opciones[1].y );
+			GRIEL_drawText ( " ",  14, opciones[2].y );
+			GRIEL_drawText ( "\\", 14, opciones[option].y );
 
 			psglist_play ( PSG_SELECT );
 		}

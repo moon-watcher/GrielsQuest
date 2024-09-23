@@ -336,7 +336,7 @@ static void _debug_prepareText(s16 chr)
 
     u8 write[2] = {chr, '\0'};
     drawInt(chr, 0, devu0, 5);
-    VDP_drawText(write, 10, devu0);
+    GRIEL_drawText(write, 10, devu0);
     ++devu0;
 }
 
@@ -377,9 +377,11 @@ void GRIEL_drawText(u8 *str, u16 x, u16 y)
     s16 buffer[120] = {};
     GRIEL_prepareText(str, buffer);
 
+    SYS_disableInts();
     for (u16 i = 0; buffer[i]; i++)
     {
         u16 tile = TILE_FONT_INDEX + buffer[i] - 32;
         VDP_setTileMapXY(plan, TILE_ATTR_FULL(pal, prio, 0, 0, tile), x++, y);
     }
+    SYS_enableInts();
 }

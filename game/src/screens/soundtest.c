@@ -57,14 +57,14 @@ void screen_sound_test ()
 
 		SYS_disableInts();
 
-		VDP_drawText ( " ", 14, 12 );
-		VDP_drawText ( " ", 14, 14 );
-		VDP_drawText ( " ", 14, 19 );
-		VDP_drawText ( ">                   ", 14, pos );
+		GRIEL_drawText ( " ", 14, 12 );
+		GRIEL_drawText ( " ", 14, 14 );
+		GRIEL_drawText ( " ", 14, 19 );
+		GRIEL_drawText ( ">                   ", 14, pos );
 
-		VDP_drawText ( track->title , 16, 12 );
-		VDP_drawText ( psg->title ,   16, 14 );
-		VDP_drawText ( f2,            16, 19 );
+		GRIEL_drawText ( track->title , 16, 12 );
+		GRIEL_drawText ( psg->title ,   16, 14 );
+		GRIEL_drawText ( f2,            16, 19 );
 
 		SYS_enableInts();
 

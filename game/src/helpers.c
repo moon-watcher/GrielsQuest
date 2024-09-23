@@ -192,9 +192,7 @@ void showFPS()
 {
 	if ( DEV )
 	{
-	    SYS_disableInts();
 		drawUInt ( getFPS(), 37, 27, 2 );
-		SYS_enableInts();
 	}
 }
 
@@ -204,9 +202,7 @@ void drawInt( u32 nb, u8 x, u8 y, u8 zeros )
 {
 	char str [ 40 ];
 	intToStr ( nb, str, zeros );
-	SYS_disableInts();
-	VDP_drawText ( str, x, y );
-	SYS_enableInts();
+	GRIEL_drawText ( str, x, y );
 }
 
 
@@ -215,9 +211,7 @@ void drawUInt( u32 nb, u8 x, u8 y,  u8 zeros )
 {
 	char str [ 40 ];
 	uintToStr ( nb, str, zeros );
-	SYS_disableInts();
-	VDP_drawText ( str, x, y );
-	SYS_enableInts();
+	GRIEL_drawText ( str, x, y );
 }
 
 
@@ -226,9 +220,7 @@ void drawUIntBG( u32 nb, u8 x, u8 y, u8 zeros, u16 plan, u16 flags )
 {
 	char str [ 40 ];
 	uintToStr ( nb, str, zeros );
-	SYS_disableInts();
-	VDP_drawTextBG ( BG_B, str, x, y );
-	SYS_enableInts();
+	GRIEL_drawTextBG ( BG_B, str, x, y );
 }
 
 

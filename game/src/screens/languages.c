@@ -87,7 +87,7 @@ void screen_languages ()
     }
 
     y_pos = DEFAULT_Y;
-    VDP_drawText ( ">", DEFAULT_X-2, option*2+y_pos );
+    GRIEL_drawText ( ">", DEFAULT_X-2, option*2+y_pos );
 
     SYS_enableInts();
 
@@ -98,20 +98,16 @@ void screen_languages ()
     {
         waitJoy ( ); //JOY_waitPress(JOY_1, BUTTON_UP | BUTTON_DOWN | BUTTON_ABCS );
 
-        SYS_disableInts();
-        VDP_drawText ( " ", DEFAULT_X-2, option*2+y_pos );
-        SYS_enableInts();
-
+        GRIEL_drawText ( " ", DEFAULT_X-2, option*2+y_pos );
+        
 		if ( joy1_pressed_down ) { option++; psglist_play ( PSG_SELECT_2 ); }
 		if ( joy1_pressed_up   ) { option--; psglist_play ( PSG_SELECT_2 ); }
 
 		if ( option < 0       ) option = count-1;
 		if ( option > count-1 ) option = 0;
 
-		SYS_disableInts();
-		VDP_drawText ( ">", DEFAULT_X-2, option*2+y_pos );
-		SYS_enableInts();
-
+		GRIEL_drawText ( ">", DEFAULT_X-2, option*2+y_pos );
+		
 
         if ( joy1_pressed_abc | joy1_pressed_start )
         {

@@ -437,9 +437,7 @@ u16 _tt_write_process ( u16 i, u8 *cadena )
 	{
 		u8 write[2] = { tt_info.chr, EOF };
 
-		SYS_disableInts();
-		VDP_drawText ( write,  tt_info.x + tt_info.vx,  tt_info.y + tt_info.vy );
-		SYS_enableInts();
+		GRIEL_drawText ( write,  tt_info.x + tt_info.vx,  tt_info.y + tt_info.vy );
 	}
 
 	// Incrementa posiciones

@@ -29,7 +29,7 @@ void screen_oooklab()
     GRIEL_drawText("Alfonso Martínez @_SrPresley_", 6, 23);
 
     VDP_setTextPalette(PAL2);
-    VDP_drawText("@2013-2017, 2025", 12, 26);
+    GRIEL_drawText("@2013-2017, 2025", 12, 26);
 
     SYS_enableInts();
 
