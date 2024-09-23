@@ -262,111 +262,123 @@ u16 text_draw_sprites_x_centered ( u8 *string, u16 y, u16 ms )
 
 
 
-void GRIEL_prepareText(u8 *str, s16 array[]) {
-    void _debug_prepareText(s16 chr) {
-        return;
-        
-        u8 write[2] = {chr, '\0'};
-        drawInt(chr, 0, devu0, 5);
-        VDP_drawText(write, 10, devu0);
-        ++devu0;
-    }
-    
+
+
+
+
+static const s8 _values195[] = {
+        [186] =  31, // ú
+        [179] =  30, // ó
+        [177] =  29, // ñ
+        [173] =  28, // í
+        [169] =  27, // é
+        [161] =  26, // á
+        [154] =  25, // Ú
+        [147] =  24, // Ó
+        [145] =  23, // Ñ
+        [141] =  22, // Í
+        [137] =  21, // É
+        [129] =  20, // Á
+        [185] =  17, // ù
+        [178] =  16, // ò
+        [167] =  15, // ç
+        [172] =  14, // ì
+        [168] =  13, // è
+        [160] =  12, // à
+        [153] =  11, // Ù
+        [146] =  10, // Ò
+        [135] =   9, // Ç
+        [140] =   8, // Ì
+        [136] =   7, // È
+        [128] =   6, // À
+        [182] =   5, // ö
+        [150] =   4, // Ö
+        [187] =   3, // û
+        [180] =   2, // ô
+        [174] =   1, // î
+        // [XXX] =   0, // YYY
+        [170] =  -1, // ê
+        [162] =  -2, // â
+        [165] =  -2, // å // almost equal char
+        [155] =  -3, // Û
+        [148] =  -4, // Ô
+        // [XXX] =  -4, // YYY
+        [142] =  -6, // Î
+        [138] =  -7, // Ê
+        [130] =  -8, // Â
+        [133] =  -8, // Å // almost equal char
+        [164] =  -9, // ä
+        [132] = -10, // Ä
+        [188] = -11, // ü 
+        // [XXX] = -12, // YYY
+        [175] = -13, // ï
+        // [XXX] = -14, // YYY
+        // [XXX] = -15, // YYY
+        // [XXX] = -16, // YYY
+        [156] = -17, // Ü
+        // [XXX] = -18, // YYY
+        // [XXX] = -19, // YYY
+        [143] = -20, // Ï
+        [181] = -21, // õ
+        [149] = -22, // Õ
+        [163] = -23, // ã
+        [131] = -24, // Ã
+    };
+
+static const s8 _values194[] = {
+        [191]  =  19, // ¿
+        [161]  =  18, // ¡
+};
+
+static void _debug_prepareText(s16 chr)
+{
+    return;
+
+    u8 write[2] = {chr, '\0'};
+    drawInt(chr, 0, devu0, 5);
+    VDP_drawText(write, 10, devu0);
+    ++devu0;
+}
+
+void GRIEL_prepareText(u8 *str, s16 array[])
+{
     s16 i = 0;
     s16 j = 0;
-    
-    while (str[i]) {
-        s16 chr0 = str[i+0];
-        s16 chr1 = str[i+1];
+
+    while (str[i])
+    {
+        s16 chr0 = str[i + 0];
+        s16 chr1 = str[i + 1];
 
         i++;
         _debug_prepareText(chr0);
 
-        if (chr0 == 195 || chr0 == 194) {
+        if (chr0 == 195 || chr0 == 194)
+        {
             i++;
             _debug_prepareText(chr1);
         }
 
-        if (chr0 == 195) {
-            if (0);
-            else if (chr1 == 186) chr0 =  31; // ú
-            else if (chr1 == 179) chr0 =  30; // ó
-            else if (chr1 == 177) chr0 =  29; // ñ
-            else if (chr1 == 173) chr0 =  28; // í
-            else if (chr1 == 169) chr0 =  27; // é
-            else if (chr1 == 161) chr0 =  26; // á
-            else if (chr1 == 154) chr0 =  25; // Ú
-            else if (chr1 == 147) chr0 =  24; // Ó
-            else if (chr1 == 145) chr0 =  23; // Ñ
-            else if (chr1 == 141) chr0 =  22; // Í
-            else if (chr1 == 137) chr0 =  21; // É
-            else if (chr1 == 129) chr0 =  20; // Á
-            else if (chr1 == 185) chr0 =  17; // ù
-            else if (chr1 == 178) chr0 =  16; // ò
-            else if (chr1 == 167) chr0 =  15; // ç
-            else if (chr1 == 172) chr0 =  14; // ì
-            else if (chr1 == 168) chr0 =  13; // è
-            else if (chr1 == 160) chr0 =  12; // à
-            else if (chr1 == 153) chr0 =  11; // Ù
-            else if (chr1 == 146) chr0 =  10; // Ò
-            else if (chr1 == 135) chr0 =   9; // Ç
-            else if (chr1 == 140) chr0 =   8; // Ì
-            else if (chr1 == 136) chr0 =   7; // È
-            else if (chr1 == 128) chr0 =   6; // À
-            else if (chr1 == 182) chr0 =   5; // ö
-            else if (chr1 == 150) chr0 =   4; // Ö
-            else if (chr1 == 187) chr0 =   3; // û
-            else if (chr1 == 180) chr0 =   2; // ô
-            else if (chr1 == 174) chr0 =   1; // î
-            // else if (chr1 == XXX) chr0 =   0; // YYY
-            else if (chr1 == 170) chr0 =  -1; // ê
-            else if (chr1 == 162) chr0 =  -2; // â
-            else if (chr1 == 165) chr0 =  -2; // å // almost equal char
-            else if (chr1 == 155) chr0 =  -3; // Û
-            else if (chr1 == 148) chr0 =  -4; // Ô
-            // else if (chr1 == XXX) chr0 =  -4; // YYY
-            else if (chr1 == 142) chr0 =  -6; // Î
-            else if (chr1 == 138) chr0 =  -7; // Ê
-            else if (chr1 == 130) chr0 =  -8; // Â
-            else if (chr1 == 133) chr0 =  -8; // Å // almost equal char
-            else if (chr1 == 164) chr0 =  -9; // ä
-            else if (chr1 == 132) chr0 = -10; // Ä
-            else if (chr1 == 188) chr0 = -11; // ü 
-            // else if (chr1 == XXX) chr0 = -12; // YYY
-            else if (chr1 == 175) chr0 = -13; // ï
-            // else if (chr1 == XXX) chr0 = -14; // YYY
-            // else if (chr1 == XXX) chr0 = -15; // YYY
-            // else if (chr1 == XXX) chr0 = -16; // YYY
-            else if (chr1 == 156) chr0 = -17; // Ü
-            // else if (chr1 == XXX) chr0 = -18; // YYY
-            // else if (chr1 == XXX) chr0 = -19; // YYY
-            else if (chr1 == 143) chr0 = -20; // Ï
-            else if (chr1 == 181) chr0 = -21; // õ
-            else if (chr1 == 149) chr0 = -22; // Õ
-            else if (chr1 == 163) chr0 = -23; // ã
-            else if (chr1 == 131) chr0 = -24; // Ã
-        }
-        
-        if (chr0 == 194) {
-            if (0);
-            else if (chr1 == 191) chr0 =  19; // ¿
-            else if (chr1 == 161) chr0 =  18; // ¡
-        }
+        array[j] = chr0;
 
-        array[j++] = chr0;
+        if (chr0 == 195) array[j] = _values195[chr1];
+        if (chr0 == 194) array[j] = _values194[chr1];
+
+        ++j;
     }
 }
 
-void GRIEL_drawText(u8 *str, u16 x, u16 y) {
-    s16 buffer[120];
-
+void GRIEL_drawText(u8 *str, u16 x, u16 y)
+{
     u16 plan = VDP_getTextPlane();
     u16 pal  = VDP_getTextPalette();
     u16 prio = VDP_getTextPriority();
 
+    s16 buffer[120] = {};
     GRIEL_prepareText(str, buffer);
 
-    for (u16 i = 0; buffer[i]; i++) {
+    for (u16 i = 0; buffer[i]; i++)
+    {
         u16 tile = TILE_FONT_INDEX + buffer[i] - 32;
         VDP_setTileMapXY(plan, TILE_ATTR_FULL(pal, prio, 0, 0, tile), x++, y);
     }
