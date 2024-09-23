@@ -280,7 +280,7 @@ void GRIEL_prepareText(u8 *str, s16 array[]) {
         s16 chr1 = str[i+1];
 
         i++;
-         _debug_prepareText(chr0);
+        _debug_prepareText(chr0);
 
         if (chr0 == 195)
         {
@@ -337,13 +337,13 @@ void GRIEL_prepareText(u8 *str, s16 array[]) {
             // else if (chr1 == XXX) chr0 = -15; // YYY
             // else if (chr1 == XXX) chr0 = -16; // YYY
             else if (chr1 == 156) chr0 = -17; // Ü
-            // else if (chr1 == XXX) chr0 =  -1); // YYY
-            // else if (chr1 == XXX) chr0 =  -1); // YYY
+            // else if (chr1 == XXX) chr0 = -18; // YYY
+            // else if (chr1 == XXX) chr0 = -19; // YYY
             else if (chr1 == 143) chr0 = -20; // Ï
             else if (chr1 == 181) chr0 = -21; // õ
             else if (chr1 == 149) chr0 = -22; // Õ
             else if (chr1 == 163) chr0 = -23; // ã
-            else if (chr1 == 131) chr0 = -24; // Ã            
+            else if (chr1 == 131) chr0 = -24; // Ã
         }
 
         if (chr0 == 194)
