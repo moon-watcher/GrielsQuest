@@ -8,3 +8,6 @@ u16  text_draw_sprite             ( u8 *string, u16 x, u16 y, u16 ms );
 u16  text_draw_sprites_centered   ( u8 *string, u16 ms );
 u16  text_draw_sprites_x_centered ( u8 *string, u16 y, u16 ms );
 void text_setSprite               ( u8 next );
+
+
+void GRIEL_drawText(u8 *str, u16 x, u16 y);

@@ -258,3 +258,111 @@ u16 text_draw_sprites_x_centered ( u8 *string, u16 y, u16 ms )
 }
 
 
+
+
+
+
+#define CHR(A, B) if (chr1 == A) chr = B;
+
+static void wr_debug(s16 chr)
+{
+    if (!DEV)
+        return;
+
+    u8 write[2] = {chr, '\0'};
+    drawInt(chr, 0, devu0, 5);
+    VDP_drawText(write, 10, devu0);
+    ++devu0;
+}
+
+void GRIEL_drawText(u8 *str, u16 x, u16 y)
+{
+    u16 i    = 0;
+    u16 plan = VDP_getTextPlane();
+    u16 pal  = VDP_getTextPalette();
+    u16 prio = VDP_getTextPriority();
+
+    while (str[i]) {
+        s16 chr  = str[i+0];
+        s16 chr1 = str[i+1];
+
+        // wr_debug(chr);
+
+        if (chr == 195 || chr == 194) {
+            // wr_debug(chr1);
+            ++i;
+        }
+
+        if (chr == 195)
+        {
+            CHR(186,  31); // ú
+            CHR(179,  30); // ó
+            CHR(177,  29); // ñ
+            CHR(173,  28); // í
+            CHR(169,  27); // é
+            CHR(161,  26); // á
+            CHR(154,  25); // Ú
+            CHR(147,  24); // Ó
+            CHR(145,  23); // Ñ
+            CHR(141,  22); // Í
+            CHR(137,  21); // É
+            CHR(129,  20); // Á
+            CHR(185,  17); // ù
+            CHR(178,  16); // ò
+            CHR(167,  15); // ç
+            CHR(172,  14); // ì
+            CHR(168,  13); // è
+            CHR(160,  12); // à
+            CHR(153,  11); // Ù
+            CHR(146,  10); // Ò
+            CHR(135,   9); // Ç
+            CHR(140,   8); // Ì
+            CHR(136,   7); // È
+            CHR(128,   6); // À
+            CHR(182,   5); // ö
+            CHR(150,   4); // Ö
+            CHR(187,   3); // û
+            CHR(180,   2); // ô
+            CHR(174,   1); // î
+            // CHR(XXX,   0); //
+            CHR(170,  -1); // ê
+            CHR(162,  -2); // â
+            CHR(165,  -2); // å // almost equal char
+            CHR(155,  -3); // Û
+            CHR(148,  -4); // Ô
+            // CHR(XXX,  -4); //
+            CHR(142,  -6); // Î
+            CHR(138,  -7); // Ê
+            CHR(130,  -8); // Â
+            CHR(133,  -8); // Å // almost equal char
+            CHR(164,  -9); // ä
+            CHR(132, -10); // Ä
+            CHR(188, -11); // ü 
+            // CHR(XXX, -12); //
+            CHR(175, -13); // ï
+            // CHR(XXX, -14); //
+            // CHR(XXX, -15); //
+            // CHR(XXX, -16); //
+            CHR(156, -17); // Ü
+            // CHR(XXX,  -18); //
+            // CHR(XXX,  -19); //
+            CHR(143, -20); // Ï
+            CHR(181, -21); // õ
+            CHR(149, -22); // Õ
+            CHR(163, -23); // ã
+            CHR(131, -24); // Ã            
+        }
+
+        if (chr == 194)
+        {
+            CHR(191,  19); // ¿
+            CHR(161,  18); // ¡
+        }
+
+        u16 tile = TILE_FONT_INDEX + chr - 32;
+        VDP_setTileMapXY(plan, TILE_ATTR_FULL(pal, prio, 0, 0, tile), x++, y);
+
+        ++i;
+    }
+}
+
