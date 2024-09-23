@@ -11,34 +11,34 @@ static u8             _sprite = 0;
 
 
 
-static u8 parse_chr ( u8 chr )
+static u8 parse_chr0 ( u8 chr0 )
 {
-    chr -= ( 32 + 1 );
-    chr  = ( chr == 255 ) ? 0 : chr; //drawUInt( chr,0, devu0++, 4 );
+    chr0 -= ( 32 + 1 );
+    chr0  = ( chr0 == 255 ) ? 0 : chr0; //drawUInt( chr0,0, devu0++, 4 );
 
 //      // for debug
-//    drawUInt( chr,1,2,4 );
+//    drawUInt( chr0,1,2,4 );
 //    waitSc(1);
 
-    switch ( chr )
+    switch ( chr0 )
     {
-        case 248: chr = 95; break; // �
-        case 247: chr = 94; break; // �
-        case 178: chr = 94; break; // �
-        case 245: chr = 93; break; // �
-        case 244: chr = 92; break; // �
-        case 243: chr = 91; break; // �
-        case 234: chr = 90; break; // �
-        case 233: chr = 89; break; // �
-        case 231: chr = 88; break; // �
-        case 230: chr = 87; break; // �
-        case 229: chr = 86; break; // �
-        case 213: chr = 84; break; // �
-        case 227: chr = 85; break; // �
-        case 215: chr = 83; break; // �
+        case 248: chr0 = 95; break; // �
+        case 247: chr0 = 94; break; // �
+        case 178: chr0 = 94; break; // �
+        case 245: chr0 = 93; break; // �
+        case 244: chr0 = 92; break; // �
+        case 243: chr0 = 91; break; // �
+        case 234: chr0 = 90; break; // �
+        case 233: chr0 = 89; break; // �
+        case 231: chr0 = 88; break; // �
+        case 230: chr0 = 87; break; // �
+        case 229: chr0 = 86; break; // �
+        case 213: chr0 = 84; break; // �
+        case 227: chr0 = 85; break; // �
+        case 215: chr0 = 83; break; // �
     };
 
-    return chr;
+    return chr0;
 }
 
 
@@ -85,10 +85,10 @@ void text_setSprite ( u8 next )
 
 void text_draw ( u8 *string, u8 x, u8 y, u16 ms )
 {
-	#define POSITION	_base + _positions[chr] * tiles + inc
+	#define POSITION	_base + _positions[chr0] * tiles + inc
 
 
-	u8 chr;
+	u8 chr0;
 
 	u16 k;
 	u16 j;
@@ -101,17 +101,17 @@ void text_draw ( u8 *string, u8 x, u8 y, u16 ms )
 
 	//devu0 = 0;
 
-	while ( (chr = *string++) )
+	while ( (chr0 = *string++) )
 	{
 		inc = 0;
-		chr = parse_chr ( chr );
+		chr0 = parse_chr0 ( chr0 );
 
-		if ( ! _positions[chr] )
+		if ( ! _positions[chr0] )
 		{
-			_positions[chr] = _counter++;
+			_positions[chr0] = _counter++;
 
 			SYS_disableInts();
-			VDP_loadTileData ( _genres->sprites[chr], POSITION, 4, 0 );
+			VDP_loadTileData ( _genres->sprites[chr0], POSITION, 4, 0 );
 			SYS_enableInts();
 		}
 
@@ -153,13 +153,13 @@ void text_draw_center ( u8 *string, u8 y, u16 ms )
 
 u16 text_draw_sprite ( u8 *string, u16 x, u16 y, u16 ms )
 {
-	#define TILE    _base + _positions[chr] * ( _genres->width >> 3 ) * ( _genres->height >> 3 )
+	#define TILE    _base + _positions[chr0] * ( _genres->width >> 3 ) * ( _genres->height >> 3 )
 	#define ATTR	 TILE_ATTR_FULL ( _palette, 1, 0, 0, TILE )
 
 
 	//splist_hide_sprites();
 
-	u8 i, chr;
+	u8 i, chr0;
 
 	const u16 size   = _genres->size >> 8;
 	const u16 width  = _genres->width;
@@ -168,16 +168,16 @@ u16 text_draw_sprite ( u8 *string, u16 x, u16 y, u16 ms )
 
 	for ( i=0; i<length; i++ )
 	{
-		chr = parse_chr ( string[i] ) ;
+		chr0 = parse_chr0 ( string[i] ) ;
 
-		if ( chr != 0 ) // isn't space
+		if ( chr0 != 0 ) // isn't space
 		{
 			SYS_disableInts();
 
-			if ( ! _positions[chr] )
+			if ( ! _positions[chr0] )
 			{
-				_positions[chr] = _counter++;
-				VDP_loadTileData ( _genres->sprites[chr], TILE, size, 0 );
+				_positions[chr0] = _counter++;
+				VDP_loadTileData ( _genres->sprites[chr0], TILE, size, 0 );
 			}
 
 			VDP_setSpriteFull ( _sprite, x+i*width, y, size, ATTR, _sprite+1 );
@@ -262,107 +262,115 @@ u16 text_draw_sprites_x_centered ( u8 *string, u16 y, u16 ms )
 
 
 
-#define CHR(A, B) if (chr1 == A) chr = B;
+void GRIEL_prepareText(u8 *str, s16 array[]) {
+    s16 i = 0;
+    s16 j = 0;
 
-static void wr_debug(s16 chr)
-{
-    if (!DEV)
+    void _debug_prepareText(s16 chr) {
         return;
+        
+        u8 write[2] = {chr, '\0'};
+        drawInt(chr, 0, devu0, 5);
+        VDP_drawText(write, 10, devu0);
+        ++devu0;
+    }
 
-    u8 write[2] = {chr, '\0'};
-    drawInt(chr, 0, devu0, 5);
-    VDP_drawText(write, 10, devu0);
-    ++devu0;
+    while (str[i]) {
+        s16 chr0 = str[i+0];
+        s16 chr1 = str[i+1];
+
+        i++;
+         _debug_prepareText(chr0);
+
+        if (chr0 == 195)
+        {
+            i++;
+            _debug_prepareText(chr1);
+
+            if (0);
+            else if (chr1 == 186) chr0 =  31; // ú
+            else if (chr1 == 179) chr0 =  30; // ó
+            else if (chr1 == 177) chr0 =  29; // ñ
+            else if (chr1 == 173) chr0 =  28; // í
+            else if (chr1 == 169) chr0 =  27; // é
+            else if (chr1 == 161) chr0 =  26; // á
+            else if (chr1 == 154) chr0 =  25; // Ú
+            else if (chr1 == 147) chr0 =  24; // Ó
+            else if (chr1 == 145) chr0 =  23; // Ñ
+            else if (chr1 == 141) chr0 =  22; // Í
+            else if (chr1 == 137) chr0 =  21; // É
+            else if (chr1 == 129) chr0 =  20; // Á
+            else if (chr1 == 185) chr0 =  17; // ù
+            else if (chr1 == 178) chr0 =  16; // ò
+            else if (chr1 == 167) chr0 =  15; // ç
+            else if (chr1 == 172) chr0 =  14; // ì
+            else if (chr1 == 168) chr0 =  13; // è
+            else if (chr1 == 160) chr0 =  12; // à
+            else if (chr1 == 153) chr0 =  11; // Ù
+            else if (chr1 == 146) chr0 =  10; // Ò
+            else if (chr1 == 135) chr0 =   9; // Ç
+            else if (chr1 == 140) chr0 =   8; // Ì
+            else if (chr1 == 136) chr0 =   7; // È
+            else if (chr1 == 128) chr0 =   6; // À
+            else if (chr1 == 182) chr0 =   5; // ö
+            else if (chr1 == 150) chr0 =   4; // Ö
+            else if (chr1 == 187) chr0 =   3; // û
+            else if (chr1 == 180) chr0 =   2; // ô
+            else if (chr1 == 174) chr0 =   1; // î
+            // else if (chr1 == XXX) chr0 =   0; // YYY
+            else if (chr1 == 170) chr0 =  -1; // ê
+            else if (chr1 == 162) chr0 =  -2; // â
+            else if (chr1 == 165) chr0 =  -2; // å // almost equal char
+            else if (chr1 == 155) chr0 =  -3; // Û
+            else if (chr1 == 148) chr0 =  -4; // Ô
+            // else if (chr1 == XXX) chr0 =  -4; // YYY
+            else if (chr1 == 142) chr0 =  -6; // Î
+            else if (chr1 == 138) chr0 =  -7; // Ê
+            else if (chr1 == 130) chr0 =  -8; // Â
+            else if (chr1 == 133) chr0 =  -8; // Å // almost equal char
+            else if (chr1 == 164) chr0 =  -9; // ä
+            else if (chr1 == 132) chr0 = -10; // Ä
+            else if (chr1 == 188) chr0 = -11; // ü 
+            // else if (chr1 == XXX) chr0 = -12; // YYY
+            else if (chr1 == 175) chr0 = -13; // ï
+            // else if (chr1 == XXX) chr0 = -14; // YYY
+            // else if (chr1 == XXX) chr0 = -15; // YYY
+            // else if (chr1 == XXX) chr0 = -16; // YYY
+            else if (chr1 == 156) chr0 = -17; // Ü
+            // else if (chr1 == XXX) chr0 =  -1); // YYY
+            // else if (chr1 == XXX) chr0 =  -1); // YYY
+            else if (chr1 == 143) chr0 = -20; // Ï
+            else if (chr1 == 181) chr0 = -21; // õ
+            else if (chr1 == 149) chr0 = -22; // Õ
+            else if (chr1 == 163) chr0 = -23; // ã
+            else if (chr1 == 131) chr0 = -24; // Ã            
+        }
+
+        if (chr0 == 194)
+        {
+            i++;
+            _debug_prepareText(chr1);
+
+            if (0);
+            else if (chr1 == 191) chr0 =  19; // ¿
+            else if (chr1 == 161) chr0 =  18; // ¡
+        }
+
+        array[j++] = chr0;
+    }
 }
 
-void GRIEL_drawText(u8 *str, u16 x, u16 y)
-{
-    u16 i    = 0;
+void GRIEL_drawText(u8 *str, u16 x, u16 y) {
+    s16 buffer[120];
+
     u16 plan = VDP_getTextPlane();
     u16 pal  = VDP_getTextPalette();
     u16 prio = VDP_getTextPriority();
 
-    while (str[i]) {
-        s16 chr  = str[i+0];
-        s16 chr1 = str[i+1];
+    GRIEL_prepareText(str, buffer);
 
-        // wr_debug(chr);
-
-        if (chr == 195 || chr == 194) {
-            // wr_debug(chr1);
-            ++i;
-        }
-
-        if (chr == 195)
-        {
-            CHR(186,  31); // ú
-            CHR(179,  30); // ó
-            CHR(177,  29); // ñ
-            CHR(173,  28); // í
-            CHR(169,  27); // é
-            CHR(161,  26); // á
-            CHR(154,  25); // Ú
-            CHR(147,  24); // Ó
-            CHR(145,  23); // Ñ
-            CHR(141,  22); // Í
-            CHR(137,  21); // É
-            CHR(129,  20); // Á
-            CHR(185,  17); // ù
-            CHR(178,  16); // ò
-            CHR(167,  15); // ç
-            CHR(172,  14); // ì
-            CHR(168,  13); // è
-            CHR(160,  12); // à
-            CHR(153,  11); // Ù
-            CHR(146,  10); // Ò
-            CHR(135,   9); // Ç
-            CHR(140,   8); // Ì
-            CHR(136,   7); // È
-            CHR(128,   6); // À
-            CHR(182,   5); // ö
-            CHR(150,   4); // Ö
-            CHR(187,   3); // û
-            CHR(180,   2); // ô
-            CHR(174,   1); // î
-            // CHR(XXX,   0); //
-            CHR(170,  -1); // ê
-            CHR(162,  -2); // â
-            CHR(165,  -2); // å // almost equal char
-            CHR(155,  -3); // Û
-            CHR(148,  -4); // Ô
-            // CHR(XXX,  -4); //
-            CHR(142,  -6); // Î
-            CHR(138,  -7); // Ê
-            CHR(130,  -8); // Â
-            CHR(133,  -8); // Å // almost equal char
-            CHR(164,  -9); // ä
-            CHR(132, -10); // Ä
-            CHR(188, -11); // ü 
-            // CHR(XXX, -12); //
-            CHR(175, -13); // ï
-            // CHR(XXX, -14); //
-            // CHR(XXX, -15); //
-            // CHR(XXX, -16); //
-            CHR(156, -17); // Ü
-            // CHR(XXX,  -18); //
-            // CHR(XXX,  -19); //
-            CHR(143, -20); // Ï
-            CHR(181, -21); // õ
-            CHR(149, -22); // Õ
-            CHR(163, -23); // ã
-            CHR(131, -24); // Ã            
-        }
-
-        if (chr == 194)
-        {
-            CHR(191,  19); // ¿
-            CHR(161,  18); // ¡
-        }
-
-        u16 tile = TILE_FONT_INDEX + chr - 32;
+    for (u16 i = 0; buffer[i]; i++) {
+        u16 tile = TILE_FONT_INDEX + buffer[i] - 32;
         VDP_setTileMapXY(plan, TILE_ATTR_FULL(pal, prio, 0, 0, tile), x++, y);
-
-        ++i;
     }
 }
-
