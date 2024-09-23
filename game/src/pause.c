@@ -161,7 +161,7 @@ static void _marco_desplegar ( )
 		if ( i == 2 ) text_write ( frases_next(), 14, 12 );
 		if ( i == 5 )
 		{
-            char *str = frases_next();
+            u8 *str = frases_next();
 
 //            if ( strlen (str) > 13 )  // special case for finnish "ALOITA ALUSTA" text
 //            {

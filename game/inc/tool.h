@@ -16,7 +16,7 @@
 
 
 //struct genresTiles *wuw;
-void text_write            ( char *str, u8 x, u8 y );
+void text_write            ( u8 *str, u8 x, u8 y );
 
 void planHide              ( );
 void planHide_Ex           ( VDPPlane plan );

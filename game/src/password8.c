@@ -219,7 +219,7 @@ static bool pwd_is_ok ( PASSWORD8 pwd )
 		_debug ( 35, gamestate.dificultad, gamestate.ambientes[0], gamestate.ambientes[1], gamestate.ambientes[2], gamestate.ambientes[3], gamestate.ambientes[4], -1 );
 	}
 
-	char *string = frases_find ( 5, verifica );
+	u8 *string = frases_find ( 5, verifica );
 
 	SYS_disableInts();
 	VDP_clearTextLine ( 25 );

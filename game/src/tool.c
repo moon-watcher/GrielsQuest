@@ -3,7 +3,7 @@
 
 
 
-void text_write ( char *str, u8 x, u8 y )
+void text_write ( u8 *str, u8 x, u8 y )
 {
 	SYS_disableInts ( );
 	VDP_clearTileMapRect ( BG_B, x, y, strlen(str), 1 );

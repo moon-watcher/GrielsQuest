@@ -61,9 +61,9 @@ u16 screen_title_menu_1 ( )
 
 	frases_init(27);
 
-	strcpy ( f1, GRIEL_frases_next ( ) );
-	strcpy ( f2, GRIEL_frases_next ( ) );
-	strcpy ( f3, GRIEL_frases_next ( ) );
+	strcpy ( f1, frases_next ( ) );
+	strcpy ( f2, frases_next ( ) );
+	strcpy ( f3, frases_next ( ) );
 
 	SYS_disableInts();
 	GRIEL_drawText ( f1, 16, pos[0] ); // NEW GAME
@@ -96,9 +96,9 @@ u16 screen_title_menu_1 ( )
 
 	psglist_play ( PSG_START );
 
-	if ( option == 0 ) { _blink ( f1, 16, 19 ); ret = SCREEN_JUMP_TO_DIFFICULT; }
-	if ( option == 1 ) { _blink ( f2, 16, 21 ); ret = SCREEN_JUMP_TO_CONTINUE;  }
-	if ( option == 2 ) { _blink ( f3, 16, 23 ); ret = SCREEN_JUMP_TO_SOUNDTEST; }
+	if ( option == 0 ) { _blink ( f1, 16, pos[0] ); ret = SCREEN_JUMP_TO_DIFFICULT; }
+	if ( option == 1 ) { _blink ( f2, 16, pos[1] ); ret = SCREEN_JUMP_TO_CONTINUE;  }
+	if ( option == 2 ) { _blink ( f3, 16, pos[2] ); ret = SCREEN_JUMP_TO_SOUNDTEST; }
 
 	return ret;
 }
@@ -121,9 +121,9 @@ void screen_title_menu_2 ( )
 
 	frases_init ( 26 );
 
-	strcpy ( f1, GRIEL_frases_next ( ) );
-	strcpy ( f2, GRIEL_frases_next ( ) );
-	strcpy ( f3, GRIEL_frases_next ( ) );
+	strcpy ( f1, frases_next ( ) );
+	strcpy ( f2, frases_next ( ) );
+	strcpy ( f3, frases_next ( ) );
 
     SYS_disableInts();
 	GRIEL_drawText ( f1, 16, pos[0] ); // debilucho
