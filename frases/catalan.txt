@@ -1,5 +1,5 @@
     (FRASE) { CATALAN,  1, "RISKY WOODS" },
-	(FRASE) { CATALAN,  1, "CAU MURCI¿" },
+	(FRASE) { CATALAN,  1, "CAU MURCI√Ä" },
 	(FRASE) { CATALAN,  1, "GORJA D'ABU" },
 	(FRASE) { CATALAN,  1, "PLATJA PATATONA" },
 	(FRASE) { CATALAN,  1, "CASTELL DE KBRAH" },
@@ -19,7 +19,7 @@
 
 	(FRASE) { CATALAN,  4, "NIVELL   " },
 
-	(FRASE) { CATALAN,  5, "PR…MI!" }, // 13
+	(FRASE) { CATALAN,  5, "PR√âMI!" }, // 13
 	(FRASE) { CATALAN,  5, "CREMANT" }, // 14
 	(FRASE) { CATALAN,  5, "ROENT" }, // 15
 	(FRASE) { CATALAN,  5, "EN FLAMES" }, // 16
@@ -40,12 +40,12 @@
 	//
 	(FRASE) { CATALAN,  6, "Here's Johnny!" },                                                     // The shinning ref.
 	(FRASE) { CATALAN,  6, "Aquests no son els droides que busqueu." },                            // Starwars ref
-	(FRASE) { CATALAN,  6, "No puc anar enll‡, Ès el triangle prohibit." },                        // Monkey Island 2 refference
-	(FRASE) { CATALAN,  6, "No puc anar enll‡, Ès el dodecaedre prohibit." },                       // Monkey Island 2 refference
+	(FRASE) { CATALAN,  6, "No puc anar enll√†, √©s el triangle prohibit." },                        // Monkey Island 2 refference
+	(FRASE) { CATALAN,  6, "No puc anar enll√†, √©s el dodecaedre prohibit." },                       // Monkey Island 2 refference
 	(FRASE) { CATALAN,  6, "RISE FROM YOUR GRAVE!" },                                              // Altered beast refference
 	(FRASE) { CATALAN,  6, "Guaita darrera teu, un mico amb tres caps!" },                      // Monkey Island 2 refference
-	(FRASE) { CATALAN,  6, "Portes un pl‡tan a la butxaca o te'n alegres de veurem?" },    // Monkey Island 2 refference
-	(FRASE) { CATALAN,  6, "MÈs potencia, Scotty!"   },                                           // Star trek refference
+	(FRASE) { CATALAN,  6, "Portes un pl√†tan a la butxaca o te'n alegres de veurem?" },    // Monkey Island 2 refference
+	(FRASE) { CATALAN,  6, "M√©s potencia, Scotty!"   },                                           // Star trek refference
 	(FRASE) { CATALAN,  6, "Quants Klingon fan falta per canviar una bombeta?" },            // Joke, Star trek refference
 	(FRASE) { CATALAN,  6, "Saben aquel que diu...?" },                                           // Eugenio LoL
 	(FRASE) { CATALAN,  6, "Ves al castell de Kbrah." },                                           //
@@ -53,85 +53,85 @@
 	(FRASE) { CATALAN,  6, "No has tafanejat prou?" },                                     //
 	//
 
-	(FRASE) { CATALAN,  7, "Aquest Ès en malvat Kbrah, un vill‡ de lo mes feliÁ" },
+	(FRASE) { CATALAN,  7, "Aquest √©s en malvat Kbrah, un vill√† de lo mes feli√ß" },
 	(FRASE) { CATALAN,  7, "Segresta princeses i les canvia de castell" },
 	(FRASE) { CATALAN,  7, "Juga hores i hores a videojocs violents." },
-	(FRASE) { CATALAN,  7, "I toca en un grup que fa despertar els morts. |WCLEAR:180 A mÈs..." },
+	(FRASE) { CATALAN,  7, "I toca en un grup que fa despertar els morts. |WCLEAR:180 A m√©s..." },
 
 	(FRASE) { CATALAN,  8, "Fa festes amb els seus amics endimoniats. |WAIT Festes que a vegades acaben malament." },
 
-	(FRASE) { CATALAN,  9, "Al matÌ seg¸ent al castell del Rei Notah..." },
-	(FRASE) { CATALAN,  9, "Mmmm? |WAIT Qui ha estat furgant per aquÌ a la nit? |WCLEAR AAAHHHHH!" },
-	(FRASE) { CATALAN,  9, "El meu porrÛ! |WAIT L'HAN ROBAT!" },
-	(FRASE) { CATALAN,  9, "La princesa tambÈ ha desaparegut!" },
-	(FRASE) { CATALAN,  9, "Min˙cies, |WAIT s'ha de recuperar el Holy PorrÛ. |WAIT Avisa en Griel, ell sempre s'allita aviat." },
+	(FRASE) { CATALAN,  9, "Al mat√≠ seg√ºent al castell del Rei Notah..." },
+	(FRASE) { CATALAN,  9, "Mmmm? |WAIT Qui ha estat furgant per aqu√≠ a la nit? |WCLEAR AAAHHHHH!" },
+	(FRASE) { CATALAN,  9, "El meu porr√≥! |WAIT L'HAN ROBAT!" },
+	(FRASE) { CATALAN,  9, "La princesa tamb√© ha desaparegut!" },
+	(FRASE) { CATALAN,  9, "Min√∫cies, |WAIT s'ha de recuperar el Holy Porr√≥. |WAIT Avisa en Griel, ell sempre s'allita aviat." },
 
 
-	(FRASE) { CATALAN, 10, "Griel, sense el Holy PorrÛ el regne est‡ perdut. |WAIT Has de recuperar-ho quan abans millor!|WCLEAR:180 AixÚ fa pudor al meu arxienemic Kbrah, segur que ha estat ell!!."},
-	(FRASE) { CATALAN, 10, "TambÈ s'ha emportat la princesa!" },
-	(FRASE) { CATALAN, 10, "La princesa? Ah, sÌ, sÌ... |WAIT Ves al castell d'aquest rufi‡, torna amb el porrÛ i et concedirË la seva m‡. |WAIT Entesos? |WBREAK Ara fora d'aquÌ!" },
+	(FRASE) { CATALAN, 10, "Griel, sense el Holy Porr√≥ el regne est√† perdut. |WAIT Has de recuperar-ho quan abans millor!|WCLEAR:180 Aix√≤ fa pudor al meu arxienemic Kbrah, segur que ha estat ell!!."},
+	(FRASE) { CATALAN, 10, "Tamb√© s'ha emportat la princesa!" },
+	(FRASE) { CATALAN, 10, "La princesa? Ah, s√≠, s√≠... |WAIT Ves al castell d'aquest rufi√†, torna amb el porr√≥ i et concedir√® la seva m√†. |WAIT Entesos? |WBREAK Ara fora d'aqu√≠!" },
 
-	(FRASE) { CATALAN, 11, "Torna amb el PorrÛ i et concedirË la ma de la meva filla. |WBREAK Ara fora d'aquÌ!" },
+	(FRASE) { CATALAN, 11, "Torna amb el Porr√≥ i et concedir√® la ma de la meva filla. |WBREAK Ara fora d'aqu√≠!" },
 
 	// puerta opcion 1
-	(FRASE) { CATALAN, 12, "Tancat. |WCLEAR:180 Un moment, aquests forats tenen forma de... |WBREAK Els Calerons Legendaris! |WCLEAR:180 Crec que tindrÈ que cercar-los i posar-los all‡, ho he vist en altres jocs. |WCLEAR:180 Cullons, aixÚ em portar‡ tota la tarda" },
+	(FRASE) { CATALAN, 12, "Tancat. |WCLEAR:180 Un moment, aquests forats tenen forma de... |WBREAK Els Calerons Legendaris! |WCLEAR:180 Crec que tindr√© que cercar-los i posar-los all√†, ho he vist en altres jocs. |WCLEAR:180 Cullons, aix√≤ em portar√† tota la tarda" },
 	// puerta opcion 2
-	(FRASE) { CATALAN, 13, "Sembla que no cola, millor torno mÈs tard." },
+	(FRASE) { CATALAN, 13, "Sembla que no cola, millor torno m√©s tard." },
 
 	// puerta opcion 3
-	(FRASE) { CATALAN, 14, "Has recuperat els Calerons Legendaris, que bÈ queden! |WAIT Per quÈ ho has fet?" },
+	(FRASE) { CATALAN, 14, "Has recuperat els Calerons Legendaris, que b√© queden! |WAIT Per qu√© ho has fet?" },
 	(FRASE) { CATALAN, 14, "Per obrir la porta, vinc a passar comptes amb Kbrah..." },
-	(FRASE) { CATALAN, 14, "Tant esforÁ per res...|WAIT:60 Haver picat al timbre, TROS D'ASE! °JA, JA!" },
-	(FRASE) { CATALAN, 14, "Trons i llamps! |WAIT Et matarÈ si li contes aixÚ a alg˙" },
+	(FRASE) { CATALAN, 14, "Tant esfor√ß per res...|WAIT:60 Haver picat al timbre, TROS D'ASE! ¬°JA, JA!" },
+	(FRASE) { CATALAN, 14, "Trons i llamps! |WAIT Et matar√© si li contes aix√≤ a alg√∫" },
 
 	// final 1
-	(FRASE) { CATALAN, 15, "Kbrah, bestia pudent. |WAIT Torna'm el Holy PorrÛ, sÈ que ho tens tu." },
-	(FRASE) { CATALAN, 15, "De debÛ que vens a buscar aquella andrÛmina? |WAIT TÈ, emporta-te'l, no m'ha agradat gens'..." },
-	(FRASE) { CATALAN, 15, "Uoh! |WAIT Papa, quin noi mÈs trempat. |WAIT Me'l puc quedar?" },
-	(FRASE) { CATALAN, 15, "Ni parlar-ne! |WAIT No t'he maleducat per que et vagis ajuntant amb cavallerets. |WCLEAR:180 A mÈs, ja se'n anava, oi mestre?" },
-	(FRASE) { CATALAN, 15, "No tan r‡pid tros de quÚniam, la princesa Beach tambÈ ve amb mÌ." },
-	(FRASE) { CATALAN, 15, "La princesa Ès a un altre castell, no vam poder emm... |WAIT retenir-la per mÈs temps. |WCLEAR:180 I ara agafa el porrÛ i toca el dos abans de que m'en penedeixi." },
+	(FRASE) { CATALAN, 15, "Kbrah, bestia pudent. |WAIT Torna'm el Holy Porr√≥, s√© que ho tens tu." },
+	(FRASE) { CATALAN, 15, "De deb√≥ que vens a buscar aquella andr√≥mina? |WAIT T√©, emporta-te'l, no m'ha agradat gens'..." },
+	(FRASE) { CATALAN, 15, "Uoh! |WAIT Papa, quin noi m√©s trempat. |WAIT Me'l puc quedar?" },
+	(FRASE) { CATALAN, 15, "Ni parlar-ne! |WAIT No t'he maleducat per que et vagis ajuntant amb cavallerets. |WCLEAR:180 A m√©s, ja se'n anava, oi mestre?" },
+	(FRASE) { CATALAN, 15, "No tan r√†pid tros de qu√≤niam, la princesa Beach tamb√© ve amb m√≠." },
+	(FRASE) { CATALAN, 15, "La princesa √©s a un altre castell, no vam poder emm... |WAIT retenir-la per m√©s temps. |WCLEAR:180 I ara agafa el porr√≥ i toca el dos abans de que m'en penedeixi." },
 
 	// final 2
-	(FRASE) { CATALAN, 16, "Fant‡stic, fill! Ho has aconseguit.|WCLEAR:180 Oh, el meu Holy PorrÛ estimat! Per fÌ est·s a casa." },
-	(FRASE) { CATALAN, 16, "En que consisteix el seu magnÌfic poder?" },
-	(FRASE) { CATALAN, 16, "Aquesta andrÛmina m‡gica proveeix de vi sense fi al seu propietari. |WAIT:60 Una clamor de nËctar fresc, una mica picat, perÚ infinita." },
-	(FRASE) { CATALAN, 16, "VÕ?! |WAIT °NOM…S VÕ?! |WAIT No m'ho puc creure... |WCLEAR:180 Em va prometre la m‡ de la princesa." },
+	(FRASE) { CATALAN, 16, "Fant√†stic, fill! Ho has aconseguit.|WCLEAR:180 Oh, el meu Holy Porr√≥ estimat! Per f√≠ est√°s a casa." },
+	(FRASE) { CATALAN, 16, "En que consisteix el seu magn√≠fic poder?" },
+	(FRASE) { CATALAN, 16, "Aquesta andr√≥mina m√†gica proveeix de vi sense fi al seu propietari. |WAIT:60 Una clamor de n√®ctar fresc, una mica picat, per√≤ infinita." },
+	(FRASE) { CATALAN, 16, "V√ç?! |WAIT ¬°NOM√âS V√ç?! |WAIT No m'ho puc creure... |WCLEAR:180 Em va prometre la m√† de la princesa." },
 
 
 
-	// final 2 // sÛlo debilucho
-	(FRASE) { CATALAN, 17, "D'aixÚ res! |WAIT T'has passat el joc en el mode mÈs senzill. Et pensaves que no me'n donarÌa compte?" },
-	(FRASE) { CATALAN, 17, "PerÚ, perÚ..." },
+	// final 2 // s√≥lo debilucho
+	(FRASE) { CATALAN, 17, "D'aix√≤ res! |WAIT T'has passat el joc en el mode m√©s senzill. Et pensaves que no me'n donar√≠a compte?" },
+	(FRASE) { CATALAN, 17, "Per√≤, per√≤..." },
 	(FRASE) { CATALAN, 17, "Ho sento, la meva filla necessita un home de veritat. |WAIT Apunta la contrasenya i torna a provar-ho." },
-	// aquÌ acaba el final del debilucho
+	// aqu√≠ acaba el final del debilucho
 
 	// final 2 // tipo duro o pesadilla
 	(FRASE) { CATALAN, 18, "I tant... |WAIT:120 AMORET, SURT!" },
-	(FRASE) { CATALAN, 18, "Avisa a la princesa, |WAIT Griel ha vingut a demanar la seva m‡." },
-	(FRASE) { CATALAN, 18, "Es tota una doneta, ja veur‡s." },
-	(FRASE) { CATALAN, 18, "Griel? |WCLEAR:180 T˙ ets en Griel...?" },
+	(FRASE) { CATALAN, 18, "Avisa a la princesa, |WAIT Griel ha vingut a demanar la seva m√†." },
+	(FRASE) { CATALAN, 18, "Es tota una doneta, ja veur√†s." },
+	(FRASE) { CATALAN, 18, "Griel? |WCLEAR:180 T√∫ ets en Griel...?" },
 
 	// final 3 // tipo duro o pesadilla
-	(FRASE) { CATALAN, 19, "GROARRR! |WAIT Si est‡s com un crusanet! |WAIT VINE ALS MEUS BRA«OS, MACO!" },
+	(FRASE) { CATALAN, 19, "GROARRR! |WAIT Si est√†s com un crusanet! |WAIT VINE ALS MEUS BRA√áOS, MACO!" },
 	(FRASE) { CATALAN, 19, "AAAAAAH! NO EM MENGIS, SI US PLAU!" },
-	(FRASE) { CATALAN, 19, "Ja, ja, ja! |WAIT NomÈs una mica!" },
+	(FRASE) { CATALAN, 19, "Ja, ja, ja! |WAIT Nom√©s una mica!" },
 
-	// final 3 // sÛlo tipo duro
-	(FRASE) { CATALAN, 20, "Porca misÈria, no hi havÌa un final millor?" },
-	// aquÌ acaba el final del tipo duro
+	// final 3 // s√≥lo tipo duro
+	(FRASE) { CATALAN, 20, "Porca mis√©ria, no hi hav√≠a un final millor?" },
+	// aqu√≠ acaba el final del tipo duro
 
-	// final 3 // sÛlo pesadilla
-	(FRASE) { CATALAN, 21, "TE AIX”! |WAIT El noi enllaunat es meu." },
+	// final 3 // s√≥lo pesadilla
+	(FRASE) { CATALAN, 21, "TE AIX√ì! |WAIT El noi enllaunat es meu." },
 	(FRASE) { CATALAN, 21, "...?! |WAIT Kbritah?" },
 
-	// final 4 // sÛlo pesadilla
-	(FRASE) { CATALAN, 22, "Ha estat aprop |WAIT Per quÈ m'has salvat?" },
-	(FRASE) { CATALAN, 22, "T'has passat el joc en el mode mÈs difÌcil, mereixies quelcom millor, no creus? |WCLEAR:180 A mÈs est‡s tan mono amb aquestes banyetes..." },
-	(FRASE) { CATALAN, 22, "Vaja, gr‡cies perÚ, no m'estar‡s raptant, oi?" },
-	(FRASE) { CATALAN, 22, "Ja, ja, ja. |WAIT AixÚ s'ha de celebrar. |WAIT Ara t'ensenyarÈ el \"veritable\" final." },
-	(FRASE) { CATALAN, 22, "Fant‡stic, endavant cap a la seg¸ent escena." } ,
-	(FRASE) { CATALAN, 22, "Oh, vaja. |WAIT Ets mÈs ximple del que imaginava... |WAIT:200" },
+	// final 4 // s√≥lo pesadilla
+	(FRASE) { CATALAN, 22, "Ha estat aprop |WAIT Per qu√© m'has salvat?" },
+	(FRASE) { CATALAN, 22, "T'has passat el joc en el mode m√©s dif√≠cil, mereixies quelcom millor, no creus? |WCLEAR:180 A m√©s est√†s tan mono amb aquestes banyetes..." },
+	(FRASE) { CATALAN, 22, "Vaja, gr√†cies per√≤, no m'estar√†s raptant, oi?" },
+	(FRASE) { CATALAN, 22, "Ja, ja, ja. |WAIT Aix√≤ s'ha de celebrar. |WAIT Ara t'ensenyar√© el \"veritable\" final." },
+	(FRASE) { CATALAN, 22, "Fant√†stic, endavant cap a la seg√ºent escena." } ,
+	(FRASE) { CATALAN, 22, "Oh, vaja. |WAIT Ets m√©s ximple del que imaginava... |WAIT:200" },
 
 
 
@@ -140,11 +140,11 @@
 
 //	(FRASE) { SPANISH, 23, "-LONGITUD MAXIMA DISPONIBLE-" }, // 28 MAX
 
-    (FRASE) { CATALAN, 23, "GuÌa en Griel en l'aventura" },
-    (FRASE) { CATALAN, 23, "en recerca del Holy PorrÛ." },
+    (FRASE) { CATALAN, 23, "Gu√≠a en Griel en l'aventura" },
+    (FRASE) { CATALAN, 23, "en recerca del Holy Porr√≥." },
 
     (FRASE) { CATALAN, 23, "Consegueix les claus per" },
-    (FRASE) { CATALAN, 23, "trencar el segell m‡gic." },
+    (FRASE) { CATALAN, 23, "trencar el segell m√†gic." },
 
     (FRASE) { CATALAN, 23, "Supera tots els mons per" },
     (FRASE) { CATALAN, 23, "arribar fins a Kbrah." },
@@ -153,28 +153,28 @@
     (FRASE) { CATALAN, 23, "els enemics." },
 
     (FRASE) { CATALAN, 23, "Empra l'arma escaient en" },
-    (FRASE) { CATALAN, 23, "cada ocasiÛ." },
+    (FRASE) { CATALAN, 23, "cada ocasi√≥." },
 
     (FRASE) { CATALAN, 23, "Pensa dos cops abans de" },
     (FRASE) { CATALAN, 23, "realitzar un moviment." },
 
-    (FRASE) { CATALAN, 23, "Prem el botÛ C per desfer" },
-    (FRASE) { CATALAN, 23, "una acciÚ." },
+    (FRASE) { CATALAN, 23, "Prem el bot√≥ C per desfer" },
+    (FRASE) { CATALAN, 23, "una acci√≤." },
 
-    (FRASE) { CATALAN, 23, "Amb una mica de paciËncia" },
+    (FRASE) { CATALAN, 23, "Amb una mica de paci√®ncia" },
     (FRASE) { CATALAN, 23, "pots recobrar UNDOs." },
 
     (FRASE) { CATALAN, 23, "Si caus, et cremes, o" },
     (FRASE) { CATALAN, 23, "t'ofegues, perds un UNDO." },
 
     (FRASE) { CATALAN, 23, "Tots els nivells tenen" },
-    (FRASE) { CATALAN, 23, "almenys una soluciÛ." },
+    (FRASE) { CATALAN, 23, "almenys una soluci√≥." },
 
     (FRASE) { CATALAN, 23, "Reinicia el nivell en cas de" },
     (FRASE) { CATALAN, 23, "ser necessari." },
 
-    (FRASE) { CATALAN, 23, "Prem el botÚ B i una" },
-    (FRASE) { CATALAN, 23, "direcciÛ si tens presa." },
+    (FRASE) { CATALAN, 23, "Prem el bot√≤ B i una" },
+    (FRASE) { CATALAN, 23, "direcci√≥ si tens presa." },
 
     (FRASE) { CATALAN, 23, "Pren nota de la contrasenya" },
     (FRASE) { CATALAN, 23, "habitualment." },
@@ -182,22 +182,22 @@
     (FRASE) { CATALAN, 23, "Pots rejugar els nivells un" },
     (FRASE) { CATALAN, 23, "cop superats." },
 
-    (FRASE) { CATALAN, 23, "Prem el botÛ Start si tens" },
+    (FRASE) { CATALAN, 23, "Prem el bot√≥ Start si tens" },
     (FRASE) { CATALAN, 23, "que anar al lavabo." },
 
-    (FRASE) { CATALAN, 23, "Quelcom molt bÛ passar‡ si" },
+    (FRASE) { CATALAN, 23, "Quelcom molt b√≥ passar√† si" },
     (FRASE) { CATALAN, 23, "superes TOTS els nivells." },
 
     (FRASE) { CATALAN, 23, "En cas de dubte consulti el" },
-    (FRASE) { CATALAN, 23, "seu farmacËutic." },
+    (FRASE) { CATALAN, 23, "seu farmac√®utic." },
 
     (FRASE) { CATALAN, 23, "Griel i el Rei Notah compten" },
     (FRASE) { CATALAN, 23, "amb tu, No els fallis!." },
 
-    (FRASE) { CATALAN, 23, "Beu amb moderaciÛ." },
+    (FRASE) { CATALAN, 23, "Beu amb moderaci√≥." },
     (FRASE) { CATALAN, 23, "" }, // needed!! don't deleted!
 
-    (FRASE) { CATALAN, 23, "NomÈs el Holy PorrÛ far‡" },
+    (FRASE) { CATALAN, 23, "Nom√©s el Holy Porr√≥ far√†" },
     (FRASE) { CATALAN, 23, "tornar l'enteniment al rei." },
 
     (FRASE) { CATALAN, 23, "Fet a Mart." },
@@ -205,14 +205,14 @@
 
 
     // How to play --------------------------------------------------------------------------
-    (FRASE) { CATALAN, 24, " ENEMICS " }, // ojo a los espacios delante y detr·s
-    (FRASE) { CATALAN, 24, " OBJECTES "  }, // ojo a los espacios delante y detr·s
+    (FRASE) { CATALAN, 24, " ENEMICS " }, // ojo a los espacios delante y detr√°s
+    (FRASE) { CATALAN, 24, " OBJECTES "  }, // ojo a los espacios delante y detr√°s
 
 
     // Game over ----------------------------------------------------------------------------
     (FRASE) { CATALAN, 25, "GAME OVER" },
     (FRASE) { CATALAN, 25, "Empra aquesta contrasenya" },
-    (FRASE) { CATALAN, 25, "Gr‡cies per jugar!" },
+    (FRASE) { CATALAN, 25, "Gr√†cies per jugar!" },
     (FRASE) { CATALAN, 25, "Mode invertit" },
 
     // Niveles dificul ----------------------------------------------------------------------
@@ -220,13 +220,13 @@
     (FRASE) { CATALAN, 26, "PAIO DUR" },
     (FRASE) { CATALAN, 26, "ET CAGUES" }, // PESADILLA
 
-    // Opciones de la pantalla de tÌtulo ----------------------------------------------------
+    // Opciones de la pantalla de t√≠tulo ----------------------------------------------------
     (FRASE) { CATALAN, 27, "NOU JOC" },
     (FRASE) { CATALAN, 27, "CONTINUAR" },
-    (FRASE) { CATALAN, 27, "TEST DE S”" },
+    (FRASE) { CATALAN, 27, "TEST DE S√ì" },
 
     // Sound test ---------------------- ----------------------------------------------------
-    (FRASE) { CATALAN, 28, "TEST DE S”" },
+    (FRASE) { CATALAN, 28, "TEST DE S√ì" },
     (FRASE) { CATALAN, 28, "Tornar" },
 
     // --------------------------------- ----------------------------------------------------
@@ -237,7 +237,7 @@
 
 
     // HOW TO PLAY // WEAPONS
-    (FRASE) { CATALAN, 31, "BastÛ" },
+    (FRASE) { CATALAN, 31, "Bast√≥" },
     (FRASE) { CATALAN, 31, "Creu" },
     (FRASE) { CATALAN, 31, "Espasa" },
     (FRASE) { CATALAN, 31, "Clau" },
@@ -252,8 +252,8 @@
     (FRASE) { CATALAN, 33, "Wampa" },
 
     (FRASE) { CATALAN, 34, "Swordman" },
-    (FRASE) { CATALAN, 34, "EscorpÌ" },
-    (FRASE) { CATALAN, 34, "MÚmia" },
+    (FRASE) { CATALAN, 34, "Escorp√≠" },
+    (FRASE) { CATALAN, 34, "M√≤mia" },
 
     (FRASE) { CATALAN, 35, "Cranc" },
     (FRASE) { CATALAN, 35, "Pirata" },

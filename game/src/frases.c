@@ -5,14 +5,14 @@ static const FRASE _list [ ] =
 {
     (FRASE) { 99, 99, "" },
 
-    #include "frases_english.txt"
-    #include "frases_spanish.txt"
-    #include "frases_italian.txt"
-    #include "frases_french.txt"
-    #include "frases_catalan.txt"
-    #include "frases_finnish.txt"
-    #include "frases_galego.txt"
-    #include "frases_portuguese.txt"
+    #include "../../frases/english.txt"
+    #include "../../frases/spanish.txt"
+    #include "../../frases/italian.txt"
+    #include "../../frases/french.txt"
+    #include "../../frases/catalan.txt"
+    #include "../../frases/finnish.txt"
+    #include "../../frases/galego.txt"
+    #include "../../frases/portuguese.txt"
 
     (FRASE) {  0,  0, "" }, // No quitar
 };
@@ -130,6 +130,25 @@ void frases_init ( u16 grupo )
 	_grupo = grupo ;
 }
 
+
+
+u8 *GRIEL_frases_next ( )
+{
+	FRASE *f ;
+
+	do
+	{
+		f = (FRASE*) & _list [ _next++ ];
+
+		if ( f->lang == gamestate.lenguaje  &&  f->grupo == _grupo )
+		{
+			break;
+		}
+	}
+	while ( f->lang );
+
+    return f->cadena;
+}
 
 
 u8 *frases_next ( )

@@ -11,7 +11,7 @@ static void _blink ( u8 *str, const u16 x, const u16 y )
 	u8 len = strlen(str);
 
 	SYS_disableInts();
-	VDP_drawText ( str, x, y );
+	GRIEL_drawText ( str, x, y );
 	SYS_enableInts();
 
 	while ( i-- )
@@ -24,7 +24,7 @@ static void _blink ( u8 *str, const u16 x, const u16 y )
 		}
 		else
 		{
-			VDP_drawText ( str, x, y );
+			GRIEL_drawText ( str, x, y );
 		}
 
         SYS_enableInts();
@@ -34,7 +34,7 @@ static void _blink ( u8 *str, const u16 x, const u16 y )
 	}
 
 	SYS_disableInts();
-	VDP_drawText ( str, x, y );
+	GRIEL_drawText ( str, x, y );
     SYS_enableInts();
 }
 
@@ -61,14 +61,14 @@ u16 screen_title_menu_1 ( )
 
 	frases_init(27);
 
-	strcpy ( f1, frases_next ( ) );
-	strcpy ( f2, frases_next ( ) );
-	strcpy ( f3, frases_next ( ) );
+	strcpy ( f1, GRIEL_frases_next ( ) );
+	strcpy ( f2, GRIEL_frases_next ( ) );
+	strcpy ( f3, GRIEL_frases_next ( ) );
 
 	SYS_disableInts();
-	VDP_drawText ( f1, 16, pos[0] ); // NEW GAME
-	VDP_drawText ( f2, 16, pos[1] ); // CONTINUE
-	VDP_drawText ( f3, 16, pos[2] ); // SOUND TEST
+	GRIEL_drawText ( f1, 16, pos[0] ); // NEW GAME
+	GRIEL_drawText ( f2, 16, pos[1] ); // CONTINUE
+	GRIEL_drawText ( f3, 16, pos[2] ); // SOUND TEST
     SYS_enableInts();
 
 	while ( not ret )
@@ -77,7 +77,7 @@ u16 screen_title_menu_1 ( )
 
 	    SYS_disableInts();
 		VDP_clearTileMapRect ( BG_A, 14, pos[0], 1, pos[2]-pos[0]+1);
-		VDP_drawText ( ">", 14, pos[option] );
+		GRIEL_drawText ( ">", 14, pos[option] );
 		SYS_enableInts();
 
 		if ( joy1_pressed_down ) { option++; psglist_play ( PSG_SELECT_2 ); }
@@ -121,14 +121,14 @@ void screen_title_menu_2 ( )
 
 	frases_init ( 26 );
 
-	strcpy ( f1, frases_next ( ) );
-	strcpy ( f2, frases_next ( ) );
-	strcpy ( f3, frases_next ( ) );
+	strcpy ( f1, GRIEL_frases_next ( ) );
+	strcpy ( f2, GRIEL_frases_next ( ) );
+	strcpy ( f3, GRIEL_frases_next ( ) );
 
     SYS_disableInts();
-	VDP_drawText ( f1, 16, pos[0] ); // debilucho
-	VDP_drawText ( f2, 16, pos[1] ); // tipo duro
-	VDP_drawText ( f3, 16, pos[2] ); // pesadilla
+	GRIEL_drawText ( f1, 16, pos[0] ); // debilucho
+	GRIEL_drawText ( f2, 16, pos[1] ); // tipo duro
+	GRIEL_drawText ( f3, 16, pos[2] ); // pesadilla
 	SYS_enableInts();
 
 	while ( true )
@@ -137,7 +137,7 @@ void screen_title_menu_2 ( )
 
 	    SYS_disableInts();
 		VDP_clearTileMapRect ( BG_A, 14, pos[0], 1, pos[2]-pos[0]+1);
-		VDP_drawText ( ">", 14, pos[option] );
+		GRIEL_drawText ( ">", 14, pos[option] );
 		SYS_enableInts();
 
 		if ( joy1_pressed_down ) { option++; psglist_play ( PSG_SELECT_2 ); }
@@ -211,7 +211,7 @@ u16 screen_title ( u16 salto )
     VDP_setTextPalette ( PAL0 );
 
     SYS_disableInts();
-    VDP_drawText ( "@2017 Oook!Lab", 13, 26 );
+    GRIEL_drawText ( "@2017, 2025 Oook!Lab", 10, 26 );
     SYS_enableInts();
 
 

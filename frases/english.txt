@@ -61,15 +61,15 @@
 
 (FRASE) { ENGLISH,  9, "The next morning, at King Dudeh's Castle." },
 (FRASE) { ENGLISH,  9, "Hmmm? |WAIT Who has been sniffing around here tonight? |WCLEAR AAAHHHHH!" },
-(FRASE) { ENGLISH,  9, "My porr髇! |WAIT IT HAS BEEN STOLEN!" },
+(FRASE) { ENGLISH,  9, "My porr贸n! |WAIT IT HAS BEEN STOLEN!" },
 (FRASE) { ENGLISH,  9, "The Princess has been taken too!" },
-(FRASE) { ENGLISH,  9, "Petty details. |WAIT My Holy Porr髇 must be recovered. |WAIT Alert Griel, he is the only one who went to sleep early." },
+(FRASE) { ENGLISH,  9, "Petty details. |WAIT My Holy Porr贸n must be recovered. |WAIT Alert Griel, he is the only one who went to sleep early." },
 
-(FRASE) { ENGLISH, 10, "Griel, the kingdom is lost without the Holy Porr髇. |WAIT You must recover it as soon as possible! |WCLEAR:180 This looks like it has been masterminded by Kbrah, my archenemy, it must have been him."},
+(FRASE) { ENGLISH, 10, "Griel, the kingdom is lost without the Holy Porr贸n. |WAIT You must recover it as soon as possible! |WCLEAR:180 This looks like it has been masterminded by Kbrah, my archenemy, it must have been him."},
 (FRASE) { ENGLISH, 10, "The Princess has been taken too!" },
-(FRASE) { ENGLISH, 10, "The Princess? Ah, yes, yes... |WAIT Go to that evil Kbrah's castle, bring back the Holy Porr髇 and the reward will be her hand in marriage, ok? |WAIT Got It? |WBREAK Now, get out of here." },
+(FRASE) { ENGLISH, 10, "The Princess? Ah, yes, yes... |WAIT Go to that evil Kbrah's castle, bring back the Holy Porr贸n and the reward will be her hand in marriage, ok? |WAIT Got It? |WBREAK Now, get out of here." },
 
-(FRASE) { ENGLISH, 11, "Go to that evil Kbrah's castle, bring back the Holy Porr髇 and the reward will be her hand in marriage, ok? |WAIT Got It? |WBREAK Now, get out of here." },
+(FRASE) { ENGLISH, 11, "Go to that evil Kbrah's castle, bring back the Holy Porr贸n and the reward will be her hand in marriage, ok? |WAIT Got It? |WBREAK Now, get out of here." },
 
 // Door option 1
 (FRASE) { ENGLISH, 12, "Locked. |WCLEAR:180 Wait a moment, those slots above the doorway are shaped like... |WBREAK Legendary Coins! |WCLEAR:180 I guess I will have to find them and place them there, I've seen that in other games. |WCLEAR:180 Damn it, it will take all evening." },
@@ -83,15 +83,15 @@
 (FRASE) { ENGLISH, 14, "Damn! |WAIT Say anything about this and I'll kill you." },
 
 // final 1
-(FRASE) { ENGLISH, 15, "Kbrah, you pestilent beast. |WAIT Give me the Holy Porr髇 back, I know you have it." },
+(FRASE) { ENGLISH, 15, "Kbrah, you pestilent beast. |WAIT Give me the Holy Porr贸n back, I know you have it." },
 (FRASE) { ENGLISH, 15, "Did you really come for that trinket? |WAIT Here you are, I didn't like it anyway..." },
 (FRASE) { ENGLISH, 15, "Uoh! |WAIT What a cute kid, daddy. |WAIT Can I keep him?" },
 (FRASE) { ENGLISH, 15, "No way! |WAIT I've spoiled you too much to settle for lowly knights. |WCLEAR:180 He's leaving anyway, aren't you buddy?" },
 (FRASE) { ENGLISH, 15, "Not so fast, scoundrel, Princess Beach is coming with me too." },
-(FRASE) { ENGLISH, 15, "The Princess is in another castle, we couldn't... |WAIT keep her any longer. |WCLEAR:180 Now take that Holy Porr髇 and get away from here before I change my mind." },
+(FRASE) { ENGLISH, 15, "The Princess is in another castle, we couldn't... |WAIT keep her any longer. |WCLEAR:180 Now take that Holy Porr贸n and get away from here before I change my mind." },
 
 // final 2
-(FRASE) { ENGLISH, 16, "Great, son! You did it. |WCLEAR:180 Oh, my beloved Holy Porr髇! you are back at last." },
+(FRASE) { ENGLISH, 16, "Great, son! You did it. |WCLEAR:180 Oh, my beloved Holy Porr贸n! you are back at last." },
 (FRASE) { ENGLISH, 16, "What great power does it hold?" },
 (FRASE) { ENGLISH, 16, "This magical artifact provides endless wine to its owner. |WAIT:60 A fresh stream of nectar, a bit sour, but infinite." },
 (FRASE) { ENGLISH, 16, "WINE?! |WAIT JUST WINE?! |WAIT I can't believe it... |WCLEAR:180 I was promised the hand of the Princess." },
@@ -137,7 +137,7 @@
 //(FRASE) { SPANI  23, "-LONGITUD MAXIMA DISPONIBLE-" }, // 28 MAX
 
 (FRASE) { ENGLISH, 23, "Guide Griel in his Quest for" },
-(FRASE) { ENGLISH, 23, "the Holy Porr髇." },
+(FRASE) { ENGLISH, 23, "the Holy Porr贸n." },
 
 (FRASE) { ENGLISH, 23, "Get the keys to break the" },
 (FRASE) { ENGLISH, 23, "magic seal." },
@@ -196,7 +196,7 @@
 (FRASE) { ENGLISH, 23, "All your base are belong to" },
 (FRASE) { ENGLISH, 23, "us." },
 
-(FRASE) { ENGLISH, 23, "Only the Holy Porr髇 will" },
+(FRASE) { ENGLISH, 23, "Only the Holy Porr贸n will" },
 (FRASE) { ENGLISH, 23, "make the King sane again." },
 
 (FRASE) { ENGLISH, 23, "Made in Mars." },
