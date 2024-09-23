@@ -6,10 +6,10 @@
 static const u8 *language_name [ ] =
 {
     "English",
-    "Espa�ol",
+    "Español",
     "Italiano",
-    "Fran�ais",
-    "Catal�",
+    "Français",
+    "Català",
     "Suomeksi",
     "Galego",
     "Br. Portuguese",

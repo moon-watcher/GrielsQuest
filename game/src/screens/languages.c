@@ -12,7 +12,7 @@ static u16 y_pos;
 static void write ( u8 *str, u8 y )
 {
     SYS_disableInts();
-    VDP_drawText ( prepare_string(str), DEFAULT_X, y );
+    GRIEL_drawText ( str, DEFAULT_X, y );
     SYS_enableInts();
 }
 
