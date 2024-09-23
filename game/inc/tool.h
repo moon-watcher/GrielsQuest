@@ -22,7 +22,7 @@ void planHide              ( );
 void planHide_Ex           ( VDPPlane plan );
 void planHide_and_sprites  ( );
 void showBmp               ( u16 pal, struct genresTiles *grt, u16 tile, VDPPlane plan, u16 x, u16 y, u8 pal_steps );
-void typeText              ( char *str, u8 x, u8 y, u16 ms );
+void typeText              ( u8 *str, u8 x, u8 y, u16 ms );
 //void tool_reset            ( );
 //void tool_deleteArea            ( u16 plan, u8 x, u8 y, u8 width, u8 height );
 

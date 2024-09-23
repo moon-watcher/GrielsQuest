@@ -116,16 +116,16 @@ void showBmp ( u16 pal, struct genresTiles *grt, u16 tile, VDPPlane plan, u16 x,
 
 
 
-void typeText ( char *str, u8 x, u8 y, u16 ms )
+void typeText ( u8 *str, u8 x, u8 y, u16 ms )
 {
 	u8 i, len = strlen ( str );
 
 	for ( i=0; i<len; i++ )
 	{
-	    const char aux[2] = { str[i], '\0' };
+	    const u8 aux[4] = { str[i], '\0' };
 
         SYS_disableInts();
-		VDP_drawText ( aux, x++, y );
+		GRIEL_drawText ( aux, x++, y );
 		SYS_enableInts();
 
 		if ( aux[0] != ' ' )
