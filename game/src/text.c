@@ -263,9 +263,6 @@ u16 text_draw_sprites_x_centered ( u8 *string, u16 y, u16 ms )
 
 
 void GRIEL_prepareText(u8 *str, s16 array[]) {
-    s16 i = 0;
-    s16 j = 0;
-
     void _debug_prepareText(s16 chr) {
         return;
         
@@ -274,7 +271,10 @@ void GRIEL_prepareText(u8 *str, s16 array[]) {
         VDP_drawText(write, 10, devu0);
         ++devu0;
     }
-
+    
+    s16 i = 0;
+    s16 j = 0;
+    
     while (str[i]) {
         s16 chr0 = str[i+0];
         s16 chr1 = str[i+1];
@@ -282,11 +282,12 @@ void GRIEL_prepareText(u8 *str, s16 array[]) {
         i++;
         _debug_prepareText(chr0);
 
-        if (chr0 == 195)
-        {
+        if (chr0 == 195 || chr0 == 194) {
             i++;
             _debug_prepareText(chr1);
+        }
 
+        if (chr0 == 195) {
             if (0);
             else if (chr1 == 186) chr0 =  31; // ú
             else if (chr1 == 179) chr0 =  30; // ó
@@ -345,12 +346,8 @@ void GRIEL_prepareText(u8 *str, s16 array[]) {
             else if (chr1 == 163) chr0 = -23; // ã
             else if (chr1 == 131) chr0 = -24; // Ã
         }
-
-        if (chr0 == 194)
-        {
-            i++;
-            _debug_prepareText(chr1);
-
+        
+        if (chr0 == 194) {
             if (0);
             else if (chr1 == 191) chr0 =  19; // ¿
             else if (chr1 == 161) chr0 =  18; // ¡
