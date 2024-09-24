@@ -324,10 +324,10 @@ void fadeIn ( u16 pal0[16], u16 pal1[16], u16 pal2[16], u16 pal3[16], u16 numfra
 {
 	u16 colores [ 64 ];
 
-	memcpy ( &colores[0],  pal0, 16 );
-	memcpy ( &colores[16], pal1, 16 );
-	memcpy ( &colores[32], pal2, 16 );
-	memcpy ( &colores[48], pal3, 16 );
+	memcpy ( &colores[0],  pal0, 16*2 );
+	memcpy ( &colores[16], pal1, 16*2 );
+	memcpy ( &colores[32], pal2, 16*2 );
+	memcpy ( &colores[48], pal3, 16*2 );
 
 	PAL_fadeInAll ( (u16 *) colores, numframe, async ) ;
 }

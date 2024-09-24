@@ -121,7 +121,7 @@ void screen_staff()
 
 
 	preparePal(PAL3, ob_logo_Karoshi.pal);
-	memcpy(&colors[48], ob_logo_Karoshi.pal, 16 );
+	memcpy(&colors[48], ob_logo_Karoshi.pal, 16*2 );
 	prepareColors( colors );
 
     displayOn(0);
