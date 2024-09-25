@@ -22,22 +22,6 @@ static void _frases_tt_init ( u16 f )
 {
 	tt_init ( );
 	frases_init ( f );
-
-
-	#undef TT_A
-	#undef TT_B
-	#undef TT_C
-	#undef TT_START
-
-//	#define TT_A       tt_info.go_next = true;
-//	#define TT_B       tt_info.go_next = true;
-//	#define TT_C       tt_info.go_next = true;
-
-	#define TT_A       goto fin;
-	#define TT_B       goto fin;
-	#define TT_C       goto fin;
-	#define TT_START   goto fin;
-
 	tt_info.buttons = ( BUTTON_A|BUTTON_B|BUTTON_C|BUTTON_START );
 
 	#undef  WAITBREAK
@@ -234,21 +218,21 @@ u16 screen_puerta ( )
 	if ( _terminados == 0 )
 	{
 		_frases_tt_init( 12 );
-		frases_tt_write( GRIEL );
+		FRASES_TT_WRITE( GRIEL, fin, fin );
 	}
 	else if ( _terminados < 4 )
 	{
 		_frases_tt_init( 13 );
-		frases_tt_write( GRIEL );
-		frases_tt_write( NARRADOR );
+		FRASES_TT_WRITE( GRIEL, fin, fin );
+		FRASES_TT_WRITE( NARRADOR, fin, fin );
 	}
 	else
 	{
 		_frases_tt_init ( 14 );
 
-		frases_tt_write ( YONKI );
-		frases_tt_write ( GRIEL );
-		frases_tt_write ( YONKI );
+		FRASES_TT_WRITE ( YONKI, fin, fin );
+		FRASES_TT_WRITE ( GRIEL, fin, fin );
+		FRASES_TT_WRITE ( YONKI, fin, fin );
 
 		SYS_disableInts();
 		VDP_fillTileMapRect (BG_A, TILE_ATTR_FULL ( PAL0, 1, 0, 0, pos_tile_vacio ),  1, 19, 38,  9 );
@@ -272,7 +256,7 @@ u16 screen_puerta ( )
 		VDP_updateSprites(80,1);
 		SYS_doVBlankProcess();
 
-		frases_tt_write ( GRIEL );
+		FRASES_TT_WRITE ( GRIEL, fin, fin );
 
 
 		ret = SCREEN_JUMP_TO_NEWGAME;

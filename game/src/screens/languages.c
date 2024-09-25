@@ -96,7 +96,7 @@ void screen_languages ()
 
     while ( 1 )
     {
-        waitJoy ( ); //JOY_waitPress(JOY_1, BUTTON_UP | BUTTON_DOWN | BUTTON_ABCS );
+        waitJoy ( );
 
         GRIEL_drawText ( " ", DEFAULT_X-2, option*2+y_pos );
         

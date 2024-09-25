@@ -34,18 +34,6 @@ static void _frases_tt_init ( u16 grupo )
 {
 	tt_init ( );
 	frases_init ( grupo );
-
-
-	#undef TT_A
-	#undef TT_B
-	#undef TT_C
-	#undef TT_START
-
-	#define TT_A       { goto next; } // tt_info.go_next = true;
-	#define TT_B       { goto next; } // tt_info.go_next = true;
-	#define TT_C       { goto next; } // tt_info.go_next = true;
-	#define TT_START   { goto fin;  }
-
 	tt_info.buttons = ( BUTTON_A|BUTTON_B|BUTTON_C|BUTTON_START );
 	tt_info.speed = 2;
 }
@@ -81,7 +69,7 @@ static u8 _escena_1 ( )
 	_frases_tt_init( 7 );
 
     devu0 = 0;
-	frases_tt_write ( NARRADOR );
+	FRASES_TT_WRITE ( NARRADOR, next, fin );
 
 
 
@@ -105,7 +93,7 @@ static u8 _escena_1 ( )
 
 
 
-	frases_tt_write ( NARRADOR );
+	FRASES_TT_WRITE ( NARRADOR, next, fin );
 
 
 
@@ -118,7 +106,7 @@ static u8 _escena_1 ( )
 
 	wb_fade ( joy1_pressed_abc | joy1_pressed_start );
 
-	frases_tt_write ( NARRADOR );
+	FRASES_TT_WRITE ( NARRADOR, next, fin );
 
 
 
@@ -168,7 +156,7 @@ static u8 _escena_1 ( )
 	PAL_setPalette ( PAL0, font_getPalette(), CPU);
 	SYS_enableInts();
 
-	frases_tt_write ( NARRADOR );
+	FRASES_TT_WRITE ( NARRADOR, next, fin );
 
 
 
@@ -217,7 +205,7 @@ static u8 _escena_2()
 
 	_frases_tt_init ( 8 );
 
-	frases_tt_write ( NARRADOR );
+	FRASES_TT_WRITE ( NARRADOR, next, fin );
 
 end:
     GONEXT
@@ -239,8 +227,8 @@ static u8 _escena_3 ()
 	displayOn(0);
 
 	_frases_tt_init ( 9 );
-	frases_tt_write ( NARRADOR );
-	frases_tt_write ( NOTA );
+	FRASES_TT_WRITE ( NARRADOR, next, fin );
+	FRASES_TT_WRITE ( NOTA, next, fin );
 
 	displayOff(0);	
 	VDP_setPlaneSize ( 64, 32, false );
@@ -282,7 +270,7 @@ static u8 _escena_3 ()
 
 	displayOn(0);
 
-	frases_tt_write ( NOTA );
+	FRASES_TT_WRITE ( NOTA, next, fin );
 
 
 	for (int i=0; inc_x_b<=0; i++ )
@@ -308,8 +296,8 @@ static u8 _escena_3 ()
 		SYS_doVBlankProcess();
 	}
 
-	frases_tt_write ( CORTAZAR );
-	frases_tt_write ( NOTA );
+	FRASES_TT_WRITE ( CORTAZAR, next, fin );
+	FRASES_TT_WRITE ( NOTA, next, fin );
 
 	GONEXT
 	GOEND
@@ -394,14 +382,14 @@ static u8 _escena_4 ( int repeat )
 	{
 		_frases_tt_init ( 10 );
 
-		frases_tt_write ( NOTA );
-		frases_tt_write ( GRIEL );
-		frases_tt_write ( NOTA );
+		FRASES_TT_WRITE ( NOTA, next, fin );
+		FRASES_TT_WRITE ( GRIEL, next, fin );
+		FRASES_TT_WRITE ( NOTA, next, fin );
 	}
 	else
 	{
 		_frases_tt_init( 11 );
-		frases_tt_write( NOTA );
+		FRASES_TT_WRITE( NOTA, next, fin );
 	}
 
 

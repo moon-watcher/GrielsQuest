@@ -59,18 +59,6 @@ static void _frases_tt_init ( u16 f )
 {
 	tt_init ( );
 	frases_init ( f );
-
-
-	#undef TT_A
-	#undef TT_B
-	#undef TT_C
-	#undef TT_START
-
-	#define TT_A       goto fin; // tt_info.go_next = true;
-	#define TT_B       goto fin; // tt_info.go_next = true;
-	#define TT_C       goto fin; // tt_info.go_next = true;
-	#define TT_START   goto fin;
-
 	tt_info.buttons = ( BUTTON_A|BUTTON_B|BUTTON_C|BUTTON_START );
 }
 
@@ -220,9 +208,9 @@ static void _final_1 ( )
 
 	_frases_tt_init( 15 );
 
-	//frases_tt_write( KBRAH );
-	frases_tt_write( GRIEL );
-	frases_tt_write( KBRAH );
+	//FRASES_TT_WRITE( KBRAH, fin, fin );
+	FRASES_TT_WRITE( GRIEL, fin, fin );
+	FRASES_TT_WRITE( KBRAH, fin, fin );
 
 
 	// Aparece Kbritah
@@ -231,14 +219,14 @@ static void _final_1 ( )
 	VDP_updateSprites(80,1);
 
 	// Habla Kbritah
-	frases_tt_write( KBRITAH );
+	FRASES_TT_WRITE( KBRITAH, fin, fin );
 
 	// Griel y Kbrah cambia caras
 	_visible ( 1, 0, true, 0 );
 	_visible ( 1, 2, true, 0 );
 	VDP_updateSprites(80,1);
 
-	frases_tt_write( KBRAH );
+	FRASES_TT_WRITE( KBRAH, fin, fin );
 
 	// kbrah y Kbritah cambian cara
 	_visible ( 1, 2, false, 0 );
@@ -246,8 +234,8 @@ static void _final_1 ( )
 	_visible ( 1, 0, false, 0 );
 	VDP_updateSprites(80,1);
 
-	frases_tt_write( GRIEL );
-	frases_tt_write( KBRAH );
+	FRASES_TT_WRITE( GRIEL, fin, fin );
+	FRASES_TT_WRITE( KBRAH, fin, fin );
 
 
 fin:
@@ -309,40 +297,40 @@ static void _final_2()
 
 	_frases_tt_init( 16 );
 
-	frases_tt_write( NOTA );
-	frases_tt_write( GRIEL );
-	frases_tt_write( NOTA );
-	frases_tt_write( GRIEL );
-//	frases_tt_write( NOTA );
-//	frases_tt_write( GRIEL );
+	FRASES_TT_WRITE( NOTA, fin, fin );
+	FRASES_TT_WRITE( GRIEL, fin, fin );
+	FRASES_TT_WRITE( NOTA, fin, fin );
+	FRASES_TT_WRITE( GRIEL, fin, fin );
+//	FRASES_TT_WRITE( NOTA, fin, fin );
+//	FRASES_TT_WRITE( GRIEL, fin, fin );
 
 	// debilucho
 	if ( gamestate.dificultad == 0 )
 	{
 		_frases_tt_init( 17 );
 
-		frases_tt_write( NOTA );
-		frases_tt_write( GRIEL );
-		frases_tt_write( NOTA );
+		FRASES_TT_WRITE( NOTA, fin, fin );
+		FRASES_TT_WRITE( GRIEL, fin, fin );
+		FRASES_TT_WRITE( NOTA, fin, fin );
 	}
 	// tipio duro o pesadilla
 	else
 	{
 		_frases_tt_init( 18 );
 
-		frases_tt_write( NOTA );
+		FRASES_TT_WRITE( NOTA, fin, fin );
 
 		_visible ( 2, 2, true, 3 ); // Pibon
 
-		frases_tt_write( NOTA );
+		FRASES_TT_WRITE( NOTA, fin, fin );
 
 		_visible ( 2, 2, false, 1 ); // Pibon
 
-		frases_tt_write( NOTA );
+		FRASES_TT_WRITE( NOTA, fin, fin );
 
 		_visible ( 2, 1, true,  1 ); // Gorda
 
-		frases_tt_write( GORDA );
+		FRASES_TT_WRITE( GORDA, fin, fin );
 	}
 
 
@@ -410,15 +398,15 @@ static void _final_3()
 
 	_frases_tt_init( 19 );
 
-	frases_tt_write( GORDA );
-	frases_tt_write( GRIEL );
-	frases_tt_write( GORDA );
+	FRASES_TT_WRITE( GORDA, fin, fin );
+	FRASES_TT_WRITE( GRIEL, fin, fin );
+	FRASES_TT_WRITE( GORDA, fin, fin );
 
 
 	if ( gamestate.dificultad < 2 )
 	{
 		_frases_tt_init( 20 );
-		frases_tt_write( GRIEL );
+		FRASES_TT_WRITE( GRIEL, fin, fin );
 	}
 
 	// es pesadilla (2) o superior
@@ -498,11 +486,11 @@ static void _final_3()
 
 		_frases_tt_init( 21 );
 
-		frases_tt_write( KBRITAH );
+		FRASES_TT_WRITE( KBRITAH, fin, fin );
 
 		_visible ( 3, 0, true, 1 );
 
-		frases_tt_write( GRIEL );
+		FRASES_TT_WRITE( GRIEL, fin, fin );
 	}
 
 fin:
@@ -575,12 +563,13 @@ static void _final_4()
 
 	_frases_tt_init( 22 );
 
-	frases_tt_write( GRIEL );
-	frases_tt_write( KBRITAH );
-	frases_tt_write( GRIEL );
-	frases_tt_write( KBRITAH );
-	frases_tt_write( GRIEL );
-	frases_tt_write( KBRITAH );
+	FRASES_TT_WRITE( GRIEL, fin, fin );
+	FRASES_TT_WRITE( KBRITAH, fin, fin );
+	FRASES_TT_WRITE( GRIEL, fin, fin );
+	FRASES_TT_WRITE( KBRITAH, fin, fin );
+	FRASES_TT_WRITE( GRIEL, fin, fin );
+	FRASES_TT_WRITE( KBRITAH, fin, fin );
+
 
 fin:
 	vram_destroy();

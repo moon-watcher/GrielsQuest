@@ -13,20 +13,16 @@
 #define isnt    ISNT
 
 
-
-#define BUTTON_ABC   ( BUTTON_A | BUTTON_B | BUTTON_C )
-#define BUTTON_ABCS  ( BUTTON_ABC | BUTTON_START )
-
-
-
-
-#define frases_tt_write(color)    \
-{                                 \
-	u8 *cadena = frases_next ( ) ; \
-	tt_write ( (color), cadena ) ; \
-}
-
-
+#define FRASES_TT_WRITE(COLOR, ABC, START) {                 \
+	u8 *s = frases_next();                                   \
+	for (u16 i = 0, l = tt_write_init(COLOR, s); i < l; i++) \
+		switch(tt_write_process(i, s)) {                     \
+			case BUTTON_START: goto START;                   \
+			case BUTTON_A:                                   \
+			case BUTTON_B:                                   \
+			case BUTTON_C: goto ABC;                         \
+		}                                                    \
+	}
 
 //u8  *my_strtok                  ( u8 *string, u8 delimitador );
 u32  my_strtol                  ( u8 *cadena );

@@ -67,7 +67,7 @@ u16  tt_write_process ( u16 i,      u8 *cadena );
 
 
 
-#define tt_write(colorw,cadena)                                \
+#define TT_WRITE(colorw,cadena)                                \
 {                                                              \
 	u16 i, boton, len = tt_write_init ( (colorw), (cadena) );  \
 	                                                            \

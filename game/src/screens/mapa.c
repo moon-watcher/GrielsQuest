@@ -286,7 +286,7 @@ static void _mostrar_niveles (  )
 		_tt_init ( );
 		tt_info.wait = 0;
 		tt_info.reset_area_at_end = false;
-		tt_write ( GRIEL, frases_find ( 1, 6 ) );
+		TT_WRITE ( GRIEL, frases_find ( 1, 6 ) );
 
 		return;
 	}
@@ -438,7 +438,7 @@ static u16 _loop_niveles ( )
 				}
 
 				_tt_init ( );
-				tt_write ( GRIEL, frases_find ( 6, f ) );
+				TT_WRITE ( GRIEL, frases_find ( 6, f ) );
 
 				vdpSpriteCache[sprite_last_letter-1].link = sprite_last_letter;
 				VDP_updateSprites(80,1);
