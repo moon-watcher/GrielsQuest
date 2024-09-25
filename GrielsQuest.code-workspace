@@ -12,7 +12,12 @@
 		"files.associations": {
 			"include.h": "c",
 			"worlds.h": "c",
-			"genres_externs.h": "c"
-		}
+			"genres_externs.h": "c",
+			"*.txt": "c",
+			"allocator.h": "c",
+			"vram.h": "c"
+		},
+		"editor.lineNumbers": "off",
+		"workbench.colorTheme": "Tokyo Night Gogh"
 	}
 }
