@@ -265,7 +265,7 @@ void tt_clear ( )
 
 
 // Used by tt_write macro
-u16 _tt_write_init ( u16 indice, u8 *cadena )
+u16 tt_write_init ( u16 indice, u8 *cadena )
 {
 	tt_info.cmd_inc  = -1;
 
@@ -298,7 +298,7 @@ u16 _tt_write_init ( u16 indice, u8 *cadena )
 
 
 // Used by tt_write macro
-u16 _tt_write_process ( u16 i, u8 *cadena )
+u16 tt_write_process ( u16 i, u8 *cadena )
 {
 	tt_info.chr = cadena [ i ];
 

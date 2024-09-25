@@ -61,21 +61,21 @@ struct typetext_info tt_info;
 void  tt_init  ( );
 void  tt_clear ( );
 
-u16  _tt_write_init    ( u16 indice, u8 *cadena );
-u16  _tt_write_process ( u16 i,      u8 *cadena );
+u16  tt_write_init    ( u16 indice, u8 *cadena );
+u16  tt_write_process ( u16 i,      u8 *cadena );
 
 
 
 
 #define tt_write(colorw,cadena)                                \
 {                                                              \
-	u16 i, boton, len = _tt_write_init ( (colorw), (cadena) );  \
+	u16 i, boton, len = tt_write_init ( (colorw), (cadena) );  \
 	                                                            \
 	for ( i = 0; i < len; i++ )                                 \
 	{                                                           \
 		TT_PRE_FN;                                               \
 		                                                         \
-		if ( ( boton = _tt_write_process ( i, (cadena) ) ) )     \
+		if ( ( boton = tt_write_process ( i, (cadena) ) ) )     \
 		{                                                        \
 				  if ( boton == BUTTON_UP    ) { TT_UP;    }       \
 			else if ( boton == BUTTON_DOWN  ) { TT_DOWN;  }       \
