@@ -63,37 +63,3 @@ void  tt_clear ( );
 
 u16  tt_write_init    ( u16 indice, u8 *cadena );
 u16  tt_write_process ( u16 i,      u8 *cadena );
-
-
-
-
-#define TT_WRITE(colorw,cadena)                                \
-{                                                              \
-	u16 i, boton, len = tt_write_init ( (colorw), (cadena) );  \
-	                                                            \
-	for ( i = 0; i < len; i++ )                                 \
-	{                                                           \
-		TT_PRE_FN;                                               \
-		                                                         \
-		if ( ( boton = tt_write_process ( i, (cadena) ) ) )     \
-		{                                                        \
-				  if ( boton == BUTTON_UP    ) { TT_UP;    }       \
-			else if ( boton == BUTTON_DOWN  ) { TT_DOWN;  }       \
-			else if ( boton == BUTTON_LEFT  ) { TT_LEFT;  }       \
-			else if ( boton == BUTTON_RIGHT ) { TT_RIGHT; }       \
-			else if ( boton == BUTTON_A     ) { TT_A;     }       \
-			else if ( boton == BUTTON_B     ) { TT_B;     }       \
-			else if ( boton == BUTTON_C     ) { TT_C;     }       \
-			else if ( boton == BUTTON_START ) { TT_START; }       \
-			else if ( boton == BUTTON_X     ) { TT_X;     }       \
-			else if ( boton == BUTTON_Y     ) { TT_Y;     }       \
-			else if ( boton == BUTTON_Z     ) { TT_Z;     }       \
-			else if ( boton == BUTTON_MODE  ) { TT_MODE;  }       \
-			else if ( boton == BUTTON_DIR   ) { TT_DIR;   }       \
-			else if ( boton == BUTTON_BTN   ) { TT_BTN;   }       \
-			else if ( boton == BUTTON_ALL   ) { TT_ALL;   }       \
-		}                                                        \
-		                                                         \
-		TT_POST_FN;                                              \
-	}                                                           \
-}
