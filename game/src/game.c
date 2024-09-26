@@ -44,10 +44,7 @@ static void _init ( )
 	resetScroll();
 	resetPalettes();
 	SYS_enableInts();
-
-	voffset_horizontal = VOFFSET_HORIZONTAL;
-	voffset_vertical   = VOFFSET_VERTICAL;
-
+	
 	VDP_setPlaneSize ( 64, 32, false );
 
 	font_init ( );

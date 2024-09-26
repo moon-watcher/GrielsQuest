@@ -70,8 +70,8 @@ const LEVELLIST level_list [ LEVEL_DIF_MAX_AMBIENTES ] [ LEVEL_DIF_MAX_DIFICULTA
 
 #define level_current()          gamestate.current_round
 #define level_get_max_rounds()   level_list [ (u16)gamestate.current_ambiente ] [ gamestate_get_dificultad ( ) ].cuantos
-#define level_hpos_to_pixel(x)   ( ( (x) << 4 ) + voffset_horizontal - 0 )
-#define level_vpos_to_pixel(y)   ( ( (y) << 4 ) + voffset_vertical   - 8 ) // el -8 es para compensar la altuta extra (+8px) respecto a los bloques, armas y enemigos
+#define level_hpos_to_pixel(x)   ( ( (x) << 4 ) + VOFFSET_HORIZONTAL - 0 )
+#define level_vpos_to_pixel(y)   ( ( (y) << 4 ) + VOFFSET_VERTICAL   - 8 ) // el -8 es para compensar la altuta extra (+8px) respecto a los bloques, armas y enemigos
 
 
 

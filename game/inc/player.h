@@ -14,8 +14,8 @@
 
 
 
-#define player_get_x(xx) ( ( players[(xx)].x - voffset_horizontal - 0 ) >> 4 ) //   / 8 / 2
-#define player_get_y(xx) ( ( players[(xx)].y - voffset_vertical   + 8 ) >> 4 ) //   / 8 / 2
+#define player_get_x(xx) ( ( players[(xx)].x - VOFFSET_HORIZONTAL - 0 ) >> 4 ) //   / 8 / 2
+#define player_get_y(xx) ( ( players[(xx)].y - VOFFSET_VERTICAL   + 8 ) >> 4 ) //   / 8 / 2
 
 
 
