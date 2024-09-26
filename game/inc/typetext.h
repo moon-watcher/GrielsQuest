@@ -1,27 +1,5 @@
 #pragma once
 
-#define TT_UP
-#define TT_DOWN
-#define TT_LEFT
-#define TT_RIGHT
-#define TT_A
-#define TT_B
-#define TT_C
-#define TT_START
-#define TT_X
-#define TT_Y
-#define TT_Z
-#define TT_MODE
-#define TT_DIR
-#define TT_BTN
-#define TT_ALL
-
-#define TT_PRE_FN
-#define TT_POST_FN
-
-
-
-
 struct typetext_info
 {
 	u8   x;

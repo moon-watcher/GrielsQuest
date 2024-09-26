@@ -104,9 +104,6 @@ static void _tt_init ()
 	tt_info.width     = 34;
 	tt_info.height    =  5;
 	tt_info.reset_pal = false;
-
-	#undef  TT_POST_FN
-	#define TT_POST_FN   VDP_updateSprites(80,1);
 }
 
 
