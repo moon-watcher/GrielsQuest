@@ -313,6 +313,8 @@ void pause_show ( LEVEL *wl, u16 *ret )
 		{
 			*ret = opciones[option].ret;
 		}
+
+		SYS_doVBlankProcess();
 	}
 
 	psglist_play ( opciones[option].psgfx );
