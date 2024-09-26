@@ -94,16 +94,17 @@ static void _update_sprites ()
 
 
 
-static void _tt_init ()
+static void _init_tt ()
 {
 	tt_init ( );
+	struct typetext_info *const tt_info = tt_get();
 
-	tt_info.x         =  3;
-	tt_info.y         = 21;
-	tt_info.speed     =  1;
-	tt_info.width     = 34;
-	tt_info.height    =  5;
-	tt_info.reset_pal = false;
+	tt_info->x         =  3;
+	tt_info->y         = 21;
+	tt_info->speed     =  1;
+	tt_info->width     = 34;
+	tt_info->height    =  5;
+	tt_info->reset_pal = false;
 }
 
 
@@ -174,7 +175,7 @@ static void _selector_init ( )
 
 static void _init ( )
 {
-    _tt_init ();
+    _init_tt ();
 	index = TILE_USER_INDEX;
 
 	sprites[0] = index; index += 4;
@@ -285,9 +286,10 @@ static void _mostrar_niveles (  )
 
 		SYS_enableInts();
 
-		_tt_init ( );
-		tt_info.wait = 0;
-		tt_info.reset_area_at_end = false;
+		_init_tt ( );
+		struct typetext_info *const tt_info = tt_get();
+		tt_info->wait = 0;
+		tt_info->reset_area_at_end = false;
 		WRITE ( GRIEL, frases_find ( 1, 6 ) );
 
 		return;
@@ -439,7 +441,7 @@ static u16 _loop_niveles ( )
 					f = 4 + ( random() % 13 ) ;
 				}
 
-				_tt_init ( );
+				_init_tt ( );
 				WRITE ( GRIEL, frases_find ( 6, f ) );
 
 				vdpSpriteCache[sprite_last_letter-1].link = sprite_last_letter;

@@ -59,7 +59,6 @@ static void _frases_tt_init ( u16 f )
 {
 	tt_init ( );
 	frases_init ( f );
-	tt_info.buttons = ( BUTTON_A|BUTTON_B|BUTTON_C|BUTTON_START );
 }
 
 

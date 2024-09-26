@@ -10,6 +10,7 @@
 #define SEPARATOR   ':'
 
 
+static struct typetext_info tt_info;
 
 
 #define cmd(x)  ( strcmp ( tt_info.command, (x) ) == 0 )
@@ -170,48 +171,34 @@ static u16 _reset_area ( bool wait )
 	return ret;
 }
 
-
-static u16 _wait ( u16 wait )
+static u16 _wait(u16 wait)
 {
-	if ( tt_info.go_next )
+	if (tt_info.go_next)
 	{
 		return 0;
 	}
 
-	while ( wait-- )
+	while (wait--)
 	{
-		JoyReader_update ( );
+		JoyReader_update();
 
-		if ( tt_info.buttons && joy1_pressed )
+		if (tt_info.buttons && joy1_pressed)
 		{
-		   u16 ret = 0;
+			u16 ret = 0;
 
-				  if ( ( tt_info.buttons & BUTTON_UP    ) && joy1_pressed_up    ) ret = BUTTON_UP;
-			else if ( ( tt_info.buttons & BUTTON_DOWN  ) && joy1_pressed_down  ) ret = BUTTON_DOWN;
-			else if ( ( tt_info.buttons & BUTTON_LEFT  ) && joy1_pressed_left  ) ret = BUTTON_LEFT;
-			else if ( ( tt_info.buttons & BUTTON_RIGHT ) && joy1_pressed_right ) ret = BUTTON_RIGHT;
-			else if ( ( tt_info.buttons & BUTTON_A     ) && joy1_pressed_a     ) ret = BUTTON_A;
-			else if ( ( tt_info.buttons & BUTTON_B     ) && joy1_pressed_b     ) ret = BUTTON_B;
-			else if ( ( tt_info.buttons & BUTTON_C     ) && joy1_pressed_c     ) ret = BUTTON_C;
-			else if ( ( tt_info.buttons & BUTTON_START ) && joy1_pressed_start ) ret = BUTTON_START;
-			else if ( ( tt_info.buttons & BUTTON_X     ) && joy1_pressed_y     ) ret = BUTTON_X;
-			else if ( ( tt_info.buttons & BUTTON_Y     ) && joy1_pressed_x     ) ret = BUTTON_Y;
-			else if ( ( tt_info.buttons & BUTTON_Z     ) && joy1_pressed_z     ) ret = BUTTON_Z;
-			else if ( ( tt_info.buttons & BUTTON_MODE  ) && joy1_pressed_mode  ) ret = BUTTON_MODE;
-			else if ( ( tt_info.buttons & BUTTON_DIR   ) && joy1_pressed_dir   ) ret = BUTTON_DIR;
-			else if ( ( tt_info.buttons & BUTTON_BTN   ) && joy1_pressed_btn   ) ret = BUTTON_BTN;
-			else if ( ( tt_info.buttons & BUTTON_ALL   ) && joy1_pressed       ) ret = BUTTON_ALL;
+			     if ((tt_info.buttons & BUTTON_A    ) && joy1_pressed_a    ) ret = BUTTON_A;
+			else if ((tt_info.buttons & BUTTON_B    ) && joy1_pressed_b    ) ret = BUTTON_B;
+			else if ((tt_info.buttons & BUTTON_C    ) && joy1_pressed_c    ) ret = BUTTON_C;
+			else if ((tt_info.buttons & BUTTON_START) && joy1_pressed_start) ret = BUTTON_START;
 
 			return ret;
-      }
+		}
 
-		SYS_doVBlankProcess ( );
+		SYS_doVBlankProcess();
 	}
 
 	return 0;
 }
-
-
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
@@ -246,6 +233,11 @@ void tt_init ( )
 	tt_info.reset_area_at_end = true;
 }
 
+
+struct typetext_info *tt_get()
+{
+	return &tt_info;
+}
 
 
 void tt_clear ( )
