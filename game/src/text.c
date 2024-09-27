@@ -345,7 +345,7 @@ static void _drawText(u8 *str, u16 x, u16 y, bool clear){
     SYS_disableInts();
 
     if (clear)
-        VDP_clearTileMapRect(plan, x, y, len, 1);
+        VDP_clearTileMapRect(BG_B, x, y, len, 1);
 
     for (u16 i = 0; buffer[i]; i++){
         u16 tile = TILE_FONT_INDEX + buffer[i] - 32;
