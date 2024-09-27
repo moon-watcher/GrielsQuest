@@ -587,7 +587,9 @@ void jap()
 
 int main()
 {
-   // jap();
+   displayInit();
+   gamestate_init(); // debe estar aqui y tras introducir un password correcto
+   JoyReader_init(1);
 
    // 0: disclaimer
    // 1: SEGA
@@ -596,48 +598,47 @@ int main()
    // 4: languages
    // 5: intro
    // 6: title
-   dev_init(4); 
+   dev_init(5); 
    gamestate.localdev = 0;
 
+   if (DEV)
+   {
+      gamestate.dificultad       = 3; // 2 // 1 // 0
+      gamestate.ambientes[0]     = gamestate.ambientes[1] = gamestate.ambientes[2] = gamestate.ambientes[3] = 14; 
+      // gamestate.ambientes[0]     = gamestate.ambientes[1] = gamestate.ambientes[2] = gamestate.ambientes[3] = 5;
+      // gamestate.ambientes[0]     = gamestate.ambientes[1] = gamestate.ambientes[2] = gamestate.ambientes[3] = 6;
+      gamestate.ambientes[4]     = 6;
+      // gamestate.ambientes[4]     = 3;
+      // gamestate.ambientes[4]     = 0;
+      gamestate.visito_la_puerta = true; // false
+      gamestate.lenguaje         = FINNISH; // ENGLISH; // SPANISH // FRENCH
+   }
 
-   JoyReader_init(1);
    monos();
 
    // todas_las_pantallas ( );
    // object_viewer();
    // conio();
 
-   gamestate.lenguaje = ENGLISH;
-
    XGM_setForceDelayDMA(true);
-
    VDP_setPlaneSize(64, 32, false);
 
    JOY_init();
-   JOY_setSupport(PORT_1, DEV ? JOY_SUPPORT_6BTN : JOY_SUPPORT_3BTN); // JOY_SUPPORT_3BTN
+   JOY_setSupport(PORT_1, DEV ? JOY_SUPPORT_6BTN : JOY_SUPPORT_3BTN);
    JOY_setSupport(PORT_2, JOY_SUPPORT_OFF);
 
    SYS_setVIntCallback((VoidCallback *)vint_callback);
 
-   JoyReader_init(1);
    vint_init();
    font_init();
-
-   displayInit();
-   gamestate_init(); // debe estar aqui y tras introducir un password correcto
    resetPalettes();
    resetScroll();
    resetSprites();
    resetScreen();
 
-
-   bool const nolddor_released_ZoS = 1; // Zooming Secretary MD
-   int publisher = 2; // 1: 1985 Alternativo; 2 Play On Retro
-
-
    if (DEV < ++gamestate.localdev) // 0
    {
-      if (nolddor_released_ZoS)
+      if (gamestate.nolddor_released_ZoS)
          screen_disclaimer_cool(
              TILE_USER_INDEX,
              (IS_PAL_SYSTEM ? 50 : 60) * 4,
@@ -655,8 +656,8 @@ int main()
 
    if (DEV < ++gamestate.localdev) // 2
    {
-      if (publisher == 1) screen_publisher_1985();
-      if (publisher == 2) screen_publisher_POR();
+      if (gamestate.publisher == 1) screen_publisher_1985();
+      if (gamestate.publisher == 2) screen_publisher_POR();
    }
 
    if (DEV < ++gamestate.localdev) // 3
@@ -670,51 +671,7 @@ int main()
    }
    else
    {
-      gamestate.dificultad   =  3;
-      gamestate.ambientes[0] = 14; // 14;
-      gamestate.ambientes[1] = 14; // 14;
-      gamestate.ambientes[2] = 14; // 14;
-      gamestate.ambientes[3] = 14; // 14;
-      gamestate.ambientes[4] =  6; // 6 ;
-      gamestate.visito_la_puerta = true;
-      gamestate.lenguaje         = ENGLISH;
-
-      // gamestate.dificultad   =  2;
-      // gamestate.ambientes[0] = 13; // 14;
-      // gamestate.ambientes[1] = 13; // 14;
-      // gamestate.ambientes[2] = 13; // 14;
-      // gamestate.ambientes[3] = 13; // 14;
-      // gamestate.ambientes[4] =  0; // 6 ;
-      // gamestate.visito_la_puerta = false;
-      // //gamestate.lenguaje         = ENGLISH;
-
-      // gamestate.dificultad   =  2;
-      // gamestate.ambientes[0] =  0; // 14;
-      // gamestate.ambientes[1] =  0; // 14;
-      // gamestate.ambientes[2] =  0; // 14;
-      // gamestate.ambientes[3] =  0; // 14;
-      // gamestate.ambientes[4] =  0; // 6 ;
-      // gamestate.visito_la_puerta = true;
-      // //gamestate.lenguaje         = SPANISH;
-
-
-      // gamestate.dificultad   = 0;
-      // gamestate.ambientes[0] = 5;
-      // gamestate.ambientes[1] = 5;
-      // gamestate.ambientes[2] = 5;
-      // gamestate.ambientes[3] = 5;
-      // gamestate.ambientes[4] = 3;
-      // gamestate.visito_la_puerta = false;
-      // //gamestate.lenguaje         = SPANISH;
-
-      // gamestate.dificultad   = 0;
-      // gamestate.ambientes[0] = 6;
-      // gamestate.ambientes[1] = 6;
-      // gamestate.ambientes[2] = 6;
-      // gamestate.ambientes[3] = 6;
-      // gamestate.ambientes[4] = 0;
-      // gamestate.visito_la_puerta = false;
-      // gamestate.lenguaje         = FRENCH;
+      gamestate.lenguaje = ENGLISH;
    }
 
 

@@ -16,6 +16,9 @@ void gamestate_init ( )
 	gamestate.ambientes [ 4 ]  = 0;
 
 	gamestate.visito_la_puerta = false;
+
+   	gamestate.nolddor_released_ZoS = 1; // Zooming Secretary MD
+   	gamestate.publisher = 2; // 1: 1985 Alternativo; 2 Play On Retro
 }
 
 

@@ -16,6 +16,9 @@ typedef struct
 
 	bool visito_la_puerta;
 	u16 localdev;
+
+	bool nolddor_released_ZoS; // Zooming Secretary MD
+   	u8 publisher; // 1: 1985 Alternativo; 2 Play On Retro
 }
 GAMESTATE;
 
