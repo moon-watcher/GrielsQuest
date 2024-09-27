@@ -116,10 +116,7 @@ void game_level_inc ( )
 
 u16 game_play ( )
 {
-	u16  ret = LEVEL_OK;
-	bool joyState = vint_getJoyReader();
-
-	vint_setJoyReader ( false );
+	u16 ret = LEVEL_OK;
 
 	_init ( );
 
@@ -201,14 +198,14 @@ u16 game_play ( )
     music_stop();
     displayOff(30);
 	resetSprites();
-	vint_setJoyReader(joyState);
 	vram_destroy();
 
 	return ret;
 }
 
-void game_main()
+void game_main_step()
 {
+	u16 to = SCREEN_JUMP_TO_NEWGAME;
 	u16 first_time = 1;
 
 	screen_mapa_init();
@@ -216,8 +213,15 @@ void game_main()
 	gamestate.visito_la_puerta = false;
 	puerta_abierta = 0;
 
-	screen_intro(1);
-	u16 to = screen_title(0);
+	if (DEV < ++gamestate.localdev) // 5
+	{
+		screen_intro(1);
+	}
+	
+	if(DEV < ++gamestate.localdev) // 6
+	{
+		to = screen_title(0);
+	}
 
 	if (to == SCREEN_JUMP_TO_SOUNDTEST)
 	{
@@ -266,8 +270,10 @@ void game_main()
 				{
 					state = game_play();
 
-					if (state == LEVEL_EXIT     ) break;
-					if (state == LEVEL_COMPLETED) break;
+					if (state == LEVEL_EXIT)
+						break;
+					if (state == LEVEL_COMPLETED)
+						break;
 				}
 
 				if (gamestate_go_to_ending(state))

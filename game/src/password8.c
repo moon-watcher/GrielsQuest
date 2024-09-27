@@ -224,7 +224,7 @@ static bool pwd_is_ok ( PASSWORD8 pwd )
 	SYS_disableInts();
 	VDP_clearTextLine ( 25 );
 	SYS_enableInts();
-	GRIEL_drawText ( string, 20 - strlen ( string ) / 2, 25 );
+	TEXT_drawText ( string, 20 - strlen ( string ) / 2, 25 );
 
 	psglist_play ( play );
 

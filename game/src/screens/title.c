@@ -11,7 +11,7 @@ static void _blink ( u8 *str, const u16 x, const u16 y )
 	u8 len = strlen(str);
 
 	SYS_disableInts();
-	GRIEL_drawText ( str, x, y );
+	TEXT_drawText ( str, x, y );
 	SYS_enableInts();
 
 	while ( i-- )
@@ -24,7 +24,7 @@ static void _blink ( u8 *str, const u16 x, const u16 y )
 		}
 		else
 		{
-			GRIEL_drawText ( str, x, y );
+			TEXT_drawText ( str, x, y );
 		}
 
         SYS_enableInts();
@@ -34,7 +34,7 @@ static void _blink ( u8 *str, const u16 x, const u16 y )
 	}
 
 	SYS_disableInts();
-	GRIEL_drawText ( str, x, y );
+	TEXT_drawText ( str, x, y );
     SYS_enableInts();
 }
 
@@ -66,9 +66,9 @@ u16 screen_title_menu_1 ( )
 	strcpy ( f3, frases_next ( ) );
 
 	SYS_disableInts();
-	GRIEL_drawText ( f1, 16, pos[0] ); // NEW GAME
-	GRIEL_drawText ( f2, 16, pos[1] ); // CONTINUE
-	GRIEL_drawText ( f3, 16, pos[2] ); // SOUND TEST
+	TEXT_drawText ( f1, 16, pos[0] ); // NEW GAME
+	TEXT_drawText ( f2, 16, pos[1] ); // CONTINUE
+	TEXT_drawText ( f3, 16, pos[2] ); // SOUND TEST
     SYS_enableInts();
 
 	while ( not ret )
@@ -77,7 +77,7 @@ u16 screen_title_menu_1 ( )
 
 	    SYS_disableInts();
 		VDP_clearTileMapRect ( BG_A, 14, pos[0], 1, pos[2]-pos[0]+1);
-		GRIEL_drawText ( ">", 14, pos[option] );
+		TEXT_drawText ( ">", 14, pos[option] );
 		SYS_enableInts();
 
 		if ( joy1_pressed_down ) { option++; psglist_play ( PSG_SELECT_2 ); }
@@ -126,9 +126,9 @@ void screen_title_menu_2 ( )
 	strcpy ( f3, frases_next ( ) );
 
     SYS_disableInts();
-	GRIEL_drawText ( f1, 16, pos[0] ); // debilucho
-	GRIEL_drawText ( f2, 16, pos[1] ); // tipo duro
-	GRIEL_drawText ( f3, 16, pos[2] ); // pesadilla
+	TEXT_drawText ( f1, 16, pos[0] ); // debilucho
+	TEXT_drawText ( f2, 16, pos[1] ); // tipo duro
+	TEXT_drawText ( f3, 16, pos[2] ); // pesadilla
 	SYS_enableInts();
 
 	while ( true )
@@ -137,7 +137,7 @@ void screen_title_menu_2 ( )
 
 	    SYS_disableInts();
 		VDP_clearTileMapRect ( BG_A, 14, pos[0], 1, pos[2]-pos[0]+1);
-		GRIEL_drawText ( ">", 14, pos[option] );
+		TEXT_drawText ( ">", 14, pos[option] );
 		SYS_enableInts();
 
 		if ( joy1_pressed_down ) { option++; psglist_play ( PSG_SELECT_2 ); }
@@ -211,7 +211,7 @@ u16 screen_title ( u16 salto )
     VDP_setTextPalette ( PAL0 );
 
     SYS_disableInts();
-    GRIEL_drawText ( "@2017, 2025 Oook!Lab", 10, 26 );
+    TEXT_drawText ( "@2017, 2025 Oook!Lab", 10, 26 );
     SYS_enableInts();
 
 

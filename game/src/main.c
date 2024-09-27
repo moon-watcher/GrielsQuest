@@ -189,12 +189,12 @@ void monos()
 
 void conio()
 {
-   GRIEL_drawText("============", 0, 0);
-   GRIEL_drawText("============", 0, 1);
-   GRIEL_drawText("============", 0, 2);
-   GRIEL_drawText("============", 0, 3);
-   GRIEL_drawText("============", 0, 4);
-   GRIEL_drawText("============", 0, 5);
+   TEXT_drawText("============", 0, 0);
+   TEXT_drawText("============", 0, 1);
+   TEXT_drawText("============", 0, 2);
+   TEXT_drawText("============", 0, 3);
+   TEXT_drawText("============", 0, 4);
+   TEXT_drawText("============", 0, 5);
 
    inittextinfo();
    window(1, 1, 10, 4);
@@ -283,14 +283,14 @@ void object_viewer()
       PAL_setPalette(animation_get(opcion)->pal, animation_get(opcion)->res->pal, CPU);
 
       drawUInt(opcion, 2, 3, 3);
-      GRIEL_drawText(v->object->name, 7, 3);
+      TEXT_drawText(v->object->name, 7, 3);
 
       while (1)
       {
          JoyReader_update();
 
          drawUInt(v->frame, 5, 5, 2);
-         GRIEL_drawText("/", 8, 5);
+         TEXT_drawText("/", 8, 5);
          drawUInt(v->object->frames, 10, 5, 2);
 
          if (joy1_pressed_dir)
@@ -350,22 +350,22 @@ void todas_las_pantallas()
 
       JoyReader_update();
 
-      GRIEL_drawText("Griel's Quest", 12, 1);
-      GRIEL_drawText("-------------", 12, 2);
-      GRIEL_drawText("  Level test ", 12, 5);
-      GRIEL_drawText("  2014-01-27 ", 12, 7);
-      GRIEL_drawText("<            >", 12, 12);
+      TEXT_drawText("Griel's Quest", 12, 1);
+      TEXT_drawText("-------------", 12, 2);
+      TEXT_drawText("  Level test ", 12, 5);
+      TEXT_drawText("  2014-01-27 ", 12, 7);
+      TEXT_drawText("<            >", 12, 12);
 
       if (opcion < 18)
       {
-         GRIEL_drawText(pantallas[opcion], 14, 12);
+         TEXT_drawText(pantallas[opcion], 14, 12);
       }
       else
       {
          u8 str[4];
          uintToStr(opcion - 18, str, 2);
-         GRIEL_drawText(str, 21, 12);
-         GRIEL_drawText("Level:", 14, 12);
+         TEXT_drawText(str, 21, 12);
+         TEXT_drawText("Level:", 14, 12);
       }
 
       if (joy1_pressed_right)
@@ -589,13 +589,15 @@ int main()
 {
    // jap();
 
-   // 0: desde Disclaimer
-   // 1: desde SEGA
-   // 2: desde Publisher
-   // 3: desde Oook!Lab
-   // 4: desde languages
-   dev_init(0); 
-   unsigned localdev = 0;
+   // 0: disclaimer
+   // 1: SEGA
+   // 2: publisher
+   // 3: Oook!Lab
+   // 4: languages
+   // 5: intro
+   // 6: title
+   dev_init(4); 
+   gamestate.localdev = 0;
 
 
    JoyReader_init(1);
@@ -615,9 +617,6 @@ int main()
    JOY_setSupport(PORT_1, DEV ? JOY_SUPPORT_6BTN : JOY_SUPPORT_3BTN); // JOY_SUPPORT_3BTN
    JOY_setSupport(PORT_2, JOY_SUPPORT_OFF);
 
-   // vram_init ( TILE_USER_INDEX );
-   // vint_setJoyReader ( true );
-
    SYS_setVIntCallback((VoidCallback *)vint_callback);
 
    JoyReader_init(1);
@@ -636,7 +635,7 @@ int main()
    int publisher = 2; // 1: 1985 Alternativo; 2 Play On Retro
 
 
-   if (DEV < ++localdev)
+   if (DEV < ++gamestate.localdev) // 0
    {
       if (nolddor_released_ZoS)
          screen_disclaimer_cool(
@@ -649,23 +648,23 @@ int main()
       displayOff(0);
    }
 
-   if (DEV < ++localdev)
+   if (DEV < ++gamestate.localdev) // 1
    {
       screen_sega();
    }
 
-   if (DEV < ++localdev)
+   if (DEV < ++gamestate.localdev) // 2
    {
       if (publisher == 1) screen_publisher_1985();
       if (publisher == 2) screen_publisher_POR();
    }
 
-   if (DEV < ++localdev)
+   if (DEV < ++gamestate.localdev) // 3
    {
       screen_oooklab();
    }
 
-   if (DEV < ++localdev)
+   if (DEV < ++gamestate.localdev) // 4
    {
       screen_languages();
    }
@@ -678,7 +677,7 @@ int main()
       gamestate.ambientes[3] = 14; // 14;
       gamestate.ambientes[4] =  6; // 6 ;
       gamestate.visito_la_puerta = true;
-      // gamestate.lenguaje         = SPANISH;
+      gamestate.lenguaje         = ENGLISH;
 
       // gamestate.dificultad   =  2;
       // gamestate.ambientes[0] = 13; // 14;
@@ -727,7 +726,7 @@ int main()
    __builtin_expect(gamestate.current_ambiente, 0);
 
 	while(1)
-      game_main();
+      game_main_step();
 
    return 0;
 }

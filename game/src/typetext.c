@@ -396,7 +396,7 @@ u16 tt_write_process(u16 i, u8 *cadena)
 	{
 		u8 write[2] = {tt_info.chr, EOF};
 
-		GRIEL_drawText(write, tt_info.x + tt_info.vx, tt_info.y + tt_info.vy);
+		TEXT_drawText(write, tt_info.x + tt_info.vx, tt_info.y + tt_info.vy);
 	}
 
 	// Incrementa posiciones

@@ -158,7 +158,7 @@ static void _marco_desplegar ( )
 
 		_hide_sprites ( i );
 
-		if ( i == 2 ) text_write ( frases_next(), 14, 12 );
+		if ( i == 2 ) TEXT_drawText_clear ( frases_next(), 14, 12 );
 		if ( i == 5 )
 		{
             u8 *str = frases_next();
@@ -169,18 +169,18 @@ static void _marco_desplegar ( )
 //
 //                memset(str1, NULL, 29 );
 //                memcpy( str1, &str[0], 9 );
-//                text_write ( str1, 14, 14 );
+//                TEXT_drawText_clear ( str1, 14, 14 );
 //
 //                memset ( str1, NULL, 29 );
 //                memcpy ( str1, &str[9], 6 );
-//                text_write ( str1, 20, 15 );
+//                TEXT_drawText_clear ( str1, 20, 15 );
 //            }
 //            else
             {
-                text_write ( str, 14, 14 );
+                TEXT_drawText_clear ( str, 14, 14 );
             }
         }
-		if ( i == 7 ) text_write ( frases_next(), 14, 17 );
+		if ( i == 7 ) TEXT_drawText_clear ( frases_next(), 14, 17 );
 
 		waitHz(1);
 	}
@@ -301,10 +301,10 @@ void pause_show ( LEVEL *wl, u16 *ret )
 			if ( joy1_pressed_up    &&  --option < 0 ) option = 2;
 			if ( joy1_pressed_down  &&  ++option > 2 ) option = 0;
 
-			GRIEL_drawText ( " ",  14, opciones[0].y );
-			GRIEL_drawText ( " ",  14, opciones[1].y );
-			GRIEL_drawText ( " ",  14, opciones[2].y );
-			GRIEL_drawText ( "\\", 14, opciones[option].y );
+			TEXT_drawText ( " ",  14, opciones[0].y );
+			TEXT_drawText ( " ",  14, opciones[1].y );
+			TEXT_drawText ( " ",  14, opciones[2].y );
+			TEXT_drawText ( "\\", 14, opciones[option].y );
 
 			psglist_play ( PSG_SELECT );
 		}

@@ -33,15 +33,15 @@ void screen_gameover ( )
 	u16 x2 = screenWidth/8/2 - strlen(inverted)/2;
 	u16 x3 = screenWidth/8/2 - strlen(phrasepwd)/2;
 
-	GRIEL_drawText ( thx4playing, x1, 13 );
+	TEXT_drawText ( thx4playing, x1, 13 );
 
 	if ( gamestate.dificultad > 2 )
 	{
-		GRIEL_drawText ( inverted, x2, 17 );
+		TEXT_drawText ( inverted, x2, 17 );
 	}
 
-	GRIEL_drawText ( phrasepwd, x3, 19 );
-	GRIEL_drawText ( pwd, 16, 22 );
+	TEXT_drawText ( phrasepwd, x3, 19 );
+	TEXT_drawText ( pwd, 16, 22 );
 
 	
 	displayOn(0);

@@ -16,7 +16,7 @@ static void writeText ( u8 *str, u16 pal, u8 inc_y )
 
     SYS_disableInts();
     VDP_setTextPalette ( pal );
-    GRIEL_drawText ( str, x, y );
+    TEXT_drawText ( str, x, y );
     SYS_enableInts();
 
     y += inc_y;

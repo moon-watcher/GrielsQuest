@@ -201,9 +201,6 @@ u16 text_draw_sprite ( u8 *string, u16 x, u16 y, u16 ms )
 }
 
 
-
-
-
 u16 text_draw_sprites_centered ( u8 *string, u16 ms )
 {
     u16 x = VDP_getScreenWidth()  / 2  - _genres->width  / 2 * strlen ( string );
@@ -302,7 +299,7 @@ static const s8 _values195[] = {
         [165] =  -2, // å // almost equal char
         [155] =  -3, // Û
         [148] =  -4, // Ô
-        // [XXX] =  -4, // YYY
+        // [XXX] =  -5, // YYY
         [142] =  -6, // Î
         [138] =  -7, // Ê
         [130] =  -8, // Â
@@ -330,31 +327,46 @@ static const s8 _values194[] = {
         [161]  =  18, // ¡
 };
 
-static void _debug_prepareText(s16 chr)
-{
+static void _debug_prepareText(s16 chr){
     return;
 
     u8 write[2] = {chr, '\0'};
     drawInt(chr, 0, devu0, 5);
-    GRIEL_drawText(write, 10, devu0);
+    TEXT_drawText(write, 10, devu0);
     ++devu0;
 }
 
-void GRIEL_prepareText(u8 *str, s16 array[])
-{
-    s16 i = 0;
-    s16 j = 0;
+static void _drawText(u8 *str, u16 x, u16 y, bool clear){
+    s16 buffer[120] = {};
+    u16 len = TEXT_prepareText(str, buffer);
+    u16 pos = TILE_ATTR(VDP_getTextPalette(), VDP_getTextPriority(), 0, 0);
+    u16 plan = VDP_getTextPlane();
 
-    while (str[i])
-    {
-        s16 chr0 = str[i + 0];
-        s16 chr1 = str[i + 1];
+    SYS_disableInts();
+
+    if (clear)
+        VDP_clearTileMapRect(plan, x, y, len, 1);
+
+    for (u16 i = 0; buffer[i]; i++){
+        u16 tile = TILE_FONT_INDEX + buffer[i] - 32;
+        VDP_setTileMapXY(plan, pos + tile, x++, y);
+    }
+
+    SYS_enableInts();
+}
+
+u16 TEXT_prepareText(u8 *str, s16 array[]){
+    u16 i = 0;
+    u16 j = 0;
+
+    while (str[i]){
+        u16 chr0 = str[i + 0];
+        u16 chr1 = str[i + 1];
 
         i++;
         _debug_prepareText(chr0);
 
-        if (chr0 == 195 || chr0 == 194)
-        {
+        if (chr0 == 195 || chr0 == 194){
             i++;
             _debug_prepareText(chr1);
         }
@@ -366,22 +378,14 @@ void GRIEL_prepareText(u8 *str, s16 array[])
 
         ++j;
     }
+
+    return j;
 }
 
-void GRIEL_drawText(u8 *str, u16 x, u16 y)
-{
-    u16 plan = VDP_getTextPlane();
-    u16 pal  = VDP_getTextPalette();
-    u16 prio = VDP_getTextPriority();
+void TEXT_drawText_clear(u8 *str, u16 x, u16 y){
+    _drawText(str, x, y, true);
+}
 
-    s16 buffer[120] = {};
-    GRIEL_prepareText(str, buffer);
-
-    SYS_disableInts();
-    for (u16 i = 0; buffer[i]; i++)
-    {
-        u16 tile = TILE_FONT_INDEX + buffer[i] - 32;
-        VDP_setTileMapXY(plan, TILE_ATTR_FULL(pal, prio, 0, 0, tile), x++, y);
-    }
-    SYS_enableInts();
+void TEXT_drawText(u8 *str, u16 x, u16 y){
+    _drawText(str, x, y, false);
 }

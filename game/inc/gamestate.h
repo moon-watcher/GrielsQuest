@@ -15,6 +15,7 @@ typedef struct
 	u8 ambientes[5]; // n�mero de rounds terminados
 
 	bool visito_la_puerta;
+	u16 localdev;
 }
 GAMESTATE;
 

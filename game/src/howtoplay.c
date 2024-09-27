@@ -43,7 +43,7 @@ static void _show_nb_message ( u8 nb )
 	u8  string [ 40 ];
 
 	sprintf ( string, format, nb, total );
-	text_write ( string, 23, 5 );
+	TEXT_drawText_clear ( string, 23, 5 );
 }
 
 
@@ -61,8 +61,8 @@ static void _show_message ( u8 content )
 	StringPadRight ( string1, 29, " " );
 	StringPadRight ( string2, 29, " " );
 
-	text_write ( string1, 6, 7 );
-	text_write ( string2, 6, 9 );
+	TEXT_drawText_clear ( string1, 6, 7 );
+	TEXT_drawText_clear ( string2, 6, 9 );
 }
 
 
@@ -89,8 +89,8 @@ void _draw_content ( u16 i )
 		// hacer que los espacios no deban estar
 		// en los textos, si no generarlos aquí.
 
-		text_write ( frases_find ( 24, 1 ),  8, 12 );
-		text_write ( frases_find ( 24, 0 ), 22, 12 );
+		TEXT_drawText_clear ( frases_find ( 24, 1 ),  8, 12 );
+		TEXT_drawText_clear ( frases_find ( 24, 0 ), 22, 12 );
 	}
 	else if ( i == 10 )
 	{
@@ -113,14 +113,14 @@ void _draw_content ( u16 i )
 		SYS_enableInts();
 		animation_set_raw();
 		animation_draw ( o1,  7, 14, true, BG_A, 1, 0, 0, 0, 0 );
-		text_write ( frases_find(31,0), 10, 15 );
+		TEXT_drawText_clear ( frases_find(31,0), 10, 15 );
 
 		SYS_disableInts();
 		VDP_clearTileMapRect ( BG_B, 21, 14, 2, 2 );
 		SYS_enableInts();
 		animation_set_raw();
 		animation_draw ( o2, 21, 14, true, BG_A, 1, 0, 0, 0, 0 );
-		text_write ( frases_find(enemy,0), 24, 15 );
+		TEXT_drawText_clear ( frases_find(enemy,0), 24, 15 );
 	}
 	else if ( i == 13 )
 	{
@@ -138,14 +138,14 @@ void _draw_content ( u16 i )
 		SYS_enableInts();
 		animation_set_raw();
 		animation_draw ( o1, 7 , 17, true, BG_A, 1, 0, 0, 0, 0 );
-		text_write ( frases_find(31,1), 10, 18 );
+		TEXT_drawText_clear ( frases_find(31,1), 10, 18 );
 
 		SYS_disableInts();
 		VDP_clearTileMapRect ( BG_B, 21, 17, 2, 2 );
 		SYS_enableInts();
 		animation_set_raw();
 		animation_draw ( o2, 21, 17, true, BG_A, 1, 0, 0, 0, 0 );
-		text_write ( frases_find(enemy,1), 24, 18 );
+		TEXT_drawText_clear ( frases_find(enemy,1), 24, 18 );
 	}
 	else if ( i == 16 )
 	{
@@ -163,7 +163,7 @@ void _draw_content ( u16 i )
 		SYS_enableInts();
 		animation_set_raw();
 		animation_draw ( o1,  7, 20, true, BG_A, 1, 0, 0, 0, 0 );
-		text_write ( frases_find(31,2), 10, 21 );
+		TEXT_drawText_clear ( frases_find(31,2), 10, 21 );
 
 		SYS_disableInts();
 		VDP_clearTileMapRect ( BG_B, 21, 19, 2, 3 );
@@ -179,15 +179,15 @@ void _draw_content ( u16 i )
 //
 //            memset ( str1, NULL, 29 );
 //            memcpy ( str1, &str[0],  5 );
-//            text_write ( str1, 24, 20 );
+//            TEXT_drawText_clear ( str1, 24, 20 );
 //
 //            memset ( str1, NULL, 29 );
 //            memcpy ( str1, &str[6], 10 );
-//		    text_write ( str1, 27, 21 );
+//		    TEXT_drawText_clear ( str1, 27, 21 );
 //		}
 //		else
         {
-            text_write ( str, 24, 21 );
+            TEXT_drawText_clear ( str, 24, 21 );
         }
 	}
 	else if ( i == 19 )
@@ -206,14 +206,14 @@ void _draw_content ( u16 i )
 		SYS_enableInts();
 		animation_set_raw();
 		animation_draw ( o1, 7, 22, true, BG_A, 1, 0, 0, 0, 0 );
-		text_write ( frases_find(31,3), 10, 24 );
+		TEXT_drawText_clear ( frases_find(31,3), 10, 24 );
 
 		SYS_disableInts();
 		VDP_clearTileMapRect ( BG_B, 21, 22, 2, 3 );
 		SYS_enableInts();
 		animation_set_raw();
 		animation_draw ( o2, 21, 22, true, BG_A, 1, 0, 0, 0, 0 );
-		text_write ( frases_find(37,0), 24, 24 );
+		TEXT_drawText_clear ( frases_find(37,0), 24, 24 );
 	}
 }
 

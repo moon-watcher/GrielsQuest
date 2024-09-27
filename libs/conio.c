@@ -134,7 +134,7 @@ void putch ( char ch )
 {
 	u8 string[2] = { ch };
 
-	GRIEL_drawText ( string, ABSOLUTEX, ABSOLUTEY );
+	TEXT_drawText ( string, ABSOLUTEX, ABSOLUTEY );
 
 	_ti.curx += 1;
 

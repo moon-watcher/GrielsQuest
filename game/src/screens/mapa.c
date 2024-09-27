@@ -247,9 +247,9 @@ static void _init ( )
 	pwd8_generate(pwd);
 
 	frases_init(29);
-	GRIEL_drawText ( frases_next(), 11, 19 );
-	GRIEL_drawText ( ":", 19, 19 );
-	GRIEL_drawText ( pwd, 21, 19 );
+	TEXT_drawText ( frases_next(), 11, 19 );
+	TEXT_drawText ( ":", 19, 19 );
+	TEXT_drawText ( pwd, 21, 19 );
 
 	SYS_enableInts ( );
 

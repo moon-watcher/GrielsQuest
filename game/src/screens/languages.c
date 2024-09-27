@@ -13,28 +13,26 @@ void screen_languages()
     s8 option = 0;
 
     displayOff(0);
+    resetScreen();
 
     VDP_setTextPalette(PAL0);
     prepareColor(0, 0x000);
     prepareColor(1, 0xfff);
     prepareColor(2, 0x444);
 
-    font_setPalette();
-    resetScreen();
-
+    TEXT_drawText(">", x - 2, option * 2 + y);
     for (u16 i = 0; i < count; i++) {
-        GRIEL_drawText(getLanguage(i), x, inc_y);
+        TEXT_drawText(getLanguage(i), x, inc_y);
         inc_y += 2;
     }
 
-    GRIEL_drawText(">", x - 2, option * 2 + y);
     displayOn(10);
 
     do {
-        GRIEL_drawText(" ", x - 2, option * 2 + y);
+        TEXT_drawText(" ", x - 2, option * 2 + y);
         if (joy1_pressed_down) { if (++option > count - 1) option = 0;         psglist_play(PSG_SELECT_2); }
         if (joy1_pressed_up  ) { if (--option < 0        ) option = count - 1; psglist_play(PSG_SELECT_2); }
-        GRIEL_drawText(">", x - 2, option * 2 + y);
+        TEXT_drawText(">", x - 2, option * 2 + y);
 
         waitJoy();
     } while (!(joy1_pressed_abc | joy1_pressed_start));
@@ -44,14 +42,15 @@ void screen_languages()
     // blink //////////////
     u16 i = getHz() / 2;
     y = option * 2 + y;
+    u8 *empty = "                              ";
+    u8 *name = getLanguage(option);
 
-    do{
-        if (i % 2) GRIEL_drawText("                              ", x, y);
+    do {
+        TEXT_drawText(i % 2 ? empty : name, x, y);
         waitHz(2);
-        GRIEL_drawText(getLanguage(option), x, y);
     } while (i--);
 
-    GRIEL_drawText(getLanguage(option), x, y);
+    TEXT_drawText(getLanguage(option), x, y);
     ///////////////////////
 
     gamestate.lenguaje = option + 1;

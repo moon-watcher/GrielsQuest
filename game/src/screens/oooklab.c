@@ -23,13 +23,13 @@ void screen_oooklab()
     prepareColor(34, 0xddd);
 
     VDP_setTextPalette(PAL1);
-    GRIEL_drawText("Mun @MoonWatcherMD", 11, 17);
-    GRIEL_drawText("Daniel Nevado @DanySnowyman", 7, 19);
-    GRIEL_drawText("David Sánchez @DavidBonus", 8, 21);
-    GRIEL_drawText("Alfonso Martínez @_SrPresley_", 6, 23);
+    TEXT_drawText("Mun @MoonWatcherMD", 11, 17);
+    TEXT_drawText("Daniel Nevado @DanySnowyman", 7, 19);
+    TEXT_drawText("David Sánchez @DavidBonus", 8, 21);
+    TEXT_drawText("Alfonso Martínez @_SrPresley_", 6, 23);
 
     VDP_setTextPalette(PAL2);
-    GRIEL_drawText("@2013-2017, 2025", 12, 26);
+    TEXT_drawText("@2013-2017, 2025", 12, 26);
 
     SYS_enableInts();
 

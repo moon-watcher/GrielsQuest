@@ -30,20 +30,20 @@ void screen_griels ( )
     u8 y = 4;
 
     VDP_setTextPalette ( PAL1 );
-    text_write ( "              Griel's Quest             ",  0,  y+=2 );
-    text_write ( "           for the Holy Porrón          ",  0, y+=2 );
+    TEXT_drawText_clear ( "              Griel's Quest             ",  0, y+=2 );
+    TEXT_drawText_clear ( "           for the Holy Porrón          ",  0, y+=2 );
 
     VDP_setTextPalette ( PAL2 );
-    text_write ( "       For Sega Megadrive/Genesis       ",  0, y+=2 );
-    text_write ( "            @2013-2017, 2025            ",  0, y+=2 );
+    TEXT_drawText_clear ( "       For Sega Megadrive/Genesis       ",  0, y+=2 );
+    TEXT_drawText_clear ( "            @2013-2017, 2025            ",  0, y+=2 );
 
 
     VDP_setTextPalette ( PAL1 );
-    text_write ( "            Original game by            ",  0, y+=6 );
+    TEXT_drawText_clear ( "            Original game by            ",  0, y+=6 );
 
     VDP_setTextPalette ( PAL2 );
-    text_write ( "           Karoshi Corporation          ",  0, y+=2 );
-    text_write ( "                  @2005                 ",  0, y+=2 );
+    TEXT_drawText_clear ( "           Karoshi Corporation          ",  0, y+=2 );
+    TEXT_drawText_clear ( "                  @2005                 ",  0, y+=2 );
 
     displayOn(10);
 

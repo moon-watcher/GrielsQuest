@@ -32,7 +32,7 @@
 		{                                            \
 			u8  chr[2] = { *aux++ };                  \
 			if ( chr[0] == ' ' ) continue;            \
-			GRIEL_drawText ( chr, (x)+i, (y) );         \
+			TEXT_drawText ( chr, (x)+i, (y) );         \
 			WAITMS(vel_text);                         \
 		}                                            \
 	}
