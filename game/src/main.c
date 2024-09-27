@@ -670,6 +670,54 @@ int main()
    {
       screen_languages();
    }
+   else
+   {
+      gamestate.dificultad   =  3;
+      gamestate.ambientes[0] = 14; // 14;
+      gamestate.ambientes[1] = 14; // 14;
+      gamestate.ambientes[2] = 14; // 14;
+      gamestate.ambientes[3] = 14; // 14;
+      gamestate.ambientes[4] =  6; // 6 ;
+      gamestate.visito_la_puerta = true;
+      // gamestate.lenguaje         = SPANISH;
+
+      // gamestate.dificultad   =  2;
+      // gamestate.ambientes[0] = 13; // 14;
+      // gamestate.ambientes[1] = 13; // 14;
+      // gamestate.ambientes[2] = 13; // 14;
+      // gamestate.ambientes[3] = 13; // 14;
+      // gamestate.ambientes[4] =  0; // 6 ;
+      // gamestate.visito_la_puerta = false;
+      // //gamestate.lenguaje         = ENGLISH;
+
+      // gamestate.dificultad   =  2;
+      // gamestate.ambientes[0] =  0; // 14;
+      // gamestate.ambientes[1] =  0; // 14;
+      // gamestate.ambientes[2] =  0; // 14;
+      // gamestate.ambientes[3] =  0; // 14;
+      // gamestate.ambientes[4] =  0; // 6 ;
+      // gamestate.visito_la_puerta = true;
+      // //gamestate.lenguaje         = SPANISH;
+
+
+      // gamestate.dificultad   = 0;
+      // gamestate.ambientes[0] = 5;
+      // gamestate.ambientes[1] = 5;
+      // gamestate.ambientes[2] = 5;
+      // gamestate.ambientes[3] = 5;
+      // gamestate.ambientes[4] = 3;
+      // gamestate.visito_la_puerta = false;
+      // //gamestate.lenguaje         = SPANISH;
+
+      // gamestate.dificultad   = 0;
+      // gamestate.ambientes[0] = 6;
+      // gamestate.ambientes[1] = 6;
+      // gamestate.ambientes[2] = 6;
+      // gamestate.ambientes[3] = 6;
+      // gamestate.ambientes[4] = 0;
+      // gamestate.visito_la_puerta = false;
+      // gamestate.lenguaje         = FRENCH;
+   }
 
 
    //        screen_final(0);
@@ -679,7 +727,8 @@ int main()
    // http://www.dodgycoder.net/2012/02/coding-tricks-of-game-developers.html#
    __builtin_expect(gamestate.current_ambiente, 0);
 
-   game_loop();
+	while(1)
+      game_main();
 
    return 0;
 }

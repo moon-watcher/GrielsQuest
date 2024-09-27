@@ -24,7 +24,7 @@ void font_init ()
 	//VDP_loadFont ( cb_font_8x8, 1 );
 	VDP_loadFontData ( cb_font_8x8, FONT_LEN, 0 );
 
-	// carga los caract�res especiales
+	// carga los caracteres especiales
 	VDP_loadTileData ( (u32*)cb_font_8x8_chars, TILE_FONT_INDEX-nb_chars, nb_chars, 0 );
 
 	// hack for VDP_loadFont, inserts " " in 0 position
