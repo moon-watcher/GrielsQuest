@@ -7,4 +7,6 @@ void screen_disclaimer_simple(void)
 
 	displayOn(0);
 	waitJoySc(3);
+
+	displayOff(5);
 }

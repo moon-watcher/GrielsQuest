@@ -593,7 +593,7 @@ int main()
    // 1: desde SEGA
    // 2: desde Publisher
    // 3: desde Oook!Lab
-   // 4: desde Title
+   // 4: desde languages
    dev_init(0); 
    unsigned localdev = 0;
 
@@ -636,7 +636,7 @@ int main()
    int publisher = 2; // 1: 1985 Alternativo; 2 Play On Retro
 
 
-   if (localdev++ >= DEV)
+   if (DEV < ++localdev)
    {
       if (nolddor_released_ZoS)
          screen_disclaimer_cool(
@@ -647,26 +647,25 @@ int main()
          screen_disclaimer_simple();
 
       displayOff(0);
-      resetScreen();
    }
 
-   if (localdev++ >= DEV)
+   if (DEV < ++localdev)
    {
       screen_sega();
    }
 
-   if (localdev++ >= DEV)
+   if (DEV < ++localdev)
    {
       if (publisher == 1) screen_publisher_1985();
       if (publisher == 2) screen_publisher_POR();
    }
 
-   if (localdev++ >= DEV)
+   if (DEV < ++localdev)
    {
       screen_oooklab();
    }
 
-   if (localdev++ >= DEV)
+   if (DEV < ++localdev)
    {
       screen_languages();
    }
