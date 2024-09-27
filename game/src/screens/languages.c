@@ -1,124 +1,58 @@
 #include "../inc/include.h"
 #include "../../libs/psg.h"
 
-static u8 DEFAULT_Y;
-static u8 DEFAULT_X;
-
-
-
-static u16 y_pos;
-
-
-static void write ( u8 *str, u8 y )
+void screen_languages()
 {
-    SYS_disableInts();
-    GRIEL_drawText ( str, DEFAULT_X, y );
-    SYS_enableInts();
-}
-
-
-static void writeText ( u8 *str, u16 pal, u8 inc_y )
-{
-    write ( str, y_pos );
-    y_pos += inc_y;
-}
-
-
-static void _blink ( const u16 x, const u16 y, u8 option )
-{
-    write ( "                              ", option*2+DEFAULT_Y  );
-
-	u8 i = getHz()/2;
-
-	while ( i-- )
-	{
-		if ( i % 2  )
-		{
-            write ( "                              ", option*2+DEFAULT_Y );
-        }
-
-        waitHz(2);
-		write ( getLanguage(option), option*2+DEFAULT_Y );
-	}
-
-	write ( getLanguage(option), option*2+DEFAULT_Y );
-}
-
-
-void screen_languages ()
-{
-    // if ( DEV > 1 )
-    // {
-    //     gamestate.lenguaje = 1;
-    //     return;
-    // }
-
-    if ( gamestate.lenguaje )
-    {
+    if (gamestate.lenguaje)
         return;
-    }
 
-
-    u8 i, count = countLanguages();
-
-    DEFAULT_Y = VDP_getScreenHeight() / 8 / 2 - count;
-    DEFAULT_X = 16;
-
-
-    y_pos = DEFAULT_Y;
-
+    u8 count = countLanguages();
+    u8 y = VDP_getScreenHeight() / 8 / 2 - count;
+    u8 x = 16;
+    u8 inc_y = y;
     s8 option = 0;
 
     displayOff(0);
 
-    VDP_setTextPalette ( PAL0 );
-    prepareColor( 0, 0x000 );
-    prepareColor( 1, 0xfff );
-    prepareColor( 2, 0x444 );
-
-    SYS_disableInts();
+    VDP_setTextPalette(PAL0);
+    prepareColor(0, 0x000);
+    prepareColor(1, 0xfff);
+    prepareColor(2, 0x444);
 
     font_setPalette();
     resetScreen();
 
-    for ( i=0; i<count; i++ )
-    {
-        writeText ( getLanguage(i), PAL0, 2 );
+    for (u16 i = 0; i < count; i++) {
+        GRIEL_drawText(getLanguage(i), x, inc_y);
+        inc_y += 2;
     }
 
-    y_pos = DEFAULT_Y;
-    GRIEL_drawText ( ">", DEFAULT_X-2, option*2+y_pos );
-
-    SYS_enableInts();
-
+    GRIEL_drawText(">", x - 2, option * 2 + y);
     displayOn(10);
 
+    do {
+        GRIEL_drawText(" ", x - 2, option * 2 + y);
+        if (joy1_pressed_down) { if (++option > count - 1) option = 0;         psglist_play(PSG_SELECT_2); }
+        if (joy1_pressed_up  ) { if (--option < 0        ) option = count - 1; psglist_play(PSG_SELECT_2); }
+        GRIEL_drawText(">", x - 2, option * 2 + y);
 
-    while ( 1 )
-    {
-        waitJoy ( );
+        waitJoy();
+    } while (!(joy1_pressed_abc | joy1_pressed_start));
 
-        GRIEL_drawText ( " ", DEFAULT_X-2, option*2+y_pos );
-        
-		if ( joy1_pressed_down ) { option++; psglist_play ( PSG_SELECT_2 ); }
-		if ( joy1_pressed_up   ) { option--; psglist_play ( PSG_SELECT_2 ); }
+    psglist_play(PSG_START);
 
-		if ( option < 0       ) option = count-1;
-		if ( option > count-1 ) option = 0;
+    // blink //////////////
+    u16 i = getHz() / 2;
+    y = option * 2 + y;
 
-		GRIEL_drawText ( ">", DEFAULT_X-2, option*2+y_pos );
-		
+    do{
+        if (i % 2) GRIEL_drawText("                              ", x, y);
+        waitHz(2);
+        GRIEL_drawText(getLanguage(option), x, y);
+    } while (i--);
 
-        if ( joy1_pressed_abc | joy1_pressed_start )
-        {
-            break;
-        }
-
-        SYS_doVBlankProcess();
-    }
-
-    psglist_play ( PSG_START );
-    _blink ( DEFAULT_X, option*2+y_pos, option );
+    GRIEL_drawText(getLanguage(option), x, y);
+    ///////////////////////
 
     gamestate.lenguaje = option + 1;
 
