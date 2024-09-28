@@ -1,4 +1,5 @@
 #include "../inc/include.h"
+#include "../inc/genres_externs.h"
 
 
 void screen_gameover ( )
@@ -23,8 +24,8 @@ void screen_gameover ( )
 	strcpy ( inverted,    frases_find ( 25, 3 ) );
 
 
-	text_init ( (struct genresSprites*)&cs_font_16x16, 16, PAL0 );
-	text_draw_sprites_x_centered ( gameover, 60, 0 );
+	bigtext_init ( (struct genresSprites*)&cs_font_16x16, 16, PAL0 );
+	bigtext_draw_sprites_x_centered ( gameover, 60, 0 );
 	VDP_updateSprites(80,1);
 
 
@@ -32,22 +33,17 @@ void screen_gameover ( )
 	u16 x2 = screenWidth/8/2 - strlen(inverted)/2;
 	u16 x3 = screenWidth/8/2 - strlen(phrasepwd)/2;
 
-	SYS_disableInts();
-
-	VDP_drawText ( thx4playing, x1, 13 );
+	TEXT_drawText ( thx4playing, x1, 13 );
 
 	if ( gamestate.dificultad > 2 )
 	{
-		VDP_drawText ( inverted, x2, 17 );
+		TEXT_drawText ( inverted, x2, 17 );
 	}
 
-	VDP_drawText ( phrasepwd, x3, 19 );
-	VDP_drawText ( pwd, 16, 22 );
+	TEXT_drawText ( phrasepwd, x3, 19 );
+	TEXT_drawText ( pwd, 16, 22 );
 
-	SYS_enableInts();
-
-
-
+	
 	displayOn(0);
 
 

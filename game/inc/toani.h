@@ -1,3 +1,5 @@
+#pragma once
+
 void toani_init             ( );
 void toani_update           ( );
 

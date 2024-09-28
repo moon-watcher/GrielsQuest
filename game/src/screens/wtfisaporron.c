@@ -11,7 +11,7 @@ void screen_wtfisaporron ( )
 	displayOff(0);
 
 	VDP_setScreenWidth320();
-	VDP_setPlanSize ( 64, 32 );
+	VDP_setPlaneSize ( 64, 32, false );
 
 //	palette_init();
 	vram_init ( VRAM_DEFAULT );
@@ -48,8 +48,8 @@ void screen_wtfisaporron ( )
 		waitHz(1);
 
 		SYS_disableInts();
-		VDP_setPalette ( PAL1, images[i]->palette->data );
-		VDP_setMap ( PLAN_A, images[i]->map,TILE_ATTR_FULL ( PAL1, 0, 0, 0, vram_pos[i] ), x, y );
+		PAL_setPalette ( PAL1, images[i]->palette->data, CPU );
+		VDP_setMap ( BG_A, images[i]->tilemap,TILE_ATTR_FULL ( PAL1, 0, 0, 0, vram_pos[i] ), x, y );
 		SYS_enableInts();
 	}
 

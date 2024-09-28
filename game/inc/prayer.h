@@ -1,3 +1,5 @@
+#pragma once
+
 #define PRAYER_PRAYERS  11
 #define PRAYER_LINES     6
 

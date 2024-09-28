@@ -1,3 +1,5 @@
+#pragma once
+
 //#define GRS(x)  (struct genresSprites *)  &(x)
 #define BREAK   ((u16) -1)
 

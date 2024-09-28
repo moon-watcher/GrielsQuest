@@ -1,0 +1,32 @@
+BITMAP ob_staff_kbrah    "game/data/other/staff/kbrah.bmp"      0
+BITMAP ob_staff_kbrah2   "game/data/other/staff/kbrah2.bmp"     0
+BITMAP ob_staff_notah    "game/data/other/staff/notah.bmp"      0
+BITMAP ob_staff_griel    "game/data/other/staff/griel.bmp"      0
+BITMAP ob_staff_beach    "game/data/other/staff/beach.bmp"      0
+BITMAP ob_staff_kbritah  "game/data/other/staff/kbritah.bmp"    0
+BITMAP ob_staff_kbritah2 "game/data/other/staff/kbritah2.bmp"    0
+BITMAP ob_staff_title_1  "game/data/other/staff/staff_title_1.bmp" 0
+BITMAP ob_staff_title_2  "game/data/other/staff/staff_title_2.bmp" 0
+BITMAP ob_staff_title_3  "game/data/other/staff/staff_title_3.bmp" 0
+
+BITMAP ob_logo_Sega      "game/data/other/logo_Sega.bmp"        0
+BITMAP ob_logo_Karoshi   "game/data/other/logo_Karoshi.bmp"     0
+BITMAP ob_logo_OookLab   "game/data/other/logo_OookLab.bmp"     0
+BITMAP ob_logo_copyright "game/data/other/logo_copyright.bmp"   0
+
+BITMAP ob_intro_1        "game/data/other/intro_1.bmp"         0
+BITMAP ob_intro_2        "game/data/other/intro_2.bmp"         0
+BITMAP ob_intro_3        "game/data/other/intro_3.bmp"         0
+
+SPRITE os_intro_3_c       "game/data/other/intro/intro3c.bmp"  32 32  0  0  0
+SPRITE os_intro_3_d       "game/data/other/intro/intro3d.bmp"   8 16  0  0  0
+SPRITE os_intro_4_c       "game/data/other/intro/intro4c.bmp"  32 32  0  0  0
+;SPRITE os_title_subtitle  "game/data/other/title/subtitle.bmp" 32 24  0  0  0
+
+BITMAP ob_ending_1       "game/data/other/ending_1.bmp"         0
+BITMAP ob_ending_2       "game/data/other/ending_2.bmp"         0
+BITMAP ob_ending_3       "game/data/other/ending_3.bmp"         0
+
+BITMAP ob_title_1        "game/data/other/title_1.bmp"          0
+BITMAP ob_title_2        "game/data/other/title_2.bmp"          0
+;

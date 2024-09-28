@@ -157,6 +157,7 @@
  - 19-04-2017 » First release
  - 03-08-2017 » Works stunning on real hard
  - 25-07-2018 » Free and public release
+ - 16-09-2024 » Recompile with current SGDK - Start
  --------------------------------------------------------------------------------------------------------------------------------
 
 

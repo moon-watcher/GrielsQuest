@@ -16,7 +16,7 @@ static void writeText ( u8 *str, u16 pal, u8 inc_y )
 
     SYS_disableInts();
     VDP_setTextPalette ( pal );
-    VDP_drawText ( prepare_string(str), x, y );
+    TEXT_drawText ( str, x, y );
     SYS_enableInts();
 
     y += inc_y;
@@ -35,10 +35,10 @@ static void writeTextCredits1 ()
     writeText ( "Daniel Nevado @DanySnowyman", PAL2, 4 );
 
     writeText ( "Music & SFX", PAL1, 2 );
-    writeText ( "David Sánchez @DavidBonus", PAL2, 4 );
+    writeText ( "David SÃ¡nchez @DavidBonus", PAL2, 4 );
 
     writeText ( "Testing", PAL1, 2 );
-    writeText ( "Alfonso Martínez @_SrPresley_", PAL2, 4 );
+    writeText ( "Alfonso MartÃ­nez @_SrPresley_", PAL2, 4 );
 }
 
 
@@ -48,10 +48,10 @@ static void writeTextCredits1 ()
 static void writeTextCredits2 ()
 {
     writeText ( "Translators", PAL1, 2 );
-    writeText ( "Felipe Monge Corbalán @vakapp", PAL2, 2 ); // ENGLISH
+    writeText ( "Felipe Monge CorbalÃ¡n @vakapp", PAL2, 2 ); // ENGLISH
     writeText ( "DaRkHoRaCe @oongamoonga", PAL2, 2 ); // ITALIAN
     writeText ( "KanedaFr @SpritesMind", PAL2, 2 ); // FRENCH
-    writeText ( "Jordi Montornés Solé @jordimontornes", PAL2, 2 ); // CATALÀ
+    writeText ( "Jordi MontornÃ©s SolÃ© @jordimontornes", PAL2, 2 ); // CATALï¿½
     writeText ( "Natsumi", PAL2, 2 ); // FINNISH
     writeText ( "Paspallas @PaspallasDev ", PAL2, 2 ); // GALEGO
     writeText ( "Thiago F. Alves", PAL2, 2 ); // BR-PORTUGUESE
@@ -68,7 +68,7 @@ static void writeTextCredits2 ()
 static void writeTextCredits3 ()
 {
     writeText ( "Thanks to", PAL1, 2 );
-    writeText ( "Bruce Rodríguez @emigrantebruce", PAL2, 2 );
+    writeText ( "Bruce RodrÃ­guez @emigrantebruce", PAL2, 2 );
     writeText ( "Eduardo Robsy @EduRobsy", PAL2, 2 );
     writeText ( "Jon Cortazar @Jon_Cortazar ", PAL2, 4 );
 }

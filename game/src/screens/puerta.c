@@ -1,5 +1,6 @@
 #include "../inc/include.h"
 #include "../inc/colores_textos.h"
+#include "../inc/genres_externs.h"
 
 
 
@@ -19,26 +20,9 @@ const u16 paleta[16]    = { 0x000, 0x000, 0x000, 0x000, 0x000, 0x000, 0x000, 0x0
 
 static void _frases_tt_init ( u16 f )
 {
-	tt_init ( );
+	typetext_init ( );
 	frases_init ( f );
-
-
-	#undef TT_A
-	#undef TT_B
-	#undef TT_C
-	#undef TT_START
-
-//	#define TT_A       tt_info.go_next = true;
-//	#define TT_B       tt_info.go_next = true;
-//	#define TT_C       tt_info.go_next = true;
-
-	#define TT_A       goto fin;
-	#define TT_B       goto fin;
-	#define TT_C       goto fin;
-	#define TT_START   goto fin;
-
-	tt_info.buttons = ( BUTTON_A|BUTTON_B|BUTTON_C|BUTTON_START );
-
+	
 	#undef  WAITBREAK
 	#define WAITBREAK      goto fin;
 }
@@ -55,11 +39,11 @@ static void _poner_mascara()
 	SYS_enableInts();
 
 	SYS_disableInts();
-	VDP_fillTileMapRect ( PLAN_A, TILE_ATTR_FULL ( PAL0, 1, 0, 0, pos_tile_vacio ),  1,  0, 38,  1 );
+	VDP_fillTileMapRect ( BG_A, TILE_ATTR_FULL ( PAL0, 1, 0, 0, pos_tile_vacio ),  1,  0, 38,  1 );
 	SYS_enableInts();
 
 	SYS_disableInts();
-	VDP_fillTileMapRect ( PLAN_A, TILE_ATTR_FULL ( PAL0, 1, 0, 0, pos_tile_vacio ),  1, 19, 38,  9 );
+	VDP_fillTileMapRect ( BG_A, TILE_ATTR_FULL ( PAL0, 1, 0, 0, pos_tile_vacio ),  1, 19, 38,  9 );
 	SYS_enableInts();
 }
 
@@ -80,7 +64,7 @@ static void _draw_spriteset ( SPRITESET *set, struct genresSprites *res, u8 widt
 
 static void _mover_escena ( s16 posicion )
 {
-	VDP_setVerticalScroll ( PLAN_B, posicion );
+	VDP_setVerticalScroll ( BG_B, posicion );
 
 	spriteset_move ( &sets[0],  40, - (posicion)+200  );
 
@@ -162,7 +146,7 @@ u16 screen_puerta ( )
 	displayOff(0);//VDP_setEnable ( false );
 	SYS_disableInts ( );
 
-	VDP_setPlanSize ( 64, 64 );
+	VDP_setPlaneSize ( 64, 64, false );
 
 	splist_reorder ( );
 
@@ -173,7 +157,7 @@ u16 screen_puerta ( )
 
 
 	SYS_disableInts();
-    VDP_drawImageEx ( PLAN_B, &ob_puerta_fondo_b, TILE_ATTR_FULL(PAL0, 0, 0, 0, vram_new ( ob_puerta_fondo_b.tileset->numTile ) ),  1, 1, 0, 0 ); // Fondo
+    VDP_drawImageEx ( BG_B, &ob_puerta_fondo_b, TILE_ATTR_FULL(PAL0, 0, 0, 0, vram_new ( ob_puerta_fondo_b.tileset->numTile ) ),  1, 1, 0, 0 ); // Fondo
     SYS_enableInts();
 
 	_poner_mascara();
@@ -190,10 +174,10 @@ u16 screen_puerta ( )
 	_draw_spriteset ( &sets[6],  (struct genresSprites*) &os_puerta_puerta_4_16x24,   1, 2, 100,  10, TILE_ATTR(PAL1,0,0,0) ); // Puerta
 	_draw_spriteset ( &sets[7],  (struct genresSprites*) &os_puerta_puerta_5_16x24,   1, 1, 120,  10, TILE_ATTR(PAL1,0,0,0) ); // Puerta
 
-	_draw_spriteset ( &sets[8],  (struct genresSprites*) &os_puerta_medallon_1_24x24, 1, 1,  20,  10, TILE_ATTR(PAL1,0,0,0) ); // Medallón
-	_draw_spriteset ( &sets[9],  (struct genresSprites*) &os_puerta_medallon_2_24x24, 1, 1,  20,  40, TILE_ATTR(PAL1,0,0,0) ); // Medallón
-	_draw_spriteset ( &sets[10], (struct genresSprites*) &os_puerta_medallon_3_24x24, 1, 1,  20,  60, TILE_ATTR(PAL1,0,0,0) ); // Medallón
-	_draw_spriteset ( &sets[11], (struct genresSprites*) &os_puerta_medallon_4_24x24, 1, 1,  20, 100, TILE_ATTR(PAL1,0,0,0) ); // Medallón
+	_draw_spriteset ( &sets[8],  (struct genresSprites*) &os_puerta_medallon_1_24x24, 1, 1,  20,  10, TILE_ATTR(PAL1,0,0,0) ); // Medallï¿½n
+	_draw_spriteset ( &sets[9],  (struct genresSprites*) &os_puerta_medallon_2_24x24, 1, 1,  20,  40, TILE_ATTR(PAL1,0,0,0) ); // Medallï¿½n
+	_draw_spriteset ( &sets[10], (struct genresSprites*) &os_puerta_medallon_3_24x24, 1, 1,  20,  60, TILE_ATTR(PAL1,0,0,0) ); // Medallï¿½n
+	_draw_spriteset ( &sets[11], (struct genresSprites*) &os_puerta_medallon_4_24x24, 1, 1,  20, 100, TILE_ATTR(PAL1,0,0,0) ); // Medallï¿½n
 
 	vdpSpriteCache[sprite-1].link = 0;
 
@@ -206,7 +190,7 @@ u16 screen_puerta ( )
 
 	// Muestra la pantalla
 	fadeIn ( ob_puerta_fondo_b.palette->data, os_puerta_medallon_1_24x24.pal, os_puerta_orco_2_24x24.pal, 0, 30, true );
-	VDP_waitVSync();
+	SYS_doVBlankProcess();
 
 
 
@@ -225,7 +209,7 @@ u16 screen_puerta ( )
 
 	_mover_escena ( 144 );
 	VDP_updateSprites(80,1);
-	VDP_waitVSync();
+	SYS_doVBlankProcess();
 
 
 	VDP_setTextPalette(PAL0);
@@ -233,24 +217,24 @@ u16 screen_puerta ( )
 	if ( _terminados == 0 )
 	{
 		_frases_tt_init( 12 );
-		frases_tt_write( GRIEL );
+		FRASES_TT_WRITE( GRIEL, fin, fin );
 	}
 	else if ( _terminados < 4 )
 	{
 		_frases_tt_init( 13 );
-		frases_tt_write( GRIEL );
-		frases_tt_write( NARRADOR );
+		FRASES_TT_WRITE( GRIEL, fin, fin );
+		FRASES_TT_WRITE( NARRADOR, fin, fin );
 	}
 	else
 	{
 		_frases_tt_init ( 14 );
 
-		frases_tt_write ( YONKI );
-		frases_tt_write ( GRIEL );
-		frases_tt_write ( YONKI );
+		FRASES_TT_WRITE ( YONKI, fin, fin );
+		FRASES_TT_WRITE ( GRIEL, fin, fin );
+		FRASES_TT_WRITE ( YONKI, fin, fin );
 
 		SYS_disableInts();
-		VDP_fillTileMapRect (PLAN_A, TILE_ATTR_FULL ( PAL0, 1, 0, 0, pos_tile_vacio ),  1, 19, 38,  9 );
+		VDP_fillTileMapRect (BG_A, TILE_ATTR_FULL ( PAL0, 1, 0, 0, pos_tile_vacio ),  1, 19, 38,  9 );
         SYS_enableInts();
 
 		s16 x= 0, i= 144;
@@ -264,14 +248,14 @@ u16 screen_puerta ( )
 			--i;
 
 			VDP_updateSprites(80,1);
-			VDP_waitVSync();
+			SYS_doVBlankProcess();
 		}
 
 		_mover_puerta(300,0);
 		VDP_updateSprites(80,1);
-		VDP_waitVSync();
+		SYS_doVBlankProcess();
 
-		frases_tt_write ( GRIEL );
+		FRASES_TT_WRITE ( GRIEL, fin, fin );
 
 
 		ret = SCREEN_JUMP_TO_NEWGAME;
@@ -285,7 +269,7 @@ fin:
 	displayOff ( 30 );
 
 
-	VDP_setPlanSize ( 64, 32 );
+	VDP_setPlaneSize ( 64, 32, false );
 
 	return ret;
 }

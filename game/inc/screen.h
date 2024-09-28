@@ -1,3 +1,5 @@
+#pragma once
+
 enum
 {
 	SCREEN_JUMP_TO_HOWTOPLAY = 1,
@@ -8,7 +10,7 @@ enum
 	SCREEN_JUMP_TO_STAFF,
 	SCREEN_JUMP_TO_SOUNDTEST,
 	SCREEN_JUMP_TO_DIFFICULT,
-	SCREEN_JUMP_TO_AMBIENT,
+	SCREEN_JUMP_TO_MAP,
 	SCREEN_JUMP_TO_INTRO5,
 	SCREEN_JUMP_TO_PUERTA,
 	SCREEN_JUMP_TO_ENDING,
@@ -44,9 +46,11 @@ u16   screen_title_menu_1       ( );
 void  screen_gameover           ( );
 void  screen_sound_test         ( );
 u16   screen_ingame_how_to_play ( LEVEL wl );
-void  screen_disclaimer         ( );
+void  screen_disclaimer_simple  ();
+void  screen_disclaimer_cool    (int, int, int (*)());
 void  screen_ob_intro_2_b_f     ( );
-void  screen_publisher          ( );
+void  screen_publisher_1985     ( );
+void  screen_publisher_POR      ( );
 void  screen_wtfisaporron       ( );
 void  screen_languages          ( );
 

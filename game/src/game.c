@@ -1,5 +1,5 @@
 #include "../inc/include.h"
-
+#include "../inc/genres_externs.h"
 
 static LEVEL wl;
 
@@ -18,8 +18,8 @@ static void _leave_text ( u16 ret )
 
 	if ( f != NULL )
 	{
-		text_init ( (struct genresSprites *) &cs_font_16x16, 16, PAL0 );
-		u16 sprite = text_draw_sprites_centered ( f, 30 );
+		bigtext_init ( (struct genresSprites *) &cs_font_16x16, 16, PAL0 );
+		u16 sprite = bigtext_draw_sprites_centered ( f, 30 );
 		--sprite;
 
 		VDP_setSpriteLink ( sprite, 0 );
@@ -31,24 +31,108 @@ static void _leave_text ( u16 ret )
 }
 
 
+//////////////////////////////////////////////////////
 
 
+LEVEL *game_get_wl ( )
+{
+	return (LEVEL*) &wl;
+}
 
-static void _init ( )
+void game_level_inc ( )
+{
+	// sï¿½lo incrementa el round si se ha
+	// completado el ï¿½tlimo nivel disponible
+
+	if ( gamestate.current_round == gamestate.ambientes [ (u8) gamestate.current_ambiente ] )
+	{
+		++gamestate.ambientes [ (u8) gamestate.current_ambiente ];
+	}
+}
+
+u16 game_ingame_step(u16 ret)
+{
+	JoyReader_update();
+	death_frame ( &wl );
+	toani_update ( );
+	chorrada_control ( &wl );
+	undo_control ( &wl );
+	level_update ( );
+	splist_reorder ( );
+	splist_reorder_bigboys ( );
+	pause_show ( &wl, &ret );
+
+	if ( ret == LEVEL_EXIT )
+	{
+		music_stop();
+		return ret;
+	}
+
+	if ( ret == LEVEL_RESTART )
+	{
+		music_stop();
+		player_dead ( PLAYER_1, &wl, ret );
+		return ret;
+	}
+
+
+	player_control_buttons ( &wl );
+	player_ctrldev ( &ret );
+
+	if ( player_is_moving ( PLAYER_1 ) )
+	{
+		player_changed_dir ( PLAYER_1 );
+	}
+	else
+	{
+		player_interact_with_object ( &wl );
+
+		if ( player(PLAYER_1)->on_door )
+		{
+			ret = LEVEL_COMPLETED;
+		}
+
+		if ( undo_rest(0) < 0 )
+		{
+			ret = LEVEL_RESTART;
+		}
+
+		player_action ( PLAYER_1 );
+		player_logic_next ( PLAYER_1, &wl );
+	}
+
+	if ( ret == LEVEL_COMPLETED )
+	{
+		player_inc_level ( );
+		musiclist_play ( MUSIC_FSCLEAR ); // wl.music
+		return ret;
+	}
+
+	player_move ( PLAYER_1 );
+	player_update ( PLAYER_1 );
+
+	vobject_update ( );
+	vobject_upload ( );
+
+	showFPS ( );
+
+	VDP_updateSprites(80, 1);
+	SYS_doVBlankProcess();
+
+	return ret;
+}
+
+
+u16 game_play ( )
 {
 	displayInit();
 	displayOff(0);
-	SYS_disableInts();
 	resetScreen();
 	resetSprites();
 	resetScroll();
 	resetPalettes();
-	SYS_enableInts();
-
-	voffset_horizontal = VOFFSET_HORIZONTAL;
-	voffset_vertical   = VOFFSET_VERTICAL;
-
-	VDP_setPlanSize ( 64, 32 );
+		
+	VDP_setPlaneSize ( 64, 32, false );
 
 	font_init ( );
 	sd_init();
@@ -65,18 +149,17 @@ static void _init ( )
 	wl = level_init ( );
 	player_init ( PLAYER_1 );
 
-	level_presentation();
+	//
+	scene_presentation();
 	splist_hide_sprites();
-	text_reset ( );
+	bigtext_reset ( );
 
 	displayInit();
 	displayOff(0);
-	SYS_disableInts();
 	resetScreen();
 	resetScroll();
 	resetPalettes();
-	SYS_enableInts();
-
+	
 	splist_draw ( );
 	player_update ( PLAYER_1 );
 	level_draw ( &wl );
@@ -90,289 +173,124 @@ static void _init ( )
 
 	stars_draw ();
 
-
 	musiclist_play ( level_get_music() ); // wl.music
-}
 
-
-//////////////////////////////////////////////////////
-
-
-LEVEL *game_get_wl ( )
-{
-	return (LEVEL*) &wl;
-}
-
-
-
-void game_level_inc ( )
-{
-	// sólo incrementa el round si se ha
-	// completado el útlimo nivel disponible
-
-	if ( gamestate.current_round == gamestate.ambientes [ (u8) gamestate.current_ambiente ] )
-	{
-		++gamestate.ambientes [ (u8) gamestate.current_ambiente ];
-	}
-}
-
-
-u16 game_play ( )
-{
-	u16  ret = LEVEL_OK;
-	bool joyState = vint_getJoyReader();
-
-	vint_setJoyReader ( false );
-
-	_init ( );
-
+	u16 ret = LEVEL_OK;
 	while ( ret == LEVEL_OK )
-	{
-		JoyReader_update();
-		death_frame ( &wl );
-		toani_update ( );
-		chorrada_control ( &wl );
-		undo_control ( &wl );
-		level_update ( );
-		splist_reorder ( );
-		splist_reorder_bigboys ( );
-		pause_show ( &wl, &ret );
-
-		if ( ret == LEVEL_EXIT )
-		{
-		    music_stop();
-			break;
-		}
-
-		if ( ret == LEVEL_RESTART )
-		{
-		    music_stop();
-			player_dead ( PLAYER_1, &wl, ret );
-			break;
-		}
-
-
-		player_control_buttons ( &wl );
-		player_ctrldev ( &ret );
-
-		if ( player_is_moving ( PLAYER_1 ) )
-		{
-			player_changed_dir ( PLAYER_1 );
-		}
-		else
-		{
-			player_interact_with_object ( &wl );
-
-			if ( player(PLAYER_1)->on_door )
-			{
-				ret = LEVEL_COMPLETED;
-			}
-
-			if ( undo_rest(0) < 0 )
-			{
-				ret = LEVEL_RESTART;
-			}
-
-			player_action ( PLAYER_1 );
-			player_logic_next ( PLAYER_1, &wl );
-		}
-
-		if ( ret == LEVEL_COMPLETED )
-		{
-			player_inc_level ( );
-			musiclist_play ( MUSIC_FSCLEAR ); // wl.music
-			break;
-		}
-
-
-
-		player_move ( PLAYER_1 );
-		player_update ( PLAYER_1 );
-
-		vobject_update ( );
-		vobject_upload ( );
-
-		showFPS ( );
-
-		VDP_updateSprites(80, 1);
-		VDP_waitVSync();
-	}
-
+		ret = game_ingame_step(ret);
 
 	planHide();
 	_leave_text ( ret );
     music_stop();
     displayOff(30);
 	resetSprites();
-	vint_setJoyReader(joyState);
 	vram_destroy();
 
 	return ret;
 }
 
-
-
-
-
-
-void game_loop()
+void game_main_step()
 {
-	u16 to;
+	u16 to = SCREEN_JUMP_TO_NEWGAME;
+	u16 first_time = 1;
 
-	while ( true )
+	screen_mapa_init();
+
+	gamestate.visito_la_puerta = false;
+	puerta_abierta = 0;
+
+	if (DEV < ++gamestate.localdev) // 5: intro
 	{
-	    u16 first_time = 1;
+		screen_intro(1);
+	}
+	
+	if(DEV < ++gamestate.localdev) // 6: title
+	{
+		to = screen_title(0);
+	}
+	else
+	{
+		to = SCREEN_JUMP_TO_MAP; // 7: map
+	}
 
-		screen_mapa_init();
+	if (to == SCREEN_JUMP_TO_SOUNDTEST)
+	{
+		screen_sound_test();
+		return;
+	}
 
-		gamestate.visito_la_puerta = false;
-		puerta_abierta = 0;
+	if (to == SCREEN_JUMP_TO_CONTINUE && pwd8_screen())
+	{
+		to = SCREEN_JUMP_TO_MAP;
+		first_time = 0;
+	}
 
-		screen_intro ( 1 );
-		to = screen_title ( 0 );
-
-
-
-
-
-
-					if ( DEV  )
-					{
-					   gamestate.dificultad   =  3;
-					   gamestate.ambientes[0] = 14; // 14;
-					   gamestate.ambientes[1] = 14; // 14;
-					   gamestate.ambientes[2] = 14; // 14;
-					   gamestate.ambientes[3] = 14; // 14;
-					   gamestate.ambientes[4] =  6; // 6 ;
-					   gamestate.visito_la_puerta = true;
-					   //gamestate.lenguaje         = SPANISH;
-
-
-//					   gamestate.dificultad   =  2;
-//					   gamestate.ambientes[0] = 13; // 14;
-//					   gamestate.ambientes[1] = 13; // 14;
-//					   gamestate.ambientes[2] = 13; // 14;
-//					   gamestate.ambientes[3] = 13; // 14;
-//					   gamestate.ambientes[4] =  0; // 6 ;
-//					   gamestate.visito_la_puerta = false;
-//					   //gamestate.lenguaje         = ENGLISH;
-
-//					   gamestate.dificultad   =  2;
-//					   gamestate.ambientes[0] =  0; // 14;
-//					   gamestate.ambientes[1] =  0; // 14;
-//					   gamestate.ambientes[2] =  0; // 14;
-//					   gamestate.ambientes[3] =  0; // 14;
-//					   gamestate.ambientes[4] =  0; // 6 ;
-//					   gamestate.visito_la_puerta = true;
-//					   //gamestate.lenguaje         = SPANISH;
-
-
-//					   gamestate.dificultad   = 0;
-//					   gamestate.ambientes[0] = 5;
-//					   gamestate.ambientes[1] = 5;
-//					   gamestate.ambientes[2] = 5;
-//					   gamestate.ambientes[3] = 5;
-//					   gamestate.ambientes[4] = 3;
-//					   gamestate.visito_la_puerta = false;
-//					   //gamestate.lenguaje         = SPANISH;
-
-//					   gamestate.dificultad   = 0;
-//					   gamestate.ambientes[0] = 6;
-//					   gamestate.ambientes[1] = 6;
-//					   gamestate.ambientes[2] = 6;
-//					   gamestate.ambientes[3] = 6;
-//					   gamestate.ambientes[4] = 0;
-//					   gamestate.visito_la_puerta = false;
-//					   gamestate.lenguaje         = FRENCH;
-
-					}
-
-
-
-
-
-
-		if ( to == SCREEN_JUMP_TO_SOUNDTEST )
+	if (to == SCREEN_JUMP_TO_MAP) // ||  to == SCREEN_JUMP_TO_DIFFICULT  )
+	{
+		while (1)
 		{
-			screen_sound_test ( ) ;
-			continue;
-		}
+			displayInit();
+			displayOff(0);
+			resetScreen();
+			resetPalettes();
+			resetScroll();
+			resetSprites();
 
-		if ( to == SCREEN_JUMP_TO_CONTINUE  &&  pwd8_screen() )
-		{
-			to = SCREEN_JUMP_TO_AMBIENT;
+			to = screen_mapa(first_time);
 			first_time = 0;
-		}
 
-		if (  to == SCREEN_JUMP_TO_AMBIENT ) // ||  to == SCREEN_JUMP_TO_DIFFICULT  )
-		{
-			while ( 1 )
+			// visita al rey
+			if (to == SCREEN_JUMP_TO_INTRO5)
 			{
-				displayInit();
-				displayOff(0);
+				screen_intro(5);
+			}
 
+			// Muestra la puerta del ambiente volcï¿½n
+			if (to == SCREEN_JUMP_TO_PUERTA)
+			{
+				to = screen_puerta();
+			}
 
-				resetScreen   ( );
-				resetPalettes ( );
-				resetScroll   ( );
-				resetSprites  ( );
+			// juego
+			if (to == SCREEN_JUMP_TO_NEWGAME)
+			{
+				u16 state = LEVEL_OK;
 
-				to = screen_mapa( first_time );
-				first_time = 0;
-
-				// visita al rey
-				if ( to == SCREEN_JUMP_TO_INTRO5 )
+				while (1)
 				{
-					screen_intro ( 5 ) ;
-				}
+					state = game_play();
 
-				// Muestra la puerta del ambiente volcán
-				if ( to == SCREEN_JUMP_TO_PUERTA )
-				{
-					to = screen_puerta();
-				}
-
-				// juego
-				if ( to == SCREEN_JUMP_TO_NEWGAME )
-				{
-					u16 state = LEVEL_OK;
-
-					while ( 1 )
-					{
-						state = game_play ( );
-
-						if ( state == LEVEL_EXIT      ) break;
-						if ( state == LEVEL_COMPLETED ) break;
-					}
-
-					if ( gamestate_go_to_ending(state) )
-					{
-						to = SCREEN_JUMP_TO_ENDING;
+					if (state == LEVEL_EXIT)
 						break;
-					}
+					if (state == LEVEL_COMPLETED)
+						break;
+				}
+
+				if (gamestate_go_to_ending(state))
+				{
+					to = SCREEN_JUMP_TO_ENDING;
+					break;
 				}
 			}
 		}
+	}
 
-        if ( to == SCREEN_JUMP_TO_INTRO )
-        {
-            music_stop();
-            //screen_wtfisaporron ();
-            screen_griels ( ); // solo para Barcelona y demos
-            screen_credits ( );
-        }
+	if (to == SCREEN_JUMP_TO_INTRO)
+	{
+		music_stop();
+		// screen_wtfisaporron ();
+		screen_griels(); // solo para Barcelona y demos
+		screen_credits();
+	}
 
-		if ( to == SCREEN_JUMP_TO_ENDING )
+	if (to == SCREEN_JUMP_TO_ENDING)
+	{
+		screen_final(0);
+		screen_gameover();
+
+		if (gamestate.dificultad == 3)
 		{
-			screen_final(0);
-			screen_gameover();
-
-			if (gamestate.dificultad == 3 )
-			{
-				screen_staff ();
-			}
+			screen_staff();
 		}
-
 	}
 }
-

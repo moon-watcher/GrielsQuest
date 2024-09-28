@@ -1,3 +1,5 @@
+#pragma once
+
 #ifndef _BIGBOY_H_
 #define _BIGBOY_H_
 

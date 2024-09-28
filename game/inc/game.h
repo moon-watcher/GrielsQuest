@@ -1,3 +1,5 @@
+#pragma once
+
 enum
 {
 	LEVEL_OK = 1,
@@ -13,7 +15,7 @@ enum
 
 u16    game           ( );
 u16    game_play      ( );
-void   game_loop      ( );
+void   game_main_step ( );
 u16    game_ingame    ( );
 void   game_level_inc ( );
 LEVEL *game_get_wl    ( );

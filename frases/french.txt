@@ -1,0 +1,289 @@
+//Notah -> el Nota < the Dude > le Duc <- Duch
+
+//NDTR : I think level names should be kept in english
+(FRASE) { FRENCH,   1, "RISKY WOODS" },
+(FRASE) { FRENCH,   1, "MURCIANO'S LAIR" },
+(FRASE) { FRENCH,   1, "ABU ABYSS" },
+(FRASE) { FRENCH,   1, "PUSSY BEACH" },
+(FRASE) { FRENCH,   1, "KBRAH CASTLE" },
+(FRASE) { FRENCH,   1, "DUCHWORLD" }, //NDTR : only one adapted
+
+(FRASE) { FRENCH,   1, "Un peu tête en l'air ?" },
+(FRASE) { FRENCH,   1, "MISSION %02d" },
+
+//on pause
+(FRASE) { FRENCH,   2, "\\ CONTINUER" },
+(FRASE) { FRENCH,   2, "  REESSAYER" },
+(FRASE) { FRENCH,   2, "  ABANDONNER" },
+//NDTR : not found in game
+(FRASE) { FRENCH,   2, "RECOMMENCER|LA MISSION" }, // Note: "|" is a jump in text.c
+//NDTR : not found in game
+(FRASE) { FRENCH,   2, "ABANDONNER|LA MISSION" },  // Note: "|" is a jump in text.c
+//NDTR : not found in game
+(FRASE) { FRENCH,   2, "MISSION ACCOMPLIE" },
+
+(FRASE) { FRENCH,   3, "MISSION ACCOMPLIE" },
+
+(FRASE) { FRENCH,   4, "MISSION   " },
+
+(FRASE) { FRENCH,   5, "BINGO !" },
+(FRASE) { FRENCH,   5, "PRESQUE !" },
+(FRASE) { FRENCH,   5, "OH OH !" },
+(FRASE) { FRENCH,   5, "CA SE PRECISE" },
+(FRASE) { FRENCH,   5, "ESSAYES ENCORE" },
+(FRASE) { FRENCH,   5, "BIEN TENTE" },
+(FRASE) { FRENCH,   5, "SUIVANT" },
+(FRASE) { FRENCH,   5, "HEU...NON !" },
+(FRASE) { FRENCH,   5, "AUCUNE CHANCE" },
+(FRASE) { FRENCH,   5, "SERIEUX ?!" },
+(FRASE) { FRENCH,   5, "ZZZZzzzzz...." },
+(FRASE) { FRENCH,   5, "?!?!" },
+
+//
+// excuses
+(FRASE) { FRENCH,  6, "J'ai peur du loup." },                            		// woods
+(FRASE) { FRENCH,  6, "Sans glace mon cocktail, merci." },       				// iceland
+(FRASE) { FRENCH,  6, "Je vais encore avoir du sable dans les chaussures." },   // egypt
+(FRASE) { FRENCH,  6, "J'ai laissé mon maillot de bain à la maison." },         // beach
+//NDTR : not exact translation, only some famous quotes for french geeks ;)
+//(FRASE) { FRENCH,  6, "Here's Johnny!" },                                                     // The shinning ref.
+(FRASE) { FRENCH,  6, "Je suis trop vieux pour ces conneries." },                              // L'arme fatale
+//(FRASE) { FRENCH,  6, "These aren't the droids you're looking for" },                        // Starwars ref
+(FRASE) { FRENCH,  6, "S'il y a trop de grille-pains, c'est grillé !" },                        // Hotel Mario CDI
+//(FRASE) { FRENCH,  6, "I can't go there, that's the forbidden triangle." },                   // Monkey Island 2 refference
+(FRASE) { FRENCH,  6, "Les patients sont priés d'être patients." },                  		  // Theme Hospital
+//    (FRASE) { FRENCH,  6, "I can't go there, that's the forbidden dodecahedron." },               // Monkey Island 2 refference
+(FRASE) { FRENCH,  6, "Tu es aussi beau qu'un singe en déshabillé !" },               		  // Monkey Island
+(FRASE) { FRENCH,  6, "RISE FROM YOUR GRAVE !" },                                              // Altered beast refference
+//    (FRASE) { FRENCH,  6, "Look behind you, a three headed monkey!" },                           // Monkey Island 2 refference
+(FRASE) { FRENCH,  6, "Le train de tes injures roule sur le rail de mon indifférence." },     // La classe américaine
+//    (FRASE) { FRENCH,  6, "Is that a banana in your pocket or are you just happy to see me?." },  // Monkey Island 2 refference
+(FRASE) { FRENCH,  6, "C'est une banane dans ta poche ou tu es juste content de me voir ?" },  // Monkey Island 2 refference
+//    (FRASE) { FRENCH,  6, "Scotty, we need more power!" },                                        // Star trek refference
+(FRASE) { FRENCH,  6, "Vous voulez peut-être que je sorte pour pousser ?" },                 // Star wars
+//    (FRASE) { FRENCH,  6, "How many Klingons does it take to change a light bulb?." },            // Joke, Star trek refference
+(FRASE) { FRENCH,  6, "Il est mort Jim !" },            										// Star trek
+//    (FRASE) { FRENCH,  6, "Do you know that joke which says...?" },                               // Eugenio LoL
+(FRASE) { FRENCH,  6, "C'est l'histoire d'un mec..." },                               			// Coluche
+
+(FRASE) { FRENCH,  6, "Retourne au château de Kbrah." },                                                 //
+(FRASE) { FRENCH,  6, "C'est quand tu veux ! Je n'ai pas toute la journée, moi." },                                     //
+(FRASE) { FRENCH,  6, "Bon, tu te décides, oui !?" },                                       //
+
+(FRASE) { FRENCH,  7, "Voici Kbrah, le démon qui s'éclate." },
+(FRASE) { FRENCH,  7, "Il passe son temps à kidnapper des princesses qu'il enferme dans son château," },
+(FRASE) { FRENCH,  7, "à jouer des heures entières à des jeux vidéo horribles et violents" },
+(FRASE) { FRENCH,  7, "ou à réveiller les morts avec son groupe de death metal. |WCLEAR:180 Mais surtout..." },
+
+(FRASE) { FRENCH,  8, "Il organise des soirées endiablées avec ses potes. |WAIT Soirées qui se terminent rarement bien..." },
+
+(FRASE) { FRENCH,  9, "Le lendemain matin, au château du roi Duch." },
+(FRASE) { FRENCH,  9, "Wo-wo-wo ! |WAIT Qui m'a mis un tel bazar cette nuit ?! |WCLEAR AAAHHHHH!" },
+(FRASE) { FRENCH,  9, "Mon Porron! |WAIT IL A ETE VOLE !" },
+(FRASE) { FRENCH,  9, "La princesse a disparu également !" },
+(FRASE) { FRENCH,  9, "La...?! Ah oui, elle... |WAIT Le Porron sacré doit nous être rendu. |WAIT Réveillez Griel, il a assez fait la sieste." },
+
+(FRASE) { FRENCH, 10, "Griel, le royaume est perdu sans le Porron sacré. |WAIT Tu dois le retrouver à tout prix !|WCLEAR:180 Je reconnais bien là la signature de Kbrah, mon ennemi juré. Il doit sûrement être derrière tout ca."},
+(FRASE) { FRENCH, 10, "La princess a également été enlevée !" },
+(FRASE) { FRENCH, 10, "Oui, oui, la princesse... |WAIT Va au château de ce rustre, reviens avec le Porron sacré ... et je t'accorderai la main de ma fille. |WAIT Compris ? |WBREAK Alors, bouge-toi !" },
+
+//back to king's castle
+(FRASE) { FRENCH, 11, "Rapporte moi le Porron sacré et je t'accorderai la main de ma fille. |WAIT Il te faut une invitation ?!|WBREAK Dépêche-toi !" },
+
+// Door option 1
+(FRASE) { FRENCH, 12, "C'est fermé. |WCLEAR:180 Une seconde... ces formes me disent quelque chose... |WBREAK Les pièces légendaires ! |WCLEAR:180 Je suppose que je dois toutes les retrouver et les placer ici, je l'ai déjà vu dans un film. |WCLEAR:180 Purée, cela va me prendre la journée !" },
+// door option 2
+(FRASE) { FRENCH, 13, "Cela n'a pas l'air de fonctionner, je verrai plus tard." },
+
+// door option 3
+(FRASE) { FRENCH, 14, "Tu as retrouvé les pièces légendaires. Elles ont l'air classe! |WAIT Et pourquoi as-tu fait cela ?" },
+(FRASE) { FRENCH, 14, "Pour ouvrir la porte, j'ai une affaire à régler avec Kbrah..." },
+(FRASE) { FRENCH, 14, "Tout ce temps perdu... |WAIT:60 alors que tu aurais pu simplement sonner à la porte, gros malin ! HA, HA !" },
+(FRASE) { FRENCH, 14, "Sérieux ?! |WAIT Si jamais tu en parles à quelqu'un, tu passeras un sale quart d'heure." },
+
+// final 1
+//pestilent beast, from l'abbaye des morts
+(FRASE) { FRENCH, 15, "Kbrah, bête pestilentielle. |WAIT Rends moi le Porron sacré, nous savons que tu l'as volé hier !" },
+(FRASE) { FRENCH, 15, "Attends, tu es venu ici uniquement pour ce truc ? |WAIT Tiens, prends le, je ne sais même pas à quoi il sert..." },
+(FRASE) { FRENCH, 15, "Ooooh ! |WAIT Qu'il est mignon ! |WAIT Je peux le garder pour jouer avec, papa ?" },
+//TODO : ""spoiled"" ?
+(FRASE) { FRENCH, 15, "Aucune chance ! |WAIT Je ne t'ai pas élévé pour que tu t'encanailles avec des pseudo chevaliers, Kbritah. |WCLEAR:180 De toute façon, il allait partir, n'est-ce pas mon garçon ?" },
+(FRASE) { FRENCH, 15, "Minute papillon, je ne partirai pas sans....heu...sans la princesse Beacb." },
+(FRASE) { FRENCH, 15, "La princesse n'est plus ici, nous n'avions pas... |WAIT le coeur de la garder plus longtemps ici. |WCLEAR:180 Maintenant, prends ce truc et tire toi d'ici avant que je ne change d'avis !" },
+
+// final 2
+(FRASE) { FRENCH, 16, "Bravo, mon fils! Tu ne m'as pas déçu. |WCLEAR:180 Oh, mon cher Porron sacré ! Te revoilà chez papa Duch." },
+(FRASE) { FRENCH, 16, "Mon roi, quel est donc son pouvoir ?" },
+(FRASE) { FRENCH, 16, "C'est un artefact magique de l'ancien temps qui fournit du vin à l'infini. |WAIT:60 Un délicieux nectar, digne des plus grands millesimes." },
+(FRASE) { FRENCH, 16, "Du vin?! |WAIT Tout cela pour de la vinasse ?! |WAIT |WCLEAR:180 Heureusement qu'il y a un lot de consolation : la princesse." },
+
+// final 2 // weak
+(FRASE) { FRENCH, 17, "Dans tes rêves ! |WAIT Tu croyais franchement qu'en finissant le jeu en mode facile, tu aurais ma fille ?" },
+(FRASE) { FRENCH, 17, "Mais, mais..." },
+(FRASE) { FRENCH, 17, "Il n'y a pas de mais ! Ma fille mérite un homme, un vrai. |WAIT Prends ce mot de passe et recommence si tu en as le courage." },
+// Weak ending finishes here
+
+// final 2 // hard guy or nightmare
+(FRASE) { FRENCH, 18, "Avec plaisir ! |WAIT:120 Beach ! Mon coeur ! Viens ici un instant !" },
+(FRASE) { FRENCH, 18, "Faites venir la princesse, bon sang ! |WAIT Griel a risqué sa vie pour elle !" },
+(FRASE) { FRENCH, 18, "C'est déjà une belle femme, tu pourras t'en rendre compte..." },
+(FRASE) { FRENCH, 18, "Griel ? |WCLEAR:180 C'est toi, Griel ? mon sauveur..." },
+
+
+// final 3 // hard guy or nightmare
+(FRASE) { FRENCH, 19, "GROARRR ! |WAIT Mais tu es mignon à croquer ! |WAIT VIENS DANS MES BRAS, MON CHERI !" },
+(FRASE) { FRENCH, 19, "AAAAAAH ! NON ! NE ME MANGE PAS !" },
+(FRASE) { FRENCH, 19, "Ha, ha, ha! |WAIT Juste une petite bouchée ..." },
+
+// final 3 // hard guy
+//TODO : à reformuler
+(FRASE) { FRENCH, 20, "Houla ! Envie de tenter une \"meilleure\" fin ?" },
+// This is hard guy ending
+
+// final 3 // nightmare
+(FRASE) { FRENCH, 21, "PRENDS CA ! |WAIT Le beau brun est à moi !" },
+(FRASE) { FRENCH, 21, "... ?! |WAIT Kbritah ?" },
+
+// final 4 // nightmare
+(FRASE) { FRENCH, 22, "J'ai eu chaud ! |WAIT Mais...Pourquoi m'avoir sauvé ?" },
+(FRASE) { FRENCH, 22, "Tu as terminé le jeu en mode difficile, tu méritais mieux que cela, non ? |WCLEAR:180 Et tu es si mignon avec tes petites cornes..." },
+(FRASE) { FRENCH, 22, "Oh, merci... mais tu ne vas rien me faire, n'est-ce pas ??" },
+(FRASE) { FRENCH, 22, "Ha, ha, ha ! |WAIT Allez, ca s'arrose ! |WAIT Laisse moi te montrer la \"vraie\" fin !" },
+(FRASE) { FRENCH, 22, "Super ! Je suis impatient de voir cela !" } ,
+//TODO : à reformuler
+(FRASE) { FRENCH, 22, "Oh, incroyable ! |WAIT Tu sembles encore plus naïf que je ne le pensais... |WAIT:200" },
+
+
+
+// ------------------> "Guide Griel in his quest for" <------- // 2 phrases 28 length max each  &  max 20/2 --> 10 phrases
+
+//  (FRASE) { FRENCH, 23, "1234567890123456789012345678" }, //28 MAX
+(FRASE) { FRENCH, 23, "Assiste Griel dans sa quête" },
+(FRASE) { FRENCH, 23, "du Porron sacré." },
+
+(FRASE) { FRENCH, 23, "Remplis chaque mission." },
+(FRASE) { FRENCH, 23, "Terrase tous tes ennemis." },
+
+(FRASE) { FRENCH, 23, "Retrouve toutes les pièces" },
+(FRASE) { FRENCH, 23, "légendaires." },
+
+(FRASE) { FRENCH, 23, "Brise le scellé magique du" },
+(FRASE) { FRENCH, 23, "château de Kbrah." },
+
+(FRASE) { FRENCH, 23, "Utilise toujours l'arme la" },
+(FRASE) { FRENCH, 23, "mieux adaptée." },
+
+(FRASE) { FRENCH, 23, "Ne laisse pas la hâte guider" },
+(FRASE) { FRENCH, 23, "tes pas." },
+
+(FRASE) { FRENCH, 23, "En cas d'erreur, utilise"},
+(FRASE) { FRENCH, 23, "un de tes UNDOs avec C." },
+
+(FRASE) { FRENCH, 23, "Si tu es patient, chaque" },
+(FRASE) { FRENCH, 23, "UNDO te sera rendu." },
+
+(FRASE) { FRENCH, 23, "Mais en cas d'erreur fatale," },
+(FRASE) { FRENCH, 23, "un UNDO te sera repris." },
+
+(FRASE) { FRENCH, 23, "Ne désespère pas, il y a" },
+(FRASE) { FRENCH, 23, "toujours une solution." },
+
+(FRASE) { FRENCH, 23, "Mais si tu tournes en rond," },
+(FRASE) { FRENCH, 23, "repars de zéro la mission." }, //NDTR de zéro et non à zéro (car identique et non nouvelle mission)
+
+(FRASE) { FRENCH, 23, "Pressé ? Utilise bouton B" },
+(FRASE) { FRENCH, 23, "pour courir." },
+
+(FRASE) { FRENCH, 23, "Note précieusement tes mots" },
+(FRASE) { FRENCH, 23, "de passe." },
+
+(FRASE) { FRENCH, 23, "Entraîne-toi sur les" },
+(FRASE) { FRENCH, 23, "missions déjà accomplies." },
+
+(FRASE) { FRENCH, 23, "Une envie pressante ? Le" },
+(FRASE) { FRENCH, 23, "bouton Start est là pour ça." },
+
+(FRASE) { FRENCH, 23, "Une surprise attend celui" },
+(FRASE) { FRENCH, 23, "qui relevera le défi." },
+
+(FRASE) { FRENCH, 23, "Si le doute t'assaille," },
+(FRASE) { FRENCH, 23, "consulte un psy." },
+
+(FRASE) { FRENCH, 23, "Le royaume compte sur toi" },
+(FRASE) { FRENCH, 23, "" },// needed!! don't deleted!
+
+(FRASE) { FRENCH, 23, "Redonne-lui l'espoir en " },
+(FRASE) { FRENCH, 23, "rapportant le Porron sacré." },
+
+(FRASE) { FRENCH, 23, "Et mollo sur la bière !" },
+(FRASE) { FRENCH, 23, "" }, // needed!! don't deleted!
+
+(FRASE) { FRENCH, 23, "             Sa majesté Duch" },
+(FRASE) { FRENCH, 23, "         2 Mars de l'an 2049" },
+
+
+// How to play --------------------------------------------------------------------------
+(FRASE) { FRENCH, 24, " ENEMMIS " }, // respect spaces
+(FRASE) { FRENCH, 24, " OBJETS "  }, // respect spaces
+
+
+// Game over ----------------------------------------------------------------------------
+(FRASE) { FRENCH, 25, "GAME OVER" },
+(FRASE) { FRENCH, 25, "Utilise ce mot de passe" },
+(FRASE) { FRENCH, 25, "Thanks for playing!" },  //NDTR : I kept it in english
+(FRASE) { FRENCH, 25, "Mode miroir" },
+
+// game difficulty modes ----------------------------------------------------------------------
+(FRASE) { FRENCH, 26, "DEBUTANT" },
+(FRASE) { FRENCH, 26, "GAMER" },
+(FRASE) { FRENCH, 26, "DEMONIAQUE" },//NDTR : joke with ending of this mode ;)
+
+// Title screen options ----------------------------------------------------
+(FRASE) { FRENCH, 27, "Nouvelle partie" },
+(FRASE) { FRENCH, 27, "Continuer" },
+(FRASE) { FRENCH, 27, "Sound Test" },  //NDTR : I kept it in english
+
+// Sound test ---------------------- ----------------------------------------------------
+(FRASE) { FRENCH, 28, "SOUND TEST" },  //NDTR : I kept it in english
+(FRASE) { FRENCH, 28, "Annuler" },
+
+// --------------------------------- ----------------------------------------------------
+(FRASE) { FRENCH, 29, "PASSWORD" }, // LEAVE AS IS UNLESS TRANSLATION WERE SAME LENGTH
+
+// - Password screen --------------- ----------------------------------------------------
+(FRASE) { FRENCH, 30, "PASSWORD" },
+
+
+// HOW TO PLAY // WEAPONS
+(FRASE) { FRENCH, 31, "Bâton" }, //NDTR: I didn't use Sceptre because there is no jewel or anything else
+(FRASE) { FRENCH, 31, "Croix" },
+(FRASE) { FRENCH, 31, "Epée" },
+(FRASE) { FRENCH, 31, "Clé" },
+
+// HOW TO PLAY // ENEMIES
+//RISKY WOODS
+(FRASE) { FRENCH, 32, "Sanglier" },
+(FRASE) { FRENCH, 32, "Champipi" }, //NDTR : kawaii no ? ;)
+(FRASE) { FRENCH, 32, "Elf Noir" },
+
+//MURCIANO'S LAIR
+(FRASE) { FRENCH, 33, "Morse" },
+(FRASE) { FRENCH, 33, "Esquimau" },
+(FRASE) { FRENCH, 33, "Yeti" },
+
+//ABU ABYSS
+(FRASE) { FRENCH, 34, "Bédouin" },
+(FRASE) { FRENCH, 34, "Scorpion" },
+(FRASE) { FRENCH, 34, "Momie" },
+
+//PUSSY BEACH
+(FRASE) { FRENCH, 35, "Crabe" },
+(FRASE) { FRENCH, 35, "Pirate" },
+(FRASE) { FRENCH, 35, "Nessie" },
+
+//KBRAH CASTLE
+(FRASE) { FRENCH, 36, "Ogre" },
+(FRASE) { FRENCH, 36, "Nonoeil" },//NDTR Oeil demoniaque or something similar was too long
+(FRASE) { FRENCH, 36, "Démon" },
+
+(FRASE) { FRENCH, 37, "Porte" },

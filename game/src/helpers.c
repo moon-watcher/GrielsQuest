@@ -42,7 +42,7 @@ void VDP_setSpriteVRAM ( u16 index, u16 pos )
 
 
 
-void VDP_setSpritePriority ( u16 index, u16 high )
+void VDP_setSpritePriorityGQ ( u16 index, u16 high )
 {
 	if( high )
 	{
@@ -192,9 +192,7 @@ void showFPS()
 {
 	if ( DEV )
 	{
-	    SYS_disableInts();
 		drawUInt ( getFPS(), 37, 27, 2 );
-		SYS_enableInts();
 	}
 }
 
@@ -202,40 +200,34 @@ void showFPS()
 
 void drawInt( u32 nb, u8 x, u8 y, u8 zeros )
 {
-	u8 str [ zeros+1 ];
+	char str [ 40 ];
 	intToStr ( nb, str, zeros );
-	SYS_disableInts();
-	VDP_drawText ( str, x, y );
-	SYS_enableInts();
+	TEXT_drawText ( str, x, y );
 }
 
 
 
-void drawUInt( u32 nb, u8 x, u8 y, u8 zeros )
+void drawUInt( u32 nb, u8 x, u8 y,  u8 zeros )
 {
-	u8 str [ zeros+1 ];
+	char str [ 40 ];
 	uintToStr ( nb, str, zeros );
-	SYS_disableInts();
-	VDP_drawText ( str, x, y );
-	SYS_enableInts();
+	TEXT_drawText ( str, x, y );
 }
 
 
 
 void drawUIntBG( u32 nb, u8 x, u8 y, u8 zeros, u16 plan, u16 flags )
 {
-	u8 str [ zeros+1 ];
+	char str [ 40 ];
 	uintToStr ( nb, str, zeros );
-	SYS_disableInts();
-	VDP_drawTextBG ( PLAN_B, str, x, y );
-	SYS_enableInts();
+	TEXT_drawTextBG ( BG_B, str, x, y );
 }
 
 
 
 u32 ntsc2pal ( u32 value )
 {
-	if ( IS_PALSYSTEM )
+	if ( IS_PAL_SYSTEM )
 	{
 		value = fix32ToRoundedInt ( fix32Mul ( intToFix32(value), FIX32(0.8333) ) ); // FIX32(0.8); ---> 50 Hz / 60 Hz
 	}
@@ -246,12 +238,12 @@ u32 ntsc2pal ( u32 value )
 
 u8 getHz ( )
 {
-	return IS_PALSYSTEM ? 50 : 60;
+	return IS_PAL_SYSTEM ? 50 : 60;
 }
 
 
 
-inline u16 between ( s32 min, s32 nb, s32 max )
+u16 between ( s32 min, s32 nb, s32 max )
 {
 	return ( min <= nb && nb <= max );
 }
@@ -263,10 +255,12 @@ inline u16 between ( s32 min, s32 nb, s32 max )
 void resetPalettes ()
 {
     const u16 colores [ 64 ] = { };
-    memsetU16 ( (u16*) colores, 0, 64 );
+    memset ( (u16*) colores, 0, 64*2 );
 
     SYS_disableInts();
-    VDP_setPaletteColors ( 0, (u16*)colores, 64 );
+    // PAL_setPaletteColors ( 0, (u16*)colores, 64, CPU );
+	Palette p = { 64, colores};
+	PAL_setPaletteColors ( 0, &p, CPU);
     SYS_enableInts();
 }
 
@@ -282,7 +276,7 @@ void resetVRAM ( )
     while ( i-- )
     {
         SYS_disableInts();
-        VDP_fillTileData ( i | (i << 4), TILE_SYSTEMINDEX + i, 1, 1 );
+        VDP_fillTileData ( i | (i << 4), TILE_SYSTEM_INDEX + i, 1, 1 );
         SYS_enableInts();
     }
 }
@@ -290,8 +284,8 @@ void resetVRAM ( )
 
 void resetScreen ( )
 {
-    VDP_clearPlan ( PLAN_A, 1 );
-	VDP_clearPlan ( PLAN_B, 1 );
+    VDP_clearPlane ( BG_A, 1 );
+	VDP_clearPlane ( BG_B, 1 );
 }
 
 
@@ -301,10 +295,10 @@ void resetScroll ( )
 
 	VDP_setScrollingMode ( HSCROLL_PLANE, VSCROLL_PLANE );
 
-	VDP_setHorizontalScroll ( PLAN_A, 0 );
-	VDP_setVerticalScroll   ( PLAN_A, 0 );
-	VDP_setHorizontalScroll ( PLAN_B, 0 );
-	VDP_setVerticalScroll   ( PLAN_B, 0 );
+	VDP_setHorizontalScroll ( BG_A, 0 );
+	VDP_setVerticalScroll   ( BG_A, 0 );
+	VDP_setHorizontalScroll ( BG_B, 0 );
+	VDP_setVerticalScroll   ( BG_B, 0 );
 
 	SYS_enableInts();
 }
@@ -330,12 +324,12 @@ void fadeIn ( u16 pal0[16], u16 pal1[16], u16 pal2[16], u16 pal3[16], u16 numfra
 {
 	u16 colores [ 64 ];
 
-	memcpyU16 ( &colores[0],  pal0, 16 );
-	memcpyU16 ( &colores[16], pal1, 16 );
-	memcpyU16 ( &colores[32], pal2, 16 );
-	memcpyU16 ( &colores[48], pal3, 16 );
+	memcpy ( &colores[0],  pal0, 16*2 );
+	memcpy ( &colores[16], pal1, 16*2 );
+	memcpy ( &colores[32], pal2, 16*2 );
+	memcpy ( &colores[48], pal3, 16*2 );
 
-	VDP_fadeInAll ( (u16 *) colores, numframe, async ) ;
+	PAL_fadeInAll ( (u16 *) colores, numframe, async ) ;
 }
 
 

@@ -6,7 +6,7 @@ void gamestate_init ( )
 {
 	gamestate.current_round    = 0;
 	gamestate.current_ambiente = 0;
-	gamestate.lenguaje         = 0; // ENGLISH;
+	gamestate.lenguaje         = 0;
 
 	gamestate.dificultad       = 0;
 	gamestate.ambientes [ 0 ]  = 0;
@@ -16,6 +16,10 @@ void gamestate_init ( )
 	gamestate.ambientes [ 4 ]  = 0;
 
 	gamestate.visito_la_puerta = false;
+	gamestate.localdev = 0;
+
+   	gamestate.nolddor_released_ZoS = 1; // Zooming Secretary MD
+   	gamestate.publisher = 2; // 1: 1985 Alternativo; 2 Play On Retro
 }
 
 

@@ -1,0 +1,24 @@
+{
+	"folders": [
+		{
+			"path": "."
+		}
+	],
+	"settings": {
+		"GDK": "SGDK-master",
+		"custom-makefile": "Makefile",
+		"addStatusBarButtons": false,
+		"workbench.tree.indent": 20,
+		"files.associations": {
+			"include.h": "c",
+			"worlds.h": "c",
+			"genres_externs.h": "c",
+			"*.txt": "c",
+			"allocator.h": "c",
+			"vram.h": "c"
+		},
+		"editor.lineNumbers": "off",
+		"workbench.colorTheme": "Visual Studio Dark",
+		"workbench.statusBar.visible": false
+	}
+}

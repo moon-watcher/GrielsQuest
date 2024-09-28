@@ -1,3 +1,5 @@
+#pragma once
+
 #ifndef _VRAM_H___BY_MUN_ // collide with SGDK, so I changed
 #define _VRAM_H___BY_MUN_
 

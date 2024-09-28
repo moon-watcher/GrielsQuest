@@ -11,7 +11,7 @@ static void _blink ( u8 *str, const u16 x, const u16 y )
 	u8 len = strlen(str);
 
 	SYS_disableInts();
-	VDP_drawText ( str, x, y );
+	TEXT_drawText ( str, x, y );
 	SYS_enableInts();
 
 	while ( i-- )
@@ -24,17 +24,17 @@ static void _blink ( u8 *str, const u16 x, const u16 y )
 		}
 		else
 		{
-			VDP_drawText ( str, x, y );
+			TEXT_drawText ( str, x, y );
 		}
 
         SYS_enableInts();
 
-		VDP_waitVSync();
-		VDP_waitVSync();
+		SYS_doVBlankProcess();
+		SYS_doVBlankProcess();
 	}
 
 	SYS_disableInts();
-	VDP_drawText ( str, x, y );
+	TEXT_drawText ( str, x, y );
     SYS_enableInts();
 }
 
@@ -66,9 +66,9 @@ u16 screen_title_menu_1 ( )
 	strcpy ( f3, frases_next ( ) );
 
 	SYS_disableInts();
-	VDP_drawText ( f1, 16, pos[0] ); // NEW GAME
-	VDP_drawText ( f2, 16, pos[1] ); // CONTINUE
-	VDP_drawText ( f3, 16, pos[2] ); // SOUND TEST
+	TEXT_drawText ( f1, 16, pos[0] ); // NEW GAME
+	TEXT_drawText ( f2, 16, pos[1] ); // CONTINUE
+	TEXT_drawText ( f3, 16, pos[2] ); // SOUND TEST
     SYS_enableInts();
 
 	while ( not ret )
@@ -76,8 +76,8 @@ u16 screen_title_menu_1 ( )
 	    JoyReader_update();
 
 	    SYS_disableInts();
-		VDP_clearTileMapRect ( PLAN_A, 14, pos[0], 1, pos[2]-pos[0]+1);
-		VDP_drawText ( ">", 14, pos[option] );
+		VDP_clearTileMapRect ( BG_A, 14, pos[0], 1, pos[2]-pos[0]+1);
+		TEXT_drawText ( ">", 14, pos[option] );
 		SYS_enableInts();
 
 		if ( joy1_pressed_down ) { option++; psglist_play ( PSG_SELECT_2 ); }
@@ -91,14 +91,14 @@ u16 screen_title_menu_1 ( )
 			break;
 		}
 
-		VDP_waitVSync();
+		SYS_doVBlankProcess();
 	}
 
 	psglist_play ( PSG_START );
 
-	if ( option == 0 ) { _blink ( f1, 16, 19 ); ret = SCREEN_JUMP_TO_DIFFICULT; }
-	if ( option == 1 ) { _blink ( f2, 16, 21 ); ret = SCREEN_JUMP_TO_CONTINUE;  }
-	if ( option == 2 ) { _blink ( f3, 16, 23 ); ret = SCREEN_JUMP_TO_SOUNDTEST; }
+	if ( option == 0 ) { _blink ( f1, 16, pos[0] ); ret = SCREEN_JUMP_TO_DIFFICULT; }
+	if ( option == 1 ) { _blink ( f2, 16, pos[1] ); ret = SCREEN_JUMP_TO_CONTINUE;  }
+	if ( option == 2 ) { _blink ( f3, 16, pos[2] ); ret = SCREEN_JUMP_TO_SOUNDTEST; }
 
 	return ret;
 }
@@ -126,9 +126,9 @@ void screen_title_menu_2 ( )
 	strcpy ( f3, frases_next ( ) );
 
     SYS_disableInts();
-	VDP_drawText ( f1, 16, pos[0] ); // debilucho
-	VDP_drawText ( f2, 16, pos[1] ); // tipo duro
-	VDP_drawText ( f3, 16, pos[2] ); // pesadilla
+	TEXT_drawText ( f1, 16, pos[0] ); // debilucho
+	TEXT_drawText ( f2, 16, pos[1] ); // tipo duro
+	TEXT_drawText ( f3, 16, pos[2] ); // pesadilla
 	SYS_enableInts();
 
 	while ( true )
@@ -136,8 +136,8 @@ void screen_title_menu_2 ( )
         JoyReader_update();
 
 	    SYS_disableInts();
-		VDP_clearTileMapRect ( PLAN_A, 14, pos[0], 1, pos[2]-pos[0]+1);
-		VDP_drawText ( ">", 14, pos[option] );
+		VDP_clearTileMapRect ( BG_A, 14, pos[0], 1, pos[2]-pos[0]+1);
+		TEXT_drawText ( ">", 14, pos[option] );
 		SYS_enableInts();
 
 		if ( joy1_pressed_down ) { option++; psglist_play ( PSG_SELECT_2 ); }
@@ -151,7 +151,7 @@ void screen_title_menu_2 ( )
 			break;
 		}
 
-		VDP_waitVSync();
+		SYS_doVBlankProcess();
 	}
 
 
@@ -177,7 +177,7 @@ void screen_title_menu_2 ( )
 
 u16 screen_title ( u16 salto )
 {
-    u16 ind = TILE_USERINDEX;
+    u16 ind = TILE_USER_INDEX;
 
 
     if ( salto == 2 )
@@ -196,11 +196,11 @@ u16 screen_title ( u16 salto )
     font_init();
 
     SYS_disableInts();
-    VDP_drawImageEx ( PLAN_B, &ob_title_title, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, ind),  4,  8, 0, 0 ); ind += ob_title_title.tileset->numTile;
-    VDP_drawImageEx ( PLAN_A, &ob_title_kbrah, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, ind),  8, -3, 0, 0 ); ind += ob_title_kbrah.tileset->numTile;
-    VDP_drawImageEx ( PLAN_A, &ob_title_notah, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, ind),  0, 13, 0, 0 ); ind += ob_title_notah.tileset->numTile;
-    VDP_drawImageEx ( PLAN_A, &ob_title_mano,  TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, ind), 11, 16, 0, 0 ); ind += ob_title_mano.tileset->numTile;
-    VDP_drawImageEx ( PLAN_A, &ob_title_griel, TILE_ATTR_FULL(PAL3, FALSE, FALSE, FALSE, ind), 30, 13, 0, 0 );
+    VDP_drawImageEx ( BG_B, &ob_title_title, TILE_ATTR_FULL(PAL0, FALSE, FALSE, FALSE, ind),  4,  8, 0, 0 ); ind += ob_title_title.tileset->numTile;
+    VDP_drawImageEx ( BG_A, &ob_title_kbrah, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, ind),  8, -3, 0, 0 ); ind += ob_title_kbrah.tileset->numTile;
+    VDP_drawImageEx ( BG_A, &ob_title_notah, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, ind),  0, 13, 0, 0 ); ind += ob_title_notah.tileset->numTile;
+    VDP_drawImageEx ( BG_A, &ob_title_mano,  TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, ind), 11, 16, 0, 0 ); ind += ob_title_mano.tileset->numTile;
+    VDP_drawImageEx ( BG_A, &ob_title_griel, TILE_ATTR_FULL(PAL3, FALSE, FALSE, FALSE, ind), 30, 13, 0, 0 );
     SYS_enableInts();
 
     preparePal ( PAL0, ob_title_title.palette->data );
@@ -211,7 +211,7 @@ u16 screen_title ( u16 salto )
     VDP_setTextPalette ( PAL0 );
 
     SYS_disableInts();
-    VDP_drawText ( "@2017 Oook!Lab", 13, 26 );
+    TEXT_drawText ( "@2017, 2025 Oook!Lab", 10, 26 );
     SYS_enableInts();
 
 
@@ -222,18 +222,18 @@ u16 screen_title ( u16 salto )
 
     waitSc(2);
 
-    ind = TILE_USERINDEX;
+    ind = TILE_USER_INDEX;
 
     SYS_disableInts();
-    VDP_drawImageEx ( PLAN_B, &ob_title_title, TILE_ATTR_FULL(PAL0, true, FALSE, FALSE, ind),  4,  8, 1, 0 ); ind += ob_title_title.tileset->numTile;
+    VDP_drawImageEx ( BG_B, &ob_title_title, TILE_ATTR_FULL(PAL0, true, FALSE, FALSE, ind),  4,  8, 1, 0 ); ind += ob_title_title.tileset->numTile;
     SYS_enableInts();
 
-    VDP_fadePalOut ( PAL1, getHz(), false );
-    VDP_fadePalOut ( PAL2, getHz(), false );
-    VDP_fadePalOut ( PAL3, getHz(), false );
+    PAL_fadeOutPalette ( PAL1, getHz(), false );
+    PAL_fadeOutPalette ( PAL2, getHz(), false );
+    PAL_fadeOutPalette ( PAL3, getHz(), false );
 
     SYS_disableInts();
-    VDP_clearPlan ( PLAN_A, 1 );
+    VDP_clearPlane ( BG_A, 1 );
     SYS_enableInts();
 
     waitMs(500);
@@ -242,22 +242,22 @@ u16 screen_title ( u16 salto )
 
     for ( i=0; i<120; i++ )
     {
-        VDP_setVerticalScroll ( PLAN_B, i/2 );
-        VDP_waitVSync();
+        VDP_setVerticalScroll ( BG_B, i/2 );
+        SYS_doVBlankProcess();
     }
 
 
 
 
     SYS_disableInts();
-    VDP_drawImageEx ( PLAN_B, &ob_title_subtitle, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, ind), 8, 24, false, 0 ); ind += ob_title_subtitle.tileset->numTile;
+    VDP_drawImageEx ( BG_B, &ob_title_subtitle, TILE_ATTR_FULL(PAL1, FALSE, FALSE, FALSE, ind), 8, 24, false, 0 ); ind += ob_title_subtitle.tileset->numTile;
     SYS_enableInts();
 
 
 salto_2:
 
 
-    VDP_fadePalTo ( PAL1, ob_title_subtitle.palette->data, getHz(), false );
+    PAL_fadeToPalette ( PAL1, ob_title_subtitle.palette->data, getHz(), false );
 
 
     //WAITSECS1(1,etiqueta_1);
@@ -276,7 +276,7 @@ salto_2:
 
 
     SYS_disableInts();
-    VDP_drawImageEx ( PLAN_A, &ob_title_press_start, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, ind), 15, 23, 1, 0 );
+    VDP_drawImageEx ( BG_A, &ob_title_press_start, TILE_ATTR_FULL(PAL2, FALSE, FALSE, FALSE, ind), 15, 23, 1, 0 );
     SYS_enableInts();
 
 
@@ -288,7 +288,7 @@ salto_2:
         if ( counter % hz == 0 )
         {
             SYS_disableInts();
-            VDP_setPalette ( PAL2, ob_title_press_start.palette->data ); // tool_setPalette (PAL2, ob_title_press_start.palette->data );
+            PAL_setPalette ( PAL2, ob_title_press_start.palette->data, CPU ); // tool_setPalette (PAL2, ob_title_press_start.palette->data );
             SYS_enableInts();
 
             blink = 0;
@@ -297,7 +297,7 @@ salto_2:
         if ( ++blink == 45 )
         {
             SYS_disableInts();
-            VDP_setPalette ( PAL2, (u16*) palette_black );
+            PAL_setPalette ( PAL2, (u16*) palette_black, CPU );
             SYS_enableInts();
         }
 
@@ -310,16 +310,16 @@ salto_2:
         if ( joy1_pressed_abc || joy1_pressed_start )
         {
             SYS_disableInts();
-            VDP_setPalette ( PAL2, (u16*) palette_black );
+            PAL_setPalette ( PAL2, (u16*) palette_black, CPU );
             SYS_enableInts();
 
-            VDP_fadeOutAll (10, true );
+            PAL_fadeOutAll (10, true );
             waitHz(5);
-            VDP_interruptFade();
+            PAL_interruptFade();
 
             SYS_disableInts();
             VDP_setTextPalette (PAL3);
-            VDP_setPalette(PAL3, font_getPalette());
+            PAL_setPalette(PAL3, font_getPalette(), CPU);
             SYS_enableInts();
 
             psglist_play ( PSG_START );
@@ -329,7 +329,7 @@ salto_2:
 
         ++counter;
 
-        VDP_waitVSync();
+        SYS_doVBlankProcess();
 	}
 
 
@@ -343,7 +343,7 @@ salto_2:
         {
             screen_title_menu_2 ( );
 
-            ret = SCREEN_JUMP_TO_AMBIENT;
+            ret = SCREEN_JUMP_TO_MAP;
         }
     }
 

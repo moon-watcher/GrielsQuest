@@ -1,0 +1,3 @@
+SPRITE as_rounds_sprites_32x32 "game/data/other/ambiente/rounds_sprites_32x32.bmp" 32 32  0  0  0
+SPRITE as_sprites_16x16        "game/data/other/ambiente/sprites_16x16.bmp"        16 16  0  0  0
+;

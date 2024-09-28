@@ -266,7 +266,7 @@
 //		++inc;
 //
 //		VDP_updateSprites();
-//		VDP_waitVSync();
+//		SYS_doVBlankProcess();
 //	}
 //}
 //
@@ -299,7 +299,7 @@
 //		VDP_setSpritePosition ( i, -32,-32 );
 //	}
 //
-//	VDP_setPalette ( bc->pal, animation->res->pal );
+//	PAL_setPalette ( bc->pal, animation->res->pal );
 //	VDP_updateSprites();
 //}
 //
@@ -371,7 +371,7 @@
 //		//drawUInt(getFPS(), 1,0, 2 );
 //
 //		VDP_updateSprites();
-//		VDP_waitVSync();
+//		SYS_doVBlankProcess();
 //	}
 //
 //}
@@ -677,18 +677,18 @@
 //void boss_draw_ctrl()
 //{
 //	JOY_setEventHandler ( &myJoyHandler );
-//	VDP_setPaletteColor (0, 0x440 );
+//	PAL_setColor (0, 0x440 );
 //
 //	resetVars();
 //
 //
 //
-//	while ( true ) // bucle a la animación
+//	while ( true ) // bucle a la animaciï¿½n
 //	{
 //		drawAnimation ( &bc );
 //
 //		VDP_updateSprites();
-//		VDP_waitVSync();
+//		SYS_doVBlankProcess();
 //	}
 //
 //}
@@ -704,7 +704,7 @@
 //		bc->tiles = ( animation->res->height >> 3 ) * ( animation->res->width >> 3 );
 //		bc->size  = ( animation->res->size >> 8 ) ;
 //
-//		VDP_setPalette ( bc->pal, animation->res->pal );
+//		PAL_setPalette ( bc->pal, animation->res->pal );
 //
 //		drawFrame ( bc );
 //

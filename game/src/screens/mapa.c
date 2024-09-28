@@ -1,5 +1,6 @@
 #include "../inc/include.h"
 #include "../inc/colores_textos.h"
+#include "../inc/genres_externs.h"
 
 
 #define SIZE        as_rounds_sprites_32x32.size   >> 8
@@ -51,6 +52,11 @@ datos [ 6 ] =
 
 
 
+#define WRITE(COLOR, STR)                                      \
+	for (u16 i = 0, l = typetext_write_init(COLOR, STR); i < l; i++) \
+		typetext_write_process(i, STR);
+
+
 
 
 
@@ -88,19 +94,17 @@ static void _update_sprites ()
 
 
 
-static void _tt_init ()
+static void _init_tt ()
 {
-	tt_init ( );
+	typetext_init ( );
+	struct typetext *const tt_info = typetext_get();
 
-	tt_info.x         =  3;
-	tt_info.y         = 21;
-	tt_info.speed     =  1;
-	tt_info.width     = 34;
-	tt_info.height    =  5;
-	tt_info.reset_pal = false;
-
-	#undef  TT_POST_FN
-	#define TT_POST_FN   VDP_updateSprites(80,1);
+	tt_info->x         =  3;
+	tt_info->y         = 21;
+	tt_info->speed     =  1;
+	tt_info->width     = 34;
+	tt_info->height    =  5;
+	tt_info->reset_pal = false;
 }
 
 
@@ -108,10 +112,10 @@ static void _tt_init ()
 static void _show_title ( )
 {
 	sprite = FIRST_SPRITE_TEXT;
-	text_setSprite ( sprite );
+	bigtext_setSprite ( sprite );
 
 	u8 *frase = frases_find ( 1, ambiente );
-	sprite = text_draw_sprites_x_centered ( frase, 6, 0 ); // texto arriba
+	sprite = bigtext_draw_sprites_x_centered ( frase, 6, 0 ); // texto arriba
 	sprite_last_letter = sprite;
 }
 
@@ -171,8 +175,8 @@ static void _selector_init ( )
 
 static void _init ( )
 {
-    _tt_init ();
-	index = TILE_USERINDEX;
+    _init_tt ();
+	index = TILE_USER_INDEX;
 
 	sprites[0] = index; index += 4;
 	sprites[1] = index; index += 4;
@@ -188,18 +192,18 @@ static void _init ( )
 	resetScreen();
 	resetSprites();
 
-	VDP_drawImageEx ( PLAN_B, &ob_ambiente_b_1, TILE_ATTR_FULL(PAL0, false, FALSE, FALSE, index),  0,  0, false, 0 ); index += ob_ambiente_b_1.tileset->numTile;
-	VDP_drawImageEx ( PLAN_A, &ob_ambiente_a_1, TILE_ATTR_FULL(PAL1, false, FALSE, FALSE, index),  0,  0, false, 0 ); index += ob_ambiente_a_1.tileset->numTile;
+	VDP_drawImageEx ( BG_B, &ob_ambiente_b_1, TILE_ATTR_FULL(PAL0, false, FALSE, FALSE, index),  0,  0, false, 0 ); index += ob_ambiente_b_1.tileset->numTile;
+	VDP_drawImageEx ( BG_A, &ob_ambiente_a_1, TILE_ATTR_FULL(PAL1, false, FALSE, FALSE, index),  0,  0, false, 0 ); index += ob_ambiente_a_1.tileset->numTile;
 
 	index += ob_ambiente_a_2.tileset->numTile;
 
 	VDP_loadTileSet ( ob_ambiente_a_2.tileset, index, 0 );
-	VDP_setMapEx ( PLAN_A, ob_ambiente_a_2.map, TILE_ATTR_FULL(PAL2, false, false, false, index),  0, 18,  0,  0, 40,  2 );
-	VDP_setMapEx ( PLAN_B, ob_ambiente_a_2.map, TILE_ATTR_FULL(PAL2, false, false, false, index), 11, 19, 11,  0, 18,  1 );
-	VDP_setMapEx ( PLAN_A, ob_ambiente_a_2.map, TILE_ATTR_FULL(PAL2, false, false, false, index),  0, 20,  0,  2,  2,  6 );
-	VDP_setMapEx ( PLAN_A, ob_ambiente_a_2.map, TILE_ATTR_FULL(PAL2, false, false, false, index), 38, 20, 38,  2,  2,  6 );
-	VDP_setMapEx ( PLAN_A, ob_ambiente_a_2.map, TILE_ATTR_FULL(PAL2, false, false, false, index),  0, 26,  0,  8, 40,  2 );
-	VDP_setMapEx ( PLAN_B, ob_ambiente_a_2.map, TILE_ATTR_FULL(PAL2, false, false, false, index),  2, 20,  2,  2, 36,  6 );
+	VDP_setMapEx ( BG_A, ob_ambiente_a_2.tilemap, TILE_ATTR_FULL(PAL2, false, false, false, index),  0, 18,  0,  0, 40,  2 );
+	VDP_setMapEx ( BG_B, ob_ambiente_a_2.tilemap, TILE_ATTR_FULL(PAL2, false, false, false, index), 11, 19, 11,  0, 18,  1 );
+	VDP_setMapEx ( BG_A, ob_ambiente_a_2.tilemap, TILE_ATTR_FULL(PAL2, false, false, false, index),  0, 20,  0,  2,  2,  6 );
+	VDP_setMapEx ( BG_A, ob_ambiente_a_2.tilemap, TILE_ATTR_FULL(PAL2, false, false, false, index), 38, 20, 38,  2,  2,  6 );
+	VDP_setMapEx ( BG_A, ob_ambiente_a_2.tilemap, TILE_ATTR_FULL(PAL2, false, false, false, index),  0, 26,  0,  8, 40,  2 );
+	VDP_setMapEx ( BG_B, ob_ambiente_a_2.tilemap, TILE_ATTR_FULL(PAL2, false, false, false, index),  2, 20,  2,  2, 36,  6 );
 
 	index += ob_ambiente_a_2.tileset->numTile;
 
@@ -211,7 +215,7 @@ static void _init ( )
 	VDP_loadTileSet ( ob_round_numbers.tileset, POS_TILES, 0 );
 
 	index = POS_TILES + ob_round_numbers.tileset->numTile;
-	text_init ( (struct genresSprites *) &cs_font_16x16, index, PAL3 );
+	bigtext_init ( (struct genresSprites *) &cs_font_16x16, index, PAL3 );
 
 
 
@@ -243,9 +247,9 @@ static void _init ( )
 	pwd8_generate(pwd);
 
 	frases_init(29);
-	VDP_drawText ( frases_next(), 11, 19 );
-	VDP_drawText ( ":", 19, 19 );
-	VDP_drawText ( pwd, 21, 19 );
+	TEXT_drawText ( frases_next(), 11, 19 );
+	TEXT_drawText ( ":", 19, 19 );
+	TEXT_drawText ( pwd, 21, 19 );
 
 	SYS_enableInts ( );
 
@@ -264,28 +268,29 @@ static void _mostrar_niveles (  )
 
 	// borra el foreground (candados y cuadrados completados)
 	SYS_disableInts();
-	VDP_fillTileMapRect(PLAN_A, 0, 2, 20, 36, 6 );
+	VDP_fillTileMapRect(BG_A, 0, 2, 20, 36, 6 );
 	SYS_enableInts();
 
 	if ( ambiente == 5 )
 	{
-		// borra el fondo (los cuadrados vacíos)
+		// borra el fondo (los cuadrados vacï¿½os)
 		SYS_disableInts();
-		VDP_fillTileMapRect(PLAN_B, 0, 2, 20, 36, 6 );
+		VDP_fillTileMapRect(BG_B, 0, 2, 20, 36, 6 );
 
 
 		vdpSpriteCache [ sprite-1 ].link = 74; //0;
 
-		VDP_waitVSync();
+		SYS_doVBlankProcess();
 		VDP_updateSprites(80,1);
 		VDP_setTextPalette ( PAL1 );
 
 		SYS_enableInts();
 
-		_tt_init ( );
-		tt_info.wait = 0;
-		tt_info.reset_area_at_end = false;
-		tt_write ( GRIEL, frases_find ( 1, 6 ) );
+		_init_tt ( );
+		struct typetext *const tt_info = typetext_get();
+		tt_info->wait = 0;
+		tt_info->reset_area_at_end = false;
+		WRITE ( GRIEL, frases_find ( 1, 6 ) );
 
 		return;
 	}
@@ -362,7 +367,7 @@ static void _mostrar_niveles (  )
 			if ( superado == cuantos ) tile = 17 * 4;
 		}
 
-		VDP_setMapEx ( PLAN_A, ob_round_numbers.map, TILE_ATTR_FULL(PAL2, 0, false, false, POS_TILES), x, y, tile, 0, 4, 3 );
+		VDP_setMapEx ( BG_A, ob_round_numbers.tilemap, TILE_ATTR_FULL(PAL2, 0, false, false, POS_TILES), x, y, tile, 0, 4, 3 );
 	}
 
 
@@ -381,7 +386,7 @@ static u16 _loop_niveles ( )
 	psglist_play ( 5 ); // 4,5 seleecionada // 8
 
 
-	// vamos a casa del Nota a que nos dé unos consejos
+	// vamos a casa del Nota a que nos dï¿½ unos consejos
 	if ( ambiente == 5 )
 	{
 		return SCREEN_JUMP_TO_INTRO5;
@@ -420,8 +425,8 @@ static u16 _loop_niveles ( )
 				VDP_updateSprites(80,1);
 
 
-				VDP_clearTileMapRect ( PLAN_A, 2, 20, 36, 6 );
-				VDP_clearTileMapRect ( PLAN_B, 2, 20, 36, 6 );
+				VDP_clearTileMapRect ( BG_A, 2, 20, 36, 6 );
+				VDP_clearTileMapRect ( BG_B, 2, 20, 36, 6 );
 
 				VDP_setTextPalette ( PAL1 );
 
@@ -436,8 +441,8 @@ static u16 _loop_niveles ( )
 					f = 4 + ( random() % 13 ) ;
 				}
 
-				_tt_init ( );
-				tt_write ( GRIEL, frases_find ( 6, f ) );
+				_init_tt ( );
+				WRITE ( GRIEL, frases_find ( 6, f ) );
 
 				vdpSpriteCache[sprite_last_letter-1].link = sprite_last_letter;
 				VDP_updateSprites(80,1);
@@ -529,7 +534,7 @@ static u16 _loop_niveles ( )
 		_update_sprites ();
 
 		VDP_updateSprites(80,1);
-		VDP_waitVSync();
+		SYS_doVBlankProcess();
 	}
 
 	return to;
@@ -572,7 +577,7 @@ static u16 _loop_main ( )
 
 
 		VDP_updateSprites(80,1);
-		VDP_waitVSync();
+		SYS_doVBlankProcess();
 	}
 
 	return to;

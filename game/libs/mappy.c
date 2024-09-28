@@ -11,7 +11,7 @@
 //	u16 x, y, tile;
 //	u16 *curMap = (u16*) mLevel->data->maps [ mLevel->idxLevel ];
 //
-//	VDP_setPalette ( mLevel->idxPal, palette_black );
+//	PAL_setPalette ( mLevel->idxPal, palette_black );
 //	VDP_loadTileData ( (u32*) mLevel->data->ptrTiles, VRAM_BG_POS, mLevel->data->nbTiles, 0 );
 //
 //	for ( y = 0; y < mLevel->data->height; y++ )
@@ -25,7 +25,7 @@
 //		}
 //	}
 //
-//	VDP_setPalette ( mLevel->idxPal, (u16*) mLevel->data->ptrPal );
+//	PAL_setPalette ( mLevel->idxPal, (u16*) mLevel->data->ptrPal );
 //}
 
 
@@ -37,7 +37,7 @@ void mappy_load ( struct mappyLevel *mLevel )
 
 void mappy_set_palette ( struct mappyLevel *mLevel )
 {
-	VDP_setPalette ( mLevel->idxPal, (u16*) mLevel->data->ptrPal );
+	PAL_setPalette ( mLevel->idxPal, (u16*) mLevel->data->ptrPal, CPU);
 }
 
 
@@ -58,11 +58,11 @@ void mappy_draw ( struct mappyLevel *mLevel, s8 x_pos, s8 y_pos, s8 x_inner, s8 
 //	}
 
 
-	VDPPlan plan = PLAN_B;
+	VDPPlane plan = BG_B;
 
-	if ( mLevel->fieldAdr == PLAN_A.value )
+	if ( mLevel->fieldAdr == BG_A )
 	{
-		plan = PLAN_A;
+		plan = BG_A;
 	}
 
 	u16 x, y, aux, xxx, *map = (u16*) mLevel->data->maps [ mLevel->idxLevel ];

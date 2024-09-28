@@ -1,3 +1,5 @@
+#pragma once
+
 enum
 {
 	NARRADOR =  1,
@@ -9,6 +11,3 @@ enum
 	CORTAZAR = 13,
 	GORDA    = 13
 };
-
-
-u16 ct_color ( u16 personaje, u8 desp );

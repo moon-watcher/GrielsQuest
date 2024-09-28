@@ -1,3 +1,5 @@
+#pragma once
+
 u16  puerta_abierta;
 
 u16  screen_puerta ( );

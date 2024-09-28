@@ -1,3 +1,5 @@
+#pragma once
+
 // Este .h sustituye <stdint.h> usado por el motor Echo
 #include <genesis.h>
 

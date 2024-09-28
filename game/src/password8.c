@@ -1,12 +1,12 @@
 #include "../inc/include.h"
-
+#include "../inc/genres_externs.h"
 
 #define PWD_HEIGHT   3
 #define PWD_WIDTH   10
 
 
 
-const static char _letras [ PWD_HEIGHT ] [ PWD_WIDTH ] =
+static const char _letras [ PWD_HEIGHT ] [ PWD_WIDTH ] =
 {
 	{ 'A', 'B', 'C', 'D', 'E', 'F', 'G', 'H', 'I', 'J' },
 	{ 'K', 'L', 'M', 'N', 'O', 'P', 'Q', 'R', 'S', 'T' },
@@ -109,27 +109,27 @@ static void _draw ( PASSWORD8 password )
 		{
 			u16 x0   =  6 + x * 3;
 			u16 y0   = 15 + y * 3;
-			u16 tile = TILE_FONTINDEX + _letras [ y ] [ x ] - 32;
+			u16 tile = TILE_FONT_INDEX + _letras [ y ] [ x ] - 32;
 
 			SYS_disableInts();
-			VDP_setTileMapXY ( PLAN_A, tile, x0, y0 );
+			VDP_setTileMapXY ( BG_A, tile, x0, y0 );
 			SYS_enableInts();
 		}
 	}
 
 	//SYS_disableInts();
 	VDP_setTextPalette (PAL0);
-	preparePal ( PAL0, font_getPalette());//VDP_setPalette ( PAL0, font_getPalette());
+	preparePal ( PAL0, font_getPalette());//PAL_setPalette ( PAL0, font_getPalette());
 	//SYS_enableInts();
 
-	text_init ( (struct genresSprites*) &cs_font_16x16, 1200, PAL0 );
+	bigtext_init ( (struct genresSprites*) &cs_font_16x16, 1200, PAL0 );
 
 	frases_init (30);
-	text_draw_center ( frases_next(), 3,  0 );
-	text_draw ( ( char*) password, 12, 9, 0 ) ; // ">>>>>>>>" --> ">" Es el "guión alto"
+	bigtext_draw_center ( frases_next(), 3,  0 );
+	bigtext_draw ( ( char*) password, 12, 9, 0 ) ; // ">>>>>>>>" --> ">" Es el "guiï¿½n alto"
 
 	SYS_disableInts();
-	preparePal ( PAL3, cs_square.pal ); //VDP_setPalette ( PAL3, cs_square.pal );
+	preparePal ( PAL3, cs_square.pal ); //PAL_setPalette ( PAL3, cs_square.pal );
 	VDP_loadTileData ( cs_square.sprites[0], 5, cs_square.size>>8, 0 );
 	VDP_setSprite ( 0, 40, 112, cs_square.size>>8, TILE_ATTR_FULL(PAL3, 1,0,0,5) );
 	SYS_enableInts();
@@ -153,7 +153,7 @@ static bool pwd_is_ok ( PASSWORD8 pwd )
 	u16  play = 1;
 
 
-	// que todas sean mayúsculas
+	// que todas sean mayï¿½sculas
 	for ( i=0; i<8; i++ )
 	{
 		if ( pwd[i] < 65 || pwd[i] > 90 )
@@ -196,7 +196,7 @@ static bool pwd_is_ok ( PASSWORD8 pwd )
 		verifica = max_verifica;
 	}
 
-	if ( verifica == 0 ) // 0 es que no hay diferencias entre la verificacion y el código
+	if ( verifica == 0 ) // 0 es que no hay diferencias entre la verificacion y el cï¿½digo
 	{
 		gamestate.current_ambiente = 0;
 		gamestate.current_round    = 0;
@@ -219,12 +219,12 @@ static bool pwd_is_ok ( PASSWORD8 pwd )
 		_debug ( 35, gamestate.dificultad, gamestate.ambientes[0], gamestate.ambientes[1], gamestate.ambientes[2], gamestate.ambientes[3], gamestate.ambientes[4], -1 );
 	}
 
-	char *string = frases_find ( 5, verifica );
+	u8 *string = frases_find ( 5, verifica );
 
 	SYS_disableInts();
 	VDP_clearTextLine ( 25 );
-	VDP_drawText ( string, 20 - strlen ( string ) / 2, 25 );
 	SYS_enableInts();
+	TEXT_drawText ( string, 20 - strlen ( string ) / 2, 25 );
 
 	psglist_play ( play );
 
@@ -275,7 +275,7 @@ void pwd8_generate ( PASSWORD8 letras )
 
 	letras [ pos1 ] = suma + PWD8_A_STARTS_AT;
 
-	//text_draw ( (u8*) letras, 12, 12, 0 );
+	//bigtext_draw ( (u8*) letras, 12, 12, 0 );
 	//pwd_is_ok ( letras );
 }
 
@@ -370,7 +370,7 @@ bool pwd8_screen()
 				PASSWORD8 letras;
 				pwd8_generate ( letras );
 
-				text_draw ( letras, 12, 12, 0 );
+				bigtext_draw ( letras, 12, 12, 0 );
 				pwd_is_ok ( letras );
 			}
 		}
@@ -428,13 +428,13 @@ bool pwd8_screen()
 		if ( paint )
 		{
 			SYS_disableInts();
-			text_draw ( ( char*) password, 12, 9, 0 ) ;
+			bigtext_draw ( ( char*) password, 12, 9, 0 ) ;
 			VDP_clearTextLine ( 25 );
 			SYS_enableInts();
 		}
 
 
-		VDP_waitVSync();
+		SYS_doVBlankProcess();
 	}
 
 

@@ -1,3 +1,5 @@
+#pragma once
+
 #define MAX_LINES 11
 
 u8 splist_key;

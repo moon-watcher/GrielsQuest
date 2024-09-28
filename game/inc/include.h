@@ -1,3 +1,5 @@
+#pragma once
+
 #ifndef _INCLUDE_H_
 #define _INCLUDE_H_
 
@@ -5,7 +7,7 @@
 
 #include <genesis.h>
 #include <genres.h>
-#include <tfcplay.h>
+// #include <tfcplay.h>
 
 
 
@@ -50,14 +52,12 @@
 
 
 
-typedef enum
-{
-   false = 0,
-   true  = !false
-}
-bool;
-
-
+// typedef enum
+// {
+//    false = 0,
+//    true  = !false
+// }
+// bool;
 
 
 #define MAX_SPRITE 80
@@ -214,11 +214,6 @@ bool;
 #include "../res/title.h"
 #include "../res/otherres.h"
 #include "../res/commonres.h"
-#include "../res/world0res.h"
-#include "../res/world1res.h"
-#include "../res/world2res.h"
-#include "../res/world3res.h"
-#include "../res/world4res.h"
 #include "../res/ambienteres.h"
 #include "../res/finalres.h"
 #include "../res/puertares.h"
@@ -238,8 +233,8 @@ bool;
 
 #include "../inc/display.h"
 #include "../inc/gamestate.h"
-#include "../inc/genres_externs.h"
-#include "../inc/version.h"
+// #include "../inc/genres_externs.h"
+// #include "../inc/version.h"
 #include "../inc/bigboy.h"
 #include "../inc/animation.h"
 #include "../inc/frases.h"
@@ -261,6 +256,7 @@ bool;
 #include "../inc/password.h"
 #include "../inc/password8.h"
 #include "../inc/text.h"
+#include "../inc/bigtext.h"
 #include "../inc/splist.h"
 #include "../inc/toani.h"
 #include "../inc/undo.h"
@@ -273,6 +269,7 @@ bool;
 #include "../inc/screens/mapa.h"
 #include "../inc/screens/intro.h"
 #include "../inc/screens/final.h"
+#include "../inc/screens/presentation.h"
 #include "../inc/screens/puerta.h"
 #include "../inc/screens/oldending.h"
 #include "../inc/screens/oldintro.h"

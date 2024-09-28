@@ -2,7 +2,7 @@
 #include "music.h"
 
 
-#define wait  VDP_waitVSync();VDP_waitVSync();VDP_waitVSync();VDP_waitVSync();VDP_waitVSync();
+#define wait  SYS_doVBlankProcess();SYS_doVBlankProcess();SYS_doVBlankProcess();SYS_doVBlankProcess();SYS_doVBlankProcess();
 
 
 void music_play ( MUSIC *m )
@@ -102,9 +102,9 @@ u16 music_is_playing ( )
 //
 //		if ( playing )
 //		{
-//			VDP_waitVSync();
-//			VDP_waitVSync();
-//			VDP_waitVSync();
+//			SYS_doVBlankProcess();
+//			SYS_doVBlankProcess();
+//			SYS_doVBlankProcess();
 //		}
 //
 //		SND_startPlay_XGM ( (u8*) m->data );
@@ -135,9 +135,9 @@ u16 music_is_playing ( )
 //            //XGM_stopPlayPCM ( SOUND_PCM_CH3 );
 //            //XGM_stopPlayPCM ( SOUND_PCM_CH4 );
 //
-//            VDP_waitVSync();
-//            VDP_waitVSync();
-//            VDP_waitVSync();
+//            SYS_doVBlankProcess();
+//            SYS_doVBlankProcess();
+//            SYS_doVBlankProcess();
 //        }
 //	}
 //	else if ( _type == MUSIC_TYPE_VGM )

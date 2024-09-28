@@ -2,8 +2,8 @@
 //
 //
 //
-//const static u8 _posiciones [ ] = { 0, 3, 7, 10, 14, 20, 26 };
-//const static u8 _elementos  [ ] = { EMPTY, 0, 0, 10, 14, 20, 26 };
+//static const u8 _posiciones [ ] = { 0, 3, 7, 10, 14, 20, 26 };
+//static const u8 _elementos  [ ] = { EMPTY, 0, 0, 10, 14, 20, 26 };
 //
 //
 //
@@ -189,7 +189,7 @@
 ////#include "../inc/include.h"
 ////
 ////
-////const static u8 _posiciones [ ] = { 0, 3, 7, 14, 20, 26 };
+////static const u8 _posiciones [ ] = { 0, 3, 7, 14, 20, 26 };
 ////
 ////static u8 _frame    = 0;
 ////static u8 _actual   = SCOREBALL_NONE;

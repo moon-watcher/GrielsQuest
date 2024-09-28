@@ -1,8 +1,5 @@
-#include <genesis.h>
-#include <genres.h>
-
 #include "../inc/include.h"
-
+#include "../inc/genres_externs.h"
 
 #define FIRST_SPRITE_BASE  0
 
@@ -102,16 +99,16 @@ static void _draw_marcador ()
 	SYS_enableInts();
 
 	SYS_disableInts();
-	VDP_setMapEx ( PLAN_A,cb_ui.map, TILE_ATTR_FULL(PAL1, true, false, false, _vram_pos[1]),  4,  0,  2,  0,  17,  5 );
+	VDP_setMapEx ( BG_A,cb_ui.tilemap, TILE_ATTR_FULL(PAL1, true, false, false, _vram_pos[1]),  4,  0,  2,  0,  17,  5 );
 	SYS_enableInts();
 
 	vsprite_set ( splist_ui_left_1, 16,  0, UI_LEFT_1 );
 	vsprite_set ( splist_ui_left_2, 16, 24, UI_LEFT_2 );
 
-	VDP_setSpritePriority ( splist_ui_weapon, 1 );
-	VDP_setSpritePriority ( splist_ui_enemy,  1 );
-	VDP_setSpritePriority ( splist_ui_left_1, 1 );
-	VDP_setSpritePriority ( splist_ui_left_2, 1 );
+	VDP_setSpritePriorityGQ ( splist_ui_weapon, 1 );
+	VDP_setSpritePriorityGQ ( splist_ui_enemy,  1 );
+	VDP_setSpritePriorityGQ ( splist_ui_left_1, 1 );
+	VDP_setSpritePriorityGQ ( splist_ui_left_2, 1 );
 
 	VDP_updateSprites(80,1);
 }
@@ -130,7 +127,7 @@ static LEVEL _reorder_level ( LEVEL *level )
 
 	if ( _flip_h )
 	{
-		memsetU16 ( flipped_h, MAX_U16, MAX_ANIMATIONS );
+		memset ( flipped_h, 0, MAX_ANIMATIONS*2 );
 
 		flipped_h [ LEFT1       ] = RIGHT1;
 		flipped_h [ RIGHT1      ] = LEFT1;
@@ -168,7 +165,7 @@ static LEVEL _reorder_level ( LEVEL *level )
 
 	if ( _flip_v )
 	{
-		memsetU16 ( flipped_v, MAX_U16, MAX_ANIMATIONS );
+		memset ( flipped_v, 0, MAX_ANIMATIONS*2 );
 
 		flipped_v [ UP1         ] = DOWN1;
 		flipped_v [ DOWN1       ] = UP1;
@@ -263,6 +260,180 @@ static LEVEL _reorder_level ( LEVEL *level )
 	return ret;
 }
 
+
+static void _level_draw_ambiente_0 ( )
+{
+	if ( gamestate.current_ambiente != 0 )
+		return;
+
+	SYS_disableInts();
+
+	u16 vrampos [ 6 ], nbTiles, sp;
+
+	nbTiles = ( w0s_line_down_1.width  >> 3 ) * ( w0s_line_down_1.height >> 3 ); vrampos [ 0 ] = vram_new ( nbTiles ); VDP_loadTileData ( w0s_line_down_1.sprites[0], vrampos [ 0 ], nbTiles, false );
+	nbTiles = ( w0s_line_down_2.width  >> 3 ) * ( w0s_line_down_2.height >> 3 ); vrampos [ 1 ] = vram_new ( nbTiles ); VDP_loadTileData ( w0s_line_down_2.sprites[0], vrampos [ 1 ], nbTiles, false );
+	nbTiles = ( w0s_line_down_3.width  >> 3 ) * ( w0s_line_down_3.height >> 3 ); vrampos [ 2 ] = vram_new ( nbTiles ); VDP_loadTileData ( w0s_line_down_3.sprites[0], vrampos [ 2 ], nbTiles, false );
+	nbTiles = ( w0s_line_down_4.width  >> 3 ) * ( w0s_line_down_4.height >> 3 ); vrampos [ 3 ] = vram_new ( nbTiles ); VDP_loadTileData ( w0s_line_down_4.sprites[0], vrampos [ 3 ], nbTiles, false );
+	nbTiles = ( w0s_line_down_5.width  >> 3 ) * ( w0s_line_down_5.height >> 3 ); vrampos [ 4 ] = vram_new ( nbTiles ); VDP_loadTileData ( w0s_line_down_5.sprites[0], vrampos [ 4 ], nbTiles, false );
+	nbTiles = ( w0s_line_down_6.width  >> 3 ) * ( w0s_line_down_6.height >> 3 ); vrampos [ 5 ] = vram_new ( nbTiles ); VDP_loadTileData ( w0s_line_down_6.sprites[0], vrampos [ 5 ], nbTiles, false );
+
+	sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN ); VDP_setSpriteFull ( sp,  56, 208, w0s_line_down_1.size >> 8, TILE_ATTR_FULL ( PAL0, 0, 0, 0, vrampos[0] ), sp + 1 );
+	sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN ); VDP_setSpriteFull ( sp,  88, 208, w0s_line_down_2.size >> 8, TILE_ATTR_FULL ( PAL0, 0, 0, 0, vrampos[1] ), sp + 1 );
+	sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN ); VDP_setSpriteFull ( sp, 112, 208, w0s_line_down_3.size >> 8, TILE_ATTR_FULL ( PAL0, 0, 0, 0, vrampos[2] ), sp + 1 );
+	sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN ); VDP_setSpriteFull ( sp, 152, 208, w0s_line_down_4.size >> 8, TILE_ATTR_FULL ( PAL0, 0, 0, 0, vrampos[3] ), sp + 1 );
+	sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN ); VDP_setSpriteFull ( sp, 200, 208, w0s_line_down_5.size >> 8, TILE_ATTR_FULL ( PAL0, 0, 0, 0, vrampos[4] ), sp + 1 );
+	sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN ); VDP_setSpriteFull ( sp, 256, 208, w0s_line_down_6.size >> 8, TILE_ATTR_FULL ( PAL0, 0, 0, 0, vrampos[5] ), sp + 1 );
+    SYS_enableInts();
+}
+
+
+static void _level_draw_ambiente_1 ( )
+{
+	if ( gamestate.current_ambiente != 1 )
+		return;
+
+	SYS_disableInts();
+
+	u16 vrampos [ 7 ], nbTiles, sp;
+
+	nbTiles = ( w1s_line_down_1.width  >> 3 ) * ( w1s_line_down_1.height >> 3 ); vrampos [ 0 ] = vram_new ( nbTiles ); VDP_loadTileData ( w1s_line_down_1.sprites[0], vrampos [ 0 ], nbTiles, false );
+	nbTiles = ( w1s_line_down_2.width  >> 3 ) * ( w1s_line_down_2.height >> 3 ); vrampos [ 1 ] = vram_new ( nbTiles ); VDP_loadTileData ( w1s_line_down_2.sprites[0], vrampos [ 1 ], nbTiles, false );
+	nbTiles = ( w1s_line_down_3.width  >> 3 ) * ( w1s_line_down_3.height >> 3 ); vrampos [ 2 ] = vram_new ( nbTiles ); VDP_loadTileData ( w1s_line_down_3.sprites[0], vrampos [ 2 ], nbTiles, false );
+	nbTiles = ( w1s_line_down_4.width  >> 3 ) * ( w1s_line_down_4.height >> 3 ); vrampos [ 3 ] = vram_new ( nbTiles ); VDP_loadTileData ( w1s_line_down_4.sprites[0], vrampos [ 3 ], nbTiles, false );
+	nbTiles = ( w1s_line_down_5.width  >> 3 ) * ( w1s_line_down_5.height >> 3 ); vrampos [ 4 ] = vram_new ( nbTiles ); VDP_loadTileData ( w1s_line_down_5.sprites[0], vrampos [ 4 ], nbTiles, false );
+	nbTiles = ( w1s_line_down_6.width  >> 3 ) * ( w1s_line_down_6.height >> 3 ); vrampos [ 5 ] = vram_new ( nbTiles ); VDP_loadTileData ( w1s_line_down_6.sprites[0], vrampos [ 5 ], nbTiles, false );
+	nbTiles = ( w1s_line_down_7.width  >> 3 ) * ( w1s_line_down_7.height >> 3 ); vrampos [ 6 ] = vram_new ( nbTiles ); VDP_loadTileData ( w1s_line_down_7.sprites[0], vrampos [ 6 ], nbTiles, false );
+
+	sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN ); VDP_setSpriteFull ( sp,  44, 208, w1s_line_down_1.size >> 8, TILE_ATTR_FULL ( PAL0, 0, 0, 0, vrampos[0] ), sp + 1 );
+	sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN ); VDP_setSpriteFull ( sp,  79, 208, w1s_line_down_2.size >> 8, TILE_ATTR_FULL ( PAL0, 0, 0, 0, vrampos[1] ), sp + 1 );
+	sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN ); VDP_setSpriteFull ( sp, 120, 208, w1s_line_down_3.size >> 8, TILE_ATTR_FULL ( PAL0, 0, 0, 0, vrampos[2] ), sp + 1 );
+	sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN ); VDP_setSpriteFull ( sp, 165, 208, w1s_line_down_4.size >> 8, TILE_ATTR_FULL ( PAL0, 0, 0, 0, vrampos[3] ), sp + 1 );
+	sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN ); VDP_setSpriteFull ( sp, 203, 208, w1s_line_down_5.size >> 8, TILE_ATTR_FULL ( PAL0, 0, 0, 0, vrampos[4] ), sp + 1 );
+	sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN ); VDP_setSpriteFull ( sp, 241, 208, w1s_line_down_6.size >> 8, TILE_ATTR_FULL ( PAL0, 0, 0, 0, vrampos[5] ), sp + 1 );
+	sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN ); VDP_setSpriteFull ( sp, 280, 208, w1s_line_down_7.size >> 8, TILE_ATTR_FULL ( PAL0, 0, 0, 0, vrampos[6] ), sp + 1 );
+
+    SYS_enableInts();
+}
+
+
+static void _level_draw_ambiente_2 ( )
+{
+	if ( gamestate.current_ambiente != 2 )
+		return;
+
+	SYS_disableInts();
+
+	u16 vrampos, nbTiles, sp;
+
+	nbTiles = ( w2s_line_down_1.width  >> 3 ) * ( w2s_line_down_1.height >> 3 );
+	vrampos = vram_new ( nbTiles );
+	VDP_loadTileData ( w2s_line_down_1.sprites[0], vrampos, nbTiles, false );
+
+	sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN ); VDP_setSpriteFull ( sp,  27, 208, w2s_line_down_1.size >> 8, TILE_ATTR_FULL ( PAL0, 0, 0, 0, vrampos ), sp + 1 );
+	sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN ); VDP_setSpriteFull ( sp,  73, 208, w2s_line_down_1.size >> 8, TILE_ATTR_FULL ( PAL0, 0, 0, 0, vrampos ), sp + 1 );
+	sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN ); VDP_setSpriteFull ( sp, 124, 208, w2s_line_down_1.size >> 8, TILE_ATTR_FULL ( PAL0, 0, 0, 0, vrampos ), sp + 1 );
+	sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN ); VDP_setSpriteFull ( sp, 180, 208, w2s_line_down_1.size >> 8, TILE_ATTR_FULL ( PAL0, 0, 0, 0, vrampos ), sp + 1 );
+	sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN ); VDP_setSpriteFull ( sp, 230, 208, w2s_line_down_1.size >> 8, TILE_ATTR_FULL ( PAL0, 0, 0, 0, vrampos ), sp + 1 );
+	sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN ); VDP_setSpriteFull ( sp, 276, 208, w2s_line_down_1.size >> 8, TILE_ATTR_FULL ( PAL0, 0, 0, 0, vrampos ), sp + 1 );
+
+    SYS_enableInts();
+}
+
+
+static void _level_draw_ambiente_3 ( )
+{
+	if ( gamestate.current_ambiente != 3 )
+		return;
+
+	SYS_disableInts();
+
+	u8 x = 0;
+	u8 y = 26;
+	u16 aux = vobject_add ( SEA )->vram_pos;
+
+	for ( x=0; x < 40; x+=4 )
+	{
+		u16 i, pos = aux;
+
+		for ( i=0; i<4; i++ )
+		{
+			VDP_setTileMapXY ( BG_B, TILE_ATTR_FULL ( PAL0, 0, 0, 0, pos++ ), x + i, y + 0 );
+			VDP_setTileMapXY ( BG_B, TILE_ATTR_FULL ( PAL0, 0, 0, 0, pos++ ), x + i, y + 1 );
+		}
+	}
+
+	SYS_enableInts();
+}
+
+
+static void _level_draw_ambiente_4 ( )
+{
+	if ( gamestate.current_ambiente != 4 )
+		return;
+
+	SYS_disableInts();
+
+	// VDP_setScrollingMode ( HSCROLL_PLANE, VSCROLL_2TILE );
+	VDP_setScrollingMode ( HSCROLL_PLANE, VSCROLL_COLUMN );
+
+	VDP_setMapEx ( BG_B, level_get()->background->tilemap, TILE_ATTR_FULL(PAL0, true, 0, 0, level_vram_pos(BG_B)),  0, 0,  0, 0, 4, 28 );
+	VDP_setMapEx ( BG_B, level_get()->background->tilemap, TILE_ATTR_FULL(PAL0, true, 0, 0, level_vram_pos(BG_B)), 36, 0, 36, 0, 4, 28 );
+
+	animation_draw ( LAVA1,  0,  0, true, BG_A, false, 0, 0, 3, 4 );
+	animation_draw ( LAVA2,  0,  4, true, BG_A, false, 0, 0, 3, 4 );
+	animation_draw ( LAVA1,  0,  8, true, BG_A, false, 0, 0, 3, 4 );
+	animation_draw ( LAVA2,  0, 12, true, BG_A, false, 0, 0, 3, 4 );
+	animation_draw ( LAVA1,  0, 16, true, BG_A, false, 0, 0, 3, 4 );
+	animation_draw ( LAVA2,  0, 20, true, BG_A, false, 0, 0, 3, 4 );
+	animation_draw ( LAVA1,  0, 24, true, BG_A, false, 0, 0, 3, 4 );
+	animation_draw ( LAVA2,  0, 28, true, BG_A, false, 0, 0, 3, 4 );
+
+
+	animation_draw ( LAVA2, 37,  0, true, BG_A, false, 1, 1, 3, 4 );
+	animation_draw ( LAVA1, 37,  4, true, BG_A, false, 1, 1, 3, 4 );
+	animation_draw ( LAVA2, 37,  8, true, BG_A, false, 1, 1, 3, 4 );
+	animation_draw ( LAVA1, 37, 12, true, BG_A, false, 1, 1, 3, 4 );
+	animation_draw ( LAVA2, 37, 16, true, BG_A, false, 1, 1, 3, 4 );
+	animation_draw ( LAVA1, 37, 20, true, BG_A, false, 1, 1, 3, 4 );
+	animation_draw ( LAVA2, 37, 24, true, BG_A, false, 1, 1, 3, 4 );
+	animation_draw ( LAVA1, 37, 28, true, BG_A, false, 1, 1, 3, 4 );
+
+
+	animation_draw ( VENTANA_1,   0,  0, true, BG_B, true,  0, 0, 2, 1 );
+	animation_draw ( VENTANA_1,  38,  0, true, BG_B, true,  1, 0, 2, 1 );
+
+	animation_draw ( VENTANA_2,   6,  0, true, BG_B, false, 0, 0, 2, 4 );
+	animation_draw ( VENTANA_2,  32,  0, true, BG_B, false, 1, 0, 2, 4 );
+
+	animation_draw ( VENTANA_3,  11,  0, true, BG_B, false, 0, 0, 3, 4 );
+	animation_draw ( VENTANA_3,  26,  0, true, BG_B, false, 1, 0, 3, 4 );
+
+	animation_draw ( VENTANA_4,  18,  2, true, BG_B, false, 0, 0, 4, 3 );
+
+
+	u16 vrampos [ 4 ], nbTiles, sp;
+
+	nbTiles = ( w4s_line_down_1.width  >> 3 ) * ( w4s_line_down_1.height >> 3 ); vrampos [ 0 ] = vram_new ( nbTiles ); VDP_loadTileData ( w4s_line_down_1.sprites[0], vrampos [ 0 ], nbTiles, false ); 
+	nbTiles = ( w4s_line_down_2.width  >> 3 ) * ( w4s_line_down_2.height >> 3 ); vrampos [ 1 ] = vram_new ( nbTiles ); VDP_loadTileData ( w4s_line_down_2.sprites[0], vrampos [ 1 ], nbTiles, false ); 
+	nbTiles = ( w4s_line_down_3.width  >> 3 ) * ( w4s_line_down_3.height >> 3 ); vrampos [ 2 ] = vram_new ( nbTiles ); VDP_loadTileData ( w4s_line_down_3.sprites[0], vrampos [ 2 ], nbTiles, false ); 
+	nbTiles = ( w4s_line_down_4.width  >> 3 ) * ( w4s_line_down_4.height >> 3 ); vrampos [ 3 ] = vram_new ( nbTiles ); VDP_loadTileData ( w4s_line_down_4.sprites[0], vrampos [ 3 ], nbTiles, false ); 
+
+	sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN ); VDP_setSpriteFull ( sp,  32, 192, w4s_line_down_1.size >> 8, TILE_ATTR_FULL ( PAL0, 0, 0, 0, vrampos[0] ), sp + 1 );
+	sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN ); VDP_setSpriteFull ( sp,  55, 208, w4s_line_down_2.size >> 8, TILE_ATTR_FULL ( PAL0, 0, 0, 0, vrampos[1] ), sp + 1 );
+	sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN ); VDP_setSpriteFull ( sp,  87, 208, w4s_line_down_3.size >> 8, TILE_ATTR_FULL ( PAL0, 0, 0, 0, vrampos[2] ), sp + 1 );
+	sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN ); VDP_setSpriteFull ( sp, 119, 208, w4s_line_down_4.size >> 8, TILE_ATTR_FULL ( PAL0, 0, 0, 0, vrampos[3] ), sp + 1 );
+	sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN ); VDP_setSpriteFull ( sp, 151, 208, w4s_line_down_2.size >> 8, TILE_ATTR_FULL ( PAL0, 0, 0, 0, vrampos[1] ), sp + 1 );
+	sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN ); VDP_setSpriteFull ( sp, 183, 208, w4s_line_down_3.size >> 8, TILE_ATTR_FULL ( PAL0, 0, 0, 0, vrampos[2] ), sp + 1 );
+	sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN ); VDP_setSpriteFull ( sp, 215, 208, w4s_line_down_4.size >> 8, TILE_ATTR_FULL ( PAL0, 0, 0, 0, vrampos[3] ), sp + 1 );
+	sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN ); VDP_setSpriteFull ( sp, 247, 208, w4s_line_down_2.size >> 8, TILE_ATTR_FULL ( PAL0, 0, 0, 0, vrampos[1] ), sp + 1 );
+	sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN ); VDP_setSpriteFull ( sp, 272, 192, w4s_line_down_1.size >> 8, TILE_ATTR_FULL ( PAL0, 0, 0, 1, vrampos[0] ), sp + 1 );
+
+	SYS_enableInts();
+}
+
+
+
+
 ///////////////////////////////////////////////////////////////////////////////////////////////
 
 
@@ -310,14 +481,14 @@ void level_draw ( LEVEL *level )
 	_vram_pos[1] = vram_new ( cb_ui.tileset->numTile );
 
 
-	VDP_drawImageEx ( PLAN_B, level->background, TILE_ATTR_FULL(PAL0, false, false, false, _vram_pos[0]), 0, 0, false, 0 );
+	VDP_drawImageEx ( BG_B, level->background, TILE_ATTR_FULL(PAL0, false, false, false, _vram_pos[0]), 0, 0, false, 0 );
 
 	//level_draw_linedown  ( level );
-	level_draw_ambiente_0 ( );
-	level_draw_ambiente_1 ( );
-	level_draw_ambiente_2 ( );
-	level_draw_ambiente_3 ( );
-	level_draw_ambiente_4 ( );
+	_level_draw_ambiente_0 ( );
+	_level_draw_ambiente_1 ( );
+	_level_draw_ambiente_2 ( );
+	_level_draw_ambiente_3 ( );
+	_level_draw_ambiente_4 ( );
 
 	if ( on_medallon && gamestate.current_ambiente < 4)
 	{
@@ -350,7 +521,7 @@ void level_draw ( LEVEL *level )
 			u16 tile = 800;
 
 			VDP_loadTileData ( cb_poyete.tiles, tile, cb_poyete.width * cb_poyete.height, 0 );
-			VDP_fillTileMapRectInc ( PLAN_A, TILE_ATTR_FULL ( PAL3, 0, 0, 0, tile ), 12, 7, cb_poyete.width, cb_poyete.height );
+			VDP_fillTileMapRectInc ( BG_A, TILE_ATTR_FULL ( PAL3, 0, 0, 0, tile ), 12, 7, cb_poyete.width, cb_poyete.height );
 			preparePal ( PAL2, cs_monedon_16x24.pal );
 			preparePal ( PAL3, cb_poyete.pal );
 		}
@@ -358,8 +529,8 @@ void level_draw ( LEVEL *level )
 
 	if ( DEV )
 	{
-		if ( _flip_h ) VDP_drawText("1",0,0); else VDP_drawText("0",0,0);
-		if ( _flip_v ) VDP_drawText("1",1,0); else VDP_drawText("0",1,0);
+		if ( _flip_h ) TEXT_drawText("1",0,0); else TEXT_drawText("0",0,0);
+		if ( _flip_v ) TEXT_drawText("1",1,0); else TEXT_drawText("0",1,0);
 	}
 
 	SYS_enableInts();
@@ -381,7 +552,7 @@ void level_actualizar_marcador ( )
 	}
 
 	vsprite_set ( splist_ui_key, x, y, key );
-	VDP_setSpritePriority ( splist_ui_key, 1 );
+	VDP_setSpritePriorityGQ ( splist_ui_key, 1 );
 
 	s16 un = undo_rest ( 0 );
 
@@ -392,7 +563,7 @@ void level_actualizar_marcador ( )
 
 	const u16 pos_y [ 4 ] = { 11, 8, 5, 1 };
 	SYS_disableInts();
-	VDP_setMapEx ( PLAN_A, cb_ui.map, TILE_ATTR_FULL(PAL1, false, false, false, _vram_pos[1]), 9, 1, 7, pos_y [ (u16) un ], 8, 3 );
+	VDP_setMapEx ( BG_A, cb_ui.tilemap, TILE_ATTR_FULL(PAL1, false, false, false, _vram_pos[1]), 9, 1, 7, pos_y [ (u16) un ], 8, 3 );
     SYS_enableInts();
 }
 
@@ -418,7 +589,7 @@ void level_draw_area ( LEVEL *level, u8 x, u8 y, u8 width, u8 height )
 				 if ( !_pal2 && animation_get(obj)->pal == PAL2 ) _pal2 = obj;
 			else if ( !_pal3 && animation_get(obj)->pal == PAL3 ) _pal3 = obj;
 
-			animation_draw ( obj, j, i, false, PLAN_A, -1, 0, 0, _force_width, _force_height );
+			animation_draw ( obj, j, i, false, BG_A, -1, 0, 0, _force_width, _force_height );
 		}
 	}
 }
@@ -470,9 +641,9 @@ void level_set_key ( u16 x, u16 y )
 }
 
 
-u16 level_vram_pos ( VDPPlan plan )
+u16 level_vram_pos ( VDPPlane plan )
 {
-	return _vram_pos [ plan.value == PLAN_B.value ? 0 : 1 ] ;
+	return _vram_pos [ plan == BG_B ? 0 : 1 ] ;
 }
 
 
@@ -501,7 +672,7 @@ void level_update ( )
 {
 	if ( gamestate.current_ambiente == 4 )
 	{
-		_vscroll = fix16Sub ( _vscroll, 2.3 );
+		_vscroll -= FIX16(2.3);
 
 		s16 values[20] = { };
 		s16 value = fix16ToInt ( _vscroll );
@@ -509,354 +680,8 @@ void level_update ( )
 		values[0]  = values[1]  = +value; // baja
 		values[18] = values[19] = -value; // sube
 
-		VDP_setVerticalScrollTile(PLAN_A, 0, values, 20, 0 );
+		VDP_setVerticalScrollTile(BG_A, 0, values, 20, 0 );
 	}
-}
-
-
-void level_draw_ambiente_0 ( )
-{
-	if ( gamestate.current_ambiente != 0 )
-	{
-		return;
-	}
-
-
-	SYS_disableInts();
-
-	u16 vrampos [ 6 ], nbTiles, sp;
-
-	nbTiles = ( w0s_line_down_1.width  >> 3 ) * ( w0s_line_down_1.height >> 3 );
-	vrampos [ 0 ] = vram_new ( nbTiles );
-	VDP_loadTileData ( w0s_line_down_1.sprites[0], vrampos [ 0 ], nbTiles, false );
-
-	nbTiles = ( w0s_line_down_2.width  >> 3 ) * ( w0s_line_down_2.height >> 3 );
-	vrampos [ 1 ] = vram_new ( nbTiles );
-	VDP_loadTileData ( w0s_line_down_2.sprites[0], vrampos [ 1 ], nbTiles, false );
-
-	nbTiles = ( w0s_line_down_3.width  >> 3 ) * ( w0s_line_down_3.height >> 3 );
-	vrampos [ 2 ] = vram_new ( nbTiles );
-	VDP_loadTileData ( w0s_line_down_3.sprites[0], vrampos [ 2 ], nbTiles, false );
-
-	nbTiles = ( w0s_line_down_4.width  >> 3 ) * ( w0s_line_down_4.height >> 3 );
-	vrampos [ 3 ] = vram_new ( nbTiles );
-	VDP_loadTileData ( w0s_line_down_4.sprites[0], vrampos [ 3 ], nbTiles, false );
-
-	nbTiles = ( w0s_line_down_5.width  >> 3 ) * ( w0s_line_down_5.height >> 3 );
-	vrampos [ 4 ] = vram_new ( nbTiles );
-	VDP_loadTileData ( w0s_line_down_5.sprites[0], vrampos [ 4 ], nbTiles, false );
-
-	nbTiles = ( w0s_line_down_6.width  >> 3 ) * ( w0s_line_down_6.height >> 3 );
-	vrampos [ 5 ] = vram_new ( nbTiles );
-	VDP_loadTileData ( w0s_line_down_6.sprites[0], vrampos [ 5 ], nbTiles, false );
-
-
-	sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN );
-	VDP_setSpriteFull ( sp,  56, 208, w0s_line_down_1.size >> 8, TILE_ATTR_FULL ( PAL0, 0, 0, 0, vrampos[0] ), sp + 1 );
-
-	sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN );
-	VDP_setSpriteFull ( sp,  88, 208, w0s_line_down_2.size >> 8, TILE_ATTR_FULL ( PAL0, 0, 0, 0, vrampos[1] ), sp + 1 );
-
-	sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN );
-	VDP_setSpriteFull ( sp, 112, 208, w0s_line_down_3.size >> 8, TILE_ATTR_FULL ( PAL0, 0, 0, 0, vrampos[2] ), sp + 1 );
-
-	sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN );
-	VDP_setSpriteFull ( sp, 152, 208, w0s_line_down_4.size >> 8, TILE_ATTR_FULL ( PAL0, 0, 0, 0, vrampos[3] ), sp + 1 );
-
-	sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN );
-	VDP_setSpriteFull ( sp, 200, 208, w0s_line_down_5.size >> 8, TILE_ATTR_FULL ( PAL0, 0, 0, 0, vrampos[4] ), sp + 1 );
-
-	sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN );
-	VDP_setSpriteFull ( sp, 256, 208, w0s_line_down_6.size >> 8, TILE_ATTR_FULL ( PAL0, 0, 0, 0, vrampos[5] ), sp + 1 );
-
-    SYS_enableInts();
-}
-
-
-void level_draw_ambiente_1 ( )
-{
-	if ( gamestate.current_ambiente != 1 )
-	{
-		return;
-	}
-
-	SYS_disableInts();
-
-	u16 vrampos [ 7 ], nbTiles, sp;
-
-	nbTiles = ( w1s_line_down_1.width  >> 3 ) * ( w1s_line_down_1.height >> 3 );
-	vrampos [ 0 ] = vram_new ( nbTiles );
-	VDP_loadTileData ( w1s_line_down_1.sprites[0], vrampos [ 0 ], nbTiles, false );
-
-	nbTiles = ( w1s_line_down_2.width  >> 3 ) * ( w1s_line_down_2.height >> 3 );
-	vrampos [ 1 ] = vram_new ( nbTiles );
-	VDP_loadTileData ( w1s_line_down_2.sprites[0], vrampos [ 1 ], nbTiles, false );
-
-	nbTiles = ( w1s_line_down_3.width  >> 3 ) * ( w1s_line_down_3.height >> 3 );
-	vrampos [ 2 ] = vram_new ( nbTiles );
-	VDP_loadTileData ( w1s_line_down_3.sprites[0], vrampos [ 2 ], nbTiles, false );
-
-	nbTiles = ( w1s_line_down_4.width  >> 3 ) * ( w1s_line_down_4.height >> 3 );
-	vrampos [ 3 ] = vram_new ( nbTiles );
-	VDP_loadTileData ( w1s_line_down_4.sprites[0], vrampos [ 3 ], nbTiles, false );
-
-	nbTiles = ( w1s_line_down_5.width  >> 3 ) * ( w1s_line_down_5.height >> 3 );
-	vrampos [ 4 ] = vram_new ( nbTiles );
-	VDP_loadTileData ( w1s_line_down_5.sprites[0], vrampos [ 4 ], nbTiles, false );
-
-	nbTiles = ( w1s_line_down_6.width  >> 3 ) * ( w1s_line_down_6.height >> 3 );
-	vrampos [ 5 ] = vram_new ( nbTiles );
-	VDP_loadTileData ( w1s_line_down_6.sprites[0], vrampos [ 5 ], nbTiles, false );
-
-	nbTiles = ( w1s_line_down_7.width  >> 3 ) * ( w1s_line_down_7.height >> 3 );
-	vrampos [ 6 ] = vram_new ( nbTiles );
-	VDP_loadTileData ( w1s_line_down_7.sprites[0], vrampos [ 6 ], nbTiles, false );
-
-
-	sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN );
-	VDP_setSpriteFull ( sp,  44, 208, w1s_line_down_1.size >> 8, TILE_ATTR_FULL ( PAL0, 0, 0, 0, vrampos[0] ), sp + 1 );
-
-	sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN );
-	VDP_setSpriteFull ( sp,  79, 208, w1s_line_down_2.size >> 8, TILE_ATTR_FULL ( PAL0, 0, 0, 0, vrampos[1] ), sp + 1 );
-
-	sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN );
-	VDP_setSpriteFull ( sp, 120, 208, w1s_line_down_3.size >> 8, TILE_ATTR_FULL ( PAL0, 0, 0, 0, vrampos[2] ), sp + 1 );
-
-	sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN );
-	VDP_setSpriteFull ( sp, 165, 208, w1s_line_down_4.size >> 8, TILE_ATTR_FULL ( PAL0, 0, 0, 0, vrampos[3] ), sp + 1 );
-
-	sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN );
-	VDP_setSpriteFull ( sp, 203, 208, w1s_line_down_5.size >> 8, TILE_ATTR_FULL ( PAL0, 0, 0, 0, vrampos[4] ), sp + 1 );
-
-	sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN );
-	VDP_setSpriteFull ( sp, 241, 208, w1s_line_down_6.size >> 8, TILE_ATTR_FULL ( PAL0, 0, 0, 0, vrampos[5] ), sp + 1 );
-
-	sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN );
-	VDP_setSpriteFull ( sp, 280, 208, w1s_line_down_7.size >> 8, TILE_ATTR_FULL ( PAL0, 0, 0, 0, vrampos[6] ), sp + 1 );
-
-    SYS_enableInts();
-}
-
-
-void level_draw_ambiente_2 ( )
-{
-	if ( gamestate.current_ambiente != 2 )
-	{
-		return;
-	}
-
-	SYS_disableInts();
-
-	u16 vrampos, nbTiles, sp;
-
-	nbTiles = ( w2s_line_down_1.width  >> 3 ) * ( w2s_line_down_1.height >> 3 );
-	vrampos = vram_new ( nbTiles );
-	VDP_loadTileData ( w2s_line_down_1.sprites[0], vrampos, nbTiles, false );
-
-	sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN );
-	VDP_setSpriteFull ( sp,  27, 208, w2s_line_down_1.size >> 8, TILE_ATTR_FULL ( PAL0, 0, 0, 0, vrampos ), sp + 1 );
-
-	sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN );
-	VDP_setSpriteFull ( sp,  73, 208, w2s_line_down_1.size >> 8, TILE_ATTR_FULL ( PAL0, 0, 0, 0, vrampos ), sp + 1 );
-
-	sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN );
-	VDP_setSpriteFull ( sp, 124, 208, w2s_line_down_1.size >> 8, TILE_ATTR_FULL ( PAL0, 0, 0, 0, vrampos ), sp + 1 );
-
-	sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN );
-	VDP_setSpriteFull ( sp, 180, 208, w2s_line_down_1.size >> 8, TILE_ATTR_FULL ( PAL0, 0, 0, 0, vrampos ), sp + 1 );
-
-	sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN );
-	VDP_setSpriteFull ( sp, 230, 208, w2s_line_down_1.size >> 8, TILE_ATTR_FULL ( PAL0, 0, 0, 0, vrampos ), sp + 1 );
-
-	sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN );
-	VDP_setSpriteFull ( sp, 276, 208, w2s_line_down_1.size >> 8, TILE_ATTR_FULL ( PAL0, 0, 0, 0, vrampos ), sp + 1 );
-
-    SYS_enableInts();
-}
-
-
-void level_draw_ambiente_3 ( )
-{
-	if ( gamestate.current_ambiente != 3 )
-	{
-		return;
-	}
-
-
-	SYS_disableInts();
-
-	u8 x = 0;
-	u8 y = 26;
-	u16 aux = vobject_add ( SEA )->vram_pos;
-
-	for ( x=0; x < 40; x+=4 )
-	{
-		u16 i, pos = aux;
-
-		for ( i=0; i<4; i++ )
-		{
-			VDP_setTileMapXY ( PLAN_B, TILE_ATTR_FULL ( PAL0, 0, 0, 0, pos++ ), x + i, y + 0 );
-			VDP_setTileMapXY ( PLAN_B, TILE_ATTR_FULL ( PAL0, 0, 0, 0, pos++ ), x + i, y + 1 );
-		}
-	}
-
-	SYS_enableInts();
-}
-
-
-void level_draw_ambiente_4 ( )
-{
-	if ( gamestate.current_ambiente != 4 )
-	{
-		return;
-	}
-
-	SYS_disableInts();
-
-	VDP_setScrollingMode ( HSCROLL_PLANE, VSCROLL_2TILE );
-
-	VDP_setMapEx ( PLAN_B, level_get()->background->map, TILE_ATTR_FULL(PAL0, true, 0, 0, level_vram_pos(PLAN_B)),  0, 0,  0, 0, 4, 28 );
-	VDP_setMapEx ( PLAN_B, level_get()->background->map, TILE_ATTR_FULL(PAL0, true, 0, 0, level_vram_pos(PLAN_B)), 36, 0, 36, 0, 4, 28 );
-
-	animation_draw ( LAVA1,  0,  0, true, PLAN_A, false, 0, 0, 3, 4 );
-	animation_draw ( LAVA2,  0,  4, true, PLAN_A, false, 0, 0, 3, 4 );
-	animation_draw ( LAVA1,  0,  8, true, PLAN_A, false, 0, 0, 3, 4 );
-	animation_draw ( LAVA2,  0, 12, true, PLAN_A, false, 0, 0, 3, 4 );
-	animation_draw ( LAVA1,  0, 16, true, PLAN_A, false, 0, 0, 3, 4 );
-	animation_draw ( LAVA2,  0, 20, true, PLAN_A, false, 0, 0, 3, 4 );
-	animation_draw ( LAVA1,  0, 24, true, PLAN_A, false, 0, 0, 3, 4 );
-	animation_draw ( LAVA2,  0, 28, true, PLAN_A, false, 0, 0, 3, 4 );
-
-
-	animation_draw ( LAVA2, 37,  0, true, PLAN_A, false, 1, 1, 3, 4 );
-	animation_draw ( LAVA1, 37,  4, true, PLAN_A, false, 1, 1, 3, 4 );
-	animation_draw ( LAVA2, 37,  8, true, PLAN_A, false, 1, 1, 3, 4 );
-	animation_draw ( LAVA1, 37, 12, true, PLAN_A, false, 1, 1, 3, 4 );
-	animation_draw ( LAVA2, 37, 16, true, PLAN_A, false, 1, 1, 3, 4 );
-	animation_draw ( LAVA1, 37, 20, true, PLAN_A, false, 1, 1, 3, 4 );
-	animation_draw ( LAVA2, 37, 24, true, PLAN_A, false, 1, 1, 3, 4 );
-	animation_draw ( LAVA1, 37, 28, true, PLAN_A, false, 1, 1, 3, 4 );
-
-
-	animation_draw ( VENTANA_1,   0,  0, true, PLAN_B, true,  0, 0, 2, 1 );
-	animation_draw ( VENTANA_1,  38,  0, true, PLAN_B, true,  1, 0, 2, 1 );
-
-	animation_draw ( VENTANA_2,   6,  0, true, PLAN_B, false, 0, 0, 2, 4 );
-	animation_draw ( VENTANA_2,  32,  0, true, PLAN_B, false, 1, 0, 2, 4 );
-
-	animation_draw ( VENTANA_3,  11,  0, true, PLAN_B, false, 0, 0, 3, 4 );
-	animation_draw ( VENTANA_3,  26,  0, true, PLAN_B, false, 1, 0, 3, 4 );
-
-	animation_draw ( VENTANA_4,  18,  2, true, PLAN_B, false, 0, 0, 4, 3 );
-
-
-
-
-	u16 vrampos [ 4 ], nbTiles, sp;
-
-	nbTiles = ( w4s_line_down_1.width  >> 3 ) * ( w4s_line_down_1.height >> 3 );
-	vrampos [ 0 ] = vram_new ( nbTiles );
-	VDP_loadTileData ( w4s_line_down_1.sprites[0], vrampos [ 0 ], nbTiles, false );
-
-	nbTiles = ( w4s_line_down_2.width  >> 3 ) * ( w4s_line_down_2.height >> 3 );
-	vrampos [ 1 ] = vram_new ( nbTiles );
-	VDP_loadTileData ( w4s_line_down_2.sprites[0], vrampos [ 1 ], nbTiles, false );
-
-	nbTiles = ( w4s_line_down_3.width  >> 3 ) * ( w4s_line_down_3.height >> 3 );
-	vrampos [ 2 ] = vram_new ( nbTiles );
-	VDP_loadTileData ( w4s_line_down_3.sprites[0], vrampos [ 2 ], nbTiles, false );
-
-	nbTiles = ( w4s_line_down_4.width  >> 3 ) * ( w4s_line_down_4.height >> 3 );
-	vrampos [ 3 ] = vram_new ( nbTiles );
-	VDP_loadTileData ( w4s_line_down_4.sprites[0], vrampos [ 3 ], nbTiles, false );
-
-
-	sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN );
-	VDP_setSpriteFull ( sp,  32, 192, w4s_line_down_1.size >> 8, TILE_ATTR_FULL ( PAL0, 0, 0, 0, vrampos[0] ), sp + 1 );
-
-	sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN );
-	VDP_setSpriteFull ( sp,  55, 208, w4s_line_down_2.size >> 8, TILE_ATTR_FULL ( PAL0, 0, 0, 0, vrampos[1] ), sp + 1 );
-
-	sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN );
-	VDP_setSpriteFull ( sp,  87, 208, w4s_line_down_3.size >> 8, TILE_ATTR_FULL ( PAL0, 0, 0, 0, vrampos[2] ), sp + 1 );
-
-	sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN );
-	VDP_setSpriteFull ( sp, 119, 208, w4s_line_down_4.size >> 8, TILE_ATTR_FULL ( PAL0, 0, 0, 0, vrampos[3] ), sp + 1 );
-
-	sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN );
-	VDP_setSpriteFull ( sp, 151, 208, w4s_line_down_2.size >> 8, TILE_ATTR_FULL ( PAL0, 0, 0, 0, vrampos[1] ), sp + 1 );
-
-	sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN );
-	VDP_setSpriteFull ( sp, 183, 208, w4s_line_down_3.size >> 8, TILE_ATTR_FULL ( PAL0, 0, 0, 0, vrampos[2] ), sp + 1 );
-
-	sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN );
-	VDP_setSpriteFull ( sp, 215, 208, w4s_line_down_4.size >> 8, TILE_ATTR_FULL ( PAL0, 0, 0, 0, vrampos[3] ), sp + 1 );
-
-	sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN );
-	VDP_setSpriteFull ( sp, 247, 208, w4s_line_down_2.size >> 8, TILE_ATTR_FULL ( PAL0, 0, 0, 0, vrampos[1] ), sp + 1 );
-
-	sp = sd_new ( FIRST_SPRITE_BASE, SD_DOWN );
-	VDP_setSpriteFull ( sp, 272, 192, w4s_line_down_1.size >> 8, TILE_ATTR_FULL ( PAL0, 0, 0, 1, vrampos[0] ), sp + 1 );
-
-	SYS_enableInts();
-}
-
-
-void level_presentation()
-{
-	displayInit();
-	displayOff(0);
-
-	SYS_disableInts();
-
-	resetScreen();
-	resetSprites();
-	resetScroll();
-	resetPalettes();
-
-
-
-
-	musiclist_play ( MUSIC_NEW_ROUND );
-
-	u16 *palette = font_getPalette ();
-
-	VDP_setPaletteColor( PAL0+0, palette[0] );
-	VDP_setPaletteColor( PAL0+1, palette[1] );
-	VDP_setPaletteColor( PAL0+2, palette[2] );
-
-	SYS_enableInts();
-
-
-
-	u8   string [ 41 ];
-	u16  ambiente = gamestate.current_ambiente;
-	u8  *frase    = frases_find ( 1, ambiente );
-
-
-	text_init ( (struct genresSprites *) &cs_font_16x16, 16, PAL0 );
-	text_draw_sprites_x_centered ( frase,  88, 30 );
-
-
-	ambiente = gamestate.current_round+1;
-	frase    = frases_find ( 1, 7 );
-
-	memcpy ( string, frase, strlen ( frase ) ) ;
-	sprintf ( string, frase, ambiente );
-	u16 sprite = text_draw_sprites_x_centered ( string, 120, 30 ) - 1;
-
-	VDP_setSpriteLink ( sprite, 0 );
-	VDP_updateSprites (80,1);
-
-
-	waitJoyScBtn ( 3 );
-	music_stop();
-
-
-	displayOff(30);
-
-	resetSprites();
-	splist_reorder();
 }
 
 
@@ -893,7 +718,7 @@ u16 level_find ( u16 object, LEVEL *level, Vect2D_u16 grid[] )
 
 void level_draw_animation ( u16 ani, u8 x, u8 y )
 {
-	animation_draw ( ani, x, y, false, PLAN_A, -1, 0, 0, _force_width, _force_height );
+	animation_draw ( ani, x, y, false, BG_A, -1, 0, 0, _force_width, _force_height );
 
 	_force_height = 0;
 	_force_width  = 0;

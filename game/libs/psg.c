@@ -247,7 +247,7 @@ void psg_play ( u8 *data, u8 track )
 
 void psg_callback ()
 {
-	if ( playing && ( IS_PALSYSTEM || ( vtimer % 6 ) ) )
+	if ( playing && ( IS_PAL_SYSTEM || ( vtimer % 6 ) ) )
 	{
 		_frame ( );
 	}

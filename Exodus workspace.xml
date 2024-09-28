@@ -1,0 +1,80 @@
+﻿<Workspace>
+	<ModuleRelationships>
+		<Module ModuleID="0" SystemClassName="SegaMegaDrive" ModuleClassName="SegaMegaDrive" ModuleInstanceName="MD1600">
+			<ExportConnector ConnectorClassName="ControlPort" ConnectorInstanceName="Control Port 1" />
+			<ExportConnector ConnectorClassName="ControlPort" ConnectorInstanceName="Control Port 2" />
+			<ExportConnector ConnectorClassName="ControlPort" ConnectorInstanceName="Control Port 3" />
+			<ExportConnector ConnectorClassName="CartridgePort" ConnectorInstanceName="Cartridge Port" />
+			<ExportConnector ConnectorClassName="ExpansionPort" ConnectorInstanceName="Expansion Port" />
+		</Module>
+		<Module ModuleID="1" SystemClassName="SegaMegaDrive" ModuleClassName="Control6" ModuleInstanceName="Generic 6-Button Controller">
+			<ImportConnector ExportingModuleID="0" ConnectorClassName="ControlPort" ConnectorInstanceNameLocal="Control Port" ConnectorInstanceNameRemote="Control Port 1" />
+		</Module>
+		<Module ModuleID="2" SystemClassName="SegaMegaDrive" ModuleClassName="ROMLoader" ModuleInstanceName="Generic ROM Loader" />
+		<Module ModuleID="7" SystemClassName="SegaMegaDrive" ModuleClassName="rom.bin" ModuleInstanceName="rom.bin">
+			<ImportConnector ExportingModuleID="0" ConnectorClassName="CartridgePort" ConnectorInstanceNameLocal="Cartridge Port" ConnectorInstanceNameRemote="Cartridge Port" />
+		</Module>
+	</ModuleRelationships>
+	<ViewLayout>
+		<MainWindowState SizeX="1511" SizeY="828" Maximized="0">
+			<MainDockedWindow ActiveHostedWindowID="2">
+				<HostedContentWindows>
+					<HostedWindow WindowID="1" ViewType="Dockable" WindowTitle="VDP - Image Window" />
+					<HostedWindow WindowID="2" ViewType="Dockable" WindowTitle="VDP - Image Window" />
+				</HostedContentWindows>
+				<HostedDockingWindows>
+					<DockingWindowFrame DockPos="Right" AutoHide="0" DesiredWidth="516" DesiredHeight="339" ActiveHostedWindowID="6">
+						<HostedContentWindows>
+							<HostedWindow WindowID="3" ViewType="Dockable" WindowTitle="VDP - System Settings" />
+							<HostedWindow WindowID="4" ViewType="Dockable" WindowTitle="VDP - Debug Settings" />
+							<HostedWindow WindowID="5" ViewType="Dockable" WindowTitle="VDP - CRAM - Memory Editor" />
+							<HostedWindow WindowID="6" ViewType="Dockable" WindowTitle="VDP - Layer Visibility" />
+						</HostedContentWindows>
+					</DockingWindowFrame>
+				</HostedDockingWindows>
+			</MainDockedWindow>
+			<FloatingWindows>
+				<DockingWindowFrame PosX="1216" PosY="-274" SizeX="794" SizeY="594" ActiveHostedWindowID="7">
+					<HostedContentWindows>
+						<HostedWindow WindowID="7" ViewType="Dockable" WindowTitle="VDP - Plane Viewer" />
+					</HostedContentWindows>
+				</DockingWindowFrame>
+			</FloatingWindows>
+		</MainWindowState>
+		<ViewPresenterState ViewPresenterGroupName="VDPDebugMenu" ViewPresenterName="Image" Target="Device" DeviceInstanceName="VDP" ModuleID="0">
+			<ViewState>
+				<WindowState WindowID="1" />
+			</ViewState>
+		</ViewPresenterState>
+		<ViewPresenterState ViewPresenterGroupName="GenericAccessDebugMenu" ViewPresenterName="LayerVisibility" Target="Device" DeviceInstanceName="VDP" ModuleID="0">
+			<ViewState>
+				<WindowState WindowID="6" />
+			</ViewState>
+		</ViewPresenterState>
+		<ViewPresenterState ViewPresenterGroupName="VDPDebugMenu" ViewPresenterName="PlaneViewer" Target="Device" DeviceInstanceName="VDP" ModuleID="0">
+			<ViewState>
+				<WindowState WindowID="7" />
+			</ViewState>
+		</ViewPresenterState>
+		<ViewPresenterState ViewPresenterGroupName="GenericAccessDebugMenu" ViewPresenterName="DebugSettings" Target="Device" DeviceInstanceName="VDP" ModuleID="0">
+			<ViewState>
+				<WindowState WindowID="4" />
+			</ViewState>
+		</ViewPresenterState>
+		<ViewPresenterState ViewPresenterGroupName="GenericAccessSettingsMenu" ViewPresenterName="SystemSettings" Target="Device" DeviceInstanceName="VDP" ModuleID="0">
+			<ViewState>
+				<WindowState WindowID="3" />
+			</ViewState>
+		</ViewPresenterState>
+		<ViewPresenterState ViewPresenterGroupName="MemoryReadDebugMenu" ViewPresenterName="MemoryEditor" Target="Device" DeviceInstanceName="VDP - CRAM" ModuleID="0">
+			<ViewState>
+				<WindowState WindowID="5" />
+			</ViewState>
+		</ViewPresenterState>
+		<ViewPresenterState ViewPresenterGroupName="VDPDebugMenu" ViewPresenterName="Image" Target="Device" DeviceInstanceName="VDP" ModuleID="0">
+			<ViewState>
+				<WindowState WindowID="2" />
+			</ViewState>
+		</ViewPresenterState>
+	</ViewLayout>
+</Workspace>

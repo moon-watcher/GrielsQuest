@@ -1,3 +1,5 @@
+#pragma once
+
 
 #define LEVEL_NB_LEVELS	 64
 
@@ -68,8 +70,8 @@ const LEVELLIST level_list [ LEVEL_DIF_MAX_AMBIENTES ] [ LEVEL_DIF_MAX_DIFICULTA
 
 #define level_current()          gamestate.current_round
 #define level_get_max_rounds()   level_list [ (u16)gamestate.current_ambiente ] [ gamestate_get_dificultad ( ) ].cuantos
-#define level_hpos_to_pixel(x)   ( ( (x) << 4 ) + voffset_horizontal - 0 )
-#define level_vpos_to_pixel(y)   ( ( (y) << 4 ) + voffset_vertical   - 8 ) // el -8 es para compensar la altuta extra (+8px) respecto a los bloques, armas y enemigos
+#define level_hpos_to_pixel(x)   ( ( (x) << 4 ) + VOFFSET_HORIZONTAL - 0 )
+#define level_vpos_to_pixel(y)   ( ( (y) << 4 ) + VOFFSET_VERTICAL   - 8 ) // el -8 es para compensar la altuta extra (+8px) respecto a los bloques, armas y enemigos
 
 
 
@@ -86,7 +88,6 @@ void        level_draw_door           ( );
 void        level_draw_key            ( );
 void        level_griel_exits         ( );
 void        level_find_bigboys        ( LEVEL level, u8 x, u8 y, u8 width, u8 height );
-void        level_presentation        ( );
 
 Vect2D_u16  level_get_key             ( );
 void        level_set_key             ( u16 x, u16 y );
@@ -94,7 +95,7 @@ Vect2D_u16  level_get_door            ( );
 void        level_set_door            ( u16 x, u16 y );
 
 void        level_draw_demon          ( u16 x, u16 y, u8 ojos, u8 cola );
-u16         level_vram_pos            ( VDPPlan plan );
+u16         level_vram_pos            ( VDPPlane plan );
 
 void        level_ol_set              ( u8 obj, bool value );
 bool        level_ol_get              ( u8 obj );
@@ -104,12 +105,6 @@ u16         level_get_music           ( );
 void        level_update              ( );
 
 //void        level_draw_linedown       ( LEVEL *level );
-void        level_draw_ambiente_0     ( );
-void        level_draw_ambiente_1     ( );
-void        level_draw_ambiente_2     ( );
-void        level_draw_ambiente_3     ( );
-void        level_draw_ambiente_4     ( );
-
 bool        level_flipped_h           ( );
 bool        level_flipped_v           ( );
 

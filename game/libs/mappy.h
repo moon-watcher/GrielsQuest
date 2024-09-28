@@ -1,3 +1,5 @@
+#pragma once
+
 #ifndef _MAPPY_H_
 #define _MAPPY_H_
 

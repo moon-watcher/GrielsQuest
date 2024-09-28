@@ -143,7 +143,7 @@ static void _death_animation ( )
 		vobject_upload ( );
 
 		VDP_updateSprites(80,1);
-		VDP_waitVSync();
+		SYS_doVBlankProcess();
 	}
 
 
@@ -260,7 +260,7 @@ static void _do_slash ( u8 player, LEVEL *level, s8 inc_x, s8 inc_y, s16 x, s16 
 		vobject_upload ( );
 
 		VDP_updateSprites(80,1);
-		VDP_waitVSync();
+		SYS_doVBlankProcess();
 	}
 
 
@@ -288,7 +288,7 @@ static void _do_slash ( u8 player, LEVEL *level, s8 inc_x, s8 inc_y, s16 x, s16 
 	vobject_upload ( );
 
 	VDP_updateSprites(80,1);
-	VDP_waitVSync();
+	SYS_doVBlankProcess();
 }
 
 
@@ -400,7 +400,7 @@ void player_stop ( u8 player )
 }
 
 
-// permite cambiar la dirección de Griel en mitad de dos casillas
+// permite cambiar la direcciï¿½n de Griel en mitad de dos casillas
 bool player_changed_dir ( u8 player )
 {
 	u8 aux = _p.object;
@@ -601,7 +601,7 @@ void player_on_arrow ( u8 player )
 {
 	_p.on_arrow   = false;
 
-	if ( ! _parado ( PLAYER_1 ) ) // si está en Arrow y No parado hacer sonar PSG_ARROW
+	if ( ! _parado ( PLAYER_1 ) ) // si estï¿½ en Arrow y No parado hacer sonar PSG_ARROW
 	{
 		psglist_play ( PSG_FLECHAS );
 	}
@@ -651,8 +651,8 @@ void player_on_hurts ( u8 player )
 	undo_can_undo ( false );
 	undo_explode();
 
-	_p.x = _restore_x; // aquí o fuera del if?
-	_p.y = _restore_y; // está por ver
+	_p.x = _restore_x; // aquï¿½ o fuera del if?
+	_p.y = _restore_y; // estï¿½ por ver
 }
 
 
@@ -661,8 +661,8 @@ void player_on_hurts ( u8 player )
 //{
 //	//music_play ( level->music_completed );
 //
-////	text_init ( (genresSprites*) &cs_font_16x16, 1200, PAL0 );
-//	//text_draw_sprites_centered ( "STAGE CLEAR", 80 );
+////	bigtext_init ( (genresSprites*) &cs_font_16x16, 1200, PAL0 );
+//	//bigtext_draw_sprites_centered ( "STAGE CLEAR", 80 );
 //	planHide();
 //}
 
@@ -724,10 +724,10 @@ void player_update_selected ( u8 player, u16 selected )
 	vsprite_set ( splist_ui_left_1, 16,  0, UI_LEFT_1 );
 	vsprite_set ( splist_ui_left_2, 16, 24, UI_LEFT_2 );
 
-	VDP_setSpritePriority ( splist_ui_weapon, 1 );
-	VDP_setSpritePriority ( splist_ui_enemy,  1 );
-	VDP_setSpritePriority ( splist_ui_left_1, 1 );
-	VDP_setSpritePriority ( splist_ui_left_2, 1 );
+	VDP_setSpritePriorityGQ ( splist_ui_weapon, 1 );
+	VDP_setSpritePriorityGQ ( splist_ui_enemy,  1 );
+	VDP_setSpritePriorityGQ ( splist_ui_left_1, 1 );
+	VDP_setSpritePriorityGQ ( splist_ui_left_2, 1 );
 }
 
 
@@ -791,7 +791,7 @@ void player_inc_level ( )
 		vobject_upload ( );
 
 		VDP_updateSprites(80,1);
-		VDP_waitVSync();
+		SYS_doVBlankProcess();
 	}
 }
 
@@ -1057,7 +1057,7 @@ void player_interact_with_object ( LEVEL *wl )
 //			VDP_setSprite ( 6, cords[i][12], cords[i][13], SIZE_SP_DEMON, TILE_ATTR_FULL ( PAL3, 1, 0, 0, POS_SP_EXPLOSION(k) ), 7 );
 //
 //			VDP_updateSprites();
-//			VDP_waitVSync();
+//			SYS_doVBlankProcess();
 //			waitMs(20);
 //		}
 //	}

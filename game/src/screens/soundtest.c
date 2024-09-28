@@ -1,4 +1,5 @@
 #include "../inc/include.h"
+#include "../inc/genres_externs.h"
 
 
 void screen_sound_test ()
@@ -23,11 +24,11 @@ void screen_sound_test ()
 
 	music_stop();
 
-//	struct mappyLevel lvl = { PAL1, 900, 0, PLAN_A.plan, (struct mappyResource*) &cb_soundtest };
+//	struct mappyLevel lvl = { PAL1, 900, 0, BG_A.plan, (struct mappyResource*) &cb_soundtest };
 //	mappy_all ( &lvl, 0, 0, 0, 0, 40, 28, 0 );
 
 	font_init();
-	text_init ( (struct genresSprites *) &cs_font_16x16, 1200, PAL0 );
+	bigtext_init ( (struct genresSprites *) &cs_font_16x16, 1200, PAL0 );
 
 	u8 f1[40];
 	u8 f2[40];
@@ -37,10 +38,10 @@ void screen_sound_test ()
 	strcpy ( f2, frases_next() );
 
 
-	text_draw_center ( f1, 3, 0 );
+	bigtext_draw_center ( f1, 3, 0 );
 
 	VDP_setTextPalette(PAL0);
-	VDP_setPalette(PAL0, (u16*) font_getPalette());
+	PAL_setPalette(PAL0, (u16*) font_getPalette(), CPU);
 
 	SYS_enableInts();
 
@@ -56,14 +57,14 @@ void screen_sound_test ()
 
 		SYS_disableInts();
 
-		VDP_drawText ( " ", 14, 12 );
-		VDP_drawText ( " ", 14, 14 );
-		VDP_drawText ( " ", 14, 19 );
-		VDP_drawText ( ">                   ", 14, pos );
+		TEXT_drawText ( " ", 14, 12 );
+		TEXT_drawText ( " ", 14, 14 );
+		TEXT_drawText ( " ", 14, 19 );
+		TEXT_drawText ( ">                   ", 14, pos );
 
-		VDP_drawText ( track->title , 16, 12 );
-		VDP_drawText ( psg->title ,   16, 14 );
-		VDP_drawText ( f2,            16, 19 );
+		TEXT_drawText ( track->title , 16, 12 );
+		TEXT_drawText ( psg->title ,   16, 14 );
+		TEXT_drawText ( f2,            16, 19 );
 
 		SYS_enableInts();
 

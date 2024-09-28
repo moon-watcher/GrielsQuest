@@ -1,0 +1,255 @@
+// by @PaspallasDev
+
+(FRASE) { GALEGO, 1, "RISKY WOODS" },
+(FRASE) { GALEGO, 1, "GORIDA MURCIANA" },
+(FRASE) { GALEGO, 1, "ABISMO DE ABU" },
+(FRASE) { GALEGO, 1, "PRAIA PARROCHInA" },  // n is Ñ in bigfont
+(FRASE) { GALEGO, 1, "CASTELO DE KBRAH" },
+(FRASE) { GALEGO, 1, "DUDEHWORLD" },
+(FRASE) { GALEGO, 1, "¿Esqueciches algo?" },
+(FRASE) { GALEGO, 1, "NIVEL %02d" },
+
+(FRASE) { GALEGO, 2, "\\ CONTINUAR" },      // 0
+(FRASE) { GALEGO, 2, "  REINICIAR" },       // 1
+(FRASE) { GALEGO, 2, "  SAIR" },            // 2
+(FRASE) { GALEGO, 2, "REINICIAR NIVEL" },   // 3
+(FRASE) { GALEGO, 2, "SAIR DO NIVEL" },     // 4
+(FRASE) { GALEGO, 2, "NIVEL COMPLETADO" },  // 5
+
+(FRASE) { GALEGO, 3, "NIVEL COMPLETADO" },
+
+(FRASE) { GALEGO, 4, "NIVEL   " },
+
+(FRASE) { GALEGO, 5, "¡PREMIO!" },
+(FRASE) { GALEGO, 5, "VASTE QUEIMAR" },
+(FRASE) { GALEGO, 5, "Ó ROXO VIVO" },
+(FRASE) { GALEGO, 5, "ARDENDO" },
+(FRASE) { GALEGO, 5, "SUFOCANTE" },
+(FRASE) { GALEGO, 5, "QUENTE" },
+(FRASE) { GALEGO, 5, "TEMPERADO" },
+(FRASE) { GALEGO, 5, "MORNO" },
+(FRASE) { GALEGO, 5, "FRESQUIÑO" },
+(FRASE) { GALEGO, 5, "FRÍO" },
+(FRASE) { GALEGO, 5, "CONXELADO" },
+(FRASE) { GALEGO, 5, "BAIXO CERO" },
+
+// excuses
+(FRASE) { GALEGO, 6, "O lobo sempre me engana." },  // woods
+(FRASE) { GALEGO, 6, "Xeo para os refrescos." },    // iceland
+(FRASE) { GALEGO, 6, "Estame a entrar area na cuncha." }, // egypt
+(FRASE) { GALEGO, 6, "Non trouxen ó traxe de baño." }, // beach
+(FRASE) { GALEGO, 6, "Here's Johnny!" }, // the shinning ref
+(FRASE) { GALEGO, 6, "Estes son os androides que andabades a buscar." }, // starwars ref
+(FRASE) { GALEGO, 6, "Non podo ir ahí, é o triángulo prohibido." }, //monkey 2
+(FRASE) { GALEGO, 6, "Non podo ir ahí, é o dodecaedro prohibido." },
+(FRASE) { GALEGO, 6, "RISE FROM YOUR GRAVE!" }, // altered beast
+(FRASE) { GALEGO, 6, "Mira detras túa, ¡un mono con tres cabezas!" },
+(FRASE) { GALEGO, 6, "¿Levas un plátano no bolsillo ou é que alegraste de verme?" },
+(FRASE) { GALEGO, 6, "¡Máis potencia, Scotty!" },
+(FRASE) { GALEGO, 6, "¿Cantos Klingon fan faia para cambiar unha lámpada?" },
+(FRASE) { GALEGO, 6, "¿Saben aquel que diu...?" },
+(FRASE) { GALEGO, 6, "Vai ata o castelo de Kbrah." },
+(FRASE) { GALEGO, 6, "¡Veña home! Non teño todo o día." },
+(FRASE) { GALEGO, 6, "¿Non esculcaches abondo?" },
+
+(FRASE) { GALEGO, 7, "Este é o malvado Kbrah, un vilán do máis feliz." },
+(FRASE) { GALEGO, 7, "Secuestra princesas e as muda de castelo." },
+(FRASE) { GALEGO, 7, "Xoga horas e horas con videoxogos arrepiantes cheos de violencia." },
+(FRASE) { GALEGO, 7, "E toca nunha banda que fai despertar ós mortos. |WCLEAR:180 Ademáis..." },
+
+(FRASE) { GALEGO, 8, "Monta festas cos seus diabólicos amigos. |WAIT Festas que as veces rematan mal." },
+
+(FRASE) { GALEGO, 9, "Á maña seguinte no castelo do Rey Notah..." },
+(FRASE) { GALEGO, 9, "¿Mmmm? |WAIT ¿Quén estivo fuchicando aquí pola noite? |WCLEAR ¡AAAHHHH!" },
+(FRASE) { GALEGO, 9, "¡O meu porrón! |WAIT ¡ROUBÁRONMO!"},
+(FRASE) { GALEGO, 9, "¡A princesa tamén desapareceu!" },
+(FRASE) { GALEGO, 9, "Minucias, |WAIT hay que recuperar o Holy Porrón. |WAIT Chama por Griel, sempre vai para a cama moi cedo." },
+
+(FRASE) { GALEGO, 10, "Griel, sen o Holy Porrón o reino está perdido. |WAIT ¡Debes recuperalo canto antes! |WCLEAR:180 Isto fede ó meu arquiinimigo Kbrah, estou seguro que foi Él." },
+(FRASE) { GALEGO, 10, "¡Tamén levou á princesa!" },
+(FRASE) { GALEGO, 10, "¿A princesa? Ah, sí, sí... |WAIT Vai ata o castelo dese brigante, volve co porrón e concedereiche a súa man. |BREAK ¿Entendiches? |WBREAK ¡Agora largo de aquí!" },
+
+(FRASE) { GALEGO, 11, "Volve co porrón e dareiche a man da miña filla. |WBREAK ¡Agora largo de aquí!" },
+
+// puerta opcion 1
+(FRASE) { GALEGO, 12, "Pechado. |WCLEAR:180 Que diaños, esos ocos teñen a forma dos... |WBREAK ¡Os Moedóns Lexendarios! |WCLEAR:180 Creo que terei que buscalos e poñelos ahí, isto xa o vin noutros xogos. |WCLEAR: Raios, isto vaime levar toda a tarde." },
+
+// puerta opcion 2
+(FRASE) { GALEGO, 13, "Ten pinta de que non colou, mellor volvo máis tarde."},
+
+// puerta opcion 3
+(FRASE) { GALEGO, 14, "Recuperaches os Moedóns Lexendarios ¡Que ben quedan! |WAIT ¿Por qué o fixeches?" },
+(FRASE) { GALEGO, 14, "Para abrila porta, veño a axustar contas con Kbrah..." },
+(FRASE) { GALEGO, 14, "Tanto esforzo para nada... |WAIT:60 Chamaras ó timbre, ¡PANOCO! ¡HA, HA!" },
+(FRASE) { GALEGO, 14, "¡Raios! |WAIT Se lle contas isto a alguén arríncoche a lingua." },
+
+// final 1
+(FRASE) { GALEGO, 15, "Kbrah, besta noxenta. |WAIT Devólveme o Holy Porrón, sei que o tes tí." },
+(FRASE) { GALEGO, 15, "¿En serio ves a por ese chintófano? |WAIT Toma, Lévao, non me gustou nada..." },
+(FRASE) { GALEGO, 15, "¡Uoh! |WAIT Papá, que raparigo máis fermoso. |WAIT ¿Podo quedar con él?" },
+(FRASE) { GALEGO, 15, "¡Nin falar! |WAIT non te malcriei para que agora te xuntes con cabaleiretes. |WCLEAR:180 Ademáis xa marchaba, ¿Verdade, campión?" },
+(FRASE) { GALEGO, 15, "Non tan a presa galopín, a princesa Beach tamén ven comigo." },
+(FRASE) { GALEGO, 15, "A princesa atópase noutro castelo, non puidemos emm... |WAIT retela por máis tempo. |WCLEAR:180 Agora colle o porrón e marcha de aquí antes de que me arrepinta." },
+
+// final 2
+(FRASE) { GALEGO, 16, "¡Fantástico, fillo! Conseguíchelo. |WCLEAR:180 ¡Oh, meu Holy Porrón querido! Por fin estás de volta." },
+(FRASE) { GALEGO, 16, "¿En que consiste o seu magnífico poder?" },
+(FRASE) { GALEGO, 16, "Este máxico trevello proporciona viño sen fin ó seu posuidor. |WAIT:60 Unha fervenza de fresco néctar, algo picado, non é ribeiro pero non ten fin." },
+(FRASE) { GALEGO, 16, "¡¿VIÑO? |WAIT ¡¿SOAMENTE VIÑO?! |WAIT Non o podo creer... |WCLEAR:180 Prometeume a man da princesa." },
+
+// final 2 // solo debilucho
+(FRASE) { GALEGO, 17, "¡Diso nada! |WAIT Remataches o xogo no modo máis doado. ¿Crías que non me iba decatar?" },
+(FRASE) { GALEGO, 17, "Pero, pero..." },
+(FRASE) { GALEGO, 17, "Síntocho, a miña filla precisa dun home de verdade. |WAIT Apunta o contrasinal e inténtao de novo." },
+
+// final 2 // tipo duro o pesadilla
+(FRASE) { GALEGO, 18, "Por suposto... |WAIT:120 ¡BELISQUIÑO, SAL!" },
+(FRASE) { GALEGO, 18, "Chama pola princesa, |WAIT Griel viu pedir a sua man." },
+(FRASE) { GALEGO, 18, "Está feita unha moza, xa verás." },
+(FRASE) { GALEGO, 18, "¿Griel? |WCLEAR:180 ¿Tí es Griel...?" },
+
+// final 3 // tipo duro o pesadilla
+(FRASE) { GALEGO, 19, "¡GROARRR! |WAIT ¡Se estás coma un queixiño! |WAIT ¡VEN OS MEUS BRAZOS, JUAPETÓN!" },
+(FRASE) { GALEGO, 19, "¡AAAAAH! ¡POR FAVOR NON ME COMAS!" },
+(FRASE) { GALEGO, 19, "¡Ha, ha, ha! |WAIT ¡Só un pouquiño!" },
+
+// final 3 // solo tipo duro
+(FRASE) { GALEGO, 20, "Maldita sexa a miña sorte, ¿non había un final mellor?" },
+
+// final 3 // solo pesadilla
+(FRASE) { GALEGO, 21, "¡TOMA ISTO! |WAIT O rapaz en foialata é meu." },
+(FRASE) { GALEGO, 21, "...?! |WAIT ¿Kbritah?" },
+
+// final 4 // solo pesadilla
+(FRASE) { GALEGO, 22, "Estivo cerca |WAIT ¿Por qué me salvaches?" },
+(FRASE) { GALEGO, 22, "Remataches o xogo no modo máis difícil, mereces algo mellor, ¿non crees? |WCLEAR:180 Ademáis estás tan curriño con esos corniños..." },
+(FRASE) { GALEGO, 22, "Ben, gracias pero ¿non me estarás a raptar, verdade?" },
+(FRASE) { GALEGO, 22, "Ha, ha, ha. |WAIT Isto hay que celebralo. |WAIT Agora vou a ensinarche o \"verdadeiro\" final." },
+(FRASE) { GALEGO, 22, "Estupendo, en marcha cara a seguinte escea." },
+(FRASE) { GALEGO, 22, "Boh. |WAIT Eres máis parvo do que imaxinaba... |WAIT:200" },
+
+
+
+// -----------------> "Guide Griel in his quest for" <------- // 2 phrases 28 length max each  &  max 20/2 --> 10 phrases
+
+(FRASE) { GALEGO, 23, "Guía a Griel na sua aventura" },
+(FRASE) { GALEGO, 23, "na procura do Holy Porrón." },
+
+(FRASE) { GALEGO, 23, "Consegue as chaves para" },
+(FRASE) { GALEGO, 23, "rompelo selo máxico." },
+
+(FRASE) { GALEGO, 23, "Supera todos os mundos para" },
+(FRASE) { GALEGO, 23, "chegar ata Kbrah." },
+
+(FRASE) { GALEGO, 23, "Aprende a abrirte paso entre" },
+(FRASE) { GALEGO, 23, "os inimigos." },
+
+(FRASE) { GALEGO, 23, "Usa a arma axeitada en cada" },
+(FRASE) { GALEGO, 23, "ocasión." },
+
+(FRASE) { GALEGO, 23, "Pensa dúas veces antes de" },
+(FRASE) { GALEGO, 23, "facer un movemento." },
+
+(FRASE) { GALEGO, 23, "Preme o botón C para" },
+(FRASE) { GALEGO, 23, "desfacer unha acción." },
+
+(FRASE) { GALEGO, 23, "Con un pouco de cachaza" },
+(FRASE) { GALEGO, 23, "podes recuperar UNDOs." },
+
+(FRASE) { GALEGO, 23, "Se retupas, queimaste ou" },
+(FRASE) { GALEGO, 23, "afogas, perdes un UNDO." },
+
+(FRASE) { GALEGO, 23, "Todos os niveis teñen polo" },
+(FRASE) { GALEGO, 23, "menos unha solución." },
+
+(FRASE) { GALEGO, 23, "Reinicia o nivel en caso de" },
+(FRASE) { GALEGO, 23, "que sexa necesario." },
+
+(FRASE) { GALEGO, 23, "Preme o botón B e unha" },
+(FRASE) { GALEGO, 23, "dirección se tes presa." },
+
+(FRASE) { GALEGO, 23, "Apunta o contrasinal" },
+(FRASE) { GALEGO, 23, "habitualmente." },
+
+(FRASE) { GALEGO, 23, "Podes volver xogar ós niveis" },
+(FRASE) { GALEGO, 23, "xa superados." },
+
+(FRASE) { GALEGO, 23, "Preme o botón Start se tes" },
+(FRASE) { GALEGO, 23, "que ir ó baño." },
+
+(FRASE) { GALEGO, 23, "Algo moi bo pasara se" },
+(FRASE) { GALEGO, 23, "superas TODOS os niveis." },
+
+(FRASE) { GALEGO, 23, "En caso de dúbida consulte" },
+(FRASE) { GALEGO, 23, "co seu farmacéutico." },
+
+(FRASE) { GALEGO, 23, "Griel mailo Rey Notah contan" },
+(FRASE) { GALEGO, 23, "contigo !Non lles falles!" },
+
+(FRASE) { GALEGO, 23, "Bebe con moderación." },
+(FRASE) { GALEGO, 23, "" },
+
+(FRASE) { GALEGO, 23, "Soamente o Holy Porrón fará" },
+(FRASE) { GALEGO, 23, "que o rei recupere a cordura" },
+
+(FRASE) { GALEGO, 23, "Feito en Marte." },
+(FRASE) { GALEGO, 23, "@2049" },
+
+// How to play --------------------------------------------------------------------------
+(FRASE) { GALEGO, 24, " INIMIGOS "},
+(FRASE) { GALEGO, 24, " OBXECTOS " },
+
+// Game over ----------------------------------------------------------------------------
+(FRASE) { GALEGO, 25, "GAME OVER" },
+(FRASE) { GALEGO, 25, "Usa este contrasinal" },
+(FRASE) { GALEGO, 25, "¡Gracias por xogar!" },
+(FRASE) { GALEGO, 25, "Modo invertido" },
+
+// Niveles dificul ----------------------------------------------------------------------
+(FRASE) { GALEGO, 26, "MIÑAXOIA" },
+(FRASE) { GALEGO, 26, "MILHOMES" },
+(FRASE) { GALEGO, 26, "RÓNCALLE O NABO" },
+
+// Opciones de la pantalla de título ----------------------------------------------------
+(FRASE) { GALEGO, 27, "NOVA PARTIDA" },
+(FRASE) { GALEGO, 27, "CONTINUAR" },
+(FRASE) { GALEGO, 27, "TEST DE SON" },
+
+// Sound test ---------------------- ----------------------------------------------------
+(FRASE) { GALEGO, 28, "TEST DE SON" },
+(FRASE) { GALEGO, 28, "Volver" },
+
+// --------------------------------- ----------------------------------------------------
+(FRASE) { GALEGO, 29, "PASSWORD" },
+
+// - Password screen --------------- ----------------------------------------------------
+(FRASE) { GALEGO, 30, "CONTRASINAL" },
+
+// HOW TO PLAY // WEAPONS
+(FRASE) { GALEGO, 31, "Caxato" },
+(FRASE) { GALEGO, 31, "Cruz" },
+(FRASE) { GALEGO, 31, "Espada" },
+(FRASE) { GALEGO, 31, "Chave" },
+
+// HOW TO PLAY // ENEMIES
+(FRASE) { GALEGO, 32, "Xabarín" },
+(FRASE) { GALEGO, 32, "Cogomelo" },
+(FRASE) { GALEGO, 32, "Elfa" },
+
+(FRASE) { GALEGO, 33, "Morsa" },
+(FRASE) { GALEGO, 33, "Eskimo" },
+(FRASE) { GALEGO, 33, "Wampa" },
+
+(FRASE) { GALEGO, 34, "Swordman" },
+(FRASE) { GALEGO, 34, "Escorpión" },
+(FRASE) { GALEGO, 34, "Momia" },
+
+(FRASE) { GALEGO, 35, "Cangrexo" },
+(FRASE) { GALEGO, 35, "Pirata" },
+(FRASE) { GALEGO, 35, "Plesi" },
+
+(FRASE) { GALEGO, 36, "Ogro" },
+(FRASE) { GALEGO, 36, "Ollo" },
+(FRASE) { GALEGO, 36, "Demo" },
+
+(FRASE) { GALEGO, 37, "Porta" },

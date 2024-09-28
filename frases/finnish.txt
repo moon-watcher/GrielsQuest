@@ -1,0 +1,274 @@
+(FRASE) { FINNISH,   1, "VAARALLISET METSÄT" },
+(FRASE) { FINNISH,   1, "JÄINEN LUOLA" },
+(FRASE) { FINNISH,   1, "ABUN POHJATON KUILU" },
+(FRASE) { FINNISH,   1, "MIRRIN RANTA" },
+(FRASE) { FINNISH,   1, "KBRAHIN LINNA" },
+(FRASE) { FINNISH,   1, "ÄIJÄMAA" },
+(FRASE) { FINNISH,   1, "Unohditko jotain?" },
+(FRASE) { FINNISH,   1, "TASO %02d" },
+
+(FRASE) { FINNISH,   2, "\\ JATKA" },
+(FRASE) { FINNISH,   2, "  UUSI YRITYS" },
+(FRASE) { FINNISH,   2, "  POISTU" },
+(FRASE) { FINNISH,   2, "ALOITA TASO ALUSTA" },
+(FRASE) { FINNISH,   2, "LOPETA TASO" },
+(FRASE) { FINNISH,   2, "TASO SUORITETTU" },
+
+(FRASE) { FINNISH,   3, "TASO SUORITETTU" },
+
+(FRASE) { FINNISH,   4, "TASO   " },
+
+(FRASE) { FINNISH,   5, "BINGO!" },
+(FRASE) { FINNISH,   5, "PALAA" },
+(FRASE) { FINNISH,   5, "TULIKUUMA" },
+(FRASE) { FINNISH,   5, "KUUMA" },
+(FRASE) { FINNISH,   5, "LÄMMIN" },
+(FRASE) { FINNISH,   5, "LÄMPIMÄHKÖ" },
+(FRASE) { FINNISH,   5, "HAALEA" },
+(FRASE) { FINNISH,   5, "VIILEÄ" },
+(FRASE) { FINNISH,   5, "KOLEA" },
+(FRASE) { FINNISH,   5, "HYINEN" },
+(FRASE) { FINNISH,   5, "HYYTÄVÄ" },
+(FRASE) { FINNISH,   5, "JÄÄTÄVÄ" },
+
+//
+// excuses
+(FRASE) { FINNISH,  6, "Susi aina huijaa minua." },                            // woods
+(FRASE) { FINNISH,  6, "Jäitä limsaan." },                                 // iceland
+(FRASE) { FINNISH,  6, "Tämä hiekka menee pöksyihini." },                          // egypt
+(FRASE) { FINNISH,  6, "Minulla ei ole uimahousuja." },                                  // beach
+//
+(FRASE) { FINNISH,  6, "Täällä on Joni!" },                                                                     // The shinning ref.
+(FRASE) { FINNISH,  6, "Nämä eivät ole droideja joita etsit." },                               // Starwars ref
+(FRASE) { FINNISH,  6, "En voi mennä tuonne, sehän on kielletty kolmio." },                         // Monkey Island 2 reference
+(FRASE) { FINNISH,  6, "En voi mennä tuonne, sehän on kielletty dodekaedri." },                       // Monkey Island 2 reference
+(FRASE) { FINNISH,  6, "NOUSE HAUDASTASI!" },                                                      // Altered beast reference
+(FRASE) { FINNISH,  6, "Katso taaksesi! Se on kolmipäinen apina!!" },                                    // Monkey Island 2 reference
+(FRASE) { FINNISH,  6, "Onko taskussasi banaani, vai oletko vain iloinen kun näet minua?" },  // Monkey Island 2 reference
+(FRASE) { FINNISH,  6, "Scotty, tarvitsemme lisää voimaa!" },                                                        // Star trek reference
+(FRASE) { FINNISH,  6, "Kuinka monta Klingonia tarvitaan hehkulampun vaihtoon?" },                    // Joke, Star trek reference
+(FRASE) { FINNISH,  6, "Tiedätko vitsin joka menee...?" },                                       // Eugenio LoL
+(FRASE) { FINNISH,  6, "Mene Kbrahih linnaan." },                                                                 //
+(FRASE) { FINNISH,  6, "Vauhtia rattaisiin! Minulla ei ole koko päivää." },                                                     //
+(FRASE) { FINNISH,  6, "Etköhän ole jo nuuskinut ympäriinsä tarpeeksi?" },                                                       //Yo usaria: Didn't you nose around enough?
+//
+
+(FRASE) { FINNISH,  7, "Tämä on ilkeä Kbrah, iloinen konna." },
+(FRASE) { FINNISH,  7, "Hän sieppaa prinsessan ja siirtää sen linnasta linnaan." },
+(FRASE) { FINNISH,  7, "Hän pelaa kauheita ja väkivaltaisia videopelejä aivan liikaa." },
+(FRASE) { FINNISH,  7, "Ja soittaa bändissä joka voi herättää kuolleet. |WCLEAR:180 Ja..." },
+(FRASE) { FINNISH,  8, "Hän juhlii pahojen ystäviensä kanssa. |WAIT Ja joskus heille käy huonosti." },
+
+(FRASE) { FINNISH,  9, "Seuraavana aamuna, Kuningas Duden linnassa." },
+(FRASE) { FINNISH,  9, "Häh? |WAIT Kuka on ollut nuuskimassa täällä tänä iltana? |WCLEAR ÄÄÄÄK!" },
+(FRASE) { FINNISH,  9, "Kossuni! |WAIT SE ON PÖLLITTY!" },
+(FRASE) { FINNISH,  9, "Prinsessa on hävinnyt myös!" },
+(FRASE) { FINNISH,  9, "Ihan sama. |WAIT Pyhä Kossuni täytyy saada takaisin. |WAIT Hälytä Griel, hän oli ainoa joka meni nukkumaan aikaisin." },
+
+(FRASE) { FINNISH, 10, "Griel, kuningaskunta on ihan hukassa ilman Pyhää Kossua. |WAIT Tuo se takaisin niin nopeasti kuin voit! |WCLEAR:180 Tämä näyttää olevan Kbrahin juonia, hänhän on viholliseni, se voi vain olla hän."},
+(FRASE) { FINNISH, 10, "Mutta prinsessa on kidnapattu myös!" },
+(FRASE) { FINNISH, 10, "Ai prinsessa? Ööh aivan... |WAIT Mene pahan Kbrahin linnaan, tuo takaisin Pyhä Kossuni, ja palkintosi on prinsessan käsi! |WAIT Onko selvä? |WBREAK No niin, menehän siita jo." },
+
+(FRASE) { FINNISH, 11, "Mene pahan Kbrahin linnaan, tuo takaisin Pyhä Kossuni, ja palkintosi on prinsessan käsi? |WAIT Onko selvä? |WBREAK No niin, menehän siita jo." },
+
+// Door option 1
+(FRASE) { FINNISH, 12, "Lukittu. |WCLEAR:180 Hetkinen, nuo kolot oven päällä näyttävät... |WBREAK Legendaarisilta kolikoilta! |WCLEAR:180 Luulen että minun pitää löytää ne ja laittaa noihin koloihin, Olen tainnut nähdä sen muissa peleissä. |WCLEAR:180 Hitto, tässä menee koko ilta!" },
+// door option 2
+(FRASE) { FINNISH, 13, "Ei näytä toimivan, jospa tulen tänne myöhemmin." },
+
+// door option 3
+(FRASE) { FINNISH, 14, "Olet löytänyt Legendaariset kolikot. Näyttää hyvältä! |WAIT Mutta miksi teit sen?" },
+(FRASE) { FINNISH, 14, "Avatakseni tämän oven, Tulin näyttämään Kbrahille..." },
+(FRASE) { FINNISH, 14, "Hukkasit aikaasi... |WAIT:60 Olisit soittanut ovikelloa! HÄHHÄÄ!" },
+(FRASE) { FINNISH, 14, "Voihan perkele! |WAIT Älä sano tästä mitään, tai saat turpiisi." },
+
+// final 1
+(FRASE) { FINNISH, 15, "Kbrah, senkin vihoviimeinen peto. |WAIT Anna Pyhä Kossu takaisin, tiedän että se on sinulla." },
+(FRASE) { FINNISH, 15, "Tulitko tosiaan sen rihkaman takia? |WAIT Ota pois, en tykännyt siitä muutenkaan..." },
+(FRASE) { FINNISH, 15, "Oho! |WAIT Mikä söpö kakara, isi. |WAIT Voisinko mä pitää sen?" },
+(FRASE) { FINNISH, 15, "Et voi! |WAIT Olen hemmotellut sinut liikaa moiselle ritarinpahalle. |WCLEAR:180 Hän on muutenkin lähdössä, eikä vain?" },
+(FRASE) { FINNISH, 15, "Ei niin nopeasti, rontti, Prinsessa Keltavahvero tulee mukanani myös." },
+(FRASE) { FINNISH, 15, "Prinsessa on toisessa linnassa, emme voineet... |WAIT pitää häntä pitempään. |WCLEAR:180 Ota tuo Kossu ja häivy silmistäni ennenkuin muutan mieleni." },
+
+// final 2
+(FRASE) { FINNISH, 16, "Hyvä, poikani! Sinä teit sen. |WCLEAR:180 Voi rakas Pyhä Kossu! Olet taas täällä vihdoin." },
+(FRASE) { FINNISH, 16, "Mitä taikoja se pitää sisässään?" },
+(FRASE) { FINNISH, 16, "Tämä maaginen esine antaa loppumatonta viinaa omistajalleen. |WAIT:60 Raikas virta kossua, vähän imelää, mutta loppumatonta." },
+(FRASE) { FINNISH, 16, "KOSSUA?! |WAIT VAIN KOSKENKORVAA?! |WAIT En voi uskoa sinua... |WCLEAR:180 Minulle luvattiin prinsessan käsi." },
+
+// final 2 // weak
+(FRASE) { FINNISH, 17, "Ei käy! |WAIT Läpäisit pelin helpolla. Luulitko etten huomaisi?" },
+(FRASE) { FINNISH, 17, "Mutta..." },
+(FRASE) { FINNISH, 17, "Sori, mutta tyttäreni tarvitsee oikean miehen. |WAIT Huomaa salasana ja yritä uudelleen." },
+// Weak ending finishes here
+
+// final 2 // hard guy or nightmare
+(FRASE) { FINNISH, 18, "Totta kai |WAIT:120 KULTA, TULE TÄNNE!" },
+(FRASE) { FINNISH, 18, "Kutsu Prinsessaa, |WAIT Griel tuli tänne kätesi takia." },
+(FRASE) { FINNISH, 18, "Hän on jo ihastuttava nuori nainen, odota niin näet." },
+(FRASE) { FINNISH, 18, "Griel? |WCLEAR:180 Oletko Griel...?" },
+
+
+// final 3 // hard guy or nightmare
+(FRASE) { FINNISH, 19, "GROARRR! |WAIT Olet kuuma! |WAIT TULE LUOKSENI, KOMISTUS!" },
+(FRASE) { FINNISH, 19, "ÄÄÄK! OLE KILTTI ÄLÄKÄ SYO MINUA!" },
+(FRASE) { FINNISH, 19, "Ha, ha, ha! |WAIT Näykin vain vähän!" },
+
+// final 3 // hard guy
+(FRASE) { FINNISH, 20, "Tämä ei ole oikein hyvä. Olisiko tähän parempi loppu?" },
+// This is hard guy ending
+
+// final 3 // nightmare
+(FRASE) { FINNISH, 21, "OTA SIITÄ! |WAIT Tinamies on minun." },
+(FRASE) { FINNISH, 21, "...?! |WAIT Kbritah?" },
+
+// final 4 // nightmare
+(FRASE) { FINNISH, 22, "Läheltä piti. |WAIT Miksi pelastit minut?" },
+(FRASE) { FINNISH, 22, "Suoriti pelin vaikeimmalla tasolla, ansaitset jotain parempaa, eikä vain? |WCLEAR:180 Sitä paitsi, olet tosi säpä noilla ihanilla sarvilla..." },
+(FRASE) { FINNISH, 22, "Öh, kiitos, mutta... Ethän ole kidnappaamassa minua?" },
+(FRASE) { FINNISH, 22, "Ha, ha, ha. |WAIT Meidän pitää juhlia tätä. |WAIT Näytän sinulle \"oikean\" lopun." },
+(FRASE) { FINNISH, 22, "Kiva, mennään seuraavaan kohtaukseen!" } ,
+(FRASE) { FINNISH, 22, "Voi hitsi. |WAIT Olet tyhmempi kuin luulin... |WAIT:200" },
+
+
+
+// ------------------> "Guide Griel in his quest for" <------- // 2 phrases 28 length max each  &  max 20/2 --> 10 phrases
+
+//(FRASE) { SPANI  23, "-LONGITUD MAXIMA DISPONIBLE-" }, // 28 MAX
+
+(FRASE) { FINNISH, 23, "Ohjaa Grieliä Pyhän Kossun" },
+(FRASE) { FINNISH, 23, "löytämisessä." },
+
+(FRASE) { FINNISH, 23, "Etsi avaimia rikkoaksesi" },
+(FRASE) { FINNISH, 23, "maagisen sinetin." },
+
+(FRASE) { FINNISH, 23, "Läpäise kaikki maailmat" },
+(FRASE) { FINNISH, 23, "saavuttaaksesi Kbrahin." },
+
+(FRASE) { FINNISH, 23, "Opettele väistämään kaikkia" },
+(FRASE) { FINNISH, 23, "vihollisia." },
+
+(FRASE) { FINNISH, 23, "Käytä oikeaa asetta" },
+(FRASE) { FINNISH, 23, "jokaisessa tilanteessa." },
+
+(FRASE) { FINNISH, 23, "Mieti uudestaan ennenkuin" },
+(FRASE) { FINNISH, 23, "liikut." },
+
+(FRASE) { FINNISH, 23, "Paina C nappulaa" },
+(FRASE) { FINNISH, 23, "peruuttaaksesi toiminnon." },
+
+(FRASE) { FINNISH, 23, "Jos olet kärsivällinen, voit" },
+(FRASE) { FINNISH, 23, "saada takaisin peruutuksia." },
+
+(FRASE) { FINNISH, 23, "Jos putoat, palat tai hukut," },
+(FRASE) { FINNISH, 23, "Häviat peruutuksen." },
+
+(FRASE) { FINNISH, 23, "Kaikille tasoille on ainakin" },
+(FRASE) { FINNISH, 23, "yksi ratkaisu." },
+
+(FRASE) { FINNISH, 23, "Aloita alusta jos" },
+(FRASE) { FINNISH, 23, "epäonnistut." },
+
+(FRASE) { FINNISH, 23, "Paina B näppäintä ja nuoli-" },
+(FRASE) { FINNISH, 23, "näppäimiä jos olet kiireessä." },
+
+(FRASE) { FINNISH, 23, "Kirjoita salasanasi muistiin" },
+(FRASE) { FINNISH, 23, "usein." },
+
+(FRASE) { FINNISH, 23, "Voit pelata minkä tahansa" },
+(FRASE) { FINNISH, 23, "tason uudestaan." },
+
+(FRASE) { FINNISH, 23, "Paina START näppäintä jos" },
+(FRASE) { FINNISH, 23, "tarvitset tauon." },
+
+(FRASE) { FINNISH, 23, "Jotain tapahtuu jos läpäiset" },
+(FRASE) { FINNISH, 23, "kaikki tasot." },
+
+(FRASE) { FINNISH, 23, "Jos olet epävarma, kysy" },
+(FRASE) { FINNISH, 23, "apteekkarilta." },
+
+(FRASE) { FINNISH, 23, "Griel ja Dude luottavat" },
+(FRASE) { FINNISH, 23, "sinuun, älä petä heitä!" },
+
+(FRASE) { FINNISH, 23, "Juo kohtuullisesti." },
+(FRASE) { FINNISH, 23, "" },
+
+//(FRASE) { FINNISH, 23, "All your base are belong to" },
+//(FRASE) { FINNISH, 23, "us." },
+
+(FRASE) { FINNISH, 23, "Vain Pyhä Kossu tekee kunkun" },
+(FRASE) { FINNISH, 23, "iloiseksi taas." },
+
+(FRASE) { FINNISH, 23, "Tehty Marsissa." },
+(FRASE) { FINNISH, 23, "@2049" },
+
+
+// How to play --------------------------------------------------------------------------
+(FRASE) { FINNISH, 24, " VIHOLLISET " }, // respect spaces
+(FRASE) { FINNISH, 24, " TAVARAT "  },  // respect spaces
+
+
+// Game over ----------------------------------------------------------------------------
+(FRASE) { FINNISH, 25, "HÄVISIT" },
+(FRASE) { FINNISH, 25, "Käytä tätä salasanaa" },
+(FRASE) { FINNISH, 25, "Kiitos pelaamisesta!" },
+(FRASE) { FINNISH, 25, "Käänteinen peli" },
+
+// game difficulty modes ----------------------------------------------------------------------
+(FRASE) { FINNISH, 26, "MUKAVA" },
+(FRASE) { FINNISH, 26, "HAASTEELLINEN" },
+(FRASE) { FINNISH, 26, "PAINAJAISMAINEN" }, // PESADILLA
+
+// Title screen options ----------------------------------------------------
+(FRASE) { FINNISH, 27, "UUSI PELI" },
+(FRASE) { FINNISH, 27, "JATKA PELIÄ" },
+(FRASE) { FINNISH, 27, "ÄÄNITESTI" },
+
+// Sound test ---------------------- ----------------------------------------------------
+(FRASE) { FINNISH, 28, "ÄÄNITESTI" },
+(FRASE) { FINNISH, 28, "Takaisin" },
+
+// --------------------------------- ----------------------------------------------------
+(FRASE) { FINNISH, 29, "SALASANA" }, // LEAVE AS IS UNLESS TRANSLATION WERE SAME LENGTH
+
+// - Password screen --------------- ----------------------------------------------------
+(FRASE) { FINNISH, 30, "SALASANA" },
+
+
+
+
+
+
+
+
+
+
+
+// HOW TO PLAY // WEAPONS
+(FRASE) { FINNISH, 31, "Sauva" },
+(FRASE) { FINNISH, 31, "Risti" },
+(FRASE) { FINNISH, 31, "Miekka" },
+(FRASE) { FINNISH, 31, "Avain" },
+
+// HOW TO PLAY // ENEMIES
+(FRASE) { FINNISH, 32, "Villisika" },
+(FRASE) { FINNISH, 32, "Kärpässieni" },
+(FRASE) { FINNISH, 32, "Varjokeiju" },
+
+(FRASE) { FINNISH, 33, "Mursu" },
+(FRASE) { FINNISH, 33, "Eskimo" },
+(FRASE) { FINNISH, 33, "Wampa" },
+
+(FRASE) { FINNISH, 34, "Miekkailija" },
+(FRASE) { FINNISH, 34, "Skorpioni" },
+(FRASE) { FINNISH, 34, "Äiti" },
+
+(FRASE) { FINNISH, 35, "Rapu" },
+(FRASE) { FINNISH, 35, "Merirosvo" },
+(FRASE) { FINNISH, 35, "Plesi" },
+
+(FRASE) { FINNISH, 36, "Jättiläinen" },
+(FRASE) { FINNISH, 36, "Silmä" },
+(FRASE) { FINNISH, 36, "Demoni" },
+
+(FRASE) { FINNISH, 37, "Ovi" },

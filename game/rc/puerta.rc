@@ -1,0 +1,16 @@
+;SPRITE os_puerta_puerta_32x32     "game/data/other/puerta/os_puerta_puerta_32x32.bmp"      32 32  0  0  0
+SPRITE os_puerta_griel_16x32      "game/data/other/puerta/os_puerta_griel_16x32.bmp"       16 32  0  0  0
+SPRITE os_puerta_puerta_1_24x16   "game/data/other/puerta/os_puerta_puerta_1_24x16.bmp"    24 16  0  0  0
+SPRITE os_puerta_puerta_2_16x32   "game/data/other/puerta/os_puerta_puerta_2_16x32.bmp"    16 32  0  0  0
+SPRITE os_puerta_puerta_3_32x32   "game/data/other/puerta/os_puerta_puerta_3_32x32.bmp"    32 32  0  0  0
+SPRITE os_puerta_puerta_4_16x24   "game/data/other/puerta/os_puerta_puerta_4_16x24.bmp"    16 24  0  0  0
+SPRITE os_puerta_puerta_5_16x24   "game/data/other/puerta/os_puerta_puerta_5_16x24.bmp"    16 24  0  0  0
+
+SPRITE os_puerta_medallon_1_24x24 "game/data/other/puerta/os_puerta_medallon_1_24x24.bmp"  24 24  0  0  0
+SPRITE os_puerta_medallon_2_24x24 "game/data/other/puerta/os_puerta_medallon_2_24x24.bmp"  24 24  0  0  0
+SPRITE os_puerta_medallon_3_24x24 "game/data/other/puerta/os_puerta_medallon_3_24x24.bmp"  24 24  0  0  0
+SPRITE os_puerta_medallon_4_24x24 "game/data/other/puerta/os_puerta_medallon_4_24x24.bmp"  24 24  0  0  0
+
+SPRITE os_puerta_orco_1_24x32     "game/data/other/puerta/os_puerta_orco_1_24x32.bmp"      24 32  0  0  0
+SPRITE os_puerta_orco_2_24x24     "game/data/other/puerta/os_puerta_orco_2_24x24.bmp"      24 24  0  0  0
+;

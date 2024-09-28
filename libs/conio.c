@@ -14,19 +14,19 @@ static struct text_info _ti = { };
 
 static void _update_textinfo ( )
 {
-//	_ti.plan    = VDP_getTextPlan().v ? APLAN : BPLAN;
-	_ti.plan    = VDP_getTextPlan().value;
+//	_ti.plan    = VDP_getTextPlane().v ? APLAN : BPLAN;
+	_ti.plan    = VDP_getTextPlane();
 	_ti.palette = VDP_getTextPalette();
 }
 
 
-static VDPPlan _get_plan()
+static VDPPlane _get_plan()
 {
-	VDPPlan p = PLAN_B;
+	VDPPlane p = BG_B;
 
-	if ( _ti.plan == PLAN_A.value )
+	if ( _ti.plan == BG_A )
 	{
-		p = PLAN_A;
+		p = BG_A;
 	}
 
 
@@ -50,8 +50,8 @@ void inittextinfo ( void )
 
 	_ti.window.x      = 0;
 	_ti.window.y      = 0;
-	_ti.window.width  = VDP_getPlanWidth();
-	_ti.window.height = VDP_getPlanHeight();
+	_ti.window.width  = VDP_getPlaneWidth();
+	_ti.window.height = VDP_getPlaneHeight();
 
 	_update_textinfo ( );
 }
@@ -134,7 +134,7 @@ void putch ( char ch )
 {
 	u8 string[2] = { ch };
 
-	VDP_drawText ( string, ABSOLUTEX, ABSOLUTEY );
+	TEXT_drawText ( string, ABSOLUTEX, ABSOLUTEY );
 
 	_ti.curx += 1;
 
@@ -145,8 +145,8 @@ void putch ( char ch )
 
 		if ( _ti.cury >= _ti.window.height )
 		{
-			// Quizá en lugar de volver arriba debería subir el contenido
-			// de windows una fila, borrar la última e insertar a ésta.
+			// Quizï¿½ en lugar de volver arriba deberï¿½a subir el contenido
+			// de windows una fila, borrar la ï¿½ltima e insertar a ï¿½sta.
 
 			_ti.cury = 0;
 		}
@@ -186,7 +186,7 @@ void textcolor ( unsigned int nb, unsigned int color )
 {
 	_update_textinfo ( );
 
-	VDP_setPaletteColor ( _ti.palette + nb, color );
+	PAL_setColor ( _ti.palette + nb, color );
 }
 
 

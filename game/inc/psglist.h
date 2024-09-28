@@ -1,3 +1,5 @@
+#pragma once
+
 #ifndef _PSGLIST_H_
 #define _PSGLIST_H_
 

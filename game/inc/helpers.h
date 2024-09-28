@@ -1,3 +1,5 @@
+#pragma once
+
 #define IS      ==
 #define AND     &&
 #define OR      ||
@@ -11,26 +13,16 @@
 #define isnt    ISNT
 
 
-
-#define BUTTON_ABC   ( BUTTON_A | BUTTON_B | BUTTON_C )
-#define BUTTON_ABCS  ( BUTTON_ABC | BUTTON_START )
-
-
-
-
-#define frases_tt_write(color)    \
-{                                 \
-	u8 *cadena = frases_next ( ) ; \
-	tt_write ( (color), cadena ) ; \
-}
-
-
-
-
-
-
-
-
+#define FRASES_TT_WRITE(COLOR, ABC, START) {                 \
+	u8 *s = frases_next();                                   \
+	for (u16 i = 0, l = typetext_write_init(COLOR, s); i < l; i++) \
+		switch(typetext_write_process(i, s)) {                     \
+			case BUTTON_START: goto START;                   \
+			case BUTTON_A:                                   \
+			case BUTTON_B:                                   \
+			case BUTTON_C: goto ABC;                         \
+		}                                                    \
+	}
 
 //u8  *my_strtok                  ( u8 *string, u8 delimitador );
 u32  my_strtol                  ( u8 *cadena );
@@ -44,7 +36,7 @@ void drawUIntBG                 ( u32 number, u8 x, u8 y, u8 leading_zeros, u16 
 void showFPS                    ( );
 u32  ntsc2pal                   ( u32 value );
 u8   getHz                      ( );
-inline u16 between              ( s32 min, s32 nb, s32 max );
+u16 between              ( s32 min, s32 nb, s32 max );
 void resetPalettes              ( );
 void resetVRAM                  ( );
 void resetScroll                ( );
@@ -54,7 +46,7 @@ void fadeIn                     ( u16 pal0[16], u16 pal1[16], u16 pal2[16], u16 
 
 void VDP_setSpriteAttributes    ( u16 index, u16 tile_attr );
 void VDP_setSpriteVRAM          ( u16 index, u16 pos );
-void VDP_setSpritePriority      ( u16 index, u16 high );
+void VDP_setSpritePriorityGQ      ( u16 index, u16 high );
 
 u16  in_array                   ( u16 needle, u16 array[] );
 

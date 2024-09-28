@@ -79,7 +79,7 @@ void stars_draw ( )
 		vobject_upload ( );
 
 		VDP_updateSprites(80,1);
-		VDP_waitVSync();
+		SYS_doVBlankProcess();
 	}
 
 	vobject_delete ( ESTRELLITA1 );
@@ -191,7 +191,7 @@ void stars_draw ( )
 //
 //		vobject_update();
 //		VDP_updateSprites(80,1);
-//		VDP_waitVSync();
+//		SYS_doVBlankProcess();
 //	}
 //
 //	vobject_delete ( ESTRELLITA1 );
@@ -270,7 +270,7 @@ void stars_draw ( )
 //	{
 //		vobject_update();
 //		VDP_updateSprites();
-//		VDP_waitVSync();
+//		SYS_doVBlankProcess();
 //	}
 //
 //	vobject_delete ( ESTRELLITA1 );
