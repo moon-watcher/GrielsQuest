@@ -256,6 +256,7 @@
 #include "../inc/password.h"
 #include "../inc/password8.h"
 #include "../inc/text.h"
+#include "../inc/bigtext.h"
 #include "../inc/splist.h"
 #include "../inc/toani.h"
 #include "../inc/undo.h"

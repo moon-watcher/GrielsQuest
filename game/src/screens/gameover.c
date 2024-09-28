@@ -24,8 +24,8 @@ void screen_gameover ( )
 	strcpy ( inverted,    frases_find ( 25, 3 ) );
 
 
-	text_init ( (struct genresSprites*)&cs_font_16x16, 16, PAL0 );
-	text_draw_sprites_x_centered ( gameover, 60, 0 );
+	bigtext_init ( (struct genresSprites*)&cs_font_16x16, 16, PAL0 );
+	bigtext_draw_sprites_x_centered ( gameover, 60, 0 );
 	VDP_updateSprites(80,1);
 
 

@@ -18,8 +18,8 @@ static void _leave_text ( u16 ret )
 
 	if ( f != NULL )
 	{
-		text_init ( (struct genresSprites *) &cs_font_16x16, 16, PAL0 );
-		u16 sprite = text_draw_sprites_centered ( f, 30 );
+		bigtext_init ( (struct genresSprites *) &cs_font_16x16, 16, PAL0 );
+		u16 sprite = bigtext_draw_sprites_centered ( f, 30 );
 		--sprite;
 
 		VDP_setSpriteLink ( sprite, 0 );
@@ -152,7 +152,7 @@ u16 game_play ( )
 	//
 	scene_presentation();
 	splist_hide_sprites();
-	text_reset ( );
+	bigtext_reset ( );
 
 	displayInit();
 	displayOff(0);

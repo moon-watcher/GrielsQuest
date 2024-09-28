@@ -23,8 +23,8 @@ void scene_presentation()
 	u16  ambiente = gamestate.current_ambiente;
 	u8  *frase    = frases_find ( 1, ambiente );
 
-	text_init ( (struct genresSprites *) &cs_font_16x16, 16, PAL0 );
-	text_draw_sprites_x_centered ( frase,  88, 30 );
+	bigtext_init ( (struct genresSprites *) &cs_font_16x16, 16, PAL0 );
+	bigtext_draw_sprites_x_centered ( frase,  88, 30 );
 
 
 	ambiente = gamestate.current_round+1;
@@ -32,7 +32,7 @@ void scene_presentation()
 
 	memcpy ( string, frase, strlen ( frase ) ) ;
 	sprintf ( string, frase, ambiente );
-	u16 sprite = text_draw_sprites_x_centered ( string, 120, 30 ) - 1;
+	u16 sprite = bigtext_draw_sprites_x_centered ( string, 120, 30 ) - 1;
 
 	VDP_setSpriteLink ( sprite, 0 );
 	VDP_updateSprites (80,1);

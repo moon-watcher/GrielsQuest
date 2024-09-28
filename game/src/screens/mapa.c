@@ -112,10 +112,10 @@ static void _init_tt ()
 static void _show_title ( )
 {
 	sprite = FIRST_SPRITE_TEXT;
-	text_setSprite ( sprite );
+	bigtext_setSprite ( sprite );
 
 	u8 *frase = frases_find ( 1, ambiente );
-	sprite = text_draw_sprites_x_centered ( frase, 6, 0 ); // texto arriba
+	sprite = bigtext_draw_sprites_x_centered ( frase, 6, 0 ); // texto arriba
 	sprite_last_letter = sprite;
 }
 
@@ -215,7 +215,7 @@ static void _init ( )
 	VDP_loadTileSet ( ob_round_numbers.tileset, POS_TILES, 0 );
 
 	index = POS_TILES + ob_round_numbers.tileset->numTile;
-	text_init ( (struct genresSprites *) &cs_font_16x16, index, PAL3 );
+	bigtext_init ( (struct genresSprites *) &cs_font_16x16, index, PAL3 );
 
 
 

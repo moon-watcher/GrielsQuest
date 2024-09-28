@@ -99,10 +99,10 @@ void screen_staff()
 	displayOn(0);
 
 
-	text_init ( (struct genresSprites*) &cs_font_16x16, 1200, PAL0 );
-    text_draw ( "GRIEL'S QUEST",   6,  6, wait1 ) ;
-	text_draw ( "FOR THE",        12, 9, wait1 ) ;
-	text_draw ( "HOLY PORR�N",      8, 12, wait1 ) ;
+	bigtext_init ( (struct genresSprites*) &cs_font_16x16, 1200, PAL0 );
+    bigtext_draw ( "GRIEL'S QUEST",   6,  6, wait1 ) ;
+	bigtext_draw ( "FOR THE",        12, 9, wait1 ) ;
+	bigtext_draw ( "HOLY PORR�N",      8, 12, wait1 ) ;
 
 
 	musiclist_play ( MUSIC_STAFF );

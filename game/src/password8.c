@@ -122,11 +122,11 @@ static void _draw ( PASSWORD8 password )
 	preparePal ( PAL0, font_getPalette());//PAL_setPalette ( PAL0, font_getPalette());
 	//SYS_enableInts();
 
-	text_init ( (struct genresSprites*) &cs_font_16x16, 1200, PAL0 );
+	bigtext_init ( (struct genresSprites*) &cs_font_16x16, 1200, PAL0 );
 
 	frases_init (30);
-	text_draw_center ( frases_next(), 3,  0 );
-	text_draw ( ( char*) password, 12, 9, 0 ) ; // ">>>>>>>>" --> ">" Es el "gui�n alto"
+	bigtext_draw_center ( frases_next(), 3,  0 );
+	bigtext_draw ( ( char*) password, 12, 9, 0 ) ; // ">>>>>>>>" --> ">" Es el "gui�n alto"
 
 	SYS_disableInts();
 	preparePal ( PAL3, cs_square.pal ); //PAL_setPalette ( PAL3, cs_square.pal );
@@ -275,7 +275,7 @@ void pwd8_generate ( PASSWORD8 letras )
 
 	letras [ pos1 ] = suma + PWD8_A_STARTS_AT;
 
-	//text_draw ( (u8*) letras, 12, 12, 0 );
+	//bigtext_draw ( (u8*) letras, 12, 12, 0 );
 	//pwd_is_ok ( letras );
 }
 
@@ -370,7 +370,7 @@ bool pwd8_screen()
 				PASSWORD8 letras;
 				pwd8_generate ( letras );
 
-				text_draw ( letras, 12, 12, 0 );
+				bigtext_draw ( letras, 12, 12, 0 );
 				pwd_is_ok ( letras );
 			}
 		}
@@ -428,7 +428,7 @@ bool pwd8_screen()
 		if ( paint )
 		{
 			SYS_disableInts();
-			text_draw ( ( char*) password, 12, 9, 0 ) ;
+			bigtext_draw ( ( char*) password, 12, 9, 0 ) ;
 			VDP_clearTextLine ( 25 );
 			SYS_enableInts();
 		}

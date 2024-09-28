@@ -28,7 +28,7 @@ void screen_sound_test ()
 //	mappy_all ( &lvl, 0, 0, 0, 0, 40, 28, 0 );
 
 	font_init();
-	text_init ( (struct genresSprites *) &cs_font_16x16, 1200, PAL0 );
+	bigtext_init ( (struct genresSprites *) &cs_font_16x16, 1200, PAL0 );
 
 	u8 f1[40];
 	u8 f2[40];
@@ -38,7 +38,7 @@ void screen_sound_test ()
 	strcpy ( f2, frases_next() );
 
 
-	text_draw_center ( f1, 3, 0 );
+	bigtext_draw_center ( f1, 3, 0 );
 
 	VDP_setTextPalette(PAL0);
 	PAL_setPalette(PAL0, (u16*) font_getPalette(), CPU);
