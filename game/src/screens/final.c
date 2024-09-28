@@ -57,7 +57,7 @@ static SPRITESET sets [ 10 ] = { };
 
 static void _frases_tt_init ( u16 f )
 {
-	tt_init ( );
+	typetext_init ( );
 	frases_init ( f );
 }
 

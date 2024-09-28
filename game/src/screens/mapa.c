@@ -53,8 +53,8 @@ datos [ 6 ] =
 
 
 #define WRITE(COLOR, STR)                                      \
-	for (u16 i = 0, l = tt_write_init(COLOR, STR); i < l; i++) \
-		tt_write_process(i, STR);
+	for (u16 i = 0, l = typetext_write_init(COLOR, STR); i < l; i++) \
+		typetext_write_process(i, STR);
 
 
 
@@ -96,7 +96,7 @@ static void _update_sprites ()
 
 static void _init_tt ()
 {
-	tt_init ( );
+	typetext_init ( );
 	struct typetext_info *const tt_info = tt_get();
 
 	tt_info->x         =  3;

@@ -15,8 +15,8 @@
 
 #define FRASES_TT_WRITE(COLOR, ABC, START) {                 \
 	u8 *s = frases_next();                                   \
-	for (u16 i = 0, l = tt_write_init(COLOR, s); i < l; i++) \
-		switch(tt_write_process(i, s)) {                     \
+	for (u16 i = 0, l = typetext_write_init(COLOR, s); i < l; i++) \
+		switch(typetext_write_process(i, s)) {                     \
 			case BUTTON_START: goto START;                   \
 			case BUTTON_A:                                   \
 			case BUTTON_B:                                   \

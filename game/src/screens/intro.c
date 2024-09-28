@@ -32,7 +32,7 @@ static u16 vel_text = 0;
 
 static void _frases_tt_init ( u16 grupo )
 {
-	tt_init ( );
+	typetext_init ( );
 	frases_init ( grupo );
 }
 

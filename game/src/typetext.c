@@ -3,14 +3,14 @@
 
 #define EOF '\0'
 #define SPACE 32	  // ' '
-#define SOFTBREAK 172 // '�' breaks a line (with exceptions)
+#define SOFTBREAK 172 // '?' breaks a line (with exceptions)
 #define HARDBREAK 126 // '~' breaks a line
 #define NEXT 124	  // '|' new page
 #define SEPARATOR ':'
 
-static struct typetext_info tt_info;
+static struct typetext_info tt;
 
-#define cmd(x) (strcmp(tt_info.command, (x)) == 0)
+#define cmd(x) (strcmp(tt.command, (x)) == 0)
 
 static u16 _speed = 0;
 static u16 _color[2] = {};
@@ -60,9 +60,9 @@ static u16 _buid_command()
 {
 	u16 ret = 0;
 
-	if (tt_info.cmd_inc >= 0)
+	if (tt.cmd_inc >= 0)
 	{
-		if (tt_info.chr == ' ' || tt_info.chr == '|' || tt_info.chr == '\0')
+		if (tt.chr == ' ' || tt.chr == '|' || tt.chr == '\0')
 		{
 			ret = 2;
 
@@ -70,32 +70,32 @@ static u16 _buid_command()
 			u8 command1[10] = {};
 			u8 command2[10] = {};
 
-			tt_info.command[(u8)tt_info.cmd_inc] = '\0';
+			tt.command[(u8)tt.cmd_inc] = '\0';
 
-			_assign_value(tt_info.command, 0, command0);
-			_assign_value(tt_info.command, 1, command1);
-			_assign_value(tt_info.command, 2, command2);
+			_assign_value(tt.command, 0, command0);
+			_assign_value(tt.command, 1, command1);
+			_assign_value(tt.command, 2, command2);
 
-			strcpy(tt_info.command, command0);
-			tt_info.cmd_value[0] = my_strtol(command1);
-			tt_info.cmd_value[1] = my_strtol(command2);
-			tt_info.cmd_inc = -1;
+			strcpy(tt.command, command0);
+			tt.cmd_value[0] = my_strtol(command1);
+			tt.cmd_value[1] = my_strtol(command2);
+			tt.cmd_inc = -1;
 		}
 		else
 		{
 			ret = 1;
 
-			tt_info.command[(u8)tt_info.cmd_inc++] = tt_info.chr;
+			tt.command[(u8)tt.cmd_inc++] = tt.chr;
 		}
 	}
-	else if (tt_info.chr == '|')
+	else if (tt.chr == '|')
 	{
 		ret = 1;
 
-		tt_info.cmd_inc = 0;
-		tt_info.command[0] = '\0';
-		tt_info.cmd_value[0] = 0;
-		tt_info.cmd_value[1] = 0;
+		tt.cmd_inc = 0;
+		tt.command[0] = '\0';
+		tt.cmd_value[0] = 0;
+		tt.cmd_value[1] = 0;
 	}
 
 	return ret;
@@ -103,14 +103,14 @@ static u16 _buid_command()
 
 static void _inc_x()
 {
-	tt_info.vx += tt_info.inc_char;
+	tt.vx += tt.inc_char;
 
-	if (tt_info.word > 0)
+	if (tt.word > 0)
 	{
-		--tt_info.word;
+		--tt.word;
 	}
 
-	if (tt_info.vx + tt_info.word >= tt_info.width)
+	if (tt.vx + tt.word >= tt.width)
 	{
 		_inc_y();
 	}
@@ -118,10 +118,10 @@ static void _inc_x()
 
 static void _inc_y()
 {
-	tt_info.vx = 0;
-	tt_info.vy += tt_info.inc_line;
+	tt.vx = 0;
+	tt.vy += tt.inc_line;
 
-	if (tt_info.vy >= tt_info.height)
+	if (tt.vy >= tt.height)
 	{
 		_reset_area(true);
 	}
@@ -129,11 +129,11 @@ static void _inc_y()
 
 static void _reset_pal()
 {
-	if (tt_info.reset_pal)
+	if (tt.reset_pal)
 	{
 		PAL_waitFadeCompletion();
-		PAL_setColor(16 * VDP_getTextPalette() + 1, tt_info.color[0]);
-		PAL_setColor(16 * VDP_getTextPalette() + 2, tt_info.color[1]);
+		PAL_setColor(16 * VDP_getTextPalette() + 1, tt.color[0]);
+		PAL_setColor(16 * VDP_getTextPalette() + 2, tt.color[1]);
 	}
 }
 
@@ -143,22 +143,22 @@ static u16 _reset_area(bool wait)
 
 	if (wait)
 	{
-		ret = _wait(tt_info.wait);
+		ret = _wait(tt.wait);
 	}
 
-	tt_clear();
+	typetext_clear();
 	_reset_pal();
 
-	tt_info.vx = 0;
-	tt_info.vy = 0;
-	tt_info.go_next = false;
+	tt.vx = 0;
+	tt.vy = 0;
+	tt.go_next = false;
 
 	return ret;
 }
 
 static u16 _wait(u16 wait)
 {
-	if (tt_info.go_next)
+	if (tt.go_next)
 	{
 		return 0;
 	}
@@ -167,14 +167,14 @@ static u16 _wait(u16 wait)
 	{
 		JoyReader_update();
 
-		if (tt_info.buttons && joy1_pressed)
+		if (tt.buttons && joy1_pressed)
 		{
 			u16 ret = 0;
 
-			     if ((tt_info.buttons & BUTTON_A    ) && joy1_pressed_a    ) ret = BUTTON_A;
-			else if ((tt_info.buttons & BUTTON_B    ) && joy1_pressed_b    ) ret = BUTTON_B;
-			else if ((tt_info.buttons & BUTTON_C    ) && joy1_pressed_c    ) ret = BUTTON_C;
-			else if ((tt_info.buttons & BUTTON_START) && joy1_pressed_start) ret = BUTTON_START;
+			     if ((tt.buttons & BUTTON_A    ) && joy1_pressed_a    ) ret = BUTTON_A;
+			else if ((tt.buttons & BUTTON_B    ) && joy1_pressed_b    ) ret = BUTTON_B;
+			else if ((tt.buttons & BUTTON_C    ) && joy1_pressed_c    ) ret = BUTTON_C;
+			else if ((tt.buttons & BUTTON_START) && joy1_pressed_start) ret = BUTTON_START;
 
 			return ret;
 		}
@@ -187,75 +187,75 @@ static u16 _wait(u16 wait)
 
 ////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////////
 
-void tt_init()
+void typetext_init()
 {
-	tt_info.x = 1;
-	tt_info.y = 20;
-	tt_info.width = 38;
-	tt_info.height = 7;
+	tt.x = 1;
+	tt.y = 20;
+	tt.width = 38;
+	tt.height = 7;
 
-	tt_info.inc_line = 2;
-	tt_info.inc_char = 1;
+	tt.inc_line = 2;
+	tt.inc_char = 1;
 
-	tt_info.speed = 2; // Hz
-	tt_info.wait = 3 * getHz();
-	tt_info.color[0] = 0;
-	tt_info.color[1] = 0;
-	tt_info.fade_out = 10; // en pasos
-	tt_info.buttons = (BUTTON_A | BUTTON_B | BUTTON_C | BUTTON_START);
+	tt.speed = 2; // Hz
+	tt.wait = 3 * getHz();
+	tt.color[0] = 0;
+	tt.color[1] = 0;
+	tt.fade_out = 10; // en pasos
+	tt.buttons = (BUTTON_A | BUTTON_B | BUTTON_C | BUTTON_START);
 
-	tt_info.go_next = false;
+	tt.go_next = false;
 
-	tt_info.word = 0;
-	tt_info.vx = 0;
-	tt_info.vy = 0;
+	tt.word = 0;
+	tt.vx = 0;
+	tt.vy = 0;
 
-	tt_info.chr = '\0';
-	tt_info.reset_pal = true;
-	tt_info.reset_area_at_end = true;
+	tt.chr = '\0';
+	tt.reset_pal = true;
+	tt.reset_area_at_end = true;
 }
 
 struct typetext_info *tt_get()
 {
-	return &tt_info;
+	return &tt;
 }
 
-void tt_clear()
+void typetext_clear()
 {
-	if (tt_info.reset_pal)
+	if (tt.reset_pal)
 	{
-		PAL_fadeOut(1, 2, tt_info.fade_out, 1);
+		PAL_fadeOut(1, 2, tt.fade_out, 1);
 	}
 
-	waitHz(tt_info.fade_out + 1);
+	waitHz(tt.fade_out + 1);
 
 	SYS_disableInts();
-	VDP_fillTileMapRect(VDP_getTextPlane(), 0, tt_info.x, tt_info.y, tt_info.width, tt_info.height);
+	VDP_fillTileMapRect(VDP_getTextPlane(), 0, tt.x, tt.y, tt.width, tt.height);
 	SYS_enableInts();
 }
 
 // Used by tt_write macro
-u16 tt_write_init(u16 indice, u8 *cadena)
+u16 typetext_write_init(u16 indice, u8 *cadena)
 {
-	tt_info.cmd_inc = -1;
+	tt.cmd_inc = -1;
 
-	tt_info.vx = 0;
-	tt_info.vy = 0;
-	tt_info.word = 0;
+	tt.vx = 0;
+	tt.vy = 0;
+	tt.word = 0;
 
-	tt_info.color[0] = ct_color(indice, 0);
-	tt_info.color[1] = ct_color(indice, 1);
-	tt_info.go_next = false;
+	tt.color[0] = ct_color(indice, 0);
+	tt.color[1] = ct_color(indice, 1);
+	tt.go_next = false;
 
-	tt_info.chr = '\0';
+	tt.chr = '\0';
 
 	SYS_disableInts();
-	VDP_fillTileMapRect(VDP_getTextPlane(), 0, tt_info.x, tt_info.y, tt_info.width, tt_info.height);
+	VDP_fillTileMapRect(VDP_getTextPlane(), 0, tt.x, tt.y, tt.width, tt.height);
 	SYS_enableInts();
 
-	_speed = tt_info.speed;
-	_color[0] = tt_info.color[0];
-	_color[1] = tt_info.color[1];
+	_speed = tt.speed;
+	_color[0] = tt.color[0];
+	_color[1] = tt.color[1];
 
 	_reset_pal();
 
@@ -263,9 +263,9 @@ u16 tt_write_init(u16 indice, u8 *cadena)
 }
 
 // Used by tt_write macro
-u16 tt_write_process(u16 i, u8 *cadena)
+u16 typetext_write_process(u16 i, u8 *cadena)
 {
-	tt_info.chr = cadena[i];
+	tt.chr = cadena[i];
 
 	u16 cmd_stat = _buid_command();
 
@@ -279,7 +279,7 @@ u16 tt_write_process(u16 i, u8 *cadena)
 
 		if (cmd("WAIT"))
 		{
-			return _wait(tt_info.cmd_value[0] ? tt_info.cmd_value[0] : tt_info.wait);
+			return _wait(tt.cmd_value[0] ? tt.cmd_value[0] : tt.wait);
 		}
 
 		else if (cmd("QUIT"))
@@ -290,7 +290,7 @@ u16 tt_write_process(u16 i, u8 *cadena)
 		else if (cmd("BREAK"))
 		{
 			// Salto de linea forzado o bien s�lo lo hace si x > 0
-			if (tt_info.cmd_value[0] || tt_info.vx > 0)
+			if (tt.cmd_value[0] || tt.vx > 0)
 			{
 				_inc_y();
 			}
@@ -300,16 +300,16 @@ u16 tt_write_process(u16 i, u8 *cadena)
 
 		else if (cmd("SPEED"))
 		{
-			tt_info.speed = tt_info.cmd_value[0] ? tt_info.cmd_value[0] : _speed;
+			tt.speed = tt.cmd_value[0] ? tt.cmd_value[0] : _speed;
 		}
 
 		else if (cmd("COLOR"))
 		{
-			tt_info.color[0] = tt_info.cmd_value[0] ? tt_info.cmd_value[0] : _color[0];
-			tt_info.color[1] = tt_info.cmd_value[0] ? tt_info.cmd_value[0] : _color[1];
+			tt.color[0] = tt.cmd_value[0] ? tt.cmd_value[0] : _color[0];
+			tt.color[1] = tt.cmd_value[0] ? tt.cmd_value[0] : _color[1];
 
-			PAL_setColor(16 * VDP_getTextPalette() + 1, tt_info.color[0]);
-			PAL_setColor(16 * VDP_getTextPalette() + 2, tt_info.color[1]);
+			PAL_setColor(16 * VDP_getTextPalette() + 1, tt.color[0]);
+			PAL_setColor(16 * VDP_getTextPalette() + 2, tt.color[1]);
 		}
 
 		else if (cmd("CLEAR"))
@@ -322,11 +322,11 @@ u16 tt_write_process(u16 i, u8 *cadena)
 		else if (cmd("WCLEAR"))
 		{
 			u16 btn = 0;
-			u16 wait = tt_info.wait;
+			u16 wait = tt.wait;
 
-			if (tt_info.cmd_value[0])
+			if (tt.cmd_value[0])
 			{
-				wait = tt_info.cmd_value[0];
+				wait = tt.cmd_value[0];
 			}
 
 			if (wait)
@@ -341,12 +341,12 @@ u16 tt_write_process(u16 i, u8 *cadena)
 
 		else if (cmd("WBREAK"))
 		{
-			u16 wait = tt_info.cmd_value[0];
+			u16 wait = tt.cmd_value[0];
 
 			u16 w = _wait(wait ? wait : getHz());
 
 			// Salto de linea forzado o bien s�lo lo hace si x > 0
-			if (tt_info.cmd_value[1] || tt_info.vx > 0)
+			if (tt.cmd_value[1] || tt.vx > 0)
 			{
 				_inc_y();
 			}
@@ -358,9 +358,9 @@ u16 tt_write_process(u16 i, u8 *cadena)
 	else
 	{
 		// Salto de pagina o �ltimo caracter
-		if (tt_info.chr == EOF)
+		if (tt.chr == EOF)
 		{
-			if (tt_info.reset_area_at_end)
+			if (tt.reset_area_at_end)
 			{
 				return _reset_area(true);
 			}
@@ -368,35 +368,35 @@ u16 tt_write_process(u16 i, u8 *cadena)
 			return 0;
 		}
 
-		else if (tt_info.chr == SPACE || tt_info.vx == 0)
+		else if (tt.chr == SPACE || tt.vx == 0)
 		{
 			// Salta los espacios en blanco de la primera posicion
-			if (tt_info.chr == SPACE && tt_info.vx == 0)
+			if (tt.chr == SPACE && tt.vx == 0)
 			{
 				return 0; // continue
 			}
 
 			// Cuenta las letras de �sta palabra
-			tt_info.word = 0;
+			tt.word = 0;
 
-			while (cadena[i + tt_info.word + 1] != SPACE && cadena[i + tt_info.word + 1] != EOF)
+			while (cadena[i + tt.word + 1] != SPACE && cadena[i + tt.word + 1] != EOF)
 			{
-				++tt_info.word;
+				++tt.word;
 			}
 
-			if (tt_info.vx == 0)
+			if (tt.vx == 0)
 			{
-				++tt_info.word;
+				++tt.word;
 			}
 		}
 	}
 
 	// Escribe el caracter
-	if (tt_info.go_next == false && tt_info.chr != SPACE)
+	if (tt.go_next == false && tt.chr != SPACE)
 	{
-		u8 write[2] = {tt_info.chr, EOF};
+		u8 write[2] = {tt.chr, EOF};
 
-		TEXT_drawText(write, tt_info.x + tt_info.vx, tt_info.y + tt_info.vy);
+		TEXT_drawText(write, tt.x + tt.vx, tt.y + tt.vy);
 	}
 
 	// Incrementa posiciones
@@ -404,5 +404,5 @@ u16 tt_write_process(u16 i, u8 *cadena)
 	// psglist_play(3); // 3 es foot
 
 	// espera
-	return _wait(tt_info.speed);
+	return _wait(tt.speed);
 }

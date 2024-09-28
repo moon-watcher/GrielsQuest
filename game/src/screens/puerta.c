@@ -20,7 +20,7 @@ const u16 paleta[16]    = { 0x000, 0x000, 0x000, 0x000, 0x000, 0x000, 0x000, 0x0
 
 static void _frases_tt_init ( u16 f )
 {
-	tt_init ( );
+	typetext_init ( );
 	frases_init ( f );
 	
 	#undef  WAITBREAK
