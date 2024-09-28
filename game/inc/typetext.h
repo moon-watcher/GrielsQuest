@@ -1,6 +1,6 @@
 #pragma once
 
-struct typetext_info
+struct typetext
 {
 	u8   x;
 	u8   y;

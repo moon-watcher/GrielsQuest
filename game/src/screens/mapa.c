@@ -97,7 +97,7 @@ static void _update_sprites ()
 static void _init_tt ()
 {
 	typetext_init ( );
-	struct typetext_info *const tt_info = tt_get();
+	struct typetext *const tt_info = typetext_get();
 
 	tt_info->x         =  3;
 	tt_info->y         = 21;
@@ -287,7 +287,7 @@ static void _mostrar_niveles (  )
 		SYS_enableInts();
 
 		_init_tt ( );
-		struct typetext_info *const tt_info = tt_get();
+		struct typetext *const tt_info = typetext_get();
 		tt_info->wait = 0;
 		tt_info->reset_area_at_end = false;
 		WRITE ( GRIEL, frases_find ( 1, 6 ) );
