@@ -199,14 +199,18 @@ void game_main_step()
 	gamestate.visito_la_puerta = false;
 	puerta_abierta = 0;
 
-	if (DEV < ++gamestate.localdev) // 5
+	if (DEV < ++gamestate.localdev) // 5: intro
 	{
 		screen_intro(1);
 	}
 	
-	if(DEV < ++gamestate.localdev) // 6
+	if(DEV < ++gamestate.localdev) // 6: title
 	{
 		to = screen_title(0);
+	}
+	else
+	{
+		to = SCREEN_JUMP_TO_MAP; // 7: map
 	}
 
 	if (to == SCREEN_JUMP_TO_SOUNDTEST)
@@ -217,11 +221,11 @@ void game_main_step()
 
 	if (to == SCREEN_JUMP_TO_CONTINUE && pwd8_screen())
 	{
-		to = SCREEN_JUMP_TO_AMBIENT;
+		to = SCREEN_JUMP_TO_MAP;
 		first_time = 0;
 	}
 
-	if (to == SCREEN_JUMP_TO_AMBIENT) // ||  to == SCREEN_JUMP_TO_DIFFICULT  )
+	if (to == SCREEN_JUMP_TO_MAP) // ||  to == SCREEN_JUMP_TO_DIFFICULT  )
 	{
 		while (1)
 		{

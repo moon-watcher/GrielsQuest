@@ -598,7 +598,8 @@ int main()
    // 4: languages
    // 5: intro
    // 6: title
-   dev_init(5);
+   // 7: map
+   dev_init(7);
    
    if (DEV)
    {

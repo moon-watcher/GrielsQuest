@@ -343,7 +343,7 @@ salto_2:
         {
             screen_title_menu_2 ( );
 
-            ret = SCREEN_JUMP_TO_AMBIENT;
+            ret = SCREEN_JUMP_TO_MAP;
         }
     }
 
