@@ -252,7 +252,7 @@ u16 typetext_write_init(u16 indice, u8 *cadena)
 
 	_reset_pal();
 
-	return strlen(cadena) + 1;
+	return strlen_countChars(cadena) + 1;
 }
 
 // Used by tt_write macro

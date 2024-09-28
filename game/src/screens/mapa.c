@@ -115,7 +115,7 @@ static void _show_title ( )
 	bigtext_setSprite ( sprite );
 
 	u8 *frase = frases_find ( 1, ambiente );
-	sprite = bigtext_draw_sprites_x_centered ( frase, 6, 0 ); // texto arriba
+	sprite = bigtext_drawSprites_Xcentered ( frase, 6, 0 ); // texto arriba
 	sprite_last_letter = sprite;
 }
 

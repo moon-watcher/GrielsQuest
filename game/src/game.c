@@ -19,7 +19,7 @@ static void _leave_text ( u16 ret )
 	if ( f != NULL )
 	{
 		bigtext_init ( (struct genresSprites *) &cs_font_16x16, 16, PAL0 );
-		u16 sprite = bigtext_draw_sprites_centered ( f, 30 );
+		u16 sprite = bigtext_drawSprites_XYcentered ( f, 30 );
 		--sprite;
 
 		VDP_setSpriteLink ( sprite, 0 );

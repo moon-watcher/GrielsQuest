@@ -51,3 +51,6 @@ void VDP_setSpritePriorityGQ      ( u16 index, u16 high );
 u16  in_array                   ( u16 needle, u16 array[] );
 
 void inc_difficulty_level       ( );
+
+
+u16 strlen_countChars(const u8 *);
