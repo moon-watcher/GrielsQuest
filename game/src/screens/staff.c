@@ -101,8 +101,8 @@ void screen_staff()
 
 	bigtext_init ( (struct genresSprites*) &cs_font_16x16, 1200, PAL0 );
     bigtext_drawTile ( "GRIEL'S QUEST",   6,  6, wait1 ) ;
-	bigtext_drawTile ( "FOR THE",        12, 9, wait1 ) ;
-	bigtext_drawTile ( "HOLY PORR�N",      8, 12, wait1 ) ;
+	bigtext_drawTile ( "FOR THE",        12,  9, wait1 ) ;
+	bigtext_drawTile ( "HOLY PORRÓN",     8, 12, wait1 ) ;
 
 
 	musiclist_play ( MUSIC_STAFF );

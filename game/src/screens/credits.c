@@ -12,7 +12,7 @@ static u16 y;
 
 static void writeText ( u8 *str, u16 pal, u8 inc_y )
 {
-    u8 x = 20 - strlen ( str ) / 2;
+    u8 x = 20 - strlen_countChars ( str ) / 2;
 
     SYS_disableInts();
     VDP_setTextPalette ( pal );

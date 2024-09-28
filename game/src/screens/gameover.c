@@ -49,6 +49,4 @@ void screen_gameover()
 
 	music_stop();
 	waitMs(1000);
-
-	// music_stop();
 }

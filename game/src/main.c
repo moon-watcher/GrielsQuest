@@ -599,7 +599,7 @@ int main()
    // 5: intro
    // 6: title
    // 7: map
-   dev_init(6);
+   dev_init(7);
    
    if (DEV)
    {
