@@ -3,7 +3,7 @@
 
 void screen_griels ( )
 {
-    if ( DEV > 1 ) return;
+    // if ( DEV > 1 ) return;
 
     displayOff(0);
     resetScreen();

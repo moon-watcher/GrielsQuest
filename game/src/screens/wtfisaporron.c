@@ -6,7 +6,7 @@
 
 void screen_wtfisaporron ( )
 {
-    if ( DEV > 1 ) return;
+    // if ( DEV > 1 ) return;
 
 	displayOff(0);
 
