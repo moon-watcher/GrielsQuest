@@ -29,6 +29,7 @@ struct typetext
 
 	bool reset_pal;
 	bool reset_area_at_end;
+	bool special_char;
 };
 
 void  typetext_init  ( );
@@ -37,4 +38,4 @@ void  typetext_clear ( );
 u16  typetext_write_init    ( u16 indice, u8 *cadena );
 u16  typetext_write_process ( u16 i,      u8 *cadena );
 
-struct typetext_info *tt_get();
+struct typetext *typetext_get();

@@ -8,7 +8,7 @@
 #define NEXT 124	  // '|' new page
 #define SEPARATOR ':'
 
-static struct typetext_info tt;
+static struct typetext tt;
 
 #define cmd(x) (strcmp(tt.command, (x)) == 0)
 
@@ -215,7 +215,7 @@ void typetext_init()
 	tt.reset_area_at_end = true;
 }
 
-struct typetext_info *tt_get()
+struct typetext *typetext_get()
 {
 	return &tt;
 }
