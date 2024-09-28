@@ -243,8 +243,8 @@ u16 typetext_write_init(u16 indice, u8 *cadena)
 	tt.vy = 0;
 	tt.word = 0;
 
-	tt.color[0] = ct_color(indice, 0);
-	tt.color[1] = ct_color(indice, 1);
+	tt.color[0] = font_palette.data[indice + 0];
+	tt.color[1] = font_palette.data[indice + 1];
 	tt.go_next = false;
 
 	tt.chr = '\0';
