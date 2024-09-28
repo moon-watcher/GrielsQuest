@@ -102,12 +102,9 @@ u16 TEXT_prepareText(u8 *str, s16 array[]){
 
         _debug_prepareText(chr);
 
-        if (chr == 195)
-            counter++, array[total++] = _values195[next], _debug_prepareText(next);
-        else if (chr == 194)
-            counter++, array[total++] = _values195[next], _debug_prepareText(next);
-        else
-            array[total++] = chr;
+             if (chr == 195) counter++, array[total++] = _values195[next], _debug_prepareText(next);
+        else if (chr == 194) counter++, array[total++] = _values195[next], _debug_prepareText(next);
+        else array[total++] = chr;
     }
 
     return total;
