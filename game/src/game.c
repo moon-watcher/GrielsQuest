@@ -31,20 +31,107 @@ static void _leave_text ( u16 ret )
 }
 
 
+//////////////////////////////////////////////////////
 
 
+LEVEL *game_get_wl ( )
+{
+	return (LEVEL*) &wl;
+}
 
-static void _init ( )
+void game_level_inc ( )
+{
+	// s�lo incrementa el round si se ha
+	// completado el �tlimo nivel disponible
+
+	if ( gamestate.current_round == gamestate.ambientes [ (u8) gamestate.current_ambiente ] )
+	{
+		++gamestate.ambientes [ (u8) gamestate.current_ambiente ];
+	}
+}
+
+u16 game_ingame_step(u16 ret)
+{
+	JoyReader_update();
+	death_frame ( &wl );
+	toani_update ( );
+	chorrada_control ( &wl );
+	undo_control ( &wl );
+	level_update ( );
+	splist_reorder ( );
+	splist_reorder_bigboys ( );
+	pause_show ( &wl, &ret );
+
+	if ( ret == LEVEL_EXIT )
+	{
+		music_stop();
+		return ret;
+	}
+
+	if ( ret == LEVEL_RESTART )
+	{
+		music_stop();
+		player_dead ( PLAYER_1, &wl, ret );
+		return ret;
+	}
+
+
+	player_control_buttons ( &wl );
+	player_ctrldev ( &ret );
+
+	if ( player_is_moving ( PLAYER_1 ) )
+	{
+		player_changed_dir ( PLAYER_1 );
+	}
+	else
+	{
+		player_interact_with_object ( &wl );
+
+		if ( player(PLAYER_1)->on_door )
+		{
+			ret = LEVEL_COMPLETED;
+		}
+
+		if ( undo_rest(0) < 0 )
+		{
+			ret = LEVEL_RESTART;
+		}
+
+		player_action ( PLAYER_1 );
+		player_logic_next ( PLAYER_1, &wl );
+	}
+
+	if ( ret == LEVEL_COMPLETED )
+	{
+		player_inc_level ( );
+		musiclist_play ( MUSIC_FSCLEAR ); // wl.music
+		return ret;
+	}
+
+	player_move ( PLAYER_1 );
+	player_update ( PLAYER_1 );
+
+	vobject_update ( );
+	vobject_upload ( );
+
+	showFPS ( );
+
+	VDP_updateSprites(80, 1);
+	SYS_doVBlankProcess();
+
+	return ret;
+}
+
+
+u16 game_play ( )
 {
 	displayInit();
 	displayOff(0);
-	SYS_disableInts();
 	resetScreen();
 	resetSprites();
 	resetScroll();
 	resetPalettes();
-	SYS_enableInts();
-	
+		
 	VDP_setPlaneSize ( 64, 32, false );
 
 	font_init ( );
@@ -62,18 +149,17 @@ static void _init ( )
 	wl = level_init ( );
 	player_init ( PLAYER_1 );
 
-	level_presentation();
+	//
+	scene_presentation();
 	splist_hide_sprites();
 	text_reset ( );
 
 	displayInit();
 	displayOff(0);
-	SYS_disableInts();
 	resetScreen();
 	resetScroll();
 	resetPalettes();
-	SYS_enableInts();
-
+	
 	splist_draw ( );
 	player_update ( PLAYER_1 );
 	level_draw ( &wl );
@@ -87,111 +173,11 @@ static void _init ( )
 
 	stars_draw ();
 
-
 	musiclist_play ( level_get_music() ); // wl.music
-}
 
-
-//////////////////////////////////////////////////////
-
-
-LEVEL *game_get_wl ( )
-{
-	return (LEVEL*) &wl;
-}
-
-
-
-void game_level_inc ( )
-{
-	// s�lo incrementa el round si se ha
-	// completado el �tlimo nivel disponible
-
-	if ( gamestate.current_round == gamestate.ambientes [ (u8) gamestate.current_ambiente ] )
-	{
-		++gamestate.ambientes [ (u8) gamestate.current_ambiente ];
-	}
-}
-
-
-u16 game_play ( )
-{
 	u16 ret = LEVEL_OK;
-
-	_init ( );
-
 	while ( ret == LEVEL_OK )
-	{
-		JoyReader_update();
-		death_frame ( &wl );
-		toani_update ( );
-		chorrada_control ( &wl );
-		undo_control ( &wl );
-		level_update ( );
-		splist_reorder ( );
-		splist_reorder_bigboys ( );
-		pause_show ( &wl, &ret );
-
-		if ( ret == LEVEL_EXIT )
-		{
-		    music_stop();
-			break;
-		}
-
-		if ( ret == LEVEL_RESTART )
-		{
-		    music_stop();
-			player_dead ( PLAYER_1, &wl, ret );
-			break;
-		}
-
-
-		player_control_buttons ( &wl );
-		player_ctrldev ( &ret );
-
-		if ( player_is_moving ( PLAYER_1 ) )
-		{
-			player_changed_dir ( PLAYER_1 );
-		}
-		else
-		{
-			player_interact_with_object ( &wl );
-
-			if ( player(PLAYER_1)->on_door )
-			{
-				ret = LEVEL_COMPLETED;
-			}
-
-			if ( undo_rest(0) < 0 )
-			{
-				ret = LEVEL_RESTART;
-			}
-
-			player_action ( PLAYER_1 );
-			player_logic_next ( PLAYER_1, &wl );
-		}
-
-		if ( ret == LEVEL_COMPLETED )
-		{
-			player_inc_level ( );
-			musiclist_play ( MUSIC_FSCLEAR ); // wl.music
-			break;
-		}
-
-
-
-		player_move ( PLAYER_1 );
-		player_update ( PLAYER_1 );
-
-		vobject_update ( );
-		vobject_upload ( );
-
-		showFPS ( );
-
-		VDP_updateSprites(80, 1);
-		SYS_doVBlankProcess();
-	}
-
+		ret = game_ingame_step(ret);
 
 	planHide();
 	_leave_text ( ret );

@@ -598,20 +598,17 @@ int main()
    // 4: languages
    // 5: intro
    // 6: title
-   dev_init(5); 
-   gamestate.localdev = 0;
-
+   dev_init(5);
+   
    if (DEV)
    {
-      gamestate.dificultad       = 3; // 2 // 1 // 0
-      gamestate.ambientes[0]     = gamestate.ambientes[1] = gamestate.ambientes[2] = gamestate.ambientes[3] = 14; 
-      // gamestate.ambientes[0]     = gamestate.ambientes[1] = gamestate.ambientes[2] = gamestate.ambientes[3] = 5;
-      // gamestate.ambientes[0]     = gamestate.ambientes[1] = gamestate.ambientes[2] = gamestate.ambientes[3] = 6;
-      gamestate.ambientes[4]     = 6;
-      // gamestate.ambientes[4]     = 3;
-      // gamestate.ambientes[4]     = 0;
+      gamestate.dificultad = 3; // 2 // 1 // 0
+      gamestate.ambientes[0] = gamestate.ambientes[1] = gamestate.ambientes[2] = gamestate.ambientes[3] = 14;  // 5 // 6
+      gamestate.ambientes[4] = 6; // 3 // 0
       gamestate.visito_la_puerta = true; // false
-      gamestate.lenguaje         = FINNISH; // ENGLISH; // SPANISH // FRENCH
+      
+      if (DEV > 4)
+            gamestate.lenguaje = FINNISH; // FINNISH // ENGLISH // SPANISH // FRENCH
    }
 
    monos();
@@ -656,8 +653,11 @@ int main()
 
    if (DEV < ++gamestate.localdev) // 2
    {
-      if (gamestate.publisher == 1) screen_publisher_1985();
-      if (gamestate.publisher == 2) screen_publisher_POR();
+      if (gamestate.publisher == 1)
+         screen_publisher_1985();
+
+      if (gamestate.publisher == 2)
+         screen_publisher_POR();
    }
 
    if (DEV < ++gamestate.localdev) // 3
@@ -671,7 +671,8 @@ int main()
    }
    else
    {
-      gamestate.lenguaje = ENGLISH;
+      if (!gamestate.lenguaje)
+         gamestate.lenguaje = ENGLISH;
    }
 
 

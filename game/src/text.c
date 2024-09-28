@@ -203,29 +203,8 @@ u16 text_draw_sprite ( u8 *string, u16 x, u16 y, u16 ms )
 
 u16 text_draw_sprites_centered ( u8 *string, u16 ms )
 {
-    u16 x = VDP_getScreenWidth()  / 2  - _genres->width  / 2 * strlen ( string );
     u16 y = VDP_getScreenHeight() / 2  - _genres->height / 2;
-
-	u8 pos = get_jump_pos ( string );
-
-	if ( pos )
-    {
-        u8 sprite, aux[40] = {};
-
-        memcpy ( aux, &string[0], pos-1 );
-        x = VDP_getScreenWidth()  / 2  -  strlen (aux) * _genres->width / 2;
-        y = VDP_getScreenHeight() / 2  - _genres->height  / 2 - 16;
-        sprite = text_draw_sprite ( aux, x, y, ms );
-
-        memcpy ( aux, &string[pos+1], strlen(string)-pos );
-        x = VDP_getScreenWidth()  / 2  -  strlen (aux) * _genres->width / 2;
-        y = VDP_getScreenHeight() / 2  - _genres->height  / 2 - 0;
-        sprite = text_draw_sprite ( aux, x, y+_genres->height, ms );
-
-        return sprite;
-    }
-
-	return text_draw_sprite ( string, x, y, ms );
+    return text_draw_sprites_x_centered(string, y, ms);
 }
 
 
@@ -327,13 +306,15 @@ static const s8 _values194[] = {
         [161]  =  18, // ¡
 };
 
-static void _debug_prepareText(s16 chr){
-    return;
+static int _debug_prepareText(s16 chr){
+    return 0;
 
     u8 write[2] = {chr, '\0'};
     drawInt(chr, 0, devu0, 5);
     TEXT_drawText(write, 10, devu0);
     ++devu0;
+
+    return 1;
 }
 
 static void _drawText(u8 *str, u16 x, u16 y, bool clear){
@@ -356,30 +337,22 @@ static void _drawText(u8 *str, u16 x, u16 y, bool clear){
 }
 
 u16 TEXT_prepareText(u8 *str, s16 array[]){
-    u16 i = 0;
-    u16 j = 0;
+    u16 chr, counter = 0, total = 0;
 
-    while (str[i]){
-        u16 chr0 = str[i + 0];
-        u16 chr1 = str[i + 1];
+    while (chr = str[counter++]){
+        u16 next = str[counter];
 
-        i++;
-        _debug_prepareText(chr0);
+        _debug_prepareText(chr);
 
-        if (chr0 == 195 || chr0 == 194){
-            i++;
-            _debug_prepareText(chr1);
-        }
-
-        array[j] = chr0;
-
-        if (chr0 == 195) array[j] = _values195[chr1];
-        if (chr0 == 194) array[j] = _values194[chr1];
-
-        ++j;
+        if (chr == 195)
+            counter++, array[total++] = _values195[next], _debug_prepareText(next);
+        else if (chr == 194)
+            counter++, array[total++] = _values195[next], _debug_prepareText(next);
+        else
+            array[total++] = chr;
     }
 
-    return j;
+    return total;
 }
 
 void TEXT_drawText_clear(u8 *str, u16 x, u16 y){

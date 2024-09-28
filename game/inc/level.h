@@ -88,7 +88,6 @@ void        level_draw_door           ( );
 void        level_draw_key            ( );
 void        level_griel_exits         ( );
 void        level_find_bigboys        ( LEVEL level, u8 x, u8 y, u8 width, u8 height );
-void        level_presentation        ( );
 
 Vect2D_u16  level_get_key             ( );
 void        level_set_key             ( u16 x, u16 y );
