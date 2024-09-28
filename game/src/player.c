@@ -662,7 +662,7 @@ void player_on_hurts ( u8 player )
 //	//music_play ( level->music_completed );
 //
 ////	bigtext_init ( (genresSprites*) &cs_font_16x16, 1200, PAL0 );
-//	//bigtext_draw_sprites_centered ( "STAGE CLEAR", 80 );
+//	//bigtext_drawSprites_XYcentered ( "STAGE CLEAR", 80 );
 //	planHide();
 //}
 

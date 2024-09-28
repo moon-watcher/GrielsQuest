@@ -38,7 +38,7 @@ void screen_sound_test ()
 	strcpy ( f2, frases_next() );
 
 
-	bigtext_draw_center ( f1, 3, 0 );
+	bigtext_drawTile_Xcentered ( f1, 3, 0 );
 
 	VDP_setTextPalette(PAL0);
 	PAL_setPalette(PAL0, (u16*) font_getPalette(), CPU);
