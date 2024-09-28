@@ -27,6 +27,8 @@ struct typetext
 
 	bool reset_pal;
 	bool reset_area_at_end;
+
+	u16 special_char;
 };
 
 void  typetext_init  ( );

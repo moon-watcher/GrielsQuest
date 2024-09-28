@@ -205,6 +205,8 @@ void typetext_init()
 	tt.chr = '\0';
 	tt.reset_pal = true;
 	tt.reset_area_at_end = true;
+
+	tt.special_char = 0;
 }
 
 struct typetext *typetext_get()
@@ -257,11 +259,18 @@ u16 typetext_write_init(u16 indice, u8 *cadena)
 u16 typetext_write_process(u16 i, u8 *cadena)
 {
 	tt.chr = cadena[i];
+	
+	if (tt.chr == 195 || tt.chr == 194)
+	{
+		tt.special_char = tt.chr;
+		return 0;
+	}
 
 	u16 cmd_stat = _buid_command();
 
 	if (cmd_stat == 1)
 	{
+		tt.special_char = 0;
 		return 0;
 	}
 
@@ -270,6 +279,7 @@ u16 typetext_write_process(u16 i, u8 *cadena)
 
 		if (cmd("WAIT"))
 		{
+			tt.special_char = 0;
 			return _wait(tt.cmd_value[0] ? tt.cmd_value[0] : tt.wait);
 		}
 
@@ -280,12 +290,13 @@ u16 typetext_write_process(u16 i, u8 *cadena)
 
 		else if (cmd("BREAK"))
 		{
-			// Salto de linea forzado o bien s�lo lo hace si x > 0
+			// Salto de linea forzado o bien sólo lo hace si x > 0
 			if (tt.cmd_value[0] || tt.vx > 0)
 			{
 				_inc_y();
 			}
 
+			tt.special_char = 0;			
 			return 0; // continue
 		}
 
@@ -306,7 +317,7 @@ u16 typetext_write_process(u16 i, u8 *cadena)
 		else if (cmd("CLEAR"))
 		{
 			_reset_area(false);
-
+			tt.special_char = 0;
 			return 0; // continue
 		}
 
@@ -322,11 +333,11 @@ u16 typetext_write_process(u16 i, u8 *cadena)
 
 			if (wait)
 			{
-				btn = _wait(wait); // este falla, hace que se quede cogado porque el valor debe ser alt�simo
+				btn = _wait(wait); // este falla, hace que se quede cogado porque el valor debe ser altísimo
 			}
 
 			_reset_area(false);
-
+			tt.special_char = 0;
 			return btn;
 		}
 
@@ -336,21 +347,23 @@ u16 typetext_write_process(u16 i, u8 *cadena)
 
 			u16 w = _wait(wait ? wait : getHz());
 
-			// Salto de linea forzado o bien s�lo lo hace si x > 0
+			// Salto de linea forzado o bien sólo lo hace si x > 0
 			if (tt.cmd_value[1] || tt.vx > 0)
 			{
 				_inc_y();
 			}
-
+			tt.special_char = 0;
 			return w; // continue
 		}
 	}
 
 	else
 	{
-		// Salto de pagina o �ltimo caracter
+		// Salto de pagina o último caracter
 		if (tt.chr == EOF)
 		{
+			tt.special_char = 0;
+			
 			if (tt.reset_area_at_end)
 			{
 				return _reset_area(true);
@@ -364,10 +377,11 @@ u16 typetext_write_process(u16 i, u8 *cadena)
 			// Salta los espacios en blanco de la primera posicion
 			if (tt.chr == SPACE && tt.vx == 0)
 			{
+				tt.special_char = 0;
 				return 0; // continue
 			}
 
-			// Cuenta las letras de �sta palabra
+			// Cuenta las letras de esta palabra
 			tt.word = 0;
 
 			while (cadena[i + tt.word + 1] != SPACE && cadena[i + tt.word + 1] != EOF)
@@ -385,10 +399,18 @@ u16 typetext_write_process(u16 i, u8 *cadena)
 	// Escribe el caracter
 	if (tt.chr != SPACE)
 	{
-		u8 write[2] = {tt.chr, EOF};
+		u8 write[3] = {tt.chr, EOF};
+		
+		if (tt.special_char)
+		{
+			write[0] = tt.special_char;
+			write[1] = tt.chr;
+			write[2] = EOF;
+		}
 
 		TEXT_drawText(write, tt.x + tt.vx, tt.y + tt.vy);
 	}
+	tt.special_char = 0;
 
 	// Incrementa posiciones
 	_inc_x();
