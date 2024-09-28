@@ -16,8 +16,6 @@ struct typetext
 	u8   fade_out;
 	u16  buttons;
 
-	bool go_next; // go next phrase
-
 	u16  word;
 	u16  vx;
 	u16  vy;
@@ -29,7 +27,6 @@ struct typetext
 
 	bool reset_pal;
 	bool reset_area_at_end;
-	bool special_char;
 };
 
 void  typetext_init  ( );

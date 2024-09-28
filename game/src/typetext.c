@@ -151,18 +151,12 @@ static u16 _reset_area(bool wait)
 
 	tt.vx = 0;
 	tt.vy = 0;
-	tt.go_next = false;
-
+	
 	return ret;
 }
 
 static u16 _wait(u16 wait)
 {
-	if (tt.go_next)
-	{
-		return 0;
-	}
-
 	while (wait--)
 	{
 		JoyReader_update();
@@ -204,8 +198,6 @@ void typetext_init()
 	tt.fade_out = 10; // en pasos
 	tt.buttons = (BUTTON_A | BUTTON_B | BUTTON_C | BUTTON_START);
 
-	tt.go_next = false;
-
 	tt.word = 0;
 	tt.vx = 0;
 	tt.vy = 0;
@@ -245,7 +237,6 @@ u16 typetext_write_init(u16 indice, u8 *cadena)
 
 	tt.color[0] = font_palette.data[indice + 0];
 	tt.color[1] = font_palette.data[indice + 1];
-	tt.go_next = false;
 
 	tt.chr = '\0';
 
@@ -392,7 +383,7 @@ u16 typetext_write_process(u16 i, u8 *cadena)
 	}
 
 	// Escribe el caracter
-	if (tt.go_next == false && tt.chr != SPACE)
+	if (tt.chr != SPACE)
 	{
 		u8 write[2] = {tt.chr, EOF};
 
