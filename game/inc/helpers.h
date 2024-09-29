@@ -12,17 +12,24 @@
 #define not     NOT
 #define isnt    ISNT
 
-
-#define FRASES_TT_WRITE(COLOR, ABC, START) {                 \
-	u8 *s = frases_next();                                   \
+#define TYPETEXT(COLOR, ABC, START) {                                 \
+	u8 *s = frases_next();                                         \
 	for (u16 i = 0, l = typetext_write_init(COLOR, s); i < l; i++) \
-		switch(typetext_write_process(i, s)) {                     \
-			case BUTTON_START: goto START;                   \
-			case BUTTON_A:                                   \
-			case BUTTON_B:                                   \
-			case BUTTON_C: goto ABC;                         \
-		}                                                    \
-	}
+		switch (typetext_write_process(i, s)) {                    \
+			case BUTTON_START: goto START;                         \
+			case BUTTON_A:                                         \
+			case BUTTON_B:                                         \
+			case BUTTON_C: goto ABC;                               \
+		}                                                          \
+}
+
+/*
+#define TYPE2(COLOR) {                                             \
+	u8 *s = frases_next();                                         \
+	for (u16 i = 0, l = typetext_write_init(COLOR, s); i < l; i++) \
+		typetext_write_process(i, s);                              \
+}
+*/
 
 //u8  *my_strtok                  ( u8 *string, u8 delimitador );
 u32  my_strtol                  ( u8 *cadena );

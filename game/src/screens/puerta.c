@@ -217,21 +217,21 @@ u16 screen_puerta ( )
 	if ( _terminados == 0 )
 	{
 		_frases_tt_init( 12 );
-		FRASES_TT_WRITE( GRIEL, fin, fin );
+		TYPETEXT( GRIEL, fin, fin );
 	}
 	else if ( _terminados < 4 )
 	{
 		_frases_tt_init( 13 );
-		FRASES_TT_WRITE( GRIEL, fin, fin );
-		FRASES_TT_WRITE( NARRADOR, fin, fin );
+		TYPETEXT( GRIEL, fin, fin );
+		TYPETEXT( NARRADOR, fin, fin );
 	}
 	else
 	{
 		_frases_tt_init ( 14 );
 
-		FRASES_TT_WRITE ( YONKI, fin, fin );
-		FRASES_TT_WRITE ( GRIEL, fin, fin );
-		FRASES_TT_WRITE ( YONKI, fin, fin );
+		TYPETEXT ( YONKI, fin, fin );
+		TYPETEXT ( GRIEL, fin, fin );
+		TYPETEXT ( YONKI, fin, fin );
 
 		SYS_disableInts();
 		VDP_fillTileMapRect (BG_A, TILE_ATTR_FULL ( PAL0, 1, 0, 0, pos_tile_vacio ),  1, 19, 38,  9 );
@@ -255,7 +255,7 @@ u16 screen_puerta ( )
 		VDP_updateSprites(80,1);
 		SYS_doVBlankProcess();
 
-		FRASES_TT_WRITE ( GRIEL, fin, fin );
+		TYPETEXT ( GRIEL, fin, fin );
 
 
 		ret = SCREEN_JUMP_TO_NEWGAME;

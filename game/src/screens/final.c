@@ -207,9 +207,9 @@ static void _final_1 ( )
 
 	_frases_tt_init( 15 );
 
-	//FRASES_TT_WRITE( KBRAH, fin, fin );
-	FRASES_TT_WRITE( GRIEL, fin, fin );
-	FRASES_TT_WRITE( KBRAH, fin, fin );
+	//TYPETEXT( KBRAH, fin, fin );
+	TYPETEXT( GRIEL, fin, fin );
+	TYPETEXT( KBRAH, fin, fin );
 
 
 	// Aparece Kbritah
@@ -218,14 +218,14 @@ static void _final_1 ( )
 	VDP_updateSprites(80,1);
 
 	// Habla Kbritah
-	FRASES_TT_WRITE( KBRITAH, fin, fin );
+	TYPETEXT( KBRITAH, fin, fin );
 
 	// Griel y Kbrah cambia caras
 	_visible ( 1, 0, true, 0 );
 	_visible ( 1, 2, true, 0 );
 	VDP_updateSprites(80,1);
 
-	FRASES_TT_WRITE( KBRAH, fin, fin );
+	TYPETEXT( KBRAH, fin, fin );
 
 	// kbrah y Kbritah cambian cara
 	_visible ( 1, 2, false, 0 );
@@ -233,8 +233,8 @@ static void _final_1 ( )
 	_visible ( 1, 0, false, 0 );
 	VDP_updateSprites(80,1);
 
-	FRASES_TT_WRITE( GRIEL, fin, fin );
-	FRASES_TT_WRITE( KBRAH, fin, fin );
+	TYPETEXT( GRIEL, fin, fin );
+	TYPETEXT( KBRAH, fin, fin );
 
 
 fin:
@@ -296,40 +296,40 @@ static void _final_2()
 
 	_frases_tt_init( 16 );
 
-	FRASES_TT_WRITE( NOTA, fin, fin );
-	FRASES_TT_WRITE( GRIEL, fin, fin );
-	FRASES_TT_WRITE( NOTA, fin, fin );
-	FRASES_TT_WRITE( GRIEL, fin, fin );
-//	FRASES_TT_WRITE( NOTA, fin, fin );
-//	FRASES_TT_WRITE( GRIEL, fin, fin );
+	TYPETEXT( NOTA, fin, fin );
+	TYPETEXT( GRIEL, fin, fin );
+	TYPETEXT( NOTA, fin, fin );
+	TYPETEXT( GRIEL, fin, fin );
+//	TYPETEXT( NOTA, fin, fin );
+//	TYPETEXT( GRIEL, fin, fin );
 
 	// debilucho
 	if ( gamestate.dificultad == 0 )
 	{
 		_frases_tt_init( 17 );
 
-		FRASES_TT_WRITE( NOTA, fin, fin );
-		FRASES_TT_WRITE( GRIEL, fin, fin );
-		FRASES_TT_WRITE( NOTA, fin, fin );
+		TYPETEXT( NOTA, fin, fin );
+		TYPETEXT( GRIEL, fin, fin );
+		TYPETEXT( NOTA, fin, fin );
 	}
 	// tipio duro o pesadilla
 	else
 	{
 		_frases_tt_init( 18 );
 
-		FRASES_TT_WRITE( NOTA, fin, fin );
+		TYPETEXT( NOTA, fin, fin );
 
 		_visible ( 2, 2, true, 3 ); // Pibon
 
-		FRASES_TT_WRITE( NOTA, fin, fin );
+		TYPETEXT( NOTA, fin, fin );
 
 		_visible ( 2, 2, false, 1 ); // Pibon
 
-		FRASES_TT_WRITE( NOTA, fin, fin );
+		TYPETEXT( NOTA, fin, fin );
 
 		_visible ( 2, 1, true,  1 ); // Gorda
 
-		FRASES_TT_WRITE( GORDA, fin, fin );
+		TYPETEXT( GORDA, fin, fin );
 	}
 
 
@@ -397,15 +397,15 @@ static void _final_3()
 
 	_frases_tt_init( 19 );
 
-	FRASES_TT_WRITE( GORDA, fin, fin );
-	FRASES_TT_WRITE( GRIEL, fin, fin );
-	FRASES_TT_WRITE( GORDA, fin, fin );
+	TYPETEXT( GORDA, fin, fin );
+	TYPETEXT( GRIEL, fin, fin );
+	TYPETEXT( GORDA, fin, fin );
 
 
 	if ( gamestate.dificultad < 2 )
 	{
 		_frases_tt_init( 20 );
-		FRASES_TT_WRITE( GRIEL, fin, fin );
+		TYPETEXT( GRIEL, fin, fin );
 	}
 
 	// es pesadilla (2) o superior
@@ -485,11 +485,11 @@ static void _final_3()
 
 		_frases_tt_init( 21 );
 
-		FRASES_TT_WRITE( KBRITAH, fin, fin );
+		TYPETEXT( KBRITAH, fin, fin );
 
 		_visible ( 3, 0, true, 1 );
 
-		FRASES_TT_WRITE( GRIEL, fin, fin );
+		TYPETEXT( GRIEL, fin, fin );
 	}
 
 fin:
@@ -562,12 +562,12 @@ static void _final_4()
 
 	_frases_tt_init( 22 );
 
-	FRASES_TT_WRITE( GRIEL, fin, fin );
-	FRASES_TT_WRITE( KBRITAH, fin, fin );
-	FRASES_TT_WRITE( GRIEL, fin, fin );
-	FRASES_TT_WRITE( KBRITAH, fin, fin );
-	FRASES_TT_WRITE( GRIEL, fin, fin );
-	FRASES_TT_WRITE( KBRITAH, fin, fin );
+	TYPETEXT( GRIEL, fin, fin );
+	TYPETEXT( KBRITAH, fin, fin );
+	TYPETEXT( GRIEL, fin, fin );
+	TYPETEXT( KBRITAH, fin, fin );
+	TYPETEXT( GRIEL, fin, fin );
+	TYPETEXT( KBRITAH, fin, fin );
 
 
 fin:

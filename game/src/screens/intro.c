@@ -67,7 +67,7 @@ static u8 _escena_1 ( )
 	_frases_tt_init( 7 );
 
     devu0 = 0;
-	FRASES_TT_WRITE ( NARRADOR, next, fin );
+	TYPETEXT ( NARRADOR, next, fin );
 
 
 
@@ -91,7 +91,7 @@ static u8 _escena_1 ( )
 
 
 
-	FRASES_TT_WRITE ( NARRADOR, next, fin );
+	TYPETEXT ( NARRADOR, next, fin );
 
 
 
@@ -104,7 +104,7 @@ static u8 _escena_1 ( )
 
 	wb_fade ( joy1_pressed_abc | joy1_pressed_start );
 
-	FRASES_TT_WRITE ( NARRADOR, next, fin );
+	TYPETEXT ( NARRADOR, next, fin );
 
 
 
@@ -154,7 +154,7 @@ static u8 _escena_1 ( )
 	PAL_setPalette ( PAL0, font_getPalette(), CPU);
 	SYS_enableInts();
 
-	FRASES_TT_WRITE ( NARRADOR, next, fin );
+	TYPETEXT ( NARRADOR, next, fin );
 
 
 
@@ -203,7 +203,7 @@ static u8 _escena_2()
 
 	_frases_tt_init ( 8 );
 
-	FRASES_TT_WRITE ( NARRADOR, next, fin );
+	TYPETEXT ( NARRADOR, next, fin );
 
 end:
     GONEXT
@@ -225,8 +225,8 @@ static u8 _escena_3 ()
 	displayOn(0);
 
 	_frases_tt_init ( 9 );
-	FRASES_TT_WRITE ( NARRADOR, next, fin );
-	FRASES_TT_WRITE ( NOTA, next, fin );
+	TYPETEXT ( NARRADOR, next, fin );
+	TYPETEXT ( NOTA, next, fin );
 
 	displayOff(0);	
 	VDP_setPlaneSize ( 64, 32, false );
@@ -268,7 +268,7 @@ static u8 _escena_3 ()
 
 	displayOn(0);
 
-	FRASES_TT_WRITE ( NOTA, next, fin );
+	TYPETEXT ( NOTA, next, fin );
 
 
 	for (int i=0; inc_x_b<=0; i++ )
@@ -294,8 +294,8 @@ static u8 _escena_3 ()
 		SYS_doVBlankProcess();
 	}
 
-	FRASES_TT_WRITE ( CORTAZAR, next, fin );
-	FRASES_TT_WRITE ( NOTA, next, fin );
+	TYPETEXT ( CORTAZAR, next, fin );
+	TYPETEXT ( NOTA, next, fin );
 
 	GONEXT
 	GOEND
@@ -380,14 +380,14 @@ static u8 _escena_4 ( int repeat )
 	{
 		_frases_tt_init ( 10 );
 
-		FRASES_TT_WRITE ( NOTA, next, fin );
-		FRASES_TT_WRITE ( GRIEL, next, fin );
-		FRASES_TT_WRITE ( NOTA, next, fin );
+		TYPETEXT ( NOTA, next, fin );
+		TYPETEXT ( GRIEL, next, fin );
+		TYPETEXT ( NOTA, next, fin );
 	}
 	else
 	{
 		_frases_tt_init( 11 );
-		FRASES_TT_WRITE( NOTA, next, fin );
+		TYPETEXT( NOTA, next, fin );
 	}
 
 
