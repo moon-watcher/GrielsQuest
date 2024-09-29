@@ -7,34 +7,33 @@ static u8 _counter = 0;
 static u8 _positions[96] = {};
 static u8 _sprite = 0;
 
-static u8 parse_string(u8 *string, u8 i)
+
+static void _debug_this(s16 chr, u16 x)
 {
-	u8 chr = string[i];
-	drawUInt(chr, 1, devu0++, 4);
-
-	chr -= (32 + 1);
-	// chr  = ( chr == 255 ) ? 0 : chr; //drawUInt( chr,0, devu0++, 4 );
-
-	// switch ( chr )
-	// {
-	//     case 248: chr = 95; break; // �
-	//     case 247: chr = 94; break; // �
-	//     case 178: chr = 94; break; // �
-	//     case 245: chr = 93; break; // �
-	//     case 244: chr = 92; break; // �
-	//     case 243: chr = 91; break; // �
-	//     case 234: chr = 90; break; // �
-	//     case 233: chr = 89; break; // �
-	//     case 231: chr = 88; break; // �
-	//     case 230: chr = 87; break; // �
-	//     case 229: chr = 86; break; // �
-	//     case 213: chr = 84; break; // �
-	//     case 227: chr = 85; break; // �
-	//     case 215: chr = 83; break; // �
-	// };
-
-	return chr;
+	return;
+	drawInt(chr, x, devu0, 3);
 }
+
+static const s8 _values162[] = {
+	[154] = 95, // Ú
+	[147] = 94, // Ó
+	[141] = 93, // Í
+	[137] = 92, // É
+	[129] = 91, // Á
+	[153] = 90, // À
+	[146] = 89, // È
+	[140] = 88, // Ì
+	[136] = 87, // Ò
+	[128] = 86, // Ù
+	[150] = 85, // Ö
+	[132] = 84, // Ä
+	[130] = 83, // Â
+	[131] = 82, // Ã
+	[149] = 81, // Õ
+	[143] = 80, // Ï
+	[156] = 79, // Ü
+	[145] = 77, // Ñ
+};
 
 static u8 parse_chr0(u8 chr0)
 {
@@ -126,40 +125,53 @@ void bigtext_drawTile(u8 *string, u8 x, u8 y, u16 ms)
 
 void bigtext_drawTile_Xcentered(u8 *string, u8 y, u16 ms)
 {
-	u16 len = strlen_countChars(string) * 2;
+	u16 len = countChars(string) * 2;
 	u16 x = 20 - len / 2;
 
 	bigtext_drawTile(string, x, y, ms);
 }
 
 
-u16 bigtext_drawSprites(u8 *string, u16 x, u16 y, u16 ms)
+u16 bigtext_drawSprite(u8 *string, u16 x, u16 y, u16 ms)
 {
-#define TILE _base + _positions[chr0] * (_genres->width >> 3) * (_genres->height >> 3)
+#define TILE _base + _positions[chr] * (_genres->width >> 3) * (_genres->height >> 3)
 #define ATTR TILE_ATTR_FULL(_palette, 1, 0, 0, TILE)
 
 	const u16 size = _genres->size >> 8;
 	const u16 width = _genres->width;
-	const u16 length = strlen_countChars(string);
-
-	devu0 = 0;
+	const u16 length = strlen(string);	
+	s16 count = 0;
+	
+	devu0 = 3;
 
 	for (u8 i = 0; i < length; i++)
 	{
-		u8 chr0 = parse_string(string, i);
+		s16 chr = string[i] - 33;
+		_debug_this(chr, 1);
+		
+		if (chr == 162)
+		{
+			chr = string[++i];
+			_debug_this(chr, 7);
 
-		if (chr0 == 0) // is space
-			continue;
+			chr = _values162[chr];
+		}
+		
+		devu0++;
+		++count;
+
+		if (chr == -1) // is space
+			continue;			
 
 		SYS_disableInts();
 
-		if (!_positions[chr0])
+		if (!_positions[chr])
 		{
-			_positions[chr0] = _counter++;
-			VDP_loadTileData(_genres->sprites[chr0], TILE, size, 0);
+			_positions[chr] = _counter++;
+			VDP_loadTileData(_genres->sprites[chr], TILE, size, 0);
 		}
 
-		VDP_setSpriteFull(_sprite, x + i * width, y, size, ATTR, _sprite + 1);
+		VDP_setSpriteFull(_sprite, x + count * width, y, size, ATTR, _sprite + 1);
 		++_sprite;
 
 		SYS_enableInts();
@@ -177,19 +189,19 @@ u16 bigtext_drawSprites(u8 *string, u16 x, u16 y, u16 ms)
 	return _sprite;
 }
 
-u16 bigtext_drawSprites_XYcentered(u8 *string, u16 ms)
+u16 bigtext_drawSprite_XYcentered(u8 *string, u16 ms)
 {
-	u16 y = VDP_getScreenHeight() / 2 - (_genres->height) / 2;
-	u16 x = VDP_getScreenWidth() / 2 - (_genres->width * strlen_countChars(string)) / 2;
-	return bigtext_drawSprites(string, x, y, ms);
+	u16 y = VDP_getScreenHeight() / 2 - _genres->height / 2;
+	u16 x = VDP_getScreenWidth() / 2 - _genres->width * countChars(string) / 2;
+	return bigtext_drawSprite(string, x, y, ms);
 }
 
-u16 bigtext_drawSprites_Xcentered(u8 *string, u16 y, u16 ms)
+u16 bigtext_drawSprite_Xcentered(u8 *string, u16 y, u16 ms)
 {
-	u16 x = VDP_getScreenWidth() / 2 - _genres->width * strlen_countChars(string) / 2;
-	return bigtext_drawSprites(string, x, y, ms);
+	u16 x = VDP_getScreenWidth() / 2 - _genres->width * countChars(string) / 2;
+	return bigtext_drawSprite(string, x, y, ms);
 
-	// drawUInt(strlen_countChars(string), 3,3,4);
+	// drawUInt(countChars(string), 3,3,4);
 	// drawUInt(strlen(string), 3,4,4);
 
 	// static u8 get_jump_pos ( u8 *string )
@@ -215,10 +227,10 @@ u16 bigtext_drawSprites_Xcentered(u8 *string, u16 y, u16 ms)
 	// 	x = VDP_getScreenWidth() / 2 - 40 * _genres->width / 2;
 
 	// 	memcpy(aux, &string[0], pos - 1);
-	// 	sprite = bigtext_drawSprites(aux, x, y, ms);
+	// 	sprite = bigtext_drawSprite(aux, x, y, ms);
 
 	// 	memcpy(aux, &string[pos + 1], strlen(string) - pos);
-	// 	sprite = bigtext_drawSprites(aux, x, y + _genres->height, ms);
+	// 	sprite = bigtext_drawSprite(aux, x, y + _genres->height, ms);
 
 	// 	return sprite;
 	// }

@@ -52,4 +52,4 @@ u16  in_array                   ( u16 needle, u16 array[] );
 void inc_difficulty_level       ( );
 
 
-u16 strlen_countChars(const u8 *);
+u16 countChars(const u8 *);

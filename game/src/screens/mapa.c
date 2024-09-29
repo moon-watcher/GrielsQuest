@@ -115,7 +115,7 @@ static void _show_title ( )
 	bigtext_setSprite ( sprite );
 
 	u8 *frase = frases_find ( 1, ambiente );
-	sprite = bigtext_drawSprites_Xcentered ( frase, 6, 0 ); // texto arriba
+	sprite = bigtext_drawSprite_Xcentered ( frase, 6, 0 ); // texto arriba
 	sprite_last_letter = sprite;
 }
 
@@ -192,8 +192,8 @@ static void _init ( )
 	resetScreen();
 	resetSprites();
 
-	VDP_drawImageEx ( BG_B, &ob_ambiente_b_1, TILE_ATTR_FULL(PAL0, false, FALSE, FALSE, index),  0,  0, false, 0 ); index += ob_ambiente_b_1.tileset->numTile;
-	VDP_drawImageEx ( BG_A, &ob_ambiente_a_1, TILE_ATTR_FULL(PAL1, false, FALSE, FALSE, index),  0,  0, false, 0 ); index += ob_ambiente_a_1.tileset->numTile;
+	// VDP_drawImageEx ( BG_B, &ob_ambiente_b_1, TILE_ATTR_FULL(PAL0, false, FALSE, FALSE, index),  0,  0, false, 0 ); index += ob_ambiente_b_1.tileset->numTile;
+	// VDP_drawImageEx ( BG_A, &ob_ambiente_a_1, TILE_ATTR_FULL(PAL1, false, FALSE, FALSE, index),  0,  0, false, 0 ); index += ob_ambiente_a_1.tileset->numTile;
 
 	index += ob_ambiente_a_2.tileset->numTile;
 

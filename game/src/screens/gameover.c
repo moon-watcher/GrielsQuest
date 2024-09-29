@@ -23,13 +23,13 @@ void screen_gameover()
 	strcpy(inverted,    frases_find(25, 3));
 
 	bigtext_init((struct genresSprites *)&cs_font_16x16, 16, PAL0);
-	bigtext_drawSprites_Xcentered(gameover, 60, 0);
+	bigtext_drawSprite_Xcentered(gameover, 60, 0);
 	VDP_updateSprites(80, 1);
 
 	u16 x = screenWidth / 8 / 2;
-	u16 x1 = x - strlen_countChars(thx4playing) / 2;
-	u16 x2 = x - strlen_countChars(inverted   ) / 2;
-	u16 x3 = x - strlen_countChars(phrasepwd  ) / 2;
+	u16 x1 = x - countChars(thx4playing) / 2;
+	u16 x2 = x - countChars(inverted   ) / 2;
+	u16 x3 = x - countChars(phrasepwd  ) / 2;
 
 	TEXT_drawText(thx4playing, x1, 13);
 
