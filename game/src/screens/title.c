@@ -86,7 +86,7 @@ u16 screen_title_menu_1 ( )
 		if ( option > 2 ) option = 0;
 		if ( option < 0 ) option = 2;
 
-		if ( joy1_pressed_abc || joy1_pressed_start )
+		if (joy1_pressed_abcs)
 		{
 			break;
 		}
@@ -146,7 +146,7 @@ void screen_title_menu_2 ( )
 		if ( option > 2 ) option = 0;
 		if ( option < 0 ) option = 2;
 
-		if ( joy1_pressed_abc || joy1_pressed_start )
+		if (joy1_pressed_abcs)
 		{
 			break;
 		}
@@ -307,7 +307,7 @@ salto_2:
             break;
         }
 
-        if ( joy1_pressed_abc || joy1_pressed_start )
+        if (joy1_pressed_abcs)
         {
             SYS_disableInts();
             PAL_setPalette ( PAL2, (u16*) palette_black, CPU );
