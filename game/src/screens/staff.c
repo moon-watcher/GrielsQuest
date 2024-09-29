@@ -76,6 +76,7 @@ void screen_staff()
     displayInit();
     displayOff(0);
 
+    font_init();
     resetScreen();
     resetScroll();
     resetSprites();
@@ -100,9 +101,9 @@ void screen_staff()
 
 
 	bigtext_init ( (struct genresSprites*) &cs_font_16x16, 1200, PAL0 );
-    bigtext_drawTile ( "GRIEL'S QUEST",   6,  6, wait1 ) ;
-	bigtext_drawTile ( "FOR THE",        12,  9, wait1 ) ;
-	bigtext_drawTile ( "HOLY PORRÓN",     8, 12, wait1 ) ;
+    bigtext_drawSprite_Xcentered ( "GRIEL'S QUEST",  6 * 8, wait1 ) ;
+	bigtext_drawSprite_Xcentered ( "FOR THE",        9 * 8, wait1 ) ;
+	bigtext_drawSprite_Xcentered ( "HOLY PORRÓN",   12 * 8, wait1 ) ;
 
 
 	musiclist_play ( MUSIC_STAFF );
@@ -112,8 +113,8 @@ void screen_staff()
 	typeText( "For Sega Genesis / Megadrive", 6, 21, wait1 ); // desp 4
 
 	waitSc(3);
-	planHide();
 	displayOff(0);
+	planHide();
     VDP_setTextPlane(BG_A);
     VDP_setHorizontalScroll(BG_A, 0);
 
