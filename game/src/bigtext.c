@@ -83,86 +83,86 @@ void bigtext_setSprite(u8 next)
 	_sprite = next;
 }
 
-								void bigtext_drawTile(u8 *string, u8 x, u8 y, u16 ms)
-								{
-									u8 chr0;
-									u16 i = 0;
-									u16 inc = 0;
+void bigtext_drawTile(u8 *string, u8 x, u8 y, u16 ms)
+{
+	u8 chr0;
+	u16 i = 0;
+	u16 inc = 0;
 
-									const u8 width = _genres->width >> 3;
-									const u8 height = _genres->height >> 3;
-									const u8 tiles = width * height;
+	const u8 width = _genres->width >> 3;
+	const u8 height = _genres->height >> 3;
+	const u8 tiles = width * height;
 
-									devu0 = 0;
+	devu0 = 0;
 
-									while ((chr0 = *string++)){
-										inc = 0;
-										chr0 = parse_chr0(chr0);
+	while ((chr0 = *string++)){
+		inc = 0;
+		chr0 = parse_chr0(chr0);
 
-										if (!_positions[chr0]){
-											_positions[chr0] = _counter++;
+		if (!_positions[chr0]){
+			_positions[chr0] = _counter++;
 
-											SYS_disableInts();
-											VDP_loadTileData(_genres->sprites[chr0], (_base + _positions[chr0] * tiles + inc), 4, 0);
-											SYS_enableInts();
-										}
+			SYS_disableInts();
+			VDP_loadTileData(_genres->sprites[chr0], (_base + _positions[chr0] * tiles + inc), 4, 0);
+			SYS_enableInts();
+		}
 
-										for (u16 j = 0; j < height; j++)
-											for (u16 k = 0; k < width; k++){
-												SYS_disableInts();
-												VDP_setTileMapXY(BG_A, TILE_ATTR_FULL(_palette, 0, 0, 0, (_base + _positions[chr0] * tiles + inc)), i * width + x + j, y + k);
-												SYS_enableInts();
+		for (u16 j = 0; j < height; j++)
+			for (u16 k = 0; k < width; k++){
+				SYS_disableInts();
+				VDP_setTileMapXY(BG_A, TILE_ATTR_FULL(_palette, 0, 0, 0, (_base + _positions[chr0] * tiles + inc)), i * width + x + j, y + k);
+				SYS_enableInts();
 
-												++inc;
-											}
+				++inc;
+			}
 
-										if (ms > 3)
-											waitMs(ms);
+		if (ms > 3)
+			waitMs(ms);
 
-										++i;
-									}
-								}
+		++i;
+	}
+}
 
-								void bigtext_drawTile_Xcentered(u8 *string, u8 y, u16 ms)
-								{
-									u16 len = countChars(string) * 2;
-									u16 x = 20 - len / 2;
+void bigtext_drawTile_Xcentered(u8 *string, u8 y, u16 ms)
+{
+	u16 len = countChars(string) * 2;
+	u16 x = 20 - len / 2;
 
-									bigtext_drawTile(string, x, y, ms);
-								}
+	bigtext_drawTile(string, x, y, ms);
+}
 
 
-	//
-	// PARTE LA CADENA EN SUBCADENAS POR EL CARACTER |
-	//
-	
-	// drawUInt(countChars(string), 3,3,4);
-	// drawUInt(strlen(string), 3,4,4);
+//
+// PARTE LA CADENA EN SUBCADENAS POR EL CARACTER |
+//
 
-	// static u8 get_jump_pos ( u8 *string ){
-	// 	u8 i;
+// drawUInt(countChars(string), 3,3,4);
+// drawUInt(strlen(string), 3,4,4);
 
-	// 	for ( i=0; i<strlen(string); i++ )
-	// 		if ( string[i] == '|' )
-	// 			return i;
+// static u8 get_jump_pos ( u8 *string ){
+// 	u8 i;
 
-	// 	return 0;
-	// }
+// 	for ( i=0; i<strlen(string); i++ )
+// 		if ( string[i] == '|' )
+// 			return i;
 
-	// u8 pos = get_jump_pos(string);
+// 	return 0;
+// }
 
-	// if (pos) {
-	// 	u8 sprite, aux[40] = {0};
-	// 	x = VDP_getScreenWidth() / 2 - 40 * _genres->width / 2;
+// u8 pos = get_jump_pos(string);
 
-	// 	memcpy(aux, &string[0], pos - 1);
-	// 	sprite = bigtext_drawSprite(aux, x, y, ms);
+// if (pos) {
+// 	u8 sprite, aux[40] = {0};
+// 	x = VDP_getScreenWidth() / 2 - 40 * _genres->width / 2;
 
-	// 	memcpy(aux, &string[pos + 1], strlen(string) - pos);
-	// 	sprite = bigtext_drawSprite(aux, x, y + _genres->height, ms);
+// 	memcpy(aux, &string[0], pos - 1);
+// 	sprite = bigtext_drawSprite(aux, x, y, ms);
 
-	// 	return sprite;
-	// }
+// 	memcpy(aux, &string[pos + 1], strlen(string) - pos);
+// 	sprite = bigtext_drawSprite(aux, x, y + _genres->height, ms);
+
+// 	return sprite;
+// }
 
 u16 bigtext_drawSprite(u8 *string, u16 x, u16 y, u16 ms)
 {

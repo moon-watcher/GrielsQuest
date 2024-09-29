@@ -123,9 +123,11 @@ static void _draw ( PASSWORD8 password )
 	//SYS_enableInts();
 
 	bigtext_init ( (struct genresSprites*) &cs_font_16x16, 1200, PAL0 );
+	vdpSpriteCache[0].link = 1;
+	bigtext_setSprite(1);
 
 	frases_init (30);
-	bigtext_drawTile_Xcentered ( frases_next(), 3,  0 );
+	bigtext_drawSprite_Xcentered(frases_next(), 24, 0);
 	bigtext_drawTile ( ( char*) password, 12, 9, 0 ) ; // ">>>>>>>>" --> ">" Es el "guión alto"
 
 	SYS_disableInts();
