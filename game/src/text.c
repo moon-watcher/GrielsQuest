@@ -76,7 +76,7 @@ static int _debug_prepareText(s16 chr){
 }
 
 static void _drawText(u8 *str, u16 x, u16 y, bool clear){
-    s16 buffer[120] = {};
+    s16 buffer[120] = {0};
     u16 len = TEXT_prepareText(str, buffer);
     u16 pos = TILE_ATTR(VDP_getTextPalette(), VDP_getTextPriority(), 0, 0);
     u16 plan = VDP_getTextPlane();

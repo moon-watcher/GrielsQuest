@@ -174,10 +174,10 @@ u16 screen_puerta ( )
 	_draw_spriteset ( &sets[6],  (struct genresSprites*) &os_puerta_puerta_4_16x24,   1, 2, 100,  10, TILE_ATTR(PAL1,0,0,0) ); // Puerta
 	_draw_spriteset ( &sets[7],  (struct genresSprites*) &os_puerta_puerta_5_16x24,   1, 1, 120,  10, TILE_ATTR(PAL1,0,0,0) ); // Puerta
 
-	_draw_spriteset ( &sets[8],  (struct genresSprites*) &os_puerta_medallon_1_24x24, 1, 1,  20,  10, TILE_ATTR(PAL1,0,0,0) ); // Medall�n
-	_draw_spriteset ( &sets[9],  (struct genresSprites*) &os_puerta_medallon_2_24x24, 1, 1,  20,  40, TILE_ATTR(PAL1,0,0,0) ); // Medall�n
-	_draw_spriteset ( &sets[10], (struct genresSprites*) &os_puerta_medallon_3_24x24, 1, 1,  20,  60, TILE_ATTR(PAL1,0,0,0) ); // Medall�n
-	_draw_spriteset ( &sets[11], (struct genresSprites*) &os_puerta_medallon_4_24x24, 1, 1,  20, 100, TILE_ATTR(PAL1,0,0,0) ); // Medall�n
+	_draw_spriteset ( &sets[8],  (struct genresSprites*) &os_puerta_medallon_1_24x24, 1, 1,  20,  10, TILE_ATTR(PAL1,0,0,0) ); // Medallón
+	_draw_spriteset ( &sets[9],  (struct genresSprites*) &os_puerta_medallon_2_24x24, 1, 1,  20,  40, TILE_ATTR(PAL1,0,0,0) ); // Medallón
+	_draw_spriteset ( &sets[10], (struct genresSprites*) &os_puerta_medallon_3_24x24, 1, 1,  20,  60, TILE_ATTR(PAL1,0,0,0) ); // Medallón
+	_draw_spriteset ( &sets[11], (struct genresSprites*) &os_puerta_medallon_4_24x24, 1, 1,  20, 100, TILE_ATTR(PAL1,0,0,0) ); // Medallón
 
 	vdpSpriteCache[sprite-1].link = 0;
 

@@ -683,7 +683,7 @@
 //
 //
 //
-//	while ( true ) // bucle a la animaci�n
+//	while ( true ) // bucle a la animación
 //	{
 //		drawAnimation ( &bc );
 //

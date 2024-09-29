@@ -192,8 +192,8 @@ static void _init ( )
 	resetScreen();
 	resetSprites();
 
-	// VDP_drawImageEx ( BG_B, &ob_ambiente_b_1, TILE_ATTR_FULL(PAL0, false, FALSE, FALSE, index),  0,  0, false, 0 ); index += ob_ambiente_b_1.tileset->numTile;
-	// VDP_drawImageEx ( BG_A, &ob_ambiente_a_1, TILE_ATTR_FULL(PAL1, false, FALSE, FALSE, index),  0,  0, false, 0 ); index += ob_ambiente_a_1.tileset->numTile;
+	VDP_drawImageEx ( BG_B, &ob_ambiente_b_1, TILE_ATTR_FULL(PAL0, false, FALSE, FALSE, index),  0,  0, false, 0 ); index += ob_ambiente_b_1.tileset->numTile;
+	VDP_drawImageEx ( BG_A, &ob_ambiente_a_1, TILE_ATTR_FULL(PAL1, false, FALSE, FALSE, index),  0,  0, false, 0 ); index += ob_ambiente_a_1.tileset->numTile;
 
 	index += ob_ambiente_a_2.tileset->numTile;
 
@@ -273,7 +273,7 @@ static void _mostrar_niveles (  )
 
 	if ( ambiente == 5 )
 	{
-		// borra el fondo (los cuadrados vac�os)
+		// borra el fondo (los cuadrados vacíos)
 		SYS_disableInts();
 		VDP_fillTileMapRect(BG_B, 0, 2, 20, 36, 6 );
 
@@ -386,7 +386,7 @@ static u16 _loop_niveles ( )
 	psglist_play ( 5 ); // 4,5 seleecionada // 8
 
 
-	// vamos a casa del Nota a que nos d� unos consejos
+	// vamos a casa del Nota a que nos dá unos consejos
 	if ( ambiente == 5 )
 	{
 		return SCREEN_JUMP_TO_INTRO5;

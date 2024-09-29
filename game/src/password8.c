@@ -126,7 +126,7 @@ static void _draw ( PASSWORD8 password )
 
 	frases_init (30);
 	bigtext_drawTile_Xcentered ( frases_next(), 3,  0 );
-	bigtext_drawTile ( ( char*) password, 12, 9, 0 ) ; // ">>>>>>>>" --> ">" Es el "gui�n alto"
+	bigtext_drawTile ( ( char*) password, 12, 9, 0 ) ; // ">>>>>>>>" --> ">" Es el "guión alto"
 
 	SYS_disableInts();
 	preparePal ( PAL3, cs_square.pal ); //PAL_setPalette ( PAL3, cs_square.pal );
@@ -153,7 +153,7 @@ static bool pwd_is_ok ( PASSWORD8 pwd )
 	u16  play = 1;
 
 
-	// que todas sean may�sculas
+	// que todas sean mayúsculas
 	for ( i=0; i<8; i++ )
 	{
 		if ( pwd[i] < 65 || pwd[i] > 90 )
@@ -196,7 +196,7 @@ static bool pwd_is_ok ( PASSWORD8 pwd )
 		verifica = max_verifica;
 	}
 
-	if ( verifica == 0 ) // 0 es que no hay diferencias entre la verificacion y el c�digo
+	if ( verifica == 0 ) // 0 es que no hay diferencias entre la verificacion y el código
 	{
 		gamestate.current_ambiente = 0;
 		gamestate.current_round    = 0;

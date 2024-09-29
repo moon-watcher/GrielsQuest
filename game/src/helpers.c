@@ -105,7 +105,7 @@ u16 countChars(const u8 *str)
 	u16 chr, counter = 0;
 
 	while (chr = (u16)*str++)
-		if (chr != 195 || chr != 194)
+		if (chr != 195 && chr != 194)
 			++counter;
 
 	return counter;

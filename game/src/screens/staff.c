@@ -310,7 +310,7 @@ salto:
     TEXT_drawText ( "Felipe Monge Corbalán @vakapp", 2, y ); y+=2;
     TEXT_drawText ( "DaRkHoRaCe @oongamoonga", 2, y ); y+=2; // ITALIAN
     TEXT_drawText ( "KanedaFr @SpritesMind", 2, y ); y+=2; // FRENCH
-    TEXT_drawText ( "Jordi Montornés Solé @jordimontornes", 2, y ); y+=2; // CATAL�
+    TEXT_drawText ( "Jordi Montornés Solé @jordimontornes", 2, y ); y+=2; // CATALÀ
     TEXT_drawText ( "Natsumi", 2, y ); y+=2; // FINNISH
     TEXT_drawText ( "Paspallas @PaspallasDev", 2, y ); y+=2; // GALEGO
     TEXT_drawText ( "Thiago F. Alves", 2, y ); y+=2; // BR-PORTUGUESE

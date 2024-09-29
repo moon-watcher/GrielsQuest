@@ -81,7 +81,7 @@ void screen_oldending ( )
     VDP_setTextPalette ( PAL2 );
 	prepareColor ( PAL2*16+1, 0x000f );
 	prepareColor ( PAL2*16+2, 0x0444 );
-	TEXT_drawText ( "!", 23, 16 );
+	TEXT_drawText ( "!", 26, 16 );
 
     displayOn(60);
 	waitMs ( 8000 );

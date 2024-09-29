@@ -11,8 +11,8 @@ typedef struct
 	// dificultad actual elegida + 1 si supera knightmare
 	u8 dificultad;
 
-	// nivel m�ximo donde se han llegado por cada ambiente
-	u8 ambientes[5]; // n�mero de rounds terminados
+	// nivel máximo donde se han llegado por cada ambiente
+	u8 ambientes[5]; // número de rounds terminados
 
 	bool visito_la_puerta;
 	u16 localdev;

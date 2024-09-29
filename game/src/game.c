@@ -41,8 +41,8 @@ LEVEL *game_get_wl ( )
 
 void game_level_inc ( )
 {
-	// s�lo incrementa el round si se ha
-	// completado el �tlimo nivel disponible
+	// sólo incrementa el round si se ha
+	// completado el útlimo nivel disponible
 
 	if ( gamestate.current_round == gamestate.ambientes [ (u8) gamestate.current_ambiente ] )
 	{
@@ -245,7 +245,7 @@ void game_main_step()
 				screen_intro(5);
 			}
 
-			// Muestra la puerta del ambiente volc�n
+			// Muestra la puerta del ambiente volcán
 			if (to == SCREEN_JUMP_TO_PUERTA)
 			{
 				to = screen_puerta();

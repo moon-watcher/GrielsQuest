@@ -4,8 +4,8 @@ typedef struct
 {
 	struct genresSprites *res; // el recurso
 
-	u8 width;   // n� sprites ancho
-	u8 height;  // n� sprites alto
+	u8 width;   // n. sprites ancho
+	u8 height;  // n. sprites alto
 
 	s16 vrampos; // posicion en la memoria
 

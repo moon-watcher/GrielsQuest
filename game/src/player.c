@@ -400,7 +400,7 @@ void player_stop ( u8 player )
 }
 
 
-// permite cambiar la direcci�n de Griel en mitad de dos casillas
+// permite cambiar la dirección de Griel en mitad de dos casillas
 bool player_changed_dir ( u8 player )
 {
 	u8 aux = _p.object;
@@ -601,7 +601,7 @@ void player_on_arrow ( u8 player )
 {
 	_p.on_arrow   = false;
 
-	if ( ! _parado ( PLAYER_1 ) ) // si est� en Arrow y No parado hacer sonar PSG_ARROW
+	if ( ! _parado ( PLAYER_1 ) ) // si está en Arrow y No parado hacer sonar PSG_ARROW
 	{
 		psglist_play ( PSG_FLECHAS );
 	}
@@ -651,8 +651,8 @@ void player_on_hurts ( u8 player )
 	undo_can_undo ( false );
 	undo_explode();
 
-	_p.x = _restore_x; // aqu� o fuera del if?
-	_p.y = _restore_y; // est� por ver
+	_p.x = _restore_x; // aquí o fuera del if?
+	_p.y = _restore_y; // está por ver
 }
 
 

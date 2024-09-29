@@ -51,7 +51,7 @@ static void writeTextCredits2 ()
     writeText ( "Felipe Monge Corbalán @vakapp", PAL2, 2 ); // ENGLISH
     writeText ( "DaRkHoRaCe @oongamoonga", PAL2, 2 ); // ITALIAN
     writeText ( "KanedaFr @SpritesMind", PAL2, 2 ); // FRENCH
-    writeText ( "Jordi Montornés Solé @jordimontornes", PAL2, 2 ); // CATAL�
+    writeText ( "Jordi Montornés Solé @jordimontornes", PAL2, 2 ); // CATALÀ
     writeText ( "Natsumi", PAL2, 2 ); // FINNISH
     writeText ( "Paspallas @PaspallasDev ", PAL2, 2 ); // GALEGO
     writeText ( "Thiago F. Alves", PAL2, 2 ); // BR-PORTUGUESE
