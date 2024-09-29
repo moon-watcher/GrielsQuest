@@ -73,8 +73,10 @@ void screen_oldending ( )
 	// 4
 	displayOff(0);
 
-	bigtext_init ( (struct genresSprites*) &cs_font_16x16, 1200, PAL0 );
-	bigtext_drawTile ( "THE END", 13, 7, 0 );
+	bigtext_init(&cs_font_16x16, 1200, PAL3);
+	bigtext_drawSprite_Xcentered ( "THE END", 56, 0 );
+	preparePal ( PAL3, font_getPalette() );
+	VDP_updateSprites(80,1);
 
 	TEXT_drawText ( "Thank you for playing!", 9, 14 );
 	TEXT_drawText ( "@2017, 2025 Oook!Lab", 10, 16 );
