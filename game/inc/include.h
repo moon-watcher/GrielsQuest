@@ -274,6 +274,7 @@
 #include "../inc/screens/oldending.h"
 #include "../inc/screens/oldintro.h"
 #include "../inc/screens/staff.h"
+#include "../inc/screens/password.h"
 #include "../inc/worlds/worlds.h"
 #include "../inc/vint.h"
 #include "../inc/typetext.h"

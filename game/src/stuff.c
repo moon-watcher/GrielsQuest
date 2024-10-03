@@ -205,7 +205,7 @@ void todas_las_pantallas()
          if (opcion == 4)
             screen_intro(1);
          if (opcion == 5)
-            pwd8_screen();
+            screen_password();
          if (opcion == 6)
             screen_sound_test();
          // if ( opcion == 7 ) screen_ending ( );

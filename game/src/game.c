@@ -219,7 +219,7 @@ void game_main_step()
 		return;
 	}
 
-	if (to == SCREEN_JUMP_TO_CONTINUE && pwd8_screen())
+	if (to == SCREEN_JUMP_TO_CONTINUE && screen_password())
 	{
 		to = SCREEN_JUMP_TO_MAP;
 		first_time = 0;
